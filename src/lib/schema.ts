@@ -113,6 +113,26 @@ export const founderSchema = {
     name: 'Dokuz Eylül Üniversitesi',
     department: 'İktisadi ve İdari Bilimler Fakültesi (İİBF)',
   },
+  affiliation: [
+    {
+      '@type': 'EducationalOrganization',
+      name: 'Dokuz Eylül Üniversitesi — Rektörlük',
+      department: 'Uzaktan Eğitim Sistemleri Danışmanlığı',
+      url: 'https://www.deu.edu.tr/',
+    },
+    {
+      '@type': 'EducationalOrganization',
+      name: 'DEUZEM — Dokuz Eylül Üniversitesi Uzaktan Eğitim Uygulama ve Araştırma Merkezi',
+      department: 'Danışmanlık',
+      url: 'https://deuzem.deu.edu.tr/',
+    },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'Yaşar Üniversitesi',
+      department: 'Dijital Pazarlama Dersleri (Eğitmen)',
+      url: 'https://www.yasar.edu.tr/',
+    },
+  ],
   knowsAbout: [
     'Dijital Pazarlama Stratejisi',
     'Answer Engine Optimization (AEO)',
@@ -137,7 +157,9 @@ export const founderSchema = {
   ],
   description:
     "Gonet kurucusu. 2000'den beri İzmir merkezli, Türkiye'nin ilk 3 Google Partner ajansından birini yönetiyor. " +
-    'Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından. ' +
+    "Yaşar Üniversitesi'nde dijital pazarlama dersleri verdi. " +
+    "Dokuz Eylül Üniversitesi (DEÜ) Rektörlük danışmanı (uzaktan eğitim sistemleri) ve DEUZEM (DEÜ Uzaktan Eğitim Merkezi) danışmanı görevlerinde bulundu — DEÜ\\'nün Avrupa\\'nın en büyük uzaktan eğitim sisteminin (25K anlık kullanıcı) inşasında stratejik danışman. " +
+    'Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından. ' +
     "LinkedIn'de 16.000'den fazla takipçisi var; profesyonel motto: \"Her şey çok güzel olacak :)\".",
   nationality: { '@type': 'Country', name: 'TR' },
   address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
