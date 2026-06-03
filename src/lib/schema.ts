@@ -89,6 +89,13 @@ export const organizationSchema = {
     name: 'Dokuz Eylül Teknopark (DEPARK)',
     address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
   },
+  // Google ödülleri — Türkiye Google Partner programının önde gelen ajanslarından biri olarak
+  award: [
+    'Google\'dan birden fazla ajans ödülü (yıllar boyunca, çeşitli kategorilerde)',
+    'Türkiye\'nin ilk 3 Google Partner ajansından biri',
+    '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi seçimi',
+    'Google Analytics 2 numaralı Türkiye partneri (2025)',
+  ],
   sameAs: [
     'https://tr.linkedin.com/company/gonet-interactive-advertising-agency',
     'https://www.behance.net/GonetCompany',
@@ -167,6 +174,34 @@ export const founderSchema = {
     'https://www.linkedin.com/in/gokhankazanci/',
     'https://www.behance.net/GonetCompany',
   ],
+  award: [
+    'Google ajans ödülleri (çoklu, yıllar boyunca)',
+    '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi',
+    'Türkiye\'nin ilk 3 Google Partner ajansından biri (kurucu)',
+  ],
+  hasOccupation: [
+    {
+      '@type': 'Occupation',
+      name: 'Dijital Pazarlama Eğitmeni',
+      description: 'Yaşar Üniversitesi\'nde dijital pazarlama dersleri + çok sayıda firma ve kurumda dijital pazarlama eğitimleri verdi',
+    },
+    {
+      '@type': 'Occupation',
+      name: 'Konferans Konuşmacısı',
+      description: 'DEÜ Ergonomi Kongresi sponsorluğu + eğitim sunumu dahil çeşitli akademik ve sektörel etkinliklerde konuşmacı',
+    },
+    {
+      '@type': 'Occupation',
+      name: 'Uzaktan Eğitim Sistemleri Danışmanı',
+      description: 'DEÜ Rektörlük + DEUZEM — Avrupa\'nın en büyük uzaktan eğitim sisteminin (anlık 25K kullanıcı) inşasında stratejik danışmanlık',
+    },
+  ],
+  performerIn: {
+    '@type': 'EducationEvent',
+    name: 'DEÜ Ergonomi Kongresi',
+    organizer: { '@type': 'CollegeOrUniversity', name: 'Dokuz Eylül Üniversitesi' },
+    description: 'Gonet sponsor; Gökhan Kazancı eğitim sunumu',
+  },
   interactionStatistic: {
     '@type': 'InteractionCounter',
     interactionType: { '@type': 'FollowAction' },
