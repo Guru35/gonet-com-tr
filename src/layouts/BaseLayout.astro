@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import JsonLd from '../components/JsonLd.astro';
-import { organizationSchema, websiteSchema } from '../lib/schema';
+import { organizationSchema, websiteSchema, founderSchema } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -26,7 +26,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
 
 // Schema'ları @graph içine topla — entity authority için kritik
-const globalSchemas = [organizationSchema, websiteSchema];
+const globalSchemas = [organizationSchema, websiteSchema, founderSchema];
 const pageSchemas = schemas
   ? Array.isArray(schemas)
     ? schemas
@@ -112,9 +112,12 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
         <div>
           <div class="text-2xl font-bold text-white mb-3">GONET</div>
-          <p class="text-sm leading-relaxed text-slate-400">
-            25 yıllık deneyimle dijital strateji, kreatif pazarlama ve marka ekosistemleri.
-            Firmaları çekici kılar, müşterileriyle buluşturur.
+          <p class="text-sm leading-relaxed text-slate-400 mb-3">
+            İzmir ve Ege'nin ilk dijital ajansı (2000). Türkiye'nin ilk 3 Google Partner ajansından
+            biri. İzmir Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi.
+          </p>
+          <p class="text-xs text-slate-500">
+            Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.
           </p>
         </div>
         <div>

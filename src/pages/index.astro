@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema } from '../lib/schema';
 
-const title = 'GONET — 25 Yıllık Dijital Strateji ve Kreatif Pazarlama Ajansı';
+const title = "Gonet — İzmir'in İlk Dijital Ajansı, 2000'den Beri";
 const description =
-  'Gonet, firmaları çekici kılar ve müşterileriyle buluşturur. 25 yılı aşkın deneyimle dijital strateji, kreatif kampanyalar, web tasarım ve marka ekosistemleri üretir.';
+  "Gonet, İzmir ve Ege'nin ilk dijital ajansıdır (2000). Türkiye'nin ilk 3 Google Partner ajansından biri, " +
+  "Google Ads Türkiye beta tester, İzmir Reklamcılar Derneği üyesi. Sağlık, inşaat, siyaset, e-ticaret, eğitim — " +
+  "25 yılda yüzlerce projeye imza attı.";
 
 const homeSchema = webpageSchema({
   title,
@@ -20,15 +22,20 @@ const homeSchema = webpageSchema({
     <div class="max-w-6xl mx-auto px-6 py-24 lg:py-32 relative">
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-4">
-          Dijital · Kreatif Ajans · Marka Ekosistemleri
+          İzmir · 2000'den beri · Türkiye'nin ilk 3 Google Partner ajansından biri
         </p>
         <h1 class="text-5xl lg:text-6xl font-bold text-brand-950 leading-tight tracking-tight mb-6">
-          Gonet, firmaları çekici kılar ve müşterileriyle buluşturur.
+          İzmir ve Ege'nin ilk dijital ajansı.
         </h1>
-        <p class="text-xl text-slate-700 leading-relaxed mb-8">
-          25 yılı aşkın deneyimle dijital strateji, kreatif kampanyalar ve marka ekosistemleri
-          üretiyoruz. Sonuç getiren, farkındalık yaratan ve dikkat çeken çalışmalarımız sektörde
-          yakından takip ediliyor ve referans oluşturuyor.
+        <p class="text-xl text-slate-700 leading-relaxed mb-4">
+          2000 yılında İzmir'de kurulan Gonet, Türkiye'nin ilk 3 Google Partner ajansından biridir.
+          Google Ads'in Türkiye'deki ilk beta tester ajansı, İzmir'in ilk SEO ve sosyal medya
+          ajansı, İzmir Reklamcılar Derneği üyesi.
+        </p>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8">
+          Sağlık turizmi, inşaat, e-ticaret, siyasi kampanyalar, eğitim — 25 yılda 13 sektörde
+          yüzlerce projeye imza attık. Türkiye'nin ilk tüp bebek Google Ads kampanyası, ilk online
+          tatil satış reklamları, ilk D2C satışı, ilk Google siyasal kampanya bizim çalışmalarımız.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a
@@ -49,25 +56,57 @@ const homeSchema = webpageSchema({
     </div>
   </section>
 
-  <!-- Trust strip -->
+  <!-- Trust strip — gerçek metrikler -->
   <section class="border-y border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       <div>
-        <div class="text-4xl font-bold text-brand-900">25+</div>
-        <div class="text-sm text-slate-600 mt-1">Yıllık Deneyim</div>
+        <div class="text-4xl font-bold text-brand-900">2000</div>
+        <div class="text-sm text-slate-600 mt-1">Kuruluş Yılı</div>
       </div>
       <div>
-        <div class="text-4xl font-bold text-brand-900">100+</div>
-        <div class="text-sm text-slate-600 mt-1">Tamamlanan Proje</div>
+        <div class="text-4xl font-bold text-brand-900">İlk 3</div>
+        <div class="text-sm text-slate-600 mt-1">Türkiye Google Partner</div>
       </div>
       <div>
-        <div class="text-4xl font-bold text-brand-900">10+</div>
-        <div class="text-sm text-slate-600 mt-1">Sektör</div>
+        <div class="text-4xl font-bold text-brand-900">13+</div>
+        <div class="text-sm text-slate-600 mt-1">Sektör Deneyimi</div>
       </div>
       <div>
-        <div class="text-4xl font-bold text-brand-900">∞</div>
-        <div class="text-sm text-slate-600 mt-1">Yaratıcılık</div>
+        <div class="text-4xl font-bold text-brand-900">25K</div>
+        <div class="text-sm text-slate-600 mt-1">Anlık Canlı Kullanıcı<br><span class="text-xs">(DEÜ uzaktan eğitim)</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- İlkler — citation-worthy entity sinyalleri -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl mb-12">
+        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+          Türkiye ve İzmir'de İlkler
+        </p>
+        <h2 class="text-4xl font-bold text-brand-950 mb-4">
+          25 yıllık ilk imzalar
+        </h2>
+        <p class="text-lg text-slate-700">
+          Yeni bir teknoloji geldiğinde Türkiye'de ilk uygulamayı yapan ajanslardan biriydik.
+          2000'den bu yana sektörde standartları belirlemekten daha çok, kuran taraf olduk.
+        </p>
+      </div>
+      <ul class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-slate-800">
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2000:</strong> İzmir ve Ege'nin ilk dijital ajansı</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk Google siyasal kampanyası (CHP)</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk online tatil satış reklamları (Tatil Vitrini)</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk D2C online satış kampanyası (Temiz Mama)</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2009:</strong> Google'ın Dublin Avrupa toplantısında Türkiye'yi temsil</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Türkiye'nin ilk 3 Google Partner ajansından biri</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Google Ads'in Türkiye'deki ilk beta tester ajansı</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Türkiye'nin ilk tüp bebek Google Ads kampanyası (Ege Tüp Bebek)</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk SEO ajansı</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk sosyal medya ajansı</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk mobil ve responsive web siteleri</span></li>
+        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>4 büyük partiyle (AKP, CHP, MHP, İYİ) çalışan ilk ajans</span></li>
+      </ul>
     </div>
   </section>
 
@@ -76,11 +115,12 @@ const homeSchema = webpageSchema({
     <div class="max-w-6xl mx-auto px-6">
       <div class="max-w-3xl mb-12">
         <h2 class="text-4xl font-bold text-brand-950 mb-4">
-          Dijital strateji ve yaratıcı pazarlama çözümleri
+          13 sektörde uzmanlaştık
         </h2>
         <p class="text-lg text-slate-700">
-          Uzman ekibimizle markaları rakiplerinden ayırıyor, hedef kitleleriyle anlamlı bağlar
-          kuruyoruz. Her proje hedefe yönelik strateji ile başlar, ölçülebilir sonuçla biter.
+          Sağlık turizmi, inşaat, siyaset, e-ticaret, turizm, eğitim, FMCG, otomotiv. Her sektör
+          için farklı oyun kuralları olduğunu biliyoruz — strateji, ölçülebilir sonuç ve
+          rakipten ayrışma odağında çalışıyoruz.
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
@@ -92,8 +132,8 @@ const homeSchema = webpageSchema({
             Uzmanlık Alanları
           </h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Dijital strateji, marka tasarımı, içerik pazarlaması, web geliştirme. 25 yıllık deneyim
-            her hizmette yansır.
+            Google Ads, SEO, sosyal medya, web tasarım, marka stratejisi, sağlık turizmi
+            pazarlaması, siyasi kampanya yönetimi.
           </p>
         </a>
         <a
@@ -104,8 +144,8 @@ const homeSchema = webpageSchema({
             Vaka Çalışmaları
           </h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Sağlık turizmi, e-ticaret, B2B teknoloji, kamu kurumları. Sektör ne olursa olsun sonuç
-            odaklı kampanyalar.
+            DEÜ Uzaktan Eğitim (Avrupa'nın en büyüğü), CHP 2007, MYvia, Ege Tüp Bebek, Tatil
+            Vitrini, Temiz Mama, İzsu.
           </p>
         </a>
         <a
@@ -116,8 +156,8 @@ const homeSchema = webpageSchema({
             Blog
           </h3>
           <p class="text-slate-600 text-sm leading-relaxed">
-            Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım — sektörden
-            içgörüler.
+            Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım — 25 yıllık
+            sektör deneyiminden içgörüler.
           </p>
         </a>
       </div>

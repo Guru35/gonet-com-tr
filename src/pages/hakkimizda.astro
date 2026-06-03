@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema } from '../lib/schema';
+
+const title = "Hakkımızda — Gonet, İzmir'in İlk Dijital Ajansı (2000)";
+const description =
+  "Gonet 2000 yılında Gökhan Kazancı tarafından İzmir'de kuruldu. " +
+  "Türkiye'nin ilk 3 Google Partner ajansından biri, Google Ads Türkiye beta tester, " +
+  "İzmir Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi.";
+const url = 'https://gonet.com.tr/hakkimizda';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'AboutPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Hakkımızda', url },
+  ],
+});
+
+// FAQPage schema — extraction-ready Q&A
+const faq = faqSchema([
+  {
+    question: 'Gonet ne zaman kuruldu?',
+    answer:
+      "Gonet, 2000 yılında Gökhan Kazancı tarafından İzmir'de kuruldu. İzmir ve Ege'nin ilk dijital ajansı olarak başladı. " +
+      'Web Archive üzerinde 2010 tarihli en eski arşiv snapshot mevcuttur.',
+  },
+  {
+    question: 'Gonet nerede bulunuyor?',
+    answer:
+      "Gonet'in iki ofisi İzmir'de bulunuyor: Konak'ta İsmet Kaptan Mahallesi 1385. Sokak No:3 Kat:4 D:403, " +
+      "ve Bayraklı'da Folkart Towers A Kule Kat:26 D:2601. Ayrıca Dokuz Eylül Teknopark (DEPARK) mukimiyiz.",
+  },
+  {
+    question: 'Gonet kimler için çalıştı?',
+    answer:
+      'Sağlık (Medical Park, Ege Tüp Bebek, Gözde Hastaneleri, Metin İlaç), inşaat (MYvia, Marport, Kavuklar), ' +
+      'siyaset (AK Parti, CHP, MHP, İYİ Parti), e-ticaret (Temiz Mama, Tatil Vitrini), eğitim (Dokuz Eylül Üniversitesi), ' +
+      "FMCG (Coca Cola, Özdilek, Haier Klima, Luna Cookware), otomotiv (Öztekin Oto, Sixt Rent a Car) ve onlarca diğer sektör.",
+  },
+  {
+    question: 'Gonet hangi hizmetleri sunuyor?',
+    answer:
+      'Dijital strateji, Google Ads (SEM), SEO, sosyal medya yönetimi, web tasarım & geliştirme, ' +
+      'marka tasarımı, kreatif kampanya, online itibar yönetimi, sağlık turizmi pazarlaması, ' +
+      'siyasi kampanya yönetimi, start-up danışmanlığı.',
+  },
+  {
+    question: 'Gökhan Kazancı kimdir?',
+    answer:
+      "Gonet'in kurucusudur. 1975 doğumlu, Dokuz Eylül Üniversitesi İktisadi ve İdari Bilimler " +
+      'Fakültesi mezunu. Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. ' +
+      'Babası matbaacı ve yerel gazete sahibi olduğundan basın/yayın geçmişi vardır.',
+  },
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, faq]}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Hakkımızda</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+        Hakkımızda
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        2000'den beri İzmir'de, dijital sektörü kuran tarafta.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Gonet, 2000 yılında <strong>Gökhan Kazancı</strong> tarafından İzmir'de kuruldu. <strong>İzmir
+        ve Ege'nin ilk dijital ajansı</strong> olarak başladığımız bu yolculukta Türkiye'nin ilk
+        Google siyasal kampanyasından ilk D2C e-ticaret reklamına kadar pek çok &ldquo;ilk&rdquo;e
+        imza attık. Bugün <strong>Türkiye'nin ilk 3 Google Partner ajansından biriyiz</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kurucu -->
+  <section class="py-20 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-brand-950 mb-6">Kurucu — Gökhan Kazancı</h2>
+      <div class="prose-aeo">
+        <p>
+          Gökhan Kazancı (1975 doğumlu), <strong>Dokuz Eylül Üniversitesi İktisadi ve İdari Bilimler
+          Fakültesi (İİBF)</strong> mezunudur. <strong>Yaşar Üniversitesi'nde dijital pazarlama
+          dersleri verdi</strong>. Finans ve borsa geçmişi vardır; babasının matbaa ve yerel gazete
+          işleri sebebiyle <strong>basın, yayın ve gazetecilik mirasını çocukluktan tanır</strong>.
+        </p>
+        <p>
+          2000 yılında, internet henüz emekleme döneminde olduğu bir Türkiye'de İzmir'de Gonet'i
+          kurdu. Aynı yıl içinde <strong>Türkiye'nin ilk web tasarım ajanslarından birini</strong>
+          inşa etti. Sonraki yıllarda <strong>Türkiye'nin ilk 3 Google Partner ajansından birini</strong>
+          ve Google Ads'in <strong>Türkiye'deki ilk beta tester ajansını</strong> yönetti.
+        </p>
+        <p>
+          2009'da Google'ın Dublin'deki <em>Agencies@google</em> Avrupa toplantısında <strong>30 ajans
+          arasından seçilerek Türkiye'yi temsil etti</strong>. 2007'de Türkiye'nin ilk Google siyasal
+          kampanyasını (CHP), ilk online tatil satış reklamlarını (Tatil Vitrini), ilk D2C e-ticaret
+          kampanyasını (Temiz Mama) hayata geçirdi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25 yıl zaman çizelgesi -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-brand-950 mb-10">25 Yılda İlkler</h2>
+      <ol class="space-y-6 border-l-2 border-brand-300 pl-6">
+        <li>
+          <div class="font-bold text-brand-900">2000</div>
+          <p class="text-slate-700">
+            Gonet kuruldu. <strong>İzmir ve Ege'nin ilk dijital ajansı.</strong> Türkiye'nin ilk
+            web tasarım ajanslarından biri.
+          </p>
+        </li>
+        <li>
+          <div class="font-bold text-brand-900">2007</div>
+          <p class="text-slate-700">
+            <strong>Türkiye'nin ilk Google siyasal reklam kampanyası — CHP.</strong> Aynı yıl
+            Türkiye'nin ilk online tatil satış sistemi reklamları (Tatil Vitrini) ve ilk D2C online
+            satış kampanyası (Temiz Mama).
+          </p>
+        </li>
+        <li>
+          <div class="font-bold text-brand-900">2009</div>
+          <p class="text-slate-700">
+            Google'ın <strong>Dublin Agencies@google Avrupa toplantısında Türkiye'yi temsil ettik</strong>
+            — 30 ajans arasından seçilerek. Aynı dönemde CHP genel merkez web sitesini kurduk
+            (2009-2013).
+          </p>
+        </li>
+        <li>
+          <div class="font-bold text-brand-900">2010'lar</div>
+          <p class="text-slate-700">
+            <strong>İzmir'in ilk SEO ajansı, ilk sosyal medya ajansı, ilk online itibar yönetimi
+            hizmeti.</strong> İzmir'in geçmişte <strong>tek IAB Türkiye üyesi</strong> ajansı.
+            Türkiye'nin ilk tüp bebek Google Ads kampanyası (Ege Tüp Bebek), ilk inşaat sektörü
+            Google Ads reklamları.
+          </p>
+        </li>
+        <li>
+          <div class="font-bold text-brand-900">2010'lar (devamı)</div>
+          <p class="text-slate-700">
+            <strong>Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi</strong> — anlık 25.000 kişi
+            canlı video bağlantı kapasitesi, <strong>kurulduğunda Avrupa'nın en büyüğü</strong>,
+            2 ayda kuruldu.
+          </p>
+        </li>
+        <li>
+          <div class="font-bold text-brand-900">2020'ler</div>
+          <p class="text-slate-700">
+            <strong>İzmir Dijital Sağlık Zirvesi'ni ilk kez düzenledik.</strong> AK Parti, CHP, MHP,
+            İYİ Parti — Türkiye'nin <strong>4 büyük partisiyle çalışan ilk dijital reklam
+            ajansı</strong>. Dokuz Eylül Teknopark (DEPARK) mukimi olduk.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ekip -->
+  <section class="py-20 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-brand-950 mb-6">Ekip</h2>
+      <p class="text-lg text-slate-700 mb-8">
+        14 kişilik ekibimizle dijital stratejiden web geliştirmeye, kreatif yönetiminden proje
+        koordinasyonuna kadar tüm süreçleri kendi içimizde yönetiyoruz.
+      </p>
+      <ul class="grid sm:grid-cols-2 gap-4 text-slate-700">
+        <li class="p-4 border border-slate-200 rounded-lg"><strong>Gökhan Kazancı</strong> — Kurucu, Dijital Pazarlama Stratejisti</li>
+        <li class="p-4 border border-slate-200 rounded-lg"><strong>Ayhan Uğur</strong> — Operasyon</li>
+        <li class="p-4 border border-slate-200 rounded-lg"><strong>Karahan Kazancı</strong> — Proje Yöneticisi</li>
+        <li class="p-4 border border-slate-200 rounded-lg"><strong>Ömer Saraçoğlu</strong> — Web Geliştirici</li>
+        <li class="p-4 border border-slate-200 rounded-lg"><strong>Utku Yılmaztürk</strong> — Sanat Yönetmeni</li>
+        <li class="p-4 border border-slate-200 rounded-lg text-slate-500">+ 9 uzman</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Kurumsal bilgi -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-brand-950 mb-6">Kurumsal Bilgi</h2>
+      <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-slate-700">
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Tüzel Kişilik</dt>
+          <dd>Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Kuruluş</dt>
+          <dd>2000</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Üyelik</dt>
+          <dd>İzmir Reklamcılar Derneği (IRD)</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Teknopark</dt>
+          <dd>Dokuz Eylül Teknopark (DEPARK)</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Ofis 1</dt>
+          <dd>İsmet Kaptan Mah. 1385 Sok. No:3 Kat:4 D:403, Konak / İzmir</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Ofis 2</dt>
+          <dd>Folkart Towers A Kule Kat:26 D:2601, Bayraklı / İzmir</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">E-posta</dt>
+          <dd><a href="mailto:gokhan@gonet.com.tr" class="text-brand-600 hover:underline">gokhan@gonet.com.tr</a></dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Hosting kolu</dt>
+          <dd><a href="https://gonetege.com" class="text-brand-600 hover:underline">gonetege.com</a></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Sizinle de bir &ldquo;ilk&rdquo;e imza atalım</h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+        Projeniz için stratejik destek mi arıyorsunuz? Gökhan Kazancı ile doğrudan görüşmek için
+        iletişime geçin.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        İletişime Geç →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

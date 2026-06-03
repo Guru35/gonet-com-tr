@@ -1,46 +1,124 @@
 // Schema.org JSON-LD üreticileri — sayfa başına kullanılır
 // AEO için Organization + WebSite + Article + Person + Service + FAQPage tipleri
+//
+// Veri kaynağı: AEO/wiki/syntheses/gonet-kurumsal-profil-2026-06.md
+// Kurucu beyanı + bağımsız araştırma (Web Archive, Haberler.com 2009, LinkedIn, IRD üye listesi)
 
 const SITE_URL = 'https://gonet.com.tr';
 const ORG_ID = `${SITE_URL}/#organization`;
 const SITE_ID = `${SITE_URL}/#website`;
+const FOUNDER_ID = `${SITE_URL}/#founder`;
 
 // Tek sefer tanımlanan global Organization
+// Pigme A.Ş. legal entity + Gonet brand
 export const organizationSchema = {
   '@type': 'Organization',
   '@id': ORG_ID,
-  name: 'GONET',
-  alternateName: 'Gonet Kreatif Ajans',
+  name: 'Gonet',
+  alternateName: ['GONET', 'Gonet Interactive Advertising Agency'],
+  legalName: 'Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.',
   url: SITE_URL,
   logo: {
     '@type': 'ImageObject',
     url: `${SITE_URL}/logo.svg`,
   },
   description:
-    'Gonet, firmaları çekici kılar ve müşterileriyle buluşturur. 25 yılı aşkın deneyimle dijital strateji, kreatif pazarlama, web tasarım ve marka ekosistemleri üretir.',
-  foundingDate: '2001',
-  founder: { '@type': 'Person', name: 'Gokhan' },
-  knowsAbout: [
-    'Dijital Strateji',
-    'Kreatif Pazarlama',
-    'Marka Ekosistemleri',
-    'Web Tasarım',
-    'Reklam Kampanyaları',
-    'Sağlık Turizmi Pazarlama',
-    'Answer Engine Optimization',
+    "İzmir ve Ege'nin ilk dijital ajansı (2000). Türkiye'nin ilk 3 Google Partner ajansından biri, " +
+    'Google Ads Türkiye beta tester. İzmir Reklamcılar Derneği (IRD) üyesi. ' +
+    'Dijital strateji, web tasarım, SEO, sosyal medya, kreatif kampanyalar, ' +
+    'sağlık turizmi pazarlaması, siyasi kampanya yönetimi.',
+  foundingDate: '2000',
+  founder: { '@id': FOUNDER_ID },
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: 14, unitText: 'people' },
+  address: [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'İsmet Kaptan Mah. 1385 Sok. No:3 Kat:4 D:403',
+      addressLocality: 'Konak',
+      addressRegion: 'İzmir',
+      addressCountry: 'TR',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'Folkart Towers A Kule Kat:26 D:2601',
+      addressLocality: 'Bayraklı',
+      addressRegion: 'İzmir',
+      addressCountry: 'TR',
+    },
   ],
-  areaServed: { '@type': 'Country', name: 'TR' },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
     email: 'gokhan@gonet.com.tr',
     availableLanguage: ['Turkish', 'English'],
+    areaServed: 'TR',
+  },
+  knowsAbout: [
+    'Dijital Strateji',
+    'Web Tasarım',
+    'Google Ads (SEM)',
+    'Arama Motoru Optimizasyonu (SEO)',
+    'Sosyal Medya Yönetimi',
+    'Marka Tasarımı',
+    'Kreatif Kampanya',
+    'Online İtibar Yönetimi',
+    'Start-up Danışmanlığı',
+    'Sağlık Turizmi Pazarlaması',
+    'Siyasi Kampanya Yönetimi',
+    'E-ticaret Reklam Yönetimi',
+    'Answer Engine Optimization',
+  ],
+  areaServed: { '@type': 'Country', name: 'TR' },
+  // Üyelik — IRD (İzmir Reklamcılar Derneği) doğrulandı
+  memberOf: {
+    '@type': 'Organization',
+    name: 'İzmir Reklamcılar Derneği',
+    alternateName: 'IRD',
+    url: 'https://ird.org.tr/',
+  },
+  // Lokasyon — DEPARK mukimi
+  location: {
+    '@type': 'Place',
+    name: 'Dokuz Eylül Teknopark (DEPARK)',
+    address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
   },
   sameAs: [
-    // TODO: gerçek sosyal medya hesapları eklenecek
-    // 'https://www.linkedin.com/company/gonet-com-tr',
-    // 'https://twitter.com/gonetcomtr',
+    'https://tr.linkedin.com/company/gonet-interactive-advertising-agency',
+    'https://www.behance.net/GonetCompany',
+    'https://www.facebook.com/GonetCompany/',
+    'https://www.slideshare.net/gonetpigme',
   ],
+};
+
+// Kurucu Person schema — E-E-A-T için kritik
+export const founderSchema = {
+  '@type': 'Person',
+  '@id': FOUNDER_ID,
+  name: 'Gökhan Kazancı',
+  givenName: 'Gökhan',
+  familyName: 'Kazancı',
+  birthDate: '1975-11-11',
+  jobTitle: 'Kurucu & Dijital Pazarlama Stratejisti',
+  worksFor: { '@id': ORG_ID },
+  email: 'gokhan@gonet.com.tr',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Dokuz Eylül Üniversitesi',
+    department: 'İktisadi ve İdari Bilimler Fakültesi (İİBF)',
+  },
+  knowsAbout: [
+    'Dijital Pazarlama Stratejisi',
+    'Google Ads',
+    'SEO',
+    'Sosyal Medya Pazarlaması',
+    'Start-up Danışmanlığı',
+    'Marka Stratejisi',
+  ],
+  description:
+    "Gonet kurucusu. 2000'den beri İzmir merkezli, Türkiye'nin ilk 3 Google Partner ajansından birini yönetiyor. " +
+    'Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından.',
+  nationality: { '@type': 'Country', name: 'TR' },
+  address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
 };
 
 // Global WebSite schema
@@ -48,7 +126,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   '@id': SITE_ID,
   url: SITE_URL,
-  name: 'GONET',
+  name: 'Gonet',
   publisher: { '@id': ORG_ID },
   inLanguage: 'tr',
   potentialAction: {
@@ -81,7 +159,7 @@ export function articleSchema(opts: {
     dateModified: (opts.updated || opts.published).toISOString(),
     author: {
       '@type': 'Person',
-      name: opts.author?.name || 'Gonet',
+      name: opts.author?.name || 'Gökhan Kazancı',
       jobTitle: opts.author?.role,
       url: opts.author?.url,
     },
