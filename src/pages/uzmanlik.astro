@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, serviceSchema, faqSchema } from '../lib/schema';
+
+const title = 'Uzmanlık Alanları — Gonet\'in 13 Dijital Hizmeti';
+const description =
+  '2000\'den beri uzmanlaştığımız 13 dijital pazarlama ve geliştirme hizmeti. ' +
+  'Google Ads (Türkiye ilk 3 Google Partner), SEO (İzmir\'in ilki), sosyal medya, web tasarım, ' +
+  'sağlık turizmi pazarlaması, siyasi kampanya, e-ticaret, start-up & yazılım danışmanlığı.';
+const url = 'https://gonet.com.tr/uzmanlik';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Uzmanlık', url },
+  ],
+});
+
+// 13 hizmet — her birinin slug, kategori, highlight (varsa)
+const services = [
+  {
+    slug: 'google-ads',
+    name: 'Google Ads (SEM)',
+    category: 'Performans Pazarlama',
+    highlight: 'Türkiye\'nin ilk 3 Google Partner ajansı + Google Ads beta tester',
+    description:
+      'Türkiye\'nin ilk 3 Google Partner ajansından biriyiz; Google Ads\'in Türkiye\'deki ilk beta tester ajansıyız. Search, Display, YouTube, Performance Max — tüm Google Ads ürünlerinde 25 yıllık operasyonel deneyim.',
+    deliverables: [
+      'Keyword + competitor research',
+      'Kampanya yapısı + ad group hiyerarşisi',
+      'Reklam metni A/B testleri',
+      'Landing page optimizasyonu',
+      'Dönüşüm takibi + ROAS hesabı',
+    ],
+  },
+  {
+    slug: 'seo',
+    name: 'Arama Motoru Optimizasyonu (SEO)',
+    category: 'Organik görünürlük',
+    highlight: 'İzmir\'in ilk SEO ajansı',
+    description:
+      'İzmir\'in ilk SEO ajansı olarak 20+ yıllık deneyim. Teknik SEO, on-page, off-page, içerik stratejisi, schema markup, Answer Engine Optimization (AEO) dahil modern SEO.',
+    deliverables: [
+      'Site teknik SEO denetimi',
+      'Anahtar kelime + intent araştırması',
+      'İçerik stratejisi + editorial calendar',
+      'Schema.org yapılandırılmış veri',
+      'Link building + dijital PR',
+    ],
+  },
+  {
+    slug: 'sosyal-medya',
+    name: 'Sosyal Medya Yönetimi',
+    category: 'Marka iletişimi',
+    highlight: 'İzmir\'in ilk sosyal medya ajansı',
+    description:
+      'İzmir\'in ilk sosyal medya ajansı. Instagram, X (Twitter), LinkedIn, Facebook, TikTok için strateji, içerik ve topluluk yönetimi. Sağlık, siyaset, FMCG, eğitim için kategori-spesifik yaklaşımlar.',
+    deliverables: [
+      'Sosyal medya stratejisi',
+      'İçerik takvimi + üretim',
+      'Topluluk yönetimi',
+      'Influencer / KOL koordinasyonu',
+      'Performans raporlama',
+    ],
+  },
+  {
+    slug: 'web-tasarim',
+    name: 'Web Tasarım & Geliştirme',
+    category: 'Dijital ürün',
+    highlight: 'İzmir\'in ilk mobil + responsive web siteleri',
+    description:
+      'Türkiye\'nin ilk web tasarım ajanslarından biri (2000). İzmir\'in ilk responsive ve mobil sitelerini biz tasarladık. Astro, WordPress, custom geliştirme — proje gereksinimine göre stack seçimi.',
+    deliverables: [
+      'UX araştırma + bilgi mimarisi',
+      'UI tasarım + design system',
+      'Frontend geliştirme (modern stack)',
+      'Backend / CMS / e-ticaret entegrasyonu',
+      'Performance + SEO + erişilebilirlik',
+    ],
+  },
+  {
+    slug: 'saglik-turizmi-pazarlamasi',
+    name: 'Sağlık Turizmi Pazarlaması',
+    category: 'Dikey uzmanlık',
+    highlight: 'Türkiye\'nin ilk tüp bebek Google Ads kampanyası',
+    description:
+      'Tüp bebek, estetik cerrahi, diş sağlığı, saç ekimi, göz sağlığı — Türk sağlık turizminin tüm kritik dikeylerinde portföy. Düzenleyici uyumlu, çoklu dil (TR + EN + DE), yurt dışı hasta hedefli.',
+    deliverables: [
+      'Çoklu dil web altyapısı (TR/EN/DE/AR)',
+      'Düzenleyici uyumlu reklam metinleri',
+      'Hasta yolculuğu funnel\'ı',
+      'CRM + lead nurturing entegrasyonu',
+      'Review + reputation yönetimi',
+    ],
+  },
+  {
+    slug: 'siyasi-kampanya',
+    name: 'Siyasi Kampanya Yönetimi',
+    category: 'Dikey uzmanlık',
+    highlight: '4 büyük partiyle çalışan ilk dijital ajans',
+    description:
+      'AK Parti, CHP, MHP, İYİ Parti — Türkiye\'nin 4 büyük partisiyle de çalışan ilk dijital reklam ajansı. 2007\'de Türkiye\'nin ilk Google siyasal kampanyasını biz yürüttük (CHP).',
+    deliverables: [
+      'Hedef seçmen segmentasyonu',
+      'Mesaj test + optimize',
+      'Mikro-hedefli reklamcılık',
+      'Sosyal medya kriz yönetimi',
+      'Kampanya web sitesi + landing pages',
+    ],
+  },
+  {
+    slug: 'e-ticaret-pazarlama',
+    name: 'E-ticaret Reklam Yönetimi',
+    category: 'Performans pazarlama',
+    highlight: 'Türkiye\'nin ilk online marketinden (Adepo.com) bu yana',
+    description:
+      'Türkiye\'nin ilk online marketi Adepo.com\'dan, ilk D2C kampanyası Temiz Mama\'ya kadar 20+ yıllık e-ticaret deneyimi. Performance Max, dynamic remarketing, feed yönetimi.',
+    deliverables: [
+      'Product feed optimizasyonu',
+      'Google Shopping + Meta katalog',
+      'Dynamic remarketing kampanyaları',
+      'Abandoned cart funnel\'ı',
+      'CRO (dönüşüm oranı optimizasyonu)',
+    ],
+  },
+  {
+    slug: 'marka-tasarimi',
+    name: 'Marka Tasarımı & Kreatif Kampanya',
+    category: 'Marka',
+    description:
+      'Yeni marka kuruluşundan rebrand sürecine kadar marka tasarımı. MYvia (eski Myway) örneğinde olduğu gibi 2 yıl içinde sıfırdan ana akım rekabete taşıdığımız markalar var.',
+    deliverables: [
+      'Marka stratejisi + positioning',
+      'Logo + görsel kimlik sistemi',
+      'Marka iletişim kuralları (guidelines)',
+      'Kampanya kreatif tasarımı',
+      'Cross-channel görsel tutarlılık',
+    ],
+  },
+  {
+    slug: 'online-itibar-yonetimi',
+    name: 'Online İtibar Yönetimi',
+    category: 'Marka koruma',
+    highlight: 'İzmir\'in ilk online itibar yönetimi hizmeti',
+    description:
+      'Marka adının Google, sosyal medya, forum ve review platformlarındaki algısını izleme + yönetme. Kriz durumunda hızlı müdahale, pozitif içerik üretimi, SEO ile negatif içerik supresyonu.',
+    deliverables: [
+      '24/7 marka monitoring',
+      'Review yanıtlama protokolü',
+      'Kriz iletişim planı',
+      'Pozitif içerik SEO\'su',
+      'Wikipedia + Knowledge Graph yönetimi',
+    ],
+  },
+  {
+    slug: 'dijital-strateji',
+    name: 'Dijital Strateji & Danışmanlık',
+    category: 'Strateji',
+    description:
+      'C-level düzeyde dijital dönüşüm danışmanlığı. Pazarlama + satış + servis süreçlerinin dijitalleşmesi. Yaşar Üniversitesi\'nde ders veren ve DEPARK\'ta danışmanlık yapan ekip.',
+    deliverables: [
+      'Dijital olgunluk değerlendirmesi',
+      'Çoklu kanal strateji yol haritası',
+      'Pazarlama teknoloji stack seçimi',
+      'KPI çerçevesi + ölçüm altyapısı',
+      'Aylık strateji review oturumları',
+    ],
+  },
+  {
+    slug: 'start-up-danismanligi',
+    name: 'Start-up Danışmanlığı',
+    category: 'Girişimcilik',
+    description:
+      'Dojonote ve DEPARK\'ta start-up\'lara verilen mentörlük deneyimimiz var. Erken aşama girişimler için GTM stratejisi, marka kuruluşu, ilk kullanıcı edinme.',
+    deliverables: [
+      'Go-to-market stratejisi',
+      'MVP\'den ilk 1000 kullanıcıya',
+      'Yatırımcı sunumu desteği',
+      'Marka kuruluşu',
+      'Performans pazarlama setup',
+    ],
+  },
+  {
+    slug: 'yazilim-danismanligi',
+    name: 'Yazılım Danışmanlığı',
+    category: 'Teknoloji',
+    description:
+      'DEÜ Uzaktan Eğitim Sistemi (Avrupa\'nın en büyük canlı eğitim altyapısı) gibi büyük ölçekli projelerde yazılım mimarisi danışmanlığı. Mobil API (Habertürk, Unilever, Fenerbahçe).',
+    deliverables: [
+      'Mimari değerlendirme + öneri',
+      'Teknoloji seçim danışmanlığı',
+      'API tasarım',
+      'Performans + ölçeklenme danışmanlığı',
+      'Migration / modernizasyon stratejisi',
+    ],
+  },
+  {
+    slug: 'proje-yoneticiligi',
+    name: 'Proje Yöneticiliği',
+    category: 'Operasyon',
+    description:
+      'DEÜ Uzaktan Eğitim Sistemi gibi karmaşık projeleri 2 ayda hayata geçiren proje yönetimi disiplinimiz. Çok-paydaşlı projelerde koordinasyon.',
+    deliverables: [
+      'Proje planlama + zaman çizelgesi',
+      'Paydaş + iletişim yönetimi',
+      'Risk + değişiklik yönetimi',
+      'Kalite kontrol',
+      'Teslim + devir + dökümantasyon',
+    ],
+  },
+];
+
+// Her hizmet için Service schema
+const serviceSchemas = services.map((s) =>
+  serviceSchema({
+    name: s.name,
+    description: s.description,
+    slug: s.slug,
+  }),
+);
+
+// FAQPage — global hizmet soruları
+const faq = faqSchema([
+  {
+    question: 'Gonet hangi hizmetleri sunuyor?',
+    answer:
+      '13 ana hizmet alanında çalışıyoruz: Google Ads, SEO, sosyal medya, web tasarım & geliştirme, ' +
+      'sağlık turizmi pazarlaması, siyasi kampanya yönetimi, e-ticaret reklam yönetimi, marka tasarımı, ' +
+      'online itibar yönetimi, dijital strateji, start-up danışmanlığı, yazılım danışmanlığı, proje yöneticiliği.',
+  },
+  {
+    question: 'Hangi sektörlerde çalışıyorsunuz?',
+    answer:
+      'Sağlık (Medical Park, Ege Tüp Bebek), inşaat (MYvia, Marport), siyaset (4 büyük parti), ' +
+      'e-ticaret (Adepo, Temiz Mama), eğitim (Dokuz Eylül Üni), FMCG (Coca Cola, Özdilek), otomotiv ' +
+      '(Lada Türkiye, Toyota İzmir, Hyundai, Ford), turizm, tekstil, mobilya, kamu (Merzifon Belediyesi, İzsu) ' +
+      've daha fazlasında 26 yıllık deneyim.',
+  },
+  {
+    question: 'Google Partner sertifikanız var mı?',
+    answer:
+      'Evet. Gonet, Türkiye\'nin ilk 3 Google Partner ajansından biridir. Google Ads\'in ' +
+      'Türkiye\'deki ilk beta tester ajansıyız ve Google Analytics sertifikası alan 2. Türk ajansıyız.',
+  },
+  {
+    question: 'Sağlık turizmi pazarlamasında deneyiminiz nedir?',
+    answer:
+      'Türkiye\'nin ilk tüp bebek Google Ads kampanyasını (Ege Tüp Bebek) biz tasarladık. ' +
+      'Medical Park, Kaşkaloğlu Göz Hastanesi, Su Hastanesi, Nano Dental, Metin İlaç gibi ' +
+      'sağlık portföyümüz var. Sağlık turizmi için TR/EN/DE/AR çoklu dil reklam altyapısı kurabiliriz.',
+  },
+  {
+    question: 'Yurt dışı pazarlama deneyiminiz var mı?',
+    answer:
+      'Evet. Simtronik Çelik Tencere markası için Almanya ve Hollanda\'daki Türk pazarına ' +
+      'yönelik kampanyalar yönettik. Amatis.nl ile Hollanda projesi gerçekleştirdik. ' +
+      'Yurt dışı hasta odaklı sağlık turizmi pazarlaması yapıyoruz.',
+  },
+]);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  schemas={[pageSchema, faq, ...serviceSchemas]}
+>
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Uzmanlık</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+        Uzmanlık Alanları
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        13 dijital hizmet, 26 yıllık disiplin.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Google Ads ve SEO\'da Türkiye\'nin ilk 3 Google Partner ajansından biri. Sağlık
+        turizminden siyasi kampanyaya, e-ticaretten yazılım danışmanlığına — her hizmette
+        sektörünüze özel disiplinli yaklaşım.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-6 space-y-8">
+      {services.map((s) => (
+        <article id={s.slug} class="border border-slate-200 rounded-lg overflow-hidden">
+          <header class="bg-brand-50 px-8 py-6 border-b border-slate-200">
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+              <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">
+                {s.category}
+              </span>
+            </div>
+            <h2 class="text-2xl font-bold text-brand-950">{s.name}</h2>
+            {s.highlight && (
+              <p class="text-sm text-brand-700 mt-2 font-medium">★ {s.highlight}</p>
+            )}
+          </header>
+          <div class="px-8 py-6">
+            <p class="text-slate-700 leading-relaxed mb-6">{s.description}</p>
+            {s.deliverables && s.deliverables.length > 0 && (
+              <>
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+                  Çıktılar
+                </h3>
+                <ul class="grid sm:grid-cols-2 gap-2 text-sm text-slate-700">
+                  {s.deliverables.map((d) => (
+                    <li class="flex gap-2"><span class="text-brand-600">●</span><span>{d}</span></li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Hangi hizmet sizin için doğru?</h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+        Tek bir görüşmede sizin durumunuzu dinleyip, doğru hizmet kombinasyonunu önereceğiz.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        Ücretsiz Görüşme Talep Et →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
