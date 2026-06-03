@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema } from '../../lib/schema';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('case-studies');
+  return cases.map((cs) => ({
+    params: { slug: cs.id },
+    props: { cs },
+  }));
+}
+
+const { cs } = Astro.props;
+const { Content } = await render(cs);
+
+const url = `https://gonet.com.tr/case-studies/${cs.id}`;
+
+// CreativeWork schema — vaka çalışması için
+const caseSchema = {
+  '@type': 'CreativeWork',
+  '@id': `${url}#case`,
+  name: cs.data.title,
+  headline: cs.data.title,
+  description: cs.data.description,
+  url,
+  inLanguage: 'tr',
+  about: cs.data.industry,
+  creator: { '@id': 'https://gonet.com.tr/#organization' },
+  publisher: { '@id': 'https://gonet.com.tr/#organization' },
+  dateCreated: `${cs.data.year}-01-01`,
+};
+
+const pageSchema = webpageSchema({
+  title: cs.data.title,
+  description: cs.data.description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Vaka Çalışmaları', url: 'https://gonet.com.tr/case-studies' },
+    { name: cs.data.title, url },
+  ],
+});
+---
+
+<BaseLayout
+  title={`${cs.data.title} — Gonet Vaka Çalışması`}
+  description={cs.data.description}
+  canonical={url}
+  schemas={[caseSchema, pageSchema]}
+>
+  <article class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/case-studies" class="hover:text-brand-600">Vaka Çalışmaları</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700 truncate" aria-current="page">{cs.data.title}</li>
+        </ol>
+      </nav>
+
+      <div class="flex items-center gap-3 text-sm text-slate-500 mb-4">
+        <span class="font-semibold">{cs.data.year}</span>
+        <span aria-hidden="true">·</span>
+        <span>{cs.data.client}</span>
+        {cs.data.industry && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>{cs.data.industry}</span>
+          </>
+        )}
+      </div>
+
+      <h1 class="text-4xl lg:text-5xl font-bold text-brand-950 leading-tight mb-6">
+        {cs.data.title}
+      </h1>
+
+      <p class="text-xl text-slate-700 leading-relaxed mb-8 pb-8 border-b border-slate-200">
+        {cs.data.description}
+      </p>
+
+      <!-- Sonuçlar / metrikler bloğu (varsa) -->
+      {cs.data.results && cs.data.results.length > 0 && (
+        <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-6 bg-brand-50 rounded-lg">
+          {cs.data.results.map((r) => (
+            <div>
+              <div class="text-2xl font-bold text-brand-900">{r.value}</div>
+              <div class="text-sm text-slate-600 mt-1">{r.metric}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <!-- Hizmetler -->
+      {cs.data.services && cs.data.services.length > 0 && (
+        <section class="mb-12">
+          <h2 class="sr-only">Verilen hizmetler</h2>
+          <ul class="flex flex-wrap gap-2">
+            {cs.data.services.map((s) => (
+              <li class="text-xs font-medium text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                {s}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <!-- Body -->
+      <div class="prose-aeo">
+        <Content />
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 bg-brand-50 rounded-lg p-8 text-center">
+        <p class="text-lg text-slate-700 mb-4">
+          Benzer bir hikayeyi sizin için de yazalım mı?
+        </p>
+        <a
+          href="/iletisim"
+          class="inline-block bg-brand-900 text-white px-6 py-3 rounded-md font-medium hover:bg-brand-800"
+        >
+          İletişime geç →
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

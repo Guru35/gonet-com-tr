@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema } from '../../lib/schema';
+import { getCollection } from 'astro:content';
+
+const cases = (await getCollection('case-studies'))
+  .filter((c) => !c.data.draft)
+  .sort((a, b) => b.data.year - a.data.year);
+
+const title = "Vaka Çalışmaları — Gonet'in İmza Attığı Türkiye İlkleri";
+const description =
+  "DEÜ Uzaktan Eğitim (Avrupa'nın en büyüğü), CHP 2007 (Türkiye'nin ilk Google siyasal kampanyası), " +
+  "Adepo.com (ilk online market), Ege Tüp Bebek (ilk tüp bebek Google Ads), MYvia (2 yılda İzmir'in #2 inşaat), " +
+  "Tatil Vitrini, Temiz Mama, İzsu. 26 yılda biriken vaka çalışmalarımız.";
+const url = 'https://gonet.com.tr/case-studies';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Vaka Çalışmaları', url },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Vaka Çalışmaları</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+        Vaka Çalışmaları
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        İmza attığımız Türkiye ilkleri
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Avrupa'nın en büyük canlı eğitim altyapısından, Türkiye'nin ilk Google siyasal kampanyasına,
+        ilk online marketten ilk tüp bebek reklamına — 26 yıllık portföyümüzden seçilmiş yedi
+        hikaye.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6 space-y-8">
+      {cases.map((cs) => (
+        <article class="border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg transition">
+          <a href={`/case-studies/${cs.id}`} class="block p-8">
+            <div class="flex items-center gap-3 text-sm text-slate-500 mb-2">
+              <span class="font-semibold">{cs.data.year}</span>
+              <span aria-hidden="true">·</span>
+              <span>{cs.data.client}</span>
+              {cs.data.industry && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>{cs.data.industry}</span>
+                </>
+              )}
+            </div>
+            <h2 class="text-2xl font-bold text-brand-950 mb-3 hover:text-brand-600">
+              {cs.data.title}
+            </h2>
+            <p class="text-slate-700 leading-relaxed mb-4">{cs.data.description}</p>
+            {cs.data.results && cs.data.results.length > 0 && (
+              <ul class="flex flex-wrap gap-3 text-xs">
+                {cs.data.results.slice(0, 3).map((r) => (
+                  <li class="bg-brand-50 text-brand-800 px-3 py-1 rounded">
+                    <strong>{r.value}</strong> <span class="text-brand-600">— {r.metric}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Bir sonraki "ilk" sizin projeniz olsun</h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+        Sektörünüz ne olursa olsun, dijital pazarlamada bir adım önde olmak için doğru ortağı
+        bulmak yeterli.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        Projenizi Konuşalım →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
