@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema } from '../../lib/schema';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const title = 'Blog — GONET Dijital Pazarlama İçgörüleri';
+const description =
+  'Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım. 25 yıllık sektör deneyimimizden çıkardığımız içgörüler.';
+
+const blogSchema = webpageSchema({
+  title,
+  description,
+  url: 'https://gonet.com.tr/blog',
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Blog', url: 'https://gonet.com.tr/blog' },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} schemas={blogSchema}>
+  <section class="bg-brand-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">Blog</p>
+      <h1 class="text-5xl font-bold text-brand-950 mb-4">Dijital pazarlama içgörüleri</h1>
+      <p class="text-xl text-slate-700 max-w-2xl">
+        25 yıllık ajans deneyimimizden çıkardığımız strateji notları, sektör analizleri ve uygulama
+        rehberleri.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      {posts.length === 0 ? (
+        <p class="text-slate-600">Henüz blog yazısı eklenmedi.</p>
+      ) : (
+        <ul class="divide-y divide-slate-200">
+          {posts.map((post) => (
+            <li class="py-8 first:pt-0">
+              <article>
+                <div class="flex items-center gap-3 text-sm text-slate-500 mb-2">
+                  <time datetime={post.data.published.toISOString()}>
+                    {post.data.published.toLocaleDateString('tr-TR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  {post.data.category && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span>{post.data.category}</span>
+                    </>
+                  )}
+                </div>
+                <h2 class="text-2xl font-semibold mb-3">
+                  <a
+                    href={`/blog/${post.id}`}
+                    class="text-brand-950 hover:text-brand-600 transition"
+                  >
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-slate-700 leading-relaxed mb-3">{post.data.description}</p>
+                <a
+                  href={`/blog/${post.id}`}
+                  class="text-sm font-medium text-brand-600 hover:text-brand-800 inline-flex items-center gap-1"
+                >
+                  Yazıyı oku <span aria-hidden="true">→</span>
+                </a>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</BaseLayout>
