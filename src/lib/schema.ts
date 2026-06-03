@@ -99,6 +99,7 @@ export const organizationSchema = {
   sameAs: [
     'https://tr.linkedin.com/company/gonet-interactive-advertising-agency',
     'https://www.behance.net/GonetCompany',
+    'https://www.instagram.com/gonetinteractive/',
     'https://www.facebook.com/GonetCompany/',
     'https://www.slideshare.net/gonetpigme',
   ],
