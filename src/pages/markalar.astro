@@ -36,6 +36,11 @@ const sectors = [
       'Özel Su Hastanesi',
       'Medsu Medikal',
       'Nano Dental — Devam eden iş ortağı',
+      'Bakırköy Lazer',
+      'Karşıyaka Göz Hastanesi',
+      'Clinic A Plus',
+      'Defne (klinik)',
+      'Genç Cell',
       'Metin İlaç',
       'Dr. İbrahim Aşkar (Estetik Cerrah)',
       'Vasfi Karaoğlu (Ortopedist)',
@@ -140,7 +145,12 @@ const sectors = [
     brands: [
       'Coca Cola',
       'Aytaç Gıda',
-      'Selpak — Kağıt ürünleri (FMCG)',
+      'Selpak — Kağıt ürünleri (Eczacıbaşı, 2011\'den beri ilişki)',
+      'Ekiz — Zeytinyağı/gıda',
+      'Altın Başak',
+      'Hakkı Usta',
+      'Tarçın',
+      'Dry White',
       'Penguen Gıda',
       'Feast Gıda — Kedi-köpek maması',
       'Ekmekiçi',
@@ -176,8 +186,9 @@ const sectors = [
     ],
   },
   {
-    name: 'Tekstil & Konfeksiyon',
+    name: 'Tekstil, Konfeksiyon & Çocuk Giyim',
     brands: [
+      'Gymboree — Global çocuk giyim markası',
       'Oten Tekstil (İzmir)',
       'Oztan Tekstil (İstanbul)',
       'Çok sayıda tekstil firması',
@@ -185,10 +196,11 @@ const sectors = [
     ],
   },
   {
-    name: 'Mobilya & Lüks Yaşam',
-    highlight: 'İzmir\'in lüks mobilya segmenti',
+    name: 'Mobilya, Yatak & Lüks Yaşam',
+    highlight: 'İzmir\'in lüks mobilya + national yatak markaları',
     brands: [
       'By Kepi Mobilya — İzmir\'in tanınmış ultra lüks mobilya markası',
+      'Yatsan — National yatak/mattress markası',
       'Molly',
       'Çok sayıda diğer mobilya firması',
     ],
@@ -196,6 +208,8 @@ const sectors = [
   {
     name: 'Elektronik, Sanayi, İklimlendirme & Telekom',
     brands: [
+      'General Mobile — Mobil cihaz markası',
+      'Netsis — ERP yazılımı (national)',
       'KAREL — Telekomünikasyon donanımı',
       'Ayes Çelik — Web sitesi',
       'Sambross',
@@ -203,6 +217,22 @@ const sectors = [
       'Es Metal',
       'B Hvac — Isıtma/soğutma/havalandırma',
       'Synthethic',
+      'Lupamat — Sanayi/makine',
+      'Polger Makina',
+      'Gökkaya Makina',
+      'Mess Matic',
+      'Termodinamik',
+      'Seyitler Kimya',
+      'Zeren Filtre',
+      'Park Panel',
+      'Diapak',
+      'Aldem',
+      'Demonte',
+      'Santel',
+      'Sertaş',
+      'Exitcom',
+      'Shadow Line',
+      'Ünlü Boya',
       'OMS Elektronik',
       'Maktek',
       'Sevel Soğutma',
@@ -224,14 +254,18 @@ const sectors = [
   {
     name: 'Eğlence, Spor & Kişisel Marka',
     brands: [
+      'Sports International — National fitness zinciri',
       'Switch Bowling İzmir',
       'seldaaslan.com.tr — Selda Aslan kişisel marka websitesi',
     ],
   },
   {
-    name: 'Holding & Kurumsal Yönetim',
+    name: 'Holding, Kurumsal Yönetim & Profesyonel Danışmanlık',
     brands: [
       'Gea Holding — Kurumsal dijital varlık ve iletişim',
+      'DBE (Davranış Bilimleri Enstitüsü) — İK danışmanlığı (national)',
+      'NN Danışmanlık',
+      'Bureau',
     ],
   },
   {
@@ -300,7 +334,7 @@ const itemListSchema = {
         Çalıştığımız Markalar
       </p>
       <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
-        26 yılda 18+ sektörde 140+ marka.
+        26 yılda 18+ sektörde 170+ marka.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
         Sağlık turizminden inşaata, siyasi kampanyalardan büyük markaların mobil API'lerine —

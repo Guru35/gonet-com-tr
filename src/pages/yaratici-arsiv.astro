@@ -452,14 +452,14 @@ const creativeWorkSchema = {
     </div>
   </section>
 
-  <!-- Flash banner mirası -->
+  <!-- Flash banner mirası + Wayback arşivi -->
   <section class="py-16 bg-white border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6">
       <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
-        2003-2015 Dönemi
+        2007-2015 Dönemi · Wayback Machine
       </p>
       <h2 class="text-3xl font-bold text-brand-950 mb-6">
-        Behance'ten önce: yüzlerce flash banner.
+        Behance'ten önce: gonet.com.tr'nin Flash dönemi.
       </h2>
       <div class="prose-aeo">
         <p>
@@ -469,12 +469,58 @@ const creativeWorkSchema = {
           tarayıcıların .swf dosyalarını native render ettiği zaman.
         </p>
         <p>
-          Bu döneme ait büyük client portföyümüzün önemli bir kısmı Behance'te <strong>yok</strong>:
+          Wayback Machine üzerinde gonet.com.tr'nin <strong>2007-2015 arası 288 snapshot'ı</strong>
+          arşivlenmiş durumda. Aşağıda dönemin temsili anlık görüntüleri ve hâlâ ulaşılabilir
+          <strong>5 orijinal Flash (.swf) dosyası</strong>:
+        </p>
+      </div>
+
+      <!-- 5 Wayback snapshot embed -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        {[
+          { year: 2007, title: 'gonet.com.tr — 2007 sürümü', desc: 'En eski arşivlenmiş snapshot. AdWords copy + Dreamweaver-era site.', url: 'https://web.archive.org/web/20070708143358/http://www.gonet.com.tr/' },
+          { year: 2010, title: 'gonet.com.tr — 2010 Flash homepage', desc: 'Flash widget\'lar aktif: google_earth.swf, sozluk.swf.', url: 'https://web.archive.org/web/20100502030756/http://www.gonet.com.tr/' },
+          { year: 2011, title: 'gonet.com.tr — 2011 Referanslar (61 logo)', desc: 'Pre-WordPress referanslar sayfası. 61 client logo gridi.', url: 'https://web.archive.org/web/20110818184353/http://www.gonet.com.tr/Referanslarimiz-14-4.php' },
+          { year: 2012, title: 'gonet.com.tr — 2012 WordPress launch', desc: '"Interactive Advertising Agency" rebrand. Yeni hizmet taksonomisi.', url: 'https://web.archive.org/web/20120601000000/http://www.gonet.com.tr/' },
+          { year: 2014, title: 'gonet.com.tr — 2014 modern dönem', desc: 'Modern hizmet sayfaları, blog odaklı yapı.', url: 'https://web.archive.org/web/20140601000000/http://www.gonet.com.tr/' },
+        ].map((s) => (
+          <a href={s.url} target="_blank" rel="noopener" class="block border border-slate-200 rounded-lg p-5 hover:border-accent-500 hover:shadow transition">
+            <div class="flex items-baseline gap-3 mb-2">
+              <time class="text-2xl font-bold text-accent-600" datetime={String(s.year)}>{s.year}</time>
+              <h3 class="font-semibold text-brand-950">{s.title}</h3>
+            </div>
+            <p class="text-sm text-slate-600">{s.desc}</p>
+            <p class="text-xs text-accent-700 mt-2 underline break-all">Wayback Machine →</p>
+          </a>
+        ))}
+      </div>
+
+      <!-- Flash dosyaları -->
+      <div class="mt-10 p-6 bg-brand-50 border border-brand-200 rounded-lg">
+        <h3 class="font-bold text-brand-950 mb-3">Hâlâ ulaşılabilir 5 Flash (.swf) dosyası</h3>
+        <ul class="space-y-2 text-sm">
+          <li><strong>gonet.com.tr2.swf</strong> — ana sitenin intro (13KB) · <a class="text-accent-600 underline" href="https://web.archive.org/web/20111014094758id_/http://www.gonet.com.tr/swf/gonet.com.tr2.swf" target="_blank" rel="noopener">indir</a></li>
+          <li><strong>dalgalanma_logo.swf</strong> — logo dalga animasyonu (3.6KB) · <a class="text-accent-600 underline" href="https://web.archive.org/web/20111014095527id_/http://www.gonet.com.tr/swf/dalgalanma_logo.swf" target="_blank" rel="noopener">indir</a></li>
+          <li><strong>google_earth.swf</strong> — Google Earth entegrasyonu (38KB) · <a class="text-accent-600 underline" href="https://web.archive.org/web/20100922021432id_/http://www.gonet.com.tr/swf/google_earth.swf" target="_blank" rel="noopener">indir</a></li>
+          <li><strong>sozluk.swf</strong> — sözlük widget'ı (5.7KB) · <a class="text-accent-600 underline" href="https://web.archive.org/web/20100922025823id_/http://www.gonet.com.tr/swf/sozluk.swf" target="_blank" rel="noopener">indir</a></li>
+          <li><strong>flash_tema/master.swf</strong> — tema dosyası (34KB) · <a class="text-accent-600 underline" href="https://web.archive.org/web/20111016070346id_/http://www.gonet.com.tr/flash_tema/master.swf" target="_blank" rel="noopener">indir</a></li>
+        </ul>
+        <p class="text-xs text-slate-600 mt-3 italic">
+          Not: Bunlar site dekorasyonuydu — client kampanya banner'ları değil. Client banner'ları
+          Wayback öncesi (2003-2006) dönemine ait ve arşivde yok.
+        </p>
+      </div>
+
+      <div class="prose-aeo mt-10">
+        <p>
+          Bu döneme ait büyük client portföyümüzün önemli bir kısmı hâlâ kayıp:
           CHP'nin 2007 siyasal kampanyası, Tatil Vitrini'nin ilk online tatil reklamları, Temiz Mama'nın
           ilk D2C kampanyası, Adepo.com için Türkiye'nin ilk online market kampanyası, Lada Türkiye,
           Vinifera Hotels'in erken işleri, Habertürk/Unilever/Fenerbahçe mobil API çalışmaları —
-          hepsi bu boş katmanda. Şu an Wayback Machine taramalarıyla bu arşivin görsel parçalarını
-          geri çıkarmaya çalışıyoruz.
+          hepsi bu boş katmanda. Ancak 2011 Wayback Referanslar sayfası bize bu döneme ait
+          <strong>60'tan fazla yeni client adı</strong> kazandırdı (Gymboree, General Mobile, Selpak,
+          Sports International, Yatsan, Netsis, DBE ve diğerleri) — bunlar artık
+          <a href="/markalar">/markalar</a> sayfasında listelendi.
         </p>
         <p>
           <strong>Vaka çalışması olarak okumak isteyenler:</strong> bu dönemin büyük işlerini
