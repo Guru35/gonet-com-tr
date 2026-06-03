@@ -1,0 +1,13 @@
+---
+// Schema.org JSON-LD component — AEO için kritik
+// E-E-A-T sinyalleri, citation authority, extraction-readiness
+interface Props {
+  schema: Record<string, any> | Record<string, any>[];
+}
+
+const { schema } = Astro.props;
+const data = Array.isArray(schema)
+  ? { '@context': 'https://schema.org', '@graph': schema }
+  : { '@context': 'https://schema.org', ...schema };
+---
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

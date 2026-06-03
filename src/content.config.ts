@@ -1,0 +1,80 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+// AEO-uyumlu content schemas — extraction-readiness + E-E-A-T
+// Her sayfa Article veya WebPage schema'sıyla render edilir
+
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    h1: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    ogImage: z.string().optional(),
+    schemaType: z.enum(['WebPage', 'AboutPage', 'ContactPage', 'CollectionPage']).default('WebPage'),
+    published: z.date().optional(),
+    updated: z.date().optional(),
+    lang: z.enum(['tr', 'en']).default('tr'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    h1: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    author: z.object({
+      name: z.string().default('Gonet'),
+      role: z.string().optional(),
+      url: z.string().optional(),
+    }).default({ name: 'Gonet' }),
+    published: z.date(),
+    updated: z.date().optional(),
+    ogImage: z.string().optional(),
+    category: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    readingMinutes: z.number().optional(),
+    lang: z.enum(['tr', 'en']).default('tr'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const caseStudies = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/case-studies' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    client: z.string(),
+    industry: z.string().optional(),
+    services: z.array(z.string()).default([]),
+    year: z.number(),
+    results: z.array(z.object({
+      metric: z.string(),
+      value: z.string(),
+    })).default([]),
+    ogImage: z.string().optional(),
+    lang: z.enum(['tr', 'en']).default('tr'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    h1: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    icon: z.string().optional(),
+    order: z.number().default(0),
+    relatedServices: z.array(z.string()).default([]),
+    lang: z.enum(['tr', 'en']).default('tr'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { pages, blog, 'case-studies': caseStudies, services };

@@ -1,0 +1,147 @@
+---
+import '../styles/global.css';
+import JsonLd from '../components/JsonLd.astro';
+import { organizationSchema, websiteSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schemas?: Record<string, any> | Record<string, any>[];
+  lang?: 'tr' | 'en';
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-default.png',
+  schemas,
+  lang = 'tr',
+} = Astro.props;
+
+const SITE_URL = 'https://gonet.com.tr';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+
+// Schema'ları @graph içine topla — entity authority için kritik
+const globalSchemas = [organizationSchema, websiteSchema];
+const pageSchemas = schemas
+  ? Array.isArray(schemas)
+    ? schemas
+    : [schemas]
+  : [];
+const allSchemas = [...globalSchemas, ...pageSchemas];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_US'} />
+    <meta property="og:site_name" content="GONET" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <!-- AEO + SEO hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="alternate" hreflang="tr" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="GONET Blog" href="/rss.xml" />
+
+    <!-- Sitemap (Astro auto-generated) -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org JSON-LD — AEO kalbı -->
+    <JsonLd schema={allSchemas} />
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-10">
+      <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Ana navigasyon">
+        <a href="/" class="text-2xl font-bold text-brand-900 tracking-tight" aria-label="Anasayfa">
+          GONET
+        </a>
+        <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-700">
+          <li><a href="/uzmanlik" class="hover:text-brand-600">Uzmanlık</a></li>
+          <li><a href="/case-studies" class="hover:text-brand-600">Çalışmalar</a></li>
+          <li><a href="/blog" class="hover:text-brand-600">Blog</a></li>
+          <li><a href="/hakkimizda" class="hover:text-brand-600">Hakkımızda</a></li>
+          <li>
+            <a
+              href="/iletisim"
+              class="bg-brand-900 text-white px-4 py-2 rounded-md hover:bg-brand-800 transition"
+              >İletişim</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-300 mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="text-2xl font-bold text-white mb-3">GONET</div>
+          <p class="text-sm leading-relaxed text-slate-400">
+            25 yıllık deneyimle dijital strateji, kreatif pazarlama ve marka ekosistemleri.
+            Firmaları çekici kılar, müşterileriyle buluşturur.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Hizmetler</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/uzmanlik" class="hover:text-white">Uzmanlık Alanları</a></li>
+            <li><a href="/case-studies" class="hover:text-white">Vaka Çalışmaları</a></li>
+            <li><a href="/yetenekler" class="hover:text-white">Yetenekler</a></li>
+            <li><a href="/markalar" class="hover:text-white">Çalıştığımız Markalar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Bağlantı</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/hakkimizda" class="hover:text-white">Hakkımızda</a></li>
+            <li><a href="/iletisim" class="hover:text-white">İletişim</a></li>
+            <li><a href="/blog" class="hover:text-white">Blog</a></li>
+            <li><a href="mailto:gokhan@gonet.com.tr" class="hover:text-white">gokhan@gonet.com.tr</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate-500">
+          <span>© {new Date().getFullYear()} Gonet. Tüm hakları saklıdır.</span>
+          <span>Çekirdek: <a href="https://github.com/Guru35/gonet-com-tr" class="hover:text-white">github.com/Guru35/gonet-com-tr</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

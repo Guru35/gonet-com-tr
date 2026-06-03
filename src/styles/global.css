@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+/* GONET Design Tokens */
+@theme {
+  --color-brand-50: #f5f7fb;
+  --color-brand-100: #e4eaf5;
+  --color-brand-200: #c3cfe7;
+  --color-brand-300: #95a8d2;
+  --color-brand-400: #6a82bc;
+  --color-brand-500: #4a64a4;
+  --color-brand-600: #3a5089;
+  --color-brand-700: #2f4170;
+  --color-brand-800: #28365b;
+  --color-brand-900: #1a2440;
+  --color-brand-950: #0e1429;
+
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+body {
+  @apply bg-white text-slate-900 antialiased;
+  font-family: var(--font-sans);
+}
+
+/* AEO için typography — okuma akışı + extraction-readiness */
+.prose-aeo p {
+  @apply text-lg leading-relaxed mb-6 text-slate-700;
+}
+.prose-aeo p:first-of-type {
+  @apply text-xl font-medium text-slate-900;
+}
+.prose-aeo h2 {
+  @apply text-3xl font-semibold mt-12 mb-4 text-slate-900;
+}
+.prose-aeo h3 {
+  @apply text-xl font-semibold mt-8 mb-3 text-slate-900;
+}
+.prose-aeo ul {
+  @apply list-disc mb-6 ml-6 space-y-2 text-slate-700;
+}
+.prose-aeo ol {
+  @apply list-decimal mb-6 ml-6 space-y-2 text-slate-700;
+}
+.prose-aeo a {
+  @apply text-brand-600 underline underline-offset-2 hover:text-brand-800;
+}
+.prose-aeo strong {
+  @apply text-slate-900 font-semibold;
+}

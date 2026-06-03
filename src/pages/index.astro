@@ -1,17 +1,143 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
 
+const title = 'GONET — 25 Yıllık Dijital Strateji ve Kreatif Pazarlama Ajansı';
+const description =
+  'Gonet, firmaları çekici kılar ve müşterileriyle buluşturur. 25 yılı aşkın deneyimle dijital strateji, kreatif kampanyalar, web tasarım ve marka ekosistemleri üretir.';
+
+const homeSchema = webpageSchema({
+  title,
+  description,
+  url: 'https://gonet.com.tr/',
+  type: 'WebPage',
+});
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description} schemas={homeSchema}>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-brand-50 via-white to-brand-100 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 py-24 lg:py-32 relative">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-4">
+          Dijital · Kreatif Ajans · Marka Ekosistemleri
+        </p>
+        <h1 class="text-5xl lg:text-6xl font-bold text-brand-950 leading-tight tracking-tight mb-6">
+          Gonet, firmaları çekici kılar ve müşterileriyle buluşturur.
+        </h1>
+        <p class="text-xl text-slate-700 leading-relaxed mb-8">
+          25 yılı aşkın deneyimle dijital strateji, kreatif kampanyalar ve marka ekosistemleri
+          üretiyoruz. Sonuç getiren, farkındalık yaratan ve dikkat çeken çalışmalarımız sektörde
+          yakından takip ediliyor ve referans oluşturuyor.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/case-studies"
+            class="bg-brand-900 text-white px-6 py-3 rounded-md font-medium hover:bg-brand-800 transition inline-flex items-center gap-2"
+          >
+            Vaka Çalışmaları
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="/iletisim"
+            class="bg-white border border-slate-300 text-slate-900 px-6 py-3 rounded-md font-medium hover:border-brand-600 hover:text-brand-700 transition"
+          >
+            Görüşelim
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="border-y border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-4xl font-bold text-brand-900">25+</div>
+        <div class="text-sm text-slate-600 mt-1">Yıllık Deneyim</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold text-brand-900">100+</div>
+        <div class="text-sm text-slate-600 mt-1">Tamamlanan Proje</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold text-brand-900">10+</div>
+        <div class="text-sm text-slate-600 mt-1">Sektör</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold text-brand-900">∞</div>
+        <div class="text-sm text-slate-600 mt-1">Yaratıcılık</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet özeti -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-4xl font-bold text-brand-950 mb-4">
+          Dijital strateji ve yaratıcı pazarlama çözümleri
+        </h2>
+        <p class="text-lg text-slate-700">
+          Uzman ekibimizle markaları rakiplerinden ayırıyor, hedef kitleleriyle anlamlı bağlar
+          kuruyoruz. Her proje hedefe yönelik strateji ile başlar, ölçülebilir sonuçla biter.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a
+          href="/uzmanlik"
+          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
+        >
+          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
+            Uzmanlık Alanları
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Dijital strateji, marka tasarımı, içerik pazarlaması, web geliştirme. 25 yıllık deneyim
+            her hizmette yansır.
+          </p>
+        </a>
+        <a
+          href="/case-studies"
+          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
+        >
+          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
+            Vaka Çalışmaları
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Sağlık turizmi, e-ticaret, B2B teknoloji, kamu kurumları. Sektör ne olursa olsun sonuç
+            odaklı kampanyalar.
+          </p>
+        </a>
+        <a
+          href="/blog"
+          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
+        >
+          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
+            Blog
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım — sektörden
+            içgörüler.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Projeniz için stratejik destek mi arıyorsunuz?</h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+        25 yıllık deneyimimizle markanızı dijital dünyada bir adım öne taşıyoruz. Görüşelim, size
+        özel bir yol haritası çıkaralım.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        İletişime Geç →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
