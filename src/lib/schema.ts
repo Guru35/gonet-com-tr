@@ -20,13 +20,14 @@ export const organizationSchema = {
   url: SITE_URL,
   logo: {
     '@type': 'ImageObject',
-    url: `${SITE_URL}/logo.svg`,
+    url: `${SITE_URL}/brand/gonet-logo-dark.svg`,
   },
   description:
-    "İzmir ve Ege'nin ilk dijital ajansı (2000). Türkiye'nin ilk 3 Google Partner ajansından biri, " +
+    "İzmir ve Ege'nin ilk dijital ajansı (2000) ve İzmir'in ilk AI ajansı. Türkiye'nin ilk 3 Google Partner ajansından biri, " +
     'Google Ads Türkiye beta tester. İzmir Reklamcılar Derneği (IRD) üyesi. ' +
-    'Dijital strateji, web tasarım, SEO, sosyal medya, kreatif kampanyalar, ' +
-    'sağlık turizmi pazarlaması, siyasi kampanya yönetimi.',
+    'Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), ' +
+    'dijital strateji, web tasarım, SEO, sosyal medya, kreatif kampanyalar, ' +
+    'sağlık turizmi pazarlaması, siyasi kampanya yönetimi. Ajanslar üstü kreatif stratejist konumunda.',
   foundingDate: '2000',
   founder: { '@id': FOUNDER_ID },
   numberOfEmployees: { '@type': 'QuantitativeValue', value: 14, unitText: 'people' },
@@ -54,6 +55,10 @@ export const organizationSchema = {
     areaServed: 'TR',
   },
   knowsAbout: [
+    'Answer Engine Optimization (AEO)',
+    'Generative Engine Optimization (GEO)',
+    'LLM SEO',
+    'Schema.org JSON-LD Entity Authority',
     'Dijital Strateji',
     'Web Tasarım',
     'Google Ads (SEM)',
@@ -66,7 +71,9 @@ export const organizationSchema = {
     'Sağlık Turizmi Pazarlaması',
     'Siyasi Kampanya Yönetimi',
     'E-ticaret Reklam Yönetimi',
-    'Answer Engine Optimization',
+    'Mobile API Geliştirme',
+    'Marka Ekosistemleri',
+    'İçerik Stratejisi',
   ],
   areaServed: { '@type': 'Country', name: 'TR' },
   // Üyelik — IRD (İzmir Reklamcılar Derneği) doğrulandı
@@ -108,17 +115,42 @@ export const founderSchema = {
   },
   knowsAbout: [
     'Dijital Pazarlama Stratejisi',
-    'Google Ads',
+    'Answer Engine Optimization (AEO)',
+    'Generative Engine Optimization (GEO)',
+    'LLM SEO',
+    'Schema.org JSON-LD Entity Authority',
+    'Google Ads (SEM)',
     'SEO',
     'Sosyal Medya Pazarlaması',
     'Start-up Danışmanlığı',
     'Marka Stratejisi',
+    'Web Tasarım',
+    'Web Geliştirme',
+    'E-ticaret',
+    'Interactive Advertising',
+    'Kreatif Direktörlük',
+    'Ajans Yönetimi',
+    'İçerik Stratejisi',
+    'Sağlık Turizmi Pazarlaması',
+    'Siyasi Kampanya Dijital İletişimi',
+    'Mobile API Geliştirme',
   ],
   description:
     "Gonet kurucusu. 2000'den beri İzmir merkezli, Türkiye'nin ilk 3 Google Partner ajansından birini yönetiyor. " +
-    'Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından.',
+    'Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından. ' +
+    "LinkedIn'de 16.000'den fazla takipçisi var; profesyonel motto: \"Her şey çok güzel olacak :)\".",
   nationality: { '@type': 'Country', name: 'TR' },
   address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
+  sameAs: [
+    'https://www.linkedin.com/in/gokhankazanci/',
+    'https://www.behance.net/GonetCompany',
+  ],
+  interactionStatistic: {
+    '@type': 'InteractionCounter',
+    interactionType: { '@type': 'FollowAction' },
+    userInteractionCount: 16084,
+    name: 'LinkedIn followers',
+  },
 };
 
 // Global WebSite schema
