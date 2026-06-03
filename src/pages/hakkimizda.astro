@@ -2,11 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, faqSchema } from '../lib/schema';
 
-const title = "Hakkımızda — Gonet, İzmir'in İlk Dijital Ajansı (2000)";
+const title = "Hakkımızda — Gonet, İzmir'in İlk Dijital ve İlk AI Ajansı (2000)";
 const description =
-  "Gonet 2000 yılında Gökhan Kazancı tarafından İzmir'de kuruldu. " +
-  "Türkiye'nin ilk 3 Google Partner ajansından biri, Google Ads Türkiye beta tester, " +
-  "İzmir Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi.";
+  "Gonet 2000 yılında Gökhan Kazancı tarafından İzmir'de kuruldu. İzmir'in ilk dijital ve şimdi de " +
+  "ilk AI ajansı. Türkiye'nin ilk 3 Google Partner ajansından biri, Google Ads Türkiye beta tester, " +
+  "İzmir Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi. Ajanslar üstü kreatif " +
+  "stratejist konumunda — fiyatta değil, danışmanlık ve sonuçta rekabet ediyoruz.";
 const url = 'https://gonet.com.tr/hakkimizda';
 
 const pageSchema = webpageSchema({
@@ -52,8 +53,26 @@ const faq = faqSchema([
     question: 'Gökhan Kazancı kimdir?',
     answer:
       "Gonet'in kurucusudur. 1975 doğumlu, Dokuz Eylül Üniversitesi İktisadi ve İdari Bilimler " +
-      'Fakültesi mezunu. Yaşar Üniversitesi\'nde dijital pazarlama dersleri verdi. ' +
-      'Babası matbaacı ve yerel gazete sahibi olduğundan basın/yayın geçmişi vardır.',
+      "Fakültesi mezunu. Yaşar Üniversitesi'nde dijital pazarlama dersleri verdi. " +
+      "Babası matbaacı ve yerel gazete sahibi olduğundan basın/yayın geçmişi vardır. " +
+      "LinkedIn'de 16.000+ takipçisi var.",
+  },
+  {
+    question: "Gonet neden \"İzmir'in ilk AI ajansı\" olduğunu söylüyor?",
+    answer:
+      "İzmir merkezli ajanslar arasında Answer Engine Optimization (AEO) ve Generative Engine " +
+      "Optimization (GEO) alanında ilk yatırım yapan ajansız. Klasik SEO'nun yerini değil, üstüne " +
+      "ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews için Schema.org entity authority, " +
+      "llms.txt, semantic chunking ve citation surface engineering ekliyoruz. Bu sitede 18+ distinct " +
+      "Schema.org @type ve 130+ Organization entity ile kendi konumlanmamızı uyguluyoruz.",
+  },
+  {
+    question: "Gonet \"ajanslar üstü\" derken neyi kastediyor?",
+    answer:
+      "26 yıl boyunca büyük çizgi üstü ajanslara gizli dijital çözüm ortağı olarak çalıştık. Ajansların " +
+      "dijital ekibi gibi göründüğümüz çok proje oldu. Bu birikim bizi sıradan bir ajansın yapamayacağı " +
+      "strateji, kreatif yön ve teknik mimari katmanında konumlandırdı. Fiyatta değil, danışmanlık ve " +
+      "sonuçta rekabet ederiz; \"şu fiyata şu iş\" değil, \"şu hedefe nasıl gideriz\" konuşması yapıyoruz.",
   },
 ]);
 ---
@@ -69,8 +88,8 @@ const faq = faqSchema([
           <li class="text-slate-700" aria-current="page">Hakkımızda</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
-        Hakkımızda
+      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+        Hakkımızda · İzmir'in ilk AI ajansı
       </p>
       <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
         2000'den beri İzmir'de, dijital sektörü kuran tarafta.
@@ -79,8 +98,70 @@ const faq = faqSchema([
         Gonet, 2000 yılında <strong>Gökhan Kazancı</strong> tarafından İzmir'de kuruldu. <strong>İzmir
         ve Ege'nin ilk dijital ajansı</strong> olarak başladığımız bu yolculukta Türkiye'nin ilk
         Google siyasal kampanyasından ilk D2C e-ticaret reklamına kadar pek çok &ldquo;ilk&rdquo;e
-        imza attık. Bugün <strong>Türkiye'nin ilk 3 Google Partner ajansından biriyiz</strong>.
+        imza attık. Bugün <strong>Türkiye'nin ilk 3 Google Partner ajansından biriyiz</strong> ve
+        <strong>İzmir'in ilk AI ajansı</strong> olarak konumlanıyoruz.
       </p>
+    </div>
+  </section>
+
+  <!-- Konumlanma: Ajanslar üstü kreatif stratejist -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+        Konumlanmamız
+      </p>
+      <h2 class="text-3xl font-bold text-brand-950 mb-6">
+        Ajanslar üstü kreatif stratejist.
+      </h2>
+      <div class="prose-aeo">
+        <p>
+          26 yılda 130+ markanın dijital dönüşümünden geçtik. Bu birikim bize sıradan bir ajansın
+          ötesinde bir konum kazandırdı: <strong>danışman, stratejist, kreatif yön belirleyici</strong>.
+          Yıllarca pek çok büyük çizgi üstü ajansa <em>gizli dijital çözüm ortağı</em> olarak çalıştık —
+          ajans dünyasının görmediği işleri, ajanslar adına biz çıkardık. Bu deneyim bizi
+          <strong>ajanslar üstü</strong> bir konuma yerleştirdi.
+        </p>
+        <p>
+          <strong>Fiyatta rekabet etmiyoruz.</strong> Rekabetimiz fikir, kampanya, strateji, kreatif yön
+          ve sonuç odaklı. Ajansa "şu bütçeyle şu işi yap" diyen değil; "şu hedefe nasıl ulaşırız"
+          diyen markalarla buluştuğumuzda işler farklı bir boyut kazanıyor. Gökhan Kazancı ve Gonet
+          kişisel olarak <strong>güvenilir bir marka</strong> — 26 yıl boyunca İzmir'de kesintisiz
+          aynı isimle hizmet vermek bu pazarda küçük bir başarı değil.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Ajansı vizyonu -->
+  <section class="py-20 bg-brand-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+        Yeni Vizyon · 2026
+      </p>
+      <h2 class="text-3xl font-bold text-brand-950 mb-6">
+        İzmir'in ilk AI ajansı.
+      </h2>
+      <div class="prose-aeo">
+        <p>
+          Klasik arama motoru optimizasyonu (SEO) dönemi bitmedi — ama yeni bir katman üstüne
+          eklendi. <strong>ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews</strong>
+          artık kullanıcının ilk temas noktası. Bu sistemlerde alıntılanmak, sıralanmaktan daha
+          önemli hale geldi. Buna <strong>AEO (Answer Engine Optimization)</strong> ve
+          <strong>GEO (Generative Engine Optimization)</strong> diyoruz.
+        </p>
+        <p>
+          Gonet, İzmir ölçeğinde bu alana yatırım yapan <strong>ilk ajans</strong>. Schema.org JSON-LD
+          entity authority, llms.txt protokolü, semantic chunking, citation surface engineering,
+          Common Crawl optimizasyonu, AI crawler (GPTBot, ClaudeBot, CCBot) policy yönetimi —
+          bunlar bizim 2026 odağımız. Sahip olduğumuz 26 yıllık klasik dijital pazarlama
+          birikimi ile yeni AI dönemine geçişin köprüsünü kuruyoruz.
+        </p>
+        <p>
+          Markanız <strong>ChatGPT'de soru sorulduğunda</strong> yanıtın içinde geçiyor mu?
+          <strong>Claude</strong> sizi kaynak olarak gösteriyor mu? <strong>Perplexity</strong>
+          alıntınızı tırnak içine alıyor mu? Cevap bunlardan biri "hayır"sa, konuşmamız lazım.
+        </p>
+      </div>
     </div>
   </section>
 
