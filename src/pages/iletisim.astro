@@ -1,0 +1,360 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema } from '../lib/schema';
+
+const title = 'İletişim — Gonet İzmir';
+const description =
+  "Gökhan Kazancı ile doğrudan iletişime geçin. İzmir Konak + Bayraklı Folkart Towers ofisleri. " +
+  'E-posta gokhan@gonet.com.tr — 25 yıllık ajansta projeniz için stratejik destek görüşmesi.';
+const url = 'https://gonet.com.tr/iletisim';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'ContactPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'İletişim', url },
+  ],
+});
+
+const faq = faqSchema([
+  {
+    question: 'Gonet ile nasıl iletişime geçilir?',
+    answer:
+      'E-posta: gokhan@gonet.com.tr. İzmir\'de iki ofisimiz var — Konak (İsmet Kaptan Mah. 1385 Sok. ' +
+      'No:3 Kat:4 D:403) ve Bayraklı Folkart Towers A Kule (Kat:26 D:2601). Tek bir görüşmede ' +
+      'projenizi dinleyip yol haritası sunabiliriz.',
+  },
+  {
+    question: 'Görüşme öncesi hangi bilgileri hazırlamalıyım?',
+    answer:
+      'Markanız/projeniz hakkında kısa bir özet, mevcut dijital varlığınız (varsa), hedeflediğiniz ' +
+      'sonuçlar ve yaklaşık bütçe aralığınız. Bu dört bilgi ilk görüşmenin verimli geçmesini sağlar.',
+  },
+  {
+    question: 'Hangi şehirlerden müşteriniz var?',
+    answer:
+      'İzmir merkezliyiz, ama portföyümüz tüm Türkiye\'ye yayılıyor. İstanbul (Oztan Tekstil), ' +
+      'Ankara (siyasi parti merkezleri), Amasya (Merzifon Belediyesi) gibi şehirlerden müşterilerimiz var. ' +
+      'Almanya ve Hollanda Türk pazarına yönelik uluslararası projelerimiz (Simtronik) de mevcuttur.',
+  },
+  {
+    question: 'Ücretsiz strateji görüşmesi yapıyor musunuz?',
+    answer:
+      'Evet. İlk tanışma görüşmesi 30-45 dakikadır, ücretsizdir. Projenizi dinleyip, başlangıç ' +
+      'önerileri sunarız. Sonrasında kapsamlı bir teklif ve yol haritası için ayrı bir toplantı yapılır.',
+  },
+  {
+    question: 'Online forma alternatif var mı?',
+    answer:
+      'E-posta (gokhan@gonet.com.tr) ve telefon yoluyla doğrudan ulaşabilirsiniz. Form ' +
+      'gönderimi sonrası e-posta programınız açılır; mesajınızı doğrudan iletmiş olursunuz.',
+  },
+]);
+
+// ContactPoint schemas
+const contactPoints = {
+  '@type': 'Organization',
+  '@id': 'https://gonet.com.tr/#organization',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'gokhan@gonet.com.tr',
+      availableLanguage: ['Turkish', 'English'],
+      areaServed: ['TR', 'NL', 'DE'],
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'gokhan@gonet.com.tr',
+      availableLanguage: ['Turkish'],
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, faq, contactPoints]}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">İletişim</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+        İletişim
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        Projenizi konuşalım.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        25 yıllık ajansla ilk tanışma görüşmesi 30-45 dakika, ücretsizdir. Gökhan Kazancı ile
+        doğrudan görüşeceksiniz.
+      </p>
+    </div>
+  </section>
+
+  <!-- İki kolon: form + iletişim bilgileri -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+      <!-- Form -->
+      <div>
+        <h2 class="text-3xl font-bold text-brand-950 mb-6">İletişim Formu</h2>
+        <p class="text-slate-600 mb-6 text-sm">
+          Form gönderildiğinde e-posta programınız açılır ve mesajınız gokhan@gonet.com.tr
+          adresine iletilir. Daha hızlı dönüş için doğrudan e-posta veya telefon önerilir.
+        </p>
+        <form
+          method="POST"
+          action="mailto:gokhan@gonet.com.tr"
+          enctype="text/plain"
+          class="space-y-4"
+        >
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700 mb-1">
+                Ad Soyad <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="Ad Soyad"
+                required
+                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              />
+            </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-slate-700 mb-1">
+                Şirket / Marka
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="Şirket"
+                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">
+                E-posta <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="E-posta"
+                required
+                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">
+                Telefon
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="Telefon"
+                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="sector" class="block text-sm font-medium text-slate-700 mb-1">
+              Sektör
+            </label>
+            <select
+              id="sector"
+              name="Sektör"
+              class="w-full px-4 py-2 border border-slate-300 rounded-md bg-white focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            >
+              <option value="">Seçiniz...</option>
+              <option>Sağlık & Sağlık Turizmi</option>
+              <option>İnşaat & Yapı</option>
+              <option>E-ticaret</option>
+              <option>Eğitim</option>
+              <option>Otomotiv</option>
+              <option>Turizm & Otelcilik</option>
+              <option>Gıda & FMCG</option>
+              <option>Tekstil & Konfeksiyon</option>
+              <option>Mobilya</option>
+              <option>Sanayi & Elektronik</option>
+              <option>Kamu / Belediye</option>
+              <option>Siyasi Kampanya</option>
+              <option>Start-up</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+          <div>
+            <label for="service" class="block text-sm font-medium text-slate-700 mb-1">
+              İlgilendiğiniz Hizmet
+            </label>
+            <select
+              id="service"
+              name="Hizmet"
+              class="w-full px-4 py-2 border border-slate-300 rounded-md bg-white focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            >
+              <option value="">Seçiniz...</option>
+              <option>Google Ads (SEM)</option>
+              <option>SEO</option>
+              <option>Sosyal Medya Yönetimi</option>
+              <option>Web Tasarım & Geliştirme</option>
+              <option>Sağlık Turizmi Pazarlaması</option>
+              <option>Siyasi Kampanya Yönetimi</option>
+              <option>E-ticaret Reklam Yönetimi</option>
+              <option>Marka Tasarımı & Kreatif</option>
+              <option>Online İtibar Yönetimi</option>
+              <option>Dijital Strateji & Danışmanlık</option>
+              <option>Start-up Danışmanlığı</option>
+              <option>Yazılım Danışmanlığı</option>
+              <option>Proje Yöneticiliği</option>
+              <option>Birden fazla / Belirli değil</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">
+              Mesajınız <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="Mesaj"
+              rows="6"
+              required
+              placeholder="Markanız, mevcut durumunuz, hedefleriniz ve yaklaşık bütçe aralığınız hakkında kısa bir özet..."
+              class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full sm:w-auto bg-brand-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-brand-800 transition"
+          >
+            Mesajı Gönder →
+          </button>
+          <p class="text-xs text-slate-500">
+            Form gönderildiğinde mailto bağlantısı ile e-posta programınız açılır.
+            Üyelik veya kaydolma gerekmez.
+          </p>
+        </form>
+      </div>
+
+      <!-- İletişim bilgileri -->
+      <div>
+        <h2 class="text-3xl font-bold text-brand-950 mb-6">Doğrudan Ulaşım</h2>
+
+        <div class="space-y-6">
+          <div class="border-l-4 border-brand-600 pl-4">
+            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">E-posta</div>
+            <a href="mailto:gokhan@gonet.com.tr" class="text-xl font-semibold text-brand-950 hover:text-brand-700">
+              gokhan@gonet.com.tr
+            </a>
+            <p class="text-sm text-slate-600 mt-1">Gökhan Kazancı'ya doğrudan</p>
+          </div>
+
+          <div class="border-l-4 border-brand-300 pl-4">
+            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Ofis 1 — Konak</div>
+            <address class="not-italic text-slate-700">
+              İsmet Kaptan Mah.<br>
+              1385 Sok. No:3 Kat:4 D:403<br>
+              Konak / İzmir
+            </address>
+            <a
+              href="https://maps.google.com/?q=İsmet+Kaptan+Mah+1385+Sok+Konak+İzmir"
+              target="_blank"
+              rel="noopener"
+              class="text-sm text-brand-600 hover:underline mt-1 inline-block"
+            >
+              Google Maps'te aç →
+            </a>
+          </div>
+
+          <div class="border-l-4 border-brand-300 pl-4">
+            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Ofis 2 — Bayraklı</div>
+            <address class="not-italic text-slate-700">
+              <strong>Folkart Towers A Kule</strong><br>
+              Kat:26 D:2601<br>
+              Bayraklı / İzmir
+            </address>
+            <a
+              href="https://maps.google.com/?q=Folkart+Towers+Bayraklı+İzmir"
+              target="_blank"
+              rel="noopener"
+              class="text-sm text-brand-600 hover:underline mt-1 inline-block"
+            >
+              Google Maps'te aç →
+            </a>
+          </div>
+
+          <div class="border-l-4 border-brand-300 pl-4">
+            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Teknopark</div>
+            <p class="text-slate-700">
+              <strong>Dokuz Eylül Teknopark (DEPARK)</strong> mukimi
+            </p>
+          </div>
+
+          <div class="border-l-4 border-brand-300 pl-4">
+            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Tüzel Kişilik</div>
+            <p class="text-slate-700 text-sm">
+              Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.
+            </p>
+          </div>
+
+          <div class="bg-brand-50 rounded-lg p-6 mt-8">
+            <h3 class="text-lg font-semibold text-brand-950 mb-2">Görüşme öncesi hazırlık</h3>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Marka/proje özeti</span></li>
+              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Mevcut dijital varlık (varsa)</span></li>
+              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Hedef sonuçlar</span></li>
+              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Yaklaşık bütçe aralığı</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sosyal medya -->
+  <section class="bg-slate-50 py-16 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold text-brand-950 mb-4">Sosyal Medyada Gonet</h2>
+      <div class="flex flex-wrap justify-center gap-4 mt-6">
+        <a
+          href="https://tr.linkedin.com/company/gonet-interactive-advertising-agency"
+          target="_blank"
+          rel="noopener"
+          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="https://www.behance.net/GonetCompany"
+          target="_blank"
+          rel="noopener"
+          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+        >
+          Behance
+        </a>
+        <a
+          href="https://www.facebook.com/GonetCompany/"
+          target="_blank"
+          rel="noopener"
+          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+        >
+          Facebook
+        </a>
+        <a
+          href="https://www.slideshare.net/gonetpigme"
+          target="_blank"
+          rel="noopener"
+          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+        >
+          SlideShare
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
