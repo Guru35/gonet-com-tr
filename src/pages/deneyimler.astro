@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, FOUNDER_ID } from '../lib/schema';
+
+const title = 'Deneyimler — 26 Yıllık Dijital Pazarlama Zaman Çizgisi | Gonet';
+const description =
+  'Gonet\'in 2000\'den bu yana dijital pazarlama, SEO, Google Ads, sosyal medya ve mobil API alanında geliştirdiği ' +
+  '"ilkler" — yıl yıl. Türkiye\'nin ilk siyasal Google kampanyası (2007), ilk D2C online satışı, Avrupa\'nın en büyük ' +
+  'uzaktan eğitim sistemi (anlık 25K kullanıcı) ve daha fazlası.';
+const url = 'https://gonet.com.tr/deneyimler';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'AboutPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Deneyimler', url },
+  ],
+});
+
+// Yıl bazlı milestone listesi — her biri Schema.org Event
+const milestones = [
+  {
+    year: 2000,
+    title: 'Gonet kuruldu',
+    summary: 'Gökhan Kazancı, DEÜ İİBF mezuniyetinin ardından İzmir\'de Gonet\'i kurdu. Türkiye internet kullanım oranı %3.7. İlk müşteriler küçük KOBİ web siteleri.',
+    tags: ['founding', 'izmir'],
+  },
+  {
+    year: 2003,
+    title: 'İlk Google Ads kampanyaları',
+    summary: 'Google AdWords\'ün Türkçe arayüzünden önce, İngilizce panel üzerinden Türkiye\'deki ilk reklam yöneticilerinden biri. Sağlık ve inşaat sektöründe pazarın eğitilmesi.',
+    tags: ['google-ads', 'sem'],
+  },
+  {
+    year: 2005,
+    title: 'Google Partner programına ilk dalga katılım',
+    summary: 'Türkiye\'nin ilk 3 Google Partner ajansından biri. Google ile doğrudan eğitim, sertifika ve hesap yöneticisi ilişkisi.',
+    tags: ['google-partner', 'ilk-3'],
+  },
+  {
+    year: 2007,
+    title: 'CHP — Türkiye\'nin ilk siyasal Google reklam kampanyası',
+    summary: 'CHP için 2007 genel seçim kampanyasında Türkiye\'nin ilk siyasal Google Ads çalışması. Siyasi parti dijital iletişiminde Türkiye\'de bir ilk.',
+    tags: ['chp', 'siyaset', 'ilk'],
+  },
+  {
+    year: 2007,
+    title: 'Temiz Mama — Türkiye\'nin ilk D2C online satışı',
+    summary: 'Türkiye\'de bir üreticinin doğrudan tüketiciye online ürün satması: Temiz Mama projesi. D2C (Direct-to-Consumer) konseptinin Türkiye\'deki erken uygulamalarından.',
+    tags: ['e-ticaret', 'd2c', 'ilk'],
+  },
+  {
+    year: 2007,
+    title: 'Tatil Vitrini — Türkiye\'nin ilk online tatil reklamları',
+    summary: 'Türkiye\'de tatil/seyahat segmentinde ilk online (Google Ads) satış kampanyaları. Sektörel norm haline gelen modelin başlatıcısı.',
+    tags: ['turizm', 'sem', 'ilk'],
+  },
+  {
+    year: 2008,
+    title: 'Adepo.com — Türkiye\'nin ilk online marketi',
+    summary: 'Marketten online sipariş kavramının Türkiye\'deki ilk uygulamalarından. Bugün Migros, CarrefourSA gibi büyük zincirlerin online operasyonları için 10+ yıl önce çizilen yol.',
+    tags: ['e-ticaret', 'market', 'ilk'],
+  },
+  {
+    year: 2009,
+    title: 'CHP Genel Merkez web altyapısı',
+    summary: '2009-2013 arası CHP Genel Merkez web sitesi ve dijital varlık yönetimi. 4 yıl boyunca parti dijital iletişiminin teknik omurgası.',
+    tags: ['chp', 'siyaset'],
+  },
+  {
+    year: 2010,
+    title: 'İlk inşaat sektörü Google Ads kampanyaları',
+    summary: 'MYvia (eski adı Myway) için Türkiye\'nin ilk inşaat firması Google Ads kampanyaları. 2 yıl içinde İzmir\'in 2 numaralı inşaat firması konumuna geçiş.',
+    tags: ['insaat', 'sem', 'ilk'],
+  },
+  {
+    year: 2011,
+    title: 'Ege Tüp Bebek — Türkiye\'nin ilk tüp bebek Google Ads kampanyası',
+    summary: 'Sağlık turizminin Türkiye için stratejik bir sektör olmadan önce, tüp bebek segmentinde ilk dijital pazarlama uygulaması.',
+    tags: ['saglik-turizmi', 'tup-bebek', 'ilk'],
+  },
+  {
+    year: 2013,
+    title: 'Mobil API geliştirme — Habertürk, Unilever, Fenerbahçe',
+    summary: 'Mobil uygulama backend ve API geliştirme yetkinliğinin büyük markalarda doğrulanması: Habertürk, Unilever, Fenerbahçe içerik dağıtım altyapıları.',
+    tags: ['mobil', 'api', 'enterprise'],
+  },
+  {
+    year: 2014,
+    title: 'DEÜ Uzaktan Eğitim — Avrupa\'nın en büyük canlı sistemi',
+    summary: 'Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi: anlık 25.000 canlı kullanıcı taşıyan altyapı. Avrupa ölçeğinde dönemin en büyük uzaktan eğitim canlı yayın sistemi.',
+    tags: ['egitim', 'altyapi', 'avrupa-rekoru'],
+  },
+  {
+    year: 2015,
+    title: 'AK Parti + MHP + İYİ Parti — 4 partili dijital ajans',
+    summary: 'CHP\'den sonra AK Parti, MHP ve daha sonra İYİ Parti ile çalışan ilk dijital ajans olma konumu. Türkiye\'de tek bir ajansın 4 büyük partiyle birden çalıştığı görülmemiş bir durum.',
+    tags: ['siyaset', 'dort-parti'],
+  },
+  {
+    year: 2017,
+    title: 'Almanya & Hollanda — Türk pazarına ihracat dijital',
+    summary: 'Simtronik Çelik Tencere için Almanya ve Hollanda\'daki Türk diasporasına yönelik dijital pazarlama. Yurtdışı Türk pazarına özel SEM/SEO stratejisi.',
+    tags: ['uluslararasi', 'diaspora'],
+  },
+  {
+    year: 2019,
+    title: 'Medical Park Hastaneler Grubu',
+    summary: 'Türkiye\'nin en büyük özel hastane gruplarından Medical Park ile çalışma. Sağlık sektörü dijital deneyiminin enterprise ölçeğe taşınması.',
+    tags: ['saglik', 'enterprise'],
+  },
+  {
+    year: 2020,
+    title: 'Pandemi — uzaktan eğitim ve sağlık dijitalleşmesi',
+    summary: 'COVID-19 ile birlikte DEÜ Uzaktan Eğitim sisteminin yük artışına hazırlık ve özel sağlık kuruluşları için telesağlık dijital varlık yönetimi.',
+    tags: ['pandemi', 'altyapi'],
+  },
+  {
+    year: 2022,
+    title: 'Lada Türkiye dijital varlık yönetimi',
+    summary: 'Lada Türkiye distribütörünün resmi web sitesi, online reklamlar ve sosyal medya yönetimi. Otomotiv distribütör segmentinde tam servis dijital.',
+    tags: ['otomotiv', 'distribütör'],
+  },
+  {
+    year: 2023,
+    title: 'DEPARK — Dokuz Eylül Teknopark ortaklığı',
+    summary: 'DEPARK (Dokuz Eylül Üniversitesi Teknopark) bünyesine ofis taşınımı + Teknopark portföyünde web ve danışmanlık projeleri (Bambu, Dojonote, vd.).',
+    tags: ['teknopark', 'ar-ge'],
+  },
+  {
+    year: 2024,
+    title: 'IRD üyelik + Pigme A.Ş. yapılanması',
+    summary: 'İnternet Reklamcılığı Derneği (IRD) üyeliği + ana faaliyet şirketi olarak "Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş." yapılanması.',
+    tags: ['kurumsal', 'ird'],
+  },
+  {
+    year: 2025,
+    title: 'GA (Google Analytics) 2 numaralı Türkiye partneri',
+    summary: 'Google Analytics segmentinde Türkiye\'nin 2 numaralı resmi partneri konumuna geçiş. GA4 + GTM + BigQuery entegrasyonlarında derin yetkinlik.',
+    tags: ['analitik', 'ga4', 'ilk-2'],
+  },
+  {
+    year: 2026,
+    title: 'AEO/GEO — Answer Engine Optimization odaklı dönüşüm',
+    summary: 'Klasik SEO\'dan ChatGPT, Claude, Perplexity ve Google AI Overviews için içerik optimizasyonuna geçiş. Schema.org entity authority, llms.txt, semantic chunking ve citation surface stratejileri.',
+    tags: ['aeo', 'geo', 'llm-seo'],
+  },
+];
+
+// Schema.org Event listesi — her milestone bir Event
+const eventListSchema = {
+  '@type': 'ItemList',
+  name: 'Gonet 26 yıllık deneyim zaman çizgisi',
+  numberOfItems: milestones.length,
+  itemListElement: milestones.map((m, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'Event',
+      name: m.title,
+      description: m.summary,
+      startDate: `${m.year}-01-01`,
+      organizer: { '@id': ORG_ID },
+      ...(m.tags.includes('siyaset') || m.tags.includes('saglik-turizmi')
+        ? { performer: { '@id': FOUNDER_ID } }
+        : {}),
+    },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, eventListSchema]}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Deneyimler</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+        Zaman Çizgisi
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        26 yıllık dijital pazarlama deneyimi — yıl yıl.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Gonet 2000\'de İzmir\'de kuruldu. O günden bu yana Türkiye\'nin dijital pazarlama hikayesinin
+        içinde yer aldık — Google Ads\'ün Türkçeleşmesinden önce, ilk siyasal kampanyalardan, ilk
+        D2C online satışlardan AEO/GEO\'ya kadar. Aşağıda <strong>{milestones.length} milestone</strong>
+        ile özetli zaman çizgisi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <ol class="relative border-l-2 border-accent-200 ml-4 space-y-12">
+        {milestones.map((m) => (
+          <li class="ml-8 relative">
+            <span class="absolute -left-[42px] top-1 w-6 h-6 rounded-full bg-accent-500 border-4 border-white shadow-md flex items-center justify-center">
+              <span class="w-2 h-2 bg-white rounded-full"></span>
+            </span>
+            <article>
+              <header class="flex items-baseline gap-4 mb-2 flex-wrap">
+                <time class="text-3xl font-bold text-brand-950" datetime={String(m.year)}>{m.year}</time>
+                <h2 class="text-xl font-semibold text-slate-900">{m.title}</h2>
+              </header>
+              <p class="text-slate-700 leading-relaxed mb-3">{m.summary}</p>
+              <div class="flex flex-wrap gap-2">
+                {m.tags.map((t) => (
+                  <span class="text-xs bg-brand-100 text-brand-700 px-2 py-1 rounded font-medium">
+                    #{t}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Özet sayılar -->
+  <section class="py-16 bg-brand-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-brand-950 mb-8 text-center">26 yılın özeti</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
+          <div class="text-4xl font-bold text-accent-600 mb-2">26+</div>
+          <div class="text-sm text-slate-700">yıl deneyim</div>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
+          <div class="text-4xl font-bold text-accent-600 mb-2">100+</div>
+          <div class="text-sm text-slate-700">marka</div>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
+          <div class="text-4xl font-bold text-accent-600 mb-2">15+</div>
+          <div class="text-sm text-slate-700">sektör</div>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
+          <div class="text-4xl font-bold text-accent-600 mb-2">12+</div>
+          <div class="text-sm text-slate-700">Türkiye\'de ilk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Sizin hikayeniz için bu deneyim</h2>
+      <p class="text-lg text-brand-200 mb-8">
+        26 yılda biriken kararsızlık değil, kararsızlığı çözen örüntüler. Markanız hangi
+        sektörde olursa olsun, benzerini muhtemelen önce biz yaptık.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        Bizimle çalışın →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
-/* GONET Design Tokens */
+/* GONET Design Tokens — siyah/kırmızı klasik palet (markaya uyumlu) */
 @theme {
-  --color-brand-50: #f5f7fb;
-  --color-brand-100: #e4eaf5;
-  --color-brand-200: #c3cfe7;
-  --color-brand-300: #95a8d2;
-  --color-brand-400: #6a82bc;
-  --color-brand-500: #4a64a4;
-  --color-brand-600: #3a5089;
-  --color-brand-700: #2f4170;
-  --color-brand-800: #28365b;
-  --color-brand-900: #1a2440;
-  --color-brand-950: #0e1429;
+  /* Brand: derin siyah + nötr griler */
+  --color-brand-50: #f5f5f5;
+  --color-brand-100: #e5e5e5;
+  --color-brand-200: #d4d4d4;
+  --color-brand-300: #a3a3a3;
+  --color-brand-400: #737373;
+  --color-brand-500: #525252;
+  --color-brand-600: #404040;
+  --color-brand-700: #262626;
+  --color-brand-800: #171717;  /* mevcut markadaki dark gri */
+  --color-brand-900: #0a0a0a;
+  --color-brand-950: #000000;  /* mevcut markadaki siyah */
 
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
+  /* Accent: GONET kırmızısı (mevcut markadaki #ff0000 yumuşatılmış) */
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-300: #fca5a5;
+  --color-accent-500: #ef4444;  /* canlı kırmızı, AA contrast */
+  --color-accent-600: #dc2626;
+  --color-accent-700: #b91c1c;
 
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
@@ -50,7 +56,7 @@ body {
   @apply list-decimal mb-6 ml-6 space-y-2 text-slate-700;
 }
 .prose-aeo a {
-  @apply text-brand-600 underline underline-offset-2 hover:text-brand-800;
+  @apply text-accent-600 underline underline-offset-2 hover:text-accent-700;
 }
 .prose-aeo strong {
   @apply text-slate-900 font-semibold;

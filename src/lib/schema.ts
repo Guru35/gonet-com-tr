@@ -4,10 +4,10 @@
 // Veri kaynağı: AEO/wiki/syntheses/gonet-kurumsal-profil-2026-06.md
 // Kurucu beyanı + bağımsız araştırma (Web Archive, Haberler.com 2009, LinkedIn, IRD üye listesi)
 
-const SITE_URL = 'https://gonet.com.tr';
-const ORG_ID = `${SITE_URL}/#organization`;
-const SITE_ID = `${SITE_URL}/#website`;
-const FOUNDER_ID = `${SITE_URL}/#founder`;
+export const SITE_URL = 'https://gonet.com.tr';
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const SITE_ID = `${SITE_URL}/#website`;
+export const FOUNDER_ID = `${SITE_URL}/#founder`;
 
 // Tek sefer tanımlanan global Organization
 // Pigme A.Ş. legal entity + Gonet brand
