@@ -17,6 +17,7 @@ export const organizationSchema = {
   name: 'Gonet',
   alternateName: ['GONET', 'Gonet Interactive Advertising Agency'],
   legalName: 'Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.',
+  slogan: 'Her iş\'te Gonet var.',
   url: SITE_URL,
   logo: {
     '@type': 'ImageObject',
