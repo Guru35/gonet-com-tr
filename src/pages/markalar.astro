@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
+
+const title = 'Çalıştığımız Markalar — Gonet 26 Yıllık Portföy';
+const description =
+  '26 yılda 15+ sektörde 100+ marka. Sağlık (Medical Park, Ege Tüp Bebek, Kaşkaloğlu), inşaat (MYvia, Marport), ' +
+  'siyaset (AK Parti, CHP, MHP, İYİ Parti), e-ticaret (Adepo.com Türkiye\'nin ilk online marketi), ' +
+  'mobil API (Habertürk, Unilever, Fenerbahçe), turizm, FMCG, akademi.';
+const url = 'https://gonet.com.tr/markalar';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Markalar', url },
+  ],
+});
+
+// Sektör başlıklı marka listesi
+const sectors = [
+  {
+    name: 'Sağlık & Sağlık Turizmi',
+    highlight: 'Türkiye\'nin ilk tüp bebek Google Ads kampanyası',
+    brands: [
+      'Medical Park Hastaneler Grubu',
+      'Ege Tüp Bebek',
+      'Gözde Hastaneleri',
+      'Emot',
+      'Atakalp',
+      'Kaşkaloğlu Göz Hastanesi',
+      'Özel Su Hastanesi',
+      'Medsu Medikal',
+      'Nano Dental',
+      'Metin İlaç',
+      'Dr. İbrahim Aşkar (Estetik Cerrah)',
+      'Vasfi Karaoğlu (Ortopedist)',
+      'Sayısız diş hekimi, kadın doğum doktoru ve estetik cerrah',
+    ],
+  },
+  {
+    name: 'Güzellik & Estetik',
+    brands: ['A+ Güzellik', 'Esmetalizmir', 'Zayıflama & besin takviyeleri sektörü', 'Çok sayıda güzellik merkezi'],
+  },
+  {
+    name: 'İnşaat',
+    highlight: 'Türkiye\'nin ilk inşaat sektörü Google Ads reklamları',
+    brands: [
+      'MYvia (eski adı Myway) — 2 yılda İzmir\'in #2 inşaat firması',
+      'Marport',
+      'Yapıtek',
+      'İkon Yapı',
+      'Kavuklar İnşaat',
+      'My Via Yapı',
+      'Narova',
+    ],
+  },
+  {
+    name: 'Siyaset & Kamu',
+    highlight: '4 büyük partiyle çalışan ilk dijital ajans',
+    brands: [
+      'AK Parti',
+      'CHP — Türkiye\'nin ilk Google siyasal kampanyası (2007) + Genel Merkez web sitesi (2009-2013)',
+      'MHP',
+      'İYİ Parti',
+      'İzsu — "Elimizi suyun altına koyduk" sosyal kampanya',
+    ],
+  },
+  {
+    name: 'E-ticaret & İnternet',
+    highlight: 'Türkiye ölçeğinde 3 büyük "ilk"',
+    brands: [
+      'Adepo.com — Türkiye\'nin ilk online marketi ⭐',
+      'Temiz Mama (2007) — Türkiye\'de ilk D2C üreticiden tüketiciye online satış',
+      'Tatil Vitrini (2007) — Türkiye\'nin ilk online tatil satış reklamları',
+    ],
+  },
+  {
+    name: 'Mobil API — Büyük markalar',
+    brands: ['Habertürk', 'Unilever', 'Fenerbahçe'],
+  },
+  {
+    name: 'Eğitim & Akademi',
+    highlight: 'Avrupa\'nın en büyüğü — anlık 25K canlı kullanıcı',
+    brands: [
+      'Dokuz Eylül Üniversitesi (Uzaktan Eğitim Sistemi)',
+      'DEPARK (Dokuz Eylül Teknopark — danışmanlık + web sitesi)',
+      'Bambu (DEPARK projesi)',
+      'Prof. Nükhet Hotar — sosyal medya + web sitesi',
+      'Dojonote — startup danışmanlığı',
+      'Çizgi Film Anaokulları',
+      'Panda Çocuk Evi',
+    ],
+  },
+  {
+    name: 'Turizm & Otelcilik',
+    brands: [
+      'Tatil Vitrini',
+      'Tur19',
+      'Vals Tur',
+      'Anı Tur',
+      'Vinifera Hotel',
+      'Wyndham Hotels',
+      '7 Bilgeler Şarapçılık',
+    ],
+  },
+  {
+    name: 'Gıda & FMCG',
+    brands: [
+      'Coca Cola',
+      'Aytaç Gıda',
+      'Ekmekiçi',
+      'Norm Dijital',
+      'Alins',
+      'Koçak Gold',
+      'Özdilek',
+      'Haier Klima',
+      'Luna Cookware',
+      'Konyalı Ahmet Usta',
+      'Jain Farm Fresh',
+    ],
+  },
+  {
+    name: 'Otomotiv',
+    brands: ['Öztekin Oto', 'Sixt Rent a Car'],
+  },
+  {
+    name: 'Uluslararası',
+    brands: ['Amatis.nl (Hollanda)', 'Cryptocoin firması'],
+  },
+  {
+    name: 'Ajans çözüm partnerliği (white-label)',
+    highlight: 'Yıllarca çizgi üstü ajanslara gizli dijital çözüm partneri',
+    brands: ['Parma Reklam', 'Rekmar', 'Fonksiyon Reklam', 'Reklam Merkezi', 'Çok sayıda diğer İzmir ve İstanbul ajansı'],
+  },
+];
+
+// ItemList schema — AEO için citation-worthy entity list
+const itemListSchema = {
+  '@type': 'ItemList',
+  name: 'Gonet portföyündeki markalar',
+  numberOfItems: sectors.reduce((sum, s) => sum + s.brands.length, 0),
+  itemListElement: sectors.flatMap((sector, sIdx) =>
+    sector.brands.map((brand, bIdx) => ({
+      '@type': 'ListItem',
+      position: sIdx * 100 + bIdx + 1,
+      item: {
+        '@type': 'Organization',
+        name: brand.split(' — ')[0],
+        description: brand.includes(' — ') ? brand.split(' — ')[1] : undefined,
+      },
+    })),
+  ),
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, itemListSchema]}>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Markalar</li>
+        </ol>
+      </nav>
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+        Çalıştığımız Markalar
+      </p>
+      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+        26 yılda 15+ sektörde 100+ marka.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Sağlık turizminden inşaata, siyasi kampanyalardan büyük markaların mobil API'lerine —
+        2000'den bu yana çalıştığımız markaların bir kısmı. Listemiz <strong>çok daha uzun</strong>;
+        burada en bilinenler veya hikayesi public olanlardır.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sektörler -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6 space-y-12">
+      {sectors.map((sector) => (
+        <article class="border border-slate-200 rounded-lg overflow-hidden">
+          <header class="bg-brand-50 px-6 py-4 border-b border-slate-200">
+            <h2 class="text-2xl font-bold text-brand-950">{sector.name}</h2>
+            {sector.highlight && (
+              <p class="text-sm text-brand-700 mt-1 font-medium">★ {sector.highlight}</p>
+            )}
+          </header>
+          <ul class="divide-y divide-slate-100">
+            {sector.brands.map((brand) => (
+              <li class="px-6 py-3 text-slate-800">
+                {brand.includes(' — ') ? (
+                  <>
+                    <strong>{brand.split(' — ')[0]}</strong>
+                    <span class="text-slate-600"> — {brand.split(' — ').slice(1).join(' — ')}</span>
+                  </>
+                ) : (
+                  brand
+                )}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-950 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Sizin de markanız bu listede yer alsın</h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+        Sektörünüz ne olursa olsun — 15+ sektörde, 100+ markada denenmiş stratejiyle çalışıyoruz.
+      </p>
+      <a
+        href="/iletisim"
+        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+      >
+        İletişime Geç →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
