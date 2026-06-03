@@ -59,6 +59,9 @@ export const organizationSchema = {
     'Generative Engine Optimization (GEO)',
     'LLM SEO',
     'Schema.org JSON-LD Entity Authority',
+    'AI Entegrasyonu — Kurumsal AI sistem entegrasyonu',
+    'AI Pazarlama — AI tabanlı pazarlama otomasyonu',
+    'Startup Danışmanlığı — Proje ve iş geliştirme',
     'Dijital Strateji',
     'Web Tasarım',
     'Google Ads (SEM)',
@@ -95,6 +98,7 @@ export const organizationSchema = {
     'Türkiye\'nin ilk 3 Google Partner ajansından biri',
     '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi seçimi',
     'Google Analytics 2 numaralı Türkiye partneri (2025)',
+    'Google tarafından yayımlanan case study — MYvia inşaat kampanyası',
   ],
   sameAs: [
     'https://tr.linkedin.com/company/gonet-interactive-advertising-agency',
@@ -180,7 +184,21 @@ export const founderSchema = {
     '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi',
     'Türkiye\'nin ilk 3 Google Partner ajansından biri (kurucu)',
   ],
+  // Yazarlık — Yalın Bilinç Felsefesi (YBF) kitabı
+  workExample: {
+    '@type': 'Book',
+    '@id': `${SITE_URL}/#book-ybf`,
+    name: 'YBF — Yalın Bilinç Felsefesi',
+    author: { '@id': FOUNDER_ID },
+    inLanguage: 'tr',
+    description: 'Gökhan Kazancı tarafından kaleme alınan, yalın düşünce ve bilinç ekseninde geliştirilmiş özgün bir felsefe ve yaşam pratiği kitabı.',
+  },
   hasOccupation: [
+    {
+      '@type': 'Occupation',
+      name: 'Yazar',
+      description: '"YBF — Yalın Bilinç Felsefesi" kitabının yazarı (özgün felsefe + yaşam pratiği)',
+    },
     {
       '@type': 'Occupation',
       name: 'Dijital Pazarlama Eğitmeni',
