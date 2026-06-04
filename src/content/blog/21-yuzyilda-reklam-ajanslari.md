@@ -2,6 +2,7 @@
 title: "21. Yüzyılda Reklam Ajansları"
 description: "21. yüzyılda, reklam ajansları dijital teknolojilerin hızlı gelişimi nedeniyle önemli değişiklikler yaşamıştır. Bu değişiklikler, reklam ajanslarının nasıl çalıştığını ve hangi araçları kullandığını e..."
 h1: "21. Yüzyılda Reklam Ajansları"
+ogImage: "/blog/blog-21-yuzyilda-reklam-ajanslari.jpg"
 published: 2022-08-15
 author:
   name: "Gonet"

@@ -32,8 +32,8 @@ const faq = faqSchema([
   {
     question: 'Gonet nerede bulunuyor?',
     answer:
-      "Gonet'in iki ofisi İzmir'de bulunuyor: Konak'ta İsmet Kaptan Mahallesi 1385. Sokak No:3 Kat:4 D:403, " +
-      "ve Bayraklı'da Folkart Towers A Kule Kat:26 D:2601. Ayrıca Dokuz Eylül Teknopark (DEPARK) mukimiyiz.",
+      "Gonet İzmir Buca'da DEÜ Tınaztepe Kampüsü Teknopark (DEPARK) ofisinden çalışıyor. " +
+      "İletişim: gonet@gonet.com.tr · +90 232 465 00 15.",
   },
   {
     question: 'Gonet kimler için çalıştı?',
@@ -79,19 +79,19 @@ const faq = faqSchema([
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, faq]}>
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="editorial-section bg-white" style="--rule-top-x:12%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Hakkımızda</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Hakkımızda · İzmir'in ilk AI ajansı
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         2000'den beri İzmir'de, dijital sektörü kuran tarafta.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
@@ -105,15 +105,15 @@ const faq = faqSchema([
   </section>
 
   <!-- Konumlanma: Ajanslar üstü kreatif stratejist -->
-  <section class="py-20 bg-white border-b border-slate-200">
+  <section class="editorial-section py-20 bg-white" style="--rule-top-x:28%;--rule-top-w:35%;--rule-bot-x:12%;--rule-bot-w:46%">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Konumlanmamız
       </p>
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">
         Ajanslar üstü kreatif stratejist.
       </h2>
-      <div class="prose-aeo">
+      <div class="prose-irregular">
         <p>
           26 yılda 130+ markanın dijital dönüşümünden geçtik. Bu birikim bize sıradan bir ajansın
           ötesinde bir konum kazandırdı: <strong>danışman, stratejist, kreatif yön belirleyici</strong>.
@@ -132,46 +132,55 @@ const faq = faqSchema([
     </div>
   </section>
 
-  <!-- Ödüller, Sponsorluklar, Eğitim -->
-  <section class="py-20 bg-white border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-6">
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+  <!-- Ödüller, Sponsorluklar, Eğitim — çerçevesiz tilt yayılma -->
+  <section class="editorial-section bg-white overflow-hidden" style="--rule-top-x:8%;--rule-top-w:52%;--rule-bot-x:40%;--rule-bot-w:30%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
         Tanıma · Sponsorluk · Eğitim
       </p>
-      <h2 class="text-3xl font-bold text-brand-950 mb-8">
-        Ödüller, sponsorluklar ve eğitim verdiğimiz yerler.
-      </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-brand-50 border border-brand-200 rounded-lg p-6">
-          <span class="text-2xl text-accent-600 block mb-3">🏆</span>
-          <h3 class="font-bold text-brand-950 mb-2">Google'dan birçok ödül + case study</h3>
-          <p class="text-sm text-slate-700">
-            Yıllar boyunca Google'ın çeşitli ajans programları, partner kategorileri ve
-            performans yarışmalarında <strong>birden fazla ödül</strong>. Türkiye'nin ilk 3 Google
-            Partner ajansından biri ve 2009'da <strong>30 ajans arasından Google Dublin
-            Agencies@Google'a Türkiye'yi temsilen seçildik</strong>.
-            Ayrıca <strong>Google tarafından MYvia inşaat kampanyamız case study olarak yayımlandı</strong> —
-            Türkiye'den Google'ın resmi olarak işaret ettiği nadir ajans işlerinden biri.
+
+      <div class="space-y-24 lg:space-y-32">
+        <!-- 1: Google ödülleri -->
+        <div class="max-w-4xl" style="transform: rotate(-1.5deg); transform-origin: left center;">
+          <p class="editorial-display text-5xl lg:text-7xl mb-4">01</p>
+          <h3 class="editorial-display text-[14vw] lg:text-[7vw] xl:text-[110px] leading-[0.85] mb-8">
+            Google ödülleri + case study.
+          </h3>
+          <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl">
+            Yıllar boyunca Google'ın çeşitli ajans programları, partner kategorileri ve performans
+            yarışmalarında <strong>birden fazla ödül</strong>. Türkiye'nin ilk 3 Google Partner
+            ajansından biri ve <strong>2009'da 30 ajans arasından Google Dublin Agencies@Google'a
+            Türkiye'yi temsilen seçildik</strong>. Üstüne <strong>Google tarafından MYvia inşaat
+            kampanyamız case study olarak yayımlandı</strong> — Türkiye'den Google'ın resmi olarak
+            işaret ettiği nadir ajans işlerinden biri.
           </p>
         </div>
-        <div class="bg-brand-50 border border-brand-200 rounded-lg p-6">
-          <span class="text-2xl text-accent-600 block mb-3">🎓</span>
-          <h3 class="font-bold text-brand-950 mb-2">DEÜ Ergonomi Kongresi sponsorluğu</h3>
-          <p class="text-sm text-slate-700">
+
+        <!-- 2: DEÜ Ergonomi — sağa kaydırılmış -->
+        <div class="max-w-4xl ml-auto lg:mr-[-2%] lg:text-right" style="transform: rotate(1.5deg); transform-origin: right center;">
+          <p class="editorial-display text-5xl lg:text-7xl mb-4">02</p>
+          <h3 class="editorial-display text-[14vw] lg:text-[7vw] xl:text-[110px] leading-[0.85] mb-8">
+            DEÜ Ergonomi Kongresi sponsoruyduk.
+          </h3>
+          <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl lg:ml-auto">
             Dokuz Eylül Üniversitesi <strong>Ergonomi Kongresi sponsoru</strong> olarak yer aldık;
-            etkinlikte Gökhan Kazancı dijital pazarlama eğitim sunumu verdi.
-            DEÜ Rektörlük + DEUZEM uzaktan eğitim sistemleri danışmanlığı görevleriyle birlikte
-            akademiyle uzun süreli ilişkimiz var.
+            etkinlikte <strong>Gökhan Kazancı dijital pazarlama eğitim sunumu</strong> verdi. DEÜ
+            Rektörlük + DEUZEM <strong>uzaktan eğitim sistemleri danışmanlığı</strong>
+            görevleriyle birlikte akademiyle uzun süreli ilişkimiz var.
           </p>
         </div>
-        <div class="bg-brand-50 border border-brand-200 rounded-lg p-6">
-          <span class="text-2xl text-accent-600 block mb-3">👨‍🏫</span>
-          <h3 class="font-bold text-brand-950 mb-2">Kurumsal & akademik eğitimler</h3>
-          <p class="text-sm text-slate-700">
-            Yaşar Üniversitesi'nde <strong>dijital pazarlama dersleri</strong> verildi.
-            Ayrıca dijital pazarlama, SEO, Google Ads, AEO/GEO konularında
-            <strong>çok sayıda firma ve kurumda</strong> kurum içi eğitimler verildi —
-            bilgiyi sadece müşteriye uygulamıyoruz, paylaşıyor ve yayıyoruz.
+
+        <!-- 3: Kurumsal + akademik eğitimler — biraz sağa kaymış, ters tilt -->
+        <div class="max-w-4xl lg:ml-[12%]" style="transform: rotate(-1deg); transform-origin: center;">
+          <p class="editorial-display text-5xl lg:text-7xl mb-4">03</p>
+          <h3 class="editorial-display text-[14vw] lg:text-[7vw] xl:text-[110px] leading-[0.85] mb-8">
+            Kurumsal + akademik eğitim verdik.
+          </h3>
+          <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl">
+            Yaşar Üniversitesi'nde <strong>dijital pazarlama dersleri</strong> verildi. Ayrıca
+            dijital pazarlama, SEO, Google Ads, AEO/GEO konularında <strong>çok sayıda firma ve
+            kurumda</strong> kurum içi eğitimler verildi — bilgiyi sadece müşteriye uygulamıyor,
+            paylaşıyor ve yayıyoruz.
           </p>
         </div>
       </div>
@@ -179,15 +188,15 @@ const faq = faqSchema([
   </section>
 
   <!-- YBF kitabı -->
-  <section class="py-20 bg-white border-b border-slate-200">
+  <section class="editorial-section py-20 bg-white" style="--rule-top-x:18%;--rule-top-w:38%;--rule-bot-x:35%;--rule-bot-w:28%">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Kurucu Yazarlığı
       </p>
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">
         YBF — Yalın Bilinç Felsefesi
       </h2>
-      <div class="prose-aeo">
+      <div class="prose-irregular">
         <p>
           Gökhan Kazancı'nın yazdığı <strong>"YBF — Yalın Bilinç Felsefesi"</strong> kitabı,
           yalın düşünce ve bilinç ekseninde geliştirilmiş <strong>özgün bir felsefe ve
@@ -204,15 +213,15 @@ const faq = faqSchema([
   </section>
 
   <!-- AI Ajansı vizyonu -->
-  <section class="py-20 bg-brand-50 border-b border-slate-200">
+  <section class="editorial-section py-20 bg-white" style="--rule-top-x:30%;--rule-top-w:32%;--rule-bot-x:8%;--rule-bot-w:44%">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Yeni Vizyon · 2026
       </p>
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">
         İzmir'in ilk AI ajansı.
       </h2>
-      <div class="prose-aeo">
+      <div class="prose-irregular">
         <p>
           Klasik arama motoru optimizasyonu (SEO) dönemi bitmedi — ama yeni bir katman üstüne
           eklendi. <strong>ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews</strong>
@@ -245,47 +254,107 @@ const faq = faqSchema([
     </div>
   </section>
 
-  <!-- Kurucu -->
-  <section class="py-20 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">Kurucu — Gökhan Kazancı</h2>
-      <div class="prose-aeo">
-        <p>
-          Gökhan Kazancı (1975 doğumlu), <strong>Dokuz Eylül Üniversitesi İktisadi ve İdari Bilimler
-          Fakültesi (İİBF)</strong> mezunudur. <strong>Yaşar Üniversitesi'nde dijital pazarlama
-          dersleri verdi</strong>. Finans ve borsa geçmişi vardır; babasının matbaa ve yerel gazete
-          işleri sebebiyle <strong>basın, yayın ve gazetecilik mirasını çocukluktan tanır</strong>.
-        </p>
-        <p>
-          2000 yılında, internet henüz emekleme döneminde olduğu bir Türkiye'de İzmir'de Gonet'i
-          kurdu. Aynı yıl içinde <strong>Türkiye'nin ilk web tasarım ajanslarından birini</strong>
-          inşa etti. Sonraki yıllarda <strong>Türkiye'nin ilk 3 Google Partner ajansından birini</strong>
-          ve Google Ads'in <strong>Türkiye'deki ilk beta tester ajansını</strong> yönetti.
-        </p>
-        <p>
-          2009'da Google'ın Dublin'deki <em>Agencies@google</em> Avrupa toplantısında <strong>30 ajans
-          arasından seçilerek Türkiye'yi temsil etti</strong>. 2007'de Türkiye'nin ilk Google siyasal
-          kampanyasını (CHP), ilk online tatil satış reklamlarını (Tatil Vitrini), ilk D2C e-ticaret
-          kampanyasını (Temiz Mama) hayata geçirdi.
-        </p>
+  <!-- Kurucu — devasa Gökhan odak bloğu (eski ekip silindi, Gökhan ön plana) -->
+  <section class="editorial-section bg-white overflow-hidden" style="--rule-top-x:22%;--rule-top-w:42%;--rule-bot-x:32%;--rule-bot-w:30%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-40">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
+        Kurucu · Tek isim
+      </p>
+
+      <h2 class="editorial-display text-[22vw] lg:text-[16vw] xl:text-[260px] leading-[0.82] mb-12">
+        Gökhan<br />Kazancı.
+      </h2>
+
+      <!-- Stat şeridi -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 lg:gap-x-10 border-y border-black py-8 mb-16">
+        <div>
+          <p class="editorial-display text-4xl lg:text-6xl">1975</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] mt-2 opacity-70">Doğum</p>
+        </div>
+        <div>
+          <p class="editorial-display text-4xl lg:text-6xl">26 yıl</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] mt-2 opacity-70">Kesintisiz operasyon</p>
+        </div>
+        <div>
+          <p class="editorial-display text-4xl lg:text-6xl">16K+</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] mt-2 opacity-70">LinkedIn takipçi</p>
+        </div>
+        <div>
+          <p class="editorial-display text-4xl lg:text-6xl">1</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] mt-2 opacity-70">Kitap yazarı (YBF)</p>
+        </div>
+      </div>
+
+      <!-- 3 büyük tipografik anlatı bloku -->
+      <div class="space-y-20 lg:space-y-28 max-w-5xl">
+        <div style="transform: rotate(-0.8deg); transform-origin: left;">
+          <p class="editorial-display text-3xl lg:text-5xl mb-4">Eğitim & Miras.</p>
+          <p class="text-lg lg:text-2xl leading-snug font-medium">
+            <strong>Dokuz Eylül Üniversitesi İktisadi ve İdari Bilimler Fakültesi</strong> mezunu.
+            Finans ve borsa geçmişi var. Babası matbaacı ve yerel gazete sahibiydi —
+            <strong>basın, yayın ve gazetecilik mirasını çocukluktan tanır</strong>.
+          </p>
+        </div>
+
+        <div class="lg:ml-[14%]" style="transform: rotate(0.8deg); transform-origin: right;">
+          <p class="editorial-display text-3xl lg:text-5xl mb-4">Kuruluş & Türkiye'nin "İlk"leri.</p>
+          <p class="text-lg lg:text-2xl leading-snug font-medium">
+            <strong>2000'de İzmir'de Gonet'i kurdu</strong> — internet henüz emekleme dönemindeydi.
+            Türkiye'nin ilk web tasarım ajanslarından birini inşa etti. Sonra
+            <strong>Türkiye'nin ilk 3 Google Partner</strong>'ından birini ve
+            <strong>Google Ads'in Türkiye'deki ilk beta tester ajansını</strong> yönetti.
+            2009'da <strong>Google Dublin Agencies@Google'da Türkiye'yi 30 ajans arasından temsil etti</strong>.
+            2007'de Türkiye'nin ilk Google siyasal kampanyası (CHP), ilk online tatil reklamları
+            (Tatil Vitrini), ilk D2C kampanyası (Temiz Mama) — hepsi onun imzasını taşır.
+          </p>
+        </div>
+
+        <div style="transform: rotate(-0.6deg); transform-origin: left;">
+          <p class="editorial-display text-3xl lg:text-5xl mb-4">Akademi & Yazarlık.</p>
+          <p class="text-lg lg:text-2xl leading-snug font-medium">
+            <strong>Yaşar Üniversitesi'nde dijital pazarlama dersleri</strong> verdi.
+            <strong>Dokuz Eylül Üniversitesi Rektörlük</strong> ve <strong>DEUZEM</strong>
+            (Uzaktan Eğitim Merkezi) danışmanlığı görevlerinde bulundu — Avrupa'nın anlık 25K
+            kullanıcılı en büyük uzaktan eğitim sisteminin inşasında stratejik danışman.
+            <strong>"YBF — Yalın Bilinç Felsefesi"</strong> kitabının yazarı.
+          </p>
+        </div>
+
+        <div class="lg:ml-[8%]">
+          <p class="editorial-display text-3xl lg:text-5xl mb-4">Bugün.</p>
+          <p class="text-lg lg:text-2xl leading-snug font-medium mb-6">
+            Gonet'in <strong>"İzmir'in ilk AI ajansı"</strong> konumlanmasını yönetiyor.
+            <strong>AEO, GEO, AI Entegrasyonu, AI Pazarlama, Startup Danışmanlığı,
+            Proje ve İş Geliştirme</strong> — 26 yıllık klasik dijital deneyimini
+            AI çağına köprülüyor.
+          </p>
+          <a
+            href="https://www.linkedin.com/in/gokhankazanci/"
+            target="_blank"
+            rel="noopener"
+            class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+          >
+            LinkedIn'de takip edin (16K+) →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- 25 yıl zaman çizelgesi -->
-  <section class="py-20 bg-slate-50 border-b border-slate-200">
+  <section class="editorial-section py-20 bg-white border-black" style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:28%;--rule-bot-w:38%">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-10">25 Yılda İlkler</h2>
-      <ol class="space-y-6 border-l-2 border-brand-300 pl-6">
+      <h2 class="text-3xl font-bold text-black mb-10">25 Yılda İlkler</h2>
+      <ol class="space-y-6 border-l-2 border-black pl-6">
         <li>
-          <div class="font-bold text-brand-900">2000</div>
+          <div class="font-bold text-black">2000</div>
           <p class="text-slate-700">
             Gonet kuruldu. <strong>İzmir ve Ege'nin ilk dijital ajansı.</strong> Türkiye'nin ilk
             web tasarım ajanslarından biri.
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">2007</div>
+          <div class="font-bold text-black">2007</div>
           <p class="text-slate-700">
             <strong>Türkiye'nin ilk Google siyasal reklam kampanyası — CHP.</strong> Aynı yıl
             Türkiye'nin ilk online tatil satış sistemi reklamları (Tatil Vitrini) ve ilk D2C online
@@ -293,7 +362,7 @@ const faq = faqSchema([
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">2009</div>
+          <div class="font-bold text-black">2009</div>
           <p class="text-slate-700">
             Google'ın <strong>Dublin Agencies@google Avrupa toplantısında Türkiye'yi temsil ettik</strong>
             — 30 ajans arasından seçilerek. Aynı dönemde CHP genel merkez web sitesini kurduk
@@ -301,7 +370,7 @@ const faq = faqSchema([
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">2010'lar</div>
+          <div class="font-bold text-black">2010'lar</div>
           <p class="text-slate-700">
             <strong>İzmir'in ilk SEO ajansı, ilk sosyal medya ajansı, ilk online itibar yönetimi
             hizmeti.</strong> İzmir'in geçmişte <strong>tek IAB Türkiye üyesi</strong> ajansı.
@@ -310,7 +379,7 @@ const faq = faqSchema([
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">2010'lar (devamı)</div>
+          <div class="font-bold text-black">2010'lar (devamı)</div>
           <p class="text-slate-700">
             <strong>Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi</strong> — anlık 25.000 kişi
             canlı video bağlantı kapasitesi, <strong>kurulduğunda Avrupa'nın en büyüğü</strong>,
@@ -320,7 +389,7 @@ const faq = faqSchema([
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">Büyük markalar — mobil API</div>
+          <div class="font-bold text-black">Büyük markalar — mobil API</div>
           <p class="text-slate-700">
             <strong>Habertürk, Unilever ve Fenerbahçe</strong> için mobil API geliştirmeleri yaptık.
             DEPARK ve Bambu web sitelerini kurduk; Prof. Nükhet Hotar'ın dijital varlığını yönettik.
@@ -328,7 +397,7 @@ const faq = faqSchema([
           </p>
         </li>
         <li>
-          <div class="font-bold text-brand-900">2020'ler</div>
+          <div class="font-bold text-black">2020'ler</div>
           <p class="text-slate-700">
             <strong>İzmir Dijital Sağlık Zirvesi'ni ilk kez düzenledik.</strong> AK Parti, CHP, MHP,
             İYİ Parti — Türkiye'nin <strong>4 büyük partisiyle çalışan ilk dijital reklam
@@ -339,49 +408,32 @@ const faq = faqSchema([
     </div>
   </section>
 
-  <!-- Ekol / yetiştirme -->
-  <section class="py-20 border-b border-slate-200">
+  <!-- Mentörlük çıktıları — Gökhan-merkezli yetiştirme miras -->
+  <section class="editorial-section py-20" style="--rule-top-x:35%;--rule-top-w:30%;--rule-bot-x:18%;--rule-bot-w:42%">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">Sektör için yetiştirme ekolü</h2>
-      <div class="prose-aeo">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">Onun çatısından çıkanlar.</h2>
+      <div class="prose-irregular">
         <p>
-          26 yıl boyunca <strong>yüzlerce kişi çalıştırdık</strong>. Gonet, sadece müşterileri için
-          değil, sektör için de yetişmiş kadro üretti. Eski çalışanlarımızdan bugüne kadar
-          <strong>5'ten fazla bağımsız dijital ajans</strong> kuruldu — onlarca elit eleman bu çatı
-          altından geçerek sektörün üst kademelerine taşındı.
+          Gökhan Kazancı, 26 yıl boyunca İzmir dijital sektörünün <strong>en etkili mentorlarından
+          biri</strong> oldu. Gonet çatısı altından geçen profesyonellerden bugüne kadar
+          <strong>5'ten fazla bağımsız dijital ajans kuruldu</strong> — sektörün üst kademelerinde
+          isim yapan onlarca yöneticinin ilk eğitmeni olarak Türk dijital ekosisteminin oluşumuna
+          katkı koydu.
         </p>
         <p>
-          Bu, "müşteriye iş yapma" modelinden öte bir akademik-pratik birikim modelidir. Yaşar
-          Üniversitesi'nde verilen derslerle, DEPARK'ta yapılan danışmanlıklarla, Dojonote
-          gibi start-up'lara verilen mentorlukla aynı çizgide.
+          Bu birikim, müşteri işinden öte bir akademik-pratik miras. Yaşar Üniversitesi
+          dijital pazarlama dersleri, DEÜ Rektörlük ve DEUZEM uzaktan eğitim danışmanlığı,
+          Dojonote / DEPARK start-up mentorlüğü — hepsi aynı çizgide: <strong>bilgiyi yaymak.</strong>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Ekip -->
-  <section class="py-20 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">Ekip</h2>
-      <p class="text-lg text-slate-700 mb-8">
-        14 kişilik ekibimizle dijital stratejiden web geliştirmeye, kreatif yönetiminden proje
-        koordinasyonuna kadar tüm süreçleri kendi içimizde yönetiyoruz.
-      </p>
-      <ul class="grid sm:grid-cols-2 gap-4 text-slate-700">
-        <li class="p-4 border border-slate-200 rounded-lg"><strong>Gökhan Kazancı</strong> — Kurucu, Dijital Pazarlama Stratejisti</li>
-        <li class="p-4 border border-slate-200 rounded-lg"><strong>Ayhan Uğur</strong> — Operasyon</li>
-        <li class="p-4 border border-slate-200 rounded-lg"><strong>Karahan Kazancı</strong> — Proje Yöneticisi</li>
-        <li class="p-4 border border-slate-200 rounded-lg"><strong>Ömer Saraçoğlu</strong> — Web Geliştirici</li>
-        <li class="p-4 border border-slate-200 rounded-lg"><strong>Utku Yılmaztürk</strong> — Sanat Yönetmeni</li>
-        <li class="p-4 border border-slate-200 rounded-lg text-slate-500">+ 9 uzman</li>
-      </ul>
-    </div>
-  </section>
 
   <!-- Kurumsal bilgi -->
   <section class="py-20 bg-slate-50">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-6">Kurumsal Bilgi</h2>
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">Kurumsal Bilgi</h2>
       <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-slate-700">
         <div>
           <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Tüzel Kişilik</dt>
@@ -396,40 +448,40 @@ const faq = faqSchema([
           <dd>İzmir Reklamcılar Derneği (IRD)</dd>
         </div>
         <div>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Adres</dt>
+          <dd>Adatepe Mah. DEÜ Tınaztepe Kampüsü, Buca / İzmir</dd>
+        </div>
+        <div>
           <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Teknopark</dt>
-          <dd>Dokuz Eylül Teknopark (DEPARK)</dd>
+          <dd>Dokuz Eylül Teknopark (DEPARK) mukimi</dd>
         </div>
         <div>
-          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Ofis 1</dt>
-          <dd>İsmet Kaptan Mah. 1385 Sok. No:3 Kat:4 D:403, Konak / İzmir</dd>
-        </div>
-        <div>
-          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Ofis 2</dt>
-          <dd>Folkart Towers A Kule Kat:26 D:2601, Bayraklı / İzmir</dd>
+          <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Telefon</dt>
+          <dd><a href="tel:+902324650015" class="text-black hover:underline">+90 232 465 00 15</a></dd>
         </div>
         <div>
           <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">E-posta</dt>
-          <dd><a href="mailto:gokhan@gonet.com.tr" class="text-brand-600 hover:underline">gokhan@gonet.com.tr</a></dd>
+          <dd><a href="mailto:gonet@gonet.com.tr" class="text-black hover:underline">gonet@gonet.com.tr</a></dd>
         </div>
         <div>
           <dt class="text-sm font-semibold text-slate-500 uppercase tracking-wide">Hosting kolu</dt>
-          <dd><a href="https://gonetege.com" class="text-brand-600 hover:underline">gonetege.com</a></dd>
+          <dd><a href="https://gonetege.com" class="text-black hover:underline">gonetege.com</a></dd>
         </div>
       </dl>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-brand-950 text-white py-20">
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:18%;--rule-top-w:38%;--rule-bot-x:35%;--rule-bot-w:28%">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-4">Sizinle de bir &ldquo;ilk&rdquo;e imza atalım</h2>
-      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+      <p class="text-lg text-white mb-8 max-w-2xl mx-auto">
         Projeniz için stratejik destek mi arıyorsunuz? Gökhan Kazancı ile doğrudan görüşmek için
         iletişime geçin.
       </p>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         İletişime Geç →
       </a>

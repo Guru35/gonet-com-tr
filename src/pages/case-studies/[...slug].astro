@@ -4,14 +4,26 @@ import { webpageSchema } from '../../lib/schema';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const cases = await getCollection('case-studies');
-  return cases.map((cs) => ({
-    params: { slug: cs.id },
-    props: { cs },
-  }));
+  const cases = (await getCollection('case-studies'))
+    .filter((c) => !c.data.draft)
+    .sort((a, b) => b.data.year - a.data.year);
+
+  return cases.map((cs, idx) => {
+    // Döngü: sonuncudan sonra başa dön
+    const next = cases[(idx + 1) % cases.length];
+    return {
+      params: { slug: cs.id },
+      props: {
+        cs,
+        nextSlug: next.id,
+        nextTitle: next.data.title,
+        nextClient: next.data.client,
+      },
+    };
+  });
 }
 
-const { cs } = Astro.props;
+const { cs, nextSlug, nextTitle, nextClient } = Astro.props;
 const { Content } = await render(cs);
 
 const url = `https://gonet.com.tr/case-studies/${cs.id}`;
@@ -50,81 +62,170 @@ const pageSchema = webpageSchema({
   canonical={url}
   schemas={[caseSchema, pageSchema]}
 >
-  <article class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+  <div class="case-detail">
+  <!-- HERO — magazine spread + devasa yıl ve başlık + sağa yapışık görsel -->
+  <section class="case-hero-section relative bg-white border-b border-black overflow-hidden">
+    {cs.data.ogImage && (
+      <img
+        src={cs.data.ogImage}
+        alt={cs.data.title}
+        class="case-hero-img absolute select-none"
+      />
+    )}
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <nav class="text-[10px] uppercase tracking-[0.3em] font-medium mb-12 lg:mb-16" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-3 flex-wrap">
+          <li><a href="/" class="hover:underline">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/case-studies" class="hover:text-brand-600">Vaka Çalışmaları</a></li>
+          <li><a href="/case-studies" class="hover:underline">Vaka Çalışmaları</a></li>
           <li aria-hidden="true">/</li>
-          <li class="text-slate-700 truncate" aria-current="page">{cs.data.title}</li>
+          <li class="opacity-60" aria-current="page">{cs.data.client}</li>
         </ol>
       </nav>
 
-      <div class="flex items-center gap-3 text-sm text-slate-500 mb-4">
-        <span class="font-semibold">{cs.data.year}</span>
-        <span aria-hidden="true">·</span>
-        <span>{cs.data.client}</span>
-        {cs.data.industry && (
-          <>
-            <span aria-hidden="true">·</span>
-            <span>{cs.data.industry}</span>
-          </>
-        )}
+      <!-- Yıl + müşteri + sektör massive split -->
+      <div class="flex items-baseline gap-6 lg:gap-10 mb-10">
+        <span class="editorial-display text-7xl lg:text-9xl xl:text-[200px] leading-[0.82]">
+          {cs.data.year}
+        </span>
+        <div class="flex flex-col">
+          <span class="editorial-display text-2xl lg:text-4xl xl:text-[56px] leading-[0.9]">
+            {cs.data.client}
+          </span>
+          {cs.data.industry && (
+            <span class="text-[10px] font-medium uppercase tracking-[0.3em] mt-3" style="color:#ff0000">{cs.data.industry}</span>
+          )}
+        </div>
       </div>
 
-      <h1 class="text-4xl lg:text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <!-- Title MASSIVE Anton -->
+      <h1 class="editorial-display text-[12vw] lg:text-[8vw] xl:text-[120px] leading-[0.85] mb-12 max-w-5xl">
         {cs.data.title}
       </h1>
 
-      <p class="text-xl text-slate-700 leading-relaxed mb-8 pb-8 border-b border-slate-200">
+      <!-- Description lead -->
+      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl mb-16">
         {cs.data.description}
       </p>
 
-      <!-- Sonuçlar / metrikler bloğu (varsa) -->
+      <!-- Sonuçlar / metrikler — DEVASA editöryel scale-jumping -->
       {cs.data.results && cs.data.results.length > 0 && (
-        <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-6 bg-brand-50 rounded-lg">
-          {cs.data.results.map((r) => (
-            <div>
-              <div class="text-2xl font-bold text-brand-900">{r.value}</div>
-              <div class="text-sm text-slate-600 mt-1">{r.metric}</div>
-            </div>
-          ))}
-        </section>
+        <div class="space-y-6 lg:space-y-8 mb-12">
+          {cs.data.results.map((r, idx) => {
+            // İlk metrik en büyük, diğerleri kademeli azalan
+            const sizeClass = idx === 0
+              ? 'text-[16vw] lg:text-[11vw] xl:text-[160px]'
+              : idx === 1
+              ? 'text-[12vw] lg:text-[7vw] xl:text-[96px]'
+              : 'text-[10vw] lg:text-[5vw] xl:text-[72px]';
+            const offsets = ['', 'lg:ml-[10%]', 'lg:ml-[22%]', 'lg:ml-[6%]'];
+            const align = offsets[idx % offsets.length];
+            const tilts = [0, -1, 1.5, -0.5];
+            const rot = tilts[idx % tilts.length];
+            return (
+              <div class={`${align} max-w-5xl`} style={`transform: rotate(${rot}deg); transform-origin: left;`}>
+                <p class={`editorial-display ${sizeClass} leading-[0.85]`}>{r.value}</p>
+                <p class="text-sm lg:text-base font-medium uppercase tracking-[0.2em] mt-2 opacity-70">{r.metric}</p>
+              </div>
+            );
+          })}
+        </div>
       )}
 
-      <!-- Hizmetler -->
+      <!-- Hizmetler — floating typography (chip değil) -->
       {cs.data.services && cs.data.services.length > 0 && (
-        <section class="mb-12">
-          <h2 class="sr-only">Verilen hizmetler</h2>
-          <ul class="flex flex-wrap gap-2">
-            {cs.data.services.map((s) => (
-              <li class="text-xs font-medium text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
-                {s}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2 mt-12">
+          {cs.data.services.map((s, i) => {
+            const sizes = ['text-lg','text-2xl','text-xl','text-3xl','text-base','text-xl','text-lg'];
+            const size = sizes[(s.length * 3 + i * 7) % sizes.length];
+            return (
+              <span class={`editorial-display ${size} hover:bg-[#ff0000] hover:text-white px-1 transition-colors`}>#{s}</span>
+            );
+          })}
+        </div>
       )}
+    </div>
+  </section>
 
-      <!-- Body -->
-      <div class="prose-aeo">
+  <!-- BODY — cascading paragraph sizes -->
+  <article class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <div class="prose-irregular">
         <Content />
-      </div>
-
-      <!-- CTA -->
-      <div class="mt-16 bg-brand-50 rounded-lg p-8 text-center">
-        <p class="text-lg text-slate-700 mb-4">
-          Benzer bir hikayeyi sizin için de yazalım mı?
-        </p>
-        <a
-          href="/iletisim"
-          class="inline-block bg-brand-900 text-white px-6 py-3 rounded-md font-medium hover:bg-brand-800"
-        >
-          İletişime geç →
-        </a>
       </div>
     </div>
   </article>
+
+  <!-- CTA -->
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:18%;--rule-top-w:42%;--rule-bot-x:36%;--rule-bot-w:30%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Bir sonraki "ilk" sizin projeniz olsun
+      </p>
+      <h2 class="editorial-display text-[12vw] lg:text-[8vw] xl:text-[120px] leading-[0.85] mb-10">
+        Benzer bir hikâyeyi<br />
+        <span style="color: #ff0000;">sizin için</span> yazalım.
+      </h2>
+      <a
+        href="/iletisim"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+      >
+        Konuşalım →
+      </a>
+    </div>
+  </section>
+
+  <!-- Sonraki vaka teaser — sayfa sonuna gelince auto-navigate -->
+  <section class="case-next-teaser bg-black text-white border-t border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6 text-white/60">
+        Sonraki vaka
+      </p>
+      <a href={`/case-studies/${nextSlug}`} class="block group">
+        <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-white/60 mb-3">{nextClient}</p>
+        <h3 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95] mb-6 group-hover:text-[#ff0000] transition-colors">
+          {nextTitle}
+        </h3>
+        <div class="flex items-center gap-3 text-sm uppercase tracking-[0.25em]">
+          <span class="case-next-indicator inline-block w-10 h-px bg-white/60 transition-all duration-300 group-hover:w-16"></span>
+          <span>Aşağı kaydır veya tıkla</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <!-- Vaka detay sayfalarında editorial-display'ler sentence-case render edilir -->
+  <style>
+    .case-detail .editorial-display { text-transform: none; }
+  </style>
+
+  <!-- Sayfa sonuna scroll edilince auto-navigate ile döngü -->
+  <script is:inline define:vars={{ nextSlug }}>
+    (function () {
+      let triggered = false;
+      const target = `/case-studies/${nextSlug}`;
+
+      function onScroll() {
+        if (triggered) return;
+        const doc = document.documentElement;
+        const scrolledToBottom =
+          window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+        if (scrolledToBottom) {
+          triggered = true;
+          // Kısa görsel feedback: indicator'ı genişlet
+          const ind = document.querySelector('.case-next-indicator');
+          if (ind) {
+            ind.style.transition = 'width 0.45s ease-out';
+            ind.style.width = '100%';
+          }
+          setTimeout(() => {
+            window.location.href = target;
+          }, 500);
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 </BaseLayout>

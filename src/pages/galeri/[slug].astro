@@ -1,0 +1,117 @@
+---
+// Galeri görsel viewer — Chrome'un ham JPG dark-theme'inden kaçınmak için
+// resmi beyaz arka planlı HTML wrapper içinde gösterir.
+
+export async function getStaticPaths() {
+  const sayfalar = [
+    { slug: '01-ana-sayfa', name: 'Ana Sayfa' },
+    { slug: '02-uzmanlik', name: 'Uzmanlık' },
+    { slug: '03-vaka-calismalari', name: 'Vaka Çalışmaları' },
+    { slug: '04-markalar', name: 'Markalar' },
+    { slug: '05-deneyimler', name: 'Deneyimler' },
+    { slug: '06-yetenekler', name: 'Yetenekler' },
+    { slug: '07-hakkimizda', name: 'Hakkımızda' },
+  ];
+  return sayfalar.map((s) => ({
+    params: { slug: s.slug },
+    props: { name: s.name },
+  }));
+}
+
+const { slug } = Astro.params;
+const { name } = Astro.props;
+const imageSrc = `/galeri/${slug}.jpg`;
+const title = `${name} — Gonet Tasarım Galerisi`;
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/brand/gonet-logo-dark.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #000;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    body { color-scheme: light; }
+    .frame {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .meta {
+      width: 100%;
+      max-width: 1280px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 16px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #000;
+    }
+    .meta a {
+      color: #000;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      cursor: pointer;
+    }
+    .meta .hint { opacity: 0.5; font-weight: 400; }
+    /* Zoom-out önce — resim viewport yüksekliğine sığar, dar görünür */
+    img.full {
+      display: block;
+      max-height: calc(100vh - 80px);  /* meta + padding için tampon */
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      background: #fff;
+      cursor: zoom-in;
+      transition: max-height 0.4s ease, max-width 0.4s ease;
+    }
+    /* Tıklayınca full-width zoom-in */
+    img.full.is-zoomed {
+      max-height: none;
+      max-width: 100%;
+      width: 100%;
+      cursor: zoom-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="meta">
+      <span>Gonet · Tasarım Galerisi · {name}</span>
+      <span class="hint">Resme tıkla → zoom in / out</span>
+      <a href="/galeri">← Galeri</a>
+    </div>
+    <img id="full-img" class="full" src={imageSrc} alt={`Gonet ${name} sayfa tasarımı`} />
+  </div>
+  <script is:inline>
+    (function () {
+      var img = document.getElementById('full-img');
+      if (!img) return;
+      img.addEventListener('click', function () {
+        img.classList.toggle('is-zoomed');
+        if (img.classList.contains('is-zoomed')) {
+          // Zoom-in olunca scroll en üste git
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

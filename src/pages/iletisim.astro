@@ -4,8 +4,8 @@ import { webpageSchema, faqSchema } from '../lib/schema';
 
 const title = 'İletişim — Gonet İzmir';
 const description =
-  "Gökhan Kazancı ile doğrudan iletişime geçin. İzmir Konak + Bayraklı Folkart Towers ofisleri. " +
-  'E-posta gokhan@gonet.com.tr — 25 yıllık ajansta projeniz için stratejik destek görüşmesi.';
+  "Gökhan Kazancı ile doğrudan iletişime geçin. İzmir Buca — DEÜ Tınaztepe Kampüsü Teknopark ofisi. " +
+  'E-posta gonet@gonet.com.tr · Tel +90 232 465 00 15 — 25 yıllık ajansta projeniz için stratejik destek görüşmesi.';
 const url = 'https://gonet.com.tr/iletisim';
 
 const pageSchema = webpageSchema({
@@ -23,9 +23,8 @@ const faq = faqSchema([
   {
     question: 'Gonet ile nasıl iletişime geçilir?',
     answer:
-      'E-posta: gokhan@gonet.com.tr. İzmir\'de iki ofisimiz var — Konak (İsmet Kaptan Mah. 1385 Sok. ' +
-      'No:3 Kat:4 D:403) ve Bayraklı Folkart Towers A Kule (Kat:26 D:2601). Tek bir görüşmede ' +
-      'projenizi dinleyip yol haritası sunabiliriz.',
+      'E-posta: gonet@gonet.com.tr. Telefon: +90 232 465 00 15. İzmir Buca\'da DEÜ Tınaztepe ' +
+      'Kampüsü Teknopark ofisimizden tek bir görüşmede projenizi dinleyip yol haritası sunabiliriz.',
   },
   {
     question: 'Görüşme öncesi hangi bilgileri hazırlamalıyım?',
@@ -49,7 +48,7 @@ const faq = faqSchema([
   {
     question: 'Online forma alternatif var mı?',
     answer:
-      'E-posta (gokhan@gonet.com.tr) ve telefon yoluyla doğrudan ulaşabilirsiniz. Form ' +
+      'E-posta (gonet@gonet.com.tr) ve telefon yoluyla doğrudan ulaşabilirsiniz. Form ' +
       'gönderimi sonrası e-posta programınız açılır; mesajınızı doğrudan iletmiş olursunuz.',
   },
 ]);
@@ -62,35 +61,44 @@ const contactPoints = {
     {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'gokhan@gonet.com.tr',
+      email: 'gonet@gonet.com.tr',
+      telephone: '+90-232-465-00-15',
       availableLanguage: ['Turkish', 'English'],
       areaServed: ['TR', 'NL', 'DE'],
     },
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'gokhan@gonet.com.tr',
+      email: 'gonet@gonet.com.tr',
+      telephone: '+90-232-465-00-15',
       availableLanguage: ['Turkish'],
     },
   ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Adatepe Mah. DEÜ Tınaztepe Kampüsü',
+    addressLocality: 'Buca',
+    addressRegion: 'İzmir',
+    addressCountry: 'TR',
+  },
 };
 ---
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, faq, contactPoints]}>
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="bg-white border-b border-black">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">İletişim</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         İletişim
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         Projenizi konuşalım.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
@@ -100,216 +108,174 @@ const contactPoints = {
     </div>
   </section>
 
-  <!-- İki kolon: form + iletişim bilgileri -->
+  <!-- Tek alan formu + iletişim bilgileri -->
   <section class="py-16">
-    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
-      <!-- Form -->
-      <div>
-        <h2 class="text-3xl font-bold text-brand-950 mb-6">İletişim Formu</h2>
-        <p class="text-slate-600 mb-6 text-sm">
-          Form gönderildiğinde e-posta programınız açılır ve mesajınız gokhan@gonet.com.tr
-          adresine iletilir. Daha hızlı dönüş için doğrudan e-posta veya telefon önerilir.
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-16">
+      <!-- Form (2 col) -->
+      <div class="lg:col-span-2">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">
+          Bir şeyler yazın, gönderin
         </p>
         <form
+          id="mega-form"
           method="POST"
-          action="mailto:gokhan@gonet.com.tr"
+          action="mailto:gonet@gonet.com.tr"
           enctype="text/plain"
-          class="space-y-4"
+          class="space-y-6"
         >
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-slate-700 mb-1">
-                Ad Soyad <span class="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="Ad Soyad"
-                required
-                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
-            </div>
-            <div>
-              <label for="company" class="block text-sm font-medium text-slate-700 mb-1">
-                Şirket / Marka
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="Şirket"
-                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">
-                E-posta <span class="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="E-posta"
-                required
-                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">
-                Telefon
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="Telefon"
-                class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
-            </div>
-          </div>
-          <div>
-            <label for="sector" class="block text-sm font-medium text-slate-700 mb-1">
-              Sektör
-            </label>
-            <select
-              id="sector"
-              name="Sektör"
-              class="w-full px-4 py-2 border border-slate-300 rounded-md bg-white focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-            >
-              <option value="">Seçiniz...</option>
-              <option>Sağlık & Sağlık Turizmi</option>
-              <option>İnşaat & Yapı</option>
-              <option>E-ticaret</option>
-              <option>Eğitim</option>
-              <option>Otomotiv</option>
-              <option>Turizm & Otelcilik</option>
-              <option>Gıda & FMCG</option>
-              <option>Tekstil & Konfeksiyon</option>
-              <option>Mobilya</option>
-              <option>Sanayi & Elektronik</option>
-              <option>Kamu / Belediye</option>
-              <option>Siyasi Kampanya</option>
-              <option>Start-up</option>
-              <option>Diğer</option>
-            </select>
-          </div>
-          <div>
-            <label for="service" class="block text-sm font-medium text-slate-700 mb-1">
-              İlgilendiğiniz Hizmet
-            </label>
-            <select
-              id="service"
-              name="Hizmet"
-              class="w-full px-4 py-2 border border-slate-300 rounded-md bg-white focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-            >
-              <option value="">Seçiniz...</option>
-              <option>Google Ads (SEM)</option>
-              <option>SEO</option>
-              <option>Sosyal Medya Yönetimi</option>
-              <option>Web Tasarım & Geliştirme</option>
-              <option>Sağlık Turizmi Pazarlaması</option>
-              <option>Siyasi Kampanya Yönetimi</option>
-              <option>E-ticaret Reklam Yönetimi</option>
-              <option>Marka Tasarımı & Kreatif</option>
-              <option>Online İtibar Yönetimi</option>
-              <option>Dijital Strateji & Danışmanlık</option>
-              <option>Start-up Danışmanlığı</option>
-              <option>Yazılım Danışmanlığı</option>
-              <option>Proje Yöneticiliği</option>
-              <option>Birden fazla / Belirli değil</option>
-            </select>
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">
-              Mesajınız <span class="text-red-500">*</span>
-            </label>
+          <div class="msg-wrap relative">
             <textarea
               id="message"
               name="Mesaj"
-              rows="6"
-              required
-              placeholder="Markanız, mevcut durumunuz, hedefleriniz ve yaklaşık bütçe aralığınız hakkında kısa bir özet..."
-              class="w-full px-4 py-2 border border-slate-300 rounded-md focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              rows="1"
+              placeholder=" "
+              class="editorial-display w-full text-[10vw] lg:text-[6vw] xl:text-[96px] leading-[1.05] bg-transparent border-0 focus:outline-none resize-none p-0 block relative z-10"
+              style="font-family: var(--font-display); letter-spacing: -0.01em; overflow: hidden; caret-color: #ff0000;"
             ></textarea>
+            <div class="msg-overlay" aria-hidden="true">
+              <span class="msg-caret"></span><span class="msg-hint">bir şeyler yazın, gönderin<br />biz size döneriz.</span>
+            </div>
           </div>
-          <button
-            type="submit"
-            class="w-full sm:w-auto bg-brand-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-brand-800 transition"
-          >
-            Mesajı Gönder →
-          </button>
-          <p class="text-xs text-slate-500">
-            Form gönderildiğinde mailto bağlantısı ile e-posta programınız açılır.
-            Üyelik veya kaydolma gerekmez.
-          </p>
+
+          <!-- Submit + error mesajı -->
+          <div class="flex flex-col gap-6">
+            <button
+              type="submit"
+              id="send-btn"
+              class="self-start text-2xl lg:text-3xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+            >
+              Gönder →
+            </button>
+
+            <!-- Cheeky error (gizli, JS gösterir) -->
+            <div
+              id="form-error"
+              class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95]"
+              style="color: #ff0000;"
+            >
+              telefon ya da mail<br />adresi yazmazsanız<br />zor döneriz <span class="font-display">:)</span>
+            </div>
+
+            <p class="text-[10px] uppercase tracking-[0.3em] opacity-60">
+              Form gönderildiğinde mailto açılır — üyelik / kayıt yok.
+            </p>
+          </div>
         </form>
+
+        <script is:inline>
+          (function () {
+            const form = document.getElementById('mega-form');
+            const msg = document.getElementById('message');
+            const err = document.getElementById('form-error');
+            const btn = document.getElementById('send-btn');
+            if (!form || !msg || !err || !btn) return;
+
+            function hasEmail(t) { return /[\w.+-]+@[\w.-]+\.\w{2,}/.test(t); }
+            function hasPhone(t) {
+              // 7+ rakam, boşluk/tire/parantez yok sayılır
+              const digits = (t.match(/\d/g) || []).length;
+              return digits >= 7;
+            }
+
+            form.addEventListener('submit', function (e) {
+              const text = (msg.value || '').trim();
+              if (!text) {
+                e.preventDefault();
+                err.classList.remove('hidden');
+                msg.focus();
+                return;
+              }
+              if (!hasEmail(text) && !hasPhone(text)) {
+                e.preventDefault();
+                err.classList.remove('hidden');
+                msg.focus();
+                return;
+              }
+              err.classList.add('hidden');
+              // mailto gönderim devam — natural form submit
+            });
+
+            // Kullanıcı yazmaya başladığında error gizlensin + auto-grow
+            const overlay = document.querySelector('.msg-overlay');
+            function syncMinHeight() {
+              if (!overlay) return;
+              const h = overlay.offsetHeight;
+              if (h > 0) msg.style.minHeight = h + 'px';
+            }
+            function autoGrow() {
+              msg.style.height = 'auto';
+              const target = Math.max(msg.scrollHeight + 8, overlay ? overlay.offsetHeight : 0);
+              msg.style.height = target + 'px';
+            }
+            msg.addEventListener('input', function () {
+              err.classList.add('hidden');
+              autoGrow();
+            });
+            // İlk yüklemede overlay yüksekliği = textarea min-height → GÖNDER overlay altına oturur
+            window.addEventListener('load', function () {
+              syncMinHeight();
+              autoGrow();
+            });
+            window.addEventListener('resize', function () {
+              syncMinHeight();
+              autoGrow();
+            });
+          })();
+        </script>
       </div>
 
       <!-- İletişim bilgileri -->
       <div>
-        <h2 class="text-3xl font-bold text-brand-950 mb-6">Doğrudan Ulaşım</h2>
+        <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">Doğrudan Ulaşım</h2>
 
         <div class="space-y-6">
           <div class="border-l-4 border-brand-600 pl-4">
-            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">E-posta</div>
-            <a href="mailto:gokhan@gonet.com.tr" class="text-xl font-semibold text-brand-950 hover:text-brand-700">
-              gokhan@gonet.com.tr
+            <div class="text-xs font-semibold text-black uppercase tracking-wider mb-1">E-posta</div>
+            <a href="mailto:gonet@gonet.com.tr" class="text-xl font-semibold text-black hover:text-brand-700">
+              gonet@gonet.com.tr
             </a>
-            <p class="text-sm text-slate-600 mt-1">Gökhan Kazancı'ya doğrudan</p>
+            <p class="text-sm text-slate-600 mt-1">Doğrudan ekibe</p>
           </div>
 
-          <div class="border-l-4 border-brand-300 pl-4">
-            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Ofis 1 — Konak</div>
+          <div class="border-l-4 border-black pl-4">
+            <div class="text-xs font-semibold text-black uppercase tracking-wider mb-1">Telefon</div>
+            <a href="tel:+902324650015" class="text-xl font-semibold text-black hover:text-brand-700">
+              +90 232 465 00 15
+            </a>
+            <p class="text-sm text-slate-600 mt-1">Hafta içi 09:00–18:00</p>
+          </div>
+
+          <div class="border-l-4 border-black pl-4">
+            <div class="text-xs font-semibold text-black uppercase tracking-wider mb-1">Adres — DEÜ Teknopark</div>
             <address class="not-italic text-slate-700">
-              İsmet Kaptan Mah.<br>
-              1385 Sok. No:3 Kat:4 D:403<br>
-              Konak / İzmir
+              Adatepe Mah.<br>
+              <strong>DEÜ Tınaztepe Kampüsü</strong><br>
+              Buca / İzmir
             </address>
             <a
-              href="https://maps.google.com/?q=İsmet+Kaptan+Mah+1385+Sok+Konak+İzmir"
+              href="https://maps.google.com/?q=DEÜ+Tınaztepe+Kampüsü+Buca+İzmir"
               target="_blank"
               rel="noopener"
-              class="text-sm text-brand-600 hover:underline mt-1 inline-block"
+              class="text-sm text-black hover:underline mt-1 inline-block"
             >
               Google Maps'te aç →
             </a>
           </div>
 
-          <div class="border-l-4 border-brand-300 pl-4">
-            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Ofis 2 — Bayraklı</div>
-            <address class="not-italic text-slate-700">
-              <strong>Folkart Towers A Kule</strong><br>
-              Kat:26 D:2601<br>
-              Bayraklı / İzmir
-            </address>
-            <a
-              href="https://maps.google.com/?q=Folkart+Towers+Bayraklı+İzmir"
-              target="_blank"
-              rel="noopener"
-              class="text-sm text-brand-600 hover:underline mt-1 inline-block"
-            >
-              Google Maps'te aç →
-            </a>
-          </div>
-
-          <div class="border-l-4 border-brand-300 pl-4">
-            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Teknopark</div>
-            <p class="text-slate-700">
-              <strong>Dokuz Eylül Teknopark (DEPARK)</strong> mukimi
-            </p>
-          </div>
-
-          <div class="border-l-4 border-brand-300 pl-4">
-            <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">Tüzel Kişilik</div>
+          <div class="border-l-4 border-black pl-4">
+            <div class="text-xs font-semibold text-black uppercase tracking-wider mb-1">Tüzel Kişilik</div>
             <p class="text-slate-700 text-sm">
               Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.
             </p>
           </div>
 
-          <div class="bg-brand-50 rounded-lg p-6 mt-8">
-            <h3 class="text-lg font-semibold text-brand-950 mb-2">Görüşme öncesi hazırlık</h3>
+          <div class="bg-white rounded-none p-6 mt-8">
+            <h3 class="text-lg font-semibold text-black mb-2">Görüşme öncesi hazırlık</h3>
             <ul class="space-y-2 text-sm text-slate-700">
-              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Marka/proje özeti</span></li>
-              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Mevcut dijital varlık (varsa)</span></li>
-              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Hedef sonuçlar</span></li>
-              <li class="flex gap-2"><span class="text-brand-600">●</span><span>Yaklaşık bütçe aralığı</span></li>
+              <li class="flex gap-2"><span class="text-black">●</span><span>Marka/proje özeti</span></li>
+              <li class="flex gap-2"><span class="text-black">●</span><span>Mevcut dijital varlık (varsa)</span></li>
+              <li class="flex gap-2"><span class="text-black">●</span><span>Hedef sonuçlar</span></li>
+              <li class="flex gap-2"><span class="text-black">●</span><span>Yaklaşık bütçe aralığı</span></li>
             </ul>
           </div>
         </div>
@@ -317,32 +283,49 @@ const contactPoints = {
     </div>
   </section>
 
-  <!-- Sosyal medya -->
-  <section class="bg-slate-50 py-16 border-t border-slate-200">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold text-brand-950 mb-4">Sosyal Medyada Gonet</h2>
-      <div class="flex flex-wrap justify-center gap-4 mt-6">
+  <!-- Sosyal medya — editöryel çılgınlık -->
+  <section class="editorial-section bg-white text-black py-24 lg:py-32 overflow-hidden" style="--rule-top-x:22%;--rule-top-w:46%;--rule-bot-x:8%;--rule-bot-w:54%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">Sosyal medya</p>
+      <h2 class="editorial-display text-[14vw] lg:text-[8vw] xl:text-[120px] leading-[0.85] mb-16">
+        Sosyal medyada<br />
+        <span style="color:#ff0000">Gonet.</span>
+      </h2>
+
+      <div class="space-y-6 lg:space-y-8">
         <a
           href="https://tr.linkedin.com/company/gonet-interactive-advertising-agency"
           target="_blank"
           rel="noopener"
-          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+          class="editorial-display block text-[10vw] lg:text-[6vw] xl:text-[88px] leading-[0.9] hover:text-[#ff0000] transition-colors"
+          style="transform: rotate(-1deg); transform-origin: left;"
         >
-          LinkedIn
+          LinkedIn <span class="text-xs lg:text-sm font-sans uppercase tracking-[0.3em] align-super">16K+ takipçi</span>
         </a>
         <a
           href="https://www.behance.net/GonetCompany"
           target="_blank"
           rel="noopener"
-          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+          class="editorial-display block text-[10vw] lg:text-[6vw] xl:text-[88px] leading-[0.9] hover:text-[#ff0000] transition-colors lg:ml-[12%]"
+          style="transform: rotate(0.8deg); transform-origin: center;"
         >
-          Behance
+          Behance <span class="text-xs lg:text-sm font-sans uppercase tracking-[0.3em] align-super">24 proje</span>
+        </a>
+        <a
+          href="https://www.instagram.com/gonetinteractive/"
+          target="_blank"
+          rel="noopener"
+          class="editorial-display block text-[10vw] lg:text-[6vw] xl:text-[88px] leading-[0.9] hover:text-[#ff0000] transition-colors lg:ml-[4%]"
+          style="transform: rotate(-0.6deg); transform-origin: left;"
+        >
+          Instagram
         </a>
         <a
           href="https://www.facebook.com/GonetCompany/"
           target="_blank"
           rel="noopener"
-          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+          class="editorial-display block text-[10vw] lg:text-[6vw] xl:text-[88px] leading-[0.9] hover:text-[#ff0000] transition-colors lg:ml-[20%]"
+          style="transform: rotate(1.2deg); transform-origin: right;"
         >
           Facebook
         </a>
@@ -350,11 +333,71 @@ const contactPoints = {
           href="https://www.slideshare.net/gonetpigme"
           target="_blank"
           rel="noopener"
-          class="bg-white border border-slate-300 px-6 py-3 rounded-md font-medium hover:border-brand-500 transition"
+          class="editorial-display block text-[10vw] lg:text-[6vw] xl:text-[88px] leading-[0.9] hover:text-[#ff0000] transition-colors lg:ml-[8%]"
+          style="transform: rotate(-0.9deg); transform-origin: left;"
         >
           SlideShare
         </a>
       </div>
     </div>
   </section>
+
+  <style>
+    /* Textarea — halo yok, normal cümle düzeni (uppercase yok), native placeholder gizli */
+    #message {
+      color: #000;
+      text-shadow: none !important;
+      text-transform: none !important;
+    }
+    #message::placeholder {
+      color: transparent !important;
+      text-shadow: none !important;
+    }
+
+    /* Form error — halo yok, normal cümle düzeni (editorial-display global kuralları override) */
+    #form-error {
+      text-shadow: none !important;
+      text-transform: none !important;
+    }
+
+    /* Custom placeholder overlay — soluk gri, normal düzen, halo yok */
+    .msg-wrap { position: relative; }
+    .msg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      font-family: var(--font-display);
+      font-size: 10vw;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      text-transform: none;                  /* normal cümle düzeni */
+      color: rgba(0, 0, 0, 0.06);            /* iyice transparan, BG'de fısıltı */
+      text-shadow: none !important;
+      display: flex;
+      align-items: flex-start;
+      z-index: 5;
+    }
+    @media (min-width: 1024px) {
+      .msg-overlay { font-size: min(6vw, 96px); }
+    }
+    .msg-caret {
+      display: inline-block;
+      width: 0.55ch;
+      height: 0.78em;
+      background: #ff0000;
+      margin-top: 0.04em;
+      margin-right: 0.06em;
+      flex-shrink: 0;
+      animation: msg-blink 1.05s steps(2, start) infinite;
+    }
+    .msg-hint { display: inline; }
+    /* Textarea fokuslanınca veya kullanıcı yazınca: SADECE caret gizlensin, hint arka planda kalsın */
+    .msg-wrap:has(#message:focus) .msg-caret,
+    .msg-wrap:has(#message:not(:placeholder-shown)) .msg-caret {
+      display: none;
+    }
+    @keyframes msg-blink { to { visibility: hidden; } }
+  </style>
 </BaseLayout>

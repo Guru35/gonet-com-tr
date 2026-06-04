@@ -1,6 +1,7 @@
 ---
 title: "Tatil Vitrini 2007 — Türkiye'nin İlk Online Tatil Satış Reklamları"
 description: "Türkiye'de online tatil satışı henüz yokken, Tatil Vitrini için ilk Google Ads tabanlı online tatil satış kampanyasını tasarladık."
+ogImage: "/case-studies/tatil-vitrini-ilk-online-tatil.jpg"
 client: "Tatil Vitrini"
 industry: "Turizm / Online seyahat"
 services:
@@ -35,9 +36,9 @@ Gonet, **Tatil Vitrini** için Türkiye'nin ilk online tatil satış sistemi rek
 
 ## Sonuç
 
-- ✅ **Türkiye'nin ilk online tatil satış sistemi reklamları** kategorisini açtık
-- ✅ Türk turizm dijitalleşmesinin başlangıç projelerinden biri oldu
-- ✅ Sonraki yıllarda Tur19, Vals Tur, Anı Tur gibi turizm referansları Gonet portföyüne eklendi
+- **Türkiye'nin ilk online tatil satış sistemi reklamları** kategorisini açtık
+- Türk turizm dijitalleşmesinin başlangıç projelerinden biri oldu
+- Sonraki yıllarda Tur19, Vals Tur, Anı Tur gibi turizm referansları Gonet portföyüne eklendi
 
 ## Sonraki turizm portföyü
 

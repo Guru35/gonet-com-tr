@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap (Astro @astrojs/sitemap tarafından otomatik üretilir)
+Sitemap: https://gonet.com.tr/sitemap-index.xml
+
+# LLM/AI ekosistemi rehberi
+# https://llmstxt.org/ standartı
+# llms.txt: https://gonet.com.tr/llms.txt

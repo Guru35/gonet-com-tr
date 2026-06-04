@@ -2,6 +2,7 @@
 title: "Web Tasarımda Coğrafi Etkiler"
 description: "Web sitelerinin görsel tasarımlarında coğrafya ve kültürün etkili olduğunu fark ettiniz mi? Yapılan araştırmalara göre, coğrafya ve kültür görsel tasarımı etkiliyor...."
 h1: "Web Tasarımda Coğrafi Etkiler"
+ogImage: "/blog/blog-web-tasarimda-cografi-etkiler.jpg"
 published: 2022-10-10
 author:
   name: "Gonet"

@@ -1,0 +1,713 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
+
+const title = 'Tasarım Galerisi — Editöryel DNA · Gonet';
+const description =
+  '2026 gonet.com.tr — Anton + Inter, B&W + tek kırmızı vurgu, devasa tipografi. 7 sayfa tasarımı yatay sergi.';
+const url = 'https://gonet.com.tr/galeri';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Galeri', url },
+  ],
+});
+
+const sayfalar = [
+  {
+    no: '01',
+    name: 'Ana Sayfa',
+    url: '/',
+    image: '/galeri/01-ana-sayfa.jpg',
+    kategori: 'Hero · Manifesto',
+    aciklama:
+      'Anton 28vw wordmark + 3-sütun tilt grid (-0.8° / +0.6° / -0.5°). 220+ marka stat şeridi + cascade manifesto. JS-driven random tilt, text-shadow ink-bleed halo başlıklarda.',
+  },
+  {
+    no: '02',
+    name: 'Uzmanlık',
+    url: '/uzmanlik',
+    image: '/galeri/02-uzmanlik.jpg',
+    kategori: '13 hizmet · 3D perspektif',
+    aciklama:
+      '13 servis kartı, her biri inline transform: perspective(900px) rotateY(±3-8°) rotateX(2°). Deterministik origin (sol/sağ), küçük yazılar düzlüğe yakın okunaklı.',
+  },
+  {
+    no: '03',
+    name: 'Vaka Çalışmaları',
+    url: '/case-studies',
+    image: '/galeri/03-vaka-calismalari.jpg',
+    kategori: 'Magazin spread · Yıl × ilk',
+    aciklama:
+      '8 vaka magazin spread, sol/sağ alternasyon. Yıl text-[24vw] Anton + başlık [10vw]. perspective(1000px) rotateY ±3-7° (cap), satırlar zemine paralel.',
+  },
+  {
+    no: '04',
+    name: 'Markalar',
+    url: '/markalar',
+    image: '/galeri/04-markalar.jpg',
+    kategori: 'Marka bulutu · Fizik motoru',
+    aciklama:
+      '205 marka, full-width arena içinde JS AABB collision physics. 5 size tier × 7 grayscale × italic varyasyon, her yüklemede yeni random dağılım.',
+  },
+  {
+    no: '05',
+    name: 'Deneyimler',
+    url: '/deneyimler',
+    image: '/galeri/05-deneyimler.jpg',
+    kategori: 'Timeline · 26 yıl akış',
+    aciklama:
+      '2000→2026 mihenk taşı timeline. Yıl Anton [6vw] + kategori kırmızı vurgu. Final stat şeridi: 26+ / 100+ / 15+ / 12+ Türkiye ilki.',
+  },
+  {
+    no: '06',
+    name: 'Yetenekler',
+    url: '/yetenekler',
+    image: '/galeri/06-yetenekler.jpg',
+    kategori: '9 disiplin × 52+ yetkinlik',
+    aciklama:
+      '9 disiplin başlığı + tek tek yetkinlik satırları. 5-dot seviye göstergesi, tablo + cascade hibrit layout. Sticky sol sütun, sağ liste flow.',
+  },
+  {
+    no: '07',
+    name: 'Hakkımızda',
+    url: '/hakkimizda',
+    image: '/galeri/07-hakkimizda.jpg',
+    kategori: 'Manifesto · Kurucu profili',
+    aciklama:
+      'Massive hero manifesto + Gökhan Kazancı profil bloğu. Stat şeridi 1975 / 26 YIL / 16K+ / 1. Eğitim + akademik altyazılar, ödüller listesi.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema} hideFooter={true}>
+  <!-- Fullscreen slider — tek seferde bir slide görünür, prev/next ile geçiş -->
+  <div class="hpan" id="hpan">
+    <div class="hpan-track" id="hpan-track">
+      <!-- Slide 0: Hero -->
+      <section class="hpan-slide hpan-intro">
+        <p class="text-[10px] uppercase tracking-[0.4em] font-medium mb-6">2026 · gonet.com.tr</p>
+        <h1 class="editorial-display text-[12vw] xl:text-[180px] leading-[0.85] mb-8">
+          Tasarım<br />Galerisi.
+        </h1>
+        <p class="text-xl xl:text-2xl leading-snug max-w-xl mb-10">
+          7 sayfa, tek karakter. <strong>Anton + Inter</strong>. Siyah/beyaz +
+          <strong style="color:#ff0000">tek kırmızı vurgu</strong>. Tüm sayfa tasarımları aynı DNA'dan.
+        </p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-60">→ İleri</p>
+      </section>
+
+      <!-- Tüm sayfa slaytları tek konteynerde, beyaz kart altta sabit, üstte cross-fade -->
+      <section class="hpan-pages" id="hpan-pages">
+        <!-- Boş paper-sheet kart — image katmanı altında her zaman görünür, "boş vutal" katmanı -->
+        <div class="hpan-empty-card paper-sheet" aria-hidden="true"></div>
+        {sayfalar.map((s, idx) => (
+          <article class="hpan-page" data-idx={idx}>
+            <div class="hpan-meta opacity-30 hover:opacity-50 transition-opacity duration-500">
+              <p class="editorial-display text-[8vw] xl:text-[110px] leading-[0.85] mb-3">{s.no}</p>
+              <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-2" style="color:#ff0000">{s.kategori}</p>
+              <h2 class="editorial-display text-2xl xl:text-4xl leading-[0.9] mb-3">{s.name}</h2>
+              <a
+                href={s.url}
+                class="text-xs font-mono uppercase tracking-[0.2em] underline decoration-1 underline-offset-4 hover:text-[#ff0000] transition-colors inline-block mb-4"
+              >gonet.com.tr{s.url === '/' ? '' : s.url} →</a>
+              <p class="text-sm leading-relaxed">{s.aciklama}</p>
+            </div>
+            <div class="hpan-image">
+              <a
+                href={s.image.replace('.jpg', '')}
+                data-image-src={s.image}
+                data-image-title={s.name}
+                target="_blank"
+                rel="noopener"
+                class="paper-sheet lightbox-trigger block relative overflow-hidden bg-white"
+                aria-label={`${s.name} — tam ekran aç`}
+              >
+                <img
+                  src={s.image}
+                  alt={`${s.name} — gonet.com.tr sayfa tasarımı`}
+                  class="block w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <!-- Last slide: CTA (arka kapak) -->
+      <section class="hpan-slide hpan-cta">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">Markanız için</p>
+        <h2 class="editorial-display text-[10vw] xl:text-[140px] leading-[0.85] mb-8">
+          Sizin Sayfanız<br /><span style="color:#ff0000">Nasıl Olsun<span class="grow-q">?</span></span>
+        </h2>
+        <a
+          href="/iletisim"
+          class="inline-block text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+        >
+          Görüşelim →
+        </a>
+      </section>
+    </div>
+
+    <!-- Prev/Next butonları — SVG ok, hover'da şaft kendinden uzar -->
+    <button class="hpan-arrow hpan-prev" id="hpan-prev" aria-label="Önceki">
+      <svg class="arrow-svg" viewBox="0 0 80 20" aria-hidden="true">
+        <polyline points="10,4 2,10 10,16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        <line class="arrow-shaft" x1="14" y1="10" x2="78" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="64" stroke-dashoffset="64" />
+      </svg>
+    </button>
+    <button class="hpan-arrow hpan-next" id="hpan-next" aria-label="Sonraki">
+      <svg class="arrow-svg" viewBox="0 0 80 20" aria-hidden="true">
+        <line class="arrow-shaft" x1="66" y1="10" x2="2" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="64" stroke-dashoffset="64" />
+        <polyline points="70,4 78,10 70,16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <!-- Sayaç + dot indicator -->
+    <div class="hpan-controls">
+      <span class="hpan-count" id="hpan-count">1 / 9</span>
+      <div class="hpan-dots" id="hpan-dots"></div>
+    </div>
+  </div>
+
+  <!-- Fullscreen lightbox — beyaz BG, click ile zoom toggle -->
+  <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog" aria-label="Görsel ön izleme">
+    <div class="lightbox-meta">
+      <span class="lightbox-title" id="lightbox-title"></span>
+      <span class="lightbox-hint">Resme tıkla → zoom · ESC → kapat</span>
+      <button class="lightbox-close" id="lightbox-close" aria-label="Kapat">×</button>
+    </div>
+    <div class="lightbox-stage" id="lightbox-stage">
+      <img class="lightbox-img" id="lightbox-img" alt="" />
+    </div>
+  </div>
+
+  <style>
+    /* Desktop ≥1024 — fullscreen slider, dikey scroll kilitli */
+    @media (min-width: 1024px) {
+      :global(html), :global(body) {
+        overflow: hidden !important;
+        height: 100vh !important;
+      }
+      :global(main) {
+        height: calc(100vh - 80px);
+        overflow: hidden;
+      }
+      .hpan {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 80px);
+        overflow: hidden;
+        background: #fff;
+      }
+      .hpan-track {
+        display: flex;
+        height: 100%;
+        width: max-content;
+        will-change: transform;
+        transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      .hpan-slide {
+        flex: 0 0 100vw;
+        height: 100%;
+        padding: 4vh 8vw;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .hpan-intro, .hpan-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 4vh 10vw;
+      }
+      /* Sayfa konteyneri — 7 sayfa absolute stacked, beyaz "boş kart" altta sabit
+         Alt padding 12vh: gölgenin nefes alacak alanı */
+      .hpan-pages {
+        flex: 0 0 100vw;
+        height: 100%;
+        position: relative;
+        padding: 5vh 8vw 12vh;
+        box-sizing: border-box;
+      }
+      /* Boş kart (vutal) — yatayda sayfa ortasında her zaman görünür beyaz katman */
+      .hpan-empty-card {
+        position: absolute;
+        top: 5vh;
+        bottom: 12vh;
+        left: 50%;
+        transform: translateX(-50%);
+        aspect-ratio: 3 / 4;
+        background: #fff;
+        z-index: 1;
+      }
+      .hpan-page {
+        position: absolute;
+        top: 5vh;
+        left: 8vw;
+        right: 8vw;
+        bottom: 12vh;
+        opacity: 1;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .hpan-page.is-active { pointer-events: auto; }
+      /* META — image sol kenarından ~8vh boşlukta, sağa hizalı dar sütun, %30 opak */
+      .hpan-meta {
+        position: absolute;
+        top: 0;
+        right: calc(50% + 40vh);
+        width: 18vw;
+        max-width: 280px;
+        text-align: right;
+        opacity: 0;
+        transition: opacity 0.7s ease-out;
+      }
+      .hpan-page.is-active .hpan-meta {
+        opacity: 0.3;
+        /* fade-in 0.7s + 0.6s gecikme — sayfa görseli ile birlikte gelir */
+        transition: opacity 0.7s ease-in 0.6s;
+      }
+      .hpan-page.is-active .hpan-meta:hover {
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+      .hpan-meta > div > a { text-align: right; }
+      /* IMAGE — yatayda ortalı, sayfanın tam ortasında durur */
+      .hpan-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        aspect-ratio: 3 / 4;
+        opacity: 0;
+        transition: opacity 0.7s ease-out;
+      }
+      .hpan-page.is-active .hpan-image {
+        opacity: 1;
+        /* fade-in 0.7s + 0.6s gecikme — meta ile eş zamanlı belirir */
+        transition: opacity 0.7s ease-in 0.6s;
+      }
+      .hpan-image > a {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+      .hpan-image > a > img {
+        height: 100%;
+        width: 100%;
+      }
+
+      /* Prev/Next ok butonları — çerçevesiz, hover'da SVG şaftı kendinden uzar */
+      .hpan-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: 0;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        color: #000;
+        z-index: 5;
+        display: inline-flex;
+        align-items: center;
+        transition: opacity 0.2s;
+      }
+      .hpan-prev { left: 1.5rem; }
+      .hpan-next { right: 1.5rem; }
+      .hpan-arrow:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+      }
+      .arrow-svg {
+        width: 64px;
+        height: 18px;
+        display: block;
+      }
+      .arrow-shaft {
+        transition: stroke-dashoffset 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .hpan-arrow:hover:not(:disabled) .arrow-shaft {
+        stroke-dashoffset: 0;
+      }
+
+      /* Alt sayaç + dot indicators */
+      .hpan-controls {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        z-index: 5;
+      }
+      .hpan-count {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-feature-settings: 'tnum';
+      }
+      .hpan-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .hpan-dots button {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.25s;
+      }
+      .hpan-dots button:hover { background: rgba(0, 0, 0, 0.4); }
+      .hpan-dots button.is-active {
+        background: #ff0000;
+        width: 22px;
+        border-radius: 4px;
+      }
+    }
+
+    /* CTA "?" — interaktif: mouse'tan kaçar, "Görüşelim"e gelince geri döner */
+    .grow-q {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    /* Lightbox — fullscreen beyaz overlay, click zoom toggle */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 100;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox[hidden] { display: none !important; }
+    .lightbox-meta {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 1280px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 24px;
+      background: #fff;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+    .lightbox-title { color: #000; }
+    .lightbox-hint { opacity: 0.4; font-weight: 400; }
+    .lightbox-close {
+      background: transparent;
+      border: 0;
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #000;
+      padding: 4px 8px;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #ff0000; }
+    .lightbox-stage {
+      width: 100%;
+      max-width: 1280px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px 32px;
+      box-sizing: border-box;
+    }
+    .lightbox-img {
+      display: block;
+      max-height: calc(100vh - 100px);
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      cursor: zoom-in;
+      background: #fff;
+      transition: max-height 0.35s ease, max-width 0.35s ease, width 0.35s ease;
+    }
+    .lightbox-img.is-zoomed {
+      max-height: none;
+      max-width: 100%;
+      width: 100%;
+      cursor: zoom-out;
+    }
+
+    /* Mobil + tablet — basit dikey block, slider UI gizli */
+    @media (max-width: 1023px) {
+      .hpan { background: #fff; padding: 2rem 0; }
+      .hpan-track { display: block; transform: none !important; }
+      .hpan-slide, .hpan-pages {
+        display: block;
+        width: 100%;
+        padding: 4rem 1.5rem;
+        border-bottom: 1px solid #000;
+        height: auto;
+        position: relative;
+      }
+      .hpan-page {
+        position: relative;
+        inset: auto;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        padding: 3rem 0;
+        border-bottom: 1px solid #000;
+        display: block;
+      }
+      .hpan-page:last-child { border-bottom: 0; }
+      .hpan-meta { margin-bottom: 2rem; }
+      .hpan-image > a {
+        display: block;
+        aspect-ratio: 3 / 4;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      .hpan-arrow, .hpan-controls { display: none; }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      if (window.innerWidth <= 1023) return;
+      const hpan = document.getElementById('hpan');
+      const track = document.getElementById('hpan-track');
+      const prevBtn = document.getElementById('hpan-prev');
+      const nextBtn = document.getElementById('hpan-next');
+      const countEl = document.getElementById('hpan-count');
+      const dotsEl = document.getElementById('hpan-dots');
+      if (!hpan || !track) return;
+
+      // 3 fiziksel slayt (cover + pages container + back-cover) ama N+2 mantıksal index
+      // index 0 = cover, 1..7 = sayfalar (aynı konteyner, opacity cross-fade), 8 = back cover
+      const pagesContainer = document.getElementById('hpan-pages');
+      const pageEls = pagesContainer ? pagesContainer.querySelectorAll('.hpan-page') : [];
+      const pageCount = pageEls.length;
+      const total = pageCount + 2;     // hero + 7 + cta
+      const PAGE_FIRST = 1;
+      const PAGE_LAST = total - 2;     // = pageCount
+      let index = 0;
+
+      // Dot indicator
+      if (dotsEl) {
+        for (let i = 0; i < total; i++) {
+          const b = document.createElement('button');
+          b.setAttribute('aria-label', 'Slide ' + (i + 1));
+          b.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(b);
+        }
+      }
+
+      function update() {
+        // Track: 3 pozisyon (0, -100vw, -200vw)
+        let trackVw;
+        if (index === 0) trackVw = 0;
+        else if (index >= PAGE_FIRST && index <= PAGE_LAST) trackVw = 100;
+        else trackVw = 200;
+        track.style.transform = 'translate3d(-' + trackVw + 'vw, 0, 0)';
+
+        // Aktif sayfa (cross-fade)
+        const pageIdx = index - PAGE_FIRST;
+        pageEls.forEach((el, i) => {
+          el.classList.toggle('is-active', index >= PAGE_FIRST && index <= PAGE_LAST && i === pageIdx);
+        });
+
+        if (countEl) countEl.textContent = (index + 1) + ' / ' + total;
+        if (dotsEl) {
+          dotsEl.querySelectorAll('button').forEach((b, i) => {
+            b.classList.toggle('is-active', i === index);
+          });
+        }
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === total - 1;
+      }
+
+      function goTo(n) {
+        index = Math.max(0, Math.min(total - 1, n));
+        update();
+      }
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      if (prevBtn) prevBtn.addEventListener('click', prev);
+      if (nextBtn) nextBtn.addEventListener('click', next);
+
+      // Klavye: ←/→
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { next(); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+        else if (e.key === 'Home') { goTo(0); e.preventDefault(); }
+        else if (e.key === 'End') { goTo(total - 1); e.preventDefault(); }
+      });
+
+      // Wheel — yatayda yön hangi olursa olsun bir kez tetiklenir (debounce'lu)
+      let wheelLock = false;
+      hpan.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (wheelLock) return;
+        const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        if (Math.abs(d) < 4) return;
+        if (d > 0) next(); else prev();
+        wheelLock = true;
+        setTimeout(() => { wheelLock = false; }, 600);
+      }, { passive: false });
+
+      // Touch swipe
+      let touchStartX = 0;
+      hpan.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      hpan.addEventListener('touchend', (e) => {
+        const dx = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(dx) < 40) return;
+        if (dx > 0) next(); else prev();
+      });
+
+      update();
+    })();
+  </script>
+
+  <script is:inline>
+    /* Lightbox — fullscreen image viewer, beyaz BG, click zoom toggle */
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      var lightboxTitle = document.getElementById('lightbox-title');
+      var lightboxStage = document.getElementById('lightbox-stage');
+      var closeBtn = document.getElementById('lightbox-close');
+      if (!lightbox || !lightboxImg) return;
+
+      function open(src, title) {
+        lightboxImg.src = src;
+        lightboxImg.alt = title || '';
+        lightboxImg.classList.remove('is-zoomed');
+        if (lightboxTitle) lightboxTitle.textContent = 'Gonet · ' + (title || '');
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        lightbox.scrollTop = 0;
+      }
+      function close() {
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+        lightboxImg.classList.remove('is-zoomed');
+      }
+
+      // Tıklanan resim toggle zoom
+      lightboxImg.addEventListener('click', function () {
+        lightboxImg.classList.toggle('is-zoomed');
+        lightbox.scrollTop = 0;
+      });
+      closeBtn.addEventListener('click', close);
+      // Resim dışı tıklanırsa kapat
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target === lightboxStage) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !lightbox.hidden) close();
+      });
+
+      // Galeri linklerini intercept et — yeni sekme yerine lightbox aç
+      document.querySelectorAll('.lightbox-trigger').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var src = a.getAttribute('data-image-src');
+          var title = a.getAttribute('data-image-title');
+          if (!src) return;
+          e.preventDefault();
+          open(src, title);
+        });
+      });
+    })();
+  </script>
+
+  <script is:inline>
+    /* CTA "?" — fareyle sürekli kaçar, sayfa kenarlarında durur, "Görüşelim"de hızla yerine döner */
+    (function () {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var q = document.querySelector('.grow-q');
+      if (!q) return;
+      var ctaLink = document.querySelector('.hpan-cta a');
+
+      var pos = { x: 0, y: 0 };
+      var target = { x: 0, y: 0 };
+      var ease = 0.16;
+      var EDGE_MARGIN = 60;
+
+      window.addEventListener('mousemove', function (e) {
+        // ? viewport'ta görünür mü? (CTA slaytı aktif değilse offscreen)
+        var rect = q.getBoundingClientRect();
+        if (rect.right < 0 || rect.left > window.innerWidth ||
+            rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+        // Görüşelim butonu üzerinde mi?
+        if (ctaLink) {
+          var cr = ctaLink.getBoundingClientRect();
+          var pad = 30;
+          if (e.clientX >= cr.left - pad && e.clientX <= cr.right + pad &&
+              e.clientY >= cr.top - pad && e.clientY <= cr.bottom + pad) {
+            target.x = 0;
+            target.y = 0;
+            ease = 0.22;
+            return;
+          }
+        }
+
+        // ?'in doğal konumu = mevcut rect - mevcut translate
+        var currentCx = rect.left + rect.width / 2;
+        var currentCy = rect.top + rect.height / 2;
+        var qNaturalX = currentCx - pos.x;
+        var qNaturalY = currentCy - pos.y;
+
+        // Mouse viewport merkezine göre normalize (-1..+1)
+        var cx = window.innerWidth / 2;
+        var cy = window.innerHeight / 2;
+        var nx = (e.clientX - cx) / cx;
+        var ny = (e.clientY - cy) / cy;
+
+        // ? hedef abs pozisyon — mouse'un AYNAdaki yansıması, kenarlara push'lanır
+        var absTargetX = cx - nx * (cx - EDGE_MARGIN);
+        var absTargetY = cy - ny * (cy - EDGE_MARGIN);
+
+        // Sayfa dışına çıkmasın — ?'in genişliği/yüksekliği için tampon
+        var halfW = rect.width / 2;
+        var halfH = rect.height / 2;
+        absTargetX = Math.max(EDGE_MARGIN + halfW, Math.min(window.innerWidth - EDGE_MARGIN - halfW, absTargetX));
+        absTargetY = Math.max(EDGE_MARGIN + halfH, Math.min(window.innerHeight - EDGE_MARGIN - halfH, absTargetY));
+
+        target.x = absTargetX - qNaturalX;
+        target.y = absTargetY - qNaturalY;
+        ease = 0.16;
+      });
+
+      function tick() {
+        pos.x += (target.x - pos.x) * ease;
+        pos.y += (target.y - pos.y) * ease;
+        q.style.transform = 'translate(' + pos.x.toFixed(1) + 'px, ' + pos.y.toFixed(1) + 'px)';
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</BaseLayout>

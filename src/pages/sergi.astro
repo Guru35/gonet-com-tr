@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
+
+const title = 'Sergi — Sayfa Sayfa · Gonet';
+const description =
+  '2026 gonet.com.tr — 7 sayfa tasarımı tam ekran yan yana. Editöryel DNA: Anton + Inter, B&W, kırmızı vurgu.';
+const url = 'https://gonet.com.tr/sergi';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Sergi', url },
+  ],
+});
+
+const sayfalar = [
+  { no: '01', name: 'Ana Sayfa', href: '/', image: '/galeri/01-ana-sayfa.jpg' },
+  { no: '02', name: 'Uzmanlık', href: '/uzmanlik', image: '/galeri/02-uzmanlik.jpg' },
+  { no: '03', name: 'Vaka Çalışmaları', href: '/case-studies', image: '/galeri/03-vaka-calismalari.jpg' },
+  { no: '04', name: 'Markalar', href: '/markalar', image: '/galeri/04-markalar.jpg' },
+  { no: '05', name: 'Deneyimler', href: '/deneyimler', image: '/galeri/05-deneyimler.jpg' },
+  { no: '06', name: 'Yetenekler', href: '/yetenekler', image: '/galeri/06-yetenekler.jpg' },
+  { no: '07', name: 'Hakkımızda', href: '/hakkimizda', image: '/galeri/07-hakkimizda.jpg' },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema} hideFooter={true}>
+  <!-- Outer wrapper — uzun dikey scroll alanı, içeride stage sticky kalır -->
+  <div class="sergi-outer" id="sergi-outer">
+    <div class="sergi-stage" id="sergi-stage">
+      <div class="sergi-strip" id="sergi-strip">
+        {sayfalar.map((s) => (
+          <a href={s.href} class="sergi-card" aria-label={`${s.name} sayfasına git`}>
+            <p class="sergi-no">{s.no}</p>
+            <div class="sergi-frame">
+              <img src={s.image} alt={`${s.name} — gonet.com.tr`} draggable="false" />
+            </div>
+            <p class="sergi-name">{s.name}</p>
+          </a>
+        ))}
+      </div>
+      <!-- İlerleme çubuğu — alt yatay 1px hat -->
+      <div class="sergi-progress"><div class="sergi-progress-bar" id="sergi-progress-bar"></div></div>
+      <div class="sergi-hint" id="sergi-hint">
+        <span>↓ aşağı kaydır → sergi sağa kayar · ↑ yukarı → sola</span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sergi-outer {
+      position: relative;
+      width: 100%;
+      /* Toplam dikey scroll alanı — her sayfa için ~80vh ekstra alan */
+      height: calc(100vh - 80px + 560vh);
+      background: #0a0a0a;
+    }
+    .sergi-stage {
+      position: sticky;
+      top: 80px;
+      width: 100%;
+      height: calc(100vh - 80px);
+      min-height: 500px;
+      background: #0a0a0a;
+      overflow: hidden;
+      color: #fff;
+    }
+    .sergi-strip {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 2vw, 40px);
+      height: 100%;
+      padding: 0 clamp(40px, 5vw, 80px);
+      width: max-content;
+      will-change: transform;
+    }
+    .sergi-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 92%;
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: #fff;
+    }
+    .sergi-no {
+      font-family: var(--font-display);
+      font-size: clamp(14px, 1.2vw, 18px);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    .sergi-frame {
+      flex: 1 1 0;
+      min-height: 0;
+      background: #fff;
+      overflow: hidden;
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 12px 24px rgba(0, 0, 0, 0.45),
+        0 40px 70px rgba(0, 0, 0, 0.55),
+        0 80px 120px -20px rgba(0, 0, 0, 0.45);
+      display: flex;
+    }
+    .sergi-frame img {
+      height: 100%;
+      width: auto;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+    .sergi-name {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.4vw, 22px);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+      opacity: 0.9;
+      transition: color 0.2s;
+    }
+    .sergi-card:hover .sergi-name { color: #ff0000; }
+
+    /* Alt ipucu */
+    .sergi-hint {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      pointer-events: none;
+      font-family: var(--font-sans);
+      transition: opacity 0.4s;
+    }
+
+    /* İlerleme çubuğu */
+    .sergi-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .sergi-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #ff0000;
+      transition: width 0.1s linear;
+    }
+
+    /* Mobil + tablet — native yatay scroll, sticky/outer devre dışı */
+    @media (max-width: 1023px) {
+      .sergi-outer {
+        height: auto;
+      }
+      .sergi-stage {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 80px);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .sergi-strip {
+        transform: none !important;
+        gap: 16px;
+        padding: 0 24px;
+      }
+      .sergi-card { scroll-snap-align: center; }
+      .sergi-progress { display: none; }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      if (window.innerWidth <= 1023) return; // mobile: native scroll
+
+      const outer = document.getElementById('sergi-outer');
+      const stage = document.getElementById('sergi-stage');
+      const strip = document.getElementById('sergi-strip');
+      const progressBar = document.getElementById('sergi-progress-bar');
+      const hint = document.getElementById('sergi-hint');
+      if (!outer || !stage || !strip) return;
+
+      const HEADER_OFFSET = 80;
+      // Başta birinci görselin merkezde durması için bekleme oranı (0-1)
+      const HOLD_BEFORE = 0.04;
+      // Son görselden sonra bekleme oranı
+      const HOLD_AFTER = 0.04;
+
+      let maxScroll = 0;
+      function updateBounds() {
+        maxScroll = Math.max(0, strip.scrollWidth - stage.clientWidth);
+      }
+      updateBounds();
+      window.addEventListener('resize', updateBounds);
+      strip.querySelectorAll('img').forEach(function (img) {
+        if (img.complete) { updateBounds(); return; }
+        img.addEventListener('load', updateBounds);
+        img.addEventListener('error', updateBounds);
+      });
+
+      let renderQueued = false;
+      function render() {
+        renderQueued = false;
+        const rect = outer.getBoundingClientRect();
+        // Sticky-stage aktif olduğu sürece: progress = (header altına kayma) / (toplam scroll mesafesi)
+        const stageH = window.innerHeight - HEADER_OFFSET;
+        const scrollable = rect.height - stageH;
+        if (scrollable <= 0) return;
+        const scrolled = HEADER_OFFSET - rect.top;
+        let progress = scrolled / scrollable;
+        progress = Math.max(0, Math.min(1, progress));
+        // Başta + sonda küçük "tutma" alanları — kullanıcı ilk görseli görür, geçişler yumuşar
+        let t = (progress - HOLD_BEFORE) / (1 - HOLD_BEFORE - HOLD_AFTER);
+        t = Math.max(0, Math.min(1, t));
+        const position = t * maxScroll;
+        strip.style.transform = 'translate3d(' + (-position).toFixed(2) + 'px, 0, 0)';
+        if (progressBar) progressBar.style.width = (t * 100).toFixed(2) + '%';
+        if (hint && progress > 0.02) hint.style.opacity = '0';
+        else if (hint) hint.style.opacity = '';
+      }
+      function onScroll() {
+        if (renderQueued) return;
+        renderQueued = true;
+        requestAnimationFrame(render);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      render();
+    })();
+  </script>
+</BaseLayout>

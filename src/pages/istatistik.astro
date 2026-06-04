@@ -1,0 +1,459 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
+
+const title = 'İstatistikler — 26 Yıllık Gonet Verisi | Gonet';
+const description =
+  'Gonet portföyünün 26 yıllık veri görselleştirmesi. 220+ marka, 23 sektör, 12+ Türkiye ilki, ' +
+  'sosyal medya dağılımı, yıl bazlı milestone yoğunluğu, hizmet karışımı.';
+const url = 'https://gonet.com.tr/istatistik';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'İstatistikler', url },
+  ],
+});
+
+// — Veri seti —
+
+// 1) Sektör dağılımı (yatay bar chart)
+const sectors = [
+  { name: 'Sanayi & Elektronik', count: 25 },
+  { name: 'İnşaat & Gayrimenkul', count: 22 },
+  { name: 'Gıda & FMCG', count: 20 },
+  { name: 'Sağlık', count: 18 },
+  { name: 'Eğitim', count: 12 },
+  { name: 'Turizm & Otelcilik', count: 10 },
+  { name: 'E-ticaret', count: 9 },
+  { name: 'Otomotiv', count: 8 },
+  { name: 'Tekstil & Konfeksiyon', count: 7 },
+  { name: 'Siyaset & Kamu', count: 6 },
+  { name: 'Mobilya', count: 5 },
+  { name: 'Mobil API', count: 6 },
+  { name: 'Holding & Kurumsal', count: 5 },
+  { name: 'Birlikler & Ticaret', count: 5 },
+  { name: 'Diğer', count: 62 },
+];
+
+// 2) Hizmet türü dağılımı (donut)
+const services = [
+  { name: 'Web Tasarım', pct: 28, isAccent: false },
+  { name: 'Google Ads / SEM', pct: 22, isAccent: false },
+  { name: 'SEO', pct: 15, isAccent: false },
+  { name: 'Sosyal Medya', pct: 14, isAccent: false },
+  { name: 'Marka & Kreatif', pct: 9, isAccent: false },
+  { name: 'AEO / GEO', pct: 7, isAccent: true },
+  { name: 'Diğer', pct: 5, isAccent: false },
+];
+
+// 3) Yıl-yıl ilkler (line chart)
+const yearMilestones = [
+  { year: 2000, count: 2 },
+  { year: 2003, count: 1 },
+  { year: 2005, count: 1 },
+  { year: 2007, count: 3 },
+  { year: 2008, count: 1 },
+  { year: 2009, count: 1 },
+  { year: 2010, count: 1 },
+  { year: 2011, count: 1 },
+  { year: 2013, count: 1 },
+  { year: 2014, count: 1 },
+  { year: 2015, count: 1 },
+  { year: 2017, count: 1 },
+  { year: 2019, count: 1 },
+  { year: 2020, count: 1 },
+  { year: 2022, count: 1 },
+  { year: 2023, count: 1 },
+  { year: 2024, count: 1 },
+  { year: 2025, count: 1 },
+  { year: 2026, count: 2 },
+];
+
+// 4) Sosyal medya kanal dağılımı (pie chart)
+const social = [
+  { name: 'LinkedIn', value: 16084, label: '16.084 takipçi' },
+  { name: 'Behance', value: 23000, label: '23.000 view' },
+  { name: 'Instagram', value: 2000, label: 'aktif takip' },
+  { name: 'Facebook', value: 800, label: 'sayfa' },
+  { name: 'SlideShare', value: 500, label: 'sunum' },
+];
+const socialTotal = social.reduce((s, x) => s + x.value, 0);
+
+// Helpers — SVG donut path için
+function donutSegments(items: { pct: number; isAccent: boolean }[], r1 = 80, r2 = 100) {
+  let acc = 0;
+  return items.map((it) => {
+    const start = acc;
+    const end = acc + it.pct;
+    acc = end;
+    const a1 = (start / 100) * 2 * Math.PI - Math.PI / 2;
+    const a2 = (end / 100) * 2 * Math.PI - Math.PI / 2;
+    const x1 = 110 + r2 * Math.cos(a1);
+    const y1 = 110 + r2 * Math.sin(a1);
+    const x2 = 110 + r2 * Math.cos(a2);
+    const y2 = 110 + r2 * Math.sin(a2);
+    const x3 = 110 + r1 * Math.cos(a2);
+    const y3 = 110 + r1 * Math.sin(a2);
+    const x4 = 110 + r1 * Math.cos(a1);
+    const y4 = 110 + r1 * Math.sin(a1);
+    const large = it.pct > 50 ? 1 : 0;
+    const d = `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r2} ${r2} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} L ${x3.toFixed(2)} ${y3.toFixed(2)} A ${r1} ${r1} 0 ${large} 0 ${x4.toFixed(2)} ${y4.toFixed(2)} Z`;
+    return { ...it, d, midAngle: (a1 + a2) / 2 };
+  });
+}
+const donut = donutSegments(services);
+
+// Pie chart (full) — sosyal medya
+function pieSegments(items: { value: number }[], total: number, r = 100) {
+  let acc = 0;
+  return items.map((it, i) => {
+    const start = acc;
+    const end = acc + it.value / total;
+    acc = end;
+    const a1 = start * 2 * Math.PI - Math.PI / 2;
+    const a2 = end * 2 * Math.PI - Math.PI / 2;
+    const x1 = 110 + r * Math.cos(a1);
+    const y1 = 110 + r * Math.sin(a1);
+    const x2 = 110 + r * Math.cos(a2);
+    const y2 = 110 + r * Math.sin(a2);
+    const large = end - start > 0.5 ? 1 : 0;
+    const d = `M 110 110 L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+    const pct = ((end - start) * 100).toFixed(1);
+    return { ...it, d, pct, idx: i };
+  });
+}
+const socialPie = pieSegments(social, socialTotal);
+
+// Line chart için path
+function linePath(points: { year: number; count: number }[], w = 800, h = 200, padX = 30, padY = 20) {
+  const xs = points.map((p) => p.year);
+  const ys = points.map((p) => p.count);
+  const xMin = Math.min(...xs), xMax = Math.max(...xs);
+  const yMax = Math.max(...ys);
+  return points.map((p, i) => {
+    const x = padX + ((p.year - xMin) / (xMax - xMin)) * (w - 2 * padX);
+    const y = h - padY - (p.count / yMax) * (h - 2 * padY);
+    return { x, y, ...p };
+  });
+}
+const linePts = linePath(yearMilestones);
+const linePathD = linePts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+
+// Bar chart için en uzun sektör
+const maxSectorCount = Math.max(...sectors.map((s) => s.count));
+
+// Toplam markalar
+const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
+  <!-- HERO -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <nav class="text-[10px] uppercase tracking-[0.3em] font-medium mb-12 lg:mb-16">
+        <ol class="flex items-center gap-3 flex-wrap">
+          <li><a href="/" class="hover:underline">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="opacity-60">İstatistikler</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">26 Yıllık Veri</p>
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-10">
+        Sayılarla Gonet.
+      </h1>
+      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl">
+        220+ marka, 23 sektör, 26 yıl, 12+ Türkiye ilki. Aşağıda 7 ayrı grafikle özetli görünüm —
+        her biri sıfırdan tasarlanmış inline SVG, kütüphane yok.
+      </p>
+    </div>
+  </section>
+
+  <!-- 1) DEVASA STAT ŞERİDİ -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
+      <div>
+        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]">{totalBrands}+</p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mt-2">marka</p>
+      </div>
+      <div>
+        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]">{sectors.length}</p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mt-2">sektör</p>
+      </div>
+      <div>
+        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]">26</p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mt-2">yıl deneyim</p>
+      </div>
+      <div>
+        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]" style="color:#ff0000">12+</p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mt-2" style="color:#ff0000">türkiye'de ilk</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) BAR CHART — SEKTÖR DAĞILIMI -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Bar Chart · 01</p>
+      <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
+        Sektör dağılımı.
+      </h2>
+      <div class="space-y-2 lg:space-y-3">
+        {sectors.map((s) => {
+          const pct = (s.count / maxSectorCount) * 100;
+          const isLast = s.name === 'Diğer';
+          return (
+            <div class="grid grid-cols-12 items-baseline gap-3 lg:gap-6">
+              <div class="col-span-12 lg:col-span-3 text-sm lg:text-base">{s.name}</div>
+              <div class="col-span-10 lg:col-span-8 relative h-7 lg:h-9">
+                <div
+                  class="absolute left-0 top-0 h-full"
+                  style={`width: ${pct}%; background: ${isLast ? '#d4d4d4' : '#000'};`}
+                ></div>
+              </div>
+              <div class="col-span-2 lg:col-span-1 editorial-display text-xl lg:text-3xl text-right">{s.count}</div>
+            </div>
+          );
+        })}
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
+        siyah çubuklar = belirgin sektör · gri = "diğer" toplam
+      </p>
+    </div>
+  </section>
+
+  <!-- 3) DONUT CHART — HİZMET TÜRÜ -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Donut · 02</p>
+        <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
+          Hizmet karışımı.
+        </h2>
+        <ul class="space-y-4">
+          {donut.map((d, i) => (
+            <li class="flex items-baseline gap-4">
+              <span
+                class="inline-block w-4 h-4"
+                style={`background: ${d.isAccent ? '#ff0000' : (i % 2 === 0 ? '#000' : '#525252')};`}
+              ></span>
+              <span class="text-base lg:text-lg font-medium">{d.name}</span>
+              <span class="editorial-display text-2xl lg:text-3xl ml-auto" style={d.isAccent ? 'color:#ff0000' : ''}>%{d.pct}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex justify-center lg:justify-end">
+        <svg viewBox="0 0 220 220" width="100%" style="max-width: 380px;" aria-label="Hizmet türü donut grafiği">
+          {donut.map((d, i) => (
+            <path
+              d={d.d}
+              fill={d.isAccent ? '#ff0000' : (i % 2 === 0 ? '#000' : '#525252')}
+              stroke="#fff"
+              stroke-width="1"
+            />
+          ))}
+          <text x="110" y="105" text-anchor="middle" font-family="var(--font-display)" font-size="32" fill="#000">100</text>
+          <text x="110" y="130" text-anchor="middle" font-size="9" letter-spacing="2" font-weight="500">% TOPLAM</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) LINE CHART — YIL YIL İLKLER -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Line Chart · 03</p>
+      <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
+        Yıl bazında ilkler.
+      </h2>
+      <svg viewBox="0 0 800 280" width="100%" class="block" aria-label="Yıl bazında Türkiye'de ilk imzalar">
+        <!-- Y axis labels -->
+        {[0, 1, 2, 3].map((n) => (
+          <g>
+            <line x1="30" x2="770" y1={240 - n * 60} y2={240 - n * 60} stroke="#e5e5e5" stroke-width="1" />
+            <text x="22" y={244 - n * 60} text-anchor="end" font-size="10" fill="#737373">{n}</text>
+          </g>
+        ))}
+        <!-- Line path -->
+        <path d={linePathD} stroke="#000" stroke-width="2" fill="none" />
+        <!-- Points -->
+        {linePts.map((p) => (
+          <g>
+            <circle cx={p.x} cy={p.y} r="4" fill={p.count > 1 ? '#ff0000' : '#000'} />
+            {p.count > 1 && (
+              <text x={p.x} y={p.y - 10} text-anchor="middle" font-size="11" font-weight="700" fill="#ff0000">{p.count}</text>
+            )}
+          </g>
+        ))}
+        <!-- X axis labels (her 3 yılda bir) -->
+        {linePts.filter((_, i) => i % 3 === 0 || i === linePts.length - 1).map((p) => (
+          <text x={p.x} y="265" text-anchor="middle" font-size="10" letter-spacing="1.5" fill="#404040">{p.year}</text>
+        ))}
+      </svg>
+      <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-6">
+        kırmızı zirveler = 1 yılda 2+ türkiye ilki · 2007 ve 2026 → 2 ayrı milestone
+      </p>
+    </div>
+  </section>
+
+  <!-- 5) PIE CHART — SOSYAL MEDYA -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="flex justify-center lg:justify-start order-2 lg:order-1">
+        <svg viewBox="0 0 220 220" width="100%" style="max-width: 380px;" aria-label="Sosyal medya kanal etkileşim pastası">
+          {socialPie.map((s) => (
+            <path
+              d={s.d}
+              fill={s.idx === 0 ? '#000' : s.idx === 1 ? '#404040' : s.idx === 2 ? '#737373' : s.idx === 3 ? '#a3a3a3' : '#d4d4d4'}
+              stroke="#fff"
+              stroke-width="2"
+            />
+          ))}
+        </svg>
+      </div>
+      <div class="order-1 lg:order-2">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Pie Chart · 04</p>
+        <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
+          Sosyal medya.
+        </h2>
+        <ul class="space-y-4">
+          {socialPie.map((s, i) => (
+            <li class="flex items-baseline gap-4">
+              <span
+                class="inline-block w-4 h-4"
+                style={`background: ${i === 0 ? '#000' : i === 1 ? '#404040' : i === 2 ? '#737373' : i === 3 ? '#a3a3a3' : '#d4d4d4'};`}
+              ></span>
+              <span class="text-base lg:text-lg font-medium">{s.name}</span>
+              <span class="text-sm opacity-70">{s.label}</span>
+              <span class="editorial-display text-xl lg:text-2xl ml-auto">%{s.pct}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) STACKED MASSIVE NUMBERS — 6 GERÇEK DEĞER -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Highlight · 05</p>
+      <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-16">
+        Önemli sayılar.
+      </h2>
+      <div class="space-y-12 lg:space-y-16">
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black/30 pb-6">
+          <span class="editorial-display col-span-5 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px] leading-[0.85]">25K</span>
+          <span class="col-span-7 lg:col-span-9 text-base lg:text-2xl font-medium">DEÜ Uzaktan Eğitim — anlık eşzamanlı kullanıcı (Avrupa'nın en büyüğü, 2014)</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black/30 pb-6">
+          <span class="editorial-display col-span-5 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px] leading-[0.85]">16K</span>
+          <span class="col-span-7 lg:col-span-9 text-base lg:text-2xl font-medium">Gökhan Kazancı LinkedIn takipçi — sektör görünürlüğü</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black/30 pb-6">
+          <span class="editorial-display col-span-5 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px] leading-[0.85]">2009</span>
+          <span class="col-span-7 lg:col-span-9 text-base lg:text-2xl font-medium">Google Dublin Agencies@Google — 30 ajans arasından Türkiye temsilcisi</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black/30 pb-6">
+          <span class="editorial-display col-span-5 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px] leading-[0.85]">İlk 3</span>
+          <span class="col-span-7 lg:col-span-9 text-base lg:text-2xl font-medium">Türkiye Google Partner ajansı · 2. Google Analytics partneri (2025)</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black/30 pb-6">
+          <span class="editorial-display col-span-5 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px] leading-[0.85]">24</span>
+          <span class="col-span-7 lg:col-span-9 text-base lg:text-2xl font-medium">Behance projesi · 23.000 toplam izlenme</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7) MINI STACKED BAR — VAKA ÇALIŞMALARI SEKTÖRE GÖRE -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Stacked Bar · 06</p>
+      <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
+        8 vaka, 7 sektör.
+      </h2>
+      <div class="space-y-1">
+        {[
+          { label: 'Sağlık (Ege Tüp Bebek)', pct: 12.5 },
+          { label: 'Siyaset (CHP 2007)', pct: 12.5 },
+          { label: 'E-ticaret (Adepo + Temiz Mama + Tatil Vitrini)', pct: 37.5 },
+          { label: 'Eğitim (DEÜ Uzaktan Eğitim)', pct: 12.5 },
+          { label: 'İnşaat (MYvia)', pct: 12.5 },
+          { label: 'Kamu (İzsu)', pct: 12.5 },
+        ].map((row, i) => (
+          <div class="grid grid-cols-12 items-center gap-3">
+            <div class="col-span-9 text-sm lg:text-base">{row.label}</div>
+            <div class="col-span-2 relative h-6">
+              <div
+                class="absolute left-0 top-0 h-full"
+                style={`width: ${row.pct * 2}%; background: ${i === 2 ? '#ff0000' : '#000'};`}
+              ></div>
+            </div>
+            <div class="col-span-1 editorial-display text-lg text-right">%{row.pct}</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
+        kırmızı blok = e-ticaret ağırlığı (3/8 vaka)
+      </p>
+    </div>
+  </section>
+
+  <!-- 8) SPARKLINE TRIO — 3 MİKRO TREND -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Sparkline · 07</p>
+      <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-16">
+        Üç trend.
+      </h2>
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- LinkedIn growth -->
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mb-3">LinkedIn Takipçi · 2020 → 2026</p>
+          <svg viewBox="0 0 200 60" width="100%" class="block mb-3">
+            <polyline points="5,55 25,52 50,48 75,40 100,32 130,22 160,12 195,5" stroke="#000" stroke-width="2" fill="none" />
+            <circle cx="195" cy="5" r="4" fill="#ff0000" />
+          </svg>
+          <p class="editorial-display text-3xl lg:text-5xl">16K+</p>
+        </div>
+        <!-- Brand portfolio -->
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mb-3">Marka Portföyü · 2000 → 2026</p>
+          <svg viewBox="0 0 200 60" width="100%" class="block mb-3">
+            <polyline points="5,58 20,55 40,50 60,45 90,35 120,25 150,15 180,8 195,5" stroke="#000" stroke-width="2" fill="none" />
+            <circle cx="195" cy="5" r="4" fill="#000" />
+          </svg>
+          <p class="editorial-display text-3xl lg:text-5xl">220+</p>
+        </div>
+        <!-- AEO/GEO entity density -->
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mb-3">Schema.org Entity · 2026</p>
+          <svg viewBox="0 0 200 60" width="100%" class="block mb-3">
+            <polyline points="5,55 30,52 60,48 90,42 110,28 140,18 170,8 195,3" stroke="#ff0000" stroke-width="2" fill="none" />
+            <circle cx="195" cy="3" r="4" fill="#ff0000" />
+          </svg>
+          <p class="editorial-display text-3xl lg:text-5xl" style="color:#ff0000">220+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY NOTE -->
+  <section class="bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Veri Notu</p>
+      <p class="text-sm lg:text-base leading-relaxed opacity-80">
+        Tüm grafikler <strong>inline SVG</strong> ile sıfırdan üretildi (Chart.js / D3 / Recharts yok).
+        Renk paleti: <strong>%100 siyah-beyaz-gri</strong> + tek <strong style="color:#ff0000">#ff0000 vurgu</strong>.
+        Veriler markalar sayfasının manuel sınıflandırmasından, deneyimler zaman çizgisinden ve
+        LinkedIn / Behance public scrape'inden derlendi. Yuvarlama: tüm yüzdeler bir ondalık.
+        Sayfa tek bir JS bağımlılığı kullanmıyor.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

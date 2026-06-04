@@ -7,6 +7,14 @@ const posts = (await getCollection('blog'))
   .filter((p) => !p.data.draft)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
+// Kategoriler — sayıyla birlikte chip'lerde göster
+const catCounts = posts.reduce((acc, p) => {
+  const c = p.data.category || 'Diğer';
+  acc[c] = (acc[c] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const categories = Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
+
 const title = 'Blog — GONET Dijital Pazarlama İçgörüleri';
 const description =
   'Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım. 25 yıllık sektör deneyimimizden çıkardığımız içgörüler.';
@@ -24,61 +32,193 @@ const blogSchema = webpageSchema({
 ---
 
 <BaseLayout title={title} description={description} schemas={blogSchema}>
-  <section class="bg-brand-50 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">Blog</p>
-      <h1 class="text-5xl font-bold text-brand-950 mb-4">Dijital pazarlama içgörüleri</h1>
-      <p class="text-xl text-slate-700 max-w-2xl">
-        25 yıllık ajans deneyimimizden çıkardığımız strateji notları, sektör analizleri ve uygulama
-        rehberleri.
+  <!-- Hero -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
+        Blog · {posts.length} yazı
+      </p>
+      <h1 class="editorial-display text-[18vw] lg:text-[12vw] xl:text-[180px] leading-[0.85] mb-12">
+        Yazılı<br />sektör hafızası.
+      </h1>
+      <p class="text-lg lg:text-2xl max-w-3xl leading-snug font-medium">
+        25+ yıllık ajansın stratejik notları, sektör analizleri, AEO/GEO yöntemleri,
+        reklam tarihi denemeleri ve "X nedir" tipi tanımlamalar. Hepsi
+        <strong>citation-ready</strong> formatta — LLM'in alıntılayabileceği,
+        kaynağa atfedebileceği yapıda.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-6">
+  <!-- Kategori filtre + Liste görünümü ikonu -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between gap-4 flex-wrap">
+      <div class="flex items-center gap-2 flex-wrap" role="tablist" aria-label="Kategori filtresi">
+        <button
+          type="button"
+          data-filter="all"
+          class="cat-chip is-active text-[11px] font-medium uppercase tracking-[0.3em] px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+          aria-pressed="true"
+        >
+          Tümü · {posts.length}
+        </button>
+        {categories.map(([cat, count]) => (
+          <button
+            type="button"
+            data-filter={cat}
+            class="cat-chip text-[11px] font-medium uppercase tracking-[0.3em] px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+            aria-pressed="false"
+          >
+            {cat} · {count}
+          </button>
+        ))}
+      </div>
+      <a
+        href="/haberler"
+        title="Liste görünümü"
+        aria-label="Liste görünümünde görüntüle"
+        class="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.3em] px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Liste
+      </a>
+    </div>
+  </section>
+
+  <!-- Posts — cascading stairstep + tilt -->
+  <section class="bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
       {posts.length === 0 ? (
-        <p class="text-slate-600">Henüz blog yazısı eklenmedi.</p>
+        <p class="text-2xl">Henüz blog yazısı eklenmedi.</p>
       ) : (
-        <ul class="divide-y divide-slate-200">
-          {posts.map((post) => (
-            <li class="py-8 first:pt-0">
-              <article>
-                <div class="flex items-center gap-3 text-sm text-slate-500 mb-2">
-                  <time datetime={post.data.published.toISOString()}>
-                    {post.data.published.toLocaleDateString('tr-TR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  {post.data.category && (
-                    <>
-                      <span aria-hidden="true">·</span>
-                      <span>{post.data.category}</span>
-                    </>
-                  )}
-                </div>
-                <h2 class="text-2xl font-semibold mb-3">
-                  <a
-                    href={`/blog/${post.id}`}
-                    class="text-brand-950 hover:text-brand-600 transition"
-                  >
-                    {post.data.title}
-                  </a>
-                </h2>
-                <p class="text-slate-700 leading-relaxed mb-3">{post.data.description}</p>
-                <a
-                  href={`/blog/${post.id}`}
-                  class="text-sm font-medium text-brand-600 hover:text-brand-800 inline-flex items-center gap-1"
-                >
-                  Yazıyı oku <span aria-hidden="true">→</span>
+        <div class="space-y-24 lg:space-y-32">
+          {posts.map((post, idx) => {
+            // Deterministik tilt: ±2.5deg
+            const tilts = [-2, 1.5, -1, 2.5, -1.5, 1, -2.5, 0.5];
+            const rot = tilts[idx % tilts.length];
+            // Kademeli offset: her sonraki post farklı miktarda kayık
+            const offsets = ['', 'lg:ml-[8%]', 'lg:ml-[18%]', 'lg:ml-[5%]', 'lg:ml-[24%]', 'lg:ml-[12%]', 'lg:ml-[3%]', 'lg:ml-[20%]'];
+            const align = offsets[idx % offsets.length];
+            // Tarih formatı parçaları
+            const d = post.data.published;
+            const day = d.getDate();
+            const monthShort = d.toLocaleDateString('tr-TR', { month: 'short' }).toUpperCase();
+            const year = d.getFullYear();
+            // Tahmini okuma süresi (kelime sayısına dayalı yoksa default)
+            const reading = post.data.readingMinutes || 5;
+            return (
+              <article
+                class={`blog-card ${align} max-w-5xl group`}
+                data-category={post.data.category || 'Diğer'}
+                style={`transform: rotate(${rot}deg); transform-origin: ${idx % 2 === 0 ? 'left' : 'right'};`}
+              >
+                <a href={`/blog/${post.id}`} class="block">
+                  <div class="grid grid-cols-12 gap-6 lg:gap-10 items-start">
+                    <!-- Görsel — sol/sağ alternasyon, mobilde tam genişlik üstte -->
+                    {post.data.ogImage && (
+                      <div class={`col-span-12 lg:col-span-4 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                        <img
+                          src={post.data.ogImage}
+                          alt=""
+                          loading="lazy"
+                          class="w-full h-auto block grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                      </div>
+                    )}
+
+                    <!-- İçerik -->
+                    <div class={`${post.data.ogImage ? 'col-span-12 lg:col-span-8' : 'col-span-12'} ${idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <!-- Tarih + meta şeridi -->
+                      <div class="flex items-baseline gap-6 mb-6">
+                        <span class="editorial-display text-5xl lg:text-7xl">{String(day).padStart(2, '0')}</span>
+                        <div class="flex flex-col">
+                          <span class="editorial-display text-2xl lg:text-3xl">{monthShort}</span>
+                          <span class="text-[10px] font-medium uppercase tracking-[0.3em] mt-1">{year} · {reading} dk · {post.data.category || 'Yazı'}</span>
+                        </div>
+                      </div>
+
+                      <!-- Başlık devasa Anton -->
+                      <h2 class="editorial-display text-[10vw] lg:text-[5.5vw] xl:text-[88px] leading-[0.88] mb-8">
+                        {post.data.title}
+                      </h2>
+
+                      <!-- Açıklama -->
+                      <p class="text-base lg:text-xl leading-snug font-medium mb-8 max-w-3xl">
+                        {post.data.description}
+                      </p>
+
+                      <!-- Etiketler + oku CTA -->
+                      <div class="flex items-baseline justify-between flex-wrap gap-4">
+                        <div class="flex gap-3 flex-wrap">
+                          {(post.data.tags || []).slice(0, 5).map((t) => (
+                            <span class="text-[10px] font-medium uppercase tracking-[0.3em] opacity-60">#{t}</span>
+                          ))}
+                        </div>
+                        <span class="text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 group-hover:decoration-4 transition-all">
+                          Yazıyı oku →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </a>
               </article>
-            </li>
-          ))}
-        </ul>
+            );
+          })}
+        </div>
       )}
+    </div>
+  </section>
+
+  <!-- Blog kartlarındaki başlık/ay metinlerini sentence-case yap (sayfa h1 etkilenmez) -->
+  <style>
+    .blog-card .editorial-display { text-transform: none; }
+    .cat-chip.is-active { background: #000; color: #fff; }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const chips = document.querySelectorAll('.cat-chip');
+      const cards = document.querySelectorAll('.blog-card');
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const filter = chip.getAttribute('data-filter');
+          chips.forEach((c) => {
+            c.classList.toggle('is-active', c === chip);
+            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+          });
+          cards.forEach((card) => {
+            const cat = card.getAttribute('data-category');
+            card.style.display = filter === 'all' || cat === filter ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+
+  <!-- Final CTA -->
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:24%;--rule-top-w:38%;--rule-bot-x:14%;--rule-bot-w:50%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
+        Bizim yazdığımızı sizin için de yazalım
+      </p>
+      <h2 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-12">
+        Markanız için<br />
+        <span style="color: #ff0000;">citation-ready</span><br />
+        içerik üretimi.
+      </h2>
+      <a
+        href="/iletisim"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+      >
+        Konuşalım →
+      </a>
     </div>
   </section>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 title: "Temiz Mama 2007 — Türkiye'nin İlk D2C Online Satışı"
 description: "2007 yılında, üreticiden tüketiciye doğrudan online satış konseptini Temiz Mama markası için Türkiye'de ilk biz kurduk."
+ogImage: "/case-studies/temiz-mama-ilk-d2c.jpg"
 client: "Temiz Mama"
 industry: "E-ticaret / D2C üreticiden tüketiciye"
 services:
@@ -35,9 +36,9 @@ Gonet, **Temiz Mama** için Türkiye'nin ilk D2C online satış kampanyasını t
 
 ## Sonuç
 
-- ✅ **Türkiye'nin ilk D2C online satış kampanyası** kategorisini açtık
-- ✅ Sonraki yıllarda Türk D2C ekosisteminin (örn. Yargıcı, Mavi gibi markaların kendi e-ticaret kollarının) öncüsü olduk
-- ✅ Aynı yılın (2007) Türk e-ticaret tarihinde 3 büyük "ilk"inden biri:
+- **Türkiye'nin ilk D2C online satış kampanyası** kategorisini açtık
+- Sonraki yıllarda Türk D2C ekosisteminin (örn. Yargıcı, Mavi gibi markaların kendi e-ticaret kollarının) öncüsü olduk
+- Aynı yılın (2007) Türk e-ticaret tarihinde 3 büyük "ilk"inden biri:
 
 | Müşteri | Türkiye ölçeğinde ilk |
 |---|---|

@@ -20,144 +20,10 @@ const pageSchema = webpageSchema({
   ],
 });
 
-// Yetkinlik kategorileri — her biri DefinedTermSet
-const categories = [
-  {
-    name: 'AEO / GEO — Yeni Nesil Arama',
-    emoji: '★',
-    intro:
-      'ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews için içerik ve entity optimizasyonu. ' +
-      'Klasik SEO\'nun yerini alan değil, üstüne katlanan disiplin.',
-    skills: [
-      { name: 'Schema.org JSON-LD entity authority', level: 'Uzman', detail: 'Organization, Person, Service, FAQPage, ItemList, Article, BreadcrumbList ve 18+ @type kombinasyonu' },
-      { name: 'llms.txt protokolü', level: 'Uzman', detail: 'Site genelinde LLM-okunabilir yapı tanımı — Anthropic ve OpenAI öneri formatına uygun' },
-      { name: 'Semantic chunking', level: 'Uzman', detail: 'Embedding-friendly içerik bölümleme; RAG sistemlerinde citation kazanma odaklı' },
-      { name: 'Citation surface engineering', level: 'Uzman', detail: 'GEO 2024 (Aggarwal et al. KDD) yöntemleri: Statistics +30%, Quotation +41%, Cite Sources +27% etki artışı' },
-      { name: 'Common Crawl optimizasyonu', level: 'İleri', detail: 'AI eğitim veri setlerinde temsil — robots.txt, CCBot, GPTBot, ClaudeBot policy yönetimi' },
-      { name: 'Extraction-readiness', level: 'Uzman', detail: 'LLM\'in tek paragraftan tam yanıt çıkarabilmesi için içerik mühendisliği' },
-    ],
-  },
-  {
-    name: 'SEO — Klasik Arama Motoru Optimizasyonu',
-    emoji: '◆',
-    intro:
-      'Google\'ın 2003\'ten bu yana her algoritma güncellemesi içinden geçtik. Panda, Penguin, ' +
-      'Hummingbird, BERT, MUM, Helpful Content Update, Spam Update — hepsinin pratik etkisini yaşadık.',
-    skills: [
-      { name: 'Teknik SEO — Core Web Vitals, INP, CLS', level: 'Uzman', detail: 'LCP <1s, INP <200ms, CLS <0.1 hedeflerine kadar ileri optimizasyon' },
-      { name: 'On-page SEO + içerik mimarisi', level: 'Uzman', detail: 'Pillar-cluster topology, internal link velocity, topical authority' },
-      { name: 'E-E-A-T sinyali inşası', level: 'Uzman', detail: 'Experience, Expertise, Authoritativeness, Trust — 4 sinyalin entity grafiğinde modellenmesi' },
-      { name: 'International SEO — hreflang, geo-targeting', level: 'İleri', detail: 'Almanya-Hollanda diaspora SEO\'su gibi niş bölgesel hedefleme' },
-      { name: 'Crawl budget + log analizi', level: 'İleri', detail: 'Server log\'larından Googlebot davranış analizi' },
-      { name: 'Schema.org ileri implementasyon', level: 'Uzman', detail: 'Rich results, How-To, FAQ, Event, Product, LocalBusiness — Google Search Central uyumu' },
-    ],
-  },
-  {
-    name: 'Google Ads & SEM',
-    emoji: '◉',
-    intro:
-      'Türkiye\'nin ilk 3 Google Partner ajansından biri. 2003\'ten bu yana AdWords/Google Ads ' +
-      'operasyonu — sağlık, inşaat, e-ticaret, siyaset, otomotiv, turizm, eğitim sektörlerinde.',
-    skills: [
-      { name: 'Performance Max kampanyaları', level: 'Uzman', detail: 'PMax + asset group mimarisi + audience signal stratejisi' },
-      { name: 'Smart Bidding + offline conversion import', level: 'Uzman', detail: 'tCPA, tROAS, Max Conversions optimizasyonu' },
-      { name: 'Google Shopping + Merchant Center', level: 'İleri', detail: 'Feed optimization, GTIN, custom labels' },
-      { name: 'YouTube reklamcılığı', level: 'İleri', detail: 'In-stream, Discovery, Shorts, Performance Max for video' },
-      { name: 'B2B Account-Based Marketing', level: 'İleri', detail: 'LinkedIn + Google Ads + e-mail entegre kampanyalar' },
-      { name: 'Hesap denetimi & restorasyonu', level: 'Uzman', detail: 'Bozuk hesap yapısının audit + yeniden inşası' },
-    ],
-  },
-  {
-    name: 'Analitik & Veri',
-    emoji: '▣',
-    intro:
-      'Türkiye\'nin 2 numaralı Google Analytics partneri. Veri olmadan optimize edilmez — biz veri ' +
-      'altyapısını kurar, anlamlandırır ve aksiyona çeviririz.',
-    skills: [
-      { name: 'Google Analytics 4 (GA4)', level: 'Uzman', detail: 'Event-based model, custom dimensions, audience builder, attribution' },
-      { name: 'Google Tag Manager (GTM)', level: 'Uzman', detail: 'Server-side tagging, data layer mimarisi, consent mode v2' },
-      { name: 'BigQuery + SQL', level: 'İleri', detail: 'GA4 raw export analizi, custom funnel, churn modelleme' },
-      { name: 'Looker Studio', level: 'Uzman', detail: 'Stakeholder dashboard, blended data, calculated fields' },
-      { name: 'A/B test & deney tasarımı', level: 'İleri', detail: 'Statistical significance, sample size, MDE planning' },
-      { name: 'Server log analizi', level: 'İleri', detail: 'Bot davranış analizi, AI crawler tespiti' },
-    ],
-  },
-  {
-    name: 'Web Geliştirme & Altyapı',
-    emoji: '◇',
-    intro:
-      'WordPress\'ten Astro\'ya, monolitten edge-rendering\'a, klasik PHP\'den serverless\'a — ' +
-      'her ölçek ve her bütçe için altyapı kurabiliriz. Avrupa\'nın en büyüğü olan DEÜ Uzaktan ' +
-      'Eğitim Sistemi (anlık 25K kullanıcı) bizim altyapımız.',
-    skills: [
-      { name: 'Astro 5 + Content Collections', level: 'Uzman', detail: 'Server Islands, View Transitions, content layer, edge runtime' },
-      { name: 'Next.js 15 + React 19', level: 'İleri', detail: 'App Router, RSC, server actions, partial prerendering' },
-      { name: 'Laravel + PHP', level: 'Uzman', detail: '15+ yıl Laravel production deneyimi — Octane, Horizon, Sanctum' },
-      { name: 'WordPress (legacy + headless)', level: 'Uzman', detail: 'Custom theme, ACF, WP REST API, headless decoupling' },
-      { name: 'Mobile API geliştirme (REST + GraphQL)', level: 'Uzman', detail: 'Habertürk, Unilever, Fenerbahçe ölçeğinde production API' },
-      { name: 'Tailwind CSS v4', level: 'Uzman', detail: 'Modern utility-first, design tokens, responsive system' },
-      { name: 'TypeScript (strict mode)', level: 'İleri', detail: 'Type-safe stack, Zod runtime validation' },
-      { name: 'Self-hosted PaaS — Coolify + Docker', level: 'İleri', detail: 'Hetzner + Coolify + Cloudflare ile vendor-independent deploy' },
-    ],
-  },
-  {
-    name: 'İçerik & Yaratıcı',
-    emoji: '✎',
-    intro:
-      'Veri ne kadar güçlü olursa olsun, içerik hâlâ ölçüldüğü insanla kurulan ilk temas. ' +
-      'AEO çağında "iyi içerik" tanımı değişti — LLM\'in alıntılayabileceği, kaynağa atfedebileceği, ' +
-      'rakamla destekli, yapısal içerik.',
-    skills: [
-      { name: 'Long-form SEO içerik üretimi', level: 'Uzman', detail: '2000+ kelime pillar içerik, semantic clustering' },
-      { name: 'AEO odaklı içerik — citation-worthy', level: 'Uzman', detail: 'Statistics, quotations, fluent transitions — GEO 2024 yöntemleri' },
-      { name: 'Marka hikayeleştirme', level: 'İleri', detail: 'Founder story, brand archetype, narrative arc' },
-      { name: 'Video script + kısa form sosyal', level: 'İleri', detail: 'Reels, TikTok, YouTube Shorts — algoritma uyumlu' },
-      { name: 'E-mail marketing — sequence tasarımı', level: 'İleri', detail: 'Behavioral trigger, segmentation, deliverability' },
-    ],
-  },
-  {
-    name: 'Sosyal Medya & Topluluk',
-    emoji: '◐',
-    intro:
-      'Instagram, LinkedIn, X, TikTok, Facebook, YouTube — her platformun kendi algoritması, ' +
-      'kendi içerik dili. Sağlık, siyaset, FMCG, eğitim sektörlerinde regülasyona uygun sosyal medya yönetimi.',
-    skills: [
-      { name: 'Meta Ads — Facebook & Instagram', level: 'Uzman', detail: 'Advantage+, Catalog Ads, CAPI server-side conversions' },
-      { name: 'LinkedIn Ads + Sales Navigator', level: 'İleri', detail: 'B2B targeting, Matched Audiences, account-based marketing' },
-      { name: 'TikTok Ads + Spark Ads', level: 'İleri', detail: 'Genç demografi B2C kampanyaları' },
-      { name: 'Influencer marketing', level: 'İleri', detail: 'Micro/macro influencer, performance-based pricing' },
-      { name: 'Topluluk yönetimi + CRM entegrasyonu', level: 'Uzman', detail: 'HubSpot, Pipedrive, Zoho ile sosyal CRM' },
-    ],
-  },
-  {
-    name: 'Tasarım & UX',
-    emoji: '◧',
-    intro:
-      'Kullanıcı deneyimi, dijital pazarlamanın görünmez %50\'si. Erişilebilirlik (WCAG 2.2), ' +
-      'mobil-öncelikli tasarım ve dönüşüm odaklı UI ekibimizin DNA\'sında.',
-    skills: [
-      { name: 'Figma + design system', level: 'Uzman', detail: 'Token-based design, component library, auto layout' },
-      { name: 'Mobil-öncelikli responsive tasarım', level: 'Uzman', detail: 'Container queries, fluid typography, intrinsic sizing' },
-      { name: 'WCAG 2.2 erişilebilirlik', level: 'İleri', detail: 'AA+ compliance, keyboard nav, screen reader, contrast' },
-      { name: 'Conversion Rate Optimization (CRO)', level: 'Uzman', detail: 'Heatmap, session recording, funnel analysis, A/B test' },
-      { name: 'Brand identity + logo', level: 'İleri', detail: 'Logo, color, typography, brand guideline' },
-    ],
-  },
-  {
-    name: 'Strateji & Danışmanlık',
-    emoji: '◈',
-    intro:
-      'En değerli yetkinliğimiz: 26 yılda 100+ markada görülmüş örüntüleri okumak. Yeni kuruluyorsanız ' +
-      'da, dijitalde tıkanmış büyük markayı da yeniden hizalayabiliriz.',
-    skills: [
-      { name: 'Dijital pazarlama strateji geliştirme', level: 'Uzman', detail: 'STP, customer journey, attribution model' },
-      { name: 'Startup büyüme danışmanlığı', level: 'İleri', detail: 'DEPARK, Dojonote, Bambu projeleri — go-to-market, growth loops' },
-      { name: 'Sektör girişi & competitive positioning', level: 'Uzman', detail: '15+ sektörde "ilk" olma deneyimi' },
-      { name: 'Marka iletişimi krizi yönetimi', level: 'Uzman', detail: 'Siyasi, sağlık ve enterprise kriz yönetimi' },
-      { name: 'M&A — dijital due diligence', level: 'Orta', detail: 'Hedef markanın dijital varlık değerlemesi' },
-    ],
-  },
-];
+// Yetkinlik kategorileri — paylaşılan veri (/yetenekler + /yetenekler/[slug])
+import { categories } from '../data/yetenekler';
+
+// Yetenek verisi data/yetenekler.ts dosyasından import ediliyor (yukarıda)
 
 // ItemList schema — yetenek envanteri
 const totalSkills = categories.reduce((s, c) => s + c.skills.length, 0);
@@ -189,82 +55,93 @@ const orgSkillSchema = {
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, skillListSchema, orgSkillSchema]}>
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="bg-white">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Yetenekler</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Yetkinlik Envanteri
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         9 disiplin, {totalSkills}+ yetkinlik, 26 yıl uygulama.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
-        Hizmetlerimiz <a href="/uzmanlik" class="text-accent-600 underline">/uzmanlık</a> sayfasında.
+        Hizmetlerimiz <a href="/uzmanlik" class="text-black underline">/uzmanlık</a> sayfasında.
         Burada ise <strong>nasıl çalıştığımız</strong> — kullandığımız araçlar, takip ettiğimiz
-        protokoller ve uzmanlaştığımız teknolojiler. Bir konuda "Uzman" yazıyorsa, o konuda Türkiye\'de ilk
+        protokoller ve uzmanlaştığımız teknolojiler. Bir konuda "Uzman" yazıyorsa, o konuda Türkiye'de ilk
         100 ajans arasındayız demektir.
       </p>
     </div>
   </section>
 
-  <!-- Kategoriler -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-6 space-y-16">
+  <!-- Kategoriler — editöryel çılgın -->
+  <section class="border-t border-black">
+    <div class="max-w-7xl mx-auto">
       {categories.map((cat, idx) => (
-        <article id={`kategori-${idx}`} class="scroll-mt-24">
-          <header class="mb-6">
-            <div class="flex items-baseline gap-3 mb-3">
-              <span class="text-2xl text-accent-600">{cat.emoji}</span>
-              <h2 class="text-3xl font-bold text-brand-950">{cat.name}</h2>
+        <article id={`kategori-${idx}`} class="scroll-mt-24 border-b border-black">
+          <div class="px-6 lg:px-10 py-12 lg:py-16 grid grid-cols-12 gap-6 lg:gap-10">
+            <!-- Numara + intro -->
+            <div class="col-span-12 lg:col-span-4">
+              <p class="editorial-display text-5xl lg:text-7xl mb-4">{String(idx + 1).padStart(2, '0')}</p>
+              <h2 class="editorial-display text-[12vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-6">{cat.name}</h2>
+              <p class="text-sm lg:text-base leading-snug max-w-md mb-6">{cat.intro}</p>
+              <a
+                href={`/yetenekler/${cat.slug}`}
+                class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] border-b border-black pb-1 hover:gap-3 transition-all"
+              >
+                Tamamını gör <span aria-hidden="true">→</span>
+              </a>
             </div>
-            <p class="text-lg text-slate-700 leading-relaxed">{cat.intro}</p>
-          </header>
-          <ul class="grid md:grid-cols-2 gap-4">
-            {cat.skills.map((sk) => (
-              <li class="border border-slate-200 rounded-lg p-4 hover:border-accent-300 hover:shadow-sm transition">
-                <div class="flex items-start justify-between gap-3 mb-2">
-                  <h3 class="font-semibold text-slate-900">{sk.name}</h3>
-                  <span class={`text-xs font-semibold px-2 py-0.5 rounded shrink-0 ${
-                    sk.level === 'Uzman' ? 'bg-accent-100 text-accent-700' :
-                    sk.level === 'İleri' ? 'bg-brand-200 text-brand-800' :
-                    'bg-slate-100 text-slate-700'
-                  }`}>{sk.level}</span>
+
+            <!-- Skills satırları -->
+            <div class="col-span-12 lg:col-span-8 border-l-0 lg:border-l border-black lg:pl-10">
+              {cat.skills.map((sk) => (
+                <div class="grid grid-cols-12 gap-4 border-b border-black/30 py-4 group hover:bg-black hover:text-white transition-colors -mx-6 lg:-mx-0 px-6 lg:px-0 lg:-mr-10 lg:pr-10">
+                  <div class="col-span-12 lg:col-span-8">
+                    <h3 class="text-base lg:text-lg font-semibold leading-snug">{sk.name}</h3>
+                    <p class="text-sm leading-snug mt-1 opacity-70">{sk.detail}</p>
+                  </div>
+                  <div class="col-span-12 lg:col-span-4 lg:text-right">
+                    <span class={`text-[10px] font-bold uppercase tracking-[0.3em] ${
+                      sk.level === 'Uzman' ? '' :
+                      sk.level === 'İleri' ? 'opacity-60' :
+                      'opacity-40'
+                    }`}>{sk.level}</span>
+                  </div>
                 </div>
-                <p class="text-sm text-slate-600 leading-relaxed">{sk.detail}</p>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
         </article>
       ))}
     </div>
   </section>
 
   <!-- Yetkinlik seviyesi açıklaması -->
-  <section class="py-16 bg-brand-50 border-t border-slate-200">
+  <section class="py-16 bg-white border-t border-black">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl font-bold text-brand-950 mb-6">Seviyeleri ne anlama geliyor?</h2>
+      <h2 class="editorial-display text-3xl lg:text-4xl mb-6">Seviyeleri ne anlama geliyor?</h2>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg p-6 border border-slate-200">
+        <div class="bg-white rounded-none p-6 border border-black/20">
           <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded bg-accent-100 text-accent-700 mb-3">Uzman</span>
           <p class="text-sm text-slate-700">
             Üretim ortamında 5+ yıl, 10+ projede uyguladık. Konferansta konuşur, kurum içi eğitim verir,
             yeni başlayanları yönlendirebiliriz.
           </p>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-slate-200">
-          <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded bg-brand-200 text-brand-800 mb-3">İleri</span>
+        <div class="bg-white rounded-none p-6 border border-black/20">
+          <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded bg-brand-200 text-black mb-3">İleri</span>
           <p class="text-sm text-slate-700">
             Üretim ortamında 2+ yıl, birden fazla projede uyguladık. Karmaşık durumları çözebilir,
             mimari karar verebiliriz.
           </p>
         </div>
-        <div class="bg-white rounded-lg p-6 border border-slate-200">
+        <div class="bg-white rounded-none p-6 border border-black/20">
           <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700 mb-3">Orta</span>
           <p class="text-sm text-slate-700">
             Pratik kullanım var, projeye göre danışman/partner desteği ile derinleşiyoruz.
@@ -276,19 +153,20 @@ const orgSkillSchema = {
   </section>
 
   <!-- CTA -->
-  <section class="bg-brand-950 text-white py-20">
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:16%;--rule-top-w:44%;--rule-bot-x:30%;--rule-bot-w:36%">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">İhtiyacınız bu listede mi?</h2>
-      <p class="text-lg text-brand-200 mb-8">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-4">İhtiyacınız bu listede mi?</h2>
+      <p class="text-lg text-black/70 mb-8">
         Listede görmediğiniz bir teknoloji ya da süreç varsa, büyük olasılıkla onu da yapıyoruz —
         sadece dokümante etmemişiz. Sorun, anlatalım.
       </p>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         Yetkinliğinizi konuşalım →
       </a>
     </div>
   </section>
+
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 title: "Adepo.com — Türkiye'nin İlk Online Marketi"
 description: "Türkiye'de henüz e-ticaret kavramı yokken, Adepo.com'u tasarladık, geliştirdik ve büyüttük. Türkiye'nin ilk online market alışveriş platformu Gonet imzalı."
+ogImage: "/case-studies/adepo-turkiye-ilk-online-market.jpg"
 client: "Adepo.com"
 industry: "E-ticaret / Online perakende"
 services:
@@ -37,9 +38,9 @@ Proje kapsamı:
 
 ## Sonuç
 
-- ✅ **Türkiye'nin ilk online marketi** olarak tarihe geçti
-- ✅ Türk e-ticaret ekosisteminin öncülerinden biri haline geldi
-- ✅ Bizim portföyümüzde **3 büyük "ilk online"** sayfasından biri (Adepo + Temiz Mama + Tatil Vitrini)
+- **Türkiye'nin ilk online marketi** olarak tarihe geçti
+- Türk e-ticaret ekosisteminin öncülerinden biri haline geldi
+- Bizim portföyümüzde **3 büyük "ilk online"** sayfasından biri (Adepo + Temiz Mama + Tatil Vitrini)
 
 ## Neden Gonet?
 

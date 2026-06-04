@@ -27,19 +27,19 @@ const pageSchema = webpageSchema({
 ---
 
 <BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="bg-white">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Vaka Çalışmaları</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Vaka Çalışmaları
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         İmza attığımız Türkiye ilkleri
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
@@ -50,51 +50,98 @@ const pageSchema = webpageSchema({
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-6 space-y-8">
-      {cases.map((cs) => (
-        <article class="border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg transition">
-          <a href={`/case-studies/${cs.id}`} class="block p-8">
-            <div class="flex items-center gap-3 text-sm text-slate-500 mb-2">
-              <span class="font-semibold">{cs.data.year}</span>
-              <span aria-hidden="true">·</span>
-              <span>{cs.data.client}</span>
-              {cs.data.industry && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>{cs.data.industry}</span>
-                </>
-              )}
-            </div>
-            <h2 class="text-2xl font-bold text-brand-950 mb-3 hover:text-brand-600">
-              {cs.data.title}
-            </h2>
-            <p class="text-slate-700 leading-relaxed mb-4">{cs.data.description}</p>
-            {cs.data.results && cs.data.results.length > 0 && (
-              <ul class="flex flex-wrap gap-3 text-xs">
-                {cs.data.results.slice(0, 3).map((r) => (
-                  <li class="bg-brand-50 text-brand-800 px-3 py-1 rounded">
-                    <strong>{r.value}</strong> <span class="text-brand-600">— {r.metric}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </a>
-        </article>
-      ))}
+  <!-- Magazine spread — her vaka editöryel "yayılma" -->
+  <section class="border-t border-black">
+    <div class="max-w-7xl mx-auto">
+      {cases.map((cs, idx) => {
+        // Sağ/sol alternasyon — magazin spread feel
+        const isRight = idx % 2 === 1;
+        // İlk büyük stat (varsa) — Anton display olarak
+        const heroStat = cs.data.results && cs.data.results[0];
+        // Sadece rotateY perspektifi — eğim YOK, satırlar zemine paralel kalır, kenarlardan biri geriye kaçar
+        const yTilts = [-5, 4, -3, 5, -4, 3, -5, 4];
+        const yTilt = yTilts[idx % yTilts.length];
+        const originX = yTilt < 0 ? 'right' : 'left';
+        return (
+          <article class="case-card border-b border-black" style={`transform: perspective(1400px) rotateY(${yTilt}deg); transform-origin: ${originX} center;`}>
+            <a href={`/case-studies/${cs.id}`} class="block px-6 lg:px-10 py-16 lg:py-24 group">
+              <div class={`grid grid-cols-12 gap-6 lg:gap-10 ${isRight ? 'lg:text-right' : ''}`}>
+                <!-- YEAR — devasa açılış + altında hero görseli (perspective article'dan inherit) -->
+                <div class={`col-span-12 lg:col-span-4 ${isRight ? 'lg:col-start-9 lg:order-2' : ''}`}>
+                  <p class="editorial-display text-[24vw] lg:text-[14vw] xl:text-[200px] leading-[0.8] mb-2">
+                    {cs.data.year}
+                  </p>
+                  <p class="text-[10px] font-medium uppercase tracking-[0.3em]">
+                    {cs.data.client}{cs.data.industry ? ` · ${cs.data.industry}` : ''}
+                  </p>
+                  {cs.data.ogImage && (
+                    <img
+                      src={cs.data.ogImage}
+                      alt={cs.data.client}
+                      loading="lazy"
+                      class={`mt-8 w-full max-w-xs aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ${isRight ? 'lg:ml-auto' : ''}`}
+                    />
+                  )}
+                </div>
+
+                <!-- TITLE + body + stats -->
+                <div class={`col-span-12 lg:col-span-8 ${isRight ? 'lg:order-1' : ''}`}>
+                  <h2 class="editorial-display text-[10vw] lg:text-[5vw] xl:text-[72px] leading-[0.9] mb-8">
+                    {cs.data.title}
+                  </h2>
+                  <p class="text-base lg:text-xl leading-snug mb-10 max-w-2xl lg:ml-auto">
+                    {cs.data.description}
+                  </p>
+
+                  {heroStat && (
+                    <div class={`mb-10 ${isRight ? 'lg:text-right' : ''}`}>
+                      <p class="editorial-display text-[16vw] lg:text-[10vw] xl:text-[140px] leading-[0.85]">
+                        {heroStat.value}
+                      </p>
+                      <p class="text-sm font-medium uppercase tracking-[0.2em] mt-2 opacity-70">
+                        {heroStat.metric}
+                      </p>
+                    </div>
+                  )}
+
+                  {cs.data.results && cs.data.results.length > 1 && (
+                    <div class={`flex flex-wrap gap-x-12 gap-y-4 mb-10 ${isRight ? 'lg:justify-end' : ''}`}>
+                      {cs.data.results.slice(1).map((r) => (
+                        <div>
+                          <p class="editorial-display text-4xl lg:text-5xl">{r.value}</p>
+                          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mt-1">{r.metric}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <p class="text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 group-hover:decoration-4 transition-all inline-block">
+                    Vakayı oku →
+                  </p>
+                </div>
+              </div>
+            </a>
+          </article>
+        );
+      })}
     </div>
   </section>
 
-  <section class="bg-brand-950 text-white py-20">
+  <!-- Case kartlarındaki başlık/değer metinlerini sentence-case yap (sayfa h1 etkilenmez) -->
+  <style>
+    .case-card .editorial-display { text-transform: none; }
+  </style>
+
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:12%;--rule-top-w:55%;--rule-bot-x:42%;--rule-bot-w:32%">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-4">Bir sonraki "ilk" sizin projeniz olsun</h2>
-      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+      <p class="text-lg text-white mb-8 max-w-2xl mx-auto">
         Sektörünüz ne olursa olsun, dijital pazarlamada bir adım önde olmak için doğru ortağı
         bulmak yeterli.
       </p>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         Projenizi Konuşalım →
       </a>

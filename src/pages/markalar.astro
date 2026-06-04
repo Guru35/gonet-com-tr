@@ -43,7 +43,7 @@ const sectors = [
       'Defne (klinik)',
       'Genç Cell',
       'Op.Dr. Can Öztekin',
-      'Pamukkale Şehr-i Şifa — Sağlık turizmi',
+      'Şehr-i Şifa — Pamukkale, sağlık turizmi',
       'Metin İlaç',
       'Dr. İbrahim Aşkar (Estetik Cerrah)',
       'Vasfi Karaoğlu (Ortopedist)',
@@ -163,7 +163,7 @@ const sectors = [
       'Olea — Zeytinyağı/gıda',
       'Aytaç Gıda',
       'Söke Un',
-      'Yingari İncir & Çikolata',
+      'Yingari — İncir & Çikolata',
       'Dr. Kombu',
       'Vinter (vinter.me)',
       'Alin\'s Cafe Restaurant',
@@ -186,7 +186,8 @@ const sectors = [
       'Norm Dijital',
       'Alins',
       'Koçak Gold',
-      'Özdilek + Özdilekteyim',
+      'Özdilek',
+      'Özdilekteyim',
       'Haier Klima',
       'Luna Cookware (lunacookware.com) — Çelik tencere ve çaydanlık',
       'Konyalı Ahmet Usta',
@@ -293,7 +294,7 @@ const sectors = [
       'Switch Bowling İzmir',
       'Gölge Stüdyo — Reklam filmi yapım, Gonet partner',
       'Hakan Akdemir — hakanakdemir.com kişisel sitesi',
-      'seldaaslan.com.tr — Selda Aslan kişisel marka websitesi',
+      'Selda Aslan — seldaaslan.com.tr kişisel marka websitesi',
     ],
   },
   {
@@ -346,7 +347,7 @@ const sectors = [
     name: 'Uluslararası',
     highlight: 'Almanya, Hollanda, UK, İtalya pazarları',
     brands: [
-      'Simtronik Çelik Tencere — Almanya + Hollanda',
+      'Simptronik — Çelik tencere, Almanya + Hollanda',
       'Amatis.nl (Hollanda)',
       'NumberBlue (numberblue.it) — İtalya e-ticaret',
       'Cryptocoin firması',
@@ -380,19 +381,19 @@ const itemListSchema = {
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, itemListSchema]}>
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="bg-white border-b border-black">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Markalar</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Çalıştığımız Markalar
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         26 yılda 20+ sektörde 200+ marka.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
@@ -400,12 +401,36 @@ const itemListSchema = {
         2000'den bu yana çalıştığımız markaların bir kısmı. Listemiz <strong>çok daha uzun</strong>;
         burada en bilinenler veya hikayesi public olanlardır.
       </p>
-      <p class="text-lg text-accent-700 leading-relaxed mt-4 font-semibold">
-        Bu markaların büyük çoğunluğunun <strong>ilk websitesinde, ilk internet reklamında,
-        ilk SEO\'sunda, ilk sosyal medyasında ya da ilk mobil uygulamasında biz vardık.</strong>
-        Bir markanın dijitalle ilk teması bizi geçti — bu da bizim Türkiye dijital
-        ekosisteminin kurulmasındaki rolümüzün kanıtı.
+      <p class="mt-6 text-lg leading-relaxed text-black" id="hero-rand-line">
+        {(() => {
+          const text = "Bu markaların büyük çoğunluğunun ilk websitesinde, ilk internet reklamında, ilk SEO'sunda, ilk sosyal medyasında ya da ilk mobil uygulamasında biz vardık. Bir markanın dijitalle ilk teması bizi geçti — bu da bizim Türkiye dijital ekosisteminin kurulmasındaki rolümüzün kanıtı.";
+          const HIGHLIGHT = /^ilk$/i;
+          return text.split(/(\s+)/).map((part) => {
+            if (/^\s+$/.test(part)) return ' ';
+            if (!part) return null;
+            if (HIGHLIGHT.test(part)) {
+              return (
+                <span class="hero-word bg-[#ff0000] text-white font-bold px-1 py-0.5 align-baseline text-base" style="margin-right:0.15em; display:inline-block;">{part}</span>
+              );
+            }
+            return <>{part}</>;
+          });
+        })()}
       </p>
+      <script is:inline>
+        (function() {
+          const SIZES = ['text-base', 'text-lg', 'text-xl', 'text-2xl'];
+          function randomize() {
+            document.querySelectorAll('#hero-rand-line .hero-word').forEach(function(w) {
+              SIZES.forEach(function(c) { w.classList.remove(c); });
+              w.classList.add(SIZES[Math.floor(Math.random() * SIZES.length)]);
+            });
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', randomize);
+          } else { randomize(); }
+        })();
+      </script>
       <p class="text-sm text-slate-500 mt-4 italic">
         Eksik olan markalar var — geriye dönüp eklemeye devam ediyoruz. Sizinle de çalıştıysak
         ve isminizi göremiyorsanız bize haber verin, yerini bulalım.
@@ -413,48 +438,230 @@ const itemListSchema = {
     </div>
   </section>
 
-  <!-- Sektörler -->
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-6 space-y-12">
-      {sectors.map((sector) => (
-        <article class="border border-slate-200 rounded-lg overflow-hidden">
-          <header class="bg-brand-50 px-6 py-4 border-b border-slate-200">
-            <h2 class="text-2xl font-bold text-brand-950">{sector.name}</h2>
-            {sector.highlight && (
-              <p class="text-sm text-brand-700 mt-1 font-medium">★ {sector.highlight}</p>
-            )}
-          </header>
-          <ul class="divide-y divide-slate-100">
-            {sector.brands.map((brand) => (
-              <li class="px-6 py-3 text-slate-800">
-                {brand.includes(' — ') ? (
-                  <>
-                    <strong>{brand.split(' — ')[0]}</strong>
-                    <span class="text-slate-600"> — {brand.split(' — ').slice(1).join(' — ')}</span>
-                  </>
-                ) : (
-                  brand
-                )}
-              </li>
-            ))}
-          </ul>
-        </article>
-      ))}
+  <!-- Floating brand arena — full-screen fiziksel animasyon -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-8">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em]">
+        220+ Marka · Karma Karışık · Çarpışarak Dolanıyor
+      </p>
     </div>
+
+    <!-- Full-width arena — 2.5 ekran yüksekliği -->
+    <div
+      id="brand-arena"
+      class="relative w-full h-[250vh] min-h-[1500px] bg-white overflow-hidden border-y border-black"
+      style="contain: layout style"
+    >
+      {(() => {
+        // Marka temizleme: ÖNCE parantez sil, sonra " — " split, sonra suffix
+        const cleanName = (raw) => {
+          let n = raw;
+          // Parantezleri (içeriğiyle) kaldır — " — " split'inden ÖNCE
+          n = n.replace(/\s*\([^)]*\)/g, '');
+          // Açık paren ama kapanmamış kalmasın
+          n = n.replace(/\s*\([^—]*$/, '');
+          // " — " sonrası açıklamayı sil
+          n = n.split(' — ')[0];
+          // Üniversitesi → Üni. (kompakt)
+          n = n.replace(/\sÜniversitesi/g, ' Üni.');
+          // Şehir suffix — "İzmir" sonek (kompakt: "Switch Bowling İzmir" → "Switch Bowling")
+          n = n.replace(/\s+İzmir$/i, '');
+          // Yaygın suffix'leri sil — Holding/Güzellik Merkezi/Güzellik/Klima/Çeşme dahil
+          n = n.replace(/\s+(Hastaneler Grubu|Hastaneleri|Hastanesi|Güzellik Merkezi|Güzellik|Holding|Klima|Çeşme|sektörü|kategori)$/i, '');
+          // Trim + multiple spaces collapse
+          n = n.replace(/\s+/g, ' ').trim();
+          return n;
+        };
+        const isGeneric = (raw) => {
+          const r = raw.toLowerCase();
+          if (/(çok sayıda|sayısız|kategori|firması$|firmaları$|ve sivil toplum kuruluşu|diğer i̇zmir|cryptocoin firması|yıllarca|zayıflama|takviyeleri)/i.test(r)) return true;
+          // Sadece ad/desc'de jenerik kalıp
+          if (/^(çok|sayısız|gelinlik)/i.test(r.trim())) return true;
+          return false;
+        };
+        const all = sectors.flatMap((s) => s.brands);
+        return all
+          .filter((b) => !isGeneric(b))
+          .map(cleanName)
+          .filter((n) => n.length >= 2)
+          // Tekrar varsa kaldır
+          .filter((n, i, arr) => arr.indexOf(n) === i);
+      })().map((name, i) => {
+        const seed = (name.length * 7 + i * 11) % 100;
+        // Boyut dağılımı
+        let sizeClass = 'text-base lg:text-lg font-medium';
+        let displayClass = '';
+        if (seed < 5) {
+          sizeClass = 'text-5xl lg:text-7xl leading-[0.9]';
+          displayClass = 'editorial-display';
+        } else if (seed < 20) {
+          sizeClass = 'text-3xl lg:text-5xl leading-[0.9]';
+          displayClass = 'editorial-display';
+        } else if (seed < 50) {
+          sizeClass = 'text-xl lg:text-2xl font-bold';
+        } else if (seed < 80) {
+          sizeClass = 'text-base lg:text-lg font-semibold';
+        }
+        // Gri ton dağılımı — 7 farklı ton
+        const grays = ['text-black', 'text-neutral-700', 'text-neutral-600', 'text-neutral-500', 'text-neutral-400', 'text-neutral-300', 'text-stone-500'];
+        const grayClass = grays[(seed + i) % grays.length];
+        // Sadece italic varyasyon (underline kaldırıldı)
+        const variant = seed % 9;
+        const variantClass = variant === 0 ? 'italic' : '';
+        return (
+          <span
+            class={`brand-item absolute top-0 left-0 whitespace-nowrap ${displayClass} ${sizeClass} ${grayClass} ${variantClass}`}
+            style="will-change: transform; padding: 0 .25rem;"
+          >
+            {name}
+          </span>
+        );
+      })}
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] opacity-60">
+        220 isim, 23 sektör, 26 yıl — hareket eder, çarpışır, büyür, küçülür.
+      </p>
+    </div>
+
+    <script is:inline>
+      (function() {
+        function init() {
+          const arena = document.getElementById('brand-arena');
+          if (!arena) return;
+          const items = Array.from(arena.querySelectorAll('.brand-item'));
+
+          // Her yüklemede random boyut + gri ton + italic dağılımı
+          const SIZE_TIERS = [
+            { p: 5,  classes: ['text-5xl','lg:text-7xl','leading-[0.9]','editorial-display'] },
+            { p: 20, classes: ['text-3xl','lg:text-5xl','leading-[0.9]','editorial-display'] },
+            { p: 50, classes: ['text-xl','lg:text-2xl','font-bold'] },
+            { p: 80, classes: ['text-base','lg:text-lg','font-semibold'] },
+            { p: 100,classes: ['text-base','lg:text-lg','font-medium'] },
+          ];
+          const GRAYS = ['text-black','text-neutral-700','text-neutral-600','text-neutral-500','text-neutral-400','text-neutral-300','text-stone-500'];
+          const STRIP = /^(text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl)|lg:text-(base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl)|leading-\[0\.9\]|editorial-display|font-bold|font-semibold|font-medium|italic|text-black|text-(neutral|stone|slate)-\d+)$/;
+          items.forEach(function(el) {
+            // Eski size/style class'larını temizle
+            Array.from(el.classList).forEach(function(c) {
+              if (STRIP.test(c)) el.classList.remove(c);
+            });
+            // Random tier seç
+            const r = Math.random() * 100;
+            let tier = SIZE_TIERS[SIZE_TIERS.length - 1];
+            for (let k = 0; k < SIZE_TIERS.length; k++) {
+              if (r < SIZE_TIERS[k].p) { tier = SIZE_TIERS[k]; break; }
+            }
+            tier.classes.forEach(function(c) { el.classList.add(c); });
+            el.classList.add(GRAYS[Math.floor(Math.random() * GRAYS.length)]);
+            if (Math.random() < 0.11) el.classList.add('italic');
+          });
+
+          // Force reflow → yeni boyutlar measure edilsin
+          void arena.offsetHeight;
+
+          const W = arena.clientWidth;
+          const H = arena.clientHeight;
+
+          const state = items.map(function(el) {
+            const rect = el.getBoundingClientRect();
+            const w = rect.width, h = rect.height;
+            return {
+              el: el,
+              x: Math.random() * Math.max(1, W - w),
+              y: Math.random() * Math.max(1, H - h),
+              w: w, h: h,
+              vx: (Math.random() - 0.5) * 0.35,
+              vy: (Math.random() - 0.5) * 0.35,
+              scale: 1,
+              phase: Math.random() * Math.PI * 2,
+            };
+          });
+
+          function step() {
+            const n = state.length;
+            // Move + scale
+            for (let i = 0; i < n; i++) {
+              const s = state[i];
+              s.x += s.vx;
+              s.y += s.vy;
+              s.phase += 0.0015;
+              s.scale = 1 + Math.sin(s.phase) * 0.08;
+              const effW = s.w * s.scale, effH = s.h * s.scale;
+              if (s.x < 0) { s.x = 0; s.vx = Math.abs(s.vx); }
+              if (s.x + effW > W) { s.x = W - effW; s.vx = -Math.abs(s.vx); }
+              if (s.y < 0) { s.y = 0; s.vy = Math.abs(s.vy); }
+              if (s.y + effH > H) { s.y = H - effH; s.vy = -Math.abs(s.vy); }
+            }
+
+            // Collision (simple AABB, O(n²) — limited at this scale)
+            for (let i = 0; i < n; i++) {
+              const a = state[i];
+              const aW = a.w * a.scale, aH = a.h * a.scale;
+              for (let j = i + 1; j < n; j++) {
+                const b = state[j];
+                const bW = b.w * b.scale, bH = b.h * b.scale;
+                if (a.x < b.x + bW && a.x + aW > b.x && a.y < b.y + bH && a.y + aH > b.y) {
+                  // Swap velocities
+                  const tvx = a.vx; a.vx = b.vx; b.vx = tvx;
+                  const tvy = a.vy; a.vy = b.vy; b.vy = tvy;
+                  // Push apart
+                  const overlapX = Math.min(a.x + aW - b.x, b.x + bW - a.x);
+                  const overlapY = Math.min(a.y + aH - b.y, b.y + bH - a.y);
+                  if (overlapX < overlapY) {
+                    const push = overlapX * 0.5 + 0.5;
+                    if (a.x < b.x) { a.x -= push; b.x += push; }
+                    else { a.x += push; b.x -= push; }
+                  } else {
+                    const push = overlapY * 0.5 + 0.5;
+                    if (a.y < b.y) { a.y -= push; b.y += push; }
+                    else { a.y += push; b.y -= push; }
+                  }
+                }
+              }
+            }
+
+            // Apply transforms
+            for (let i = 0; i < n; i++) {
+              const s = state[i];
+              s.el.style.transform = 'translate(' + s.x.toFixed(1) + 'px, ' + s.y.toFixed(1) + 'px) scale(' + s.scale.toFixed(3) + ')';
+            }
+
+            requestAnimationFrame(step);
+          }
+
+          // Wait one frame for layout to settle
+          requestAnimationFrame(step);
+
+          // Re-init on resize
+          let resizeTimer;
+          window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(init, 250);
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
+      })();
+    </script>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-brand-950 text-white py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Sizin de markanız bu listede yer alsın</h2>
-      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
-        Sektörünüz ne olursa olsun — 15+ sektörde, 100+ markada denenmiş stratejiyle çalışıyoruz.
-      </p>
+  <!-- CTA — editöryel -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-32 lg:py-40">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">Yeni Marka</p>
+      <h2 class="editorial-display text-[16vw] lg:text-[10vw] xl:text-[160px] leading-[0.85] mb-12">
+        Sizin markanız<br />bu listede olsun.
+      </h2>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-2xl lg:text-3xl font-bold underline decoration-4 underline-offset-8 hover:text-white hover:bg-black px-3 py-1 transition-colors"
       >
-        İletişime Geç →
+        Görüşelim →
       </a>
     </div>
   </section>

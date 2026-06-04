@@ -18,180 +18,630 @@ const homeSchema = webpageSchema({
 ---
 
 <BaseLayout title={title} description={description} schemas={homeSchema}>
-  <!-- Hero -->
-  <section class="relative bg-gradient-to-br from-brand-50 via-white to-brand-100 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 py-24 lg:py-32 relative">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-4">
-          İzmir · 2000'den beri · İzmir'in ilk AI ajansı — AEO & GEO uzmanı
-        </p>
-        <h1 class="text-5xl lg:text-6xl font-bold text-brand-950 leading-tight tracking-tight mb-6">
-          Ajanslar üstü kreatif stratejist.<br />
-          <span class="text-accent-600">26 yıllık dijital deneyim.</span>
-        </h1>
-        <p class="text-2xl text-brand-800 font-bold leading-snug mb-6 italic">
-          "Her iş'te Gonet var."
-          <span class="block text-sm font-normal text-slate-500 not-italic mt-1">
-            — Sosyal medya kampanyamızdan
-          </span>
-        </p>
-        <p class="text-xl text-slate-700 leading-relaxed mb-4">
-          2000 yılında İzmir'de kurulan Gonet, İzmir ve Ege'nin ilk dijital ajansıdır. Bugün
-          <strong>İzmir'in ilk AI ajansı</strong> olarak konumlanıyoruz: Answer Engine Optimization
-          (AEO), Generative Engine Optimization (GEO) ve ChatGPT/Claude/Perplexity/Gemini
-          alıntılanma uzmanlığı. Türkiye'nin ilk 3 Google Partner ajansından biri, İzmir
-          Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi.
-        </p>
-        <p class="text-lg text-slate-600 leading-relaxed mb-8">
-          Biz <strong>fiyatta rekabet etmeyiz</strong> — danışmanlık, strateji, kreatif fikir ve
-          kampanya geliştirme tarafında 26 yıllık birikimle ajanslar üstü bir konumdayız.
-          Sağlıktan inşaata, siyasetten e-ticarete, mobil API'lerden start-up danışmanlığına;
-          130+ markada Türkiye ölçeğinde 12+ <em>"ilk"</em>e imza attık.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="/case-studies"
-            class="bg-brand-900 text-white px-6 py-3 rounded-md font-medium hover:bg-brand-800 transition inline-flex items-center gap-2"
-          >
-            Vaka Çalışmaları
-            <span aria-hidden="true">→</span>
-          </a>
-          <a
-            href="/iletisim"
-            class="bg-white border border-slate-300 text-slate-900 px-6 py-3 rounded-md font-medium hover:border-brand-600 hover:text-brand-700 transition"
-          >
-            Görüşelim
-          </a>
+  <!-- Hero — pure white/black editorial typography -->
+  <section class="bg-white text-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-12">
+      <!-- Top meta: tiny scale -->
+      <p class="text-[10px] sm:text-xs font-medium uppercase tracking-[0.4em] text-black mb-16 lg:mb-24">
+        Gonet — İzmir · 2000 → 2026 · Türkiye'nin ilk 3 Google Partner ajansından biri · İzmir'in ilk AI ajansı
+      </p>
+
+      <!-- HUGE display headline — tek h1, görsel olarak iki satır -->
+      <h1 class="editorial-display text-black mb-12 lg:mb-20">
+        <span class="block text-[18vw] lg:text-[14vw] xl:text-[200px] mb-2">Her iş'te</span>
+        <span class="block text-[28vw] lg:text-[22vw] xl:text-[320px]">Gonet var.</span>
+      </h1>
+
+      <!-- Three-column meta — karışık tilt + farklı boyut/dikey hizalama -->
+      <div class="relative grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-6 lg:gap-x-10 pt-8 mt-4">
+        <!-- Üst çizgi — viewport boydan boya -->
+        <span class="absolute top-0 h-px bg-black pointer-events-none" style="left:50%;transform:translateX(-50%);width:100vw"></span>
+
+        <!-- Konum — sola yaslı, hafif yukarı kayık, Anton ile -->
+        <div class="md:col-span-3 md:pt-0 md:-mt-2" style="transform: rotate(-0.8deg); transform-origin: left top;">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4 ml-1">Konum</p>
+          <p class="editorial-display text-3xl lg:text-5xl leading-[0.92]">
+            Ajanslar<br />üstü<br />kreatif<br />marketing<br />stratejist.
+          </p>
+        </div>
+
+        <!-- Konsept — biraz aşağıda, sağa kayık tilt -->
+        <div class="md:col-span-5 md:pt-12 md:ml-[3%]" style="transform: rotate(0.6deg); transform-origin: center top;">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4">Konsept</p>
+          <p class="text-base lg:text-xl leading-snug font-medium">
+            26 yıl önce kurulduğumuzda dijital pazarlamayı bilenler arasındaydık.
+            Bugün <strong>Answer Engine Optimization</strong> (AEO),
+            <strong>Generative Engine Optimization</strong> (GEO) ve LLM citation engineering
+            üzerinde çalışıyoruz. İzmir'in ilk AI ajansı olarak, fikirde ve sonuçta rekabet ederiz.
+          </p>
+        </div>
+
+        <!-- Aksiyon — sağa, içe kayık, link'ler farklı boyutta -->
+        <div class="md:col-span-4 md:pt-4 md:-ml-[2%]" style="transform: rotate(-0.5deg); transform-origin: right top;">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4">Aksiyon</p>
+          <ul class="space-y-3">
+            <li><a href="/case-studies" class="block editorial-display text-2xl lg:text-4xl hover:text-[#ff0000] transition-colors leading-[1]">→ Vaka çalışmaları (8)</a></li>
+            <li><a href="/markalar" class="block editorial-display text-3xl lg:text-5xl hover:text-[#ff0000] transition-colors leading-[1] ml-[8%]">→ Markalar (220+)</a></li>
+            <li><a href="/hakkimizda" class="block editorial-display text-xl lg:text-3xl hover:text-[#ff0000] transition-colors leading-[1] ml-[3%]">→ Hakkımızda</a></li>
+            <li><a href="/iletisim" class="block editorial-display text-2xl lg:text-4xl hover:text-[#ff0000] transition-colors leading-[1] ml-[12%]">→ Görüşelim</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="home-body">
+
+  <!-- Kim — kısa self-definition -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Kim
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>İzmir ve Ege'nin ilk dijital, sosyal ve ilk AI ajansı.</strong>
+        Türkiye'nin <strong>ilk 3 Google Partner</strong> ajansından biri.
+        <strong>İRD</strong> üyesi. <strong>DEPARK</strong> mukimi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Massive numbers section — scale-jumping editorial -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-16">
+        26 Yılın Bilançosu
+      </p>
+
+      <div class="space-y-8 lg:space-y-12">
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black pb-6">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">220+</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium ml-[1ch]">marka portföyü, 23 sektör.</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black pb-6">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">26</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium">yıl İzmir'de kesintisiz hizmet — 2000'den beri.</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black pb-6">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">(1.)</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium">İzmir'in ilk Google Partneri + İlk Google Analytics partneri (2005 - 2007).</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black pb-6">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">12+</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium">Farklı sektörde Türkiye'nin "ilk" Google reklamlarını yapan ajans. Siyasal, İnşaat, Pet, Sağlık...</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4 border-b border-black pb-6">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">25K</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium">DEÜ Uzaktan Eğitim — anlık eşzamanlı kullanıcı (Avrupa'nın en büyüğü).</span>
+        </div>
+        <div class="grid grid-cols-12 items-baseline gap-4">
+          <span class="editorial-display col-span-4 lg:col-span-3 text-[18vw] lg:text-[10vw] xl:text-[160px]">16K</span>
+          <span class="col-span-8 lg:col-span-9 text-base lg:text-xl font-medium">Gökhan Kazancı LinkedIn takipçi — sektör görünürlüğü.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust strip — gerçek metrikler -->
-  <section class="border-y border-slate-200 bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-      <div>
-        <div class="text-4xl font-bold text-brand-900">26 yıl</div>
-        <div class="text-sm text-slate-600 mt-1">Kesintisiz operasyon<br><span class="text-xs">(2000'den beri)</span></div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-brand-900">İlk 3</div>
-        <div class="text-sm text-slate-600 mt-1">Türkiye Google Partner<br><span class="text-xs">+ 2. Google Analytics sertifikası</span></div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-brand-900">100+</div>
-        <div class="text-sm text-slate-600 mt-1">Marka portföyü<br><span class="text-xs">15+ sektörde</span></div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-brand-900">5+</div>
-        <div class="text-sm text-slate-600 mt-1">Eski çalışanlarımızdan<br><span class="text-xs">çıkan ajans</span></div>
-      </div>
+  <!-- Manifesto-style typographic block -->
+  <section class="editorial-section bg-white text-black" style="--rule-top-x:20%;--rule-top-w:36%;--rule-bot-x:42%;--rule-bot-w:30%">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Manifesto
+      </p>
+      <p class="editorial-display text-[8vw] lg:text-[6vw] xl:text-[88px] mb-10">
+        Markaların çoğunun ilk websitesinde,<br />
+        ilk reklamında, ilk SEO'sunda,<br />
+        ilk sosyal medyasında <span class="text-accent-pure" style="color:#ff0000">biz vardık.</span>
+      </p>
+      <p class="text-base lg:text-lg max-w-3xl text-black/80 leading-relaxed">
+        Türkiye dijital ekosisteminin kurulduğu 2000'li yıllardan beri buradayız — siyasi partilerden
+        sağlık turizmine, uluslararası FMCG'lerden start-up'lara. Şimdi yeni bir
+        kuruluş anındayız: <strong>Ticari AI Entegrasyonları</strong> & <strong>AI Pazarlama Stratejileri</strong>.
+        Kimse olmasa da GONET yine yanınızda. Bize güvenebilirsiniz.
+      </p>
     </div>
   </section>
 
-  <!-- İlkler — citation-worthy entity sinyalleri -->
-  <section class="py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mb-12">
-        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
-          Türkiye ve İzmir'de İlkler
-        </p>
-        <h2 class="text-4xl font-bold text-brand-950 mb-4">
-          25 yıllık ilk imzalar
-        </h2>
-        <p class="text-lg text-slate-700">
-          Yeni bir teknoloji geldiğinde Türkiye'de ilk uygulamayı yapan ajanslardan biriydik.
-          2000'den bu yana sektörde standartları belirlemekten daha çok, kuran taraf olduk.
-        </p>
+  <!-- İlkler — editöryel tipografi listesi -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-16">
+        Türkiye'de "İlk" İmzalarımız
+      </p>
+      <h2 class="editorial-display text-[12vw] lg:text-[8vw] xl:text-[120px] mb-16 leading-[0.9]">
+        Standartlara uyanlar<br />ve Onları Kuranlar...
+      </h2>
+
+      <!-- Editöryel "ilkler" tablosu — random çizgi sonu + random hover gri -->
+      <div class="ilkler-table">
+        {[
+          { year: '2005', text: 'Google AdWords\'ün Türkçeleşmesinden önce — Türkiye\'deki ilk hesap yöneticilerinden' },
+          { year: '2006', text: 'Türkiye\'nin ilk tüp bebek Google Ads kampanyası — Ege Tüp Bebek' },
+          { year: '2007', text: 'İzmir\'de ilk SEO (Search Engine Optimization) çalışmalarını başlatan ajans' },
+          { year: '2007', text: 'İzmir\'de ilk Google Display Reklam uygulamalarını hayata geçiren ajans' },
+          { year: '2008', text: 'Türkiye\'nin ilk online sanal market reklamları — Adepo.com' },
+          { year: '2008', text: 'Google Dublin — Avrupa Headquarter\'a davet edilen ilk Türk ajansı' },
+          { year: '2009', text: 'Google Dublin Agencies@Google — ilk 30 dijital ajans arasında Türkiye temsilcisi' },
+          { year: '2009', text: 'Türkiye\'nin ilk Google Ads Beta Tester ajansı' },
+          { year: '2012', text: 'İzmir\'in ilk mobil-uyumlu responsive website tasarım uygulayıcısı' },
+          { year: '2013', text: 'İzmir\'in ilk ticari mobil app ajansı — Habertürk + Unilever + Fenerbahçe' },
+          { year: '2015', text: 'Türkiye\'de 4 parti (CHP, MHP, AK Parti, İYİ Parti) ile çalışan ilk dijital ajans' },
+          { year: '2020', text: 'DEÜ Uzaktan Eğitim — Avrupa\'nın anlık 25K kullanıcılı en büyük sistemi (pandemi başlangıcı)' },
+          { year: '2025', text: 'İzmir\'in ilk AI ajansı — AEO/GEO odaklı dönüşüm' },
+        ].map((row, idx) => {
+          // Deterministik random çizgi-sonu (sol başlangıç sabit, sağ uç random)
+          const ends = [55, 78, 42, 92, 60, 36, 88, 70, 48, 84, 52, 96, 65, 30, 76];
+          const endW = ends[idx % ends.length];
+          return (
+            <div
+              class="ilkler-row relative grid grid-cols-12 items-baseline gap-4 lg:gap-8 py-5 lg:py-6 -mx-6 lg:-mx-10 px-6 lg:px-10"
+              style={`--line-w: ${endW}%;`}
+            >
+              <span class="editorial-display col-span-3 lg:col-span-2 text-3xl lg:text-5xl relative z-10">{row.year}</span>
+              <span class="col-span-9 lg:col-span-10 text-base lg:text-xl font-medium leading-snug relative z-10">{row.text}</span>
+            </div>
+          );
+        })}
       </div>
-      <ul class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-slate-800">
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2000:</strong> İzmir ve Ege'nin ilk dijital ajansı</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk Google siyasal kampanyası (CHP)</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk online tatil satış reklamları (Tatil Vitrini)</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2007:</strong> Türkiye'nin ilk D2C online satış kampanyası (Temiz Mama)</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>2009:</strong> Google'ın Dublin Avrupa toplantısında Türkiye'yi temsil</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Türkiye'nin <strong>ilk online marketi — Adepo.com</strong></span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Türkiye'nin ilk 3 Google Partner ajansından biri</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span><strong>Google Analytics sertifikası alan 2. Türk ajansı</strong></span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Google Ads'in Türkiye'deki ilk beta tester ajansı</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Türkiye'nin ilk tüp bebek Google Ads kampanyası (Ege Tüp Bebek)</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk SEO ajansı</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk sosyal medya ajansı</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>İzmir'in ilk mobil ve responsive web siteleri</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>Habertürk, Unilever, Fenerbahçe — büyük mobil API projeleri</span></li>
-        <li class="flex gap-3"><span class="text-brand-600 font-bold">●</span><span>4 büyük partiyle (AKP, CHP, MHP, İYİ) çalışan ilk ajans</span></li>
-      </ul>
+
+      <!-- CSS + JS: random çizgi sonu + her hover'da YENİ random gri ton + random uzunluk -->
+      <style>
+        .ilkler-table { border-top: 1px solid #000; }
+        .ilkler-row::after {
+          content: '';
+          position: absolute;
+          left: 1.5rem;
+          bottom: 0;
+          width: calc(var(--line-w, 60%) - 1.5rem);
+          height: 1px;
+          background: #000;
+          pointer-events: none;
+        }
+        @media (min-width: 1024px) {
+          .ilkler-row::after { left: 2.5rem; width: calc(var(--line-w, 60%) - 2.5rem); }
+        }
+        .ilkler-row::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: #d4d4d4;
+          width: var(--hover-w, 0%);
+          transition: width 0.2s ease-out;
+          z-index: 0;
+          pointer-events: none;
+        }
+      </style>
+      <script is:inline>
+        (function () {
+          // Hover genişlikleri — bazen taşar (>%100), bazen yarım, bazen 3/4. Renk sabit, sadece uzunluk random.
+          const widths = ['62%', '88%', '105%', '47%', '120%', '70%', '38%', '95%', '78%', '110%', '55%', '92%', '83%', '40%', '115%'];
+          document.querySelectorAll('.ilkler-row').forEach((row) => {
+            row.addEventListener('mouseenter', () => {
+              const w = widths[Math.floor(Math.random() * widths.length)];
+              row.style.setProperty('--hover-w', w);
+            });
+            row.addEventListener('mouseleave', () => {
+              row.style.setProperty('--hover-w', '0%');
+            });
+          });
+        })();
+      </script>
     </div>
   </section>
 
-  <!-- Hizmet özeti -->
-  <section class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mb-12">
-        <h2 class="text-4xl font-bold text-brand-950 mb-4">
-          13 sektörde uzmanlaştık
-        </h2>
-        <p class="text-lg text-slate-700">
-          Sağlık turizmi, inşaat, siyaset, e-ticaret, turizm, eğitim, FMCG, otomotiv. Her sektör
-          için farklı oyun kuralları olduğunu biliyoruz — strateji, ölçülebilir sonuç ve
-          rakipten ayrışma odağında çalışıyoruz.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a
-          href="/uzmanlik"
-          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
-        >
-          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
-            Uzmanlık Alanları
-          </h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            Google Ads, SEO, sosyal medya, web tasarım, marka stratejisi, sağlık turizmi
-            pazarlaması, siyasi kampanya yönetimi.
-          </p>
-        </a>
-        <a
-          href="/case-studies"
-          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
-        >
-          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
-            Vaka Çalışmaları
-          </h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            DEÜ Uzaktan Eğitim (Avrupa'nın en büyüğü), CHP 2007, MYvia, Ege Tüp Bebek, Tatil
-            Vitrini, Temiz Mama, İzsu.
-          </p>
-        </a>
-        <a
-          href="/blog"
-          class="block p-6 border border-slate-200 rounded-lg hover:border-brand-400 hover:shadow-lg transition group"
-        >
-          <h3 class="text-xl font-semibold text-brand-900 mb-2 group-hover:text-brand-600">
-            Blog
-          </h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım — 25 yıllık
-            sektör deneyiminden içgörüler.
-          </p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-brand-950 text-white py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Projeniz için stratejik destek mi arıyorsunuz?</h2>
-      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
-        25 yıllık deneyimimizle markanızı dijital dünyada bir adım öne taşıyoruz. Görüşelim, size
-        özel bir yol haritası çıkaralım.
+  <!-- Başarı Hikayeleri (KeyStudies) teaser -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
+        Başarı Hikayeleri
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05] mb-10">
+        Avrupa'nın en büyük canlı eğitim altyapısı. DEÜ DEUZEM'den,
+        Türkiye'nin ilk Google siyasal kampanyasına, ilk online marketten
+        ilk tüp bebek reklamına — 26 yıllık portföyümüzden seçilmiş
+        başarı hikayeleri.
       </p>
       <a
-        href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        href="/case-studies"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
-        İletişime Geç →
+        → KeyStudies
       </a>
     </div>
   </section>
+
+  <!-- Öne çıkan KeyStudy — DEÜ DEUZEM (siyah spotlight) -->
+  <section class="case-snap bg-black text-white border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-white/60">
+        Öne Çıkan — DEÜ DEUZEM
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        Kurulduğunda Avrupa'nın en büyüğü olan canlı uzaktan eğitim platformu —
+        anlık <strong>25.000 kullanıcı</strong>, pandemi koşullarında
+        <strong>2 ayda</strong> hayata geçirildi. <strong>50+ server</strong>
+        ile sıfır bağımlılık. Tüm database üniversite altyapısında.
+        <strong>Sakai + Blue Button</strong> (açık kaynak) mimari.
+      </p>
+      <p class="text-base lg:text-xl text-white/85 leading-relaxed mt-16 max-w-3xl border-t border-white/20 pt-10">
+        Gonet'in DEÜ, DEPARK ve DEUZEM danışmanlığı, Yaşar Üniversitesi dahil
+        ilgili birimlerle entegrasyonu ve 26 yıllık sektör deneyimi,
+        bu projenin başarıyla sonuçlanmasında belirleyici oldu.
+      </p>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — İZSU (beyaz spotlight) -->
+  <section class="case-snap bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Öne Çıkan — İZSU
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>İZSU'nun ilk sosyal medya kampanyası.</strong>
+        İzmir Su ve Kanalizasyon İdaresi için tasarladığımız sosyal medya
+        kampanyası, kentin su kaynaklarına dikkat çekti — ve
+        <strong>şebekeden içilebilir su</strong> farkındalığı hedeflendi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — MYway (beyaz spotlight) -->
+  <section class="case-snap bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Öne Çıkan — MYway (eski Myvia)
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        Eski adı <strong>Myvia</strong> olan <strong>MYway</strong>, 2 yıl içinde
+        (<strong>2010 – 2012</strong>) <strong>İzmir'in en bilinen 2. inşaat markası</strong>
+        haline geldi. Türkiye'nin ilk inşaat sektörü Google Ads reklamları ve Türkiye'nin ilk
+        <strong>bütünleşik dijital reklam</strong> kampanyaları sayesinde.
+      </p>
+      <p class="text-sm lg:text-base text-black/60 mt-8 uppercase tracking-[0.2em] font-medium">
+        Basılı yayın · Outdoor · Dijital reklam mecraları
+      </p>
+      <p class="text-base lg:text-xl text-black/80 leading-relaxed mt-16 max-w-3xl border-t border-black/20 pt-10">
+        İnşaat sektöründe marka kuruluşu klasik olarak uzun yıllar + büyük outdoor + TV reklam gerektirir.
+        Myvia (sonraki adıyla MYway), İzmir'de bilinmeyen yeni bir konut markası olarak pazara girdi (2010).
+        Klasik yöntemlerle 2 yılda anlamlı bir konuma ulaşması mümkün değildi.
+      </p>
+      <div class="mt-12 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-black/60">
+          Aynı sektörde portföyümüz
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>Avcılar İnşaat</li>
+          <li>Yapıtek</li>
+          <li>İkon Yapı</li>
+          <li>Kavuklar İnşaat</li>
+          <li>Modda</li>
+          <li>Narova</li>
+          <li>Logo Beton <span class="text-black/50 font-normal">(yapı malzemesi)</span></li>
+          <li class="text-black/50 font-normal">ve dahası…</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — Ege Tüp Bebek (siyah spotlight) -->
+  <section class="case-snap bg-black text-white border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-white/60">
+        Öne Çıkan — Ege Tüp Bebek · 2005
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>Türkiye'nin ilk tüp bebek Google Ads kampanyası.</strong>
+        Sağlık, sağlık turizmi ve IVF kategorisinde — regülasyon hassasiyeti yüksek bir
+        alanda Google Ads ekosistemini ilk kez bu sektöre taşıdık.
+      </p>
+      <p class="text-sm lg:text-base text-white/60 mt-8 uppercase tracking-[0.2em] font-medium">
+        Sağlık · Sağlık turizmi · IVF
+      </p>
+      <p class="text-base lg:text-xl text-white/85 leading-relaxed mt-16 max-w-3xl border-t border-white/20 pt-10">
+        Tüp bebek (IVF), Türkiye'nin sağlık turizminde en güçlü dikeylerinden biri.
+        Ancak 2000–2005 yılları arasında Google reklamlarını kullanmıyordu.
+        Sağlık reklamcılığının düzenleyici hassasiyetleri (sağlık beyanları, etik kurallar),
+        teknoloji ve bilgi birikimi eksikliği, ajansların bu alandan uzak durmasına neden oluyordu.
+      </p>
+      <div class="mt-10 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-white/60">
+          Etki
+        </p>
+        <ul class="space-y-3 text-base lg:text-lg">
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span>Türkiye'nin ilk tüp bebek Google Ads kampanyası — <strong>kategoriyi açtık</strong>.</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span>İzmir ve Türkiye'de ilk kez <strong>12 kuruş TBM</strong> (Tıklama Başına Maliyet) ile "tüp bebek" anahtar kelimesi reklamlandı.</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span>Sektörde sonradan gelen tüm IVF reklamlarına <strong>model</strong> oldu.</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span>Gonet'in <strong>sağlık + sağlık turizmi pazarlama uzmanlığı</strong> bu kampanyayla kuruldu.</span></li>
+        </ul>
+      </div>
+      <p class="text-base lg:text-xl text-white/85 leading-relaxed mt-10 max-w-3xl">
+        Sayısız sağlık ve sağlık turizmi referansı bizim portföyümüzde
+        <strong>ilklerini yaşadı.</strong>
+      </p>
+      <div class="mt-12 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-white/60">
+          Aynı sektörde portföyümüz
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>Medical Park</li>
+          <li>Kaşkaloğlu Göz</li>
+          <li>Su Hastanesi</li>
+          <li class="text-white/50 font-normal">ve dahası…</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — Siyasi Kampanya (beyaz spotlight) -->
+  <section class="case-snap bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Öne Çıkan — Siyasi Kampanya
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>Türkiye'de ilk kez anlık stratejik reklam yönetimi.</strong>
+        Tamamen Gonet altyapısı ile <strong>4 günde</strong> rekor kurulum,
+        <strong>milyonlarca görüntülenme</strong>.
+      </p>
+      <div class="mt-12 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-black/60">
+          Yaklaşım
+        </p>
+        <ul class="space-y-3 text-base lg:text-lg">
+          <li class="flex gap-4"><span class="text-black/40 shrink-0">—</span><span><strong>Hedef kitle segmentasyonu</strong> — yaş, lokasyon ve ilgi alanına göre.</span></li>
+          <li class="flex gap-4"><span class="text-black/40 shrink-0">—</span><span><strong>Mesaj ağırlıklı reklam metinleri</strong> — TV reklamcılığından farklı, arama niyetine cevap veren.</span></li>
+          <li class="flex gap-4"><span class="text-black/40 shrink-0">—</span><span><strong>Düşük maliyetli A/B test mantığı</strong> — siyasi reklamcılıkta o zamana kadar olmayan ölçüm disiplini.</span></li>
+          <li class="flex gap-4"><span class="text-black/40 shrink-0">—</span><span><strong>Sosyal medyaya yayılım</strong> — kampanya sloganının organik dolaşımı.</span></li>
+        </ul>
+      </div>
+      <div class="mt-12 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-black/60">
+          Çalışılan partiler
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>CHP</li>
+          <li>MHP</li>
+          <li>AK Parti</li>
+          <li>İYİ Parti</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — Tatil Vitrini (siyah spotlight) -->
+  <section class="case-snap bg-black text-white border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-white/60">
+        Öne Çıkan — Tatil Vitrini · 2007
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>Türkiye'nin ilk online tatil satış reklamları.</strong>
+        Tatil rezervasyonunun ofisten/acentaden dijitale taşınmaya başladığı dönemde —
+        Google Ads üzerinde satış-odaklı kampanya modelini biz kurduk.
+      </p>
+      <p class="text-sm lg:text-base text-white/60 mt-8 uppercase tracking-[0.2em] font-medium">
+        Turizm · Online satış · E-ticaret
+      </p>
+      <div class="mt-12 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-white/60">
+          Turizm / Otel portföyümüz
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>Ekonomik Otel</li>
+          <li>Wyndham Hotels</li>
+          <li>Golden Horn Hotel</li>
+          <li>Tur19</li>
+          <li>Vals Tur</li>
+          <li>Anı Tur</li>
+          <li>7 Bilgeler <span class="text-white/50 font-normal">(şarapçılık, gastronomi)</span></li>
+          <li>Vinifera Hotel</li>
+          <li class="text-white/50 font-normal">ve dahası…</li>
+        </ul>
+      </div>
+      <div class="mt-10 max-w-3xl">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-white/60">
+          Online satış / D2C portföyümüz
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>Temiz Mama <span class="text-white/50 font-normal">(D2C)</span></li>
+          <li>Adepo <span class="text-white/50 font-normal">(online market)</span></li>
+          <li>Medislim <span class="text-white/50 font-normal">(lazer epilasyon)</span></li>
+          <li class="text-white/50 font-normal">ve dahası…</li>
+        </ul>
+      </div>
+      <div class="mt-16 max-w-3xl border-t border-white/20 pt-10">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-5 text-white/60">
+          2007 — Aynı yıl 4 büyük "ilk"
+        </p>
+        <ul class="space-y-3 text-base lg:text-lg">
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span><strong>Tatil Vitrini</strong> — Türkiye'nin ilk online tatil satış reklamları</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span><strong>CHP</strong> — Türkiye'nin ilk Google siyasal reklam kampanyası</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span><strong>SEO</strong> — İzmir'de ilk SEO çalışmalarını başlatan ajans</span></li>
+          <li class="flex gap-4"><span class="text-white/40 shrink-0">—</span><span><strong>Google Display</strong> — İzmir'de ilk Display reklam uygulamaları</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — Temiz Mama (beyaz spotlight) -->
+  <section class="case-snap bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Öne Çıkan — Temiz Mama · 2008
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>Türkiye'nin ilk D2C online satışı.</strong>
+        2008 yılında, <strong>üreticiden tüketiciye</strong> doğrudan online satış konseptini
+        Temiz Mama markası için Türkiye'de ilk biz kurduk.
+      </p>
+      <p class="text-sm lg:text-base text-black/60 mt-8 uppercase tracking-[0.2em] font-medium">
+        E-ticaret · D2C · Üreticiden tüketiciye
+      </p>
+      <p class="text-base lg:text-xl text-black/80 leading-relaxed mt-16 max-w-3xl border-t border-black/20 pt-10">
+        <strong>2008</strong> — Türkiye'de e-ticaret kavramı henüz emekleme döneminde.
+      </p>
+      <p class="text-base lg:text-xl text-black/80 leading-relaxed mt-6 max-w-3xl">
+        Aynı yıllarda <strong>Tatil Vitrini</strong> ve <strong>Ekonomik Otel</strong> ile turizmde,
+        <strong>Adepo</strong> ile online markette de ilk olduk.
+      </p>
+      <div class="mt-12 max-w-3xl border-t border-black/20 pt-10">
+        <p class="text-base lg:text-lg font-medium mb-6">
+          Aynı yıllarda (<strong>2005 — 2008</strong>), Türk e-ticaret tarihinde
+          <strong>10 büyük "ilk"</strong>den birkaçı:
+        </p>
+        <div class="text-base lg:text-lg">
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2005</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Medislim</span>
+            <span class="col-span-12 sm:col-span-7">İlk güzellik merkezi (lazer epilasyon) reklamları</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2006</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Ege Tüp Bebek</span>
+            <span class="col-span-12 sm:col-span-7">İlk tüp bebek (sağlık) reklamları</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2007</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Temiz Mama</span>
+            <span class="col-span-12 sm:col-span-7">İlk D2C (üreticiden tüketiciye) online satış</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2007</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Tatil Vitrini</span>
+            <span class="col-span-12 sm:col-span-7">İlk online tatil satış sistemi reklamları</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2008</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Adepo.com</span>
+            <span class="col-span-12 sm:col-span-7">İlk online marketi</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2008</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Ekonomik Otel</span>
+            <span class="col-span-12 sm:col-span-7">İlk online otel satış sistemi reklamları</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline border-b border-black/10 py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2008</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Sixt Rent a Car</span>
+            <span class="col-span-12 sm:col-span-7">İlk araç kiralama reklamları</span>
+          </div>
+          <div class="grid grid-cols-12 gap-3 lg:gap-4 items-baseline py-3">
+            <span class="col-span-3 sm:col-span-2 font-bold text-black/50 tabular-nums">2010</span>
+            <span class="col-span-9 sm:col-span-3 font-bold">Myvia <span class="text-black/50 font-normal">(MYway)</span></span>
+            <span class="col-span-12 sm:col-span-7">İlk inşaat sektörü reklamları</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Öne çıkan KeyStudy — Adepo.com (beyaz spotlight) -->
+  <section class="case-snap bg-white text-black border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-black/60">
+        Öne Çıkan — Adepo.com · 2008
+      </p>
+      <p class="editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[1.05]">
+        <strong>Türkiye'nin ilk online marketi.</strong>
+        Türkiye'de henüz e-ticaret kavramı yokken, Adepo.com'u tasarladık,
+        geliştirdik ve büyüttük. Türkiye'nin ilk online market alışveriş platformu —
+        <strong>Gonet imzalı</strong>.
+      </p>
+      <p class="text-sm lg:text-base text-black/60 mt-8 uppercase tracking-[0.2em] font-medium">
+        E-ticaret · Online perakende · Türkiye ölçeği · Türk e-ticaret tarihinde öncü
+      </p>
+      <div class="mt-16 max-w-3xl border-t border-black/20 pt-10">
+        <p class="text-base lg:text-lg font-medium mb-6">
+          Birlikte <strong>5 büyük online-ticaret "ilk"i</strong>:
+        </p>
+        <ul class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-base lg:text-lg font-medium">
+          <li>Adepo</li>
+          <li>Temiz Mama</li>
+          <li>Tatil Vitrini</li>
+          <li>Ekonomik Otel</li>
+          <li>Sixt Rent a Car</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kurumsal & Kamu Portföyü (siyah liste) -->
+  <section class="case-snap bg-black text-white border-t border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12 text-white/60">
+        Kurumsal & Kamu Portföyü
+      </p>
+      <ul class="space-y-8">
+        <li class="editorial-display text-[5vw] lg:text-[3.2vw] xl:text-[44px] leading-[1.1]">
+          <strong>4 büyük siyasi parti</strong> (AK Parti, CHP, MHP, İYİ Parti) — Türkiye'nin 4 partisiyle çalışan ilk ajans
+          <span class="block text-base lg:text-lg text-white/70 mt-3 font-normal">
+            MHP, İYİ Parti ve AK Parti ailelerinde de çalışıldı.
+          </span>
+        </li>
+        <li class="editorial-display text-[5vw] lg:text-[3.2vw] xl:text-[44px] leading-[1.1]">
+          <strong>Dokuz Eylül Üniversitesi</strong> — Avrupa'nın en büyük canlı uzaktan eğitim sistemi
+        </li>
+        <li class="editorial-display text-[5vw] lg:text-[3.2vw] xl:text-[44px] leading-[1.1]">
+          <strong>DEPARK</strong> (Dokuz Eylül Teknopark) — danışmanlık + web sitesi
+        </li>
+        <li class="editorial-display text-[5vw] lg:text-[3.2vw] xl:text-[44px] leading-[1.1]">
+          <strong>Prof. Nükhet Hotar</strong> — kişisel dijital varlık yönetimi
+        </li>
+        <li class="text-base lg:text-lg text-white/70 leading-relaxed pt-4">
+          … ve daha birçok STK ile sonuç üreten çalışmalar.
+        </li>
+      </ul>
+      <p class="text-base lg:text-xl text-white/85 leading-relaxed mt-16 max-w-3xl border-t border-white/20 pt-10">
+        Gonet'in 26 yıllık benzersiz dijital ajans tecrübesi, yüzlerce vaka çalışması yanında,
+        4 büyük siyasi partiyle de çalışmış olması, politik denge konusundaki birikimi,
+        DEPARK mukimi olmasıyla akademik/kurumsal dil yatkınlığı, istenen sonucu üretir.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA — pure editorial -->
+  <section class="bg-white text-black border-t border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-32 lg:py-40">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
+        Görüşelim
+      </p>
+      <h2 class="editorial-display text-[16vw] lg:text-[12vw] xl:text-[200px] leading-[0.85] mb-12">
+        Bir sonraki<br />
+        <span style="color: #ff0000;">"ilk"</span> birlikte olsun.
+      </h2>
+      <a
+        href="/iletisim"
+        class="inline-block text-2xl lg:text-3xl font-bold underline decoration-4 underline-offset-8 hover:text-white hover:bg-black px-3 py-1 transition-colors"
+      >
+        gonet@gonet.com.tr →
+      </a>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- Anasayfa body içindeki editorial-display'ler sentence-case render edilir
+       (hero h1 hariç — o "Her iş'te / Gonet var." UPPERCASE kalır) -->
+  <style is:global>
+    .home-body .editorial-display { text-transform: none; }
+  </style>
+
+  <!-- Vaka spotlight'ları için scroll-snap: her vaka tam ekran, proximity ile yumuşak snap -->
+  <style is:global>
+    html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+    .case-snap {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-snap-type: none; scroll-behavior: auto; }
+      .case-snap { min-height: auto; }
+    }
+  </style>
 </BaseLayout>

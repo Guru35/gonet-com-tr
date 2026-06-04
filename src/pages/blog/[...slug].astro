@@ -14,6 +14,65 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+// Her blog post'a özel CTA — eyebrow + iki satır heading
+const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string }> = {
+  '21-yuzyilda-reklam-ajanslari': {
+    eyebrow: 'Ajans seçimi 21. yüzyılın en stratejik kararı',
+    h2a: '21. yüzyıl ajansını',
+    h2b: 'birlikte kuralım.',
+    btn: 'Yeni nesil ajansla tanışın →',
+  },
+  'arama-motoru-pazarlamasi-nedir': {
+    eyebrow: 'Markanız her aramada üst sırada olsun',
+    h2a: 'SEM stratejinizi',
+    h2b: 'birlikte yazalım.',
+    btn: 'Google Partner ile konuşalım →',
+  },
+  'dijital-pazarlamada-23-yilda-neler-oldu': {
+    eyebrow: '26 yıllık birikimi markanıza taşıyalım',
+    h2a: 'Bu hikâyeye',
+    h2b: 'sizi de katalım.',
+    btn: 'Hikâyenize başlayalım →',
+  },
+  'saglik-turizmi-sektorunde-dijital-cagin-gereklilikleri': {
+    eyebrow: 'Hasta sizi global aramada bulsun',
+    h2a: 'Sağlık turizmi dijital',
+    h2b: 'dönüşümünüze başlayalım.',
+    btn: 'Sektörel görüşmeyi açalım →',
+  },
+  'seo-nedir': {
+    eyebrow: 'Organik kanal markanızın ölçek motorudur',
+    h2a: 'SEO + AEO + GEO',
+    h2b: 'üçlüsünü kurgulayalım.',
+    btn: 'AEO/GEO uzmanı ile görüşelim →',
+  },
+  'sosyal-medya-kamu-hizmetleri-ve-dijital-ajanslar-arasindaki-kopru': {
+    eyebrow: 'Vatandaşa ulaşmanın yeni dijital yolu',
+    h2a: 'Kurumsal sosyal medya',
+    h2b: 'stratejinizi yazalım.',
+    btn: 'Kamu iletişimi konuşalım →',
+  },
+  'web-tasarimda-cografi-etkiler': {
+    eyebrow: 'Coğrafya ve kültür markanın görsel dilidir',
+    h2a: 'Markanızı doğru',
+    h2b: 'coğrafyaya çevirelim.',
+    btn: 'Tasarım görüşmesi alalım →',
+  },
+};
+const cta = blogCTAs[post.id] || {
+  eyebrow: 'Bir sonraki içerik markanız için',
+  h2a: 'Citation-ready içerik',
+  h2b: 'üretelim.',
+  btn: 'Konuşalım →',
+};
+
+// Sıradaki post — published DESC, current'tan bir sonraki (daha eski)
+const allPosts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+const currentIdx = allPosts.findIndex((p) => p.id === post.id);
+const nextPost = currentIdx >= 0 && currentIdx < allPosts.length - 1 ? allPosts[currentIdx + 1] : null;
+
 const url = `https://gonet.com.tr/blog/${post.id}`;
 const article = articleSchema({
   title: post.data.title,
@@ -47,87 +106,189 @@ const breadcrumb = webpageSchema({
   ogImage={post.data.ogImage}
   schemas={[article, breadcrumb]}
 >
-  <article class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <!-- Breadcrumb -->
-      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+  {/* Deterministik random per-post (slug hash) — hero image konum/rotation */}
+  {(() => null)()}
+
+  <!-- HERO — editöryel, massive, image tilt+BW+offscreen -->
+  <section class="blog-hero-section relative bg-white border-b border-black overflow-hidden">
+    {post.data.ogImage && (
+      <img
+        src={post.data.ogImage}
+        alt={post.data.title}
+        class="blog-hero-img absolute select-none"
+        style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); --img-rot: 0deg; z-index: 0;"
+      />
+    )}
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <!-- Breadcrumb tiny -->
+      <nav class="text-[10px] uppercase tracking-[0.3em] font-medium mb-12 lg:mb-16" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-3 flex-wrap">
+          <li><a href="/" class="hover:underline">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/blog" class="hover:text-brand-600">Blog</a></li>
+          <li><a href="/blog" class="hover:underline">Blog</a></li>
           <li aria-hidden="true">/</li>
-          <li class="text-slate-700 truncate" aria-current="page">{post.data.title}</li>
+          <li class="opacity-60" aria-current="page">{post.id.slice(0, 28)}…</li>
         </ol>
       </nav>
 
-      <!-- Meta -->
-      <div class="flex items-center gap-3 text-sm text-slate-500 mb-4">
-        <time datetime={post.data.published.toISOString()}>
-          {post.data.published.toLocaleDateString('tr-TR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </time>
-        {post.data.category && (
-          <>
-            <span aria-hidden="true">·</span>
-            <span class="font-medium">{post.data.category}</span>
-          </>
-        )}
+      <!-- Tarih + kategori massive split -->
+      <div class="flex items-baseline gap-6 lg:gap-10 mb-10">
+        <span class="editorial-display text-7xl lg:text-9xl xl:text-[180px] leading-[0.85]">
+          {String(post.data.published.getDate()).padStart(2, '0')}
+        </span>
+        <div class="flex flex-col">
+          <span class="editorial-display text-3xl lg:text-5xl xl:text-[64px] leading-[0.9]">
+            {post.data.published.toLocaleDateString('tr-TR', { month: 'short' }).toUpperCase()}
+          </span>
+          <span class="editorial-display text-xl lg:text-3xl mt-1">{post.data.published.getFullYear()}</span>
+          {post.data.category && (
+            <span class="text-[10px] font-medium uppercase tracking-[0.3em] mt-3" style="color: #ff0000">{post.data.category}</span>
+          )}
+        </div>
       </div>
 
-      <!-- Title -->
-      <h1 class="text-4xl lg:text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <!-- Title MASSIVE -->
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-12 max-w-5xl">
         {post.data.h1 || post.data.title}
       </h1>
 
-      <!-- Description as lead -->
-      <p class="text-xl text-slate-700 leading-relaxed mb-12 pb-12 border-b border-slate-200">
+      <!-- Description lead -->
+      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl mb-16">
         {post.data.description}
       </p>
 
-      <!-- Body -->
-      <div class="prose-aeo">
+      <!-- Tags as floating typography -->
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-4">
+          {post.data.tags.map((tag, i) => {
+            const sizes = ['text-lg','text-2xl','text-xl','text-3xl','text-base','text-xl','text-lg'];
+            const size = sizes[(tag.length * 3 + i * 7) % sizes.length];
+            return (
+              <span class={`editorial-display ${size} hover:bg-[#ff0000] hover:text-white px-1 transition-colors`}>#{tag}</span>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- BODY — cascading paragraph sizes -->
+  <article class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <div class="prose-irregular">
         <Content />
       </div>
 
-      <!-- Tags -->
-      {post.data.tags && post.data.tags.length > 0 && (
-        <div class="mt-12 pt-8 border-t border-slate-200">
-          <div class="flex flex-wrap gap-2">
-            {post.data.tags.map((tag) => (
-              <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Author -->
-      <aside class="mt-12 pt-8 border-t border-slate-200 flex items-start gap-4">
-        <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold text-lg">
-          {post.data.author.name.slice(0, 1)}
-        </div>
+      <!-- Author block — editorial -->
+      <aside class="mt-24 lg:mt-32 pt-16 lg:pt-20 border-t border-black flex items-baseline gap-6 lg:gap-10 flex-wrap">
+        <span class="editorial-display text-5xl lg:text-7xl">
+          {post.data.author.name.split(' ').map((w) => w[0]).join('')}
+        </span>
         <div>
-          <p class="font-semibold text-brand-950">{post.data.author.name}</p>
-          {post.data.author.role && <p class="text-sm text-slate-600">{post.data.author.role}</p>}
+          <p class="editorial-display text-3xl lg:text-5xl">{post.data.author.name}</p>
+          {post.data.author.role && (
+            <p class="text-[10px] font-medium uppercase tracking-[0.3em] mt-2 opacity-70">{post.data.author.role}</p>
+          )}
         </div>
       </aside>
-
-      <!-- CTA -->
-      <div class="mt-16 bg-brand-50 rounded-lg p-8 text-center">
-        <p class="text-lg text-slate-700 mb-4">
-          Projeniz için stratejik destek mi arıyorsunuz?
-        </p>
-        <a
-          href="/iletisim"
-          class="inline-block bg-brand-900 text-white px-6 py-3 rounded-md font-medium hover:bg-brand-800"
-        >
-          İletişime geç →
-        </a>
-      </div>
     </div>
   </article>
+
+  <!-- CTA — her blog post'a özel -->
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:18%;--rule-top-w:42%;--rule-bot-x:36%;--rule-bot-w:30%">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        {cta.eyebrow}
+      </p>
+      <h2 class="editorial-display text-[12vw] lg:text-[8vw] xl:text-[120px] leading-[0.85] mb-10">
+        {cta.h2a}<br />
+        <span style="color: #ff0000;">{cta.h2b}</span>
+      </h2>
+      <a
+        href="/iletisim"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+      >
+        {cta.btn}
+      </a>
+    </div>
+  </section>
+
+  <!-- Sonsuz akış sentinel — sayfa dibine yaklaşınca sıradaki yazıyı yüklesin -->
+  {nextPost && (
+    <div
+      class="next-post-sentinel border-t border-black bg-white"
+      data-next-href={`/blog/${nextPost.id}`}
+      data-next-title={`${nextPost.data.title} — GONET Blog`}
+      aria-hidden="true"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28 flex flex-col items-center gap-6">
+        <span class="next-post-pulse block w-px h-12 bg-black"></span>
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] opacity-60">
+          Sıradaki yazı
+        </p>
+        <p class="editorial-display text-2xl lg:text-4xl text-center max-w-2xl leading-[0.95]">
+          {nextPost.data.h1 || nextPost.data.title}
+        </p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-40 next-post-status">aşağı doğru sürüklemeye devam edin…</p>
+      </div>
+    </div>
+  )}
+  <style>
+    @keyframes next-post-pulse {
+      0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+    .next-post-pulse {
+      transform-origin: top;
+      animation: next-post-pulse 1.6s ease-in-out infinite;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function init(scope) {
+        const sentinel = (scope || document).querySelector('.next-post-sentinel');
+        if (!sentinel || sentinel.dataset.loading === '1') return;
+
+        const obs = new IntersectionObserver(async (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            obs.disconnect();
+            sentinel.dataset.loading = '1';
+            const href = sentinel.dataset.nextHref;
+            const title = sentinel.dataset.nextTitle;
+            try {
+              const res = await fetch(href, { credentials: 'same-origin' });
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              const html = await res.text();
+              const doc = new DOMParser().parseFromString(html, 'text/html');
+              const newMain = doc.querySelector('main');
+              if (!newMain) throw new Error('main not found');
+              // Sentinel'i bul ve yerine yeni içeriği koy (yeni sentinel zaten içinde)
+              const frag = document.createDocumentFragment();
+              while (newMain.firstChild) frag.appendChild(newMain.firstChild);
+              sentinel.replaceWith(frag);
+              // URL + başlığı güncelle
+              if (history.replaceState) history.replaceState({}, '', href);
+              if (title) document.title = title;
+              // Eklenen içerikteki sentinel için yeniden gözlemci başlat
+              init(document);
+            } catch (err) {
+              sentinel.dataset.loading = '0';
+              const note = sentinel.querySelector('p');
+              if (note) note.textContent = 'Sonraki yazı yüklenemedi — sayfayı yenileyin';
+              console.warn('next-post fetch failed', err);
+            }
+          }
+        }, { rootMargin: '600px 0px' });
+        obs.observe(sentinel);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => init(document));
+      } else {
+        init(document);
+      }
+    })();
+  </script>
 </BaseLayout>

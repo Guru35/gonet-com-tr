@@ -1,6 +1,7 @@
 ---
 title: "CHP 2007 — Türkiye'nin İlk Google Siyasal Kampanyası"
 description: "2007 yılında Türkiye'nin ilk Google reklam tabanlı siyasal kampanyasını CHP için tasarladık. Aynı dönemde 2009-2013 arası CHP Genel Merkez web sitesi de Gonet imzalı."
+ogImage: "/case-studies/chp-2007-google-siyasal-kampanya.jpg"
 client: "Cumhuriyet Halk Partisi (CHP)"
 industry: "Siyasi kampanya yönetimi"
 services:
@@ -40,10 +41,10 @@ Gonet, CHP için **Türkiye'nin ilk Google reklam tabanlı siyasal kampanyasın�
 
 CHP 2007'nin başarısı sonrası **Türkiye'nin 4 büyük partisinin tamamıyla çalışan ilk dijital reklam ajansı olduk:**
 
-- ✅ AK Parti
-- ✅ CHP
-- ✅ MHP
-- ✅ İYİ Parti
+- AK Parti
+- CHP
+- MHP
+- İYİ Parti
 
 Bu, siyasi yelpazenin tamamıyla profesyonel düzeyde dijital iş yapan tek ajans olmamızı sağladı — partizan değil, profesyonel dijital pazarlama altyapısı sağlayıcısı.
 

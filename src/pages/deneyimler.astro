@@ -29,13 +29,19 @@ const milestones = [
     tags: ['founding', 'izmir'],
   },
   {
-    year: 2003,
+    year: 2005,
     title: 'İlk Google Ads kampanyaları',
     summary: 'Google AdWords\'ün Türkçe arayüzünden önce, İngilizce panel üzerinden Türkiye\'deki ilk reklam yöneticilerinden biri. Sağlık ve inşaat sektöründe pazarın eğitilmesi.',
     tags: ['google-ads', 'sem'],
   },
   {
     year: 2005,
+    title: 'Ege Tüp Bebek — Türkiye\'nin ilk tüp bebek Google Ads kampanyası',
+    summary: 'Sağlık turizminin Türkiye için stratejik bir sektör olmadan önce, tüp bebek segmentinde ilk dijital pazarlama uygulaması.',
+    tags: ['saglik-turizmi', 'tup-bebek', 'ilk'],
+  },
+  {
+    year: 2006,
     title: 'Google Partner programına ilk dalga katılım',
     summary: 'Türkiye\'nin ilk 3 Google Partner ajansından biri. Google ile doğrudan eğitim, sertifika ve hesap yöneticisi ilişkisi.',
     tags: ['google-partner', 'ilk-3'],
@@ -65,10 +71,22 @@ const milestones = [
     tags: ['e-ticaret', 'market', 'ilk'],
   },
   {
+    year: 2008,
+    title: 'GA (Google Analytics) 2 numaralı Türkiye partneri',
+    summary: 'Google Analytics segmentinde Türkiye\'nin 2 numaralı resmi partneri konumuna geçiş. GA4 + GTM + BigQuery entegrasyonlarında derin yetkinlik.',
+    tags: ['analitik', 'ga4', 'ilk-2'],
+  },
+  {
     year: 2009,
     title: 'CHP Genel Merkez web altyapısı',
     summary: '2009-2013 arası CHP Genel Merkez web sitesi ve dijital varlık yönetimi. 4 yıl boyunca parti dijital iletişiminin teknik omurgası.',
     tags: ['chp', 'siyaset'],
+  },
+  {
+    year: 2009,
+    title: 'IAB + IRD üyeliği',
+    summary: 'Interactive Advertising Bureau (IAB) + Reklamcılığı Derneği (IRD) üyeliği.',
+    tags: ['kurumsal', 'iab', 'ird'],
   },
   {
     year: 2010,
@@ -77,22 +95,16 @@ const milestones = [
     tags: ['insaat', 'sem', 'ilk'],
   },
   {
-    year: 2011,
-    title: 'Ege Tüp Bebek — Türkiye\'nin ilk tüp bebek Google Ads kampanyası',
-    summary: 'Sağlık turizminin Türkiye için stratejik bir sektör olmadan önce, tüp bebek segmentinde ilk dijital pazarlama uygulaması.',
-    tags: ['saglik-turizmi', 'tup-bebek', 'ilk'],
-  },
-  {
     year: 2013,
     title: 'Mobil API geliştirme — Habertürk, Unilever, Fenerbahçe',
     summary: 'Mobil uygulama backend ve API geliştirme yetkinliğinin büyük markalarda doğrulanması: Habertürk, Unilever, Fenerbahçe içerik dağıtım altyapıları.',
     tags: ['mobil', 'api', 'enterprise'],
   },
   {
-    year: 2014,
-    title: 'DEÜ Uzaktan Eğitim — Avrupa\'nın en büyük canlı sistemi',
-    summary: 'Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi: anlık 25.000 canlı kullanıcı taşıyan altyapı. Avrupa ölçeğinde dönemin en büyük uzaktan eğitim canlı yayın sistemi.',
-    tags: ['egitim', 'altyapi', 'avrupa-rekoru'],
+    year: 2013,
+    title: 'Medical Park Hastaneler Grubu',
+    summary: 'Türkiye\'nin en büyük özel hastane gruplarından Medical Park ile çalışma. Sağlık sektörü dijital deneyiminin enterprise ölçeğe taşınması.',
+    tags: ['saglik', 'enterprise'],
   },
   {
     year: 2015,
@@ -101,46 +113,34 @@ const milestones = [
     tags: ['siyaset', 'dort-parti'],
   },
   {
-    year: 2017,
+    year: 2018,
+    title: 'Lada Türkiye dijital varlık yönetimi',
+    summary: 'Lada Türkiye distribütörünün resmi web sitesi, online reklamlar ve sosyal medya yönetimi. Otomotiv distribütör segmentinde tam servis dijital.',
+    tags: ['otomotiv', 'distributor'],
+  },
+  {
+    year: 2019,
     title: 'Almanya & Hollanda — Türk pazarına ihracat dijital',
     summary: 'Simtronik Çelik Tencere için Almanya ve Hollanda\'daki Türk diasporasına yönelik dijital pazarlama. Yurtdışı Türk pazarına özel SEM/SEO stratejisi.',
     tags: ['uluslararasi', 'diaspora'],
   },
   {
     year: 2019,
-    title: 'Medical Park Hastaneler Grubu',
-    summary: 'Türkiye\'nin en büyük özel hastane gruplarından Medical Park ile çalışma. Sağlık sektörü dijital deneyiminin enterprise ölçeğe taşınması.',
-    tags: ['saglik', 'enterprise'],
-  },
-  {
-    year: 2020,
-    title: 'Pandemi — uzaktan eğitim ve sağlık dijitalleşmesi',
-    summary: 'COVID-19 ile birlikte DEÜ Uzaktan Eğitim sisteminin yük artışına hazırlık ve özel sağlık kuruluşları için telesağlık dijital varlık yönetimi.',
-    tags: ['pandemi', 'altyapi'],
-  },
-  {
-    year: 2022,
-    title: 'Lada Türkiye dijital varlık yönetimi',
-    summary: 'Lada Türkiye distribütörünün resmi web sitesi, online reklamlar ve sosyal medya yönetimi. Otomotiv distribütör segmentinde tam servis dijital.',
-    tags: ['otomotiv', 'distribütör'],
-  },
-  {
-    year: 2023,
     title: 'DEPARK — Dokuz Eylül Teknopark ortaklığı',
     summary: 'DEPARK (Dokuz Eylül Üniversitesi Teknopark) bünyesine ofis taşınımı + Teknopark portföyünde web ve danışmanlık projeleri (Bambu, Dojonote, vd.).',
     tags: ['teknopark', 'ar-ge'],
   },
   {
-    year: 2024,
-    title: 'IRD üyelik + Pigme A.Ş. yapılanması',
-    summary: 'İnternet Reklamcılığı Derneği (IRD) üyeliği + ana faaliyet şirketi olarak "Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş." yapılanması.',
-    tags: ['kurumsal', 'ird'],
+    year: 2020,
+    title: 'DEÜ Uzaktan Eğitim — Avrupa\'nın en büyük canlı sistemi',
+    summary: 'Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi: anlık 25.000 canlı kullanıcı taşıyan altyapı. Avrupa ölçeğinde dönemin en büyük uzaktan eğitim canlı yayın sistemi.',
+    tags: ['egitim', 'altyapi', 'avrupa-rekoru'],
   },
   {
-    year: 2025,
-    title: 'GA (Google Analytics) 2 numaralı Türkiye partneri',
-    summary: 'Google Analytics segmentinde Türkiye\'nin 2 numaralı resmi partneri konumuna geçiş. GA4 + GTM + BigQuery entegrasyonlarında derin yetkinlik.',
-    tags: ['analitik', 'ga4', 'ilk-2'],
+    year: 2024,
+    title: 'Pigme A.Ş. yapılanması',
+    summary: '"Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş." yapılanması.',
+    tags: ['kurumsal', 'pigme'],
   },
   {
     year: 2026,
@@ -173,96 +173,142 @@ const eventListSchema = {
 ---
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, eventListSchema]}>
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <!-- Hero — alttaki düz çizgi yerine devasa aşağı ok -->
+  <section class="bg-white relative">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Deneyimler</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Zaman Çizgisi
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         26 yıllık dijital pazarlama deneyimi — yıl yıl.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
-        Gonet 2000\'de İzmir\'de kuruldu. O günden bu yana Türkiye\'nin dijital pazarlama hikayesinin
-        içinde yer aldık — Google Ads\'ün Türkçeleşmesinden önce, ilk siyasal kampanyalardan, ilk
-        D2C online satışlardan AEO/GEO\'ya kadar. Aşağıda <strong>{milestones.length} milestone</strong>
+        Gonet 2000'de İzmir'de kuruldu. O günden bu yana Türkiye'nin dijital pazarlama hikayesinin
+        içinde yer aldık — Google Ads'in Türkçeleşmesinden önce, ilk siyasal kampanyalardan, ilk
+        D2C online satışlardan AEO/GEO'ya kadar. Aşağıda <strong>{milestones.length} milestone</strong>
         ile özetli zaman çizgisi.
       </p>
+
+      <!-- Devasa aşağı ok — düz çizgi yerine, "aşağı kaydır" sinyali -->
+      <a href="#timeline" aria-label="Zaman çizgisine kaydır" class="block mt-16 lg:mt-24 w-3 mx-auto group">
+        <svg
+          viewBox="0 0 12 360"
+          preserveAspectRatio="none"
+          class="block w-3 h-[40vh] min-h-[260px] lg:h-[55vh] text-black group-hover:text-[#ff0000] transition-colors"
+          aria-hidden="true"
+        >
+          <line x1="6" y1="0" x2="6" y2="350" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" />
+          <polyline points="1,348 6,358 11,348" stroke="currentColor" stroke-width="1" fill="none" vector-effect="non-scaling-stroke" />
+        </svg>
+      </a>
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <ol class="relative border-l-2 border-accent-200 ml-4 space-y-12">
-        {milestones.map((m) => (
-          <li class="ml-8 relative">
-            <span class="absolute -left-[42px] top-1 w-6 h-6 rounded-full bg-accent-500 border-4 border-white shadow-md flex items-center justify-center">
-              <span class="w-2 h-2 bg-white rounded-full"></span>
-            </span>
-            <article>
-              <header class="flex items-baseline gap-4 mb-2 flex-wrap">
-                <time class="text-3xl font-bold text-brand-950" datetime={String(m.year)}>{m.year}</time>
-                <h2 class="text-xl font-semibold text-slate-900">{m.title}</h2>
-              </header>
-              <p class="text-slate-700 leading-relaxed mb-3">{m.summary}</p>
-              <div class="flex flex-wrap gap-2">
-                {m.tags.map((t) => (
-                  <span class="text-xs bg-brand-100 text-brand-700 px-2 py-1 rounded font-medium">
-                    #{t}
-                  </span>
-                ))}
-              </div>
-            </article>
-          </li>
+  <!-- Timeline — kutu yok, devasa yıl + tilt + offset cascade -->
+  <section id="timeline" class="bg-white overflow-hidden scroll-mt-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <ol class="space-y-28 lg:space-y-36">
+        {milestones.map((m, idx) => {
+          // Deterministik tilt
+          const tilts = [-2, 1.5, -1, 2.5, -1.5, 1, -2.5, 0.5, -1.2, 2, -0.8, 1.8, -2.2, 0.7, -1.6, 2.2, -0.5, 1.3, -2, 0.9, -1.8];
+          const rot = tilts[idx % tilts.length];
+          // Stairstep offset — yıl kolonu sabit ama içerik kayar
+          const offsets = ['', 'lg:ml-[6%]', 'lg:ml-[14%]', 'lg:ml-[3%]', 'lg:ml-[20%]', 'lg:ml-[10%]', 'lg:ml-[2%]', 'lg:ml-[18%]'];
+          const align = offsets[idx % offsets.length];
+          const yearOrigin = idx % 2 === 0 ? 'left' : 'right';
+          return (
+            <li class={`${align} max-w-5xl`} style={`transform: rotate(${rot}deg); transform-origin: ${yearOrigin} center;`}>
+              <article>
+                <!-- Devasa yıl -->
+                <time
+                  class="editorial-display block text-[24vw] lg:text-[14vw] xl:text-[200px] leading-[0.8] mb-3"
+                  datetime={String(m.year)}
+                >
+                  {m.year}
+                </time>
+
+                <!-- Başlık -->
+                <h2 class="editorial-display text-[10vw] lg:text-[5vw] xl:text-[72px] leading-[0.9] mb-8 max-w-4xl">
+                  {m.title}
+                </h2>
+
+                <!-- Özet -->
+                <p class="text-base lg:text-2xl leading-snug font-medium mb-8 max-w-3xl">
+                  {m.summary}
+                </p>
+
+                <!-- Etiketler — floating Anton typography (chip değil) -->
+                <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                  {m.tags.map((t, ti) => {
+                    const sizes = ['text-lg','text-2xl','text-xl','text-3xl','text-base'];
+                    const size = sizes[(t.length * 3 + ti * 7) % sizes.length];
+                    return (
+                      <span class={`editorial-display ${size} hover:bg-[#ff0000] hover:text-white px-1 transition-colors`}>#{t}</span>
+                    );
+                  })}
+                </div>
+              </article>
+            </li>
+          );
+        })}
         ))}
       </ol>
     </div>
   </section>
 
-  <!-- Özet sayılar -->
-  <section class="py-16 bg-brand-50 border-t border-slate-200">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-brand-950 mb-8 text-center">26 yılın özeti</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
-          <div class="text-4xl font-bold text-accent-600 mb-2">26+</div>
-          <div class="text-sm text-slate-700">yıl deneyim</div>
+  <!-- Özet sayılar — çerçevesiz, devasa Anton + tilt + offset cascade -->
+  <section class="bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-12">
+        26 Yılın Özeti
+      </p>
+
+      <div class="space-y-16 lg:space-y-20">
+        <!-- 26+ -->
+        <div class="flex items-baseline gap-6 lg:gap-12" style="transform: rotate(-1deg); transform-origin: left;">
+          <span class="editorial-display text-[28vw] lg:text-[16vw] xl:text-[260px] leading-[0.8]">26+</span>
+          <span class="text-base lg:text-3xl font-medium uppercase tracking-[0.2em]">yıl deneyim</span>
         </div>
-        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
-          <div class="text-4xl font-bold text-accent-600 mb-2">100+</div>
-          <div class="text-sm text-slate-700">marka</div>
+
+        <!-- 100+ -->
+        <div class="lg:ml-[14%] flex items-baseline gap-6 lg:gap-12 lg:justify-end" style="transform: rotate(1.5deg); transform-origin: right;">
+          <span class="text-base lg:text-3xl font-medium uppercase tracking-[0.2em]">marka</span>
+          <span class="editorial-display text-[28vw] lg:text-[16vw] xl:text-[260px] leading-[0.8]">100+</span>
         </div>
-        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
-          <div class="text-4xl font-bold text-accent-600 mb-2">15+</div>
-          <div class="text-sm text-slate-700">sektör</div>
+
+        <!-- 15+ -->
+        <div class="lg:ml-[6%] flex items-baseline gap-6 lg:gap-12" style="transform: rotate(-1.5deg); transform-origin: left;">
+          <span class="editorial-display text-[28vw] lg:text-[16vw] xl:text-[260px] leading-[0.8]">15+</span>
+          <span class="text-base lg:text-3xl font-medium uppercase tracking-[0.2em]">sektör</span>
         </div>
-        <div class="bg-white rounded-lg p-6 text-center border border-slate-200">
-          <div class="text-4xl font-bold text-accent-600 mb-2">12+</div>
-          <div class="text-sm text-slate-700">Türkiye\'de ilk</div>
+
+        <!-- 12+ -->
+        <div class="lg:ml-[22%] flex items-baseline gap-6 lg:gap-12 lg:justify-end" style="transform: rotate(0.8deg); transform-origin: right;">
+          <span class="text-base lg:text-3xl font-medium uppercase tracking-[0.2em]" style="color:#ff0000">Türkiye\'de ilk</span>
+          <span class="editorial-display text-[28vw] lg:text-[16vw] xl:text-[260px] leading-[0.8]" style="color:#ff0000">12+</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-brand-950 text-white py-20">
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:22%;--rule-top-w:48%;--rule-bot-x:8%;--rule-bot-w:34%">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">Sizin hikayeniz için bu deneyim</h2>
-      <p class="text-lg text-brand-200 mb-8">
+      <h2 class="editorial-display text-[8vw] lg:text-[5vw] xl:text-[64px] leading-[0.9] mb-4">Sizin hikayeniz için bu deneyim</h2>
+      <p class="text-lg text-black/70 mb-8">
         26 yılda biriken kararsızlık değil, kararsızlığı çözen örüntüler. Markanız hangi
         sektörde olursa olsun, benzerini muhtemelen önce biz yaptık.
       </p>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         Bizimle çalışın →
       </a>

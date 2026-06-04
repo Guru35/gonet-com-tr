@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema } from '../../lib/schema';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const catCounts = posts.reduce((acc, p) => {
+  const c = p.data.category || 'Diğer';
+  acc[c] = (acc[c] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+const categories = Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
+
+const title = 'Haberler — Gonet Blog Liste Görünümü';
+const description =
+  'Gonet blog yazılarının kronolojik liste görünümü. Reklam ajansları, dijital pazarlama trendleri, AEO/GEO, SEO, sağlık turizmi.';
+const url = 'https://gonet.com.tr/haberler';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Haberler', url },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
+  <!-- Hero — sade -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Haberler</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">
+        Haberler · Liste görünümü · {posts.length} yazı
+      </p>
+      <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+        Tüm yazılar
+      </h1>
+      <p class="text-lg text-slate-700 leading-relaxed max-w-3xl">
+        Aynı içerik, sade liste düzeninde. Editöryel görünüm için
+        <a href="/blog" class="underline hover:text-black">/blog</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kategori filtre -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-5">
+      <div class="flex items-center gap-2 flex-wrap" role="tablist" aria-label="Kategori filtresi">
+        <button
+          type="button"
+          data-filter="all"
+          class="hbr-chip is-active text-[11px] font-medium uppercase tracking-[0.3em] px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+          aria-pressed="true"
+        >
+          Tümü · {posts.length}
+        </button>
+        {categories.map(([cat, count]) => (
+          <button
+            type="button"
+            data-filter={cat}
+            class="hbr-chip text-[11px] font-medium uppercase tracking-[0.3em] px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+            aria-pressed="false"
+          >
+            {cat} · {count}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Liste -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
+      {posts.length === 0 ? (
+        <p class="text-lg text-slate-600">Henüz yazı yok.</p>
+      ) : (
+        <ul class="divide-y divide-black/15">
+          {posts.map((post) => {
+            const d = post.data.published;
+            const dateStr = d.toLocaleDateString('tr-TR', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',
+            });
+            const reading = post.data.readingMinutes || 5;
+            const cat = post.data.category || 'Diğer';
+            return (
+              <li class="hbr-row py-6" data-category={cat}>
+                <a href={`/blog/${post.id}`} class="group block">
+                  <div class="grid grid-cols-12 gap-4 lg:gap-8 items-start">
+                    <!-- Tarih + meta sol kolon -->
+                    <div class="col-span-12 md:col-span-3">
+                      <p class="text-[11px] font-medium uppercase tracking-[0.25em] text-slate-600">
+                        {dateStr}
+                      </p>
+                      <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 mt-1">
+                        {reading} dk · {cat}
+                      </p>
+                    </div>
+                    <!-- Başlık + açıklama sağ kolon -->
+                    <div class="col-span-12 md:col-span-9">
+                      <h2 class="text-xl lg:text-2xl font-bold leading-snug mb-2 group-hover:underline">
+                        {post.data.title}
+                      </h2>
+                      <p class="text-base text-slate-700 leading-snug max-w-3xl">
+                        {post.data.description}
+                      </p>
+                      {post.data.tags && post.data.tags.length > 0 && (
+                        <div class="flex flex-wrap gap-x-3 gap-y-1 mt-3">
+                          {post.data.tags.slice(0, 5).map((t) => (
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500">#{t}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      <div class="mt-12 pt-8 border-t border-black/15 flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]">
+        <a href="/blog" class="font-medium hover:underline">← Editöryel görünüm</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hbr-chip.is-active { background: #000; color: #fff; }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const chips = document.querySelectorAll('.hbr-chip');
+      const rows = document.querySelectorAll('.hbr-row');
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const filter = chip.getAttribute('data-filter');
+          chips.forEach((c) => {
+            c.classList.toggle('is-active', c === chip);
+            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+          });
+          rows.forEach((row) => {
+            const cat = row.getAttribute('data-category');
+            row.style.display = filter === 'all' || cat === filter ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

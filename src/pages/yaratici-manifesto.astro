@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema } from '../lib/schema';
+
+const title = 'Yaratıcı Manifesto — YBF | Gonet';
+const description =
+  'YBF — Yalın Bilinç Felsefesi. Onurlu ol. Saygılı ol. Sınırları bil. Nitelikli seçenek üret.';
+const url = 'https://gonet.com.tr/yaratici-manifesto';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Yaratıcı Manifesto', url },
+  ],
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  schemas={pageSchema}
+  hideFooter={true}
+>
+  <div class="manifesto-stage">
+    <p
+      id="manifesto"
+      class="manifesto-text"
+      aria-label="onurlu ol, saygılı ol, sınırları bil, nitelikli seçenek üret."
+    ></p>
+  </div>
+
+  <style>
+    .manifesto-stage {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1.5rem 2rem 3rem;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .manifesto-text {
+      font-family: 'Courier New', Courier, ui-monospace, monospace;
+      color: #000;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.8;
+      white-space: nowrap;
+      font-size: clamp(0.85rem, 1.6vw, 1.65rem);
+      text-shadow:
+        0 0 1px rgba(0,0,0,0.85),
+        0 0 3px rgba(0,0,0,0.35),
+        0 0 8px rgba(0,0,0,0.18),
+        0 0 16px rgba(0,0,0,0.08);
+    }
+    /* Mobil + tablet — tek satıra sığmaz, doğal akışla alt alta dök */
+    @media (max-width: 1023px) {
+      .manifesto-text {
+        white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+    }
+    .manifesto-cursor {
+      display: inline-block;
+      width: 0.55ch;
+      margin-left: 0.05ch;
+      background: #000;
+      height: 1em;
+      vertical-align: -0.18em;
+      animation: blink-manifesto 1.05s steps(2, start) infinite;
+      box-shadow:
+        0 0 3px rgba(0,0,0,0.6),
+        0 0 8px rgba(0,0,0,0.25);
+    }
+    .manifesto-text.done .manifesto-cursor { display: none; }
+    @keyframes blink-manifesto { to { visibility: hidden; } }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const el = document.getElementById('manifesto');
+      if (!el) return;
+      const text = 'onurlu ol, saygılı ol, sınırları bil, nitelikli seçenek üret.';
+
+      const cursor = document.createElement('span');
+      cursor.className = 'manifesto-cursor';
+      cursor.setAttribute('aria-hidden', 'true');
+      el.appendChild(cursor);
+
+      let i = 0;
+      function rand(min, max) {
+        return min + Math.floor(Math.random() * (max - min));
+      }
+      function delayFor(ch, prev) {
+        if (prev === ',') return rand(750, 2200);
+        if (ch === '.') return rand(900, 1400);
+        if (ch === ' ') return rand(60, 140);
+        const base = rand(75, 180);
+        if (Math.random() < 0.12) return base + rand(120, 320);
+        if (Math.random() < 0.04) return rand(40, 70);
+        return base;
+      }
+      function tick() {
+        if (i >= text.length) {
+          el.classList.add('done');
+          return;
+        }
+        const ch = text[i];
+        const prev = i > 0 ? text[i - 1] : '';
+        cursor.insertAdjacentText('beforebegin', ch);
+        i++;
+        setTimeout(tick, delayFor(ch, prev));
+      }
+      setTimeout(tick, 550);
+    })();
+  </script>
+</BaseLayout>

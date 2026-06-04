@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string;
   schemas?: Record<string, any> | Record<string, any>[];
   lang?: 'tr' | 'en';
+  hideFooter?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogImage = '/og-default.png',
   schemas,
   lang = 'tr',
+  hideFooter = false,
 } = Astro.props;
 
 const SITE_URL = 'https://gonet.com.tr';
@@ -45,6 +47,11 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Google Fonts — Inter (Adobe Clean'e en yakın açık alternatif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -81,75 +88,488 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
     <JsonLd schema={allSchemas} />
   </head>
 
-  <body class="min-h-screen flex flex-col">
-    <!-- Header -->
-    <header class="border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-10">
-      <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Ana navigasyon">
-        <a href="/" class="flex items-center" aria-label="Gonet anasayfa">
-          <img src="/brand/gonet-logo-dark.svg" alt="Gonet" width="120" height="40" class="h-8 w-auto" />
+  <body class="min-h-screen flex flex-col bg-white text-black">
+    <!-- Header — editöryel tipografik nav, alt çizgi logo altında biter -->
+    {(() => null)()}
+    <header class="bg-white relative">
+      <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between" aria-label="Ana navigasyon">
+        <a href="/" id="site-logo" class="editorial-display text-3xl lg:text-4xl text-black leading-none" aria-label="Gonet anasayfa">
+          Gonet
         </a>
-        <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-700">
-          <li><a href="/uzmanlik" class="hover:text-brand-600">Uzmanlık</a></li>
-          <li><a href="/case-studies" class="hover:text-brand-600">Çalışmalar</a></li>
-          <li><a href="/blog" class="hover:text-brand-600">Blog</a></li>
-          <li><a href="/hakkimizda" class="hover:text-brand-600">Hakkımızda</a></li>
-          <li>
-            <a
-              href="/iletisim"
-              class="bg-brand-900 text-white px-4 py-2 rounded-md hover:bg-brand-800 transition"
-              >İletişim</a
-            >
+        {(() => {
+          const path = Astro.url.pathname;
+          const isActive = (href) => {
+            if (href === '/') return path === '/';
+            return path === href || path.startsWith(href + '/');
+          };
+          const navBase = 'px-1 transition-colors';
+          const navHover = 'hover:text-white hover:bg-black';
+          const navActive = 'text-white bg-black';
+          const items = [
+            { href: '/uzmanlik', label: 'Uzmanlık' },
+            { href: '/case-studies', label: 'Çalışmalar' },
+            { href: '/markalar', label: 'Markalar' },
+            { href: '/blog', label: 'Blog' },
+            { href: '/hakkimizda', label: 'Hakkımızda' },
+            { href: '/iletisim', label: 'İletişim →', extra: 'underline decoration-2 underline-offset-4' },
+          ];
+          return (
+            <ul class="hidden md:flex gap-8 text-[11px] font-medium uppercase tracking-[0.25em]">
+              {items.map((item) => {
+                const active = isActive(item.href);
+                const cls = `${navBase} ${active ? navActive : navHover} ${item.extra || ''}`.trim();
+                return (
+                  <li>
+                    <a href={item.href} class={cls} {...(active ? { 'aria-current': 'page' } : {})}>{item.label}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        })()}
+        <!-- Mobile menu toggle — eye-menu'yu açar -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          aria-label="Hızlı gez menüsü"
+          aria-expanded="false"
+          class="md:hidden text-[11px] font-medium uppercase tracking-[0.25em] px-2 py-1 border border-black hover:bg-black hover:text-white transition-colors"
+        >Menü</button>
+      </nav>
+      <!-- Alt çizgi — sol kenardan başlar, logo "Gonet" sağ kenarında biter -->
+      <div id="header-line" class="absolute bottom-0 left-0 h-px bg-black pointer-events-none" style="width:0"></div>
+      <script is:inline>
+        (function () {
+          function update() {
+            const logo = document.getElementById('site-logo');
+            const line = document.getElementById('header-line');
+            if (!logo || !line) return;
+            const r = logo.getBoundingClientRect();
+            line.style.width = r.right + 'px';
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', update);
+          } else {
+            update();
+          }
+          window.addEventListener('resize', update);
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(update);
+          }
+        })();
+      </script>
+    </header>
+
+    <!-- Floating göz widget — alttan label gibi yapışık, beyaz arka plan + hafif gölge -->
+    <div class="fixed bottom-0 right-5 lg:right-8 z-50 print:hidden" id="eye-widget">
+      <button
+        id="eye-toggle"
+        aria-label="Hızlı gez menüsü"
+        aria-expanded="false"
+        class="block bg-white px-4 pt-3 pb-4 hover:scale-105 transition-transform"
+        style="box-shadow: 0 -2px 12px rgba(0,0,0,0.06), -2px 0 8px rgba(0,0,0,0.04), 2px 0 8px rgba(0,0,0,0.04);"
+      >
+        <svg
+          viewBox="0 0 30 18"
+          width="36"
+          height="22"
+          stroke="black"
+          stroke-width="1.4"
+          fill="none"
+          class="eye-svg"
+          aria-hidden="true"
+          style="filter: drop-shadow(0 0 1px rgba(0,0,0,0.85)) drop-shadow(0 0 3px rgba(0,0,0,0.35)) drop-shadow(0 0 8px rgba(0,0,0,0.18)) drop-shadow(0 0 16px rgba(0,0,0,0.08));"
+        >
+          <path d="M1.2 9 C 7 1.5, 23 1.5, 28.8 9 C 23 16.5, 7 16.5, 1.2 9 Z" class="eye-lid"/>
+          <circle cx="15" cy="9" r="2.8" fill="black" stroke="none" class="eye-pupil"/>
+        </svg>
+      </button>
+
+      <!-- Menü — çizgi tam göz ikonu merkezinin üstünde (eye container right edge'den 34px iç) -->
+      <div
+        id="eye-menu"
+        hidden
+        class="absolute bottom-full mb-3 bg-gradient-to-r from-transparent via-white/35 to-white/50 border-r border-black pr-6 lg:pr-8 pl-12 lg:pl-16 py-4 w-72 lg:w-96 text-right"
+        style="right: 34px;"
+      >
+        <button
+          id="eye-menu-close"
+          type="button"
+          aria-label="Menüyü kapat"
+          class="hidden absolute top-6 left-6 text-xs font-bold uppercase tracking-[0.3em] underline decoration-1 underline-offset-4 text-black transition-colors"
+        >← Geri</button>
+        <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-6">Gez</p>
+        <ul class="space-y-5 text-base lg:text-lg font-light">
+          <li><a href="/uzmanlik" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Uzmanlık</a></li>
+          <li><a href="/case-studies" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Vaka Çalışmaları</a></li>
+          <li><a href="/markalar" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Markalar</a></li>
+          <li><a href="/deneyimler" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Deneyimler</a></li>
+          <li><a href="/yetenekler" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Yetenekler</a></li>
+          <li><a href="/yaratici-manifesto" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Yaratıcı Manifesto</a></li>
+          <li><a href="/hakkimizda" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Hakkımızda</a></li>
+          <li><a href="/blog" class="hover:bg-black hover:text-white px-1 transition-colors inline-block">Blog</a></li>
+          <li class="pt-4">
+            <a href="/iletisim" class="hover:bg-black hover:text-white px-1 transition-colors underline decoration-1 underline-offset-4 inline-block">İletişim →</a>
           </li>
         </ul>
-      </nav>
-    </header>
+      </div>
+
+      <style>
+        /* Göz kırpma — rastgele görünümlü, deterministik */
+        @keyframes blink {
+          0%, 92%, 96%, 100% { transform: scaleY(1); }
+          94% { transform: scaleY(0.05); }
+        }
+        @keyframes pupil-shift {
+          0%, 30%, 60%, 100% { transform: translate(0,0); }
+          40% { transform: translate(-2px, 0); }
+          50% { transform: translate(2px, 1px); }
+        }
+        #eye-toggle .eye-svg { transform-origin: center; animation: blink 5.7s infinite; }
+        #eye-toggle .eye-pupil { animation: pupil-shift 9s infinite; transform-origin: center; }
+        #eye-widget #eye-menu:not([hidden]) { animation: eye-pop 180ms ease-out; }
+        @keyframes eye-pop {
+          from { opacity: 0; transform: translateY(8px) scale(0.96); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        /* Mobil + tablet (desktop lg breakpoint altı) — menü tam ekran %50 transparan beyaz */
+        @media (max-width: 1023px) {
+          #eye-menu {
+            position: fixed !important;
+            inset: 0 !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            margin: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: none !important;
+            background: rgba(255,255,255,0.5) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-right: 0 !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 4rem 2rem !important;
+            text-align: right;
+            z-index: 100;
+            overflow-y: auto;
+          }
+          #eye-menu[hidden] { display: none !important; }
+          #eye-menu ul { font-size: 1.5rem !important; line-height: 1.2; }
+          #eye-menu ul li { margin-bottom: 1rem; }
+          #eye-menu > p { font-size: 12px !important; margin-bottom: 2rem !important; }
+          /* Eye widget overlay'in üstünde kalsın ki kapatma için tıklanabilsin */
+          #eye-widget { z-index: 110 !important; }
+          /* Geri butonu sadece mobil/tablet fullscreen menüde görünür — dikeyde ortalı, siyah bold */
+          #eye-menu-close {
+            display: block !important;
+            top: 50% !important;
+            left: 1.5rem !important;
+            transform: translateY(-50%);
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            color: #000 !important;
+          }
+          #eye-menu-close:hover { color: #000 !important; }
+        }
+      </style>
+
+      <script is:inline>
+        (function () {
+          const btn  = document.getElementById('eye-toggle');
+          const menu = document.getElementById('eye-menu');
+          const mobBtn = document.getElementById('mobile-menu-toggle');
+          if (!btn || !menu) return;
+          function close() {
+            menu.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+            if (mobBtn) mobBtn.setAttribute('aria-expanded', 'false');
+          }
+          function open() {
+            menu.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+            if (mobBtn) mobBtn.setAttribute('aria-expanded', 'true');
+          }
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.hidden ? open() : close();
+          });
+          // Geri/Kapat butonu — fullscreen mobil menüden çıkış
+          const closeBtn = document.getElementById('eye-menu-close');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              close();
+            });
+          }
+          // Mobil üst butondan tetikleme — menü göstermek için widget'a kaydır
+          if (mobBtn) {
+            mobBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (menu.hidden) {
+                open();
+                // Eye widget'a kaydır ki menü görünür olsun
+                document.getElementById('eye-widget').scrollIntoView({ behavior: 'smooth', block: 'end' });
+              } else {
+                close();
+              }
+            });
+          }
+          document.addEventListener('click', (e) => {
+            const t = e.target;
+            if (!menu.hidden && !menu.contains(t) && !btn.contains(t) && (!mobBtn || !mobBtn.contains(t))) close();
+          });
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') close();
+          });
+        })();
+      </script>
+    </div>
 
     <!-- Main -->
     <main class="flex-1">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-300 mt-24">
-      <div class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="/brand/gonet-logo-white.svg" alt="Gonet" width="140" height="46" class="h-10 w-auto mb-4" />
-          <p class="text-sm leading-relaxed text-slate-400 mb-3">
-            İzmir ve Ege'nin ilk dijital ajansı (2000). Türkiye'nin ilk 3 Google Partner ajansından
-            biri. İzmir Reklamcılar Derneği üyesi, Dokuz Eylül Teknopark (DEPARK) mukimi.
-            <strong class="text-slate-300">İzmir'in ilk AI ajansı</strong> — AEO/GEO uzmanı.
+    <!-- Footer — devasa tipografik mark + minimal metin -->
+    {!hideFooter && (
+    <footer class="bg-white text-black border-t border-black">
+      <!-- Massive wordmark band -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-6">
+        <a
+          href="/"
+          id="footer-wordmark"
+          class="footer-wordmark editorial-display block text-[22vw] lg:text-[22vw] xl:text-[320px] leading-[0.85] text-black cursor-pointer whitespace-nowrap -mx-6 lg:-mx-10 px-6 lg:px-10"
+          aria-label="Rastgele sayfaya git"
+        >
+          Gonet
+        </a>
+        <script is:inline>
+          (function () {
+            const wm = document.getElementById('footer-wordmark');
+            if (!wm) return;
+            const pages = [
+              '/', '/uzmanlik', '/case-studies', '/markalar',
+              '/deneyimler', '/yetenekler', '/yaratici-manifesto',
+              '/hakkimizda', '/blog', '/iletisim'
+            ];
+            wm.addEventListener('click', (e) => {
+              e.preventDefault();
+              const here = window.location.pathname;
+              const candidates = pages.filter(p => p !== here);
+              const target = candidates[Math.floor(Math.random() * candidates.length)];
+              window.location.href = target;
+            });
+          })();
+        </script>
+      </div>
+
+      <!-- Editöryel meta grid -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 grid md:grid-cols-12 gap-6 lg:gap-8 border-t border-black">
+        <div class="md:col-span-3">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-3">Kim</p>
+          <p class="text-sm leading-snug">
+            İzmir ve Ege'nin <strong>ilk dijital</strong> ve <strong>ilk AI</strong> ajansı.
+            Türkiye'nin ilk 3 Google Partner ajansından biri.
+            IRD üyesi. DEPARK mukimi.
           </p>
-          <p class="text-xs text-slate-500">
+          <p class="text-[10px] text-black/60 mt-3 leading-relaxed">
             Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.
           </p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Hizmetler</h3>
+
+        <div class="md:col-span-3">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-3">Gez</p>
           <ul class="space-y-2 text-sm">
-            <li><a href="/uzmanlik" class="hover:text-white">Uzmanlık Alanları</a></li>
-            <li><a href="/case-studies" class="hover:text-white">Vaka Çalışmaları</a></li>
-            <li><a href="/yetenekler" class="hover:text-white">Yetenekler</a></li>
-            <li><a href="/deneyimler" class="hover:text-white">Deneyimler</a></li>
-            <li><a href="/yaratici-arsiv" class="hover:text-white">Yaratıcı Arşiv</a></li>
-            <li><a href="/markalar" class="hover:text-white">Çalıştığımız Markalar</a></li>
+            <li><a href="/uzmanlik" class="hover:bg-black hover:text-white transition-colors">Uzmanlık</a></li>
+            <li><a href="/case-studies" class="hover:bg-black hover:text-white transition-colors">Vaka Çalışmaları</a></li>
+            <li><a href="/markalar" class="hover:bg-black hover:text-white transition-colors">Markalar</a></li>
+            <li><a href="/deneyimler" class="hover:bg-black hover:text-white transition-colors">Deneyimler</a></li>
+            <li><a href="/yetenekler" class="hover:bg-black hover:text-white transition-colors">Yetenekler</a></li>
+            <li><a href="/yaratici-manifesto" class="hover:bg-black hover:text-white transition-colors">Yaratıcı Manifesto</a></li>
+            <li><a href="/hakkimizda" class="hover:bg-black hover:text-white transition-colors">Hakkımızda</a></li>
+            <li><a href="/blog" class="hover:bg-black hover:text-white transition-colors">Blog</a></li>
           </ul>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Bağlantı</h3>
+
+        <div class="md:col-span-3">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-3">İletişim</p>
           <ul class="space-y-2 text-sm">
-            <li><a href="/hakkimizda" class="hover:text-white">Hakkımızda</a></li>
-            <li><a href="/iletisim" class="hover:text-white">İletişim</a></li>
-            <li><a href="/blog" class="hover:text-white">Blog</a></li>
-            <li><a href="mailto:gokhan@gonet.com.tr" class="hover:text-white">gokhan@gonet.com.tr</a></li>
+            <li><a href="mailto:gonet@gonet.com.tr" class="underline decoration-2 underline-offset-4 hover:bg-black hover:text-white transition-colors">gonet@gonet.com.tr</a></li>
+            <li><a href="tel:+902324650015" class="text-black hover:underline">+90 232 465 00 15</a></li>
+            <li class="text-black/70">Adatepe Mah.</li>
+            <li class="text-black/70">DEÜ Tınaztepe Kampüsü</li>
+            <li class="text-black/70">Buca / İzmir</li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-3">Sosyal</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.linkedin.com/in/gokhankazanci/" target="_blank" rel="noopener" class="hover:bg-black hover:text-white transition-colors">LinkedIn / Kazancı (16K)</a></li>
+            <li><a href="https://www.behance.net/GonetCompany" target="_blank" rel="noopener" class="hover:bg-black hover:text-white transition-colors">Behance / GonetCompany</a></li>
+            <li><a href="https://www.instagram.com/gonetinteractive/" target="_blank" rel="noopener" class="hover:bg-black hover:text-white transition-colors">Instagram / gonetinteractive</a></li>
+            <li><a href="https://www.facebook.com/GonetCompany/" target="_blank" rel="noopener" class="hover:bg-black hover:text-white transition-colors">Facebook / GonetCompany</a></li>
+            <li><a href="https://www.slideshare.net/gonetpigme" target="_blank" rel="noopener" class="hover:bg-black hover:text-white transition-colors">SlideShare / gonetpigme</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate-500">
-          <span>© {new Date().getFullYear()} Gonet. Tüm hakları saklıdır. <span class="italic text-slate-400">"Her iş'te Gonet var."</span></span>
-          <span>Çekirdek: <a href="https://github.com/Guru35/gonet-com-tr" class="hover:text-white">github.com/Guru35/gonet-com-tr</a></span>
+
+      <!-- Copyright + slogan satırı -->
+      <div class="border-t border-black">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
+          <span>© {new Date().getFullYear()} Gonet — Her iş'te Gonet var.</span>
+          <span class="text-black/60">2000 → 2026 / 26 yıl / 220+ marka</span>
         </div>
       </div>
     </footer>
+    )}
+    <!-- Editöryel "hizasız" başlık efekti — her kelimeye random margin-left, satır wrap'larında başlangıç noktası değişir -->
+    <script is:inline>
+      (function () {
+        function apply() {
+          const palette = [0, 8, 16, 24, 32, 12, 20, 40, 4];
+          const targets = document.querySelectorAll(
+            'h1.editorial-display, h2.editorial-display, h3.editorial-display'
+          );
+          targets.forEach(function (el) {
+            // Sadece sade text içeriği — child element'i varsa atla
+            const hasEl = Array.from(el.childNodes).some(function (n) {
+              return n.nodeType === 1;
+            });
+            if (hasEl) return;
+            // Zaten işlendiyse skip
+            if (el.dataset.irregular === '1') return;
+            const text = (el.textContent || '').trim();
+            if (!text || text.split(/\s+/).length < 2) return;
+            const words = text.split(/(\s+)/);
+            let wIdx = 0;
+            let html = '';
+            for (let i = 0; i < words.length; i++) {
+              const part = words[i];
+              if (/^\s+$/.test(part)) {
+                html += ' ';
+              } else if (part.length > 0) {
+                const m = palette[(wIdx * 7 + part.length * 3) % palette.length];
+                html +=
+                  '<span style="margin-left:' +
+                  m +
+                  'px;display:inline-block">' +
+                  part +
+                  '</span>';
+                wIdx++;
+              }
+            }
+            el.innerHTML = html;
+            el.dataset.irregular = '1';
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', apply);
+        } else {
+          apply();
+        }
+      })();
+    </script>
+
+    <!-- Tilt-card 3D hover — .tilt-card class'lı element fareye göre rotateX/Y alır -->
+    <script is:inline>
+      (function () {
+        if (window.matchMedia('(pointer: coarse)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        function init() {
+          var cards = document.querySelectorAll('.tilt-card');
+          if (!cards.length) return;
+          var MAX_TILT = 8;
+          var SCALE = 1.02;
+          cards.forEach(function (card) {
+            if (card.dataset.tiltBound === '1') return;
+            card.dataset.tiltBound = '1';
+            var rect = null;
+            var rafId = null;
+            card.addEventListener('mouseenter', function () {
+              rect = card.getBoundingClientRect();
+              card.style.transition = 'transform 100ms ease-out';
+            });
+            card.addEventListener('mousemove', function (e) {
+              if (!rect) return;
+              if (rafId) cancelAnimationFrame(rafId);
+              rafId = requestAnimationFrame(function () {
+                var x = (e.clientX - rect.left) / rect.width;
+                var y = (e.clientY - rect.top) / rect.height;
+                var rotateX = (y - 0.5) * -MAX_TILT * 2;
+                var rotateY = (x - 0.5) * MAX_TILT * 2;
+                card.style.transform = 'rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) scale(' + SCALE + ')';
+              });
+            });
+            card.addEventListener('mouseleave', function () {
+              card.style.transition = 'transform 400ms cubic-bezier(0.4, 0, 0.2, 1)';
+              card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else { init(); }
+        // Yeni eklenen tilt-card'lar için (blog infinite-scroll vs.)
+        new MutationObserver(init).observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
+
+    <!-- Mobil otomatik perspektif-to-fit: sığmayan editorial-display başlıkları rotateY ile sığacak kadar eğer -->
+    <script is:inline>
+      (function () {
+        function fitDisplayText() {
+          if (window.innerWidth > 1023) {
+            // Desktop'a geçildiyse önceki perspective'leri sıfırla
+            document.querySelectorAll('.editorial-display[data-shrunk]').forEach(function (el) {
+              el.style.transform = '';
+              el.style.transformOrigin = '';
+              el.style.fontSize = '';
+              el.removeAttribute('data-shrunk');
+            });
+            return;
+          }
+          document.querySelectorAll('.editorial-display').forEach(function (el) {
+            // Kendi inline 3D perspektifi olan kartlara dokunma
+            if (el.closest('[style*="perspective"]')) return;
+            // Önceki state'i sıfırla — taze ölçüm için
+            if (el.dataset.shrunk) {
+              el.style.transform = '';
+              el.style.transformOrigin = '';
+              el.style.fontSize = '';
+            }
+            var overflow = el.scrollWidth - el.clientWidth;
+            if (overflow > 2 && el.clientWidth > 0) {
+              // cos(angle) = ratio → bu açıda 3D rotateY uygulanan kutunun görünür projeksiyonu container'a tam sığar
+              var ratio = el.clientWidth / el.scrollWidth;
+              var safeRatio = Math.max(0.55, ratio * 0.97);  // floor 55% → max ~56° rotation (aşırı distortion engelle)
+              var angleDeg = Math.acos(safeRatio) * 180 / Math.PI;
+              el.style.transform = 'perspective(1100px) rotateY(' + angleDeg.toFixed(2) + 'deg)';
+              el.style.transformOrigin = 'left center';
+              el.dataset.shrunk = '1';
+            } else if (el.dataset.shrunk) {
+              el.removeAttribute('data-shrunk');
+            }
+          });
+        }
+        var rTimer;
+        function schedule() {
+          clearTimeout(rTimer);
+          rTimer = setTimeout(fitDisplayText, 120);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', fitDisplayText);
+        } else {
+          fitDisplayText();
+        }
+        window.addEventListener('resize', schedule);
+        window.addEventListener('orientationchange', schedule);
+      })();
+    </script>
   </body>
 </html>

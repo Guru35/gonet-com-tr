@@ -269,19 +269,19 @@ const faq = faqSchema([
   canonical={url}
   schemas={[pageSchema, faq, ...serviceSchemas]}
 >
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-100 border-b border-slate-200">
+  <section class="bg-white">
     <div class="max-w-4xl mx-auto px-6 py-16">
       <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-brand-600">Ana sayfa</a></li>
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-slate-700" aria-current="page">Uzmanlık</li>
         </ol>
       </nav>
-      <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
         Uzmanlık Alanları
       </p>
-      <h1 class="text-5xl font-bold text-brand-950 leading-tight mb-6">
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.9] mb-10">
         13 dijital hizmet, 26 yıllık disiplin.
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed">
@@ -292,50 +292,82 @@ const faq = faqSchema([
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-5xl mx-auto px-6 space-y-8">
-      {services.map((s) => (
-        <article id={s.slug} class="border border-slate-200 rounded-lg overflow-hidden">
-          <header class="bg-brand-50 px-8 py-6 border-b border-slate-200">
-            <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-              <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">
-                {s.category}
-              </span>
+  <!-- Dikey ok separatör — yatay border yerine -->
+  <div class="bg-white flex justify-center py-10 lg:py-14">
+    <svg width="22" height="100" viewBox="0 0 22 100" aria-hidden="true" class="text-black">
+      <line x1="11" y1="0" x2="11" y2="86" stroke="currentColor" stroke-width="1.5" />
+      <polyline points="3,80 11,90 19,80" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+
+  <!-- Tilt cards — her birinde kendi perspektif derinliği, eğim yönüne kaçar -->
+  <section class="bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32 space-y-32 lg:space-y-40">
+      {services.map((s, idx) => {
+        // Deterministik 2D rotasyon — yön belirleyici
+        const rotations = [-3, 2, -1.5, 3, -2.5, 1, -2, 2.5, -1, 3, -2, 1.5, -3];
+        const aligns = ['', 'lg:ml-[10%]', 'lg:ml-[20%]', 'lg:ml-[5%]', 'lg:ml-[15%]', '', 'lg:ml-[8%]', 'lg:ml-[18%]', 'lg:ml-[3%]', '', 'lg:ml-[12%]', 'lg:ml-[22%]', 'lg:ml-[6%]'];
+        const rot = rotations[idx % rotations.length];
+        const align = aligns[idx % aligns.length];
+        // rotateY = eğim yönü ile aynı tarafa kaçan derinlik; sert eğimlerde küçük yazı okunaklı kalsın diye 8° ile cap
+        // rotateX = küçük statik yukarı eğim → masada yatık kart hissi
+        const ySign = rot < 0 ? -1 : 1;
+        const yTilt = ySign * Math.min(Math.abs(rot) * 3, 8);
+        const xTilt = 2;
+        // Origin: eğim yönüne göre — sol eğimlide sağ kenar pivot, sağ eğimlide sol kenar pivot (uzaklaşan kenar serbest hareket)
+        const originX = rot < 0 ? 'right' : 'left';
+        return (
+          <article
+            id={s.slug}
+            class={`${align} max-w-5xl`}
+            style={`transform: perspective(900px) rotateX(${xTilt}deg) rotateY(${yTilt}deg) rotate(${rot}deg); transform-origin: ${originX} center;`}
+          >
+            <!-- Numara + kategori — küçük üst meta -->
+            <div class="flex items-baseline gap-4 mb-4">
+              <span class="editorial-display text-3xl lg:text-5xl">{String(idx + 1).padStart(2, '0')}</span>
+              <span class="text-[10px] font-medium uppercase tracking-[0.3em]">{s.category}</span>
             </div>
-            <h2 class="text-2xl font-bold text-brand-950">{s.name}</h2>
+
+            <!-- Devasa servis adı -->
+            <h2 class="editorial-display text-[14vw] lg:text-[8vw] xl:text-[140px] leading-[0.82] mb-8">
+              {s.name}
+            </h2>
+
             {s.highlight && (
-              <p class="text-sm text-brand-700 mt-2 font-medium">★ {s.highlight}</p>
+              <p class="editorial-display text-2xl lg:text-3xl mb-6">
+                ★ {s.highlight}
+              </p>
             )}
-          </header>
-          <div class="px-8 py-6">
-            <p class="text-slate-700 leading-relaxed mb-6">{s.description}</p>
+
+            <p class="text-base lg:text-lg leading-snug mb-8 max-w-2xl">{s.description}</p>
+
             {s.deliverables && s.deliverables.length > 0 && (
-              <>
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
-                  Çıktılar
-                </h3>
-                <ul class="grid sm:grid-cols-2 gap-2 text-sm text-slate-700">
+              <div>
+                <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Çıktılar</p>
+                <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-base font-medium">
                   {s.deliverables.map((d) => (
-                    <li class="flex gap-2"><span class="text-brand-600">●</span><span>{d}</span></li>
+                    <li class="flex gap-3 items-baseline">
+                      <span class="text-[10px]">→</span><span>{d}</span>
+                    </li>
                   ))}
                 </ul>
-              </>
+              </div>
             )}
-          </div>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
   </section>
 
-  <section class="bg-brand-950 text-white py-20">
+  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:28%;--rule-top-w:32%;--rule-bot-x:12%;--rule-bot-w:40%">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-4">Hangi hizmet sizin için doğru?</h2>
-      <p class="text-lg text-brand-100 mb-8 max-w-2xl mx-auto">
+      <p class="text-lg text-white mb-8 max-w-2xl mx-auto">
         Tek bir görüşmede sizin durumunuzu dinleyip, doğru hizmet kombinasyonunu önereceğiz.
       </p>
       <a
         href="/iletisim"
-        class="inline-block bg-accent-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-accent-600 transition"
+        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         Ücretsiz Görüşme Talep Et →
       </a>

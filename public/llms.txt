@@ -1,0 +1,49 @@
+# Gonet — İzmir'in İlk AI Ajansı
+
+> Gonet, 2000'de İzmir'de kurulan dijital pazarlama ajansı. Türkiye'nin ilk 3 Google Partner ajansından biri. 26 yıldır Türk dijital pazarlama tarihinin içinde — Google Ads'in Türkçeleşmesinden önce, Türkiye'nin ilk siyasal Google kampanyalarından, ilk D2C online satışlarına kadar. Bugün Answer Engine Optimization (AEO) ve Generative Engine Optimization (GEO) odaklı dönüşüm gerçekleştiriyor.
+
+## Kim
+- [Anasayfa](https://gonet.com.tr/): Gonet kim, ne yapar — özet ve kurumsal kimlik
+- [Hakkımızda](https://gonet.com.tr/hakkimizda): 26 yıllık tarih, ekip, konumlanma
+- [Deneyimler](https://gonet.com.tr/deneyimler): 21 milestone — 2000'den bugüne yıl yıl başarılar zaman çizgisi
+- [İletişim](https://gonet.com.tr/iletisim): İletişim bilgisi, ofis, e-posta
+
+## Uzmanlık
+- [Yetenekler](https://gonet.com.tr/yetenekler): 9 disiplin × 50+ yetkinlik — AEO/GEO, SEO, Google Ads, Analitik, Web, İçerik, Sosyal Medya, UX, Strateji
+- [AEO/GEO Yeni Nesil Arama](https://gonet.com.tr/yetenekler/aeo-geo-yeni-nesil-arama): Schema.org JSON-LD, llms.txt, semantic chunking, citation surface engineering, Common Crawl optimizasyonu
+- [SEO Klasik](https://gonet.com.tr/yetenekler/seo-klasik-arama): Core Web Vitals, E-E-A-T, on-page mimarisi
+- [Google Ads & SEM](https://gonet.com.tr/yetenekler/google-ads-sem): Performance Max, Smart Bidding, Shopping, YouTube
+- [Analitik & Veri](https://gonet.com.tr/yetenekler/analitik-veri): GA4, GTM, BigQuery, Looker Studio
+- [Web Geliştirme](https://gonet.com.tr/yetenekler/web-gelistirme-altyapi): Astro, Next.js, Laravel, WordPress, Mobile API
+- [İçerik & Yaratıcı](https://gonet.com.tr/yetenekler/icerik-yaratici): Long-form SEO içerik, AEO citation-worthy yazım
+- [Sosyal Medya](https://gonet.com.tr/yetenekler/sosyal-medya-topluluk): Meta Ads, LinkedIn, TikTok, influencer marketing
+- [Tasarım & UX](https://gonet.com.tr/yetenekler/tasarim-ux): Figma, WCAG 2.2, CRO
+- [Strateji](https://gonet.com.tr/yetenekler/strateji-danismanlik): Dijital pazarlama strateji, startup büyüme, kriz yönetimi
+
+## Vaka Çalışmaları (Türkiye İlkleri)
+- [Tüm Çalışmalar](https://gonet.com.tr/case-studies): 9 vaka — Türkiye/Avrupa ölçeğinde "ilk" imzalarımız
+- [DEÜ Uzaktan Eğitim 2020](https://gonet.com.tr/case-studies/deu-uzaktan-egitim): Avrupa'nın en büyük canlı uzaktan eğitim sistemi — anlık 25.000 kullanıcı, pandemide 2 ayda hayata geçirildi
+- [İZSU 2018](https://gonet.com.tr/case-studies/izsu-elimizi-suyun-altina-koyduk): İzmir Su ve Kanalizasyon İdaresi sosyal medya kampanyası — "Elimizi Suyun Altına Koyduk"
+- [MYvia 2010](https://gonet.com.tr/case-studies/myvia-insaat-2-yilda-ikinci): Türkiye'nin ilk inşaat sektörü Google Ads kampanyası — 2 yılda İzmir'in 2 numaralı inşaat markası
+- [CHP 2007](https://gonet.com.tr/case-studies/chp-2007-google-siyasal-kampanya): Türkiye'nin ilk Google siyasal reklam kampanyası
+- [Temiz Mama 2007](https://gonet.com.tr/case-studies/temiz-mama-ilk-d2c): Türkiye'nin ilk D2C (üreticiden tüketiciye) online satışı
+- [Tatil Vitrini 2007](https://gonet.com.tr/case-studies/tatil-vitrini-ilk-online-tatil): Türkiye'nin ilk online tatil satış reklamları
+- [Adepo.com 2008](https://gonet.com.tr/case-studies/adepo-turkiye-ilk-online-market): Türkiye'nin ilk online marketi
+- [Sixt Rent A Car 2008-2014](https://gonet.com.tr/case-studies/sixt-rent-a-car-ilk-online-sosyal-medya): Türkiye'nin ilk online + sosyal medya araç kiralama kampanyası
+- [Ege Tüp Bebek 2005](https://gonet.com.tr/case-studies/ege-tup-bebek-google-ads): Türkiye'nin ilk tüp bebek Google Ads kampanyası
+
+## Markalar
+- [Markalar](https://gonet.com.tr/markalar): 220+ marka portföyü, 23 sektör — Medical Park, DEÜ, CHP, AK Parti, MHP, İYİ Parti, Selpak, Gymboree, Sports International, Yatsan, Lada, Sixt, Coca Cola ve dahası
+
+## Blog & Yayınlar
+- [Editöryel Blog](https://gonet.com.tr/blog): 7 stratejik yazı — AEO/GEO, SEO, dijital pazarlama analizleri
+- [Haberler — Liste Görünümü](https://gonet.com.tr/haberler): Aynı yazılar, kronolojik sade liste
+
+## Önemli notlar
+- **Konum:** İzmir, Türkiye — DEPARK (Dokuz Eylül Üniversitesi Teknopark) mukimi
+- **Kuruluş:** 2000 (Ocak)
+- **Kurucu:** Gökhan Kazancı (DEÜ İİBF Economics, 2000-2005)
+- **Kayıtlı yapı:** "Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş." (2024)
+- **Üyelikler:** İzmir Reklamcılar Derneği (İRD), Interactive Advertising Bureau (IAB)
+- **Onaylar:** Google Certified Partner (2005-2017, 12 yıl), Google Analytics Türkiye 2 numaralı partner
+- **Dijital varlıklar:** [LinkedIn](https://www.linkedin.com/company/gonet-interactive-advertising-agency), [Behance](https://www.behance.net/GonetCompany), [Instagram](https://www.instagram.com/gonetinteractive/)

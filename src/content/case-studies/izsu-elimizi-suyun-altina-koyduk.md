@@ -1,7 +1,8 @@
 ---
-title: "İzsu — 'Elimizi Suyun Altına Koyduk' Sosyal Kampanyası"
+title: "İZSU — 'Elimizi Suyun Altına Koyduk' Sosyal Kampanyası"
 description: "İzmir Su ve Kanalizasyon İdaresi için tasarladığımız sosyal medya kampanyası, kentin su kaynaklarına dikkat çekti."
-client: "İzsu (İzmir Su ve Kanalizasyon İdaresi)"
+ogImage: "/case-studies/izsu-elimizi-suyun-altina-koyduk.jpg"
+client: "İZSU (İzmir Su ve Kanalizasyon İdaresi)"
 industry: "Kamu / Yerel yönetim / Sürdürülebilirlik"
 services:
   - "Sosyal medya stratejisi"
@@ -21,11 +22,11 @@ draft: false
 
 ## Bağlam
 
-İzmir, Türkiye'de su kaynakları açısından kritik konumda. İzsu (İzmir Su ve Kanalizasyon İdaresi), kentlilerin su kullanım bilincini artırmak için **klasik kamu kampanyalarının ötesinde** bir yaklaşım istiyordu.
+İzmir, Türkiye'de su kaynakları açısından kritik konumda. İZSU (İzmir Su ve Kanalizasyon İdaresi), kentlilerin su kullanım bilincini artırmak için **klasik kamu kampanyalarının ötesinde** bir yaklaşım istiyordu.
 
 ## Çözüm
 
-Gonet, İzsu için **"Elimizi Suyun Altına Koyduk"** sosyal medya kampanyasını tasarladı:
+Gonet, İZSU için **"Elimizi Suyun Altına Koyduk"** sosyal medya kampanyasını tasarladı:
 
 - **Sembolik slogan** — "elimizi suyun altına koyduk" hem fiziksel hem mecaz anlamda
 - **Sosyal medya odaklı** — kentlilerin gündelik etkileşim alanlarında
@@ -34,13 +35,13 @@ Gonet, İzsu için **"Elimizi Suyun Altına Koyduk"** sosyal medya kampanyasın�
 
 ## Sonuç
 
-- ✅ Kampanya public olarak gonet.com.tr/izsu üzerinden belgelendi
-- ✅ Sürdürülebilirlik iletişiminde Gonet'in kamu sektörü için yeni kapısı oldu
-- ✅ İzmir Dijital Sağlık Zirvesi'ni de düzenlememizin önünü açtı
+- Kampanya public olarak gonet.com.tr/izsu üzerinden belgelendi
+- Sürdürülebilirlik iletişiminde Gonet'in kamu sektörü için yeni kapısı oldu
+- İzmir Dijital Sağlık Zirvesi'ni de düzenlememizin önünü açtı
 
 ## Sonraki kamu portföyü
 
-İzsu kampanyası, Gonet'in kamu sektörü deneyimine eklendi. Diğer kamu + STK referansları:
+İZSU kampanyası, Gonet'in kamu sektörü deneyimine eklendi. Diğer kamu + STK referansları:
 
 - **4 büyük siyasi parti** (AK Parti, CHP, MHP, İYİ Parti) — Türkiye'nin 4 partisiyle çalışan ilk ajans
 - **Dokuz Eylül Üniversitesi** — Avrupa'nın en büyük canlı uzaktan eğitim sistemi

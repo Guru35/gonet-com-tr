@@ -2,6 +2,7 @@
 title: "SEO Nedir? Arama Motoru Optimizasyonunun Tam Tanımı ve 2026 Görünümü"
 description: "SEO (Search Engine Optimization), bir web sitesini arama motorlarında daha üst sıralarda göstermek için yapılan teknik ve içeriksel optimizasyonların tümüdür. Google'ın organik sonuçlarının %53,3'ü tıklamayı alır — bu yüzden SEO hâlâ en yüksek ROI'li dijital kanaldır. 2026'da SEO, AEO ve GEO ile birlikte üç katmanlı bir disipline dönüştü."
 h1: "SEO Nedir?"
+ogImage: "/blog/blog-seo-nedir.jpg"
 keywords:
   - "SEO nedir"
   - "arama motoru optimizasyonu"

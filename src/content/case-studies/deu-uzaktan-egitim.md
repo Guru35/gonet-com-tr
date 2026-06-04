@@ -1,6 +1,7 @@
 ---
 title: "Dokuz Eylül Üniversitesi Uzaktan Eğitim Sistemi"
 description: "Kurulduğunda Avrupa'nın en büyüğü olan canlı uzaktan eğitim platformu — anlık 25.000 kullanıcı, 2 ayda hayata geçirildi."
+ogImage: "/case-studies/deu-uzaktan-egitim.jpg"
 client: "Dokuz Eylül Üniversitesi (DEÜ)"
 industry: "Yükseköğretim / EdTech"
 services:
@@ -35,10 +36,10 @@ Gonet, 26 yıllık yazılım ve proje yönetimi deneyimini bir araya getirerek *
 
 ## Sonuç
 
-- ✅ **Anlık 25.000 kullanıcı kapasitesi** çalışır halde
-- ✅ Kurulduğunda **Avrupa'nın en büyüğü** — tek kurumun kendi altyapısı üzerinde
-- ✅ **2 ayda** kurulum — emsali projeler 9-12 ay sürer
-- ✅ Eğitim aksamadan binlerce derse erişti
+- **Anlık 25.000 kullanıcı kapasitesi** çalışır halde
+- Kurulduğunda **Avrupa'nın en büyüğü** — tek kurumun kendi altyapısı üzerinde
+- **2 ayda** kurulum — emsali projeler 9-12 ay sürer
+- Eğitim aksamadan binlerce derse erişti
 
 ## Neden Gonet?
 

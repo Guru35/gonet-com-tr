@@ -2,6 +2,7 @@
 title: "Sağlık Turizmi Sektöründe Dijital Çağın Gereklilikleri"
 description: "Sağlık Turizmi Sektöründe Dijital Çağın Gereklilikleri..."
 h1: "Sağlık Turizmi Sektöründe Dijital Çağın Gereklilikleri"
+ogImage: "/blog/blog-saglik-turizmi-dijital.jpg"
 published: 2022-11-05
 author:
   name: "Gonet"

@@ -2,6 +2,7 @@
 title: "Dijital Pazarlamada 23 Yılda Neler Oldu?"
 description: "Ben bir dijital pazarlama uzmanıyım. Bu sektöre adım atalı 23. yıl olacak, yani bir kaç gün sonra. 23 yılda bir çok şey değişti, bu çok normal. Ama şaşırtıcı olan, bazı şeylerin hiç değişmemesi. Sizce..."
 h1: "Dijital Pazarlamada 23 Yılda Neler Oldu?"
+ogImage: "/blog/blog-dijital-pazarlamada-23-yilda.jpg"
 published: 2022-09-20
 author:
   name: "Gonet"

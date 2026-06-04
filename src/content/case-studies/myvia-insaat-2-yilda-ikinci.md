@@ -1,6 +1,7 @@
 ---
 title: "MYvia İnşaat — 2 Yılda İzmir'in En Bilinen 2. İnşaat Firması"
 description: "Eski adı Myway olan MYvia'yı 2 yıl içinde İzmir'in en bilinen 2. inşaat markası haline getirdik. Türkiye'nin ilk inşaat sektörü Google Ads reklamları."
+ogImage: "/case-studies/myvia-insaat-2-yilda-ikinci.jpg"
 client: "MYvia (eski adı Myway)"
 industry: "İnşaat / Konut geliştirme"
 services:
@@ -35,9 +36,9 @@ Gonet, **inşaat sektörüne özel bir dijital strateji** tasarladı — Türkiy
 
 ## Sonuç
 
-- ✅ **2 yıl içinde İzmir'in en bilinen 2. inşaat firması** haline getirildi
-- ✅ Sektörün dijital reklamcılığa açılan ilk başarı vakası oldu
-- ✅ Sonraki yıllarda Türk inşaat sektörünün ana akımda Google Ads kullanmaya başlamasının modeli olduk
+- **2 yıl içinde İzmir'in en bilinen 2. inşaat firması** haline getirildi
+- Sektörün dijital reklamcılığa açılan ilk başarı vakası oldu
+- Sonraki yıllarda Türk inşaat sektörünün ana akımda Google Ads kullanmaya başlamasının modeli olduk
 
 ## Sonraki inşaat portföyü
 

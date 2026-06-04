@@ -2,6 +2,7 @@
 title: "Sosyal Medya, Kamu Hizmetleri ve Dijital Ajanslar Arasındaki Köprü"
 description: "Sosyal Medya: Kamu Hizmetleri ve Dijital Ajanslar Arasındaki Köprü..."
 h1: "Sosyal Medya, Kamu Hizmetleri ve Dijital Ajanslar Arasındaki Köprü"
+ogImage: "/blog/blog-sosyal-medya-kamu-hizmetleri.jpg"
 published: 2022-12-01
 author:
   name: "Gonet"

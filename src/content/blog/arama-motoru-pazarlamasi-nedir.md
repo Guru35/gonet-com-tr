@@ -2,6 +2,7 @@
 title: "Arama Motoru Pazarlaması (SEM) Nedir? SEO ile Farkı ve 2026 Stratejisi"
 description: "SEM (Search Engine Marketing), arama motorlarında hem ücretli (PPC, Google Ads) hem de organik (SEO) görünürlük kazanma stratejilerinin tümüdür. Google'ın yıllık reklam gelirinin %58'i SEM kanalından geliyor — bu yüzden SEM hâlâ B2B ve yüksek-niyet kategorilerinin temel akış kaynağıdır."
 h1: "Arama Motoru Pazarlaması (SEM) Nedir?"
+ogImage: "/blog/blog-arama-motoru-pazarlamasi-nedir.jpg"
 keywords:
   - "SEM nedir"
   - "arama motoru pazarlaması"

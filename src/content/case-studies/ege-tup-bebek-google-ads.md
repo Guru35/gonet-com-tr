@@ -1,6 +1,7 @@
 ---
 title: "Ege Tüp Bebek — Türkiye'nin İlk Tüp Bebek Google Ads Kampanyası"
 description: "Türkiye'de tüp bebek tedavisi için ilk Google Ads kampanyasını Gonet tasarladı. Sağlık turizmi ve fertilite reklamcılığında bir ilk."
+ogImage: "/case-studies/ege-tup-bebek-google-ads.jpg"
 client: "Ege Tüp Bebek"
 industry: "Sağlık / Sağlık turizmi / IVF"
 services:
@@ -35,9 +36,9 @@ Gonet, **Türkiye'nin ilk tüp bebek Google Ads kampanyasını** Ege Tüp Bebek 
 
 ## Sonuç
 
-- ✅ **Türkiye'nin ilk tüp bebek Google Ads kampanyası** kategorisini açtık
-- ✅ Sektörde sonradan gelen tüm IVF reklamlarına bir model oldu
-- ✅ Gonet'in sağlık + sağlık turizmi pazarlama uzmanlığı kuruldu
+- **Türkiye'nin ilk tüp bebek Google Ads kampanyası** kategorisini açtık
+- Sektörde sonradan gelen tüm IVF reklamlarına bir model oldu
+- Gonet'in sağlık + sağlık turizmi pazarlama uzmanlığı kuruldu
 
 ## Sonraki sağlık portföyü
 
