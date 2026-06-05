@@ -15,9 +15,10 @@ const catCounts = posts.reduce((acc, p) => {
 }, {} as Record<string, number>);
 const categories = Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
 
-const title = 'Blog — GONET Dijital Pazarlama İçgörüleri';
+const title = 'Blog — Gonet\'ten Dijital, AI ve SEO/AEO İçgörüleri';
 const description =
-  'Reklam ajansları, dijital pazarlama trendleri, sağlık turizmi, web tasarım. 25 yıllık sektör deneyimimizden çıkardığımız içgörüler.';
+  'Reklam ajansları, dijital pazarlama, AEO/GEO, sağlık turizmi, web tasarım. ' +
+  'Gonet\'in 26 yıllık (2000\'den beri) sektör deneyiminden çıkardığı içgörüler.';
 
 const blogSchema = webpageSchema({
   title,
