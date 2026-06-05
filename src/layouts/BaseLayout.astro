@@ -11,6 +11,7 @@ interface Props {
   schemas?: Record<string, any> | Record<string, any>[];
   lang?: 'tr' | 'en';
   hideFooter?: boolean;
+  noindex?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   schemas,
   lang = 'tr',
   hideFooter = false,
+  noindex = false,
 } = Astro.props;
 
 const SITE_URL = 'https://gonet.com.tr';
@@ -69,7 +71,11 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
     <meta name="twitter:image" content={fullOgImage} />
 
     <!-- AEO + SEO hints -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    )}
     <link rel="alternate" hreflang="tr" href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 

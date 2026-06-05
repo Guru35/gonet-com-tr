@@ -100,7 +100,7 @@ function annularSegments(items: { pct: number; accent?: boolean }[], r = 95) {
 const ringSegs = annularSegments(services);
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema} noindex={true}>
   <!-- HERO — sadece massive sayı + tek hairline -->
   <section class="bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 lg:pt-28 pb-12">

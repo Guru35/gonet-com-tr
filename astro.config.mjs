@@ -52,7 +52,14 @@ export default defineConfig({
         defaultLocale: 'tr',
         locales: { tr: 'tr-TR', en: 'en-US' },
       },
-      filter: (page) => !page.includes('/admin/'),
+      // Sitemap'ten çıkar: admin, eski tasarım galeri iterasyonları (/galeri/01-07),
+      // duplicate istatistik1. Search engine'lerin (özellikle Bing) bunları
+      // crawl edip site kalitesini düşürmesini engelle.
+      filter: (page) =>
+        !page.includes('/admin/') &&
+        !/\/galeri\/0[1-7]-/.test(page) &&
+        !page.endsWith('/istatistik1/') &&
+        !page.endsWith('/istatistik1'),
     }),
   ],
 });
