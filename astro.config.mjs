@@ -31,7 +31,7 @@ const legacyRedirects = {
 
 export default defineConfig({
   site: 'https://gonet.com.tr',
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   redirects: legacyRedirects,
   build: {
     format: 'directory',

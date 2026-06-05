@@ -4,7 +4,7 @@ import { webpageSchema } from '../lib/schema';
 
 const title = 'Tasarım Galerisi — Editöryel DNA · Gonet';
 const description =
-  '2026 gonet.com.tr — Anton + Inter, B&W + tek kırmızı vurgu, devasa tipografi. 7 sayfa tasarımı yatay sergi.';
+  '2026 gonet.com.tr — Anton + Inter, B&W + tek kırmızı vurgu, devasa tipografi. 7 sayfa tasarımı yatay sergi. Sakin canvas roll, lightbox preview, mobil uyumlu.';
 const url = 'https://gonet.com.tr/galeri';
 
 const pageSchema = webpageSchema({
@@ -118,7 +118,7 @@ const sayfalar = [
               >gonet.com.tr{s.url === '/' ? '' : s.url} →</a>
               <p class="text-sm leading-relaxed">{s.aciklama}</p>
             </div>
-            <div class="hpan-image">
+            <div class={`hpan-image ${s.aspect === 'landscape' ? 'is-landscape' : ''} ${s.aspect === 'mobile' ? 'is-mobile' : ''}`}>
               <a
                 href={s.image.replace('.jpg', '')}
                 data-image-src={s.image}
@@ -169,6 +169,32 @@ const sayfalar = [
       </svg>
     </button>
 
+    <!-- Sağ detay accordion — slider'dan bağımsız.
+         Sayfa yüklenince hepsi kapalı, 600ms sonra ilk item animasyonla açılır.
+         Click → tek-açık toggle. Slider'ı navigate ETMEZ. -->
+    <aside class="hpan-acc" id="hpan-acc" aria-label="Sayfa detayları">
+      {sayfalar.map((s) => (
+        <div class="hpan-acc-item" data-acc-id={s.no}>
+          <button class="hpan-acc-head" type="button" aria-expanded="false">
+            <span class="hpan-acc-no">{s.no}</span>
+            <span class="hpan-acc-arrow" aria-hidden="true"></span>
+          </button>
+          <div class="hpan-acc-body">
+            <p class="hpan-acc-cat">{s.kategori}</p>
+            <h3 class="hpan-acc-name">{s.name}</h3>
+            <a
+              href={s.image.replace('.jpg', '')}
+              data-image-src={s.image}
+              data-image-title={s.name}
+              class="hpan-acc-link lightbox-trigger"
+              aria-label={`${s.name} — tasarımı fullscreen aç`}
+            >gonet.com.tr{s.url === '/' ? '' : s.url} →</a>
+            <p class="hpan-acc-desc">{s.aciklama}</p>
+          </div>
+        </div>
+      ))}
+    </aside>
+
     <!-- Sayaç + dot indicator -->
     <div class="hpan-controls">
       <span class="hpan-count" id="hpan-count">1 / 9</span>
@@ -179,9 +205,17 @@ const sayfalar = [
   <!-- Fullscreen lightbox — beyaz BG, click ile zoom toggle -->
   <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog" aria-label="Görsel ön izleme">
     <div class="lightbox-meta">
+      <button class="lightbox-back" id="lightbox-close" aria-label="Geri dön">
+        <svg class="lightbox-back-svg" viewBox="0 0 12 16" aria-hidden="true">
+          <polyline points="9,2 2,8 9,14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="lightbox-back-label">Geri Dön</span>
+      </button>
       <span class="lightbox-title" id="lightbox-title"></span>
-      <span class="lightbox-hint">Resme tıkla → zoom · ESC → kapat</span>
-      <button class="lightbox-close" id="lightbox-close" aria-label="Kapat">×</button>
+      <span class="lightbox-hint">
+        <span class="lightbox-hint-line">Resme tıkla → zoom</span>
+        <span class="lightbox-hint-line">ESC → kapat</span>
+      </span>
     </div>
     <div class="lightbox-stage" id="lightbox-stage">
       <img class="lightbox-img" id="lightbox-img" alt="" />
@@ -280,17 +314,21 @@ const sayfalar = [
         transition: opacity 0.3s ease;
       }
       .hpan-meta > div > a { text-align: right; }
-      /* IMAGE — yatayda ortalı, sayfanın tam ortasında durur */
+      /* IMAGE — yatayda ortalı, sayfanın tam ortasında durur.
+         3 canvas varyantı: default (3/4 uzun sayfa), landscape (16/9 laptop),
+         mobile (9/19.5 modern cep telefonu). Modifier class ile seçilir. */
       .hpan-image {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 3 / 4;          /* default — uzun web sayfası */
         opacity: 0;
         transition: opacity 0.7s ease-out;
       }
+      .hpan-image.is-landscape { aspect-ratio: 16 / 9; }   /* laptop/tablet */
+      .hpan-image.is-mobile    { aspect-ratio: 9 / 19.5; } /* modern cep telefonu */
       .hpan-page.is-active .hpan-image {
         opacity: 1;
         /* fade-in 0.7s + 0.6s gecikme — meta ile eş zamanlı belirir */
@@ -304,7 +342,19 @@ const sayfalar = [
       .hpan-image > a > img {
         height: 100%;
         width: 100%;
+        object-position: center 0%;
+        /* Base (idle / leave): nispeten hızlı, doğal ease-out — resim ilk haline döner */
+        transition: object-position 0.9s cubic-bezier(0.33, 1, 0.68, 1);
       }
+      /* Enter: mouse canvas üzerinde — yavaş, sakin, doğal kayma 0% → 100% */
+      .hpan-image.is-rolling > a > img {
+        object-position: center 100%;
+        transition: object-position 12s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      /* Flat canvas'ta cursor: scrollable hissi ver, landscape/mobile etkilenmez */
+      .hpan-image:not(.is-landscape):not(.is-mobile) > a { cursor: ns-resize; }
+      .hpan-image.is-landscape > a > img,
+      .hpan-image.is-mobile > a > img { transition: none; }
 
       /* Prev/Next ok butonları — çerçevesiz, hover'da SVG şaftı kendinden uzar */
       .hpan-arrow {
@@ -378,6 +428,153 @@ const sayfalar = [
         width: 22px;
         border-radius: 4px;
       }
+
+      /* ───────── Sağ detay accordion ─────────
+         Image'in sağında dar sütun. Çerçevesiz, transparan, sadece yazı.
+         Sol .hpan-meta'ya simetrik — image canvas (3:4) yarı genişliği ~31vh,
+         dolayısıyla left: calc(50% + 32vh) image'in sağ kenarından başlatır. */
+      .hpan-acc {
+        position: absolute;
+        top: 5vh;
+        bottom: 12vh;
+        left: calc(50% + 32vh);
+        width: 18vw;
+        max-width: 320px;
+        z-index: 5;
+        overflow-y: auto;
+        /* Scrollbar tamamen gizli — accordion altında parça/bar çıkmasın */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .hpan-acc::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+      .hpan-acc-item {
+        background: transparent;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+      }
+
+      .hpan-acc-head {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: var(--font-display, 'Anton', sans-serif);
+        font-size: 1.5rem;
+        line-height: 1;
+        color: #000;
+        opacity: 0.35;
+        transition: opacity 0.3s ease;
+        text-align: left;
+      }
+      .hpan-acc-head:hover { opacity: 0.85; }
+      .hpan-acc-item.is-open .hpan-acc-head { opacity: 1; }
+
+      .hpan-acc-no {
+        font-feature-settings: 'tnum';
+        letter-spacing: 0.02em;
+      }
+
+      .hpan-acc-arrow {
+        width: 12px;
+        height: 12px;
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      .hpan-acc-arrow::before,
+      .hpan-acc-arrow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 7px;
+        height: 1px;
+        background: currentColor;
+      }
+      .hpan-acc-arrow::before { left: 0; transform: rotate(45deg); transform-origin: left center; }
+      .hpan-acc-arrow::after  { right: 0; transform: rotate(-45deg); transform-origin: right center; }
+      .hpan-acc-item.is-open .hpan-acc-arrow { transform: rotate(180deg); }
+
+      .hpan-acc-body {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.55s cubic-bezier(0.65, 0, 0.35, 1),
+                    opacity 0.4s ease 0.05s,
+                    padding 0.4s ease;
+        padding: 0;
+      }
+      .hpan-acc-item.is-open .hpan-acc-body {
+        max-height: 60vh;
+        opacity: 1;
+        padding: 0 0 1.5rem 0;
+      }
+
+      .hpan-acc-cat {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: #ff0000;
+        margin: 0 0 0.5rem;
+      }
+      .hpan-acc-name {
+        font-family: var(--font-display, 'Anton', sans-serif);
+        font-size: 1.75rem;
+        line-height: 0.95;
+        margin: 0 0 0.85rem;
+        color: #000;
+      }
+      .hpan-acc-link {
+        display: inline-block;
+        font-family: var(--font-mono, monospace);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        color: #000;
+        margin-bottom: 0.85rem;
+        transition: color 0.2s;
+      }
+      .hpan-acc-link:hover { color: #ff0000; }
+      .hpan-acc-desc {
+        font-size: 13px;
+        line-height: 1.55;
+        color: #000;
+        margin: 0;
+      }
+    }
+
+    /* Mobil/tablet — accordion tek sütun block, üst üste */
+    /* Lightbox header — mobil revize:
+       title gizli (alan açılır), hint iki satır, geri-dön tek satır. */
+    @media (max-width: 1023px) {
+      .lightbox-meta {
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .lightbox-title { display: none; }
+      .lightbox-hint {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        line-height: 1.4;
+      }
+      .lightbox-hint-line {
+        display: block;
+        width: 100%;
+        text-align: right;
+      }
+      .lightbox-hint-line + .lightbox-hint-line::before {
+        content: none;
+        padding: 0;
+      }
     }
 
     /* CTA "?" — interaktif: mouse'tan kaçar, "Görüşelim"e gelince geri döner */
@@ -408,7 +605,10 @@ const sayfalar = [
       justify-content: space-between;
       gap: 20px;
       padding: 16px 24px;
-      background: #fff;
+      /* Blurlu transparan — image kaydırıldıkça arkadan yumuşakça geçer */
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(7px) saturate(120%);
+      -webkit-backdrop-filter: blur(7px) saturate(120%);
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -417,19 +617,48 @@ const sayfalar = [
       z-index: 2;
     }
     .lightbox-title { color: #000; }
-    .lightbox-hint { opacity: 0.4; font-weight: 400; }
-    .lightbox-close {
+    .lightbox-hint { opacity: 0.4; font-weight: 400; display: inline-flex; align-items: center; }
+    .lightbox-hint-line { white-space: nowrap; }
+    /* Desktop: iki satır arası nokta separator */
+    .lightbox-hint-line + .lightbox-hint-line::before {
+      content: '·';
+      padding: 0 0.6em;
+    }
+    .lightbox-back-label { white-space: nowrap; }
+
+    /* Geri Dön — slider prev/next ok tasarımıyla uyumlu.
+       SVG ← ok + Anton uppercase label. Hover'da shaft kendinden uzar,
+       label kırmızıya döner. */
+    .lightbox-back {
       background: transparent;
       border: 0;
-      font-family: var(--font-display);
-      font-size: 28px;
-      line-height: 1;
+      padding: 4px 8px;
       cursor: pointer;
       color: #000;
-      padding: 4px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: color 0.2s;
     }
-    .lightbox-close:hover { color: #ff0000; }
+    .lightbox-back-svg {
+      width: 12px;
+      height: 16px;
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Hover'da chevron hafif sola kayar — geri-dön niyetinin micro-affordance'ı */
+    .lightbox-back:hover .lightbox-back-svg {
+      transform: translateX(-3px);
+    }
+    .lightbox-back-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ff0000;
+      transition: color 0.2s;
+    }
+    .lightbox-back:hover .lightbox-back-label { color: #cc0000; }
     .lightbox-stage {
       width: 100%;
       max-width: 1280px;
@@ -456,10 +685,31 @@ const sayfalar = [
       cursor: zoom-out;
     }
 
-    /* Mobil + tablet — basit dikey block, slider UI gizli */
+    /* Mobil + tablet — basit dikey block, slider UI gizli, scroll AÇIK */
     @media (max-width: 1023px) {
-      .hpan { background: #fff; padding: 2rem 0; }
-      .hpan-track { display: block; transform: none !important; }
+      /* Desktop'ta dayatılan scroll-lock'u mobilde geri al — dikey scroll açılır */
+      :global(html), :global(body) {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+      }
+      :global(main) {
+        height: auto !important;
+        overflow: visible !important;
+      }
+      .hpan {
+        background: #fff;
+        padding: 2rem 0;
+        height: auto !important;
+        overflow: visible !important;
+        position: relative;
+      }
+      .hpan-track {
+        display: block;
+        transform: none !important;
+        width: 100% !important;
+        height: auto !important;
+      }
       .hpan-slide, .hpan-pages {
         display: block;
         width: 100%;
@@ -467,7 +717,10 @@ const sayfalar = [
         border-bottom: 1px solid #000;
         height: auto;
         position: relative;
+        box-sizing: border-box;
       }
+      /* Boş "kağıt" kart desktop'ta absolute idi — mobilde anlamsız, gizle */
+      .hpan-empty-card { display: none; }
       .hpan-page {
         position: relative;
         inset: auto;
@@ -476,16 +729,140 @@ const sayfalar = [
         padding: 3rem 0;
         border-bottom: 1px solid #000;
         display: block;
+        height: auto;
       }
       .hpan-page:last-child { border-bottom: 0; }
-      .hpan-meta { margin-bottom: 2rem; }
+      .hpan-meta {
+        position: relative;
+        inset: auto;
+        right: auto;
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        opacity: 1 !important;
+        margin-bottom: 2rem;
+      }
+      .hpan-image {
+        position: relative;
+        inset: auto;
+        transform: none;
+        opacity: 1 !important;
+        aspect-ratio: auto;
+        width: 100%;
+        height: auto;
+      }
       .hpan-image > a {
         display: block;
         aspect-ratio: 3 / 4;
         max-width: 90%;
         margin: 0 auto;
+        height: auto;
       }
-      .hpan-arrow, .hpan-controls { display: none; }
+      .hpan-image > a > img {
+        height: 100%;
+        width: 100%;
+        object-position: center top;
+      }
+      .hpan-arrow, .hpan-controls { display: none !important; }
+
+      /* Accordion — mobilde son slide'ın altında, tam genişlik block */
+      .hpan-acc {
+        display: block;
+        position: relative;
+        inset: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        overflow: visible;
+        padding: 0 1.5rem 3rem;
+        box-sizing: border-box;
+      }
+      .hpan-acc-item {
+        background: transparent;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+      }
+      .hpan-acc-head {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        padding: 1.1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: var(--font-display, 'Anton', sans-serif);
+        font-size: 1.5rem;
+        line-height: 1;
+        color: #000;
+        opacity: 0.45;
+        transition: opacity 0.3s ease;
+        text-align: left;
+      }
+      .hpan-acc-item.is-open .hpan-acc-head { opacity: 1; }
+      .hpan-acc-no { font-feature-settings: 'tnum'; letter-spacing: 0.02em; }
+      .hpan-acc-arrow {
+        width: 12px;
+        height: 12px;
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      .hpan-acc-arrow::before,
+      .hpan-acc-arrow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 7px;
+        height: 1px;
+        background: currentColor;
+      }
+      .hpan-acc-arrow::before { left: 0; transform: rotate(45deg); transform-origin: left center; }
+      .hpan-acc-arrow::after  { right: 0; transform: rotate(-45deg); transform-origin: right center; }
+      .hpan-acc-item.is-open .hpan-acc-arrow { transform: rotate(180deg); }
+      .hpan-acc-body {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.55s cubic-bezier(0.65, 0, 0.35, 1),
+                    opacity 0.4s ease 0.05s,
+                    padding 0.4s ease;
+        padding: 0;
+      }
+      .hpan-acc-item.is-open .hpan-acc-body {
+        max-height: 100vh;
+        opacity: 1;
+        padding: 0 0 1.5rem 0;
+      }
+      .hpan-acc-cat {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: #ff0000;
+        margin: 0 0 0.5rem;
+      }
+      .hpan-acc-name {
+        font-family: var(--font-display, 'Anton', sans-serif);
+        font-size: 1.75rem;
+        line-height: 0.95;
+        margin: 0 0 0.85rem;
+        color: #000;
+      }
+      .hpan-acc-link {
+        display: inline-block;
+        font-family: var(--font-mono, monospace);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        color: #000;
+        margin-bottom: 0.85rem;
+      }
+      .hpan-acc-desc { font-size: 14px; line-height: 1.55; color: #000; margin: 0; }
     }
   </style>
 
@@ -586,6 +963,18 @@ const sayfalar = [
       });
 
       update();
+
+      /* Accordion JS aşağıda ayrı <script is:inline> bloğunda — mobil + desktop her ikisinde de çalışır. */
+
+      /* Flat (3:4) canvas için sakin hover-roll — mouse pozisyonu DEĞİL,
+         sadece hover state. Enter'da görsel 6s boyunca yumuşakça aşağı kayar
+         (0% → 100%), leave'de 0.9s'de doğal şekilde geri döner.
+         is-landscape ve is-mobile varyantları bu efektten muaf. */
+      document.querySelectorAll('.hpan-image').forEach(function (box) {
+        if (box.classList.contains('is-landscape') || box.classList.contains('is-mobile')) return;
+        box.addEventListener('mouseenter', function () { box.classList.add('is-rolling'); });
+        box.addEventListener('mouseleave', function () { box.classList.remove('is-rolling'); });
+      });
     })();
   </script>
 
@@ -642,8 +1031,50 @@ const sayfalar = [
   </script>
 
   <script is:inline>
+    /* ───────── Detay accordion — desktop + MOBİL ─────────
+       Slider'dan bağımsız. Yüklenince hepsi kapalı, 600ms sonra ilk item açılır.
+       Click → tek-açık toggle: açıksa kapat, değilse onu aç + diğerlerini kapat. */
+    (function () {
+      var accItems = document.querySelectorAll('.hpan-acc-item');
+      if (!accItems.length) return;
+
+      function openOnly(target) {
+        accItems.forEach(function (it) {
+          var head = it.querySelector('.hpan-acc-head');
+          var on = it === target;
+          it.classList.toggle('is-open', on);
+          if (head) head.setAttribute('aria-expanded', on ? 'true' : 'false');
+        });
+      }
+      function closeAll() {
+        accItems.forEach(function (it) {
+          var head = it.querySelector('.hpan-acc-head');
+          it.classList.remove('is-open');
+          if (head) head.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      accItems.forEach(function (item) {
+        var head = item.querySelector('.hpan-acc-head');
+        if (!head) return;
+        head.addEventListener('click', function () {
+          if (item.classList.contains('is-open')) closeAll();
+          else openOnly(item);
+        });
+      });
+
+      // Sayfa yüklenince animatif first-open — 600ms gecikme.
+      setTimeout(function () { openOnly(accItems[0]); }, 600);
+    })();
+  </script>
+
+  <script is:inline>
     /* CTA "?" — fareyle sürekli kaçar, sayfa kenarlarında durur, "Görüşelim"de hızla yerine döner */
     (function () {
+      /* Mobil + responsive ≤1023px: efekt tamamen iptal (touch ve dar viewport).
+         pointer:coarse touch cihazları yakalar; innerWidth ≤1023 desktop'taki
+         responsive emülasyon görünümünü de güvene alır. */
+      if (window.innerWidth <= 1023) return;
       if (window.matchMedia('(pointer: coarse)').matches) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       var q = document.querySelector('.grow-q');
