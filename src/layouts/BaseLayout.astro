@@ -86,9 +86,91 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
 
     <!-- Schema.org JSON-LD — AEO kalbı -->
     <JsonLd schema={allSchemas} />
+
+    <!-- ───────────────────────────────────────────────────────────
+         Analytics + Consent Management (KVKK + GDPR uyumlu)
+         Klaro: kullanıcı kabul edene dek GTM YÜKLENMEZ (data-name pattern).
+         GTM Container: GTM-PLNFNL — tüm tag'ler buradan yönetilir.
+         ─────────────────────────────────────────────────────────── -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.klaroConfig = {
+        version: 1,
+        elementID: 'klaro',
+        styling: { theme: ['light', 'bottom', 'wide'] },
+        noAutoLoad: false,
+        htmlTexts: true,
+        embedded: false,
+        groupByPurpose: true,
+        storageMethod: 'cookie',
+        cookieName: 'klaro',
+        cookieExpiresAfterDays: 365,
+        default: false,
+        mustConsent: false,
+        acceptAll: true,
+        hideDeclineAll: false,
+        hideLearnMore: false,
+        noticeAsModal: false,
+        lang: 'tr',
+        translations: {
+          tr: {
+            consentModal: {
+              title: 'Çerez ve Gizlilik Tercihleri',
+              description: 'gonet.com.tr deneyimini iyileştirmek ve site kullanım analizi yapmak için çerez kullanır. Hangi servislere izin verdiğinizi aşağıdan seçebilirsiniz. Tercihinizi istediğiniz zaman değiştirebilirsiniz.',
+            },
+            consentNotice: {
+              description: 'Bu site analiz ve performans çerezleri kullanır. {purposes}',
+              learnMore: 'Tercihler',
+            },
+            acceptAll: 'Hepsini kabul et',
+            acceptSelected: 'Seçimi kaydet',
+            decline: 'Reddet',
+            ok: 'Anladım',
+            purposes: {
+              analytics: { title: 'Analitik', description: 'Site kullanım istatistikleri (anonim).' },
+              marketing: { title: 'Pazarlama', description: 'Reklam performans takibi ve yeniden hedefleme.' },
+            },
+            service: {
+              disableAll: { title: 'Tümünü devre dışı bırak', description: 'Tüm üçüncü taraf servisleri kapatır.' },
+            },
+            poweredBy: '',
+          },
+        },
+        services: [
+          {
+            name: 'google-tag-manager',
+            title: 'Google Tag Manager',
+            purposes: ['analytics', 'marketing'],
+            description: 'Google Tag Manager: GA4, Meta Pixel, Yandex Metrica ve diğer analiz/reklam araçlarını yönetir.',
+            cookies: [/^_ga/, /^_gid/, /^_gcl/, /^_fbp/, /^_ym/, /^IDE/, /^yabs-sid/, /^yandexuid/],
+            required: false,
+            default: false,
+          },
+        ],
+      };
+    </script>
+    <!-- Klaro consent manager vendor (KVKK + GDPR) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro-no-css.js"></script>
+    <!-- GTM container — Klaro consent verilene dek BLOKLI (type="text/plain" + data-name).
+         Klaro accept sonrası otomatik aktive olur. -->
+    <script type="text/plain" data-name="google-tag-manager" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-PLNFNL"></script>
+    <script is:inline>
+      // GTM container kurulum (Klaro aktive ettiğinde dataLayer kullanılır)
+      (function(w,d,s,l){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      })(window,document,'script','dataLayer');
+    </script>
   </head>
 
   <body class="min-h-screen flex flex-col bg-white text-black">
+    <!-- GTM noscript fallback — JS kapalı tarayıcılar için iframe yedek -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLNFNL"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
     <!-- Header — editöryel tipografik nav, alt çizgi logo altında biter -->
     {(() => null)()}
     <header class="bg-white relative">
