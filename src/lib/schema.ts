@@ -251,12 +251,9 @@ export const founderSchema = {
       description: 'DEÜ Rektörlük + DEUZEM — Avrupa\'nın en büyük uzaktan eğitim sisteminin (anlık 25K kullanıcı) inşasında stratejik danışmanlık',
     },
   ],
-  performerIn: {
-    '@type': 'EducationEvent',
-    name: 'DEÜ Ergonomi Kongresi',
-    organizer: { '@type': 'CollegeOrUniversity', name: 'Dokuz Eylül Üniversitesi' },
-    description: 'Gonet sponsor; Gökhan Kazancı eğitim sunumu',
-  },
+  // NOT: performerIn (DEÜ Ergonomi Kongresi) çıkarıldı — Google Event Rich Results
+  // için startDate + location zorunlu, geçmiş etkinlik tarih kaydı yok.
+  // İhtiyaç doğarsa biyografik content olarak hakkımızda sayfasında düz metin tutulur.
   interactionStatistic: {
     '@type': 'InteractionCounter',
     interactionType: { '@type': 'FollowAction' },
