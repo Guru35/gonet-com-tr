@@ -38,14 +38,23 @@ export const organizationSchema = {
     addressRegion: 'İzmir',
     addressCountry: 'TR',
   },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer service',
-    email: 'gonet@gonet.com.tr',
-    telephone: '+90-232-465-00-15',
-    availableLanguage: ['Turkish', 'English'],
-    areaServed: 'TR',
-  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'gonet@gonet.com.tr',
+      telephone: '+90-232-465-00-15',
+      availableLanguage: ['Turkish', 'English'],
+      areaServed: 'TR',
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: '+90-232-463-46-49',
+      availableLanguage: ['Turkish', 'English'],
+      areaServed: 'TR',
+    },
+  ],
   // knowsAbout — Yeni nesil (AEO/GEO) + LinkedIn peer-validated (48 skill / ~720 endorsement)
   // Sıralama: AEO/GEO yeni katman önce, sonra LinkedIn endorsement-by-count desc, sonra Gonet özel disipliner
   knowsAbout: [
