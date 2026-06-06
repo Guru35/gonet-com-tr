@@ -60,10 +60,21 @@ const orgSkillSchema = {
 
 <BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, termSetSchema, orgSkillSchema]}>
   <article class="bg-white text-black">
-    <!-- Hero — sade, profesyonel -->
-    <header class="border-b border-black/15">
-      <div class="max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
-        <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+    <!-- Hero — opsiyonel arka plan görseli + görsel toggle -->
+    <header class="relative border-b border-black/15 overflow-hidden" data-hero>
+      {cat.heroImage && (
+        <div class="hero-bg absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
+             style={`background-image: url('${cat.heroImage}'); background-size: cover; background-position: center; opacity: 0.55;`}
+             data-hero-bg></div>
+      )}
+      {cat.heroImage && (
+        <!-- Beyaz overlay — yazıların okunabilirliği için -->
+        <div class="hero-fade absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-white/85 via-white/65 to-white/85 transition-opacity duration-300"
+             data-hero-fade></div>
+      )}
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
+        <nav class="text-sm text-slate-500 mb-8 flex items-center justify-between gap-4" aria-label="Breadcrumb">
           <ol class="flex items-center gap-2 flex-wrap">
             <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
             <li aria-hidden="true">/</li>
@@ -71,6 +82,15 @@ const orgSkillSchema = {
             <li aria-hidden="true">/</li>
             <li class="text-slate-700" aria-current="page">{cat.name}</li>
           </ol>
+          {cat.heroImage && (
+            <button type="button"
+                    data-hero-toggle
+                    class="shrink-0 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500 hover:text-black underline underline-offset-4 decoration-1"
+                    aria-pressed="true">
+              <span data-hero-toggle-on>Görseli gizle</span>
+              <span data-hero-toggle-off class="hidden">Görseli göster</span>
+            </button>
+          )}
         </nav>
 
         <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500 mb-3">
@@ -103,32 +123,190 @@ const orgSkillSchema = {
       </div>
     </header>
 
-    <!-- Skill listesi — sade okuma, makul fontlar -->
-    <section class="border-b border-black/15">
-      <div class="max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
-        <h2 class="text-xl font-bold mb-8">Yetkinlikler</h2>
-        <ol class="space-y-6">
-          {cat.skills.map((sk, i) => (
-            <li class="grid grid-cols-12 gap-4 lg:gap-8 pb-6 border-b border-black/10 last:border-0">
-              <div class="col-span-12 sm:col-span-1 text-sm font-mono text-slate-400 tabular-nums">
-                {String(i + 1).padStart(2, '0')}
-              </div>
-              <div class="col-span-12 sm:col-span-9">
-                <h3 class="text-base lg:text-lg font-semibold leading-snug mb-1">{sk.name}</h3>
-                <p class="text-sm lg:text-base text-slate-700 leading-relaxed">{sk.detail}</p>
-              </div>
-              <div class="col-span-12 sm:col-span-2 sm:text-right">
-                <span class={`inline-block text-[10px] font-semibold uppercase tracking-[0.2em] px-2 py-1 border ${
-                  sk.level === 'Uzman' ? 'border-black bg-black text-white' :
-                  sk.level === 'İleri' ? 'border-slate-700 text-slate-700' :
-                  'border-slate-400 text-slate-500'
-                }`}>{sk.level}</span>
-              </div>
-            </li>
-          ))}
+    <!-- Yetkinlik görünümü — Card / Liste toggle -->
+    <section class="border-b border-black/15" data-skills-section>
+      <div class="max-w-6xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
+
+        <!-- Başlık + view toggle -->
+        <div class="flex items-end justify-between gap-4 mb-8 flex-wrap">
+          <div>
+            <h2 class="text-xl font-bold mb-2">Yetkinlikler</h2>
+            <p class="text-sm text-slate-500">Her başlık ayrıntılı bir alt-sayfa açar — Gonet yaklaşımı, SSS, sektör örnekleri.</p>
+          </div>
+          <div class="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em]" role="tablist" aria-label="Görünüm seç">
+            <span class="text-slate-400">Görünüm:</span>
+            <button type="button"
+                    data-view-btn="card"
+                    class="px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors data-[active=true]:bg-black data-[active=true]:text-white"
+                    data-active="true"
+                    role="tab">
+              Kart
+            </button>
+            <button type="button"
+                    data-view-btn="list"
+                    class="px-3 py-1.5 border border-black/30 text-slate-600 hover:border-black hover:text-black transition-colors data-[active=true]:bg-black data-[active=true]:text-white data-[active=true]:border-black"
+                    role="tab">
+              Liste
+            </button>
+          </div>
+        </div>
+
+        {/* Auto-slug helper inline kullanılacak — Astro frontmatter scope dışında bir IIFE */}
+        {(() => null)()}
+
+        <!-- KART GÖRÜNÜMÜ -->
+        <div data-view="card" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {cat.skills.map((sk, i) => {
+            const skillSlug = sk.slug ?? sk.name
+              .toLowerCase()
+              .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'}[c] || c))
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            const href = `/yetenekler/${cat.slug}/${skillSlug}`;
+            return (
+              <a href={href} class="group flex flex-col border border-black/10 hover:border-black hover:shadow-sm transition-all overflow-hidden bg-white">
+                {sk.image ? (
+                  <div class="aspect-[4/3] bg-slate-50 overflow-hidden border-b border-black/10">
+                    <img src={sk.image}
+                         alt=""
+                         loading="lazy"
+                         class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" />
+                  </div>
+                ) : (
+                  <div class="aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 border-b border-black/10 flex items-center justify-center">
+                    <span class="text-5xl text-slate-300 font-mono tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                )}
+                <div class="p-5 lg:p-6 flex flex-col flex-1">
+                  <div class="flex items-start justify-between gap-3 mb-2">
+                    <span class="text-[10px] font-mono text-slate-400 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                    <span class={`inline-block text-[10px] font-semibold uppercase tracking-[0.2em] px-2 py-1 border ${
+                      sk.level === 'Uzman' ? 'border-black bg-black text-white' :
+                      sk.level === 'İleri' ? 'border-slate-700 text-slate-700' :
+                      'border-slate-400 text-slate-500'
+                    }`}>{sk.level}</span>
+                  </div>
+                  <h3 class="text-base lg:text-lg font-semibold leading-snug mb-2 group-hover:underline">{sk.name}</h3>
+                  <p class="text-sm text-slate-700 leading-relaxed flex-1">{sk.detail}</p>
+                  <span class="inline-block mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 group-hover:text-black">
+                    Ayrıntılı sayfa →
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- LİSTE GÖRÜNÜMÜ — hover ile genişler -->
+        <ol data-view="list" class="hidden space-y-2 max-w-4xl mx-auto">
+          {cat.skills.map((sk, i) => {
+            const skillSlug = sk.slug ?? sk.name
+              .toLowerCase()
+              .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'}[c] || c))
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            const href = `/yetenekler/${cat.slug}/${skillSlug}`;
+            return (
+              <li>
+                <a href={href}
+                   class="skill-row group block border border-black/10 hover:border-black hover:bg-slate-50 transition-colors px-5 lg:px-6 py-4">
+                  <div class="grid grid-cols-12 gap-4 items-center">
+                    <div class="col-span-1 text-sm font-mono text-slate-400 tabular-nums">
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                    <div class="col-span-9">
+                      <h3 class="text-base lg:text-lg font-semibold leading-snug group-hover:underline">{sk.name}</h3>
+                      <div class="skill-row-extra max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2">
+                        <p class="text-sm text-slate-700 leading-relaxed">{sk.detail}</p>
+                        <span class="inline-block mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 group-hover:text-black">
+                          Ayrıntılı sayfaya git →
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-span-2 text-right">
+                      <span class={`inline-block text-[10px] font-semibold uppercase tracking-[0.2em] px-2 py-1 border ${
+                        sk.level === 'Uzman' ? 'border-black bg-black text-white' :
+                        sk.level === 'İleri' ? 'border-slate-700 text-slate-700' :
+                        'border-slate-400 text-slate-500'
+                      }`}>{sk.level}</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
         </ol>
+
       </div>
     </section>
+
+    <!-- Inline JS — view toggle + hero image toggle, localStorage persistence -->
+    <script is:inline>
+      (function () {
+        // Hero image toggle
+        const heroBtn = document.querySelector('[data-hero-toggle]');
+        const heroBg = document.querySelector('[data-hero-bg]');
+        const heroFade = document.querySelector('[data-hero-fade]');
+        const heroOn = document.querySelector('[data-hero-toggle-on]');
+        const heroOff = document.querySelector('[data-hero-toggle-off]');
+        const HERO_KEY = 'gonet:yetenekler:hero-visible';
+
+        function applyHero(visible) {
+          if (!heroBg || !heroFade) return;
+          if (visible) {
+            heroBg.style.opacity = '0.55';
+            heroFade.style.opacity = '1';
+            heroOn?.classList.remove('hidden');
+            heroOff?.classList.add('hidden');
+            heroBtn?.setAttribute('aria-pressed', 'true');
+          } else {
+            heroBg.style.opacity = '0';
+            heroFade.style.opacity = '0';
+            heroOn?.classList.add('hidden');
+            heroOff?.classList.remove('hidden');
+            heroBtn?.setAttribute('aria-pressed', 'false');
+          }
+        }
+
+        if (heroBtn) {
+          const saved = localStorage.getItem(HERO_KEY);
+          if (saved === 'false') applyHero(false);
+          heroBtn.addEventListener('click', () => {
+            const currentlyVisible = heroBtn.getAttribute('aria-pressed') === 'true';
+            const next = !currentlyVisible;
+            applyHero(next);
+            localStorage.setItem(HERO_KEY, String(next));
+          });
+        }
+
+        // Card / List view toggle
+        const VIEW_KEY = 'gonet:yetenekler:view';
+        const cardBtn = document.querySelector('[data-view-btn="card"]');
+        const listBtn = document.querySelector('[data-view-btn="list"]');
+        const cardView = document.querySelector('[data-view="card"]');
+        const listView = document.querySelector('[data-view="list"]');
+
+        function applyView(mode) {
+          if (mode === 'list') {
+            cardView?.classList.add('hidden');
+            listView?.classList.remove('hidden');
+            cardBtn?.setAttribute('data-active', 'false');
+            listBtn?.setAttribute('data-active', 'true');
+          } else {
+            cardView?.classList.remove('hidden');
+            listView?.classList.add('hidden');
+            cardBtn?.setAttribute('data-active', 'true');
+            listBtn?.setAttribute('data-active', 'false');
+          }
+        }
+
+        const savedView = localStorage.getItem(VIEW_KEY);
+        if (savedView === 'list' || savedView === 'card') applyView(savedView);
+
+        cardBtn?.addEventListener('click', () => { applyView('card'); localStorage.setItem(VIEW_KEY, 'card'); });
+        listBtn?.addEventListener('click', () => { applyView('list'); localStorage.setItem(VIEW_KEY, 'list'); });
+      })();
+    </script>
 
     <!-- Seviye tanımları — referans -->
     <section class="bg-slate-50 border-b border-black/15">

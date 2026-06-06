@@ -4,6 +4,8 @@ export type Skill = {
   name: string;
   level: 'Uzman' | 'İleri' | 'Orta';
   detail: string;
+  slug?: string;  // İlişkili mikrosite alt-sayfası slug (src/content/yetkinlikler/<categorySlug>/<slug>.md)
+  image?: string; // Kart görünümünde gösterilecek görsel (public/yetenekler-images/...)
 };
 
 export type Category = {
@@ -12,6 +14,7 @@ export type Category = {
   emoji: string;
   intro: string;
   skills: Skill[];
+  heroImage?: string;  // Kategori sayfası header'ı için background görsel (siyah-beyaz, açık renkli)
 };
 
 export const categories: Category[] = [
@@ -22,13 +25,14 @@ export const categories: Category[] = [
     intro:
       'ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews için içerik ve entity optimizasyonu. ' +
       'Klasik SEO\'nun yerini alan değil, üstüne katlanan disiplin.',
+    heroImage: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-hero.jpg',
     skills: [
-      { name: 'Schema.org JSON-LD entity authority', level: 'Uzman', detail: 'Organization, Person, Service, FAQPage, ItemList, Article, BreadcrumbList ve 18+ @type kombinasyonu' },
-      { name: 'llms.txt protokolü', level: 'Uzman', detail: 'Site genelinde LLM-okunabilir yapı tanımı — Anthropic ve OpenAI öneri formatına uygun' },
-      { name: 'Semantic chunking', level: 'Uzman', detail: 'Embedding-friendly içerik bölümleme; RAG sistemlerinde citation kazanma odaklı' },
-      { name: 'Citation surface engineering', level: 'Uzman', detail: 'GEO 2024 (Aggarwal et al. KDD) yöntemleri: Statistics +30%, Quotation +41%, Cite Sources +27% etki artışı' },
-      { name: 'Common Crawl optimizasyonu', level: 'İleri', detail: 'AI eğitim veri setlerinde temsil — robots.txt, CCBot, GPTBot, ClaudeBot policy yönetimi' },
-      { name: 'Extraction-readiness', level: 'Uzman', detail: 'LLM\'in tek paragraftan tam yanıt çıkarabilmesi için içerik mühendisliği' },
+      { name: 'Schema.org JSON-LD entity authority', level: 'Uzman', detail: 'Organization, Person, Service, FAQPage, ItemList, Article, BreadcrumbList ve 18+ @type kombinasyonu', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-schema-org.jpg' },
+      { name: 'llms.txt protokolü', level: 'Uzman', detail: 'Site genelinde LLM-okunabilir yapı tanımı — Anthropic ve OpenAI öneri formatına uygun', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-llms-txt.jpg' },
+      { name: 'Semantic chunking', level: 'Uzman', detail: 'Embedding-friendly içerik bölümleme; RAG sistemlerinde citation kazanma odaklı', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-semantic-chunking.jpg' },
+      { name: 'Citation surface engineering', level: 'Uzman', detail: 'GEO 2024 (Aggarwal et al. KDD) yöntemleri: Statistics +30%, Quotation +41%, Cite Sources +27% etki artışı', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-citation-surface.jpg' },
+      { name: 'Common Crawl optimizasyonu', level: 'İleri', detail: 'AI eğitim veri setlerinde temsil — robots.txt, CCBot, GPTBot, ClaudeBot policy yönetimi', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-common-crawl.jpg' },
+      { name: 'Extraction-readiness', level: 'Uzman', detail: 'LLM\'in tek paragraftan tam yanıt çıkarabilmesi için içerik mühendisliği', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-extraction-readiness.jpg' },
     ],
   },
   {
