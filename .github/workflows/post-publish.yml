@@ -1,0 +1,98 @@
+name: post-publish — IndexNow ping
+
+# Tetikleyici: main'e push olunca + sadece blog .md değişikliği varsa.
+# Açılan yeni blog post'un URL'ini IndexNow'a (Bing + Yandex) bildirir.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/**.md'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout (last 2 commits için diff)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Değişen blog .md'leri tespit et
+        id: changed
+        run: |
+          # main'e gelen push'ta önceki commit ile diff
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.event.after }}"
+
+          # İlk commit ise (BEFORE 0000...), tüm blog dosyalarını dahil et
+          if [[ "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+            FILES=$(git ls-files 'src/content/blog/*.md')
+          else
+            FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- 'src/content/blog/*.md' || true)
+          fi
+
+          # URL listesi oluştur — slug = dosya adı (.md olmadan)
+          URLS=""
+          for f in $FILES; do
+            SLUG=$(basename "$f" .md)
+            URLS="$URLS https://gonet.com.tr/blog/$SLUG/"
+          done
+
+          # Whitespace temizle
+          URLS=$(echo "$URLS" | xargs)
+
+          if [[ -z "$URLS" ]]; then
+            echo "  → Değişen blog dosyası yok, ping atlanacak."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "  → IndexNow'a gönderilecek URL'ler:"
+            for u in $URLS; do echo "    - $u"; done
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "urls=$URLS" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: IndexNow ping (Bing + Yandex)
+        if: steps.changed.outputs.has_changes == 'true'
+        env:
+          URLS: ${{ steps.changed.outputs.urls }}
+        run: |
+          # IndexNow key — public/dc144fc0...txt dosyasının adından
+          KEY="dc144fc0bb67481cbc3b5dbe7f29f2c3"
+          KEY_LOC="https://gonet.com.tr/${KEY}.txt"
+
+          # JSON urlList oluştur
+          URL_JSON=$(echo "$URLS" | tr ' ' '\n' | jq -R . | jq -s .)
+
+          PAYLOAD=$(jq -n \
+            --arg host "gonet.com.tr" \
+            --arg key "$KEY" \
+            --arg keyLocation "$KEY_LOC" \
+            --argjson urlList "$URL_JSON" \
+            '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')
+
+          echo "  → Payload:"
+          echo "$PAYLOAD" | jq .
+
+          # Bing IndexNow endpoint (Yandex de aynı protokol, Bing endpoint'i her ikisini de dağıtır)
+          echo ""
+          echo "  → POST https://api.indexnow.org/IndexNow"
+          HTTP_CODE=$(curl -s -o /tmp/indexnow.response -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -H "User-Agent: gonet-com-tr post-publish workflow" \
+            -d "$PAYLOAD")
+
+          echo "  → HTTP $HTTP_CODE"
+          cat /tmp/indexnow.response || true
+          echo ""
+
+          # 200 ve 202 başarı — diğerleri uyarı (fail değil, IndexNow eventual consistency)
+          if [[ "$HTTP_CODE" =~ ^(200|202)$ ]]; then
+            echo "  ✓ IndexNow ping kabul edildi."
+          else
+            echo "  ⚠ IndexNow ping non-success: $HTTP_CODE"
+            echo "  ↳ Workflow fail değil — IndexNow eventual consistency, retry sonra denenebilir."
+          fi

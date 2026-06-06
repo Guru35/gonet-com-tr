@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID } from '../../lib/schema';
+
+const url = 'https://gonet.com.tr/portfolio/luna-cookware-paslanmaz-celik-mutfak';
+const title = 'Luna Cookware — Premium Paslanmaz Çelik Mutfak Markası için Bütünleşik Dijital Kimlik';
+const description = 'Luna Cookware için Gonet imzalı web sitesi tasarımı, geliştirme ve sosyal medya stratejisi. Premium paslanmaz çelik mutfak markasının dijital bütünlüğü — 6 ekran kaynak görsel + sosyal medya yapısı.';
+
+const project = {
+  client: 'Luna Cookware',
+  year: '2021',
+  duration: 'Mayıs 2021 → bugün',
+  industry: 'FMCG · Mutfak gereçleri · Premium',
+  location: 'İstanbul, TR',
+  website: 'lunacookware.com',
+  services: ['Web tasarım', 'Web geliştirme', 'Sosyal medya stratejisi', 'Marka tutarlılığı', 'İçerik yönetimi'],
+};
+
+const base = '/portfolio/luna-cookware-paslanmaz-celik-mutfak';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CreativeWork',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Portfolio', url: 'https://gonet.com.tr/portfolio' },
+    { name: project.client, url },
+  ],
+});
+
+const projectSchema = {
+  '@type': 'CreativeWork',
+  '@id': `${url}#project`,
+  name: title,
+  headline: title,
+  description,
+  url,
+  inLanguage: 'tr',
+  about: project.industry,
+  creator: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  dateCreated: '2021-05-01',
+  keywords: [project.client, 'paslanmaz çelik', 'mutfak gereçleri', 'web tasarım', 'sosyal medya', 'premium'].join(', '),
+};
+---
+
+<BaseLayout
+  title={`${title} — Gonet Portfolio`}
+  description={description}
+  canonical={url}
+  schemas={[pageSchema, projectSchema]}
+>
+  <article class="luna-project bg-white text-black">
+    <!-- HERO — full-bleed background görseli + sticky meta -->
+    <section class="luna-hero relative min-h-[90vh] flex items-end overflow-hidden bg-stone-100">
+      <img
+        src={`${base}/Luna-Background.jpg`}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-60"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent"></div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <nav class="text-[11px] uppercase tracking-[0.3em] mb-12" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-3 flex-wrap text-black/70">
+            <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/case-studies" class="hover:text-black">Portfolio</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-black" aria-current="page">Luna Cookware</li>
+          </ol>
+        </nav>
+
+        <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/60 mb-4">
+          {project.year} · {project.industry}
+        </p>
+        <h1 class="text-4xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] mb-8 max-w-5xl">
+          {project.client}
+          <span class="block text-2xl lg:text-3xl xl:text-4xl font-normal mt-3 text-black/80">
+            Premium paslanmaz çelik mutfak markasının dijital kimliği
+          </span>
+        </h1>
+        <p class="text-lg lg:text-xl leading-relaxed max-w-3xl text-black/85">
+          Ürünün özel tasarımını, web sitesinin hareketli tasarımıyla ve sosyal medyanın
+          ilham veren kreasyon hikayesiyle birleştiren bütünleşik dijital kimlik çalışması.
+        </p>
+      </div>
+    </section>
+
+    <!-- META BAR -->
+    <section class="bg-black text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10 grid grid-cols-2 lg:grid-cols-5 gap-6 text-sm">
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1.5">Müşteri</p>
+          <p class="font-semibold">{project.client}</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1.5">Yıl</p>
+          <p class="font-semibold">{project.year}</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1.5">Süre</p>
+          <p class="font-semibold">{project.duration}</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1.5">Sektör</p>
+          <p class="font-semibold">{project.industry}</p>
+        </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-1.5">Konum</p>
+          <p class="font-semibold">{project.location}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJE HAKKINDA — büyük tipografi -->
+    <section class="border-b border-black/10">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/50 mb-6">Proje Hakkında</p>
+        <h2 class="text-2xl lg:text-4xl font-bold leading-tight mb-8">
+          Ürün ↔ Web ↔ Sosyal medya
+          <span class="text-black/50 font-normal">→ Tek bir marka çizgisi</span>
+        </h2>
+        <p class="text-lg lg:text-xl text-black/85 leading-relaxed">
+          Luna Cookware'in özel tasarım paslanmaz çelik mutfak gereçleri için, markanın temsil ettiği
+          <strong>kaliteli ve keyifli bir yaşam çizgisinde</strong> web sitesi tasarlandı, kodlandı ve yayınlandı.
+          Gonet, Luna Cookware ürünlerindeki özel tasarımı web sitesindeki özel ve hareketli tasarımlarla
+          pekiştirerek ürün ve web imajı arasında <strong>marka bütünlüğünü</strong> sağladı.
+        </p>
+      </div>
+    </section>
+
+    <!-- TASARIM YAKLAŞIMI — hero görsel #1 + intro -->
+    <section class="bg-stone-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-12 gap-10 mb-16">
+          <div class="lg:col-span-5">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/50 mb-6">01 — Tasarım Yaklaşımı</p>
+            <h2 class="text-3xl lg:text-4xl font-bold leading-tight mb-6">
+              Fonksiyonel tasarım, görsel dile çevrildi.
+            </h2>
+            <p class="text-base lg:text-lg text-black/80 leading-relaxed">
+              Luna Cookware'in paslanmaz çelik ürünleri özel tasarımlar içeriyor:
+            </p>
+            <ul class="mt-4 space-y-3 text-base lg:text-lg text-black/85">
+              <li class="flex gap-3"><span class="text-black/40 shrink-0">—</span><span><strong>Buhar odalı çelik tencereler</strong> — sağlıklı pişirme</span></li>
+              <li class="flex gap-3"><span class="text-black/40 shrink-0">—</span><span><strong>Isı yoğuşmalı indüksiyon taban</strong> — eşit ısı dağılımı</span></li>
+              <li class="flex gap-3"><span class="text-black/40 shrink-0">—</span><span><strong>Damlatmayan çaydanlık</strong> — kullanım konforu</span></li>
+            </ul>
+            <p class="mt-6 text-base lg:text-lg text-black/80 leading-relaxed">
+              Bu fonksiyonel tasarım açısından farklı ürünlerin özellikleri web sitesinde
+              <strong>tasarımla eşleştirildi.</strong>
+            </p>
+          </div>
+          <div class="lg:col-span-7">
+            <figure class="overflow-hidden shadow-lg">
+              <img src={`${base}/LUNA-SITE1.jpg`} alt="Luna Cookware web sitesi — anasayfa kompozisyonu" loading="lazy" class="w-full h-auto block hover:scale-[1.02] transition-transform duration-700" />
+              <figcaption class="text-[10px] uppercase tracking-[0.3em] text-black/40 mt-2">Ekran #1 — Anasayfa</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Galeri — 2'li grid, kalan 5 ekran -->
+        <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
+          {['LUNA-SITE2.jpg', 'LUNA-SITE3.jpg', 'LUNA-SITE4.jpg', 'LUNA-SITE5.jpg', 'LUNA-SITE6.jpg'].map((file, i) => (
+            <figure class={`overflow-hidden shadow-md ${i === 0 ? 'sm:col-span-2' : ''}`}>
+              <img src={`${base}/${file}`} alt={`Luna Cookware web sitesi — ekran ${i + 2}`} loading="lazy" class="w-full h-auto block hover:scale-[1.02] transition-transform duration-700" />
+              <figcaption class="text-[10px] uppercase tracking-[0.3em] text-black/40 mt-2">Ekran #{i + 2}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SOSYAL MEDYA — split layout -->
+    <section class="bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <figure class="overflow-hidden shadow-xl">
+              <img src={`${base}/luna-social.png`} alt="Luna Cookware sosyal medya kompozisyonu — kreasyon hikayeleri" loading="lazy" class="w-full h-auto block" />
+              <figcaption class="text-[10px] uppercase tracking-[0.3em] text-black/40 mt-2">Sosyal medya kompozisyonu</figcaption>
+            </figure>
+          </div>
+          <div class="lg:col-span-6 order-1 lg:order-2">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/50 mb-6">02 — Sosyal Medya</p>
+            <h2 class="text-3xl lg:text-4xl font-bold leading-tight mb-6">
+              Kreasyonlarla ilham, zarafetle marka.
+            </h2>
+            <p class="text-base lg:text-lg text-black/85 leading-relaxed mb-4">
+              Becerikli ev şefleri ve mutfak meraklıları için premium paslanmaz çelik tencereler üreten
+              Luna Cookware için <strong>sosyal medya stratejisinin amacı takipçilere kaliteli mutfak
+              kreasyonları ile ilham vermektir.</strong>
+            </p>
+            <p class="text-base lg:text-lg text-black/85 leading-relaxed">
+              Tutkulu yemek severleri teşvik ederken, pişirme gereçleri dünyasında
+              <strong>zarafet ve kalitenin özü</strong> olarak Luna'yı markalamaktadır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SONUÇ — sade vurgu blok -->
+    <section class="bg-black text-white">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-white/50 mb-6">03 — Sonuç</p>
+        <h2 class="text-3xl lg:text-5xl font-bold leading-tight mb-10">
+          Kalite ve keyfi yansıtan dijital tutarlılık.
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-3">Web</p>
+            <p class="text-base lg:text-lg leading-relaxed text-white/90">
+              Paslanmaz çelik tencere, tepsi ve çaydanlık setlerini içeren Luna Cookware mutfak gereçleri için,
+              <strong>kalite ve keyfi yansıtan ve bu nitelikleri görsel olarak müşterilere aktarabilen tasarımlar</strong> tercih edildi.
+            </p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-3">Sosyal Medya</p>
+            <p class="text-base lg:text-lg leading-relaxed text-white/90">
+              Luna Cookware sosyal medyada, markanın ürünleri detaylı bir şekilde tanıtılıyor ve
+              <strong>çelik tencere kullanımının mutfaktaki yeri ve sağlıktaki önemi vurgulanıyor.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section class="bg-white border-b border-black/10">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/50 mb-8">Verilen hizmetler</p>
+        <ul class="flex flex-wrap gap-3">
+          {project.services.map((s) => (
+            <li class="px-4 py-2 border border-black text-sm font-medium hover:bg-black hover:text-white transition-colors cursor-default">
+              {s}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 text-center">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.4em] text-black/50 mb-4">Bir sonraki marka sizin olsun</p>
+        <h2 class="text-3xl lg:text-5xl font-bold leading-tight mb-10">
+          Markanız için <span style="color:#ff0000">bütünleşik bir dijital kimlik</span> kuralım.
+        </h2>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/iletisim" class="inline-block px-6 py-3 bg-black text-white text-sm font-semibold uppercase tracking-[0.2em] hover:bg-black/85 transition-colors">
+            İletişim →
+          </a>
+          <a href="/case-studies" class="inline-block px-6 py-3 border border-black text-sm font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors">
+            Tüm portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .luna-project h1, .luna-project h2, .luna-project h3 {
+    letter-spacing: -0.015em;
+  }
+</style>

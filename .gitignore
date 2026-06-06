@@ -29,3 +29,6 @@ pnpm-debug.log*
 .env.production
 *.token
 secrets/
+
+# Sensitive ops docs — never commit
+API_KEYS.md

@@ -36,8 +36,9 @@
 - [Markalar](https://gonet.com.tr/markalar): 220+ marka portföyü, 23 sektör — Medical Park, DEÜ, CHP, AK Parti, MHP, İYİ Parti, Selpak, Gymboree, Sports International, Yatsan, Lada, Sixt, Coca Cola ve dahası
 
 ## Blog & Yayınlar
-- [Editöryel Blog](https://gonet.com.tr/blog): 7 stratejik yazı — AEO/GEO, SEO, dijital pazarlama analizleri
+- [Editöryel Blog](https://gonet.com.tr/blog): Stratejik yazılar — AEO/GEO, SEO, dijital pazarlama analizleri
 - [Haberler — Liste Görünümü](https://gonet.com.tr/haberler): Aynı yazılar, kronolojik sade liste
+- [Tüm Blog (LLM-friendly döküm)](https://gonet.com.tr/llms-blog.txt): Her yazının title, URL, özet, kategori, etiketler — tek dosyada extraction-ready
 
 ## Önemli notlar
 - **Konum:** İzmir, Türkiye — DEPARK (Dokuz Eylül Üniversitesi Teknopark) mukimi
