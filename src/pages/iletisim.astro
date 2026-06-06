@@ -164,12 +164,13 @@ const contactPoints = {
               bir aksaklık oldu.<br />direkt <a href="mailto:gonet@gonet.com.tr" class="underline">gonet@gonet.com.tr</a> &rsquo;ye yazın.
             </div>
 
-            <!-- Success state -->
+            <!-- Success state — birkaç saniye gösterilir, sonra solar; form çalışmaya devam eder -->
             <div
               id="form-success"
-              class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95]"
+              class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95] transition-opacity duration-500"
+              style="color: #16a34a;"
             >
-              teşekkürler.<br />size en kısa<br />sürede döneceğiz.
+              mesajınız gönderildi.<br />en kısa sürede döneceğiz.
             </div>
 
             <p class="text-[10px] uppercase tracking-[0.3em] opacity-60">
@@ -230,11 +231,26 @@ const contactPoints = {
                 const data = await res.json().catch(() => ({}));
 
                 if (res.ok && data.ok) {
-                  // Başarı — formu gizle, success göster
-                  form.style.display = 'none';
-                  if (success) success.classList.remove('hidden');
+                  // Başarı — textarea temizle, success göster, form çalışmaya DEVAM eder
+                  msg.value = '';
+                  if (success) {
+                    success.style.opacity = '1';
+                    success.classList.remove('hidden');
+                    // 6 saniye sonra fade-out + gizle (kullanıcı yeni mesaj atabilsin)
+                    setTimeout(() => {
+                      success.style.opacity = '0';
+                      setTimeout(() => success.classList.add('hidden'), 500);
+                    }, 6000);
+                  }
+                  btn.disabled = false;
+                  btn.textContent = originalBtnText;
+                  // textarea boyutunu sıfırla (auto-grow için input event tetikle)
+                  msg.dispatchEvent(new Event('input'));
+                  msg.focus();
                 } else if (res.status === 422 && data.error === 'no_contact_info') {
                   err.classList.remove('hidden');
+                  btn.disabled = false;
+                  btn.textContent = originalBtnText;
                 } else {
                   // 429 (rate limit), 5xx, network — server error
                   if (serverErr) serverErr.classList.remove('hidden');
