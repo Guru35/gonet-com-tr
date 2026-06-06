@@ -58,18 +58,18 @@ const orgSkillSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, termSetSchema, orgSkillSchema]}>
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, termSetSchema, orgSkillSchema]} transparentHeader={!!cat.heroImage}>
   <article class="bg-white text-black">
-    <!-- Hero — opsiyonel arka plan görseli + görsel toggle -->
-    <header class="relative border-b border-black/15 overflow-hidden" data-hero>
+    <!-- Hero — opsiyonel arka plan görseli + görsel toggle. Nav transparent → hero üstten başlar -->
+    <header class={`relative border-b border-black/15 overflow-hidden ${cat.heroImage ? '-mt-[72px] pt-[72px]' : ''}`} data-hero>
       {cat.heroImage && (
         <div class="hero-bg absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
-             style={`background-image: url('${cat.heroImage}'); background-size: cover; background-position: center; opacity: 0.55;`}
+             style={`background-image: url('${cat.heroImage}'); background-size: cover; background-position: center; opacity: 0.7;`}
              data-hero-bg></div>
       )}
       {cat.heroImage && (
-        <!-- Beyaz overlay — yazıların okunabilirliği için -->
-        <div class="hero-fade absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-white/85 via-white/65 to-white/85 transition-opacity duration-300"
+        <!-- Subtle white overlay — yazıların okunabilirliği için daha hafif -->
+        <div class="hero-fade absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/40 via-white/55 to-white/75 transition-opacity duration-300"
              data-hero-fade></div>
       )}
 
@@ -123,7 +123,7 @@ const orgSkillSchema = {
       </div>
     </header>
 
-    <!-- Yetkinlik görünümü — Card / Liste toggle -->
+    <!-- Yetkinlik görünümü — Liste / Kart toggle -->
     <section class="border-b border-black/15" data-skills-section>
       <div class="max-w-6xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
 
@@ -136,69 +136,23 @@ const orgSkillSchema = {
           <div class="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em]" role="tablist" aria-label="Görünüm seç">
             <span class="text-slate-400">Görünüm:</span>
             <button type="button"
-                    data-view-btn="card"
+                    data-view-btn="list"
                     class="px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors data-[active=true]:bg-black data-[active=true]:text-white"
                     data-active="true"
                     role="tab">
-              Kart
+              Liste
             </button>
             <button type="button"
-                    data-view-btn="list"
+                    data-view-btn="card"
                     class="px-3 py-1.5 border border-black/30 text-slate-600 hover:border-black hover:text-black transition-colors data-[active=true]:bg-black data-[active=true]:text-white data-[active=true]:border-black"
                     role="tab">
-              Liste
+              Kart
             </button>
           </div>
         </div>
 
-        {/* Auto-slug helper inline kullanılacak — Astro frontmatter scope dışında bir IIFE */}
-        {(() => null)()}
-
-        <!-- KART GÖRÜNÜMÜ -->
-        <div data-view="card" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cat.skills.map((sk, i) => {
-            const skillSlug = sk.slug ?? sk.name
-              .toLowerCase()
-              .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'}[c] || c))
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/^-|-$/g, '');
-            const href = `/yetenekler/${cat.slug}/${skillSlug}`;
-            return (
-              <a href={href} class="group flex flex-col border border-black/10 hover:border-black hover:shadow-sm transition-all overflow-hidden bg-white">
-                {sk.image ? (
-                  <div class="aspect-[4/3] bg-slate-50 overflow-hidden border-b border-black/10">
-                    <img src={sk.image}
-                         alt=""
-                         loading="lazy"
-                         class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" />
-                  </div>
-                ) : (
-                  <div class="aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 border-b border-black/10 flex items-center justify-center">
-                    <span class="text-5xl text-slate-300 font-mono tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                )}
-                <div class="p-5 lg:p-6 flex flex-col flex-1">
-                  <div class="flex items-start justify-between gap-3 mb-2">
-                    <span class="text-[10px] font-mono text-slate-400 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                    <span class={`inline-block text-[10px] font-semibold uppercase tracking-[0.2em] px-2 py-1 border ${
-                      sk.level === 'Uzman' ? 'border-black bg-black text-white' :
-                      sk.level === 'İleri' ? 'border-slate-700 text-slate-700' :
-                      'border-slate-400 text-slate-500'
-                    }`}>{sk.level}</span>
-                  </div>
-                  <h3 class="text-base lg:text-lg font-semibold leading-snug mb-2 group-hover:underline">{sk.name}</h3>
-                  <p class="text-sm text-slate-700 leading-relaxed flex-1">{sk.detail}</p>
-                  <span class="inline-block mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 group-hover:text-black">
-                    Ayrıntılı sayfa →
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-
-        <!-- LİSTE GÖRÜNÜMÜ — hover ile genişler -->
-        <ol data-view="list" class="hidden space-y-2 max-w-4xl mx-auto">
+        <!-- LİSTE GÖRÜNÜMÜ (DEFAULT) — detail her zaman açık, hover ek bağlam getirir -->
+        <ol data-view="list" class="space-y-2 max-w-4xl mx-auto">
           {cat.skills.map((sk, i) => {
             const skillSlug = sk.slug ?? sk.name
               .toLowerCase()
@@ -209,18 +163,28 @@ const orgSkillSchema = {
             return (
               <li>
                 <a href={href}
-                   class="skill-row group block border border-black/10 hover:border-black hover:bg-slate-50 transition-colors px-5 lg:px-6 py-4">
-                  <div class="grid grid-cols-12 gap-4 items-center">
-                    <div class="col-span-1 text-sm font-mono text-slate-400 tabular-nums">
+                   class="skill-row group block border border-black/10 hover:border-black hover:bg-slate-50 transition-all duration-300 px-5 lg:px-6 py-4 hover:py-6">
+                  <div class="grid grid-cols-12 gap-4 items-start">
+                    <div class="col-span-1 text-sm font-mono text-slate-400 tabular-nums pt-1">
                       {String(i + 1).padStart(2, '0')}
                     </div>
                     <div class="col-span-9">
-                      <h3 class="text-base lg:text-lg font-semibold leading-snug group-hover:underline">{sk.name}</h3>
-                      <div class="skill-row-extra max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2">
-                        <p class="text-sm text-slate-700 leading-relaxed">{sk.detail}</p>
-                        <span class="inline-block mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500 group-hover:text-black">
-                          Ayrıntılı sayfaya git →
-                        </span>
+                      <h3 class="text-base lg:text-lg font-semibold leading-snug mb-1 group-hover:underline">{sk.name}</h3>
+                      <p class="text-sm text-slate-700 leading-relaxed">{sk.detail}</p>
+                      <!-- Hover ile açılan EK içerik — detail zaten görünür, bu üstüne katlanan -->
+                      <div class="skill-row-extra max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-40 group-hover:opacity-100 group-hover:mt-3">
+                        <div class="pt-3 border-t border-black/10">
+                          <p class="text-xs uppercase tracking-[0.2em] font-semibold text-slate-500 mb-1.5">Seviye gerekçesi</p>
+                          <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong class="text-black">{sk.level}.</strong>{' '}
+                            {sk.level === 'Uzman' && 'Çoklu sektörde production deneyimi + dokümante metodoloji + ölçülebilir sonuç.'}
+                            {sk.level === 'İleri' && 'Production deneyimi + güncel araç ekosistemi takibi + son 12 ay aktif kullanım.'}
+                            {sk.level === 'Orta' && 'Temel kavrayış + denetim/danışmanlık seviyesinde değerlendirme yetisi.'}
+                          </p>
+                          <span class="inline-block mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                            Ayrıntılı sayfaya git →
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div class="col-span-2 text-right">
@@ -236,6 +200,61 @@ const orgSkillSchema = {
             );
           })}
         </ol>
+
+        <!-- KART GÖRÜNÜMÜ — image background, text overlay, hover'da text up + extra + tilt -->
+        <div data-view="card" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6" style="perspective: 1200px;">
+          {cat.skills.map((sk, i) => {
+            const skillSlug = sk.slug ?? sk.name
+              .toLowerCase()
+              .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'}[c] || c))
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '');
+            const href = `/yetenekler/${cat.slug}/${skillSlug}`;
+            return (
+              <a href={href}
+                 class="skill-card group relative block overflow-hidden border border-black/10 hover:border-black bg-slate-50 aspect-[4/3] transition-all duration-500 will-change-transform"
+                 style="transform-style: preserve-3d;">
+                <!-- Background görsel — ya skill image ya da fallback gradient -->
+                {sk.image ? (
+                  <div class="absolute inset-0 z-0">
+                    <img src={sk.image}
+                         alt=""
+                         loading="lazy"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  </div>
+                ) : (
+                  <div class="absolute inset-0 z-0 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                    <span class="text-7xl text-slate-300 font-mono tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                )}
+
+                <!-- Görsel üstüne yazıların okunabilirliği için subtle fade — sadece alt yarıda -->
+                <div class="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none transition-opacity duration-500 group-hover:from-white/95"></div>
+
+                <!-- Üst sağ — sayı + level -->
+                <div class="absolute top-4 left-4 right-4 z-20 flex items-start justify-between gap-3">
+                  <span class="text-[10px] font-mono text-slate-700 tabular-nums bg-white/70 backdrop-blur px-2 py-1">{String(i + 1).padStart(2, '0')}</span>
+                  <span class={`inline-block text-[10px] font-semibold uppercase tracking-[0.2em] px-2 py-1 border bg-white/70 backdrop-blur ${
+                    sk.level === 'Uzman' ? 'border-black bg-black/90 text-white' :
+                    sk.level === 'İleri' ? 'border-slate-700 text-slate-700' :
+                    'border-slate-400 text-slate-500'
+                  }`}>{sk.level}</span>
+                </div>
+
+                <!-- Alt content — hover'da yukarı kayar + extra detail belirir -->
+                <div class="skill-card-content absolute left-0 right-0 bottom-0 z-20 p-5 lg:p-6 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+                  <h3 class="text-base lg:text-lg font-semibold leading-snug mb-2 text-black">{sk.name}</h3>
+                  <p class="text-sm text-slate-700 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">{sk.detail}</p>
+                  <div class="skill-card-extra max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-out group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-3">
+                    <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                      Ayrıntılı sayfa →
+                    </span>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
 
       </div>
     </section>
@@ -279,7 +298,7 @@ const orgSkillSchema = {
           });
         }
 
-        // Card / List view toggle
+        // Card / List view toggle — Liste varsayılan
         const VIEW_KEY = 'gonet:yetenekler:view';
         const cardBtn = document.querySelector('[data-view-btn="card"]');
         const listBtn = document.querySelector('[data-view-btn="list"]');
@@ -287,24 +306,40 @@ const orgSkillSchema = {
         const listView = document.querySelector('[data-view="list"]');
 
         function applyView(mode) {
-          if (mode === 'list') {
-            cardView?.classList.add('hidden');
-            listView?.classList.remove('hidden');
-            cardBtn?.setAttribute('data-active', 'false');
-            listBtn?.setAttribute('data-active', 'true');
-          } else {
+          if (mode === 'card') {
             cardView?.classList.remove('hidden');
             listView?.classList.add('hidden');
             cardBtn?.setAttribute('data-active', 'true');
             listBtn?.setAttribute('data-active', 'false');
+          } else {
+            cardView?.classList.add('hidden');
+            listView?.classList.remove('hidden');
+            cardBtn?.setAttribute('data-active', 'false');
+            listBtn?.setAttribute('data-active', 'true');
           }
         }
 
         const savedView = localStorage.getItem(VIEW_KEY);
-        if (savedView === 'list' || savedView === 'card') applyView(savedView);
+        if (savedView === 'card' || savedView === 'list') applyView(savedView);
 
         cardBtn?.addEventListener('click', () => { applyView('card'); localStorage.setItem(VIEW_KEY, 'card'); });
         listBtn?.addEventListener('click', () => { applyView('list'); localStorage.setItem(VIEW_KEY, 'list'); });
+
+        // Card tilt — mouse pozisyonuna göre 3D rotate (hafif)
+        const cards = document.querySelectorAll('.skill-card');
+        cards.forEach((card) => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            const rotY = (x - 0.5) * 8;   // -4° ile +4°
+            const rotX = (0.5 - y) * 6;   // -3° ile +3°
+            card.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.01)`;
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+          });
+        });
       })();
     </script>
 

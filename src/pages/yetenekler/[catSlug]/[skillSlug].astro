@@ -73,12 +73,22 @@ const faqSchema = fm.faqs && fm.faqs.length > 0 ? {
 const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={schemas}>
+<BaseLayout title={title} description={description} canonical={url} schemas={schemas} transparentHeader={!!fm.detailHero}>
   <article class="bg-white text-black">
-    <!-- Hero — sade, profesyonel -->
-    <header class="border-b border-black/15">
-      <div class="max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
-        <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+    <!-- Hero — opsiyonel geniş arka plan görseli + toggle -->
+    <header class={`relative border-b border-black/15 overflow-hidden ${fm.detailHero ? '-mt-[72px] pt-[72px]' : ''}`} data-detail-hero>
+      {fm.detailHero && (
+        <div class="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
+             style={`background-image: url('${fm.detailHero}'); background-size: cover; background-position: center; opacity: 0.85;`}
+             data-detail-hero-bg></div>
+      )}
+      {fm.detailHero && (
+        <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/30 via-white/55 to-white/85 transition-opacity duration-300"
+             data-detail-hero-fade></div>
+      )}
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-20">
+        <nav class="text-sm text-slate-500 mb-8 flex items-center justify-between gap-4" aria-label="Breadcrumb">
           <ol class="flex items-center gap-2 flex-wrap">
             <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
             <li aria-hidden="true">/</li>
@@ -88,6 +98,15 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
             <li aria-hidden="true">/</li>
             <li class="text-slate-700" aria-current="page">{fm.title}</li>
           </ol>
+          {fm.detailHero && (
+            <button type="button"
+                    data-detail-hero-toggle
+                    class="shrink-0 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500 hover:text-black underline underline-offset-4 decoration-1"
+                    aria-pressed="true">
+              <span data-detail-hero-toggle-on>Görseli gizle</span>
+              <span data-detail-hero-toggle-off class="hidden">Görseli göster</span>
+            </button>
+          )}
         </nav>
 
         <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500 mb-3">
@@ -99,13 +118,29 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         <p class="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-3xl">
           {fm.description}
         </p>
+
+        <!-- Share + back actions -->
+        <div class="mt-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.2em]">
+          <button type="button"
+                  data-share-btn
+                  data-share-url={url}
+                  data-share-title={fm.title}
+                  data-share-text={fm.description}
+                  class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white/80 backdrop-blur hover:bg-black hover:text-white transition-colors">
+            <span data-share-default>Paylaş</span>
+            <span data-share-copied class="hidden">✓ Link kopyalandı</span>
+          </button>
+          <a href={`/yetenekler/${fm.categorySlug}`} class="text-slate-600 hover:text-black underline underline-offset-4 decoration-1">
+            ← {fm.categoryName}
+          </a>
+        </div>
       </div>
     </header>
 
-    <!-- Body — Markdown render -->
+    <!-- Body — Markdown render. Paragraflar üstten alta küçülerek (editöryel modülasyon) -->
     <section class="border-b border-black/15">
       <div class="max-w-3xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
-        <div class="prose prose-lg prose-slate max-w-none
+        <div class="body-typography prose prose-lg prose-slate max-w-none
                     prose-headings:font-bold prose-headings:text-black
                     prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
                     prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
@@ -119,6 +154,33 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         </div>
       </div>
     </section>
+
+    <style>
+      /* Editöryel typography modülasyonu — ilk paragraflar büyük/koyu, alta doğru standart */
+      .body-typography > p:first-of-type {
+        font-size: 1.5rem;        /* ~24px */
+        line-height: 1.4;
+        font-weight: 600;
+        color: rgb(15 23 42);     /* slate-900 */
+        margin-bottom: 1.5rem;
+      }
+      .body-typography > p:nth-of-type(2) {
+        font-size: 1.15rem;       /* ~18.5px */
+        line-height: 1.55;
+        font-weight: 500;
+        color: rgb(30 41 59);     /* slate-800 */
+      }
+      .body-typography > p:nth-of-type(3) {
+        font-size: 1.05rem;       /* ~17px */
+        font-weight: 450;
+      }
+      /* H2 sonrası ilk paragraf da hafif vurgu (her bölümün başı) */
+      .body-typography h2 + p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgb(30 41 59);
+      }
+    </style>
 
     <!-- SSS — FAQPage schema ayrıca yukarıda eklendi -->
     {fm.faqs && fm.faqs.length > 0 && (
@@ -176,4 +238,70 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       </div>
     </section>
   </article>
+
+  <!-- Detail hero toggle + share button -->
+  <script is:inline>
+    (function () {
+      // Detail hero görsel toggle
+      const dBtn = document.querySelector('[data-detail-hero-toggle]');
+      const dBg = document.querySelector('[data-detail-hero-bg]');
+      const dFade = document.querySelector('[data-detail-hero-fade]');
+      const dOn = document.querySelector('[data-detail-hero-toggle-on]');
+      const dOff = document.querySelector('[data-detail-hero-toggle-off]');
+      const KEY = 'gonet:yetkinlik:hero-visible';
+
+      function applyDetailHero(visible) {
+        if (!dBg || !dFade) return;
+        if (visible) {
+          dBg.style.opacity = '0.85';
+          dFade.style.opacity = '1';
+          dOn?.classList.remove('hidden');
+          dOff?.classList.add('hidden');
+          dBtn?.setAttribute('aria-pressed', 'true');
+        } else {
+          dBg.style.opacity = '0';
+          dFade.style.opacity = '0';
+          dOn?.classList.add('hidden');
+          dOff?.classList.remove('hidden');
+          dBtn?.setAttribute('aria-pressed', 'false');
+        }
+      }
+      if (dBtn) {
+        const saved = localStorage.getItem(KEY);
+        if (saved === 'false') applyDetailHero(false);
+        dBtn.addEventListener('click', () => {
+          const cur = dBtn.getAttribute('aria-pressed') === 'true';
+          const next = !cur;
+          applyDetailHero(next);
+          localStorage.setItem(KEY, String(next));
+        });
+      }
+
+      // Share button — Web Share API + clipboard fallback
+      const sBtn = document.querySelector('[data-share-btn]');
+      const sDefault = document.querySelector('[data-share-default]');
+      const sCopied = document.querySelector('[data-share-copied]');
+      if (sBtn) {
+        sBtn.addEventListener('click', async () => {
+          const url = sBtn.getAttribute('data-share-url') || window.location.href;
+          const title = sBtn.getAttribute('data-share-title') || document.title;
+          const text = sBtn.getAttribute('data-share-text') || '';
+          if (navigator.share) {
+            try { await navigator.share({ title, text, url }); return; } catch (_) {}
+          }
+          try {
+            await navigator.clipboard.writeText(url);
+            sDefault?.classList.add('hidden');
+            sCopied?.classList.remove('hidden');
+            setTimeout(() => {
+              sDefault?.classList.remove('hidden');
+              sCopied?.classList.add('hidden');
+            }, 2500);
+          } catch (_) {
+            window.prompt('Bu linki kopyalayın:', url);
+          }
+        });
+      }
+    })();
+  </script>
 </BaseLayout>

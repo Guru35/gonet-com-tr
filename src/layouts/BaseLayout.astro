@@ -12,6 +12,7 @@ interface Props {
   lang?: 'tr' | 'en';
   hideFooter?: boolean;
   noindex?: boolean;
+  transparentHeader?: boolean;  // Hero image üzerinden geçen şeffaf nav (yetenekler kategori sayfaları)
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   lang = 'tr',
   hideFooter = false,
   noindex = false,
+  transparentHeader = false,
 } = Astro.props;
 
 const SITE_URL = 'https://gonet.com.tr';
@@ -179,7 +181,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
 
     <!-- Header — editöryel tipografik nav, alt çizgi logo altında biter -->
     {(() => null)()}
-    <header class="bg-white relative">
+    <header class={transparentHeader ? 'absolute top-0 left-0 right-0 z-50 bg-transparent' : 'bg-white relative'}>
       <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between" aria-label="Ana navigasyon">
         <a href="/" id="site-logo" class="editorial-display text-3xl lg:text-4xl text-black leading-none" aria-label="Gonet anasayfa">
           Gonet

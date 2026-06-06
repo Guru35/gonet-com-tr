@@ -92,6 +92,7 @@ const yetkinlikler = defineCollection({
     keywords: z.array(z.string()).default([]),
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     ogImage: z.string().optional(),
+    detailHero: z.string().optional(),  // Detay sayfası geniş arka plan görseli (21:9 önerilir)
     published: z.date().optional(),
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),

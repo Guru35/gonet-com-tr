@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "schema-org-json-ld-entity-authority"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-schema-detail-hero.jpg"
 keywords:
   - schema.org json-ld
   - entity authority
