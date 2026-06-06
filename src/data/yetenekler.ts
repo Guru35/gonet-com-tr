@@ -6,6 +6,7 @@ export type Skill = {
   detail: string;
   slug?: string;  // İlişkili mikrosite alt-sayfası slug (src/content/yetkinlikler/<categorySlug>/<slug>.md)
   image?: string; // Kart görünümünde gösterilecek görsel (public/yetenekler-images/...)
+  teaser?: string; // Hover ile beliren kısa içerik özeti (1-2 cümle, ~30-50 kelime)
 };
 
 export type Category = {
@@ -27,12 +28,48 @@ export const categories: Category[] = [
       'Klasik SEO\'nun yerini alan değil, üstüne katlanan disiplin.',
     heroImage: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-hero.jpg',
     skills: [
-      { name: 'Schema.org JSON-LD entity authority', level: 'Uzman', detail: 'Organization, Person, Service, FAQPage, ItemList, Article, BreadcrumbList ve 18+ @type kombinasyonu', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-schema-org.jpg' },
-      { name: 'llms.txt protokolü', level: 'Uzman', detail: 'Site genelinde LLM-okunabilir yapı tanımı — Anthropic ve OpenAI öneri formatına uygun', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-llms-txt.jpg' },
-      { name: 'Semantic chunking', level: 'Uzman', detail: 'Embedding-friendly içerik bölümleme; RAG sistemlerinde citation kazanma odaklı', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-semantic-chunking.jpg' },
-      { name: 'Citation surface engineering', level: 'Uzman', detail: 'GEO 2024 (Aggarwal et al. KDD) yöntemleri: Statistics +30%, Quotation +41%, Cite Sources +27% etki artışı', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-citation-surface.jpg' },
-      { name: 'Common Crawl optimizasyonu', level: 'İleri', detail: 'AI eğitim veri setlerinde temsil — robots.txt, CCBot, GPTBot, ClaudeBot policy yönetimi', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-common-crawl.jpg' },
-      { name: 'Extraction-readiness', level: 'Uzman', detail: 'LLM\'in tek paragraftan tam yanıt çıkarabilmesi için içerik mühendisliği', image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-extraction-readiness.jpg' },
+      {
+        name: 'Schema.org JSON-LD entity authority',
+        level: 'Uzman',
+        detail: 'Organization, Person, Service, FAQPage, ItemList, Article, BreadcrumbList ve 18+ @type kombinasyonu',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-schema-org.jpg',
+        teaser: 'LLM motorları markanızı tek bir varlık olarak tanır ya da hiç tanımaz. @graph mimarisiyle Organization + Person + Service + FAQPage entity\'leri tek bir knowledge graph\'ta bağlanır; AI cevaplarındaki citation pozisyonu doğrudan yükselir.',
+      },
+      {
+        name: 'llms.txt protokolü',
+        level: 'Uzman',
+        detail: 'Site genelinde LLM-okunabilir yapı tanımı — Anthropic ve OpenAI öneri formatına uygun',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-llms-txt.jpg',
+        teaser: 'LLM\'ler için site rehberi: tek bir markdown dosyasıyla en önemli sayfalarınızı, navigasyon yapınızı ve içerik hiyerarşinizi açıkça bildirir. ChatGPT, Claude ve Perplexity için ekstra fetch bütçesi kazandırır.',
+      },
+      {
+        name: 'Semantic chunking',
+        level: 'Uzman',
+        detail: 'Embedding-friendly içerik bölümleme; RAG sistemlerinde citation kazanma odaklı',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-semantic-chunking.jpg',
+        teaser: 'RAG sistemleri sayfayı 500-1000 karakterlik parçalara bölerek embedding alır. Doğru chunk sınırları + her parçanın bağımsız anlamlı olması, citation kazanma olasılığını 2-3 kat artırır.',
+      },
+      {
+        name: 'Citation surface engineering',
+        level: 'Uzman',
+        detail: 'GEO 2024 (Aggarwal et al. KDD) yöntemleri: Statistics +30%, Quotation +41%, Cite Sources +27% etki artışı',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-citation-surface.jpg',
+        teaser: 'AI cevaplarda alıntılanabilir yüzey alanı mühendisliği. Akademik kaynak referansı + somut istatistik + tırnaklı uzman görüşü kombinasyonu, Aggarwal et al. (KDD 2024) ölçümünde %27-41 görünürlük artışı sağladı.',
+      },
+      {
+        name: 'Common Crawl optimizasyonu',
+        level: 'İleri',
+        detail: 'AI eğitim veri setlerinde temsil — robots.txt, CCBot, GPTBot, ClaudeBot policy yönetimi',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-common-crawl.jpg',
+        teaser: 'Common Crawl, LLM\'lerin eğitim setinin %70+\'ını besler. Marka temsiliyetinizin bu arşivde olması, gelecek modellerin sizi parametrik bellekte taşıması demek. CCBot izni + Harmonic Centrality optimizasyonu kritik.',
+      },
+      {
+        name: 'Extraction-readiness',
+        level: 'Uzman',
+        detail: 'LLM\'in tek paragraftan tam yanıt çıkarabilmesi için içerik mühendisliği',
+        image: '/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-extraction-readiness.jpg',
+        teaser: 'LLM\'ler 50-100 kelimelik parçalardan tam yanıt çıkarmaya çalışır. Cümle başında konu sahibi, açık tanım, ölçülebilir veri ve self-contained yapı — bu dörtlü extraction-readiness puanını maksimuma taşır.',
+      },
     ],
   },
   {
