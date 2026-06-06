@@ -77,4 +77,26 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { pages, blog, 'case-studies': caseStudies, services };
+// /yetenekler/<categorySlug>/<skillSlug> mikrosite alt sayfaları
+// Klasör yapısı: src/content/yetkinlikler/<categorySlug>/<skillSlug>.md
+const yetkinlikler = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/yetkinlikler' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    h1: z.string().optional(),
+    categorySlug: z.string(),       // örn. 'aeo-geo-yeni-nesil-arama'
+    categoryName: z.string(),       // örn. 'AEO / GEO — Yeni Nesil Arama'
+    skillSlug: z.string(),          // örn. 'schema-org-json-ld-entity-authority'
+    skillLevel: z.enum(['Uzman','İleri','Orta']).default('Uzman'),
+    keywords: z.array(z.string()).default([]),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+    ogImage: z.string().optional(),
+    published: z.date().optional(),
+    updated: z.date().optional(),
+    lang: z.enum(['tr', 'en']).default('tr'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { pages, blog, 'case-studies': caseStudies, services, yetkinlikler };
