@@ -244,6 +244,8 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
                   ))}
                 </dl>
               </div>
+
+              {/* Discuss butonu sağ sütuna (akordiyon üstüne) taşındı */}
             </div>
             <div class={`hpan-image ${s.aspect === 'landscape' ? 'is-landscape' : ''} ${s.aspect === 'mobile' ? 'is-mobile' : ''} ${s.aspect === 'square' ? 'is-square' : ''}`}>
               <a
@@ -262,43 +264,81 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
               </a>
             </div>
 
-            {/* Per-slide versiyon seçici — V4 (final) en üstte, V1 en altta */}
-            <aside class="hpan-page-acc" aria-label={`${s.name} versiyonlar`}>
-              {[...s.versions].reverse().map((v, vi) => (
-                <div
-                  class={`hpan-page-acc-item ${vi === 0 ? 'is-open' : ''}`}
-                  data-ver-src={v.image}
-                  data-ver-label={v.v}
+            {/* Sağ sütun: discuss kart (üstte) + versiyon seçici (altta), flex.
+                V4 (final) akordiyonda en üstte, V1 en altta. */}
+            <div class="hpan-page-side">
+              <aside class="hpan-page-discuss" aria-label="Tasarım hakkında konuş">
+                <p class="hpan-page-discuss-text">
+                  Tasarımla ilgili düşüncelerini AI ile konuş.<br />
+                  Görüşün bir sonraki revizyona yansıyabilir.
+                </p>
+                <button
+                  type="button"
+                  data-feedback-open
+                  data-feedback-intent="discussion"
+                  data-feedback-title={`${s.name} — bu tasarım hakkında ne düşünüyorsun?`}
+                  data-feedback-eyebrow={`— Tasarım sohbeti · Sadece bu post`}
+                  data-feedback-placeholder="Tasarımla ilgili görüşünü yaz…"
+                  data-feedback-welcome={`Hoş geldin. "${s.name}" tasarımı hakkındaki düşüncelerini dinlemek istiyorum. Söylediklerin bu tasarımın bir sonraki revizyonunda kullanılabilir — sondaki onay seninde, istediğin zaman iptal edebilirsin. (KVKK · 6 ay retention)`}
+                  data-source-url={`https://gonet.com.tr/sosyal-medya-galeri${s.url}`}
+                  data-source-title={`Sosyal Medya · ${s.no} ${s.name}`}
+                  class="hpan-page-discuss-btn"
                 >
-                  <button
-                    class="hpan-page-acc-head"
-                    type="button"
-                    aria-expanded={vi === 0 ? 'true' : 'false'}
+                  <span>Ne düşünüyorsun?</span>
+                  <svg class="hpan-page-discuss-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12a8 8 0 0 1-11.5 7.18L4 21l1.82-5.5A8 8 0 1 1 21 12z"/>
+                  </svg>
+                </button>
+              </aside>
+
+              <aside class="hpan-page-acc" aria-label={`${s.name} versiyonlar`}>
+                {[...s.versions].reverse().map((v, vi) => (
+                  <div
+                    class={`hpan-page-acc-item ${vi === 0 ? 'is-open' : ''}`}
+                    data-ver-src={v.image}
+                    data-ver-label={v.v}
                   >
-                    <span class="hpan-page-acc-no">{v.v}</span>
-                    {v.current && <span class="hpan-page-acc-final">final</span>}
-                    <span class="hpan-page-acc-arrow" aria-hidden="true"></span>
-                  </button>
-                  <div class="hpan-page-acc-body">
-                    <p class="hpan-page-acc-note">{v.not}</p>
+                    <button
+                      class="hpan-page-acc-head"
+                      type="button"
+                      aria-expanded={vi === 0 ? 'true' : 'false'}
+                    >
+                      <span class="hpan-page-acc-no">{v.v}</span>
+                      {v.current && <span class="hpan-page-acc-final">final</span>}
+                      <span class="hpan-page-acc-arrow" aria-hidden="true"></span>
+                    </button>
+                    <div class="hpan-page-acc-body">
+                      <p class="hpan-page-acc-note">{v.not}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </aside>
+                ))}
+              </aside>
+            </div>
           </article>
         ))}
       </section>
 
-      <!-- Last slide: CTA -->
+      <!-- Last slide: CTA — public/reklam yüzü, müşteri çekme amacı.
+           Görüşelim butonu /iletisim'e yönlendirir. Mouse butona yaklaşınca
+           soru işareti kaçmayı bırakıp doğal yerine döner (grow-q JS davranışı). -->
       <section class="hpan-slide hpan-cta">
         <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">Lansman için</p>
         <h2 class="editorial-display text-[10vw] xl:text-[140px] leading-[0.85] mb-8">
           Hangisini<br /><span style="color:#ff0000">Yayınlıyoruz<span class="grow-q">?</span></span>
         </h2>
-        <p class="text-base xl:text-lg leading-snug max-w-xl mb-10 opacity-70">
+        <p class="text-base xl:text-lg leading-snug max-w-xl mb-6 opacity-70">
           Önerim: <strong>02 Kırmızı Nokta</strong> ana lansman postu.<br />
           Bir hafta sonra <strong>01 Mevlânâ</strong>, sonrasında <strong>04 AI Zeki / Sen?</strong> — tartışma yarat.
         </p>
+        <p class="text-base xl:text-lg leading-snug max-w-xl mb-10">
+          Senin markan için de böyle bir kafa lazımsa — <strong>konuşalım.</strong>
+        </p>
+        <a
+          href="/iletisim"
+          class="inline-block text-xl xl:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+        >
+          Görüşelim →
+        </a>
       </section>
     </div>
 
@@ -837,10 +877,49 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       opacity: 0.9;
     }
 
-    /* ───────── Per-slide versiyon seçici (.hpan-page-acc) ─────────
-       Her slaytın sağında buzlu cam akordiyon. V4 (final) üstte,
-       V1 altta. Click → ana görsel yerinde swap olur. */
-    .hpan-page-acc {
+    /* AI ile Tartış butonu — yetenekler sayfasındaki pattern'in sol meta varyantı.
+       Siyah border + beyaz BG, hover'da kırmızıya dönüşür. */
+    .hpan-meta-discuss {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 1rem 0.55rem;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      margin: 1.6rem 0 0.6rem;
+      text-align: left;
+    }
+    .hpan-meta-discuss:hover {
+      background: #ff0000;
+      color: #fff;
+      border-color: #ff0000;
+    }
+    .hpan-meta-discuss-icon {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 14px;
+    }
+    .hpan-meta-discuss-note {
+      font-size: 10.5px;
+      line-height: 1.4;
+      color: rgba(0,0,0,0.55);
+      margin: 0 0 0.4rem;
+      text-align: left;
+      max-width: 24em;
+    }
+
+    /* ───────── Sağ sütun (.hpan-page-side) ─────────
+       Flex container: discuss kart (üstte) + versiyon seçici akordiyon (altta).
+       Slayt aktifken yumuşakça fade-in. */
+    .hpan-page-side {
       position: absolute;
       top: 5vh;
       bottom: 12vh;
@@ -848,6 +927,74 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       width: 16vw;
       max-width: 320px;
       z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.7s ease-out;
+    }
+    .hpan-page.is-active .hpan-page-side {
+      opacity: 1;
+      transition: opacity 0.7s ease-in 0.6s;
+    }
+
+    /* Discuss kart — buzlu cam, başlık metni + "Ne düşünüyorsun?" butonu */
+    .hpan-page-discuss {
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px) saturate(125%);
+      -webkit-backdrop-filter: blur(10px) saturate(125%);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 4px;
+      padding: 0.95rem 1rem;
+      box-sizing: border-box;
+    }
+    .hpan-page-discuss-text {
+      font-size: 11px;
+      line-height: 1.5;
+      color: rgba(0,0,0,0.72);
+      margin: 0 0 0.75rem;
+      text-align: left;
+    }
+    .hpan-page-discuss-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.65rem 0.95rem;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .hpan-page-discuss-btn:hover {
+      background: #ff0000;
+      color: #fff;
+      border-color: #ff0000;
+    }
+    .hpan-page-discuss-icon {
+      width: 13px;
+      height: 13px;
+      flex: 0 0 13px;
+    }
+
+    /* Akordiyon — artık flex item (eski absolute pozisyonu kaldırıldı) */
+    .hpan-page-acc {
+      position: relative;
+      top: auto;
+      left: auto;
+      bottom: auto;
+      width: auto;
+      max-width: none;
+      flex: 1 1 auto;
+      min-height: 0;
       background: rgba(255,255,255,0.55);
       backdrop-filter: blur(10px) saturate(125%);
       -webkit-backdrop-filter: blur(10px) saturate(125%);
@@ -855,8 +1002,6 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       border-radius: 4px;
       padding: 0.7rem 1rem;
       box-sizing: border-box;
-      opacity: 0;
-      transition: opacity 0.7s ease-out;
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.15) transparent;
@@ -865,10 +1010,6 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
     .hpan-page-acc::-webkit-scrollbar-thumb {
       background: rgba(0,0,0,0.15);
       border-radius: 4px;
-    }
-    .hpan-page.is-active .hpan-page-acc {
-      opacity: 1;
-      transition: opacity 0.7s ease-in 0.6s;
     }
 
     .hpan-page-acc-item {
@@ -949,9 +1090,9 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       margin: 0;
     }
 
-    /* Mobil: per-page acc'i normal blok olarak göster */
+    /* Mobil: sağ sütun (discuss + acc) normal düşey akış */
     @media (max-width: 1023px) {
-      .hpan-page-acc {
+      .hpan-page-side {
         position: relative;
         inset: auto;
         left: auto;
@@ -961,7 +1102,24 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
         max-width: none;
         opacity: 1 !important;
         margin-top: 1.5rem;
-        background: rgba(255,255,255,0.7);
+        gap: 1rem;
+      }
+      .hpan-page-discuss {
+        background: rgba(255,255,255,0.85);
+      }
+      .hpan-page-discuss-btn {
+        font-size: 12px;
+      }
+      .hpan-page-acc {
+        position: relative;
+        inset: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        opacity: 1 !important;
+        background: rgba(255,255,255,0.85);
       }
       .hpan-meta {
         position: relative;

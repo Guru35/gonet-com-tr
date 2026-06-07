@@ -204,7 +204,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
             { href: '/iletisim', label: 'İletişim →', extra: 'underline decoration-2 underline-offset-4' },
           ];
           return (
-            <ul class="hidden md:flex gap-8 text-[11px] font-medium uppercase tracking-[0.25em]">
+            <ul class="hidden md:flex gap-8 text-[11px] font-medium uppercase tracking-[0.25em] items-center">
               {items.map((item) => {
                 const active = isActive(item.href);
                 const cls = `${navBase} ${active ? navActive : navHover} ${item.extra || ''}`.trim();
@@ -214,6 +214,13 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
                   </li>
                 );
               })}
+              <li>
+                <a href="https://merhaba.gonet.com.tr"
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-600 text-white hover:bg-black transition-colors font-semibold"
+                   title="Müşteri girişi">
+                  Merhaba <span aria-hidden="true">→</span>
+                </a>
+              </li>
             </ul>
           );
         })()}
@@ -795,30 +802,49 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           msgsEl.scrollTop = msgsEl.scrollHeight;
         }
 
+        function renderSystemMessage(text) {
+          var wrap = document.createElement('div');
+          wrap.className = 'flex flex-col items-start';
+          var label = document.createElement('p');
+          label.className = 'text-[9px] font-semibold uppercase tracking-[0.3em] text-black/40 mb-1.5 px-1';
+          label.textContent = 'GONET';
+          wrap.appendChild(label);
+          var bubble = document.createElement('div');
+          bubble.className = 'max-w-[88%] bg-stone-50 text-black/80 px-4 py-3 text-[14px] leading-relaxed whitespace-pre-wrap border-l-2 border-black/20 border-y border-r border-y-black/5 border-r-black/5 italic';
+          bubble.textContent = text;
+          wrap.appendChild(bubble);
+          msgsEl.appendChild(wrap);
+          msgsEl.scrollTop = msgsEl.scrollHeight;
+        }
+
         function open(trigger) {
           sessionId = uid();
           sourceUrl = trigger.getAttribute('data-source-url') || window.location.href;
           sourceTitle = trigger.getAttribute('data-source-title') || document.title;
           intent = trigger.getAttribute('data-feedback-intent') || 'error_report';
+          // Opsiyonel override'lar — sosyal medya galerisi gibi özel bağlamlar için.
+          // Sağlanmazsa default metinler kullanılır (yetenekler vb. değişmez).
+          var overrideTitle = trigger.getAttribute('data-feedback-title');
+          var overrideEyebrow = trigger.getAttribute('data-feedback-eyebrow');
+          var overridePlaceholder = trigger.getAttribute('data-feedback-placeholder');
+          var overrideWelcome = trigger.getAttribute('data-feedback-welcome');
           messages = []; images = []; ended = false;
           msgsEl.innerHTML = ''; imgsEl.innerHTML = ''; txtEl.value = ''; emailEl.value = '';
           inputRow.classList.remove('hidden'); endBlock.classList.add('hidden');
           showStatus('');
-          // Başlık + üst etiketi intent'e göre
           if (intent === 'discussion') {
-            if (eyebrowEl) eyebrowEl.textContent = '— AI ile tartış · Sadece bu yazı';
-            if (titleEl) titleEl.textContent = 'Bu yazı hakkında ne düşünüyorsunuz?';
-            if (txtEl) txtEl.placeholder = 'Yazıyla ilgili görüşünüzü yazın…';
-            // Content improvement consent görünür (default checked)
+            if (eyebrowEl) eyebrowEl.textContent = overrideEyebrow || '— AI ile tartış · Sadece bu yazı';
+            if (titleEl) titleEl.textContent = overrideTitle || 'Bu yazı hakkında ne düşünüyorsunuz?';
+            if (txtEl) txtEl.placeholder = overridePlaceholder || 'Yazıyla ilgili görüşünüzü yazın…';
             if (consentWrap) {
               consentWrap.classList.remove('hidden');
               consentWrap.classList.add('flex');
             }
             if (consentEl) consentEl.checked = true;
           } else {
-            if (eyebrowEl) eyebrowEl.textContent = '— Geri bildirim';
-            if (titleEl) titleEl.textContent = 'Bu sayfada hata mı gördünüz?';
-            if (txtEl) txtEl.placeholder = 'Mesajınız…';
+            if (eyebrowEl) eyebrowEl.textContent = overrideEyebrow || '— Geri bildirim';
+            if (titleEl) titleEl.textContent = overrideTitle || 'Bu sayfada hata mı gördünüz?';
+            if (txtEl) txtEl.placeholder = overridePlaceholder || 'Mesajınız…';
             if (consentWrap) {
               consentWrap.classList.add('hidden');
               consentWrap.classList.remove('flex');
@@ -827,7 +853,13 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           lb.classList.remove('hidden');
           lb.classList.add('flex');
           document.body.style.overflow = 'hidden';
-          requestAi();
+          // Yavaş yavaş başlat: welcome (varsa) → AI cevabı
+          if (overrideWelcome) {
+            setTimeout(function () { renderSystemMessage(overrideWelcome); }, 280);
+            setTimeout(function () { requestAi(); }, 1150);
+          } else {
+            requestAi();
+          }
         }
 
         function close() {
