@@ -26,8 +26,26 @@ const sayfalar = [
     image: '/sosyal-medya/01-mevlana-aynasi.png',
     aspect: 'square',
     kategori: 'Varyasyon A · Felsefi köprü',
-    aciklama:
-      '"Yapay zekânın sınırı, senin zekânla sınırlı." 800 yıllık Mevlânâ sözünü AI çağına bağlayan klasik-derin hat. Bilge, alıntılanabilir, mütevazi-iddialı. Risk: düşük. Lansmanı dolaylı taşır.',
+    ton: 'Bilge · mütevazi-derin',
+    caption: `800 yıl önce Mevlânâ söylemişti.
+Bugün yapay zekâ için de geçerli.
+
+Sorduğun sorunun derinliği, alacağın cevabın tavanıdır.
+Promptunun cesareti, ürettiğin işin sınırıdır.
+
+Yeni gonet.com.tr yayında. İzmir'in AI ile baştan inşa edilmiş ilk ajans sitelerinden biri.
+Bir sonraki "ilk"i birlikte yazalım.
+
+— Gökhan Kazancı, Gonet.
+
+#yapayzeka #ai #gonet #izmir`,
+    anatomi: [
+      { etiket: 'Çerçeve', deger: 'AIDA (Attention → Interest → Desire → Action)' },
+      { etiket: 'Teknik', deger: 'Authority Borrow + Cross-Temporal Bridge — eski hakikat × yeni teknoloji' },
+      { etiket: 'Neden işler', deger: 'Tanıdık otorite (Mevlânâ) + güncel kaygı (AI) → çarpışma noktasında insan durup düşünür. Bilgelik framing\'i marka iddiasını yumuşatır.' },
+      { etiket: 'Risk', deger: 'Düşük — alıntılanabilir, paylaşılabilir' },
+      { etiket: 'Beklenen etki', deger: 'Bilgi paylaşımı + soft brand recall, B2B karar verici dikkati' },
+    ],
   },
   {
     no: '02',
@@ -36,8 +54,26 @@ const sayfalar = [
     image: '/sosyal-medya/02-kirmizi-nokta.png',
     aspect: 'square',
     kategori: 'Varyasyon B-1 · Manifesto',
-    aciklama:
-      '"Yine bir ilk. Yine GoNet." 26 yıllık birikim sırtta, tek kırmızı nokta + sessiz dalga. Apple-meets-Benetton restraint, boş alan mesajın kendisi. Lansmanı doğrudan göğüsler.',
+    ton: 'İddialı manifesto · kıvrak gurur',
+    caption: `Markaların çoğunun ilk web sitesinde biz vardık.
+İlk Google reklamlarında biz vardık.
+İlk e-ticaret denemelerinde biz vardık.
+
+Yapay zekâ herkes için yeni bir başlangıç çizgisi çekti.
+Biz başlangıç çizgilerine alışığız.
+
+gonet.com.tr yenilendi — İzmir'in AI ile baştan inşa edilmiş ilk ajans sitelerinden biri.
+
+Önümüzdeki "ilk"i birlikte yazalım.
+
+#yenilendik #gonet #ai #izmir`,
+    anatomi: [
+      { etiket: 'Çerçeve', deger: 'Sosyal Kanıt Yığını + Reframe (yeniden konumlandırma)' },
+      { etiket: 'Teknik', deger: 'Repetition Hook ("ilk… ilk… ilk…") + Pattern Interrupt (devasa beyaz alan, tek kırmızı nokta)' },
+      { etiket: 'Neden işler', deger: 'Tekrar otorite kurar; "başlangıç çizgisi" reframe rakipleri sıfıra eşitler, GoNet\'i deneyim avantajıyla ayrıştırır. Boş alan tipografiyi yükseltir.' },
+      { etiket: 'Risk', deger: 'Orta — fazla "biz biz biz" risk taşır; son satır "alışığız" mütevazi tonla dengeler' },
+      { etiket: 'Beklenen etki', deger: 'Yüksek engagement (manifesto paylaşılır), kuruluş yıldönümü duygusu' },
+    ],
   },
   {
     no: '03',
@@ -46,8 +82,23 @@ const sayfalar = [
     image: '/sosyal-medya/03-numara-bir.png',
     aspect: 'square',
     kategori: 'Varyasyon B-2 · Tipografik ilk',
-    aciklama:
-      'Dev "1" rakamı, noktası kırmızı. "İlk"i tipografiye dönüştüren minimal yorum. Müze afişi sade, B varyasyonunun grafik alternatifi.',
+    ton: 'Minimal-sembolik',
+    caption: `1.
+
+İlki yapmak kolay değil.
+Ama 26 yıldır yapıyorsak — şimdi de yaparız.
+
+gonet.com.tr yenilendi.
+İzmir'in AI ile baştan inşa edilmiş ilk ajans sitelerinden biri.
+
+#gonet #1 #ai`,
+    anatomi: [
+      { etiket: 'Çerçeve', deger: 'Iconic Reduction — tek sembol = tüm mesaj (Apple-vari)' },
+      { etiket: 'Teknik', deger: 'Visual Hierarchy Inversion — sembol %80, metin %20. Rakamın noktası kırmızı: "i" + nokta + "1" semantik üst üste bindirme.' },
+      { etiket: 'Neden işler', deger: 'Boş alan + tek dev sembol scroll\'da gözü yakalar. "1" hem rakam hem semboldür (ilk, lider). Düşük bilişsel yük, yüksek görsel hafıza.' },
+      { etiket: 'Risk', deger: 'Düşük (estetik), orta (mesaj eksikliği — caption ile tamamlanır)' },
+      { etiket: 'Beklenen etki', deger: 'Estetik beğeni, kaydetme/yer imi, portfolio-quality grafik' },
+    ],
   },
   {
     no: '04',
@@ -55,9 +106,35 @@ const sayfalar = [
     url: '/04-ai-zeki-sen',
     image: '/sosyal-medya/04-ai-zeki-sen.png',
     aspect: 'square',
-    kategori: 'Varyasyon C-1 · Toscani modu',
-    aciklama:
-      'Benetton-Toscani yüze tokat enerjisi. Sektörü "AI bizi kurtaracak" hayaline kapılanlar üzerinden — isim vermeden — dolaylı provoke. Yüksek viral potansiyel, yüksek risk.',
+    kategori: 'Varyasyon C-1 · Shockvertising',
+    ton: 'Provokatif · Toscani modu · agitation',
+    caption: `Yapay zekâ promptunu büyütmez. Sadece yansıtır.
+
+Düz soru → düz cevap.
+Korkak soru → ortalama cevap.
+Cesur soru → cesur iş.
+
+AI çağında en ucuz şey: ortalama.
+En değerli şey: ne sorduğunu bilen insan.
+
+Mevlânâ 800 yıl önce söylemişti:
+"Ne kadar bilirsen bil, anlattıkların karşındakinin anlayabildiği kadardır."
+
+AI da öyle.
+
+Yeni gonet.com.tr yayında.
+Kreatif zekânın elinde AI'nın ne yapabildiğini görmek isteyenler için.
+
+— Gökhan Kazancı, Gonet kurucusu
+
+#ai #yapayzeka #gonet`,
+    anatomi: [
+      { etiket: 'Çerçeve', deger: 'PAS — Problem (AI seni kurtarmaz) · Agitation (ucuz şey: ortalama) · Solution (Gonet, kreatif zekâ)' },
+      { etiket: 'Teknik', deger: 'Shockvertising (Toscani/Benetton) — soru işareti yüze tokat. Antagonism Frame (rakipler isimsiz hedef). Pattern Interrupt: ultra-kısa 2 satır beyaz boşluğa karşı.' },
+      { etiket: 'Neden işler', deger: 'Egoya dokunur ("Sen?"), düşünce hattını kırar. Yanlış kitlede iticidir; doğru kitlede (karar verici, yaratıcı yönetim) "ben de böyle düşünüyorum" tepkisi.' },
+      { etiket: 'Risk', deger: 'Yüksek — polarize eder. İsim verilmemesi yasal güvence; ton uzun süreli marka çağrışımıyla dengelenmeli.' },
+      { etiket: 'Beklenen etki', deger: 'Yüksek viralite + tartışma. Yorumlar yağar. "GoNet bunu konuşuyor" bilinci.' },
+    ],
   },
   {
     no: '05',
@@ -65,9 +142,26 @@ const sayfalar = [
     url: '/05-yansima',
     image: '/sosyal-medya/05-yansima.png',
     aspect: 'square',
-    kategori: 'Varyasyon C-2 · Felsefi ayna',
-    aciklama:
-      '"AI seni yansıtır. Daha fazlasını değil." İnsan silüeti + AI/devre yansıması, ortada tek kırmızı dikey hat. C-1\'in daha sembolik, daha az saldırgan kardeşi.',
+    kategori: 'Varyasyon C-2 · Visual metaphor',
+    ton: 'Felsefi-acı · soft provocation',
+    caption: `AI seni yansıtır.
+Daha fazlasını değil.
+
+Ne sorarsan onu görürsün.
+Ne kadar derinleşirsen o kadar derinleşir.
+
+Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak gören insanlar için.
+
+İzmir'in AI ile baştan inşa edilmiş ilk ajans sitelerinden biri.
+
+#ai #yapayzeka #gonet`,
+    anatomi: [
+      { etiket: 'Çerçeve', deger: 'Visual Metaphor + Soft PAS — saldırgan değil, düşündürür' },
+      { etiket: 'Teknik', deger: 'İki silüet + kırmızı dikey hat (narrative axis / sınır metaforu). C-1\'in kardeşi ama Mevlânâ üslubuna yakın.' },
+      { etiket: 'Neden işler', deger: 'Görsel kompozisyon mesajı taşır — yansıma fiziksel olarak symmetrytir, kırmızı dikey hat anlatımın eksenidir. Mesaj görsele paralel.' },
+      { etiket: 'Risk', deger: 'Düşük-orta — herkes anlamayabilir ama anlayanlar derinden anlar' },
+      { etiket: 'Beklenen etki', deger: 'Düşünce paylaşımı, "kayda değer içerik" yer imi, premium algı' },
+    ],
   },
 ];
 ---
@@ -97,8 +191,9 @@ const sayfalar = [
               <p class="editorial-display text-[8vw] xl:text-[110px] leading-[0.85] mb-3">{s.no}</p>
               <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-2" style="color:#ff0000">{s.kategori}</p>
               <h2 class="editorial-display text-2xl xl:text-4xl leading-[0.9] mb-3">{s.name}</h2>
+              <p class="text-[10px] font-medium uppercase tracking-[0.3em] opacity-70 mb-4">{s.ton}</p>
               <span class="text-xs font-mono uppercase tracking-[0.2em] opacity-60 inline-block mb-4">post · 1:1</span>
-              <p class="text-sm leading-relaxed">{s.aciklama}</p>
+              <p class="text-sm leading-relaxed italic">"{s.caption.split('\n')[0]}"</p>
             </div>
             <div class={`hpan-image ${s.aspect === 'landscape' ? 'is-landscape' : ''} ${s.aspect === 'mobile' ? 'is-mobile' : ''} ${s.aspect === 'square' ? 'is-square' : ''}`}>
               <a
@@ -158,6 +253,7 @@ const sayfalar = [
           <div class="hpan-acc-body">
             <p class="hpan-acc-cat">{s.kategori}</p>
             <h3 class="hpan-acc-name">{s.name}</h3>
+            <p class="hpan-acc-ton">{s.ton}</p>
             <a
               href={`/sosyal-medya-galeri${s.url}`}
               data-image-src={s.image}
@@ -165,7 +261,19 @@ const sayfalar = [
               class="hpan-acc-link lightbox-trigger"
               aria-label={`${s.name} — fullscreen aç`}
             >tam ekran aç →</a>
-            <p class="hpan-acc-desc">{s.aciklama}</p>
+
+            <h4 class="hpan-acc-section">Yayın Metni</h4>
+            <div class="hpan-acc-caption">{s.caption}</div>
+
+            <h4 class="hpan-acc-section">Anatomi</h4>
+            <dl class="hpan-acc-anatomi">
+              {s.anatomi.map((a) => (
+                <>
+                  <dt>{a.etiket}</dt>
+                  <dd>{a.deger}</dd>
+                </>
+              ))}
+            </dl>
           </div>
         </div>
       ))}
@@ -459,7 +567,7 @@ const sayfalar = [
         padding: 0;
       }
       .hpan-acc-item.is-open .hpan-acc-body {
-        max-height: 60vh;
+        max-height: 75vh;
         opacity: 1;
         padding: 0 0 1.5rem 0;
       }
@@ -528,6 +636,59 @@ const sayfalar = [
     .grow-q {
       display: inline-block;
       will-change: transform;
+    }
+
+    /* ───────── Accordion içerik genişletmesi: Ton, Section, Caption, Anatomi ─────────
+       Media-query dışı ortak tanımlar — hem desktop hem mobilde aynı görünür. */
+    .hpan-acc-ton {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 500;
+      opacity: 0.6;
+      margin: 0 0 0.85rem;
+      color: #000;
+    }
+    .hpan-acc-section {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ff0000;
+      margin: 1.4rem 0 0.7rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.12);
+    }
+    .hpan-acc-caption {
+      white-space: pre-wrap;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      line-height: 1.55;
+      color: #000;
+      opacity: 0.88;
+      margin: 0;
+    }
+    .hpan-acc-anatomi {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .hpan-acc-anatomi dt {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ff0000;
+      margin-top: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .hpan-acc-anatomi dt:first-of-type {
+      margin-top: 0;
+    }
+    .hpan-acc-anatomi dd {
+      margin: 0 0 0.6rem;
+      color: #000;
+      opacity: 0.85;
     }
 
     .lightbox {

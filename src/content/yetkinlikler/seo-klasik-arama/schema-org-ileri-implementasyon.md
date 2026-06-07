@@ -46,6 +46,18 @@ Schema.org ileri implementasyon, web sayfalarındaki içeriği arama motorların
 
 ## Neden kritik?
 
+<div class="gonet-donut">
+  <svg viewBox="0 0 120 120">
+    <circle class="track" cx="60" cy="60" r="50"></circle>
+    <circle class="fill" cx="60" cy="60" r="50" style="--circumference: 314; --offset: 204"></circle>
+  </svg>
+  <div class="donut-text">
+    <div class="donut-value">+%35</div>
+    <div class="donut-label">FAQ snippet CTR avantajı</div>
+    <p class="donut-desc">Google 2024 verisine göre Schema.org FAQ markup'lı sonuçlar, normal snippet'lara kıyasla %35 daha yüksek tıklama oranı sağlar. E-ticaret ürün sayfasında schema eksikliği %40-60 tıklama kaybı demek.</p>
+  </div>
+</div>
+
 Organik tıklama oranı (CTR) doğrudan zengin sonuç (rich result) görünürlüğüyle koreledir. Google'ın 2024 verilerine göre, FAQ snippet'lı sonuçlar normal snippet'lara göre %35 daha yüksek tıklama alıyor. Schema markup olmayan bir e-ticaret ürün sayfası, arama sonuçlarında fiyat-stok-yorum yıldızı gösteremediği için rakiplerine göre %40-60 tıklama kaybediyor.
 
 Schema, aynı zamanda Google'ın Knowledge Graph'ine varlık (entity) beslemenin en güvenilir yolu. LocalBusiness markup'ı doğru kurulmuş bir restoran, hem Google Maps'te hem organik aramada tutarlı bilgi gösterir — adres, telefon, çalışma saatleri, menü bağlantısı tek kaynaktan gelir. Event markup'ı takvim entegrasyonu sağlar; kullanıcılar SERP'ten (Search Engine Results Page) çıkmadan etkinliği takvimine ekleyebilir.

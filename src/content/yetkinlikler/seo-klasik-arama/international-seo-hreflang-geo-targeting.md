@@ -48,6 +48,25 @@ JSON-LD ile yapılandırılmış veri (Organization, WebSite schema'ları) ve cc
 
 ## Neden kritik?
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">€45B</div>
+    <div class="l">AB Türk diaspora<br>yıllık harcama</div>
+  </div>
+  <div class="stat">
+    <div class="n">%70</div>
+    <div class="l">Organik aramadan<br>ulaşım payı</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%340</div>
+    <div class="l">Google.nl organik<br>artış (3 ay)</div>
+  </div>
+  <div class="stat">
+    <div class="n">%60</div>
+    <div class="l">Yanlış hreflang<br>kod hatası oranı</div>
+  </div>
+</div>
+
 Avrupa'daki Türk diaspora pazarı, yıllık 45 milyar Euro harcama gücüne sahip. Ancak bu pazara ulaşmanın %70'i organik aramadan geçer—Google.de, Google.nl, Google.at gibi yerel arama motorlarında görünürlük sağlamadan paid media (ücretli medya) ROI'si düşük kalır. International SEO hatası yapan sitelerde duplicate content (yinelenen içerik) cezaları, yanlış dil-bölge eşleştirmeleri ve kaynak israfı görülür.
 
 hreflang hatalarının %60'ı yanlış kod kullanımından kaynaklanır: `de-NL` (Hollanda'da Almanca) gibi geçersiz kombinasyonlar, `x-default` eksikliği, return tag (geri bağlantı etiketi) unutulması. Google bu hataları Search Console'da 'hreflang errors' bölümünde raporlar, ancak düzeltilmediğinde sayfa sıralaması düşer. Gonet'in 2018'de bir Hollanda e-ticaret projesi için yaptığı düzeltmede, 3 aylık süreçte Google.nl organik trafiği %340 arttı—sadece hreflang ve URL yapısı optimizasyonuyla.

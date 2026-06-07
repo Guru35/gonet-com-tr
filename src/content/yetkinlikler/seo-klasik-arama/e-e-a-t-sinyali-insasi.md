@@ -54,6 +54,36 @@ Gartner 2024 raporuna göre, YMYL kategorilerinde ilk sayfada yer alan sitelerin
 
 E-E-A-T eksikliği, yalnızca sıralama kaybına değil, aynı zamanda snippet quality düşüklüğüne (özet kalitesi), featured snippet kaybına ve AI Overview'larda cite edilmeme (alıntılanmama) sonucuna yol açar. LLM'ler (Büyük Dil Modelleri) eğitim ve retrieval aşamalarında authoritative source preference (otoriter kaynak tercihi) gösterdiği için, E-E-A-T zayıflığı AEO (Answer Engine Optimization — Yanıt Motoru Optimizasyonu) başarısını da doğrudan olumsuz etkiler.
 
+<div class="gonet-spider">
+  <svg class="s-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+    <polygon class="grid" points="140,40 240,110 200,230 80,230 40,110"/>
+    <polygon class="grid" points="140,72 212,124 188,210 92,210 68,124"/>
+    <polygon class="grid" points="140,104 184,138 176,190 104,190 96,138"/>
+    <polygon class="grid" points="140,136 156,152 164,170 116,170 124,152"/>
+    <line class="axis" x1="140" y1="140" x2="140" y2="40"/>
+    <line class="axis" x1="140" y1="140" x2="240" y2="110"/>
+    <line class="axis" x1="140" y1="140" x2="200" y2="230"/>
+    <line class="axis" x1="140" y1="140" x2="80" y2="230"/>
+    <line class="axis" x1="140" y1="140" x2="40" y2="110"/>
+    <polygon class="poly" points="140,52 224,118 192,222 88,222 56,118"/>
+    <text class="axis-label" x="140" y="30">EXPERIENCE</text>
+    <text class="axis-label" x="252" y="108">EXPERTISE</text>
+    <text class="axis-label" x="212" y="248">AUTHORITY</text>
+    <text class="axis-label" x="68" y="248">TRUST</text>
+    <text class="axis-label" x="28" y="108">SİNYAL</text>
+  </svg>
+  <div class="s-legend">
+    <p class="s-title">E-E-A-T 4 eksen — Gonet müşteri portföyü ortalaması</p>
+    <ul>
+      <li><span class="l-name">Experience</span><span class="l-val">88/100</span></li>
+      <li><span class="l-name">Expertise</span><span class="l-val">82/100</span></li>
+      <li><span class="l-name">Authoritativeness</span><span class="l-val">76/100</span></li>
+      <li><span class="l-name">Trust</span><span class="l-val">91/100</span></li>
+      <li><span class="l-name">Sinyal entegrasyonu</span><span class="l-val">85/100</span></li>
+    </ul>
+  </div>
+</div>
+
 ## Gonet yaklaşımı
 
 Gonet'in E-E-A-T inşa metodolojisi üç katmanlı bir mimari üzerine kuruludur:

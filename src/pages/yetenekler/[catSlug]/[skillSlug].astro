@@ -766,6 +766,216 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         .gonet-timeline .tl-pt { padding: 1rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.05); }
       }
 
+      /* ───── v2 ALETLER (içerik-spesifik) ───── */
+
+      /* Gauge meter — eşik vurgusu (Core Web Vitals "iyi/orta/zayıf") */
+      .gonet-gauge {
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+      }
+      .gonet-gauge .g-title {
+        font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+      }
+      .gonet-gauge .g-row {
+        display: grid; grid-template-columns: minmax(80px, 16%) 1fr auto;
+        align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+      }
+      .gonet-gauge .g-row > .g-name {
+        font-weight: 600; color: rgb(15 23 42); font-size: 0.95rem;
+      }
+      .gonet-gauge .g-row > .g-track {
+        position: relative; height: 14px;
+        background: rgb(241 245 249);
+        display: flex;
+      }
+      .gonet-gauge .g-row > .g-track > .zone {
+        height: 100%;
+        flex: var(--w, 33);
+      }
+      .gonet-gauge .g-row > .g-track > .zone.good { background: rgb(15 23 42); opacity: 0.85; }
+      .gonet-gauge .g-row > .g-track > .zone.mid { background: rgb(148 163 184); opacity: 0.6; }
+      .gonet-gauge .g-row > .g-track > .zone.bad { background: rgb(226 232 240); }
+      .gonet-gauge .g-row > .g-track > .marker {
+        position: absolute;
+        top: -6px;
+        left: var(--pos, 50%);
+        width: 2px; height: 26px;
+        background: rgb(220 38 38);
+        transform: translateX(-50%);
+        animation: gonet-marker-slide 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .gonet-gauge .g-row > .g-track > .marker::before {
+        content: ''; position: absolute; top: -4px; left: -3px;
+        width: 8px; height: 8px; background: rgb(220 38 38);
+        border-radius: 50%;
+      }
+      .gonet-gauge .g-row > .g-val {
+        font-weight: 700; font-variant-numeric: tabular-nums;
+        color: rgb(15 23 42); min-width: 70px; text-align: right;
+        font-size: 1rem;
+      }
+      .gonet-gauge .g-legend {
+        display: flex; gap: 1.5rem; margin-top: 1rem;
+        font-size: 0.75rem; color: rgb(100 116 139);
+        text-transform: uppercase; letter-spacing: 0.15em;
+      }
+      .gonet-gauge .g-legend span::before {
+        content: ''; display: inline-block; width: 10px; height: 10px;
+        margin-right: 0.5rem; vertical-align: middle;
+      }
+      .gonet-gauge .g-legend .lg-good::before { background: rgb(15 23 42); opacity: 0.85; }
+      .gonet-gauge .g-legend .lg-mid::before { background: rgb(148 163 184); opacity: 0.6; }
+      .gonet-gauge .g-legend .lg-bad::before { background: rgb(226 232 240); }
+      @keyframes gonet-marker-slide {
+        from { left: 0%; opacity: 0; }
+        to { left: var(--pos, 50%); opacity: 1; }
+      }
+
+      /* Hub-spoke — merkez node + uydular (pillar-cluster topology) */
+      .gonet-hub {
+        margin: 3rem 0 !important;
+        padding: 2.5rem 1rem;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+        text-align: center;
+      }
+      .gonet-hub .h-title {
+        font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+      }
+      .gonet-hub .h-svg {
+        width: 100%; max-width: 480px; height: 320px;
+        margin: 0 auto; display: block;
+      }
+      .gonet-hub .h-svg .spoke {
+        stroke: rgb(0 0 0 / 0.15); stroke-width: 1; fill: none;
+        stroke-dasharray: 4 4;
+        animation: gonet-hub-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+      }
+      .gonet-hub .h-svg .center-node {
+        fill: rgb(220 38 38);
+      }
+      .gonet-hub .h-svg .satellite {
+        fill: white; stroke: rgb(15 23 42); stroke-width: 1.5;
+      }
+      .gonet-hub .h-svg text {
+        font-size: 11px; font-weight: 600;
+        text-anchor: middle; fill: rgb(15 23 42);
+      }
+      .gonet-hub .h-svg text.center-label {
+        fill: white; font-size: 12px;
+      }
+      @keyframes gonet-hub-line {
+        from { stroke-dashoffset: 100; opacity: 0; }
+        to { stroke-dashoffset: 0; opacity: 1; }
+      }
+
+      /* Spider — radial puan göstergesi (E-E-A-T 4 eksen) */
+      .gonet-spider {
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+        display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      }
+      .gonet-spider .s-title {
+        font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 1.5rem;
+      }
+      .gonet-spider .s-svg {
+        width: 280px; height: 280px; flex-shrink: 0; display: block;
+      }
+      .gonet-spider .s-svg .grid {
+        fill: none; stroke: rgb(0 0 0 / 0.08); stroke-width: 1;
+      }
+      .gonet-spider .s-svg .axis {
+        stroke: rgb(0 0 0 / 0.12); stroke-width: 1;
+      }
+      .gonet-spider .s-svg .poly {
+        fill: rgb(220 38 38 / 0.18); stroke: rgb(220 38 38); stroke-width: 2;
+        animation: gonet-poly-grow 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+        transform-origin: center;
+      }
+      .gonet-spider .s-svg .axis-label {
+        font-size: 11px; font-weight: 600; text-anchor: middle;
+        fill: rgb(15 23 42); text-transform: uppercase; letter-spacing: 0.1em;
+      }
+      .gonet-spider .s-legend { flex: 1; min-width: 220px; }
+      .gonet-spider .s-legend ul {
+        list-style: none; padding: 0; margin: 0;
+      }
+      .gonet-spider .s-legend li {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0.625rem 0; border-bottom: 1px solid rgb(0 0 0 / 0.06);
+        font-size: 0.9rem;
+      }
+      .gonet-spider .s-legend li:last-child { border-bottom: 0; }
+      .gonet-spider .s-legend .l-name { font-weight: 500; color: rgb(15 23 42); }
+      .gonet-spider .s-legend .l-val {
+        font-weight: 700; color: rgb(220 38 38);
+        font-variant-numeric: tabular-nums;
+      }
+      @keyframes gonet-poly-grow {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      /* Heatmap — zaman x yoğunluk (crawl freq) */
+      .gonet-heatmap {
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+      }
+      .gonet-heatmap .hm-title {
+        font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 1.5rem;
+      }
+      .gonet-heatmap .hm-grid {
+        display: grid;
+        grid-template-columns: 60px repeat(24, 1fr);
+        gap: 2px;
+        font-size: 0.7rem;
+      }
+      .gonet-heatmap .hm-row-label {
+        color: rgb(100 116 139); font-weight: 600;
+        display: flex; align-items: center; padding-right: 0.5rem;
+        text-transform: uppercase; letter-spacing: 0.1em;
+      }
+      .gonet-heatmap .hm-cell {
+        aspect-ratio: 1 / 1; background: rgb(241 245 249);
+        position: relative;
+      }
+      .gonet-heatmap .hm-cell[data-v="1"] { background: rgb(226 232 240); }
+      .gonet-heatmap .hm-cell[data-v="2"] { background: rgb(203 213 225); }
+      .gonet-heatmap .hm-cell[data-v="3"] { background: rgb(148 163 184); }
+      .gonet-heatmap .hm-cell[data-v="4"] { background: rgb(71 85 105); }
+      .gonet-heatmap .hm-cell[data-v="5"] { background: rgb(220 38 38); }
+      .gonet-heatmap .hm-x-axis {
+        display: grid; grid-template-columns: 60px repeat(24, 1fr);
+        gap: 2px; margin-top: 0.5rem;
+        font-size: 0.65rem; color: rgb(100 116 139);
+      }
+      .gonet-heatmap .hm-x-axis .x { text-align: center; font-variant-numeric: tabular-nums; }
+      .gonet-heatmap .hm-legend {
+        display: flex; align-items: center; gap: 0.75rem;
+        margin-top: 1rem; font-size: 0.7rem; color: rgb(100 116 139);
+        text-transform: uppercase; letter-spacing: 0.15em;
+      }
+      .gonet-heatmap .hm-legend .scale {
+        display: flex; gap: 2px;
+      }
+      .gonet-heatmap .hm-legend .scale > i {
+        display: block; width: 14px; height: 14px;
+      }
+      @media (max-width: 768px) {
+        .gonet-heatmap { overflow-x: auto; }
+        .gonet-heatmap .hm-grid, .gonet-heatmap .hm-x-axis { min-width: 600px; }
+      }
+
       /* Spec list — minimal teknik özellik listesi */
       .gonet-spec {
         margin: 2.5rem 0 !important;

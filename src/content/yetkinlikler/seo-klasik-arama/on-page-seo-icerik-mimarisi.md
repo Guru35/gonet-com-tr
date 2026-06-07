@@ -44,6 +44,36 @@ On-page SEO, bir web sayfasının arama motorları ve kullanıcılar için optim
 
 Pillar content (ana içerik), geniş bir konuyu kapsar ve authority (otorite) merkezi işlevi görür. Cluster content (küme içerikler) ise pillar'ın alt başlıklarını derinleştiren, spesifik sorulara yanıt veren sayfalardır. Internal link velocity (iç bağlantı hızı), bu sayfaların birbirine ne sıklıkta, ne tutarlılıkla bağlandığını ölçer. Topical authority (konusal otorite), Google'ın bir siteyi belirli bir temada ne kadar güvenilir gördüğünün göstergesidir.
 
+<div class="gonet-hub">
+  <div class="h-title">Pillar-cluster topology — merkezde ana içerik, çevrede 7 küme</div>
+  <svg class="h-svg" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+    <line class="spoke" x1="240" y1="160" x2="240" y2="50" style="animation-delay: 0s"/>
+    <line class="spoke" x1="240" y1="160" x2="380" y2="100" style="animation-delay: 0.1s"/>
+    <line class="spoke" x1="240" y1="160" x2="420" y2="220" style="animation-delay: 0.2s"/>
+    <line class="spoke" x1="240" y1="160" x2="320" y2="290" style="animation-delay: 0.3s"/>
+    <line class="spoke" x1="240" y1="160" x2="160" y2="290" style="animation-delay: 0.4s"/>
+    <line class="spoke" x1="240" y1="160" x2="60" y2="220" style="animation-delay: 0.5s"/>
+    <line class="spoke" x1="240" y1="160" x2="100" y2="100" style="animation-delay: 0.6s"/>
+    <circle class="satellite" cx="240" cy="50" r="22"/>
+    <text x="240" y="53">CL 1</text>
+    <circle class="satellite" cx="380" cy="100" r="22"/>
+    <text x="380" y="103">CL 2</text>
+    <circle class="satellite" cx="420" cy="220" r="22"/>
+    <text x="420" y="223">CL 3</text>
+    <circle class="satellite" cx="320" cy="290" r="22"/>
+    <text x="320" y="293">CL 4</text>
+    <circle class="satellite" cx="160" cy="290" r="22"/>
+    <text x="160" y="293">CL 5</text>
+    <circle class="satellite" cx="60" cy="220" r="22"/>
+    <text x="60" y="223">CL 6</text>
+    <circle class="satellite" cx="100" cy="100" r="22"/>
+    <text x="100" y="103">CL 7</text>
+    <circle class="center-node" cx="240" cy="160" r="40"/>
+    <text class="center-label" x="240" y="158">PILLAR</text>
+    <text class="center-label" x="240" y="172" style="font-size: 9px; font-weight: 400">ana içerik</text>
+  </svg>
+</div>
+
 ## Neden kritik?
 
 Google'ın Helpful Content Update (2022) ve sonrası algoritma değişiklikleri, tekil keyword odaklı optimizasyondan tematik derinliğe geçişi zorunlu kıldı. Arama motoru, artık bir sayfanın yalnızca başlık ve meta açıklamasına değil, sitenin o konudaki toplamda ne kadar kapsamlı içerik ürettiğine bakar. İçerik mimarisi bu nedenle on-page SEO'nun temelini oluşturur: iyi optimize edilmiş 50 kopuk sayfa, stratejik bağlantılı 20 sayfalık bir hub'dan daha az etki yaratır.

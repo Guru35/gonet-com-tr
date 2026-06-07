@@ -48,6 +48,45 @@ Google'ın 'iyi' kabul ettiği eşikler: LCP <2.5s, INP <200ms, CLS <0.1. Gonet'
 
 ## Neden kritik?
 
+<div class="gonet-gauge">
+  <div class="g-title">Core Web Vitals — Gonet hedef eşikleri vs Google "Good" sınırı</div>
+  <div class="g-row">
+    <span class="g-name">LCP</span>
+    <span class="g-track">
+      <span class="zone good" style="--w: 25"></span>
+      <span class="zone mid" style="--w: 25"></span>
+      <span class="zone bad" style="--w: 50"></span>
+      <span class="marker" style="--pos: 12%"></span>
+    </span>
+    <span class="g-val">&lt; 1.0 s</span>
+  </div>
+  <div class="g-row">
+    <span class="g-name">INP</span>
+    <span class="g-track">
+      <span class="zone good" style="--w: 25"></span>
+      <span class="zone mid" style="--w: 37"></span>
+      <span class="zone bad" style="--w: 38"></span>
+      <span class="marker" style="--pos: 16%"></span>
+    </span>
+    <span class="g-val">&lt; 100 ms</span>
+  </div>
+  <div class="g-row">
+    <span class="g-name">CLS</span>
+    <span class="g-track">
+      <span class="zone good" style="--w: 10"></span>
+      <span class="zone mid" style="--w: 15"></span>
+      <span class="zone bad" style="--w: 75"></span>
+      <span class="marker" style="--pos: 5%"></span>
+    </span>
+    <span class="g-val">&lt; 0.05</span>
+  </div>
+  <div class="g-legend">
+    <span class="lg-good">Good (Google)</span>
+    <span class="lg-mid">Needs improvement</span>
+    <span class="lg-bad">Poor</span>
+  </div>
+</div>
+
 Google, **Page Experience** sinyalini 2021'den itibaren mobil ve masaüstü sıralamaya dahil etti. Core Web Vitals bu sinyalin omurgasıdır. Ancak kritik nokta yalnızca sıralama değil — dönüşüm oranlarıdır. Amazon'un araştırması her 100ms gecikmenin %1 gelir kaybına yol açtığını gösterdi. Google'ın kendi verisi: mobil LCP 5s'den 2.5s'ye düşürüldüğünde ortalama çıkma oranı %24 azalır.
 
 **INP**, kullanıcının siteyle etkileşim kurabilme hissini doğrudan etkiler. 200ms üzeri gecikmeler 'donmuş' algısı yaratır, özellikle form girişlerinde, menü açılımlarında, filtre işlemlerinde. E-ticaret sitelerinde INP optimizasyonu sepet ekleme, ödeme adımları gibi kritik conversion funnel noktalarında doğrudan etkili.
