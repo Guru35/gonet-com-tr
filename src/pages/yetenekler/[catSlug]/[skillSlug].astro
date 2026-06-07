@@ -540,6 +540,69 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         letter-spacing: 0.2em; color: rgb(100 116 139);
       }
 
+      /* ───── Paragraf bazında font-zoom kontrolü ───── */
+      .body-typography > p {
+        position: relative;
+      }
+      .p-zoom {
+        position: absolute;
+        left: -2.75rem;
+        top: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .body-typography > p:hover .p-zoom,
+      .p-zoom:hover,
+      .p-zoom.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .p-zoom button {
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 1px solid rgb(0 0 0 / 0.15);
+        background: white;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(100 116 139);
+        transition: all 0.15s ease;
+        line-height: 1;
+        padding: 0;
+        border-radius: 2px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .p-zoom button:hover {
+        border-color: black;
+        background: black;
+        color: white;
+        transform: scale(1.05);
+      }
+      .p-zoom button:active {
+        transform: scale(0.95);
+      }
+      /* Mobile/tablet'te paragrafın yanında yer olmadığı için her zaman görünür yap */
+      @media (max-width: 1023px) {
+        .p-zoom {
+          position: static;
+          flex-direction: row;
+          opacity: 0.5;
+          pointer-events: auto;
+          margin-bottom: 0.5rem;
+        }
+        .body-typography > p {
+          padding-left: 0;
+        }
+      }
+
       .body-typography blockquote {
         margin: 2.5rem 0 !important;
         padding: 1.5rem 1.5rem 1.5rem 2rem !important;
@@ -861,6 +924,39 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
           document.querySelectorAll('[data-share-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
         }
       });
+
+      // Paragraf font-zoom kontrolleri (her body-typography > p için +/−)
+      const body = document.querySelector('.body-typography');
+      if (body) {
+        const STEP_PX = 2;        // her tıklamada ±2px
+        const MIN_PX = 13;
+        const MAX_PX = 56;
+        const paragraphs = body.querySelectorAll(':scope > p');
+        paragraphs.forEach((p) => {
+          const ctrl = document.createElement('span');
+          ctrl.className = 'p-zoom';
+          ctrl.setAttribute('aria-hidden', 'false');
+          ctrl.innerHTML = `
+            <button type="button" data-zoom-up aria-label="Bu paragrafı büyüt">+</button>
+            <button type="button" data-zoom-down aria-label="Bu paragrafı küçült">−</button>
+          `;
+          p.appendChild(ctrl);
+
+          const up = ctrl.querySelector('[data-zoom-up]');
+          const down = ctrl.querySelector('[data-zoom-down]');
+          const adjust = (delta) => {
+            const cur = parseFloat(window.getComputedStyle(p).fontSize);
+            const next = Math.max(MIN_PX, Math.min(MAX_PX, cur + delta));
+            // inline style + !important — modülasyon CSS'i (!important'lı) bunu aşamaz
+            p.style.setProperty('font-size', next + 'px', 'important');
+            // Line-height'ı da hafifçe ayarla (büyüdükçe oran düşsün)
+            const lh = next > 24 ? 1.45 : (next > 18 ? 1.7 : 1.85);
+            p.style.setProperty('line-height', lh, 'important');
+          };
+          up.addEventListener('click', (e) => { e.preventDefault(); adjust(STEP_PX); });
+          down.addEventListener('click', (e) => { e.preventDefault(); adjust(-STEP_PX); });
+        });
+      }
 
       // FAQ accordion — Safari/eski Chrome <details name="..."> mutex polyfill
       const faqAcc = document.querySelector('[data-faq-accordion]');
