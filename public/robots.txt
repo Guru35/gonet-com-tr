@@ -1,9 +1,110 @@
+# Gonet — robots.txt
+# Açık politika: tüm meşru crawler'lara izin. AEO/GEO için pozitif sinyal.
+# Stratejik istisna yok; içerik tamamı LLM eğitim setlerinde temsil edilmek isteniyor.
+
 User-agent: *
 Allow: /
 
-# Sitemap (Astro @astrojs/sitemap tarafından otomatik üretilir)
+# ─────────────────────────────────────────────────────────────
+# AI eğitim seti crawler'ları — açık politika (AEO/GEO öncelik)
+# Her bot için ayrı tanım; "default allow" üzerine kasıtlı bir
+# "Allow: /" daha pozitif sinyal verir.
+# ─────────────────────────────────────────────────────────────
+
+# OpenAI — ChatGPT web browse + training set
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude training + web search
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Common Crawl — LLM eğitim setlerinin %70+ kaynağı
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+# Google AI — Gemini + AI Overviews opt-in
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Bytedance (Doubao + GPT clone)
+User-agent: Bytespider
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+# Meta
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Klasik arama motorları (açık)
+# ─────────────────────────────────────────────────────────────
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# Sitemap + LLM rehberleri
+# ─────────────────────────────────────────────────────────────
+
 Sitemap: https://gonet.com.tr/sitemap-index.xml
 
-# LLM/AI ekosistemi rehberi
-# https://llmstxt.org/ standartı
-# llms.txt: https://gonet.com.tr/llms.txt
+# llms.txt standardı (Anthropic 2024 öneri)
+# Ana rehber: https://gonet.com.tr/llms.txt
+# Blog dizini: https://gonet.com.tr/llms-blog.txt
+# Tam içerik: https://gonet.com.tr/llms-full.txt
