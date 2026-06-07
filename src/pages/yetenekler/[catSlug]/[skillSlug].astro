@@ -1158,16 +1158,16 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         0%, 100% { transform: scale(1.3) translateY(0); }
         50% { transform: scale(1.3) translateY(-2px); }
       }
-      /* Tooltip — hover'da sağa açılan etiket */
+      /* Tooltip — hover'da SOLA açılan etiket (paragraf üzerine taşmasın diye) */
       .p-zoom button::after {
         content: attr(data-label);
         position: absolute;
-        left: 130%;
+        right: calc(100% + 0.75rem);
         top: 50%;
         transform: translateY(-50%);
         background: rgb(15 23 42);
         color: white;
-        padding: 0.25rem 0.625rem;
+        padding: 0.3rem 0.7rem;
         font-size: 0.6875rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -1179,6 +1179,14 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         z-index: 10;
       }
       .p-zoom button:hover::after { opacity: 1; }
+      /* Hover'da buton DÖNDÜĞÜ için tooltip de döner — tooltip için karşı-rotation */
+      .p-zoom button[data-zoom-up]:hover::after {
+        transform: translateY(-50%) rotate(-180deg);
+      }
+      .p-zoom button[data-zoom-down]:hover::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      /* AI buton dönmüyor (pulse), tooltip de düz kalır */
       /* Mobile/tablet'te paragrafın altında inline-flex */
       @media (max-width: 1023px) {
         .p-zoom {
@@ -1577,13 +1585,13 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
           ctrl.className = 'p-zoom';
           ctrl.setAttribute('aria-hidden', 'false');
           ctrl.innerHTML = `
-            <button type="button" data-zoom-up data-label="Büyüt" aria-label="Bu paragrafı büyüt"></button>
-            <button type="button" data-zoom-down data-label="Küçült" aria-label="Bu paragrafı küçült"></button>
             <button type="button" data-paragraph-ai data-label="AI ile tartış" aria-label="Bu yazı hakkında AI ile tartış">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 12a8 8 0 0 1-11.5 7.18L4 21l1.82-5.5A8 8 0 1 1 21 12z"/>
               </svg>
             </button>
+            <button type="button" data-zoom-up data-label="Büyüt" aria-label="Bu paragrafı büyüt"></button>
+            <button type="button" data-zoom-down data-label="Küçült" aria-label="Bu paragrafı küçült"></button>
           `;
           p.appendChild(ctrl);
 
