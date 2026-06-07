@@ -606,14 +606,16 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       /* Stat-grid — 2-4 büyük sayı grid (panodaki KPI'lar) */
       .gonet-stat-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        row-gap: 2rem;             /* wrap olursa satır arası ferah */
+        column-gap: 0;
         margin: 3rem 0 !important;
+        padding: 0.5rem 0;
         border-top: 1px solid rgb(0 0 0 / 0.08);
         border-bottom: 1px solid rgb(0 0 0 / 0.08);
       }
       .gonet-stat-grid > .stat {
-        padding: 1.75rem 1rem;
+        padding: 1.5rem 1rem;
         border-right: 1px solid rgb(0 0 0 / 0.06);
         text-align: center;
       }
@@ -685,8 +687,10 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
       }
       .gonet-process .steps {
-        display: grid; gap: 0;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        display: grid;
+        row-gap: 2.75rem;          /* satır arası nefes */
+        column-gap: 0;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       }
       .gonet-process .step {
         position: relative;
@@ -733,8 +737,9 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-timeline .tl-line {
         position: relative;
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        row-gap: 2rem;
+        column-gap: 0;
       }
       .gonet-timeline .tl-line::before {
         content: ''; position: absolute; top: 0.5rem; left: 1rem; right: 1rem;

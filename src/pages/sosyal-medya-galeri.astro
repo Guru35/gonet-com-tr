@@ -27,6 +27,12 @@ const sayfalar = [
     aspect: 'square',
     kategori: 'Varyasyon A · Felsefi köprü',
     ton: 'Bilge · mütevazi-derin',
+    versions: [
+      { v: 'V1', image: '/sosyal-medya/versions/01-v1.png', not: 'Orijinal · müze posteri · halo yok · Mevlânâ + ayna kompozisyonu' },
+      { v: 'V2', image: '/sosyal-medya/versions/01-v2.png', not: 'Saf #ff0000 + kırmızı/siyah dış ışıma + "Gonet." imzası — fazla yoğun' },
+      { v: 'V3', image: '/sosyal-medya/versions/01-v3.png', not: 'Halo sadece ana başlıkta · saf kırmızı düz · imza çıkarıldı' },
+      { v: 'V4', image: '/sosyal-medya/versions/01-v4.png', not: 'Final · halo yok · alt gri footnote eklendi', current: true },
+    ],
     caption: `800 yıl önce Mevlânâ söylemişti.
 Bugün yapay zekâ için de geçerli.
 
@@ -55,6 +61,12 @@ Bir sonraki "ilk"i birlikte yazalım.
     aspect: 'square',
     kategori: 'Varyasyon B-1 · Manifesto',
     ton: 'İddialı manifesto · kıvrak gurur',
+    versions: [
+      { v: 'V1', image: '/sosyal-medya/versions/02-v1.png', not: 'Orijinal · "Yine bir ilk. Yine GoNet." + crimson nokta + dalga' },
+      { v: 'V2', image: '/sosyal-medya/versions/02-v2.png', not: 'Saf kırmızı + glow halo · "GONET." kırmızıya dönüştü · siyah ink-bleed' },
+      { v: 'V3', image: '/sosyal-medya/versions/02-v3.png', not: 'Halo sadece başlıkta · saf kırmızı düz nokta' },
+      { v: 'V4', image: '/sosyal-medya/versions/02-v4.png', not: 'Final · halo yok · footnote eklendi', current: true },
+    ],
     caption: `Markaların çoğunun ilk web sitesinde biz vardık.
 İlk Google reklamlarında biz vardık.
 İlk e-ticaret denemelerinde biz vardık.
@@ -83,6 +95,12 @@ gonet.com.tr yenilendi — İzmir'in AI ile baştan inşa edilmiş ilk ajans sit
     aspect: 'square',
     kategori: 'Varyasyon B-2 · Tipografik ilk',
     ton: 'Minimal-sembolik',
+    versions: [
+      { v: 'V1', image: '/sosyal-medya/versions/03-v1.png', not: 'Orijinal · dev "1" rakamı · serif · crimson tepe noktası' },
+      { v: 'V2', image: '/sosyal-medya/versions/03-v2.png', not: 'Saf #ff0000 + glow · Inter heavy "1" · "Gonet." imza eklendi' },
+      { v: 'V3', image: '/sosyal-medya/versions/03-v3.png', not: 'Halo sadece "1"in kendisinde · saf kırmızı düz' },
+      { v: 'V4', image: '/sosyal-medya/versions/03-v4.png', not: 'Final · halo yok · sade dev 1 + footnote', current: true },
+    ],
     caption: `1.
 
 İlki yapmak kolay değil.
@@ -108,6 +126,12 @@ gonet.com.tr yenilendi.
     aspect: 'square',
     kategori: 'Varyasyon C-1 · Shockvertising',
     ton: 'Provokatif · Toscani modu · agitation',
+    versions: [
+      { v: 'V1', image: '/sosyal-medya/versions/04-v1.png', not: 'Orijinal · "AI zeki. / Sen?" bold tipografi · sol alt crimson nokta' },
+      { v: 'V2', image: '/sosyal-medya/versions/04-v2.png', not: 'Inter ultra-bold + siyah ink-bleed halo + "Gonet." imzası' },
+      { v: 'V3', image: '/sosyal-medya/versions/04-v3.png', not: 'Halo sadece "SEN?" üzerinde · saf kırmızı düz' },
+      { v: 'V4', image: '/sosyal-medya/versions/04-v4.png', not: 'Final · halo yok · düz tipografi + footnote', current: true },
+    ],
     caption: `Yapay zekâ promptunu büyütmez. Sadece yansıtır.
 
 Düz soru → düz cevap.
@@ -144,6 +168,12 @@ Kreatif zekânın elinde AI'nın ne yapabildiğini görmek isteyenler için.
     aspect: 'square',
     kategori: 'Varyasyon C-2 · Visual metaphor',
     ton: 'Felsefi-acı · soft provocation',
+    versions: [
+      { v: 'V1', image: '/sosyal-medya/versions/05-v1.png', not: 'Orijinal · iki silüet + dikey kırmızı hat · "AI seni yansıtır"' },
+      { v: 'V2', image: '/sosyal-medya/versions/05-v2.png', not: 'Saf kırmızı + glow + "Gonet." imza · kompozisyon biraz dağıldı' },
+      { v: 'V3', image: '/sosyal-medya/versions/05-v3.png', not: 'Halo sadece alt başlıkta · saf düz kırmızı hat' },
+      { v: 'V4', image: '/sosyal-medya/versions/05-v4.png', not: 'Final · halo yok · clean kompozisyon + footnote', current: true },
+    ],
     caption: `AI seni yansıtır.
 Daha fazlasını değil.
 
@@ -261,6 +291,29 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
               class="hpan-acc-link lightbox-trigger"
               aria-label={`${s.name} — fullscreen aç`}
             >tam ekran aç →</a>
+
+            <h4 class="hpan-acc-section hpan-acc-section-first">Evrim</h4>
+            <ol class="hpan-acc-versions">
+              {s.versions.map((v) => (
+                <li class={v.current ? 'is-current' : ''}>
+                  <a
+                    href={v.image}
+                    data-image-src={v.image}
+                    data-image-title={`${s.name} — ${v.v}`}
+                    class="hpan-acc-ver-thumb lightbox-trigger"
+                    aria-label={`${s.name} ${v.v} — fullscreen aç`}
+                  >
+                    <img src={v.image} alt={`${s.name} ${v.v}`} loading="lazy" />
+                  </a>
+                  <div class="hpan-acc-ver-text">
+                    <span class="hpan-acc-ver-label">
+                      {v.v}{v.current ? ' · final' : ''}
+                    </span>
+                    <span class="hpan-acc-ver-note">{v.not}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
 
             <h4 class="hpan-acc-section">Yayın Metni</h4>
             <div class="hpan-acc-caption">{s.caption}</div>
@@ -569,7 +622,17 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       .hpan-acc-item.is-open .hpan-acc-body {
         max-height: 75vh;
         opacity: 1;
-        padding: 0 0 1.5rem 0;
+        padding: 0 0.5rem 1.5rem 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0,0,0,0.18) transparent;
+      }
+      .hpan-acc-item.is-open .hpan-acc-body::-webkit-scrollbar {
+        width: 4px;
+      }
+      .hpan-acc-item.is-open .hpan-acc-body::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.18);
+        border-radius: 4px;
       }
 
       .hpan-acc-cat {
@@ -689,6 +752,85 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       margin: 0 0 0.6rem;
       color: #000;
       opacity: 0.85;
+    }
+
+    /* "Evrim" başlığı için border-top yok (ilk section) */
+    .hpan-acc-section-first {
+      margin-top: 0.5rem;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    /* Versiyon mini-kartları */
+    .hpan-acc-versions {
+      list-style: none;
+      margin: 0 0 0.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .hpan-acc-versions li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .hpan-acc-versions li:last-child {
+      border-bottom: 0;
+    }
+    .hpan-acc-versions li.is-current::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0.55rem;
+      bottom: 0.85rem;
+      width: 2px;
+      background: #ff0000;
+    }
+    .hpan-acc-ver-thumb {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.18);
+      display: block;
+      overflow: hidden;
+      cursor: zoom-in;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .hpan-acc-ver-thumb:hover {
+      border-color: #ff0000;
+      transform: scale(1.04);
+    }
+    .hpan-acc-ver-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hpan-acc-ver-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .hpan-acc-ver-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ff0000;
+    }
+    .hpan-acc-ver-note {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #000;
+      opacity: 0.82;
     }
 
     .lightbox {
