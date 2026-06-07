@@ -794,9 +794,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           showStatus('');
           // Başlık + üst etiketi intent'e göre
           if (intent === 'discussion') {
-            if (eyebrowEl) eyebrowEl.textContent = '— Tartışma';
+            if (eyebrowEl) eyebrowEl.textContent = '— AI ile tartış · Sadece bu yazı';
             if (titleEl) titleEl.textContent = 'Bu yazı hakkında ne düşünüyorsunuz?';
-            if (txtEl) txtEl.placeholder = 'Görüşünüzü yazın…';
+            if (txtEl) txtEl.placeholder = 'Yazıyla ilgili görüşünüzü yazın…';
           } else {
             if (eyebrowEl) eyebrowEl.textContent = '— Geri bildirim';
             if (titleEl) titleEl.textContent = 'Bu sayfada hata mı gördünüz?';

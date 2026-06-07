@@ -217,32 +217,67 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
         <div class="hpan-empty-card paper-sheet" aria-hidden="true"></div>
         {sayfalar.map((s, idx) => (
           <article class="hpan-page" data-idx={idx}>
-            <div class="hpan-meta opacity-30 hover:opacity-50 transition-opacity duration-500">
+            <div class="hpan-meta">
               <p class="editorial-display text-[8vw] xl:text-[110px] leading-[0.85] mb-3">{s.no}</p>
               <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-2" style="color:#ff0000">{s.kategori}</p>
               <h2 class="editorial-display text-2xl xl:text-4xl leading-[0.9] mb-3">{s.name}</h2>
-              <p class="text-[10px] font-medium uppercase tracking-[0.3em] opacity-70 mb-4">{s.ton}</p>
+              <p class="text-[10px] font-medium uppercase tracking-[0.3em] opacity-70 mb-3">{s.ton}</p>
               <span class="text-xs font-mono uppercase tracking-[0.2em] opacity-60 inline-block mb-4">post · 1:1</span>
               <p class="text-sm leading-relaxed italic">"{s.caption.split('\n')[0]}"</p>
+
+              <h4 class="hpan-meta-section">Yayın Metni</h4>
+              <div class="hpan-meta-caption">{s.caption}</div>
+
+              <h4 class="hpan-meta-section">Anatomi</h4>
+              <dl class="hpan-meta-anatomi">
+                {s.anatomi.map((a) => (
+                  <>
+                    <dt>{a.etiket}</dt>
+                    <dd>{a.deger}</dd>
+                  </>
+                ))}
+              </dl>
             </div>
             <div class={`hpan-image ${s.aspect === 'landscape' ? 'is-landscape' : ''} ${s.aspect === 'mobile' ? 'is-mobile' : ''} ${s.aspect === 'square' ? 'is-square' : ''}`}>
               <a
-                href={`/sosyal-medya-galeri${s.url}`}
                 data-image-src={s.image}
                 data-image-title={s.name}
-                target="_blank"
-                rel="noopener"
-                class="paper-sheet lightbox-trigger block relative overflow-hidden bg-white"
+                href={s.image}
+                class="paper-sheet lightbox-trigger block relative overflow-hidden bg-white hpan-image-link"
                 aria-label={`${s.name} — tam ekran aç`}
               >
                 <img
                   src={s.image}
                   alt={`${s.name} — sosyal medya post varyasyonu`}
-                  class="block w-full h-full object-contain"
+                  class="hpan-image-img block w-full h-full object-contain"
                   loading="lazy"
                 />
               </a>
             </div>
+
+            {/* Per-slide versiyon seçici — V4 (final) en üstte, V1 en altta */}
+            <aside class="hpan-page-acc" aria-label={`${s.name} versiyonlar`}>
+              {[...s.versions].reverse().map((v, vi) => (
+                <div
+                  class={`hpan-page-acc-item ${vi === 0 ? 'is-open' : ''}`}
+                  data-ver-src={v.image}
+                  data-ver-label={v.v}
+                >
+                  <button
+                    class="hpan-page-acc-head"
+                    type="button"
+                    aria-expanded={vi === 0 ? 'true' : 'false'}
+                  >
+                    <span class="hpan-page-acc-no">{v.v}</span>
+                    {v.current && <span class="hpan-page-acc-final">final</span>}
+                    <span class="hpan-page-acc-arrow" aria-hidden="true"></span>
+                  </button>
+                  <div class="hpan-page-acc-body">
+                    <p class="hpan-page-acc-note">{v.not}</p>
+                  </div>
+                </div>
+              ))}
+            </aside>
           </article>
         ))}
       </section>
@@ -273,64 +308,7 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       </svg>
     </button>
 
-    <aside class="hpan-acc" id="hpan-acc" aria-label="Post detayları">
-      {sayfalar.map((s) => (
-        <div class="hpan-acc-item" data-acc-id={s.no}>
-          <button class="hpan-acc-head" type="button" aria-expanded="false">
-            <span class="hpan-acc-no">{s.no}</span>
-            <span class="hpan-acc-arrow" aria-hidden="true"></span>
-          </button>
-          <div class="hpan-acc-body">
-            <p class="hpan-acc-cat">{s.kategori}</p>
-            <h3 class="hpan-acc-name">{s.name}</h3>
-            <p class="hpan-acc-ton">{s.ton}</p>
-            <a
-              href={`/sosyal-medya-galeri${s.url}`}
-              data-image-src={s.image}
-              data-image-title={s.name}
-              class="hpan-acc-link lightbox-trigger"
-              aria-label={`${s.name} — fullscreen aç`}
-            >tam ekran aç →</a>
-
-            <h4 class="hpan-acc-section hpan-acc-section-first">Evrim</h4>
-            <ol class="hpan-acc-versions">
-              {s.versions.map((v) => (
-                <li class={v.current ? 'is-current' : ''}>
-                  <a
-                    href={v.image}
-                    data-image-src={v.image}
-                    data-image-title={`${s.name} — ${v.v}`}
-                    class="hpan-acc-ver-thumb lightbox-trigger"
-                    aria-label={`${s.name} ${v.v} — fullscreen aç`}
-                  >
-                    <img src={v.image} alt={`${s.name} ${v.v}`} loading="lazy" />
-                  </a>
-                  <div class="hpan-acc-ver-text">
-                    <span class="hpan-acc-ver-label">
-                      {v.v}{v.current ? ' · final' : ''}
-                    </span>
-                    <span class="hpan-acc-ver-note">{v.not}</span>
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <h4 class="hpan-acc-section">Yayın Metni</h4>
-            <div class="hpan-acc-caption">{s.caption}</div>
-
-            <h4 class="hpan-acc-section">Anatomi</h4>
-            <dl class="hpan-acc-anatomi">
-              {s.anatomi.map((a) => (
-                <>
-                  <dt>{a.etiket}</dt>
-                  <dd>{a.deger}</dd>
-                </>
-              ))}
-            </dl>
-          </div>
-        </div>
-      ))}
-    </aside>
+    {/* Eski global akordiyon kaldırıldı — yerine per-slide .hpan-page-acc geldi */}
 
     <div class="hpan-controls">
       <span class="hpan-count" id="hpan-count">1 / 7</span>
@@ -429,19 +407,30 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       .hpan-meta {
         position: absolute;
         top: 0;
+        bottom: 0;
         right: calc(50% + 40vh);
         width: 18vw;
         max-width: 280px;
         text-align: right;
         opacity: 0;
         transition: opacity 0.7s ease-out;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0,0,0,0.18) transparent;
+        padding-right: 0.4rem;
+        box-sizing: border-box;
+      }
+      .hpan-meta::-webkit-scrollbar { width: 4px; }
+      .hpan-meta::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.18);
+        border-radius: 4px;
       }
       .hpan-page.is-active .hpan-meta {
-        opacity: 0.3;
+        opacity: 0.62;
         transition: opacity 0.7s ease-in 0.6s;
       }
       .hpan-page.is-active .hpan-meta:hover {
-        opacity: 0.5;
+        opacity: 0.95;
         transition: opacity 0.3s ease;
       }
       .hpan-meta > div > a { text-align: right; }
@@ -762,6 +751,194 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
     }
 
     /* Versiyon mini-kartları */
+    /* ───────── Sol meta içinde Yayın Metni + Anatomi ─────────
+       Sol sütun text-align: right; Caption + Anatomi okunabilirlik için
+       text-align: left'e döndürülür. */
+    .hpan-meta-section {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ff0000;
+      margin: 1.5rem 0 0.7rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(0,0,0,0.18);
+      text-align: right;
+    }
+    .hpan-meta-caption {
+      white-space: pre-wrap;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      line-height: 1.55;
+      color: #000;
+      margin: 0;
+      text-align: left;
+    }
+    .hpan-meta-anatomi {
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .hpan-meta-anatomi dt {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ff0000;
+      margin-top: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .hpan-meta-anatomi dt:first-of-type {
+      margin-top: 0;
+    }
+    .hpan-meta-anatomi dd {
+      margin: 0 0 0.6rem;
+      color: #000;
+      opacity: 0.9;
+    }
+
+    /* ───────── Per-slide versiyon seçici (.hpan-page-acc) ─────────
+       Her slaytın sağında buzlu cam akordiyon. V4 (final) üstte,
+       V1 altta. Click → ana görsel yerinde swap olur. */
+    .hpan-page-acc {
+      position: absolute;
+      top: 5vh;
+      bottom: 12vh;
+      left: calc(50% + 44vh);
+      width: 16vw;
+      max-width: 320px;
+      z-index: 5;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(10px) saturate(125%);
+      -webkit-backdrop-filter: blur(10px) saturate(125%);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 4px;
+      padding: 0.7rem 1rem;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.7s ease-out;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.15) transparent;
+    }
+    .hpan-page-acc::-webkit-scrollbar { width: 4px; }
+    .hpan-page-acc::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 4px;
+    }
+    .hpan-page.is-active .hpan-page-acc {
+      opacity: 1;
+      transition: opacity 0.7s ease-in 0.6s;
+    }
+
+    .hpan-page-acc-item {
+      border-top: 1px solid rgba(0,0,0,0.12);
+    }
+    .hpan-page-acc-item:first-child {
+      border-top: 0;
+    }
+    .hpan-page-acc-head {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      padding: 0.85rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-family: var(--font-display, 'Anton', sans-serif);
+      font-size: 1.3rem;
+      line-height: 1;
+      color: #000;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+      text-align: left;
+      font-feature-settings: 'tnum';
+      letter-spacing: 0.02em;
+    }
+    .hpan-page-acc-head:hover { opacity: 0.85; }
+    .hpan-page-acc-item.is-open .hpan-page-acc-head { opacity: 1; }
+    .hpan-page-acc-no { flex: 0 0 auto; }
+    .hpan-page-acc-final {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ff0000;
+      margin-left: 0.4rem;
+    }
+    .hpan-page-acc-arrow {
+      width: 12px;
+      height: 12px;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+      margin-left: auto;
+    }
+    .hpan-page-acc-arrow::before,
+    .hpan-page-acc-arrow::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 7px;
+      height: 1px;
+      background: currentColor;
+    }
+    .hpan-page-acc-arrow::before { left: 0; transform: rotate(45deg); transform-origin: left center; }
+    .hpan-page-acc-arrow::after  { right: 0; transform: rotate(-45deg); transform-origin: right center; }
+    .hpan-page-acc-item.is-open .hpan-page-acc-arrow { transform: rotate(180deg); }
+    .hpan-page-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+                  opacity 0.3s ease 0.05s,
+                  padding 0.3s ease;
+      padding: 0;
+    }
+    .hpan-page-acc-item.is-open .hpan-page-acc-body {
+      max-height: 20vh;
+      opacity: 1;
+      padding: 0 0 0.85rem 0;
+    }
+    .hpan-page-acc-note {
+      font-size: 11px;
+      line-height: 1.45;
+      color: #000;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    /* Mobil: per-page acc'i normal blok olarak göster */
+    @media (max-width: 1023px) {
+      .hpan-page-acc {
+        position: relative;
+        inset: auto;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        opacity: 1 !important;
+        margin-top: 1.5rem;
+        background: rgba(255,255,255,0.7);
+      }
+      .hpan-meta {
+        position: relative;
+        inset: auto;
+        right: auto;
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        opacity: 1 !important;
+        margin-bottom: 2rem;
+        overflow: visible;
+      }
+      .hpan-meta-section { text-align: left; }
+    }
+
+    /* Bu class artık kullanılmıyor (eski global akordiyon) — referans için bırakıldı */
     .hpan-acc-versions {
       list-style: none;
       margin: 0 0 0.5rem;
@@ -1247,36 +1424,46 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
   </script>
 
   <script is:inline>
+    /* Per-slide versiyon seçici — her .hpan-page kendi akordiyonuna sahip,
+       madde tıklanınca o slaytın ana görseli yerinde swap olur. */
     (function () {
-      var accItems = document.querySelectorAll('.hpan-acc-item');
-      if (!accItems.length) return;
+      document.querySelectorAll('.hpan-page').forEach(function (pageEl) {
+        var accItems = pageEl.querySelectorAll('.hpan-page-acc-item');
+        var imgEl = pageEl.querySelector('.hpan-image-img');
+        var linkEl = pageEl.querySelector('.hpan-image-link');
+        if (!accItems.length || !imgEl || !linkEl) return;
 
-      function openOnly(target) {
-        accItems.forEach(function (it) {
-          var head = it.querySelector('.hpan-acc-head');
-          var on = it === target;
-          it.classList.toggle('is-open', on);
-          if (head) head.setAttribute('aria-expanded', on ? 'true' : 'false');
-        });
-      }
-      function closeAll() {
-        accItems.forEach(function (it) {
-          var head = it.querySelector('.hpan-acc-head');
-          it.classList.remove('is-open');
-          if (head) head.setAttribute('aria-expanded', 'false');
-        });
-      }
+        function activate(item) {
+          var src = item.getAttribute('data-ver-src');
+          var label = item.getAttribute('data-ver-label');
+          accItems.forEach(function (it) {
+            var head = it.querySelector('.hpan-page-acc-head');
+            var on = it === item;
+            it.classList.toggle('is-open', on);
+            if (head) head.setAttribute('aria-expanded', on ? 'true' : 'false');
+          });
+          if (src) {
+            imgEl.src = src;
+            linkEl.setAttribute('data-image-src', src);
+            linkEl.setAttribute('href', src);
+            // Lightbox title postfix: " — V2" vs.
+            var currentTitle = linkEl.getAttribute('data-image-title') || '';
+            var stripped = currentTitle.replace(/ — V[0-9]+( · final)?$/, '');
+            var suffix = label ? ' — ' + label : '';
+            linkEl.setAttribute('data-image-title', stripped + suffix);
+          }
+        }
 
-      accItems.forEach(function (item) {
-        var head = item.querySelector('.hpan-acc-head');
-        if (!head) return;
-        head.addEventListener('click', function () {
-          if (item.classList.contains('is-open')) closeAll();
-          else openOnly(item);
+        accItems.forEach(function (item) {
+          var head = item.querySelector('.hpan-page-acc-head');
+          if (!head) return;
+          head.addEventListener('click', function () {
+            if (!item.classList.contains('is-open')) {
+              activate(item);
+            }
+          });
         });
       });
-
-      setTimeout(function () { openOnly(accItems[0]); }, 600);
     })();
   </script>
 
