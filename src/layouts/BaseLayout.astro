@@ -662,5 +662,280 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         window.addEventListener('orientationchange', schedule);
       })();
     </script>
+
+    <!-- Feedback Chatbox Lightbox — site-wide, [data-feedback-open] butonlarıyla açılır -->
+    <div id="feedback-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
+      <div class="bg-white w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl border border-black/10">
+        <header class="flex items-start justify-between p-5 border-b border-black/10 shrink-0">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500 mb-1">Geri bildirim</p>
+            <h3 id="feedback-title" class="text-lg font-bold leading-snug">Bu sayfada hata mı gördünüz?</h3>
+            <p class="text-xs text-slate-600 mt-1">Gonet asistanıyla kısa bir sohbet — 1-2 dakika.</p>
+          </div>
+          <button type="button" id="feedback-close" aria-label="Kapat"
+                  class="text-2xl leading-none text-slate-500 hover:text-black p-1 -mt-1">×</button>
+        </header>
+
+        <div id="feedback-messages" class="flex-1 overflow-y-auto p-5 space-y-4 bg-slate-50/50 min-h-[280px]"></div>
+
+        <div id="feedback-images" class="px-5 pt-2 flex flex-wrap gap-2"></div>
+
+        <footer class="border-t border-black/10 p-4 shrink-0 bg-white">
+          <div id="feedback-status" class="text-xs text-slate-500 mb-2 hidden"></div>
+
+          <div id="feedback-input-row" class="flex items-end gap-2">
+            <label for="feedback-file" class="shrink-0 cursor-pointer p-2 text-slate-500 hover:text-black border border-black/15 hover:border-black transition-colors" title="Ekran görüntüsü ekle (max 2)">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l4-4a3 3 0 014 0l4 4m-2-2l1-1a3 3 0 014 0l3 3M14 8h.01M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <input type="file" id="feedback-file" accept="image/jpeg,image/png,image/webp" class="hidden">
+            </label>
+            <textarea id="feedback-text" rows="1" placeholder="Mesajınızı yazın…"
+                      class="flex-1 resize-none border border-black/15 focus:border-black focus:outline-none p-2.5 text-sm leading-relaxed max-h-32"></textarea>
+            <button type="button" id="feedback-send"
+                    class="shrink-0 px-4 py-2.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-brand-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+              Gönder
+            </button>
+          </div>
+
+          <!-- Bitiş bloğu — kapama aşamasında görünür -->
+          <div id="feedback-end" class="hidden mt-4 pt-4 border-t border-black/10">
+            <p class="text-sm text-slate-700 mb-3">Sohbetin kopyasını e-postanıza göndermek ister misiniz? (İsteğe bağlı)</p>
+            <div class="flex items-end gap-2 mb-2">
+              <input type="email" id="feedback-email" placeholder="ornek@gonet.com.tr"
+                     class="flex-1 border border-black/15 focus:border-black focus:outline-none p-2.5 text-sm">
+              <button type="button" id="feedback-finalize"
+                      class="shrink-0 px-4 py-2.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-brand-700 transition-colors">
+                Tamamla & gönder
+              </button>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <button type="button" id="feedback-copy" class="text-slate-600 hover:text-black underline underline-offset-2">Sohbeti kopyala</button>
+              <span class="text-slate-300">·</span>
+              <button type="button" id="feedback-skip-email" class="text-slate-600 hover:text-black underline underline-offset-2">E-posta istemem, sadece kaydet</button>
+            </div>
+          </div>
+
+          <p class="mt-3 text-[10px] uppercase tracking-[0.2em] text-slate-400">
+            Sohbet AI ile yapılır · 6 ay sonra otomatik silinir · KVKK uyumlu
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        const ENGINE = 'https://engine.gonet.com.tr';
+        const lb = document.getElementById('feedback-lightbox');
+        if (!lb) return;
+        const msgsEl = document.getElementById('feedback-messages');
+        const imgsEl = document.getElementById('feedback-images');
+        const inputRow = document.getElementById('feedback-input-row');
+        const txtEl = document.getElementById('feedback-text');
+        const sendBtn = document.getElementById('feedback-send');
+        const fileEl = document.getElementById('feedback-file');
+        const closeBtn = document.getElementById('feedback-close');
+        const statusEl = document.getElementById('feedback-status');
+        const endBlock = document.getElementById('feedback-end');
+        const emailEl = document.getElementById('feedback-email');
+        const finalBtn = document.getElementById('feedback-finalize');
+        const copyBtn = document.getElementById('feedback-copy');
+        const skipBtn = document.getElementById('feedback-skip-email');
+
+        let sessionId = '', sourceUrl = '', sourceTitle = '', messages = [], images = [], ended = false;
+
+        function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
+
+        function showStatus(text, isError) {
+          if (!text) { statusEl.classList.add('hidden'); return; }
+          statusEl.textContent = text;
+          statusEl.classList.remove('hidden');
+          statusEl.className = 'text-xs mb-2 ' + (isError ? 'text-red-600' : 'text-slate-500');
+        }
+
+        function renderMessage(m) {
+          const wrap = document.createElement('div');
+          wrap.className = m.role === 'user'
+            ? 'flex flex-col items-end'
+            : 'flex flex-col items-start';
+          const bubble = document.createElement('div');
+          bubble.className = m.role === 'user'
+            ? 'max-w-[85%] bg-black text-white px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap'
+            : 'max-w-[85%] bg-white border border-black/10 px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap';
+          bubble.textContent = m.content;
+          wrap.appendChild(bubble);
+          msgsEl.appendChild(wrap);
+          msgsEl.scrollTop = msgsEl.scrollHeight;
+        }
+
+        function open(trigger) {
+          sessionId = uid();
+          sourceUrl = trigger.getAttribute('data-source-url') || window.location.href;
+          sourceTitle = trigger.getAttribute('data-source-title') || document.title;
+          messages = []; images = []; ended = false;
+          msgsEl.innerHTML = ''; imgsEl.innerHTML = ''; txtEl.value = ''; emailEl.value = '';
+          inputRow.classList.remove('hidden'); endBlock.classList.add('hidden');
+          showStatus('');
+          lb.classList.remove('hidden');
+          lb.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+          requestAi();  // AI'yı ilk mesajı için tetikle
+        }
+
+        function close() {
+          lb.classList.add('hidden');
+          lb.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+
+        async function requestAi() {
+          showStatus('Yazıyor…');
+          sendBtn.disabled = true;
+          try {
+            const r = await fetch(ENGINE + '/api/feedback/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                session_id: sessionId,
+                source_url: sourceUrl,
+                source_title: sourceTitle,
+                messages: messages,
+                images: images,
+              }),
+            });
+            const data = await r.json();
+            if (data.ok && data.message) {
+              const m = { role: 'assistant', content: data.message };
+              messages.push(m);
+              renderMessage(m);
+              // Sohbet bitiş işareti yakala
+              if (/e-posta adresinizi vermek ister/i.test(data.message) ||
+                  /sohbetin kopyas[ıi]n[ıi]/i.test(data.message)) {
+                ended = true;
+                inputRow.classList.add('hidden');
+                endBlock.classList.remove('hidden');
+              }
+              showStatus('');
+            } else {
+              showStatus('Asistan şu an yanıt veremiyor.', true);
+            }
+          } catch (e) {
+            showStatus('Bağlantı hatası', true);
+          } finally {
+            sendBtn.disabled = false;
+          }
+        }
+
+        async function sendUser() {
+          const txt = txtEl.value.trim();
+          if (!txt || ended) return;
+          if (messages.length > 18) {
+            showStatus('Maksimum mesaj sayısına ulaşıldı. Lütfen tamamlayın.', true);
+            ended = true;
+            inputRow.classList.add('hidden');
+            endBlock.classList.remove('hidden');
+            return;
+          }
+          const m = { role: 'user', content: txt };
+          messages.push(m); renderMessage(m);
+          txtEl.value = '';
+          await requestAi();
+        }
+
+        async function uploadFile(file) {
+          if (images.length >= 2) { showStatus('En fazla 2 görsel ekleyebilirsiniz.', true); return; }
+          if (file.size > 4 * 1024 * 1024) { showStatus('Dosya 4 MB üzeri.', true); return; }
+          showStatus('Yükleniyor…');
+          const fd = new FormData();
+          fd.append('session_id', sessionId);
+          fd.append('file', file);
+          try {
+            const r = await fetch(ENGINE + '/api/feedback/upload', { method: 'POST', body: fd });
+            const data = await r.json();
+            if (data.ok) {
+              images.push({ path: data.path, mime: data.mime, size: data.size });
+              const chip = document.createElement('div');
+              chip.className = 'inline-flex items-center gap-2 text-xs bg-white border border-black/10 px-2.5 py-1';
+              chip.innerHTML = `<span>📎 Görsel ${images.length}</span>`;
+              imgsEl.appendChild(chip);
+              showStatus('');
+              // AI'ya da bildir
+              const m = { role: 'user', content: '[Ekran görüntüsü ekledim]' };
+              messages.push(m); renderMessage(m);
+              await requestAi();
+            } else {
+              showStatus('Yükleme başarısız', true);
+            }
+          } catch (e) {
+            showStatus('Yükleme hatası', true);
+          }
+        }
+
+        async function finalize(email) {
+          showStatus('Kaydediliyor…');
+          finalBtn.disabled = true;
+          try {
+            const r = await fetch(ENGINE + '/api/feedback/finalize', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                session_id: sessionId, source_url: sourceUrl, source_title: sourceTitle,
+                messages: messages, images: images, user_email: email || null,
+              }),
+            });
+            const data = await r.json();
+            if (data.ok) {
+              msgsEl.innerHTML = '';
+              const ok = document.createElement('div');
+              ok.className = 'text-center py-12';
+              ok.innerHTML = `
+                <p class="text-3xl mb-3">✓</p>
+                <p class="text-base font-semibold mb-2">Teşekkürler!</p>
+                <p class="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                  Geri bildiriminiz kaydedildi (referans #${data.id}). Ekibimiz inceleyip gerekli düzenlemeleri yapacaktır.
+                </p>
+              `;
+              msgsEl.appendChild(ok);
+              endBlock.classList.add('hidden');
+              inputRow.classList.add('hidden');
+              setTimeout(close, 3500);
+            } else {
+              showStatus('Kayıt başarısız', true);
+              finalBtn.disabled = false;
+            }
+          } catch (e) {
+            showStatus('Bağlantı hatası', true);
+            finalBtn.disabled = false;
+          }
+        }
+
+        async function copyTranscript() {
+          const txt = messages.map(m => (m.role === 'user' ? 'SİZ' : 'ASİSTAN') + ':\n' + m.content).join('\n\n');
+          try { await navigator.clipboard.writeText(txt); showStatus('Panoya kopyalandı'); }
+          catch (e) { window.prompt('Sohbeti kopyalayın:', txt); }
+        }
+
+        document.querySelectorAll('[data-feedback-open]').forEach((b) => {
+          b.addEventListener('click', () => open(b));
+        });
+        closeBtn.addEventListener('click', close);
+        lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.classList.contains('hidden')) close(); });
+        sendBtn.addEventListener('click', sendUser);
+        txtEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendUser(); }
+        });
+        txtEl.addEventListener('input', () => {
+          txtEl.style.height = 'auto';
+          txtEl.style.height = Math.min(128, txtEl.scrollHeight) + 'px';
+        });
+        fileEl.addEventListener('change', () => {
+          const f = fileEl.files && fileEl.files[0];
+          if (f) uploadFile(f);
+          fileEl.value = '';
+        });
+        finalBtn.addEventListener('click', () => finalize(emailEl.value.trim()));
+        skipBtn.addEventListener('click', () => finalize(''));
+        copyBtn.addEventListener('click', copyTranscript);
+      })();
+    </script>
   </body>
 </html>

@@ -813,10 +813,13 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
             <p class="text-xs text-slate-600 leading-relaxed mb-3">
               Bu sayfada hatalı veya güncellenmesi gereken bilgi olduğunu düşünüyorsanız bize bildirin. 48 saat içinde değerlendirip yanıtlarız.
             </p>
-            <a href={`mailto:gonet@gonet.com.tr?subject=D%C3%BCzeltme%20talebi%20%E2%80%94%20${encodeURIComponent(fm.title)}&body=Sayfa%3A%20${encodeURIComponent(url)}%0A%0AHatal%C4%B1%20veya%20g%C3%BCncellenmesi%20gereken%20b%C3%B6l%C3%BCm%3A%0A%0A`}
-               class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black border border-black px-3 py-1.5 hover:bg-black hover:text-white transition-colors">
+            <button type="button"
+                    data-feedback-open
+                    data-source-url={url}
+                    data-source-title={fm.title}
+                    class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black border border-black px-3 py-1.5 hover:bg-black hover:text-white transition-colors">
               Düzeltme talep et →
-            </a>
+            </button>
           </div>
         </div>
 
