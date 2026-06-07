@@ -22,21 +22,35 @@ const fm = page.data;
 // Sıra: yetenekler.ts'deki cat.skills array sırasına göre (editöryel düzen),
 // alphabetical değil. Markdown dosyaları yoksa skip.
 const cat = categories.find((c) => c.slug === fm.categorySlug);
-const collMap = new Map(
-  (await getCollection('yetkinlikler'))
-    .filter((p) => p.data.categorySlug === fm.categorySlug && !p.data.draft)
-    .map((p) => [p.data.skillSlug, p])
-);
+const allPages = await getCollection('yetkinlikler');
+const allMap = new Map<string, typeof allPages[0]>();
+for (const p of allPages) {
+  if (p.data.draft) continue;
+  allMap.set(`${p.data.categorySlug}::${p.data.skillSlug}`, p);
+}
 const slugify = (name: string) => name.toLowerCase()
   .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'} as Record<string,string>)[c] || c)
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// CROSS-CATEGORY global flat sıra — kategori sınırlarını aşar
+const flatGlobal: Array<typeof allPages[0]> = [];
+for (const c of categories) {
+  for (const sk of (c.skills ?? [])) {
+    const slug = sk.slug ?? slugify(sk.name);
+    const p = allMap.get(`${c.slug}::${slug}`);
+    if (p) flatGlobal.push(p);
+  }
+}
+const globalIdx = flatGlobal.findIndex(
+  (p) => p.data.categorySlug === fm.categorySlug && p.data.skillSlug === fm.skillSlug
+);
+const prevSkill = globalIdx > 0 ? flatGlobal[globalIdx - 1] : null;
+const nextSkill = globalIdx >= 0 && globalIdx < flatGlobal.length - 1 ? flatGlobal[globalIdx + 1] : null;
+
+// Aynı kategorideki diğer skill'ler ("İlgili yetkinlikler" bloğu için)
 const orderedSiblings = (cat?.skills ?? [])
-  .map((sk) => collMap.get(sk.slug ?? slugify(sk.name)))
+  .map((sk) => allMap.get(`${fm.categorySlug}::${sk.slug ?? slugify(sk.name)}`))
   .filter((p): p is NonNullable<typeof p> => !!p);
-const currentIdx = orderedSiblings.findIndex((p) => p.data.skillSlug === fm.skillSlug);
-const prevSkill = currentIdx > 0 ? orderedSiblings[currentIdx - 1] : null;
-const nextSkill = currentIdx >= 0 && currentIdx < orderedSiblings.length - 1 ? orderedSiblings[currentIdx + 1] : null;
-// "İlgili yetkinlikler" bloğunda current dışı (sibling card list)
 const siblings = orderedSiblings
   .filter((p) => p.data.skillSlug !== fm.skillSlug)
   .map((p) => ({ slug: p.data.skillSlug, title: p.data.title }));
@@ -104,14 +118,16 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
              data-detail-hero-fade></div>
       )}
 
-      <!-- Önceki yetkinliğe slider okuyu (sol) -->
+      <!-- Önceki/sonraki yetkinlik okları (cross-category — kategori sınırlarını aşar) -->
+      <!-- Hero içinde absolute → scroll sırasında JS ile fixed'a alınır (sticky sliders) -->
       {prevSkill && (
-        <a href={`/yetenekler/${fm.categorySlug}/${prevSkill.data.skillSlug}`}
+        <a href={`/yetenekler/${prevSkill.data.categorySlug}/${prevSkill.data.skillSlug}`}
            title={`Önceki: ${prevSkill.data.title}`}
-           class="hero-nav-arrow group hidden lg:flex absolute left-2 xl:left-6 top-1/2 -translate-y-1/2 z-20
-                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center
+           data-hero-nav="prev"
+           class="hero-nav-arrow group hidden lg:flex absolute left-2 xl:left-6 top-1/2 -translate-y-1/2 z-30
+                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center rounded-full
                   bg-white/70 hover:bg-white backdrop-blur border border-black/10 hover:border-black
-                  transition-all rounded-full shadow-sm hover:shadow-md"
+                  shadow-sm hover:shadow-md"
            aria-label={`Önceki yetkinlik: ${prevSkill.data.title}`}>
           <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
@@ -123,12 +139,13 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         </a>
       )}
       {nextSkill && (
-        <a href={`/yetenekler/${fm.categorySlug}/${nextSkill.data.skillSlug}`}
+        <a href={`/yetenekler/${nextSkill.data.categorySlug}/${nextSkill.data.skillSlug}`}
            title={`Sonraki: ${nextSkill.data.title}`}
-           class="hero-nav-arrow group hidden lg:flex absolute right-2 xl:right-6 top-1/2 -translate-y-1/2 z-20
-                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center
+           data-hero-nav="next"
+           class="hero-nav-arrow group hidden lg:flex absolute right-2 xl:right-6 top-1/2 -translate-y-1/2 z-30
+                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center rounded-full
                   bg-white/70 hover:bg-white backdrop-blur border border-black/10 hover:border-black
-                  transition-all rounded-full shadow-sm hover:shadow-md"
+                  shadow-sm hover:shadow-md"
            aria-label={`Sonraki yetkinlik: ${nextSkill.data.title}`}>
           <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
@@ -358,6 +375,38 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         margin-bottom: 0.625rem !important;
         line-height: 1.75 !important;
       }
+      /* ───── Hero nav okları — scroll'da sticky, scrolling sırasında daire kaybolur ───── */
+      @media (min-width: 1024px) {
+        .hero-nav-arrow {
+          /* Sticky — sayfa scroll'da viewport ortasında kalır */
+          position: fixed !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                      border-color 0.3s ease,
+                      box-shadow 0.3s ease,
+                      backdrop-filter 0.3s ease,
+                      opacity 0.2s ease;
+        }
+        .hero-nav-arrow[data-hero-nav="prev"] { left: 1rem !important; right: auto !important; }
+        .hero-nav-arrow[data-hero-nav="next"] { right: 1rem !important; left: auto !important; }
+      }
+      @media (min-width: 1280px) {
+        .hero-nav-arrow[data-hero-nav="prev"] { left: 1.5rem !important; }
+        .hero-nav-arrow[data-hero-nav="next"] { right: 1.5rem !important; }
+      }
+      /* Scrolling esnasında: daire (background, border, shadow, backdrop) kaybol → sadece ok kalır */
+      .hero-nav-arrow.is-scrolling {
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      .hero-nav-arrow.is-scrolling .group-hover\:opacity-100 {
+        opacity: 0 !important;
+      }
+      /* Footer/CTA'ya yakınken oklar gizlenmesin diye — body sonu sınırı yok, hep görünür */
+
       /* Tablo aralıkları */
       .body-typography table {
         margin-top: 2.5rem !important;
@@ -948,6 +997,20 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
           document.querySelectorAll('[data-share-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
         }
       });
+
+      // Hero nav okları — scroll'da daire kaybolsun, scroll bitince animasyonla geri gelsin
+      const navArrows = document.querySelectorAll('.hero-nav-arrow');
+      if (navArrows.length > 0 && window.matchMedia('(min-width: 1024px)').matches) {
+        let scrollTimer = null;
+        const onScroll = () => {
+          navArrows.forEach((a) => a.classList.add('is-scrolling'));
+          if (scrollTimer) clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            navArrows.forEach((a) => a.classList.remove('is-scrolling'));
+          }, 180);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
 
       // Paragraf font-zoom kontrolleri (her body-typography > p için +/−)
       const body = document.querySelector('.body-typography');
