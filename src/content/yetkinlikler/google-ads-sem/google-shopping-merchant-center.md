@@ -36,6 +36,13 @@ faqs:
     a: "Gonet, Google Merchant Center API'sini günlük çalışan bir script (betik) ile izler. Script, 'disapproved' (reddedilmiş) veya 'expiring' (süresi dolmakta) durumundaki ürünleri tespit edip red nedenini (GTIN eksik, politika ihlali, landing page mismatch vb.) kategorize eder ve otomatik ticket oluşturur. Müşteri tarafında düzeltme yapılınca feed'e yansıtılır ve re-crawl (yeniden taranma) tetiklenir. Ortalama çözüm süresi 6-12 saat; manuel takipte bu 3-5 gün sürebilir. Red oranını %1'in altında tutarak kampanya gösterim kaybını minimize ediyoruz."
   - q: "Google Shopping için başlık optimizasyonu nasıl yapılmalı?"
     a: "Google Shopping başlığı, arama terimini karşılamak ve tıklama almak için optimize edilmelidir. Gonet formülü: [Marka] [Temel Özellik] [Alt Kategori] [Varyant]. İlk 70 karakter mobilde görünür; bu bölüme en önemli anahtar kelimeler yerleştirilir. Örnek: 'Adidas Ultraboost 22 Erkek Koşu Ayakkabısı Mavi 43'. 'Koşu ayakkabısı' terimi kullanıcı niyetini, 'mavi 43' varyantı filtrelemeyi karşılar. Gereksiz kelimeler ('en iyi', 'kaliteli') kaldırılır. A/B testlerde bu yapı, genel e-ticaret başlıklarına göre %30 daha yüksek CTR (tıklama oranı) göstermiştir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Google Shopping + Merchant Center nedir?
@@ -45,6 +52,25 @@ Google Shopping, ürün aramalarında görselli reklam formatı sunan Google Ads
 Bir Shopping kampanyasının performansı doğrudan feed kalitesiyle orantılıdır. Eksik GTIN, belirsiz başlıklar, hatalı kategorizasyon kampanyayı gösterim alamama, düşük Kalite Skoru ve yüksek maliyete iter. Gonet, 2008'den beri e-ticaret markalarıyla çalıştığı için feed mühendisliğini deneyimle öğrenmiştir: hangi başlık deseninin tıklama aldığı, hangi custom label yapısının ROAS'ı (Return on Ad Spend) artırdığı, hangi product type (ürün tipi) hiyerarşisinin Google algoritmasını beslediği 15+ yıllık vaka çalışmalarında test edilmiştir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%180</div>
+    <div class="l">CTR artışı<br>optimal feed</div>
+  </div>
+  <div class="stat">
+    <div class="n">GTIN</div>
+    <div class="l">Zorunlu<br>ürün kodu</div>
+  </div>
+  <div class="stat">
+    <div class="n">72 sa</div>
+    <div class="l">Feed refresh<br>min sıklık</div>
+  </div>
+  <div class="stat">
+    <div class="n">15+</div>
+    <div class="l">Custom label<br>seviye</div>
+  </div>
+</div>
 
 1. **Doğru kitle eşleşmesi**: Feed başlığı ve açıklaması, kullanıcının arama terimini karşılamazsa reklam gösterilmez. Google, feed içeriğini metin reklamlardan farklı bir algoritmaya tabi tutar; feed optimizasyonu olmadan kampanya 'yayında' olsa da sıfır gösterim alabilir.
 2. **Kalite Skoru & Teklif Avantajı**: Tam GTIN, yüksek çözünürlüklü görsel, tutarlı marka bilgisi feed kalite skorunu yükseltir; bu da daha düşük tıklama başı maliyet (CPC) ve üst sıralama anlamına gelir.

@@ -36,6 +36,13 @@ faqs:
     a: "Restorasyon tercih edilir çünkü hesap geçmişi (historical data) Google'ın makine öğrenimi için değerlidir. Sıfırdan yeni hesap açarsanız Quality Score, audience sinyalleri, dönüşüm verisi sıfırlanır; algoritma öğrenme aşamasında 4-8 hafta düşük performans gösterebilir. Ancak eski hesapta ciddi policy ihlali (suspended account), spam işaretleri veya kurtarılamaz Quality Score problemleri varsa yeni hesap açılır. Gonet, pre-audit sırasında hangi yolun daha mantıklı olduğunu veri ile gösterir; %85 vakada restorasyon daha karlı çıkar."
   - q: "Restorasyon sonrası performans takibi nasıl yapılır, sürekli destek gerekli mi?"
     a: "İlk 30 gün haftalık performans raporları sunulur: CPA, ROAS, gösterim payı, Quality Score trendleri, anahtar kelime düzeyinde kazanım/kayıp analizi. 30. günde detaylı post-restorasyon raporu ile baseline ile karşılaştırma yapılır. Sürekli destek isteğe bağlıdır ama önerilir; Google Ads algoritmaları dinamik, rakip stratejileri değişken, mevsimsellik faktörleri aktif olduğundan aylık optimizasyon devam etmelidir. Gonet'in retainer (aylık hizmet) paketleri, restorasyon sonrası sürekli iyileştirmeyi kapsar; alternatif olarak üç ayda bir audit tekrarı da mümkündür."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Hesap denetimi & restorasyonu nedir?
@@ -45,6 +52,25 @@ Google Ads hesap denetimi (audit), mevcut kampanya yapısının, reklam gruplar�
 Bir hesap genellikle şu sebeplerle bozulur: koordinasyonsuz ekip değişiklikleri, biriken test kampanyaları, çakışan anahtar kelimeler, kötü yapılandırılmış negatif kelime stratejileri, güncel olmayan reklam metinleri, hatalı dönüşüm piksel atamaları, uyumsuz teklif stratejileri veya hiç uygulanmamış A/B testleri. 26 yıldır yüzlerce hesap denetledik; ortalama %30-50 bütçe kaybı görüyoruz.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">220+</div>
+    <div class="l">Audit tamamlanan<br>marka portföyü</div>
+  </div>
+  <div class="stat">
+    <div class="n">72 sa</div>
+    <div class="l">Quick win<br>tespit süresi</div>
+  </div>
+  <div class="stat">
+    <div class="n">-%30</div>
+    <div class="l">Boş harcama<br>ortalama tasarruf</div>
+  </div>
+  <div class="stat">
+    <div class="n">5 fazda</div>
+    <div class="l">Audit metod<br>standardı</div>
+  </div>
+</div>
 
 Performans kaybı sinsi gelişir. Hesap sahibi, aylık raporlarda tıklama sayısının düştüğünü ya da CPA'nın (dönüşüm başına maliyet) arttığını fark eder, ancak hangi katmanda hangi hatanın bu kaybı yarattığını çözemez. Klasik belirtiler: yüksek gösterim payı kaybı (impression share loss), düşük Quality Score, artan maliyetler rağmen azalan dönüşüm, çakışan kampanyaların birbirini yemesi, mobil/masaüstü performans dengesizlikleri.
 

@@ -36,6 +36,13 @@ faqs:
     a: "Multisite, tek WordPress kurulumu içinde birden fazla site yönetimini sağlar; franchises, bölgesel şubeler, marka aileleri için idealdir. Avantajları: merkezi plugin/tema yönetimi (%60 bakım süresi tasarrufu), paylaşılan kullanıcı veritabanı (SSO entegrasyonu kolaylaşır), tek yedekleme/güvenlik güncellemesi. Dezavantajı: tüm siteler aynı sunucudadır, bir sitenin yüksek trafiği diğerlerini etkiler. Gonet, Multisite'ı şu senaryolarda önerir: 10+ benzer yapıdaki site, merkezden içerik dağıtımı (network-wide post syndication), unified analytics. Örnek: 25 bölgesel franchise sitesi, merkez ofisten ürün katalog güncellemesi alır ancak her şube yerel kampanyaları kendi paneliyle yönetir. Alternative: Her site ayrı WordPress kurulumu + WP Migrate DB Pro ile selective sync — daha yüksek izolasyon, ama yönetim yükü fazla."
   - q: "WordPress'te Schema.org markup'ı ACF verilerinden otomatik nasıl üretilir?"
     a: "ACF field group'larına Schema.org entity'lere (Product, Article, Event, Organization) karşılık gelen field'lar eklenir. functions.php içinde wp_head hook'u ile JSON-LD script tag'i enjekte edilir: get_field() ile ACF değerleri çekilir, PHP array olarak Schema.org formatına dönüştürülür, json_encode() ile script tag içine yazılır. Gonet'te bu işlem için yeniden kullanılabilir schema generator function'ları geliştiririz. Örnek: Product post type'ında ACF field'ları (price, availability, brand, review) var; single-product.php template'inde generate_product_schema() function'ı çağrılır, sayfanın head kısmına Product JSON-LD ekler. Google Rich Results Test ile doğrulama yapılır. Advanced: ACF Flexible Content ile sayfa bazlı çoklu Schema (Article + VideoObject + FAQPage) aynı sayfada kombine edilir, @graph yapısı kullanılır. Bu yaklaşım, Google Search Gallery eligibility'yi %80 artırır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## WordPress (legacy + headless) nedir?
@@ -45,6 +52,25 @@ WordPress, dünya çapında web sitelerinin %43'ünü çalıştıran açık kayn
 Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 220+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">%43</div>
+    <div class="l">Web sitelerinin<br>WP üzerine</div>
+  </div>
+  <div class="stat">
+    <div class="n">Headless</div>
+    <div class="l">WP REST/<br>GraphQL API</div>
+  </div>
+  <div class="stat">
+    <div class="n">PHP 8+</div>
+    <div class="l">Modern<br>runtime</div>
+  </div>
+  <div class="stat">
+    <div class="n">Block</div>
+    <div class="l">Gutenberg<br>editor</div>
+  </div>
+</div>
 
 WordPress, kurumsal markaların hız ve esneklik ihtiyacını karşılarken yöneticilere tanıdık bir arayüz sunar. Ancak WordPress projelerinin %60'ı performans, güvenlik veya ölçeklenebilirlik sorunlarıyla karşılaşır — çünkü varsayılan yapılandırmalar ve hazır temalar kurumsal gereksinimleri karşılamaz. Custom theme geliştirme, gereksiz plugin yükünü azaltır, sayfa yükleme süresini %40-60 oranında iyileştirir ve marka kimliğini piksel düzeyinde kontrol etmenizi sağlar. ACF, içerik editörlerinin kod bilgisi olmadan karmaşık veri yapıları (ürün karşılaştırma tabloları, interaktif timeline, dinamik pricing modülleri) oluşturmasını mümkün kılar; bu da IT ekibine bağımlılığı %70 azaltır.
 

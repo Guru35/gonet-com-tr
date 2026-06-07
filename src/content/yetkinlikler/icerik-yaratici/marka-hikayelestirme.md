@@ -36,6 +36,13 @@ faqs:
     a: "Çelişki, genellikle archetype ile ürün tonalitesi arasında uyumsuzluktan kaynaklanır. Gonet, bu durumda 'dual-layer messaging' (iki katmanlı mesajlaşma) yaklaşımı önerir: marka seviyesinde duygusal, visyon odaklı narrative; ürün seviyesinde fonksiyonel, benefit odaklı kopya. Örneğin 'Kaşif' arketipli bir SaaS markası, brand hikayesinde 'sınırları zorlamak' anlatırken, ürün sayfasında 'zaman tasarrufu, %30 verimlilik' gibi rasyonel argümanlara yer verir. İki katman birbiriyle çelişmez, aksine takviye eder; önemli olan tone-of-voice (ses tonu) rehberinde bu geçişin netleştirilmesidir."
   - q: "Hikayeleştirme ROI (yatırım getirisi) olarak nasıl ölçülür?"
     a: "Direkt ölçüm zor olsa da, proxy metrikler (vekil ölçütler) kullanılır: brand recall (marka hatırlanması) araştırmaları, sosyal medyada share/comment oranı (paylaşım/yorum oranı), Google Trends'te marka adı aramaları, basında organic mention (organik bahsedilme) sayısı ve müşteri yaşam boyu değeri (CLV). Gonet, hikayeleştirme öncesi ve 6-12 ay sonrası bu metrikleri karşılaştırır. Örneğin bir e-ticaret markasında, founder story videosu yayınlandıktan sonra 'hakkımızda' sayfası ziyaretleri %120 artmış, aynı dönemde repeat purchase (tekrar satın alma) oranı %18 yükselmişse, narrative'in CLV'ye etkisi kanıtlanmış olur."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Marka hikayeleştirme nedir?
@@ -45,6 +52,25 @@ Marka hikayeleştirme (brand storytelling), bir markanın değerlerini, kökenin
 Gonet'in 2000'den bu yana 220+ markayla yürüttüğü projelerde gözlemlediğimiz gerçek: ürün özellikleri unutulur, hikayeler kalıcıdır. İleri seviye marka hikayeleştirme, pazarlama metinlerini tutarlı bir 'evren' içinde örer; her kampanya, sosyal medya gönderisi ve kurumsal iletişim aynı anlatı omurgasından beslenir. Bu yaklaşım, marka hatırlanabilirliğini ortalama %40 artırır ve müşteri yaşam boyu değerini (CLV) %25-35 yükseltir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">3-Act</div>
+    <div class="l">Klasik storytelling<br>yapi</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%55</div>
+    <div class="l">Hatirlanma<br>artisi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Persona</div>
+    <div class="l">Karakter<br>tabanli</div>
+  </div>
+  <div class="stat">
+    <div class="n">Arc</div>
+    <div class="l">Duygusal<br>yay</div>
+  </div>
+</div>
 
 **Farklılaşma krizinde çıkış:** Benzer ürün/hizmet sunan onlarca rakip arasında fark yaratan tek unsur, markanın 'neden var olduğu' sorusuna verdiği inandırıcı cevaptır. Hikaye, bu cevabı rasyonel argümandan çok duygusal rezonansa dönüştürür.
 

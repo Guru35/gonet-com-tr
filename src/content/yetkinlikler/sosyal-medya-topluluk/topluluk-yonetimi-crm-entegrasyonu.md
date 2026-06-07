@@ -36,6 +36,13 @@ faqs:
     a: "Facebook Messenger ve Instagram DM chatbot'ları (ManyChat, MobileMonkey, Chatfuel) webhook API'leri ile CRM'e bağlanır. Kullanıcı bot ile etkileşime geçtiğinde: (1) İlk mesaj CRM'de yeni contact kaydı oluşturur veya mevcut kaydı günceller. (2) Bot conversation log (sohbet kaydı) CRM'de note veya custom object (özel nesne) olarak saklanır. (3) Kullanıcı bottan 'canlı destek' talep ederse, CRM'de otomatik task veya ticket açılır, destek ekibine bildirim gider. (4) Bot içinde toplanan veri (tercih edilen ürün kategorisi, bütçe aralığı, ilgi alanları) CRM'de custom property (özel özellik) alanlarına yazılır, segmentasyon ve lead scoring için kullanılır. HubSpot'ta Conversations inbox ile entegrasyon native olarak sağlanır — tüm chatbot ve live chat (canlı sohbet) konuşmaları contact timeline'da kronolojik görünür. Gonet, 2023'te yönettiği online eğitim markasında Instagram chatbot'tan gelen 1.200+ lead'i HubSpot'a entegre etti; bot ile ön eleme yapılan (bütçe + ilgi alanı soruları) lead'lerin sales call (satış görüşmesi) dönüşüm oranı %34'e ulaştı — manuel DM yanıtlarında bu oran %18'di."
   - q: "CRM entegrasyonlu topluluk yönetiminde veri gizliliği (GDPR, KVKK) nasıl sağlanır?"
     a: "Sosyal medya etkileşimlerini CRM'e aktarmak GDPR (Avrupa) ve KVKK (Türkiye) kapsamında 'kişisel veri işleme' sayılır, bu nedenle: (1) Kullanıcının açık rızası (explicit consent) gerekir — sosyal profil bio'sunda veya ilk DM yanıtında 'CRM kaydı' hakkında bilgilendirme yapılır, kullanıcı onay verirse işlem devam eder. (2) CRM'de saklanan sosyal veri minimize edilir — sadece işlemsel gerekli alanlar (ad, kullanıcı adı, etkileşim türü, timestamp) saklanır, hassas bilgiler (sağlık, etnik köken vb.) filtrellenir. (3) Silme talepleri (right to be forgotten / unutulma hakkı) için CRM'de otomatik data deletion workflow (veri silme iş akışı) kurulur — kullanıcı 'unfollow' yapar veya açıkça talep ederse, 30 gün içinde tüm CRM kayıtları silinir. (4) Veri aktarımı encrypted API (şifrelenmiş API) ve HTTPS üzerinden yapılır, CRM platformu GDPR/KVKK compliant (uyumlu) olmalıdır (HubSpot, Pipedrive, Zoho hepsi sertifikalı). Gonet, her CRM entegrasyonunda KVKK uyumluluk checklist (kontrol listesi) uygular: consent management (rıza yönetimi) mekanizması, veri saklama süresi politikası (default 24 ay), audit log (denetim kaydı) ve kullanıcı talep formu. 2022'den beri yönetilen 18 sosyal CRM projesinde sıfır KVKK şikayeti veya ihlali yaşandı."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Topluluk yönetimi + CRM entegrasyonu nedir?
@@ -53,6 +60,25 @@ Temel bileşenler:
 - **Çift yönlü senkronizasyon**: CRM'deki satış aşaması değişikliklerinin sosyal medya outreach stratejisini güncellemesi
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">-%30</div>
+    <div class="l">Musteri destek<br>talep azalma</div>
+  </div>
+  <div class="stat">
+    <div class="n">Discord</div>
+    <div class="l">Modern community<br>platformu</div>
+  </div>
+  <div class="stat">
+    <div class="n">CRM</div>
+    <div class="l">HubSpot/Salesforce<br>entegrasyon</div>
+  </div>
+  <div class="stat">
+    <div class="n">NPS</div>
+    <div class="l">Topluluk<br>saglik metrigi</div>
+  </div>
+</div>
 
 Sosyal medya etkileşimleri, B2B ve B2C markalar için en kaliteli sıcak lead (warm lead) kaynaklarından biridir ancak %73'ü CRM sistemlerine hiç kaydedilmez (Salesforce 2023 Connected Customer raporu). Manuel aktarım zaman alır, hata oranı yüksektir ve satış ekibi ile pazarlama arasında veri kopukluğu yaratır.
 

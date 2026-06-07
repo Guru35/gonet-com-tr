@@ -36,6 +36,13 @@ faqs:
     a: "Google Ads, dönüşümü tıklamadan itibaren 90 gün içinde kabul eder (ayarlanabilir conversion window). Ancak Smart Bidding algoritması, **güncel veriyi** daha ağırlıklı işler. Satış bilgisi 30 gün gecikmeli aktarılırsa sistem o tıklamanın değerini geç öğrenir, benzer fırsatları kaçırmış olabilir. Gonet, offline import'u **günlük otomatik** yapar (API üzerinden her gece CRM'den çeker). Kritik sektörlerde (finans, otomotiv) gerçek zamanlıya yakın (near real-time) entegrasyon – webhook ile anlaşma kapanır kapanmaz Google Ads'e bildirim – kurulur. Gecikme azaldıkça ROAS iyileşmesi hızlanır; portföy analizlerimizde 7 günlük gecikme → 1 günlük geçişte ortalama %12 ROAS artışı görüyoruz."
   - q: "Smart Bidding'e geçince kampanya kontrolü tamamen Google'a mı bırakılır?"
     a: "Hayır. Smart Bidding **taktiksel** teklif kararlarını otomatikleştirir (hangi arama sorgusunda, hangi kullanıcıya, hangi saatte ne kadar teklif verileceği), ancak **stratejik** kontrol kampanya yöneticisindedir. Gonet şu parametreleri belirler: (1) Hedef CPA/ROAS seviyesi – agresif mi muhafazakâr mı büyüme. (2) Kampanya yapısı – hangi anahtar kelimeler aynı ad group'ta, hangi kitleler exclude. (3) Bütçe dağılımı – hangi kampanyaya ne kadar pay. (4) Ad copy ve uzantılar – kreatif mesaj. (5) Landing page kalitesi – dönüşüm hunisi. (6) Seasonal adjustment – özel dönemlerde geçici hedef değişikliği. (7) Audience sinyalleri – hangi kitlelere odaklanılacağı ipucu. Algoritma bu kılavuzlar çerçevesinde optimize eder; istenmeyen sonuç varsa (ör. düşük kalite lead artışı) strateji ve sinyal seti hızla revize edilir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Smart Bidding & offline conversion import nedir?
@@ -45,6 +52,25 @@ Smart Bidding (Akıllı Teklif Verme), Google Ads'in makine öğrenmesi algoritm
 **Offline conversion import** (çevrimdışı dönüşüm aktarımı), web sitesi ya da uygulamada gerçekleşmeyen ancak iş sonucunu belirleyen eylemlerin (mağaza satışı, telefon kapanışı, CRM'deki anlaşma, servis randevusu) Google Ads'e geri bildirilmesi işlemidir. GCLID (Google Click Identifier) veya gelişmiş eşleştirme (enhanced conversions) ile tıklama ile çevrimdışı işlem arasında köprü kurulur. Bu veri akışı, Smart Bidding algoritmasına gerçek kazanç sinyali gönderir; böylece sistem sadece form gönderimini değil, ödeme yapan müşteriyi hedefler.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">tCPA</div>
+    <div class="l">Hedef CPA<br>otomasyonu</div>
+  </div>
+  <div class="stat">
+    <div class="n">tROAS</div>
+    <div class="l">ROAS bazlı<br>akıllı teklif</div>
+  </div>
+  <div class="stat">
+    <div class="n">±%15</div>
+    <div class="l">Sezonel sapma<br>tolerans aralığı</div>
+  </div>
+  <div class="stat">
+    <div class="n">14 gün</div>
+    <div class="l">Min. öğrenme<br>aşaması</div>
+  </div>
+</div>
 
 **1. Gerçek ROAS ölçümü:** E-ticaret dışı sektörlerde (B2B, danışmanlık, finans, otomotiv, sağlık) dönüşüm fiziksel ya da offline gerçekleşir. Offline veri olmadan Google Ads, yalnızca lead formunu optimize eder; bu da düşük kalite potansiyel müşteriye yol açar. Offline import ile sistem, hangi tıklamanın satışa dönüştüğünü öğrenir ve benzer profillere daha agresif teklif verir.
 

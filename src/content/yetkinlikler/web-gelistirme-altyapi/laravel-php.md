@@ -36,6 +36,13 @@ faqs:
     a: "CodeIgniter 3.x, MVC yapısı olsa da Laravel'den çok farklıdır (autoloading, dependency injection, ORM yok). Gonet'in migration stratejisi: (1) 1-2 hafta audit — mevcut kod analizi, database schema incelemesi, üçüncü parti entegrasyonlar tespit, (2) 4-6 hafta kademeli taşıma — önce routing ve controller'lar Laravel'e, CodeIgniter view'lar Blade'e çevrilir, (3) Database katmanı — CI'ın Query Builder'ı yerine Eloquent ORM (bu aşama en uzun, çünkü raw SQL'ler refactor edilir), (4) Authentication/session migration — CI session library yerine Laravel Sanctum/Passport, (5) 2 hafta test & stabilization. Orta ölçekli bir proje (30-40 controller, 50 tablo) 10-12 haftada tamamlanır. Parallel run stratejisi: önce Laravel backend API'ler yayınlanır, frontend kademeli geçer. Bu yaklaşım downtime riskini minimize eder. Legacy kod için facade pattern kullanılır (CI helper'lar Laravel service olarak wrap edilir)."
   - q: "Laravel + Inertia.js ile Laravel + RESTful API + Vue.js arasında ne zaman hangisini seçersiniz?"
     a: "Inertia.js, server-side routing ile SPA deneyimi sunar — controller JSON yerine Inertia response döner, frontend Vue/React component'lere props olarak veri gelir. RESTful API yaklaşımında ise Laravel sadece API endpoint'ler sağlar, frontend tamamen ayrı bir SPA (Vite + Vue/React). Gonet, şu kriterlere göre seçer: (1) Tek frontend varsa (sadece web, mobil app yok) → Inertia tercih edilir, çünkü API versioning/CORS overhead'i yok, SEO için server-side rendering kolay (Inertia SSR). (2) Mobil app veya üçüncü parti entegrasyonlar varsa → RESTful API zorunlu, Sanctum ile token yönetimi. (3) SEO kritikse ve Next.js/Nuxt gibi meta-framework kullanılmayacaksa → Inertia SSR veya Laravel + Livewire (AJAX yerine WebSocket). Örnek: kurumsal B2B portal için Inertia + Vue 3, çünkü mobil app yok ve geliştirme hızı kritik. E-ticaret platformu için RESTful API + Next.js, çünkü SEO ve PWA mobil uygulama gerekiyor. Inertia, kod tekrarını azaltır (%30 daha az boilerplate), ancak frontend-backend tight coupling yaratır — takım yapısına göre karar verilir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Laravel + PHP nedir?
@@ -43,6 +50,25 @@ faqs:
 Laravel, PHP dilinin en yaygın kullanılan modern web framework'üdür. 2011'de Taylor Otwell tarafından geliştirilen Laravel, MVC (Model-View-Controller) mimarisi, Eloquent ORM, Blade şablon motoru ve geniş ekosistemi ile kurumsal düzeyde web uygulamaları için standart haline gelmiştir. Gonet, 2008'den beri PHP, 2013'ten beri Laravel ile production ortamlarında kritik projelere imza atmıştır. Octane (yüksek performans HTTP sunucusu), Horizon (kuyruk yönetimi), Sanctum (API kimlik doğrulama) gibi ileri düzey paketlerde uzmanlık, 15 yılı aşkın deneyimimizin sonucudur.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Laravel 11</div>
+    <div class="l">Aktif<br>major sürüm</div>
+  </div>
+  <div class="stat">
+    <div class="n">PHP 8.3</div>
+    <div class="l">Min runtime<br>desteklenen</div>
+  </div>
+  <div class="stat">
+    <div class="n">Eloquent</div>
+    <div class="l">Active Record<br>ORM</div>
+  </div>
+  <div class="stat">
+    <div class="n">Octane</div>
+    <div class="l">Long-running<br>app server</div>
+  </div>
+</div>
 
 Kurumsal web projelerinin %70'inden fazlası backend altyapı sorunları, kötü kod mimarisi veya ölçeklenememe nedeniyle başarısız olur. Laravel, doğru uygulandığında bu riskleri minimize eder:
 

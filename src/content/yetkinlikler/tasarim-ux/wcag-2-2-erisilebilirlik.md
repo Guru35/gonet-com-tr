@@ -36,6 +36,13 @@ faqs:
     a: "İlk prensip: 'No ARIA is better than bad ARIA'. Semantic HTML5 (nav, button, main) her zaman ARIA'dan önceliklidir. ARIA yalnızca semantic HTML'in yetersiz kaldığı durumlarda kullanılır: (1) Dinamik içerik değişimleri (aria-live bölgeleri, SPA sayfa geçişlerinde), (2) Custom widget'lar (accordion, tabs, modal — role='dialog', aria-expanded), (3) İlişki tanımlama (aria-describedby, aria-labelledby, form hataları için), (4) Durum bildirimi (aria-disabled, aria-current). Örnek: <div role='button'> yerine her zaman <button> kullanılmalı; ancak button içinde loading spinner varsa aria-busy='true' eklenir. Gonet projelerinde ARIA kullanımı kod review'da özellikle denetlenir."
   - q: "Renk kontrastı dışında görme engelliler için başka hangi optimizasyonlar kritik?"
     a: "Kontrast oranı temeldir ancak yeterli değildir. Kritik diğer optimizasyonlar: (1) Bilginin yalnızca renkle iletilmemesi (hata mesajında kırmızı renk + ikon + metin), (2) Focus göstergeleri (klavye ile gezinirken hangi elemanda olduğu açıkça görünmeli, minimum 2px outline), (3) Metin ölçeklendirme (200% zoom'da layout bozulmamalı, text-overflow yerine reflow), (4) Alt text zenginliği (görselin bağlamını anlatan açıklama, dekoratif görseller için alt=''), (5) Başlık hiyerarşisi (H1>H2>H3 mantıksal sıra, ekran okuyucular bu yapıyı içindekiler gibi kullanır). Gonet projelerinde Lighthouse ve manuel zoom testleri her sprint'te yapılır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## WCAG 2.2 erişilebilirlik nedir?
@@ -47,6 +54,25 @@ WCAG 2.2, 2023'te yayınlanan son versiyon olarak 2.1'e 9 yeni başarı kriteri 
 Gonet'te WCAG 2.2 uyumluluğu, semantic HTML5, ARIA (Accessible Rich Internet Applications) etiketleri, form validation mesajlarının doğru iletilmesi ve odak (focus) yönetimi gibi tekniklerle sağlanır. Manuel testler yanında Axe, WAVE ve Lighthouse gibi otomatik araçlar kullanılır, ancak asıl doğrulama gerçek ekran okuyucu testleri ile yapılır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">AA</div>
+    <div class="l">Min uyum<br>seviyesi</div>
+  </div>
+  <div class="stat">
+    <div class="n">4.5:1</div>
+    <div class="l">Kontrast<br>orani min</div>
+  </div>
+  <div class="stat">
+    <div class="n">2.2</div>
+    <div class="l">Aktif<br>WCAG surumu</div>
+  </div>
+  <div class="stat">
+    <div class="n">AODA/EAA</div>
+    <div class="l">Yasal<br>uyumluluk</div>
+  </div>
+</div>
 
 Türkiye'de 8,5 milyonun üzerinde engelli birey yaşamaktadır (TÜİK 2022). Bu kitle, erişilebilir olmayan web sitelerinde alışveriş yapamaz, formu dolduramaz, içerik tüketemez. Erişilebilirlik yalnızca sosyal sorumluluk değil, iş fırsatıdır: erişilebilir siteler %20-30 daha geniş kitleye ulaşır, SEO performansı artar (Google ranking faktörlerinden biri), yasal risk düşer.
 

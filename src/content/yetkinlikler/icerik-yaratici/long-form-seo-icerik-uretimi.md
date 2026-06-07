@@ -36,6 +36,13 @@ faqs:
     a: "Content consolidation (içerik birleştirme) stratejisi, mevcut yazıları pillar'a dönüştürmenin etkili yoludur. Gonet, aynı topic cluster'daki 5-8 blog yazısını analiz eder, overlap (örtüşme) ve gap (boşluk) haritası çıkarır. En yüksek traffic alan yazı pillar base (pillar tabanı) olur, diğerleri merge edilir (birleştirilir). Eski URL'ler 301 redirect ile pillar'a yönlendirilir, böylece backlink equity (bağlantı değeri) korunur. Gonet'in e-ticaret müşterisinde 12 blog yazısı tek pillar'a consolidate edildiğinde, organik trafik %280 artmış, 11 eski URL'nin link juice'i (bağlantı gücü) yeni sayfaya aktarılmıştır. Sıfırdan yazmak daha temiz yapı sağlar, ancak consolidation SEO equity kaybını önler. Hybrid yaklaşım: mevcut içerik iskelet olur, yeni research ve section'lar eklenir."
   - q: "Long-form içeriğin ROI'sini nasıl ölçeriz, hangi metrikler başarıyı gösterir?"
     a: "Gonet, long-form içerik ROI'sini 4 katmanda ölçer: (1) Organic visibility: target keyword ve semantic variant'ların (anlamsal varyantlar) top 10'a girme oranı, impression share. (2) Engagement: average time on page (ortalama sayfa süresi) >3 dakika, scroll depth %75+, bounce rate <%40. (3) Conversion: içerikten gelen lead/sale sayısı, assisted conversion (destekli dönüşüm) oranı. (4) Authority signal: backlink acquisition (bağlantı kazanımı), AI citation (AI alıntılanma) sayısı, social share. GA4 + GSC + SEMrush entegrasyonu ile dashboard kurulur. Gonet'in SaaS müşterilerinde pillar content, ilk 6 ayda average session duration 4.2 dakika, 12 ay içinde 37 backlink, 18 ayda $142K attributed revenue (atfedilen gelir) üretmiştir. Content production cost ÷ attributed revenue formülü, tipik pillar ROI'sini 1:8 civarında gösterir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Long-form SEO içerik üretimi nedir?
@@ -47,6 +54,25 @@ Bu metodolojide ana sayfa (pillar), bir konunun temel çerçevesini sunarken, cl
 Gonet'te long-form içerik üretimi, yalnızca kelime sayısı hedefi değildir. Search intent mapping (arama niyeti haritalama), entity-based SEO (varlık tabanlı SEO), structured data markup (yapılandırılmış veri işaretleme) ve LLM-extraction readiness (LLM çıkarım hazırlığı) bir arada kullanılır. 2000'den bu yana 220+ marka için üretilen binlerce içerik deneyimi, her sektörde işleyen pillar mimarileri oluşturmamızı sağlar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">2000+</div>
+    <div class="l">Ideal pillar<br>kelime sayisi</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%180</div>
+    <div class="l">Long-form<br>backlink avantaji</div>
+  </div>
+  <div class="stat">
+    <div class="n">15-25</div>
+    <div class="l">Pillar+cluster<br>ideal yapi</div>
+  </div>
+  <div class="stat">
+    <div class="n">E-E-A-T</div>
+    <div class="l">Helpful<br>Content base</div>
+  </div>
+</div>
 
 Google'ın Helpful Content Update (Yararlı İçerik Güncellemesi) ve Search Generative Experience (SGE) dönüşümü, long-form içeriği rekabet avantajı haline getirdi. Kısa, yüzeysel sayfalar artık sıralamalarda gerilere düşerken, topical authority (konu otoritesi) yüksek, kapsamlı içerikler öne çıkıyor.
 

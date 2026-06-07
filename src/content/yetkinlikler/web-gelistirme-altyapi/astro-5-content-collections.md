@@ -36,6 +36,13 @@ faqs:
     a: "Astro 5 SSR adaptörleri Vercel Edge, Cloudflare Workers/Pages, Netlify Edge, Deno Deploy platformlarını destekler. Gonet production'da öncelikli olarak Cloudflare Pages kullanır çünkü global edge network (300+ PoP), KV/R2 storage entegrasyonu, Web Analytics ve ücretsiz unlimited bandwidth sunar. Vercel Edge, Next.js entegrasyonu sıkı projelerde tercih edilir. Her platform için adaptor config değişir—örneğin Cloudflare `@astrojs/cloudflare` adaptörü `runtime: 'edge'` modunda minimum cold start (10-30ms) sağlar, Vercel adaptörü streaming response optimize eder. Edge runtime kullanırken Node.js built-in'leri (fs, path) kullanılamaz, tüm veri fetch'ler HTTP veya platform-specific API (KV, D1) üzerinden yapılır."
   - q: "Content Collections ile blog veya döküman sitesi migration süreci nasıl işler?"
     a: "Gonet migration süreci üç adımlıdır: (1) Mevcut Markdown/MDX dosyaları `src/content/blog/` klasörüne taşınır, frontmatter Zod schema ile tanımlanır (title, date, author, tags zorunlu, excerpt optional). (2) Eski URL yapısı korunacaksa `getStaticPaths()` içinde slug logic uygulanır veya `redirects` config ile 301 yönlendirme eklenir. (3) Build validation çalıştırılır—eksik field, yanlış date format, broken internal link hataları raporlanır ve production öncesi düzeltilir. Örnek: 500 sayfalık WordPress blogu Astro'ya migrate edilirken, WP REST API'den post'lar çekildi, markdown'a convert edildi, Astro Content Collections loader ile import edildi. Eski permalink yapısı (`/2024/01/slug/`) `getStaticPaths` ile korundu, build time 45 saniye, tüm görseller Cloudflare Images'a yüklendi, result: LCP 0.8s, %100 lighthouse SEO score."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Astro 5 + Content Collections nedir?
@@ -43,6 +50,25 @@ faqs:
 Astro 5, statik site oluşturma (SSG) ile sunucu tarafı render (SSR) arasındaki sınırları ortadan kaldıran, hibrit mimari destekli modern web framework'üdür. Content Collections özelliği ise içeriği TypeScript ile tip güvenli şekilde yönetmeyi sağlar—Markdown, MDX, JSON veya headless CMS'ten gelen veriler unified bir API üzerinden sorgulanır ve render edilir. Server Islands (sunucu adacıkları), statik sayfaya gömülü dinamik parçalar oluşturarak cache stratejisini sayfa bazından component bazına indirir. View Transitions API, istemci tarafında SPA benzeri geçişler sağlarken server-rendered içeriği korur. Edge runtime desteği, Cloudflare Workers veya Vercel Edge gibi dağıtık noktalarda minimum gecikme ile render imkanı verir. Gonet, Astro 5 + Content Collections'ı hız, SEO ve ölçeklenebilir içerik mimarisi gerektiren projelerde temel stack olarak konumlandırır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">100%</div>
+    <div class="l">Static HTML<br>output</div>
+  </div>
+  <div class="stat">
+    <div class="n">Islands</div>
+    <div class="l">Partial<br>hydration</div>
+  </div>
+  <div class="stat">
+    <div class="n">MD/MDX</div>
+    <div class="l">Type-safe<br>content schema</div>
+  </div>
+  <div class="stat">
+    <div class="n">Zero JS</div>
+    <div class="l">Default<br>ship sıfır JS</div>
+  </div>
+</div>
 
 2025'te Google ve yapay zeka arama motorları (Bing Copilot, Perplexity, ChatGPT Search) sayfa hızını, structured data kalitesini ve crawl budget verimliliğini birincil sıralama faktörü olarak kullanır. Astro 5'in zero-JS-by-default yaklaşımı, istemciye yalnızca gerekli JavaScript'i gönderir—ortalama bundle boyutu geleneksel React/Next.js uygulamalarına göre %70-80 daha küçüktür. Content Collections, içeriği type-safe şekilde tanımlayarak iki temel avantaj sağlar: (1) Frontmatter ve metadata validation build-time'da yapılır, hatalı veri production'a ulaşmaz. (2) GraphQL veya REST endpoint yazmadan sorgu API'si sunulur, böylece içerik takımı kod dokunmadan yeni içerik türü ekleyebilir. Server Islands, e-ticaret sepet bileşeni veya kullanıcı dashboardı gibi dinamik parçaların cache edilebilir statik sayfa içinde çalışmasını sağlar—Core Web Vitals skorları sabit kalırken kişiselleştirme artar. View Transitions, SPA deneyimini SSR güvenilirliği ile birleştirir; kullanıcı sayfalar arasında gezinirken tam sayfa yenileme olmaz, ancak her rota sunucudan render edilir (SEO kaybı sıfır). Edge runtime, coğrafi olarak dağık kullanıcılara 50ms altı TTFB (Time to First Byte) sunar—özellikle AEO (Answer Engine Optimization) senaryolarında LLM'lerin crawl süresi kritik olduğunda belirleyici faktör olur.
 

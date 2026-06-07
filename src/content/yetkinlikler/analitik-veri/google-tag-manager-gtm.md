@@ -36,6 +36,13 @@ faqs:
     a: "Enhanced Conversions (gelişmiş dönüşümler), kullanıcı tarafından sağlanan first-party verileri (email, telefon, isim, adres) SHA-256 ile hash'leyip Google Ads'e gönderen bir özelliktir. Google bu hash'lenmiş verileri kendi kullanıcı veritabanıyla eşleştirir ve dönüşüm atribüsyonunu iyileştirir, özellikle çerezlerin sınırlı olduğu durumlarda (ITP, GDPR rızası verilmemiş kullanıcılar). GTM üzerinden kurulum şu adımlarla yapılır: (1) Teşekkür sayfasında (checkout complete) data layer'a email, phone, first_name, last_name, country, postal_code gibi alanlar eklenir. (2) GTM'de Google Ads Conversion Tracking etiketi oluşturulur, 'User-provided data' (kullanıcı sağlanan veri) bölümünde data layer değişkenleri eşleştirilir. (3) Server-side GTM kullanılıyorsa hash'leme sunucuda yapılır, client-side'da ise GTM'in built-in hash fonksiyonu kullanılır. Avantajları: cross-device (cihazlar arası) atribüsyon doğruluğu artar, ROAS raporlaması iyileşir, Smart Bidding (akıllı teklif verme) algoritmaları daha kaliteli sinyal alır. Gonet, tüm Google Ads müşterileri için Enhanced Conversions'ı standart olarak aktif eder."
   - q: "GTM debug modunda hangi kontroller yapılmalı ve yaygın hatalar nelerdir?"
     a: "GTM Preview (önizleme) modu açıldığında her sayfa yüklenişinde ve event tetiklendiğinde hangi etiketlerin çalıştığını, hangi tetikleyicilerin aktif olduğunu ve data layer'daki tüm değişkenleri görebilirsiniz. Kontrol listesi: (1) Data layer'da beklenen event isimleri ve parametrelerin doğru geldiğini doğrulayın (örneğin 'purchase' event'inde transaction_id, value, currency, items dizisi olmalı). (2) Her etikette 'Tags Fired' (çalışan etiketler) bölümünde ilgili etiketin görünüp görünmediğini kontrol edin; çalışmamışsa tetikleyici koşullarını inceleyin. (3) Network sekmesinde etiketlerin HTTP isteklerini izleyin (GA4 için /g/collect, Google Ads için /pagead/conversion); istek içeriğinde parametrelerin doğruluğunu teyit edin. (4) Consent Mode aktifse rıza durumlarına göre etiketlerin çalışıp çalışmadığını test edin. Yaygın hatalar: (a) Data layer event'i trigger'dan önce push ediliyor (race condition); 'Custom Event' tetikleyicisi yerine 'Page View' kullanılıyor. (b) Variable (değişken) adları yanlış yazılmış (JavaScript case-sensitive). (c) Regex (düzenli ifade) tetikleyicilerinde escape karakterleri eksik. (d) Aynı event için birden fazla etiket tetikleniyor, double-counting (çift sayma) oluyor. Gonet, tüm GTM projelerinde QA (kalite güvence) aşamasında debug kontrolleri yapar ve değişiklikleri version notlarıyla dokümante eder."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Google Tag Manager (GTM) nedir?
@@ -45,6 +52,25 @@ Google Tag Manager (GTM), web sitesi ve mobil uygulamalarda izleme kodlarını (
 Gonet'te GTM'i yalnızca etiket yönetimi aracı olarak görmüyoruz. 2014'ten beri yüzlerce marka için uyguladığımız server-side tagging (sunucu taraflı etiketleme), data layer (veri katmanı) mimarisi ve Consent Mode v2 (rıza modu v2) entegrasyonlarıyla GTM'i stratejik bir veri altyapısı katmanına dönüştürüyoruz.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Server-side</div>
+    <div class="l">Cookieless<br>tag yönetimi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Consent Mode v2</div>
+    <div class="l">KVKK<br>uyumlu mod</div>
+  </div>
+  <div class="stat">
+    <div class="n">5+</div>
+    <div class="l">Trigger türü<br>çeşitliliği</div>
+  </div>
+  <div class="stat">
+    <div class="n">JSON-LD</div>
+    <div class="l">Data layer<br>standardı</div>
+  </div>
+</div>
 
 **Performans ve sayfa hızı**: Client-side (istemci taraflı) etiketler tarayıcıda çalışır ve sayfa yükleme süresini doğrudan etkiler. Server-side GTM konfigürasyonunda etiketler sunucuda işlenir, tarayıcı yükü azalır, Core Web Vitals skorları iyileşir.
 

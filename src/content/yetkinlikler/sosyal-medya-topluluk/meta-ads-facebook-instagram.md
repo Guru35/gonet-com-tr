@@ -36,6 +36,13 @@ faqs:
     a: "Last-click attribution, yalnızca satın almadan hemen önceki tıklama/gösterime kredi verir; oysa kullanıcı genellikle birden fazla Meta reklamı (awareness video, retargeting carousel, son sepet terki reminder) ile etkileşime girer. Data-driven attribution, makine öğrenmesi ile her temas noktasının conversion katkısını hesaplar ve krediyi dağıtır. Bu modelde, üst funnel awareness kampanyaları (video views, engagement) ve mid-funnel retargeting'in gerçek değeri ortaya çıkar; sadece last-click'e bakıldığında undervalued (eksik değerlendirilmiş) olan bu kampanyaların ROAS'ı %10-15 artar. Sonuç olarak bütçe dağılımı daha dengeli yapılır, performance-only yaklaşımdan brand + performance dengesine geçiş sağlanır. Google Analytics 4 ile Meta Attribution verilerini karşılaştırarak cross-platform customer journey haritası çıkarmak, kanallararası sinerjiyi maksimize eder."
   - q: "Gonet, Meta Ads kampanyalarında GDPR ve KVKK uyumlu consent management (kullanıcı izin yönetimi) nasıl sağlar?"
     a: "Gonet, web sitesine Consent Mode v2 destekli CMP (Consent Management Platform — OneTrust, Cookiebot gibi) entegre eder; kullanıcı izin vermeden önce Facebook piksel ve CAPI event_name parametreleri limited data use (sınırlı veri kullanımı) modunda gönderilir, kişisel veri (e-posta hash, telefon, IP) eklenmez. Kullanıcı marketing cookie'lerine izin verdiğinde, GTM Consent Mode tetikleri tam veri gönderimini aktive eder. CAPI tarafında event deduplication ve user data hash'leme (SHA-256) GDPR Article 25 veri minimizasyonu ilkesine uygun yapılandırılır. Ayrıca Meta Data Processing Agreement imzalanarak veri işleyici sorumluluğu netleştirilir, kullanıcı silme/erişim talepleri için CAPI üzerinden delete requests endpoint'i kullanılır. Bu süreçler, Gonet'in 26 yıllık tecrübesiyle standart checklist haline gelmiş, her marka için compliance risk minimize edilmiştir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Meta Ads — Facebook & Instagram nedir?
@@ -45,6 +52,25 @@ Meta Ads, Facebook ve Instagram platformlarında yürütülen ücretli reklam ka
 Gonet, 2000'den beri dijital reklamcılık deneyimini Meta platformlarına taşırken, Advantage+ Shopping ve Advantage+ App kampanyalarında makine öğrenmesine doğru veri akışı sağlamak için CAPI'yi standart uygular. Facebook pikselinin ötesinde, Google Tag Manager (GTM — etiket yönetim sistemi) ve GTM Server-Side Container yapılandırmalarıyla sunucu tarafı entegrasyonlar kurar, e-ticaret markaları için dinamik ürün setlerini (product feed) Catalog Ads formatlarına dönüştürür ve 220+ marka portföyünde edindiği audience segmentasyonu bilgisini her kampanyaya uyarlar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Advantage+</div>
+    <div class="l">AI kampanya<br>otomatik</div>
+  </div>
+  <div class="stat">
+    <div class="n">CAPI</div>
+    <div class="l">Server-side<br>conversion API</div>
+  </div>
+  <div class="stat">
+    <div class="n">3.07B</div>
+    <div class="l">Meta gunluk<br>aktif kullanici</div>
+  </div>
+  <div class="stat">
+    <div class="n">Lookalike</div>
+    <div class="l">Audience<br>genisletme</div>
+  </div>
+</div>
 
 1. **iOS ATT ve cookie kısıtlamaları**: Apple App Tracking Transparency ve tarayıcı gizlilik güncellemeleri browser-side pikselin veri toplama gücünü düşürdü. CAPI sunucu tarafından doğrudan olay gönderdiği için bu kısıtlamaları aşar ve conversion attribution (dönüşüm atıf) doğruluğunu artırır.
 2. **Advantage+ otomasyonu**: Meta'nın yapay zeka motorları, manuel hedef kitle ve yerleşim seçimlerini geride bırakır. Doğru veri akışı sağlandığında, Advantage+ Shopping kampanyaları ROAS (return on ad spend — reklam harcaması getirisi) hedeflerine manuel kampanyalardan %20-30 daha hızlı yaklaşır.

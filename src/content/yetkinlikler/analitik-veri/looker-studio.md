@@ -36,6 +36,13 @@ faqs:
     a: "İki yöntem: (1) Sayfalar (pages) ile ayrıştırma: Tek dashboard'u 3-4 sayfaya bölün. İlk sayfa Executive Summary (CEO/CFO için toplam ROI, büyüme), ikinci sayfa Marketing Deep Dive (CMO için kanal detayları), üçüncü sayfa Technical Performance (dijital ekip için bounce rate, load time). Her stakeholder kendi sayfasını bookmark eder. (2) Filter-based view: Aynı sayfada 'Department' filter'ı ekleyin, her departman kendi filter değerini seçtiğinde dashboard otomatik ilgili metrikleri gösterir. Gonet'te birinci yöntemi tercih ediyoruz çünkü her sayfa farklı görselleştirme tipi (executive için card widget, teknik ekip için tablo) gerektirir. Ayrıca dashboard paylaşımını role göre kısıtlayabilirsiniz (View/Edit permission), hassas finansal veriyi yalnızca CFO'nun görmesini sağlarsınız."
   - q: "Looker Studio ile BigQuery entegrasyonunun avantajı nedir, doğrudan GA4 bağlantısından farkı ne?"
     a: "GA4'ü doğrudan Looker Studio'ya bağladığınızda, GA4'ün raporlama API'si üzerinden sınırlı veri çekersiniz (sampling sorunları, bazı dimension kombinasyonları kısıtlı). BigQuery'ye GA4 raw data (ham veri) export'u aktif olduğunda, tüm hit-level veriyi SQL ile sorgulayabilir, istediğiniz dimension'ı türetebilir, custom aggregation yapabilirsiniz. Örneğin 'İlk oturumda 3+ sayfa gören, sonraki 7 gün içinde dönüşen kullanıcı sayısı' metriği GA4 UI'da zor, BigQuery SQL'de basittir. Ayrıca BigQuery'de CRM, ERP, sosyal medya verilerini JOIN edip zenginleştirebilir, Looker Studio'ya tek kaynak olarak sunabilirsiniz. Gonet'te orta-büyük ölçekli müşterilerde (aylık 1M+ oturum) BigQuery entegrasyonunu zorunlu görüyoruz; hem performans hem esneklik açısından kritik."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Looker Studio nedir?
@@ -45,6 +52,25 @@ Looker Studio (eski adıyla Google Data Studio), Google'ın ücretsiz veri görs
 Platform, blended data (karışık veri kaynakları) özelliğiyle farklı sistemlerden gelen verileri tek metrikte birleştirir, calculated fields (hesaplanmış alanlar) ile özel KPI'lar türetir, filter (filtre) ve drill-down (detaya inme) özellikleriyle kullanıcıya keşif imkanı sunar. 2000'den beri 220+ marka portföyünde ürettiğimiz yüzlerce dashboard, müşteri CEO'larından dijital ekiplere her seviyede veri okuryazarlığını artırdı.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Blended</div>
+    <div class="l">Multi-source<br>data join</div>
+  </div>
+  <div class="stat">
+    <div class="n">15+</div>
+    <div class="l">Connector<br>türü</div>
+  </div>
+  <div class="stat">
+    <div class="n">Calculated</div>
+    <div class="l">Custom<br>fields</div>
+  </div>
+  <div class="stat">
+    <div class="n">Public/Share</div>
+    <div class="l">Stakeholder<br>access modu</div>
+  </div>
+</div>
 
 Veri, ancak anlaşıldığında değer yaratır. Excel tablolarında gizli kalan yüzlerce satır, Looker Studio'da görsel hikayeye dönüştüğünde eylem tetikler. Gonet için kritiklik üç noktada:
 

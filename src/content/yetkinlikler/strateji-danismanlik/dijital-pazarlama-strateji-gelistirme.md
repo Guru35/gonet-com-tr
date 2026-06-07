@@ -36,6 +36,13 @@ faqs:
     a: "Stratejik çerçeve (STP, ana journey haritası) yılda bir kez kapsamlı gözden geçirilir, ancak taktiksel unsurlar (kanal bütçeleri, mesajlar, attribution ağırlıkları) aylık performans incelemelerinde güncellenir. Pazar şokları (rakip lansmanı, algoritma değişikliği, ekonomik kriz) stratejinin olağanüstü revizyonunu tetikler. Gonet, aylık dashboard'larda KPI (CTR, dönüşüm oranı, CAC, ROAS) değişimlerini izler; %15+ performans düşüşü ya da yeni segment fırsatları tespit edildiğinde strateji workshop'u düzenler. Sezonluk kategorilerde (turizm, perakende) yılda iki kez (sezon öncesi) revizyon yapılır."
   - q: "STP yaklaşımı B2B ve B2C projelerinde nasıl farklılaşır?"
     a: "B2C projelerinde segmentasyon çoğunlukla demografik (yaş, gelir) ve davranışsal (satın alma sıklığı, sepet değeri) verilere dayalıdır; karar süreci kısadır ve duygusal tetikleyiciler etkilidir. B2B segmentasyonu firmografik (sektör, şirket büyüklüğü, lokasyon) ve role-based (karar verici, etkileyici, kullanıcı) kriterlere odaklanır; satın alma komitesi vardır ve rasyonel değer (ROI, verimlilik kazancı) ön plandadır. B2B customer journey 6-18 ay sürebilir, whitepaper, demo, case study gibi içeriklerle beslenir. Gonet, B2C'de hızlı testler ve dinamik segmentasyon, B2B'de ise hesap bazlı pazarlama (ABM) ve lead scoring modelleriyle strateji geliştirir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Dijital pazarlama strateji geliştirme nedir?
@@ -47,6 +54,25 @@ STP, pazarı anlamlı gruplara böler (segmentasyon), bu gruplardan hangilerine 
 Gonet, 2000'den bu yana 220'den fazla markayla çalışarak strateji geliştirme süreçlerini olgunlaştırmıştır. Her proje, veri analitiği (GA4, CRM verileri, pazar araştırması) ile başlar ve iş hedeflerine (marka bilinirliği, lead kalitesi, satış hacmi) kilitlenir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">OKR</div>
+    <div class="l">Hedef<br>cercevesi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Quarterly</div>
+    <div class="l">3 aylik<br>iterasyon</div>
+  </div>
+  <div class="stat">
+    <div class="n">5 sutun</div>
+    <div class="l">SEO+SEM+AEO+<br>Sosyal+Icerik</div>
+  </div>
+  <div class="stat">
+    <div class="n">North Star</div>
+    <div class="l">Tek ana<br>metrik</div>
+  </div>
+</div>
 
 Stratejisiz dijital pazarlama, yüksek bütçe israfı ve dağınık mesaj tutarlılığı demektir. Bir e-ticaret markası, doğru segmentasyon olmadan tüm demografik gruplara aynı kampanyayı gösterir; sonuç: düşük tıklama oranı (CTR), yüksek maliyet. Customer journey haritalanmadan, bir kullanıcının mobilde araştırıp masaüstünde satın alma davranışı (cross-device journey) gözden kaçar; sonuç: mobil yatırımların değeri anlaşılamaz.
 

@@ -36,6 +36,13 @@ faqs:
     a: "Extraction-ready formatting, LLM'lerin tokenization ve parsing süreçlerinde minimum kayıpla bilgi çıkarabileceği yapıdır. İdeal yapılar: hiyerarşik başlıklar (H2 > H3, her H2 altında tek concept), kısa paragraflar (3-5 cümle), markdown tablolar (2-3 sütun, net header), numaralı/madde listeler (inline definition yerine), strong/em yerine semantic HTML (<cite>, <time>, <data>). Gonet, içeriği JSON-LD + microdata ile çift katmanlar, llms.txt dosyasında Markdown formatında 'key facts' summary ekler. LLM'ler JSON/XML benzeri yapıyı 4× daha hızlı parse eder, kaynak olarak tercih oranı artar."
   - q: "AEO odaklı içerik B2B sektöründe nasıl avantaj sağlar, hangi içerik türleri önceliklidir?"
     a: "B2B'de AEO kritiktir çünkü alıcı yolculuğu araştırma yoğunludur, LLM'ler 'best practices', 'comparison', 'how to implement' sorgularında uzun, detaylı kaynakları tercih eder. Öncelikli içerik türleri: beyaz kağıtlar (istatistik + vaka çalışması dolu), teknik kılavuzlar (step-by-step, extraction-ready), sektör raporları (verifiable data + citation), ürün karşılaştırma tabloları (structured, LLM-friendly). Gonet'in B2B müşterilerinde (SaaS, endüstriyel ekipman, danışmanlık) AEO odaklı thought leadership içeriği, sales cycle'da 'discovery' aşamasında %40 daha fazla MQL (Marketing Qualified Lead) üretiyor. LLM'ler sizi otorite olarak tanıyor, yanıtlarda kaynak gösteriyor, güven ivmesi kazanıyorsunuz."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## AEO odaklı içerik nedir?
@@ -45,6 +52,25 @@ AEO odaklı içerik (Answer Engine Optimization content), büyük dil modelleri 
 2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 220+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%41</div>
+    <div class="l">Quotation<br>citation artisi</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%30</div>
+    <div class="l">Statistics<br>etki</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%27</div>
+    <div class="l">Cite Sources<br>etki</div>
+  </div>
+  <div class="stat">
+    <div class="n">50-100</div>
+    <div class="l">Kelime/parca<br>extraction</div>
+  </div>
+</div>
 
 Klasik SEO içeriği PageRank, backlink, keyword density gibi sinyallere odaklanır. AEO odaklı içerik ise **LLM tokenization** ve **semantic embedding** süreçlerine hitap eder. Bir LLM, yanıt üretirken hangi kaynağı seçeceğine karar verirken şu faktörlere bakar:
 

@@ -36,6 +36,13 @@ faqs:
     a: "PPR, aynı sayfada statik ve dinamik içerik bloklarını birleştiren Next.js 15 özelliğidir (experimental). Statik kısımlar build time'da prerender edilir, dinamik kısımlar (Suspense boundary içinde) request time'da render edilir. Kullanım senaryosu: e-ticaret ürün sayfası (ürün açıklaması statik, fiyat/stok dinamik), blog yazısı (içerik statik, yorumlar dinamik), dashboard (layout statik, kullanıcı verileri dinamik). Çalışma prensibi: Next.js, Suspense boundary'lerini tespit eder; boundary dışındaki kısımları HTML olarak prerender eder, boundary içindekiler için placeholder bırakır ve streaming SSR ile tamamlar. Gonet, PPR'yi CDN cache stratejileriyle birleştirir: statik HTML edge'de cache'lenir, dinamik parçalar origin server'dan stream edilir. Sonuç: LCP <1s, kullanıcı hemen içerik görür, kişiselleştirilmiş veri 200-300ms içinde yüklenir."
   - q: "Next.js 15 + React 19 projesinde Core Web Vitals'i optimize etmek için hangi teknikler kritik?"
     a: "Kritik teknikler: (1) **Image optimization**: `next/image` ile lazy loading, AVIF/WebP formatları, responsive srcset otomatik. LCP'nin %60-70'i image yükleme süresinden kaynaklanır. (2) **Font optimization**: `next/font` ile self-host edilen fontlar, preload, font-display:swap. CLS sıfıra yaklaşır. (3) **Code splitting**: RSC ile otomatik; istemci tarafı component'leri dynamic import ile lazy load. JavaScript bundle %40-50 küçülür. (4) **Streaming SSR + Suspense**: Kritik içerik önce, secondary içerik sonra gönderilir; kullanıcı boş ekran görmez. (5) **Prefetching**: App Router otomatik link prefetch yapar; navigation anında olur, INP düşer. (6) **CDN + ISR**: Vercel Edge Network veya Cloudflare ile global cache, ISR ile content freshness. Gonet, her projede Lighthouse CI entegre eder, her deploy'da CWV regresyon testi yapar; 90+ Lighthouse skoru production gate'i olarak kullanılır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Next.js 15 + React 19 nedir?
@@ -45,6 +52,25 @@ Next.js 15 ve React 19, modern web geliştirme yığınının en güncel sürüm
 Gonet, 2000'den bu yana 220+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">React 19</div>
+    <div class="l">Server<br>Components</div>
+  </div>
+  <div class="stat">
+    <div class="n">App Router</div>
+    <div class="l">Routing<br>paradigması</div>
+  </div>
+  <div class="stat">
+    <div class="n">Turbopack</div>
+    <div class="l">Bundler<br>(önce webpack)</div>
+  </div>
+  <div class="stat">
+    <div class="n">PPR</div>
+    <div class="l">Partial<br>prerendering</div>
+  </div>
+</div>
 
 Geleneksel SPA (Single Page Application) mimarileri, büyük JavaScript paketleri, yavaş ilk yükleme (Time to Interactive) ve zayıf SEO performansı gibi yapısal sorunlar taşır. Next.js 15 + React 19 kombinasyonu, bu sorunları kökten çözer:
 

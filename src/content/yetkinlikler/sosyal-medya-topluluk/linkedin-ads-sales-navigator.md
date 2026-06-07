@@ -36,6 +36,13 @@ faqs:
     a: "LinkedIn Conversion API, web sitesi veya CRM'de gerçekleşen conversion'ları (form gönderimi, demo talebi, satın alma, CRM'de 'opportunity' veya 'closed-won' olarak işaretlenme) LinkedIn'e sunucu tarafından (server-side) gönderen bir mekanizmadır. Standart LinkedIn Insight Tag yalnızca site üzerindeki eylemleri izler (sayfa görüntüleme, tıklama), ancak kullanıcı formu gönderdikten 2 hafta sonra CRM'de müşteri olursa bunu LinkedIn bilmez. CAPI ile CRM'deki 'closed-won' eventi LinkedIn'e geri gönderilir, LinkedIn algoritması 'bu profil özelliklerine sahip kişi satın aldı' öğrenir. Sonraki kampanyalarda benzer profillere (lookalike) öncelik verir, teklif stratejisi optimize olur. Gonet uygulaması: HubSpot/Salesforce webhook'u → Zapier/Make → LinkedIn CAPI endpoint. Müşteri CRM'de deal'i 'closed-won' işaretlediğinde 24 saat içinde LinkedIn'e iletilir. 3 ay sonra kampanya CPA (cost-per-acquisition / edinim başı maliyet) %40 düşer, çünkü algoritma gerçek alıcıları tanır."
   - q: "LinkedIn Ads bütçesi nasıl belirlenmeli, minimum harcama seviyesi var mı, hangi teklif stratejisi B2B için en etkili?"
     a: "LinkedIn, kampanya seviyesinde minimum günlük bütçe 100 TL (veya 10 USD) gerektirir, ancak learning phase (algoritma optimizasyonu) için haftada en az 50 dönüşüm (veya 500+ impression) hedeflemelisiniz. B2B kampanyalarında Gonet önerisi: aylık minimum 15.000-25.000 TL bütçe (günlük 500-800 TL), böylece 4 hafta içinde algoritma öğrenir. Teklif stratejisi: başlangıçta 'Maximum Delivery' (maksimum dağıtım, otomatik teklif) ile geniş havuzda impression toplamak, 2. ayda 'Cost Cap' (maliyet tavanı, CPA hedefi belirleme) veya 'Manual Bidding' (manuel teklif) ile hassaslaştırmak. B2B için en etkili: 'Target Cost' (hedef maliyet) — örneğin 'lead başına 250 TL hedefle' diyorsunuz, LinkedIn o maliyete lead getirebileceği yerlere teklif verir. Gonet, kampanya başında 2 hafta Maximum Delivery ile test eder (gerçek CPC/CPL öğrenmek için), ardından Target Cost'a geçer. Küçük bütçelerde (<10.000 TL/ay) LinkedIn yetersiz kalır, Google Ads veya Meta Ads daha verimli olabilir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## LinkedIn Ads + Sales Navigator nedir?
@@ -47,6 +54,25 @@ LinkedIn Ads standart demografik (sektör, unvan, şirket büyüklüğü, kıdem
 Matched Audiences, üç tür kitle yükleme sunar: dosya yükleme (e-posta, şirket adı), web sitesi ziyaretçileri (LinkedIn Insight Tag ile retargeting), hesap hedefleme (şirket adı veya domain listesi). JSON-LD yapılandırılmış veri ve GTM (Google Tag Manager) entegrasyonuyla LinkedIn Insight Tag, site davranışını segmentlere ayırır — örneğin 'ürün sayfasında 2 dk+ geçiren CTO unvanlı ziyaretçiler' kümesi oluşturulabilir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">900M+</div>
+    <div class="l">LinkedIn<br>kullanici</div>
+  </div>
+  <div class="stat">
+    <div class="n">B2B</div>
+    <div class="l">Decision-maker<br>hedefleme</div>
+  </div>
+  <div class="stat">
+    <div class="n">Lead Gen</div>
+    <div class="l">In-platform<br>form</div>
+  </div>
+  <div class="stat">
+    <div class="n">InMail</div>
+    <div class="l">Sponsored<br>messaging</div>
+  </div>
+</div>
 
 B2B satış döngüleri uzundur (3-18 ay), karar süreçleri çok paydaşlıdır (ortalama 6-8 kişi), ve hedef kitle küçüktür (Türkiye'de 500+ çalışanlı teknoloji şirketlerinin CMO'ları ~200 kişi). Geleneksel display reklamcılık veya Google Ads geniş ağlar bu hassasiyeti sağlayamaz. LinkedIn, kullanıcıların profil verilerini kendilerinin güncel tuttuğu (self-reported data) tek platformdur — bir kişinin unvanı, şirketi, sektörü ve kıdemi doğrudan platforma girilir, çerezlerle tahmin edilmez.
 

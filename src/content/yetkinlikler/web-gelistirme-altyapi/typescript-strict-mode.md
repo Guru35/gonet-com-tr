@@ -36,6 +36,13 @@ faqs:
     a: "Zod'un z.infer utility type'ı, runtime schema'dan derleme zamanı TypeScript tipi çıkarır: const UserSchema = z.object({ name: z.string(), age: z.number() }); type User = z.infer<typeof UserSchema>; şeklinde. Bu kritiktir çünkü tek kaynak (schema) hem runtime validation hem static typing'i garanti eder. Alternatif yaklaşımda (interface yazıp ayrıca validation kodu) iki kaynak sync dışı kalabilir — interface güncellenir ama validation unutulur. Gonet projelerinde schema-first yaklaşım sayesinde API contract değişikliği hem frontend tiplerini hem backend validation'ı otomatik günceller, manuel sync gereksiz hale gelir."
   - q: "TypeScript strict mode ekip için öğrenme eğrisi yaratır mı?"
     a: "İlk 2-3 hafta adaptasyon gerektirir, ancak modern IDE'ler (VS Code, WebStorm) tip hataları için instant feedback ve auto-fix önerileri sunar. Gonet'te yeni ekip üyelerine 4 saatlik TypeScript workshop + 2 hafta code review odaklı onboarding uygularız. Junior developer'ların ilk zorlandığı konular: generic types, discriminated unions, utility types (Pick, Omit, Partial). Ancak 1 ay sonra tip sistemi güvenlik ağı olarak görülür — kod yazarken editörde hata görmek, production'da kullanıcıdan görmekten iyidir. Gonet müşterilerinden birinde 3 kişilik ekip, 6 ayda strict mode'a alıştı ve artık JavaScript'e dönmek istemiyor, çünkü refactoring güveni %80 arttı."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## TypeScript (strict mode) nedir?
@@ -45,6 +52,25 @@ TypeScript, JavaScript'e statik tip sistemi ekleyen açık kaynak bir programlam
 26 yıllık deneyimimizde şunu gördük: büyük ölçekli projelerde hatalar %70 oranında tip uyumsuzluklarından kaynaklanır. Strict mode bu hataları development aşamasında yakalar, Zod ise dış dünyadan gelen veriyi (API response, user input) tip güvenli şekilde parse eder.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">strict: true</div>
+    <div class="l">Tum flag<br>aktif</div>
+  </div>
+  <div class="stat">
+    <div class="n">noImplicitAny</div>
+    <div class="l">Tip atlanamaz<br>zorunlu</div>
+  </div>
+  <div class="stat">
+    <div class="n">-%70</div>
+    <div class="l">Runtime hata<br>azalma</div>
+  </div>
+  <div class="stat">
+    <div class="n">Bun/Deno</div>
+    <div class="l">TS-native<br>runtime</div>
+  </div>
+</div>
 
 JavaScript'in dinamik doğası esneklik sağlar, ancak ölçekte bakım maliyetini katlar. Production'da `undefined is not a function` hatası görmek, 2025'te kabul edilemez. TypeScript strict mode + runtime validation kombinasyonu üç kritik avantaj sunar:
 

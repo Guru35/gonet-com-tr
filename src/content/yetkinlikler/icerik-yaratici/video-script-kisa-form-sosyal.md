@@ -36,6 +36,13 @@ faqs:
     a: "Trending sound, TikTok'ta %40-60, Reels'de %25-35 oranında reach artışı sağlar çünkü algoritmalar ses bazlı content clustering (içerik kümeleme) yapar. Ancak her marka için uygun değildir: lüks/premium markalar generic trend sound'larla tone mismatch (ton uyumsuzluğu) yaşar, brand dilution (marka seyrelmesi) riski vardır. Gonet'te trend sound kullanımı 3 kritere bağlı: (1) Marka voice alignment (ses uyumu) — komedi tonu B2B fintech'e uymaz. (2) Sound-message relevance (ses-mesaj ilgisi) — rastgele değil, storyline'ı (hikaye çizgisi) destekleyen trend seçilir. (3) Timing — trend sound peak'inden (zirve) 48-72 saat sonra kullanımı 'geç kalma' algısı yaratır. Script aşamasında 2 versiyon hazırlanır: trend sound'lu + original/brand sound'lu; test döngüsü hangisinin daha iyi perform ettiğini 24 saatte belirler. Zorunlu değil, stratejiktir."
   - q: "Kısa form video script performansı nasıl ölçülür, hangi metrikler başarı göstergesidir?"
     a: "Kısa form video performansı 4 katmanlı metrik setiyle ölçülür: (1) Retention metrics (elde tutma metrikleri): average watch percentage (ortalama izlenme yüzdesi, hedef >50%), hook hold rate (kanca tutma oranı, ilk 3s'de >65%). (2) Engagement metrics (etkileşim metrikleri): like rate (beğeni oranı, izlenmelerin >3%), comment rate (yorum oranı, >0.5%), save/share rate (kaydetme/paylaşım oranı, en kritik — algoritma ağırlığı yüksek). (3) Growth metrics (büyüme metrikleri): follower conversion rate (takipçi dönüşüm oranı), profile visit rate (profil ziyaret oranı). (4) Business metrics (iş metrikleri): link click-through (bağlantı tıklama), attributed conversion (atfedilen dönüşüm). Gonet dashboard'unda (gösterge paneli) bu metrikler script varyantına (hook tipi, CTA pozisyonu, video uzunluğu) göre segmentlenir. Başarılı script 'template' olarak kütüphaneye alınır; düşük performanslı hook/CTA kombinasyonları blacklist'e (kara liste) eklenir. İlk 48 saat kritik test window'dur, iterasyon bu pencerede tamamlanmalıdır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Video script + kısa form sosyal nedir?
@@ -43,6 +50,25 @@ faqs:
 Kısa form sosyal video, 15-90 saniye aralığında Instagram Reels, TikTok, YouTube Shorts ve benzeri dikey video platformlarında yayınlanan, yüksek engagement potansiyeline sahip içerik formatıdır. Video script + kısa form sosyal yetkinliği, bu formatlara özgü senaryo yazımı, hook (kanca) tasarımı, görsel-metin dengesi, platform-spesifik algoritma optimizasyonu ve community (topluluk) tetikleyici anlatım mimarisini kapsar. Klasik video prodüksiyonundan farkı, ilk 1.3 saniyedeki dikkat tutma mekanizması, loop (döngü) uyumlu yapı, trending sound (trend ses) entegrasyonu ve algorithm-friendly metadata (algoritma dostu üstveri) kullanımıdır. Gonet'te bu yetkinlik, platform API'lerinden gelen performans verisi, A/B testli hook varyantları ve markanın tone of voice'unu (ses tonu) platform diline çeviren hibrid yaklaşımla yürütülür. Amaç, organik reach (erişim) maksimizasyonu, watch time (izlenme süresi) optimizasyonu ve shareable (paylaşılabilir) içerik mimarisini aynı scriptte harmanlayarak marka görünürlüğünü sosyal grafiklerde katlanarak büyütmektir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">3 sn</div>
+    <div class="l">Hook<br>yakalama esigi</div>
+  </div>
+  <div class="stat">
+    <div class="n">15-30</div>
+    <div class="l">TikTok/Reels<br>ideal sure</div>
+  </div>
+  <div class="stat">
+    <div class="n">60 sn</div>
+    <div class="l">Shorts<br>ust sinir</div>
+  </div>
+  <div class="stat">
+    <div class="n">Vertical</div>
+    <div class="l">9:16<br>standart oran</div>
+  </div>
+</div>
 
 Kısa form video, 2024 itibarıyla küresel internet kullanıcılarının günlük sosyal medya tüketim süresinin %65'inden fazlasını oluşturuyor. Platform algoritmaları Reels ve Shorts'a öncelikli dağıtım sağlarken, statik görsellere göre 2.5x daha yüksek engagement oranı sunuyor. TikTok'ta ortalama kullanıcı günde 95 dakika, Instagram'da Reels başına 53% daha fazla etkileşim veriyor. Ancak başarı oranı düşük: kısa form içeriklerin sadece %8'i ilk 3 saniyede izleyiciyi tutuyor, %3'ü viral potansiyel yakalıyor. Bu nedenle platform-spesifik script tasarımı — TikTok'un discovery algoritması ile Instagram'ın follower-weighted dağıtımı arasındaki fark — hayati önem taşır. Gonet için kritiklik, markaların paid media (ücretli medya) bütçelerini azaltıp organik sosyal yatırıma kaydırdığı 2023-2024 trendiyle birleşir. SEO'da E-E-A-T nasıl temelimizse, sosyal medyada hook quality + watch time + share rate (kanca kalitesi + izlenme süresi + paylaşım oranı) üçlüsü yeni meta-metrik oldu. Algoritma mekaniğini bilmeyen script 'görünmez' kalır; bilenler organik 10M+ reach alır.
 

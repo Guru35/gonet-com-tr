@@ -36,6 +36,13 @@ faqs:
     a: "Sözleşmede 'kullanım hakları' (usage rights) maddesi zorunludur; Gonet, influencer içeriğinin (video, fotoğraf) markanın sosyal medya, web sitesi, e-posta ve ücretli reklam (Meta Ads, Google Display) kampanyalarında belirli süre (genellikle 6–12 ay) kullanılmasına izin verir. Influencer, içerik üzerinde 'telif hakkı' (copyright) sahibi olarak kalır; marka, 'lisans' alır. Yeniden kullanım için ek ücret (genellikle orijinal ücretin %20–50'si) ödenir. 'Whitelisting' (influencer hesabının marka tarafından reklam hesabı olarak kullanılması) daha yüksek ücret gerektirir (%100–200 artış); bu, influencer'ın kendi takipçilerine markanın reklamını gösterme hakkı verir. Gonet, her kampanyada kullanım süresini ve kanalları net tanımlar; influencer onayı olmadan içerik kullanımı yasal risk taşır (fikir ve sanat eserleri kanunu, madde 21–25)."
   - q: "Influencer kampanyasının ROI'sini (yatırım getirisi) nasıl hesaplarım?"
     a: "Gonet, influencer harcamasını (ücret + ajans yönetim ücreti + içerik prodüksiyon maliyeti) toplam gelir veya dönüşüm değerine böler. Formül: ROI = [(Gelir - Harcama) / Harcama] × 100. Örnek: 50.000 TL influencer bütçesi, kampanyadan 180.000 TL satış geldi → ROI = [(180.000 - 50.000) / 50.000] × 100 = %260. Gelir hesabında, yalnızca influencer UTM linklerinden veya özel kupon kodundan gelen satışlar sayılır; Google Analytics 4'te 'kaynak/ortam' (source/medium) filtrelemesi ve e-ticaret platform raporları çapraz doğrulama sağlar. Dönüşüm odaklı olmayan (awareness) kampanyalarda, marka araması artışı (Google Trends, marka adı arama hacmi), sosyal medya takipçi büyümesi ve organik engagement artışı 'yumuşak ROI' metrikleridir. Gonet, her kampanyada hem doğrudan hem de dolaylı etkileri (attribution modelleme ile) raporlar; ortalama 8–12 haftalık kampanyalarda %150+ ROI hedefler."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Influencer marketing nedir?
@@ -45,6 +52,25 @@ Influencer marketing, markaların hedef kitlelerine ulaşmak için sosyal medya 
 Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajanslar artık sadece yaratıcı eşleştirme değil, kampanya planlama, içerik doğrulama, sahtekar (fake follower) tespiti ve anlık performans raporlama sunar. Gonet, TikTok, Instagram ve YouTube üçgeninde veri destekli influencer seçimi yapar; engagement rate (etkileşim oranı), audience overlap (kitle örtüşmesi) ve brand safety (marka güvenliği) kriterlerini ön planda tutar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Micro</div>
+    <div class="l">10-100K<br>en yuksek ER</div>
+  </div>
+  <div class="stat">
+    <div class="n">Macro</div>
+    <div class="l">100K-1M<br>genis erisim</div>
+  </div>
+  <div class="stat">
+    <div class="n">%5-8</div>
+    <div class="l">Micro<br>engagement rate</div>
+  </div>
+  <div class="stat">
+    <div class="n">UTM</div>
+    <div class="l">Performans<br>izleme zorunlu</div>
+  </div>
+</div>
 
 **Organik erişim düşüşü ve güven açlığı:** Platformlar (Meta, TikTok) marka sayfalarının organik erişimini algoritma güncellemeleriyle kısıtladı; 2023 verilerine göre Instagram'da marka hesaplarının ortalama organik erişimi %6 altına düştü. İzleyiciler ise markanın kendi sesinden çok, güvendiği 'gerçek kişilerin' tavsiyelerine yöneliyor. Nielsen 2024 raporunda, tüketicilerin %78'i influencer tavsiyesini arkadaş tavsiyesine denk tutuyor.
 

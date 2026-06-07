@@ -36,6 +36,13 @@ faqs:
     a: "Çoklu karşılaştırma problemi: 3 varyant (A, B, C) test edildiğinde, 3 ikili karşılaştırma yapılır (A-B, A-C, B-C). Her karşılaştırmada alpha 0.05 ise, family-wise error rate (FWER - en az bir false positive bulma olasılığı) 1 - (0.95)³ = %14.3'e çıkar. Bonferroni düzeltmesi: alpha'yı karşılaştırma sayısına böl (0.05/3 = 0.0167 her test için). Daha az konservatif alternatif: Holm-Bonferroni veya Benjamini-Hochberg FDR kontrolü. Multivariate testlerde (5 element × 3 varyasyon = 243 kombinasyon) full factorial yerine fractional factorial design veya sequential testing kullanılır. Gonet, 4+ varyant testlerinde FWER kontrolü yapar ve raporlarda adjusted p-value'ları gösterir."
   - q: "A/B test sonuçları 'kazanan' gösterdi ama canlıya alınınca performans düştü — neden olur ve nasıl önlenir?"
     a: "Üç ana neden: (1) Novelty effect — yeni varyant ilk günlerde dikkat çeker, sonra regresyon yaşar. Önlem: En az 2 tam iş döngüsü test süresi, cohort analizi ile ilk hafta vs son hafta performans karşılaştırması. (2) Sample ratio mismatch (SRM) — test sırasında gruplar arasında trafik dağılımı bozuktu (bot, cache, implementation hatası), sonuç güvenilir değil. Önlem: Real-time SRM monitoring, chi-square test ile günlük kontrol. (3) Simpson's paradox — test genel popülasyonda kazandı ama kritik segmentlerde (mobil, ABD kullanıcılar) kaybetti, canlıda bu segment ağırlığı arttı. Önlem: Segment bazlı analiz, interaction effects kontrolü. Gonet, post-launch monitoring (2 hafta) ile regresyon tespit eder ve gerekirse rollback yapar."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## A/B test & deney tasarımı nedir?
@@ -45,6 +52,25 @@ A/B test & deney tasarımı, dijital pazarlama ve ürün geliştirmede iki veya 
 Gonet 2000'den bu yana binlerce kampanya yürütmüş bir ajans olarak, A/B testini spekülasyon değil, matematiksel kesinlik aracı olarak kullanır. Bir testin sonucunun 'iyi görünmesi' yeterli değildir — istatistiksel güç analizi, güven aralıkları ve yanlış pozitif riski kontrolü olmadan alınan kararlar, kaynak israfına yol açar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">%95</div>
+    <div class="l">Min statistical<br>significance</div>
+  </div>
+  <div class="stat">
+    <div class="n">MDE</div>
+    <div class="l">Min detectable<br>effect plan</div>
+  </div>
+  <div class="stat">
+    <div class="n">14-28</div>
+    <div class="l">İdeal test<br>süresi (gün)</div>
+  </div>
+  <div class="stat">
+    <div class="n">80/20</div>
+    <div class="l">Power vs<br>significance</div>
+  </div>
+</div>
 
 2024'te dijital kanallar doyum noktasına ulaştı. Organik erişim düşüyor, reklam maliyetleri artıyor, kullanıcı dikkat süresi kısalıyor. Bu ortamda marjinal iyileştirmeler bile büyük fark yaratır — %2'lik dönüşüm artışı, aylık 100.000 ziyaretçili bir sitede 2.000 ek dönüşüm demektir.
 

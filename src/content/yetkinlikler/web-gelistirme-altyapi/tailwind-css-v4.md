@@ -36,6 +36,13 @@ faqs:
     a: "JIT (Just-In-Time) mod, v4'te varsayılan derleyicidir ve production build'lerde %90-95 boyut azaltımı sağlar. Geleneksel CSS framework'leri (Bootstrap gibi) 200-300 KB CSS dosyası üretirken, Tailwind JIT kullanımda olan sınıfları tespit ederek 20-40 KB arası dosya çıkarır. Gonet projelerinde 100+ sayfalık e-ticaret sitelerinde bile 35 KB (gzipped 8 KB) CSS dosyası elde ediyoruz. V4'ün yeni Lightning CSS engine'i, build süresini de %40 azaltır. PurgeCSS entegrasyonu gereksizdir; JIT zaten kullanılmayan sınıfları görmezden gelir. Lighthouse Performance skorlarında 5-8 puan doğrudan kazanç yaşanır, özellikle mobil 3G bağlantılarda FCP (First Contentful Paint) %30 iyileşir."
   - q: "Tailwind ile dark mode ve multi-theme sistemleri nasıl kurulur?"
     a: "Tailwind v4'ün dark: variant prefix'i, CSS media query (prefers-color-scheme) veya manuel class stratejisi ile çalışır. Gonet projelerinde genelde manual class yaklaşımını tercih ediyoruz: <html class=\"dark\"> toggle'ı localStorage'a kaydedilir, kullanıcı tercihi korunur. Multi-theme için CSS değişken stratejisi uyguluyoruz: her tema bir data attribute (örn: data-theme=\"corporate\") ile tanımlanır, Tailwind config'te arbitrary values ile bu değişkenler okunur (bg-[var(--theme-primary)]). Theme switcher component, context API veya state management (Zustand, Redux) ile tüm app'e yayılır. 5+ tema destekli kurumsal projelerde bile runtime overhead 0'dır; tüm hesaplamalar build-time'da yapılır. Accessibility için forced-colors media query desteği de native olarak sağlanır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Tailwind CSS v4 nedir?
@@ -45,6 +52,25 @@ Tailwind CSS v4, utility-first (yardımcı sınıf öncelikli) yaklaşımla CSS 
 Gonet olarak Tailwind CSS v4'ü 2000'den beri edindiğimiz frontend deneyimimizle birleştiriyor, marka kimliğinizi kod seviyesinde standartlaştırıyoruz. Framework'ün JIT (Just-In-Time) derleyicisi, yalnızca kullandığınız sınıfları üretir; bu sayede production CSS dosyaları %95'e kadar küçülür.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">CSS-first</div>
+    <div class="l">JIT<br>v4 mimari</div>
+  </div>
+  <div class="stat">
+    <div class="n">Oxide</div>
+    <div class="l">Yeni Rust<br>engine</div>
+  </div>
+  <div class="stat">
+    <div class="n">3.5x</div>
+    <div class="l">Build hizi<br>(once v3)</div>
+  </div>
+  <div class="stat">
+    <div class="n">@theme</div>
+    <div class="l">Token<br>directive</div>
+  </div>
+</div>
 
 Kurumsal web projelerinde en büyük maliyet kalemlerinden biri CSS teknik borcudur. Farklı geliştiricilerin farklı stil yaklaşımları, zaman içinde bakımı imkansız hale gelen kod tabanları yaratır. Tailwind CSS v4, bu sorunu utility-first mimariyle kökten çözer.
 

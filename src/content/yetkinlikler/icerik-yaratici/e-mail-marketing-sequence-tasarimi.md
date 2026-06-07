@@ -36,6 +36,13 @@ faqs:
     a: "Segmentasyon kullanıcıları gruplara ayırmaktır (örn. 'son 30 günde alışveriş yapanlar', 'sepet değeri >500 TL olanlar'); personalization ise o grup içinde her kullanıcıya özel içerik sunmaktır (örn. e-postada kullanıcının adı, son baktığı ürün, önerilen kategori). Sequence'larda segmentasyon hangi akışa gireceğini belirler (yeni müşteri → welcome sequence, inaktif müşteri → winback sequence), personalization ise o akış içindeki mesajları dinamikleştirir (Klaviyo/HubSpot'ta merge tag'lerle 'Merhaba {{first_name}}, {{last_viewed_product}} seni bekliyor'). Gonet her sequence için 3-5 ana segment tanımlar, içeride 5-10 personalization noktası kullanır; açılma oranı %15-25, tıklama %10-20 artar."
   - q: "Hangi ESP platformu hangi kullanım senaryosu için tercih edilir?"
     a: "Gonet ESP seçimini müşteri ihtiyacına göre yapar: (1) Klaviyo: e-commerce için ideal, Shopify/WooCommerce entegrasyonu güçlü, behavioral segmentation ve SMS entegrasyonu var, maliyet orta-yüksek. (2) HubSpot: CRM entegreli lifecycle marketing gerekiyorsa, B2B ve SaaS için uygun, lead scoring + sequence + CRM tek platformda, maliyet yüksek. (3) Mailchimp: küçük-orta ölçek, basit sequence ihtiyacı, düşük maliyet, deliverability orta seviye. (4) ActiveCampaign: kompleks otomasyon ihtiyacı, güçlü conditional split'ler, orta maliyet. (5) SendGrid/Mailgun: transactional e-posta + yüksek hacim, developer-friendly API, deliverability yüksek. Gonet portföyünde e-commerce Klaviyo, SaaS HubSpot, B2B hizmet ActiveCampaign ağırlıktadır; her platformda sertifikalı uzmanlarımız vardır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## E-mail marketing sequence tasarımı nedir?
@@ -45,6 +52,25 @@ E-mail marketing sequence tasarımı, kullanıcı davranışlarına (behavioral 
 Gonet'te sequence tasarımı üç katmanda yürür: segmentasyon (hangi kitleye, ne zaman), içerik mimarisi (kaç e-posta, hangi mesaj sıralaması, CTA stratejisi) ve deliverability optimizasyonu (spam skorları, authentication, engagement rate). ESP (Email Service Provider) platformlarında (HubSpot, Klaviyo, Mailchimp, ActiveCampaign) kurulum, A/B testler ve performans izleme de sürecin parçasıdır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">%22-25</div>
+    <div class="l">Avg open rate<br>2024 SaaS</div>
+  </div>
+  <div class="stat">
+    <div class="n">5-7 mail</div>
+    <div class="l">Welcome<br>sequence ideal</div>
+  </div>
+  <div class="stat">
+    <div class="n">48-72sa</div>
+    <div class="l">Mail arasi<br>min gap</div>
+  </div>
+  <div class="stat">
+    <div class="n">A/B subject</div>
+    <div class="l">Surekli<br>test gerek</div>
+  </div>
+</div>
 
 **Lifecycle marketing'in omurgası**: Soğuk lead'den müşteriye, müşteriden savunucuya (advocacy) tüm yolculuk sequence'larla yönetilir. Welcome serisi, onboarding, re-engagement, upsell, winback — her aşama kendi dizisini gerektirir.
 

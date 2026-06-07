@@ -36,6 +36,13 @@ faqs:
     a: "Google Search Console'da manual action (manuel ceza) geçmişi kontrol edilir. Eğer penalty hala aktifse, bu ciddi bir red flag'tir çünkü organik trafiğin %50-90'ı kaybolmuş olabilir. Gonet bu durumda penalty'nin nedenini (spam backlink'ler, thin content, cloaking vb.) tespit eder, disavow dosyası hazırlar ve Google'a reconsideration request (yeniden değerlendirme talebi) sürecini planlar. Penalty kaldırılana kadar site değeri sıfıra yakın kabul edilir. Geçmişte penalty alınıp kaldırılmış ise, kaldırma sonrası trafik toparlanma süresi incelenir; eğer 6 ay sonra bile eski trafik seviyesine dönülememişse, sitenin authority'si kalıcı hasar görmüş demektir. Bu durum değerlemeye %30-50 indirim olarak yansır."
   - q: "M&A sonrası domain geçişi veya marka entegrasyonu nasıl yönetilir?"
     a: "Domain geçişi (örneğin hedef-site.com'dan ana-marka.com/hedef'e taşıma) SEO açısından en riskli operasyondur. Gonet bu süreçte 301 redirect planı hazırlar: eski URL'lerin tamamı yeni URL'lere 1:1 eşlenir, redirect chain'ler (zincir yönlendirmeler) engellenir. Ayrıca Google Search Console'da address change bildirimi yapılır, sitemap yeni domain'e güncellenir, backlink'ler mümkünse yeni domain'e yönlendirilir (outreach ile). Süreç boyunca haftalık trafik izleme yapılır; %10'dan fazla düşüş görülürse hemen müdahale edilir. Geçmiş Gonet projelerinde domain geçişi sonrası ortalama %5-8 geçici trafik kaybı yaşanır, 3 ay içinde toparlanır. Plan olmadan yapılan geçişlerde bu oran %40-60'a çıkabilir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## M&A dijital due diligence nedir?
@@ -45,6 +52,25 @@ M&A (Mergers & Acquisitions — birleşme ve satın alma) süreçlerinde dijital
 Değerleme yalnızca trafik sayısı değildir. Organik trafiğin kalitesi (brand vs non-brand), dönüşüm hunisinin sağlığı, teknik SEO borçları (Core Web Vitals, mobile-first indexing uyumu, duplicate content), HTTPS geçişi, Schema.org (yapılandırılmış veri) kullanımı, backlink toksisite oranı gibi 40+ parametre kontrol edilir. Sonuç: hedef şirketin dijital varlığının gerçek değeri, satın alma fiyatına yansıtılacak riskler ve fırsatlar net bir raporda sunulur.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Tech-stack</div>
+    <div class="l">Code+altyapi<br>audit</div>
+  </div>
+  <div class="stat">
+    <div class="n">SEO equity</div>
+    <div class="l">Backlink+<br>authority devir</div>
+  </div>
+  <div class="stat">
+    <div class="n">Data</div>
+    <div class="l">Owner+lineage+<br>compliance</div>
+  </div>
+  <div class="stat">
+    <div class="n">Brand</div>
+    <div class="l">Schema entity<br>transfer</div>
+  </div>
+</div>
 
 Dijital varlıklar modern işletmelerin en değerli gayri maddi varlıklarıdır. Bir e-ticaret sitesinin organik trafiğinin %80'i sıfırlanabilir çünkü geçmiş SEO çalışması black-hat taktiklerle yapılmıştır. Ya da bir SaaS ürününün 'güçlü marka bilinirliği' iddiası yalnızca ücretli reklamlara dayanıyordur; organik trafikte hiç brand search yoktur. Gonet 2019'da bir perakende zincirinin satın alınması öncesi yaptığı incelemede, hedef sitenin trafiğinin %65'inin tek bir Google güncelleme sonrası kaybolduğunu tespit etti. Değerleme 2,3 milyon TL düşürüldü.
 

@@ -36,6 +36,13 @@ faqs:
     a: "Entegrasyon 3 katmanda gerçekleşir: 1) Token senkronizasyonu—Figma Tokens eklentisi veya Style Dictionary ile token JSON'ları Git repository'de tutulur, CI/CD pipeline her commit'te CSS değişkenlerini günceller. 2) Component handoff—Figma Dev Mode'da geliştirici component props'ları (padding, font-size, color token referansı) inspect eder; Gonet ekibi bu değerleri React/Vue component'lerine map eder, Storybook'ta dokümante eder. 3) Versiyonlama—Figma branch'leri Git branch'leri ile senkronize; major tasarım değişikliği yeni branch'te test edilir, onaylandıktan sonra main'e merge edilir. Bu akış tasarım-geliştirme arasındaki 'telefon oyunu' riskini sıfırlar, her iki ekip de aynı versiyonu referans alır."
   - q: "Çok markalı yapılarda tek design system mi yoksa marka başına ayrı dosya mı tercih edilmeli?"
     a: "Tek design system, çoklu tema (multi-brand theming) yaklaşımı önerilir. Ana Figma dosyasında component library tüm markalarda ortak (button, input, card yapısı aynı), token dosyası her marka için fork edilir: marka-A-tokens.json, marka-B-tokens.json. Figma'da Swap Library özelliği ile aynı component farklı token setlerine bağlanır. Geliştirmede de tek component kütüphanesi, CSS'de theme class'ı ile token seti değişir (body.theme-a { --color-primary: #FF6B00; }). Bu yapı bakımı kolaylaştırır: button mantığında değişiklik tüm markalara yansır, ama her markanın renk/font'u bağımsız kalır. Gonet, 8 farklı franchise markası olan zincir için bu yapıyı kurdu; yeni marka ekleme süresi 2 haftadan 2 güne düştü."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Figma + design system nedir?
@@ -45,6 +52,25 @@ Figma, bulut tabanlı arayüz tasarım aracıdır; design system (tasarım siste
 Gonet 2000'den beri dijital ürün tasarlıyor; Figma ekosisteminde 5+ yıldır aktif çalışan ekibimiz, özellikle çok dilli, çok markalı yapılarda token-driven sistemler kuruyor. Bir design system yalnızca tasarım dosyası değil—tasarımcı-geliştirici iş birliğini hızlandıran, marka tutarlılığını garanti eden **canlı altyapıdır**.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Variants</div>
+    <div class="l">Component<br>cesitleri</div>
+  </div>
+  <div class="stat">
+    <div class="n">Tokens</div>
+    <div class="l">Studio plugin<br>standart</div>
+  </div>
+  <div class="stat">
+    <div class="n">Auto Layout</div>
+    <div class="l">Responsive<br>frame</div>
+  </div>
+  <div class="stat">
+    <div class="n">Dev Mode</div>
+    <div class="l">Code<br>spec kopru</div>
+  </div>
+</div>
 
 1. **Tutarlılık ölçeğinde**: 50+ sayfa, 10 farklı kampanya, mobil + web + uygulama içi banner… Manuel kontrol imkansız. Token sistemi tek kaynaktan tüm varlıkları günceller.
 2. **Geliştirme hızı**: Component library sayesinde tasarımcı yeni ekranı saatler yerine dakikalarda üretir; geliştirici de Figma'daki auto layout yapısını doğrudan CSS Flexbox/Grid'e çevirir—tahmin değil, birebir aktarım.

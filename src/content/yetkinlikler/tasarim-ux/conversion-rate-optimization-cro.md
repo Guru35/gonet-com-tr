@@ -37,6 +37,13 @@ faqs:
     a: "En yüksek dropoff hacmine sahip adımdan başlanır, çünkü ROI en yüksek olanıdır. Örnek: 5 adımlı checkout funnel'ında 1. adım %20 dropoff (10.000 → 8.000), 2. adım %15 (8.000 → 6.800), 3. adım %40 (6.800 → 4.080), 4. adım %10 (4.080 → 3.672). En yüksek oran 3. adım olsa da, 1. adımın hacmi daha büyük olduğu için (2.000 kayıp vs. 2.720 kayıp) optimize edilmesi daha fazla absolut kazanım getirir. Ancak eğer erken adımdaki dropoff kalifiye kullanıcıları elemiyorsa (bot trafik, yanlış niyetli tıklamalar), sonraki adımlara odaklanılır. Strateji: dropoff rate × volüm formülüyle impact hesapla, en yüksek impactlı adımı önceliklendir. Paralel olarak quick win'ler (kolay düzeltmeler) varsa, erken adımlarda bunlar da hızlıca yapılabilir."
   - q: "CRO çalışması SEO'yu olumsuz etkiler mi, A/B testlerde Google cloaking penaltısı riski var mı?"
     a: "Google, doğru yapılan A/B testlere izin verir ve cloaking olarak görmez. Kritik kurallar: 1) JavaScript ile client-side test yapılıyorsa canonical URL değişmez, URL-based split test yapılıyorsa rel=canonical original'e işaret etmeli. 2) Googlebot'a her zaman orijinal varyasyon gösterilmeli (user-agent sniffing cloaking olur), test araçları genellikle bunu otomatik yapar. 3) Test geçiciyse (2-4 hafta) 302 redirect, kalıcı değişiklikse 301. 4) Radikal içerik değişikliği (ürün açıklaması tamamen farklı) yerine layout/CTA/form değişikliği tercih edilir. Google Search Console'daki 'A/B Testing' dokümanında belirtilen best practice'lere uyulursa SEO riski yoktur. Gonet'te her test öncesi SEO impact assessment yapar, gerekirse test varyasyonunu noindex ederiz."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Conversion Rate Optimization (CRO) nedir?
@@ -48,6 +55,25 @@ Bir CRO programı dört temel bileşenden oluşur: heatmap (ısı haritası) ana
 Gonet'te CRO, izole bir proje değil sürekli bir iyileştirme döngüsüdür. Her optimizasyon hipotezini nicel veriyle destekler, her değişikliği istatistiksel anlamlılık seviyesinde test eder, her kazanımı dokümante ederiz.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%18-22</div>
+    <div class="l">CLS dusurme<br>mobil donusum</div>
+  </div>
+  <div class="stat">
+    <div class="n">A/B</div>
+    <div class="l">Statistical<br>test base</div>
+  </div>
+  <div class="stat">
+    <div class="n">Heatmap</div>
+    <div class="l">Hotjar/<br>Clarity insight</div>
+  </div>
+  <div class="stat">
+    <div class="n">Funnel</div>
+    <div class="l">Cok adimli<br>analiz</div>
+  </div>
+</div>
 
 Türkiye'de ortalama e-ticaret dönüşüm oranı %1-2 bandındadır. Bu oran, 100 ziyaretçiden yalnızca 1-2'sinin müşteri olduğu anlamına gelir. CRO ile bu oranı %3'e çıkarmak, aynı trafik bütçesiyle gelirinizi %50-100 artırır. Yeni müşteri edinme maliyeti (CAC - Customer Acquisition Cost) sürekli yükselirken, mevcut trafiği daha verimli kullanmak en hızlı ROI yoludur.
 

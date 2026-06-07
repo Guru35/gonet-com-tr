@@ -36,6 +36,13 @@ faqs:
     a: "Gonet API altyapısı horizontal scaling prensipleriyle sınırsız ölçeklenebilir. Kubernetes ile pod sayısı otomatik artırılır (Horizontal Pod Autoscaler), load balancer (NGINX, AWS ALB) istekleri dağıtır. Habertürk projesinde seçim gecesi 4.2 milyon concurrent kullanıcı, saniyede 180K API isteği karşılandı. Database seviyesinde read replica (PostgreSQL streaming replication), write-read split, connection pooling (PgBouncer) uygulanır. Redis Cluster ile caching katmanı dağıtık çalışır. CDN (CloudFront, Cloudflare) ile static response'lar edge'de sunulur. Unilever Black Friday'de 12x trafik artışında sistem %99.98 uptime ile çalıştı, ortalama response time 220ms'de kaldı."
   - q: "API versiyonlamasını nasıl yönetiyorsunuz?"
     a: "Gonet, breaking change'leri minimize eden URI versioning (api.example.com/v1/, api.example.com/v2/) veya header-based versioning (Accept: application/vnd.api+json;version=2) stratejisi kullanır. Yeni özellikler önce opt-in olarak sunulur, eski versiyon en az 12 ay desteklenir, deprecation warning'ler (HTTP 299) ile istemci geliştiriciler bilgilendirilir. GraphQL'de field-level deprecation (@deprecated directive) ile eski alanlar işaretlenir, yeni alan aynı şemada eklenir. Semantic versioning (MAJOR.MINOR.PATCH) changelog'da dokümante edilir. Fenerbahçe API v1'den v2'ye geçişte 6 aylık paralel çalışma süresi tanındı, mobil uygulama %100 geçiş yaptıktan sonra v1 kapatıldı."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Mobile API geliştirme (REST + GraphQL) nedir?
@@ -45,6 +52,25 @@ Mobile API geliştirme, mobil uygulamaların sunucu ile güvenli, hızlı ve öl
 Gonet, 2000'den bu yana Türkiye'nin önde gelen markaları için production-grade API altyapıları inşa etmiştir. Habertürk'ün anlık haber akışı, Unilever'in çok kanallı e-ticaret platformu, Fenerbahçe'nin canlı skor ve video servisleri gibi yüksek trafikli sistemler, Gonet'in API uzmanlığının somut örnekleridir. Bu projelerde günde milyonlarca istek karşılanır, ms cinsinden yanıt süreleri korunur ve %99.9+ uptime hedeflenir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">REST</div>
+    <div class="l">OpenAPI 3<br>spec uyumlu</div>
+  </div>
+  <div class="stat">
+    <div class="n">GraphQL</div>
+    <div class="l">Schema-first<br>tip güvenli</div>
+  </div>
+  <div class="stat">
+    <div class="n">JWT</div>
+    <div class="l">Stateless<br>auth token</div>
+  </div>
+  <div class="stat">
+    <div class="n">OAuth 2.1</div>
+    <div class="l">Yetkilendirme<br>standardı</div>
+  </div>
+</div>
 
 Mobil uygulama deneyiminin %80'i backend performansına bağlıdır. Yavaş, hatalı veya güvensiz bir API, kullanıcı kaybının birincil nedenidir. Apple App Store ve Google Play Store, kötü performans gösteren uygulamaları sıralamada cezalandırır. Ayrıca modern mobil ekosistemde aynı backend, iOS, Android, web ve IoT cihazlarını besler — API tasarımı tek noktadan tüm kanallara hizmet verir.
 

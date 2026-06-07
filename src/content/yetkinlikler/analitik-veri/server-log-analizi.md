@@ -36,6 +36,13 @@ faqs:
     a: "Crawl budget (tarama bütçesi), arama motorlarının sitenizde günlük tarayabileceği sayfa sayısıdır. Büyük sitelerde (>10.000 sayfa) Googlebot tüm sayfaları taramaz, önceliklendirme yapar. Server loglar Googlebot'un hangi sayfaları ne sıklıkla taradığını gösterir. Search Console 'Tarama İstatistikleri' ile log verilerini çaprazlayarak şunu tespit edersiniz: (1) Hangi sayfa türleri (ör. eski blog yazıları, filtre URL'leri) gereksiz taranıyor? Bunları robots.txt veya noindex ile engelleyerek bütçeyi önemli sayfalara yönlendirirsiniz. (2) Hangi önemli sayfalar (ör. yeni ürünler) yeterince taranmıyor? Internal linking ve XML sitemap güncellemesiyle öncelik artırırsınız. Bir e-ticaret müşterimizde filtre URL'lerini (renk, beden kombinasyonları) robots.txt'e ekleyerek Googlebot bütçesinin %40'ını ana ürün sayfalarına kaydırdık, yeni ürünlerin indekslenme süresi 12 günden 3 güne düştü."
   - q: "Sahte Googlebot'u (fake Googlebot) nasıl tespit ederim?"
     a: "Bazı spam botlar user-agent'lerini 'Googlebot' olarak gösterir, ancak Google IP'lerinden gelmez. Server loglarında user-agent 'Googlebot' olan isteklerin IP adreslerini kontrol edin. Gerçek Googlebot yalnızca Google'a ait IP aralıklarından gelir. Doğrulama yöntemi: (1) Ters DNS sorgusu (reverse DNS lookup) yapın: IP'nin hostname'i *.googlebot.com veya *.google.com ile bitmelidir. (2) Bu hostname'in IP adresini forward DNS lookup ile kontrol edin, orijinal IP ile eşleşmelidir. (3) Google'ın yayınladığı Googlebot IP aralıklarını (JSON formatında mevcut) kontrol edin. Sahte Googlebot tespit ederseniz, o IP'yi firewall seviyesinde engelleyin. Gonet müşterilerinde aylık onlarca sahte Googlebot tespiti yapıyoruz; bunların %80'i içerik çalan scraper'lar, %20'si SEO casusluk botları. Engelleme sonrası sunucu yükü ortalama %15 düşüyor."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Server log analizi nedir?
@@ -45,6 +52,25 @@ Server log analizi, web sunucusunun kaydettiği ham erişim günlüklerinin (acc
 Günümüzde AI crawler'ları (GPTBot, Google-Extended, ClaudeBot, Bingbot gibi büyük dil modeli — large language model — botları) içerik toplamak için siteleri tarar. Server log analizi, hangi botun hangi sayfaları ne sıklıkla ziyaret ettiğini, sunucu kaynaklarını nasıl kullandığını, erişim desenlerini gösterir. Bu veri, botları yönetmek, maliyetli taramaları sınırlamak, AEO (Answer Engine Optimization) stratejilerini iyileştirmek için kritiktir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">GPTBot</div>
+    <div class="l">AI crawler<br>tespit</div>
+  </div>
+  <div class="stat">
+    <div class="n">200+</div>
+    <div class="l">Log line/saat<br>yoğunluk</div>
+  </div>
+  <div class="stat">
+    <div class="n">CCBot</div>
+    <div class="l">Common Crawl<br>davranış</div>
+  </div>
+  <div class="stat">
+    <div class="n">%47</div>
+    <div class="l">Önlenebilir<br>crawl israfı</div>
+  </div>
+</div>
 
 Google Analytics (GA4) ve GTM istemci tarafı çözümlerdir: tarayıcıda JavaScript çalıştırarak veri toplarlar. Botların çoğu JavaScript çalıştırmaz, dolayısıyla GA4'te görünmez. Server loglar ise her HTTP isteğini kaydeder — spam bot, SEO crawler, AI model eğitim botu, hatta DDoS denemesi olsa bile. Bu eksiksiz görünürlük üç kritik avantaj sağlar:
 

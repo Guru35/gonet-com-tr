@@ -36,6 +36,13 @@ faqs:
     a: "BigQuery sorgu hızı, taranacak veri miktarına bağlıdır. Gonet optimizasyon stratejisi: (1) Partitioned table kullan — tarih bazında partition, WHERE _TABLE_SUFFIX ile yalnızca ilgili günleri tara. (2) SELECT * yerine yalnızca gerekli kolonları seç. (3) Sık kullanılan aggregation'ları materialized view veya scheduled query ile pre-compute et. Örneğin günlük cohort hesabı her seferinde 2 yıllık raw data'dan yapılmaz; scheduled query günlük cohort tablosunu günceller (saniyeler sürer), siz o tabloyu sorgularsınız. Gonet projelerinde ortalama sorgu süresi <5 saniye, büyük cohort analizleri <20 saniye."
   - q: "BigQuery + SQL ile churn modelleme nasıl yapılır?"
     a: "Churn modelleme iki aşamalı: (1) Kullanıcı feature'larını hesapla (son 30 gün session sayısı, ortalama session süresi, satın alma sıklığı, ürün kategori dağılımı vb.) — SQL ile GROUP BY user_pseudo_id. (2) Bu feature'ları BigQuery ML (BQML) veya harici ML aracına (Python, AutoML) aktar. Basit yaklaşım: 'son 60 günde 0 session' olan kullanıcıları 'churned' label et, önceki 90 gün feature'larına göre logistic regression model eğit. Gonet, BQML ile BigQuery içinde model eğitir, prediction scheduled query olarak her hafta çalışır, sonuçları CRM'e (Salesforce, HubSpot) veya Google Ads audience'ına aktarır. Müşteri proaktif 'win-back' kampanyası çalıştırır, churn oranı %15-25 düşer."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## BigQuery + SQL nedir?
@@ -45,6 +52,25 @@ BigQuery, Google Cloud'un sunduğu sunucusuz (serverless) veri ambarı servisidi
 Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 220+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">1 TB</div>
+    <div class="l">Aylık ücretsiz<br>sorgu</div>
+  </div>
+  <div class="stat">
+    <div class="n">PB+</div>
+    <div class="l">Petabyte ölçek<br>analitik</div>
+  </div>
+  <div class="stat">
+    <div class="n">Standart SQL</div>
+    <div class="l">Sözdizimi<br>uyumluluğu</div>
+  </div>
+  <div class="stat">
+    <div class="n">Streaming</div>
+    <div class="l">Real-time<br>insert</div>
+  </div>
+</div>
 
 GA4 raporlama arayüzü sampling (örnekleme) uygular, 14 aylık veri saklama sınırı vardır ve karmaşık kullanıcı yolculuklarını (multi-touch attribution, session stitching) doğrudan gösteremez. BigQuery raw export'u bu sınırları kaldırır:
 

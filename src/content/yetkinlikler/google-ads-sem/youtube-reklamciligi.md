@@ -36,6 +36,13 @@ faqs:
     a: "Video etkileşim tabanlı segmentasyon en etkili yöntemdir. %25, %50, %75, %100 izleme oranlarına göre farklı listeler oluşturur, her segmente uygun mesajla yaklaşırsınız. Örneğin %75+ izleyenlere direkt conversion odaklı reklam gösterirken, %25'de bırakanlara farklı açıdan içerik sunarsınız. Video izleme listelerini Google Analytics 4 event'leriyle birleştirir, cross-device (çapraz cihaz) davranışları da dahil edersiniz. YouTube channel subscribers (kanal aboneleri) ve video likes (beğenenler) gibi owned audiences (sahip olunan kitleler) yüksek engagement verir. Gonet olarak 540 günlük cookie window kullanır, 1000+ kullanıcılı segmentler oluşturur ve lookalike/similar audiences (benzer kitleler) ile ölçekleriz. Customer Match (müşteri eşleştirme) ile CRM datanızı YouTube'a yükler, mevcut müşterilere upsell kampanyaları yaparız."
   - q: "YouTube kampanyalarında brand safety önlemlerini nasıl alırız?"
     a: "Brand safety (marka güvenliği) üç katmanda sağlanır: content exclusions (içerik hariç tutmaları), placement controls (yayın yeri kontrolleri) ve sensitive category blocking (hassas kategori engelleme). Google'ın inventory types (envanter tipleri) ayarında 'Standard' yerine 'Limited' seçerek hassas içeriklerden kaçınırsınız ancak reach %20-30 azalabilir. Placement exclusions ile belirli kanalları, videoları veya uygulama kategorilerini hariç tutarsınız. Gonet olarak kampanya başlatmadan önce rakip markaları, haber/siyaset kanallarını ve tartışmalı içerik üreticilerini exclude listesine ekleriz. Google Ads suitability settings (uygunluk ayarları) ile alkol, kumar, yetişkin içerik gibi kategorileri engeller, marka imajına uygun envanterde görünürüz. Haftalık placement reports kontrol eder, istenmeyen görünümleri tespit edip anında hariç tutarız. Büyük markalar için pre-bid verification (teklif öncesi doğrulama) araçları (IAS, DoubleVerify) entegre ederiz."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## YouTube reklamcılığı nedir?
@@ -45,6 +52,25 @@ YouTube reklamcılığı, dünyanın en büyük video platformunda çeşitli rek
 In-stream reklamlar videoların başında, ortasında veya sonunda gösterilir ve 5 saniye sonra atlanabilir (skippable) veya atlanamaz (non-skippable) türlerde gelir. Discovery reklamlar YouTube ana sayfasında, arama sonuçlarında ve ilgili videolar yanında thumbnail ile görünür. Shorts reklamlar kısa dikey video formatında mobil kullanıcılara optimize edilmiştir. Performance Max for video ise makine öğrenmesi ile tüm YouTube envanterinde otomatik optimizasyon yapar. Her format farklı metriklere (view rate, earned actions, conversions) ve bütçe stratejilerine göre yapılandırılır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%240</div>
+    <div class="l">View-through<br>conversion</div>
+  </div>
+  <div class="stat">
+    <div class="n">5 sn</div>
+    <div class="l">Skip eşiği<br>ön kanca</div>
+  </div>
+  <div class="stat">
+    <div class="n">15-30sn</div>
+    <div class="l">İdeal<br>video uzunluğu</div>
+  </div>
+  <div class="stat">
+    <div class="n">In-stream</div>
+    <div class="l">PMax for video<br>format</div>
+  </div>
+</div>
 
 YouTube, Türkiye'de 70+ milyon aylık kullanıcıyla televizyonun ötesinde bir erişim kanalıdır. Kullanıcılar aktif içerik tüketimi yaparken dikkat düzeyleri yüksektir veIntent-based (arama tabanlı) + Interest-based (ilgi alanı tabanlı) hedefleme birlikte kullanılabilir. Video içeriği duygusal bağ kurar ve %95 oranında ses açık izleme davranışı sayesinde mesaj iletimi güçlüdür. Ayrıca YouTube reklamları Google Analytics 4 (GA4) ve Google Tag Manager (GTM) ile entegre çalışarak tam funnel ölçümü mümkün kılar.
 

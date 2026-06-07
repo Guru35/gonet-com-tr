@@ -36,6 +36,13 @@ faqs:
     a: "Intrinsic sizing (min(), max(), clamp(), fit-content) ile explicit sizing'i aspect-ratio, image optimization ve layout shift prevention için birleştirin. Örneğin, responsive image'larda width: 100% (intrinsic) ile aspect-ratio: 16/9 (explicit proportion) birleştirerek Cumulative Layout Shift (CLS) önlersiniz. Grid layout'larda minmax(min(100%, 280px), 1fr) intrinsic genişlik sağlarken, grid-auto-rows: minmax(200px, auto) minimum yükseklik garantisi verir. Hero section'larda min-height: 100vh ile padding: clamp(2rem, 5vw, 4rem) birleştirerek hem viewport'u kaplayabilir hem içerik taşmasını önleyebilirsiniz. Genel kural: container boyutlarında intrinsic sizing kullanın (içerik kadar büyüsün), spacing ve typography'de fluid sizing, kritik aspect ratio'larda (video, image) explicit proportions. Bu kombinasyon responsive ama predictable layout sağlar."
   - q: "Touch-first design'da minimum tap target boyutu neden 44x44px olmalı?"
     a: "44x44px minimum tap target boyutu Apple iOS Human Interface Guidelines ve WCAG 2.2 Success Criterion 2.5.5 (Target Size) standardıdır, ortalama parmak ucu boyutuna dayanır. Araştırmalar gösterir ki 44px'den küçük hedefler misclick (yanlış tıklama) oranını %40-60 artırır, özellikle hareket halinde veya tek el kullanımında. E-ticaret sitelerinde küçük tap target'lar sepete ekle, satın al gibi kritik eylemlerde hata oranını artırır, bu doğrudan revenue loss (gelir kaybı) demektir. WCAG 2.2 AA uyumluluğu için 24x24px minimum kabul edilir ancak AAA seviyesi ve optimal UX için 44x44px önerilir. Mobil navigation menu'lerde, form butonlarında, card'lardaki click area'larda bu boyutu garantileyin. padding ile görsel boyut küçük tutup clickable area'yı büyütebilirsiniz: button 32px görünsün ama padding ile total clickable area 44px olsun. Bu hem estetik hem kullanılabilirliği korur."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Mobil-öncelikli responsive tasarım nedir?
@@ -45,6 +52,25 @@ Mobil-öncelikli responsive tasarım (mobile-first responsive design), kullanıc
 Container queries (@container), CSS'te yeni bir paradigma değişimidir. Geleneksel media queries'in viewport (görüntü alanı) genişliğine baktığı yerde, container queries bir elementin kendi konteynerinin boyutuna göre stil uygulamasına izin verir. Bu, bileşen odaklı tasarımda oyunun kurallarını değiştirir. Fluid typography, viewport birimleri (vw, vh) ve clamp() fonksiyonu kullanarak metin boyutlarının ekran boyutuyla orantılı şekilde ölçeklenmesini sağlar. Intrinsic sizing ise min(), max() ve fit-content gibi CSS fonksiyonlarıyla elementlerin içeriklerine göre doğal boyutlanmasını mümkün kılar.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Mobile-first</div>
+    <div class="l">CSS yazim<br>sirasi</div>
+  </div>
+  <div class="stat">
+    <div class="n">%60+</div>
+    <div class="l">Mobil trafik<br>2024 ortalama</div>
+  </div>
+  <div class="stat">
+    <div class="n">Container @</div>
+    <div class="l">Modern responsive<br>sorgu</div>
+  </div>
+  <div class="stat">
+    <div class="n">Touch</div>
+    <div class="l">48x48px<br>min hit area</div>
+  </div>
+</div>
 
 Türkiye'de mobil internet kullanımı %78'i aşmıştır. Google 2021'den beri mobile-first indexing (mobil-öncelikli indeksleme) uygulamaktadır — sitenizin mobil versiyonu arama sıralamalarını belirler. Kötü mobil deneyim doğrudan dönüşüm kaybı anlamına gelir.
 

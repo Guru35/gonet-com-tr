@@ -36,6 +36,13 @@ faqs:
     a: "**DEPARK (B2B SaaS):** \"Demo kullanıcısı → başarı verisi → vaka çalışması → LinkedIn organik paylaşım → yeni demo talebi\" döngüsü. İlk 10 müşteriden 3 vaka çalışması üretti, her biri LinkedIn'de 4.000+ gösterim aldı, 28 yeni demo talebi getirdi. **Dojonote (EdTech):** \"İlk ders tamamlama → sosyal paylaşım teşviki (rozet) → arkadaş davetiyesi → yeni kayıt\" viral loop. Rozet özelliği eklenince paylaşım %340 arttı, organic sign-up %22 büyüdü. **Bambu (E-ticaret):** \"İlk alışveriş → e-posta ile referral kodu → arkadaş %15 indirim → yeni müşteri → ilk alışveriş\" döngüsü. K-factor 0.8'e ulaştı (her kullanıcı ortalama 0.8 yeni kullanıcı getiriyor)."
   - q: "Startup'ın kendi ekibi küçükse, Gonet hangi rolleri üstlenir?"
     a: "Tipik startup ekibi founder + 1-2 geliştirici + belki bir tasarımcıdan oluşur; pazarlama + veri uzmanlığı yoktur. Gonet bu boşluğu interim CMO (geçici pazarlama direktörü) rolüyle doldurur: strateji, kanal yönetimi, içerik takvimi, medya satın alma, analitik kurulum, haftalık performans raporu. DEPARK'ta founder satış + ürün geliştirmeye odaklandı; Gonet LinkedIn kampanyaları, demo sayfası optimizasyonu, lead scoring (potansiyel müşteri puanlama) sistemini yönetti. Ekip büyüdükçe Gonet danışmanlık modeline geçer: kendi pazarlama yöneticinizi işe alırsınız, biz mentorluk + teknik destek sağlarız. Süreç esnek, büyüme aşamasına göre ölçeklenir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Startup büyüme danışmanlığı nedir?
@@ -45,6 +52,25 @@ Startup büyüme danışmanlığı, erken aşama şirketlerin ürün-pazar uyumu
 Kurumsal markalardan farklı olarak startup'lar belirsizlik altında çalışır: hipotezler test edilmeli, kaynaklar sınırlıdır, hız kritiktir. Gonet'in 26 yıllık deneyimi, bu dinamiklere adaptif framework'ler (çerçeveler) sunar — ağır kampanyalar yerine hızlı iterasyonlar, marka inşası yerine erken traksiyon (çekiş) odağı, geniş bütçe yerine hassas kanal seçimi.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">PMF</div>
+    <div class="l">Product-Market<br>Fit esigi</div>
+  </div>
+  <div class="stat">
+    <div class="n">40%</div>
+    <div class="l">Sean Ellis<br>PMF skoru</div>
+  </div>
+  <div class="stat">
+    <div class="n">AARRR</div>
+    <div class="l">Pirate metrik<br>framework</div>
+  </div>
+  <div class="stat">
+    <div class="n">Cohort</div>
+    <div class="l">Retention<br>analizi</div>
+  </div>
+</div>
 
 **1. Kaynak verimliliği**  
 Erken aşama bütçe her kuruşunu doğru kanala yönlendirmeyi gerektirir. DEPARK ile B2B satış döngüsünü kısaltan LinkedIn lead generation (potansiyel müşteri kazanımı) + demo hunnel (dönüşüm hunisi) tasarladık; Dojonote'da organik içerik + TikTok testleriyle CAC (Customer Acquisition Cost - müşteri edinim maliyeti) %42 düşürdük.

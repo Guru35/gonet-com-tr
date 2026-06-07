@@ -36,6 +36,13 @@ faqs:
     a: "GA4 attribution modelleri: Data-driven (veri odaklı), Last click (son tıklama), First click (ilk tıklama), Linear (doğrusal), Position-based (pozisyon tabanlı), Time decay (zaman azalması). Data-driven attribution (DDA), makine öğrenmesi ile her touchpoint'in conversion'a katkısını hesaplar; yeterli veri varsa (genelde 400+ conversion/ay) diğer modellerden daha doğrudur. DDA, counterfactual analysis (karşıt durum analizi) kullanır: 'bu touchpoint olmasaydı conversion olasılığı ne kadar düşerdi?' sorusuna yanıt verir. Advertising > Attribution > Model comparison raporu, aynı conversion'ları farklı modellerde karşılaştırır. Örneğin Last click'te Paid Search %60 credit alırken DDA'da %40 alıyor, Display %10'dan %25'e çıkıyorsa Display assist rolü güçlüdür. Gonet, attribution raporlarını budget allocation kararlarına bağlar, kanal ROI hesaplamalarını attribution insight'ıyla revize eder."
   - q: "GA4 verisi BigQuery'e nasıl export edilir, hangi analizler SQL ile yapılır?"
     a: "GA4 > Admin > Property > BigQuery linking > Link ile Google Cloud projesine bağlanır. Daily export (günlük) veya streaming (canlı) seçilir; Free tier daily export ücretsizdir. Export edilen tablo STRUCT ve ARRAY veri tiplerinde nested JSON'dır: her satır bir event, event_params ve user_properties array'ler. SQL ile yapılan analizler: (1) Item-level product performansı (items array'i UNNEST ile açılır), (2) User cohort analizi (ilk satın alma tarihine göre gruplama, retention), (3) Custom funnel (event sequence WHERE koşulları), (4) Cross-session attribution (user_pseudo_id + event_timestamp ile journey reconstruction), (5) Anomaly detection (günlük conversion sapmaları). BigQuery'den Looker Studio/Tableau'ya connect, GA4 UI'ın 14 aylık sınırını aşan historical analiz. Gonet, BigQuery SQL template'leri sağlar, veri mühendisliği olmadan self-service analytics."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Google Analytics 4 (GA4) nedir?
@@ -53,6 +60,25 @@ GA4'ün temel farkları:
 Gonet, 2020'den beri GA4 implementasyonu ve danışmanlığı sunmaktadır. 220+ marka portföyünde GA4 geçişlerini Temmuz 2023 son tarihinden önce tamamladık, veri kaybı olmadan sağladık.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">2023</div>
+    <div class="l">UA → GA4<br>migrasyon yılı</div>
+  </div>
+  <div class="stat">
+    <div class="n">14 ay</div>
+    <div class="l">GA4 default<br>retention</div>
+  </div>
+  <div class="stat">
+    <div class="n">Event-based</div>
+    <div class="l">Model<br>(önce session)</div>
+  </div>
+  <div class="stat">
+    <div class="n">BigQuery</div>
+    <div class="l">Ücretsiz<br>raw export</div>
+  </div>
+</div>
 
 Universal Analytics 1 Temmuz 2023'te veri toplamayı durdurdu. GA4'e geçmeyen markalar tarihi veriyi kaybetti, trend analizleri koptu. Ancak GA4'ün kritiği yalnızca zorunluluktan değil, yeteneklerinden kaynaklanır:
 

@@ -36,6 +36,13 @@ faqs:
     a: "Coolify her uygulamayı ayrı 'resource' olarak deploy eder. Monorepo'da birden fazla app varsa (örn: Next.js frontend + NestJS API + admin dashboard), her biri Coolify'da ayrı service tanımlanır, aynı Git repo farklı build path ile. Dockerfile her app için customize edilir (WORKDIR, COPY path). Gonet yaklaşımı: root'ta docker-compose.yml, her service için build context belirlenir. Coolify bu compose'u import eder, tek seferde 5-10 servisi deploy eder. Nx/Turborepo'nun affected build özelliği CI/CD'de kullanılır: sadece değişen paketler rebuild edilir, Coolify'a webhook gönderilir. Örnek: 8 mikrosite monorepo, bir sitede değişiklik → sadece o site rebuild + deploy, diğerleri untouched. Deploy süresi 3 dakikadan 40 saniyeye düşer."
   - q: "Self-hosted PaaS güvenlik güncellemeleri kim tarafından yapılıyor?"
     a: "Coolify otomatik update özelliği var ama production'da manuel kontrol öneriyoruz. Gonet managed service'te: ayda 1 bakım penceresi (gece 02:00-04:00), Coolify + Docker + OS güncellemeleri test sunucusunda doğrulandıktan sonra production'a alınır. unattended-upgrades ile Ubuntu security patch'leri otomatik (kernel hariç, reboot gerektirmeyen). Kernel update 3 ayda 1, planlı 5 dakika downtime. Müşteri kendi yönetiyorsa: Coolify dashboard'dan tek tık update, Docker/OS için Gonet'in hazır Ansible playbook'u verilir. Kritik CVE (örn: Log4j benzeri) durumunda 24 saat içinde acil patch. Cloudflare WAF zero-day'lerde ilk savunma hattı, exploit trafiğini origin'e ulaşmadan bloklar."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Self-hosted PaaS — Coolify + Docker nedir?
@@ -47,6 +54,25 @@ Gonet'in tercih ettiği stack: **Hetzner** (maliyet-performans lideri bare-metal
 Örnek senaryo: 12 mikrosite + 3 headless CMS + 5 API servisi çalıştıran bir müşteri, Vercel'de aylık €800 yerine Hetzner CCX23 (€28/ay) + Coolify üzerinde €50 toplam maliyetle işletiliyor — trafik patlamalarında fiyat artışı riski yok.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Vendor-free</div>
+    <div class="l">Tek tikla<br>deploy</div>
+  </div>
+  <div class="stat">
+    <div class="n">Docker</div>
+    <div class="l">Container<br>standardi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Git push</div>
+    <div class="l">Otomatik<br>build pipeline</div>
+  </div>
+  <div class="stat">
+    <div class="n">Hetzner</div>
+    <div class="l">CPX22<br>baseline VPS</div>
+  </div>
+</div>
 
 **1. Vendor Lock-in'den Kurtulma**  
 Vercel/Netlify fiyatlandırması trafik bazlıdır. Viral içerik veya DDoS saldırısı durumunda beklenmedik faturalarla karşılaşırsınız. Self-hosted PaaS'ta maliyet sabit — sunucu kapasitesi ödendiği an toplam maliyeti bilirsiniz.

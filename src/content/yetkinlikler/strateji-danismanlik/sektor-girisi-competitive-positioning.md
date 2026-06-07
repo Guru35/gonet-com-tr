@@ -36,6 +36,13 @@ faqs:
     a: "B2B'de karar döngüsü uzun (3-12 ay), birden fazla stakeholder (CTO, CFO, satın alma) var. Gonet, LinkedIn Ads + Google Ads arama kombinasyonu, whitepaper/case study download tracking (GTM event), CRM (HubSpot, Salesforce) entegrasyonu, lead scoring ile MQL → SQL (sales qualified lead) geçişini izler. B2C'de karar hızlı (dakikalar-günler), emosyonel tetikleyiciler ön planda. Meta Ads (Facebook, Instagram) + Google Shopping, influencer iş birlikleri, UGC (user-generated content), hızlı checkout (Stripe, iyzico entegrasyonu), post-purchase email automation (Klaviyo, Insider) devreye girer. Her iki modelde de GA4 attribution modeling farklı yapılandırılır: B2B'de \"position-based\" (ilk ve son temas ağırlıklı), B2C'de \"data-driven\" (makine öğrenmesi tabanlı)."
   - q: "Sektör girişinde başarısızlık riski nasıl yönetilir?"
     a: "Gonet, \"fail fast, learn faster\" prensibini MVP ve iteratif sprint'lerle uygular. İlk 6-8 haftada minimal bütçeyle (5.000-15.000 TL reklam) kanal testleri yapılır; eğer CPA hedefin 2 katından fazlaysa veya bounce rate %80'i aşıyorsa, kanal/mesaj pivot edilir. GA4'te custom alert'ler (ör. conversion rate 7 gün boyunca %50 düşerse Slack bildirimi) ve haftalık sprint retrospective'leri (Agile) ile erken uyarı sistemi vardır. 12. haftada \"Go/No-Go\" kararı: eğer 3 kanaldan en az biri CPA hedefine %20 yakınsa scale, değilse pozisyon manifestosu revize edilir. 26 yıllık deneyimde %85 Go oranı (markaların %85'i 12. haftada scale kararı alır)."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Sektör girişi & competitive positioning nedir?
@@ -45,6 +52,25 @@ Sektör girişi (market entry) ve rekabetçi konumlandırma, bir markanın yeni 
 Bu süreç yalnızca bir web sitesi açmak veya sosyal medya hesabı kurmak değildir. Rekabetçi konumlandırma (competitive positioning), hedef kitlenin zihninde benzersiz bir yer edinmek için rakip analizi (SWOT, Porter'ın 5 Güç modeli), kategori dinamikleri, fiyat-değer algısı, mesaj hiyerarşisi ve dijital kanal seçimini içerir. Gonet, bu çerçeveyi Google Analytics 4 (GA4) event takibi, Google Tag Manager (GTM) ile conversion tracking, Schema.org işaretlemeleri ve SEO/AEO veri altyapısıyla somutlaştırır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Blue Ocean</div>
+    <div class="l">Rakipsiz<br>pazar</div>
+  </div>
+  <div class="stat">
+    <div class="n">Porter 5</div>
+    <div class="l">Rekabet kuvvet<br>analizi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Jobs</div>
+    <div class="l">JTBD<br>framework</div>
+  </div>
+  <div class="stat">
+    <div class="n">Positioning</div>
+    <div class="l">Tek cumle<br>iddia</div>
+  </div>
+</div>
 
 **1. İlk izlenim geri alınamaz**: Yeni bir sektöre giren marka, hedef kitlenin zihninde ilk kez şekillenir. Yanlış konumlandırma—mesela premium segment hedeflenirken bütçe mesajı verilmesi—düzeltmek yıllar alır.
 

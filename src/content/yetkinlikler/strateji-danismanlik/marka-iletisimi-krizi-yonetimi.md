@@ -36,6 +36,13 @@ faqs:
     a: "Google arama sonuçlarında negatif haberlerin yerini değiştirmek mümkün değildir ancak pozitif içeriklerle dengelenebilir. Gonet'in SEO rehabilitasyon stratejisi şöyledir: (1) Pozitif içerik üretimi — kriz hakkında kurumsal açıklama, bağımsız değerlendirme, düzeltici aksiyonlar gibi içerikler blog, video ve basın bülteni formatında üretilir. (2) On-page SEO — bu içeriklere marka adı + kriz ile ilgili anahtar kelimeler eklenir, Schema.org Article işaretlemesi yapılır, meta description optimize edilir. (3) Off-page SEO — güvenilir haber siteleri, sektör blogları ve sosyal medya influencer'larından backlink (geri bağlantı) alınır. (4) Google Discover ve Google News optimizasyonu — taze, doğru içeriklerin bu kanallarda görünmesi sağlanır. 4-8 hafta içinde 'marka adı + kriz' aramasında ilk sayfada en az 3 pozitif sonuç hedeflenir."
   - q: "Enterprise firmalarda veri ihlali krizi için Gonet'in müdahale protokolü hangi adımları içerir?"
     a: "Veri ihlali, enterprise firmalarda en yüksek itibar riskine sahip krizdir. Gonet'in protokolü şöyledir: (1) İlk 2 saat — IT ekibi ile koordinasyon, ihlalin kapsamı (kaç kullanıcı, hangi veriler) tespit edilir. (2) İlk 6 saat — yasal danışman onayı ile basın bildirisi hazırlanır, website'de özel kriz sayfası yayına alınır, etkilenen müşterilere CRM üzerinden kişiselleştirilmiş e-posta gönderilir. (3) İlk 24 saat — sosyal medyada şeffaf açıklama yapılır, müşteri hizmetleri hattı güçlendirilir, FAQ sayfası yayınlanır. (4) 1 hafta — bağımsız siber güvenlik firmasından rapor alınır, düzeltici aksiyonlar (iki faktörlü doğrulama, şifreleme iyileştirmesi) duyurulur. (5) 1 ay — müşteri güven anketi yapılır, pozitif geri bildirimlerin sosyal medyada paylaşılması sağlanır. Şeffaflık ve hızlı aksiyon, churn (müşteri kaybı) riskini %40-50 azaltır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Marka iletişimi krizi yönetimi nedir?
@@ -45,6 +52,25 @@ Marka iletişimi krizi yönetimi, bir kurumun dijital mecralarda karşılaştı�
 Dijital ortamda kriz, geleneksel medyadan farklı dinamiklere sahiptir: içerik saniyeler içinde viral olur, kullanıcı kaynaklı yorumlar marka mesajını gölgeler, arama motorları güncel haberleri anında indeksler. Gonet'in kriz yönetimi yaklaşımı, bu hız ve çok kanallı yapıya uygun şekilde tasarlanmıştır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">1 saat</div>
+    <div class="l">Kriz response<br>altin suresi</div>
+  </div>
+  <div class="stat">
+    <div class="n">3 asama</div>
+    <div class="l">Acknowledge+<br>Apologize+Act</div>
+  </div>
+  <div class="stat">
+    <div class="n">Real-time</div>
+    <div class="l">Social listening<br>zorunlu</div>
+  </div>
+  <div class="stat">
+    <div class="n">Playbook</div>
+    <div class="l">Onceden<br>hazir senaryo</div>
+  </div>
+</div>
 
 Dijital itibar, modern markaların en değerli varlığıdır. Bir sağlık kuruluşunda yaşanan hasta güvenliği vakası, siyasi bir liderin tartışmalı açıklaması veya enterprise bir firmanın veri ihlali, saatler içinde marka değerinde ölçülebilir kayıplara yol açabilir. Google arama sonuçlarında negatif haber başlıklarının ilk sayfada görünmesi, potansiyel müşterilerin %70'inin karar sürecini olumsuz etkiler.
 

@@ -36,6 +36,13 @@ faqs:
     a: "CRM entegrasyonu ABM'de zorunludur, yoksa kampanya başarısız olur. Sales ekibi, hangi hesabın hangi içerikle engage olduğunu, hangi decision-maker'ın LinkedIn'de whitepaper indirdiğini, hangi hesabın Google'da competitor araması yaptığını göremezse, outreach timing kaçar. Gonet'te Salesforce/HubSpot/Dynamics 365 ile bidirectional sync kurulur: reklam platformları MQL skorunu CRM'e gönderir (örn: hesap 3+ touchpoint → lead score +20), CRM'den sales ekibi feedback'i (demo yapıldı, teklif gönderildi) reklam platformuna döner, kampanya optimize edilir. Haftalık sales-marketing sync meeting zorunlu; Gonet bu toplantıya dashboard hazırlar (hesap bazlı journey map, engagement timeline). Alignment için KPI ortaklığı kritik: pazarlama sadece MQL sayısı değil, sales-accepted lead (SAL) + pipeline contribution'a KPI alır. Gonet'in ABM projelerinde sales ekibi, kampanya başında ICP tanımına, içerik onayına, LinkedIn InMail mesajlarına dahil edilir — ownership ortaktır."
   - q: "ABM kampanyasında ROI nasıl hesaplanır, geleneksel CPA/ROAS metriklerinden farkı nedir?"
     a: "Geleneksel CPA (cost per acquisition), lead bazlı hesaplar; ABM'de lead değil hesap bazlı metrik kullanılır. Gonet ABM ROI formülü: (kapalı anlaşmalardan gelen revenue - kampanya maliyeti) / kampanya maliyeti. Ancak B2B'de sales cycle 6-12 ay olduğundan, ABM başlangıcında leading metrikler izlenir: hesap engagement oranı (hedef hesapların %'si en az 1 touchpoint), decision-maker reach (hedef rollerin %'si kampanyaya maruz kaldı), pipeline contribution (ABM kaynaklı MQL'lerin sales pipeline'a katkısı). Gonet dashboard'unda hesap bazlı spend görülür: firma X için LinkedIn'de $500, Google'da $300, e-mail'de $100 harcandı, toplam 5 decision-maker engage oldu, 2 demo yapıldı, pipeline'a $50K opportunity eklendi. ABM'de CPA yerine Cost Per Engaged Account (CPEA) kullanılır; Gonet portföyünde ortalama CPEA $800-1500 (enterprise SaaS), geleneksel lead gen'de CPA $150 ama MQL-SQL conversion %5, ABM'de CPEA 10x ama MQL-SQL %30, net ROI ABM lehine. İlk 90 gün learning phase, ROI 6-12 ayda netleşir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## B2B Account-Based Marketing nedir?
@@ -43,6 +50,25 @@ faqs:
 B2B Account-Based Marketing (ABM, hesap bazlı pazarlama), geleneksel geniş kitleli B2B pazarlamanın tersine, belirli yüksek değerli hesaplara (firmalar/karar vericiler) özel olarak tasarlanmış, kişiselleştirilmiş kampanya yaklaşımıdır. LinkedIn Ads, Google Ads ve e-mail otomasyon platformlarının senkronize kullanımıyla, hedef hesaplardaki kilit roller için tutarlı mesaj akışı oluşturulur. Gonet'te ABM, 2018'den bu yana özellikle SaaS, fintech, kurumsal yazılım ve danışmanlık sektörlerinde sözleşme değeri yüksek hesaplar için standart yöntemdir. Tek bir hedef hesap, birden fazla kanalda aynı anda eşgüdümlü mesaj alır: Google Ads'te arama + display retargeting, LinkedIn'de decision-maker'lara sponsored content, e-mail'de personalized sequence.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%55</div>
+    <div class="l">Lead kalitesi<br>SQL/MQL</div>
+  </div>
+  <div class="stat">
+    <div class="n">11 gün</div>
+    <div class="l">Satış döngüsü<br>(önce 18)</div>
+  </div>
+  <div class="stat">
+    <div class="n">3 kanal</div>
+    <div class="l">LinkedIn+Google+<br>e-mail entegre</div>
+  </div>
+  <div class="stat">
+    <div class="n">45-90</div>
+    <div class="l">Müşteri yolculuğu<br>gün</div>
+  </div>
+</div>
 
 Geleneksel B2B lead generation, geniş hunilerde yüzlerce niteliksiz lead üretir; sales cycle uzar, dönüşüm maliyeti yükselir. ABM, kaynakları en yüksek potansiyelli 10-50-100 hesaba odaklar — conversion rate ve deal size artar, satış ekibi verimliliği katlanır. Gonet'in 2023-2024 B2B portföyünde ABM uygulayan hesaplar, geleneksel lead gen'e göre %47 daha yüksek MQL-SQL conversion, %62 daha kısa sales cycle kaydetti. LinkedIn'de job title/company targeting ile CEO/CFO seviyesine direkt ulaşım, Google Ads'te branded + competitor keyword'lerde aynı hesabın araştırma anlarını yakalamak, e-mail'de CRM tetikli kişiselleştirilmiş içerik gönderimi — bu üçünün senkronizasyonu, hesabın birden fazla touchpoint'te markanızla karşılaşmasını garanti eder. Özellikle enterprise satış döngüsünde, 6-12 aylık karar süreçlerinde, sürekli görünürlük olmadan hesap kaybolur; ABM bu görünürlüğü sistematik hale getirir.
 

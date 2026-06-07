@@ -36,6 +36,13 @@ faqs:
     a: "Amazon, Etsy, Trendyol gibi marketplace platformları kendi görsel kısıtlamalarına sahiptir: Amazon marka kaydı (brand registry) için beyaz arka planlı logo, Etsy shop banner 3360x840px, Trendyol satıcı logosu 500x500px minimum. Gonet yaklaşımında her platform için özel varyant paketi hazırlanır. Logo icon-only versiyonu küçük alanlarda kullanılır, marketplace'lere özel arka plan renkleri (Amazon beyaz, Trendyol gri #f4f4f4) için kontrast optimizasyonu yapılır. Ayrıca ürün görselleri için marka watermark sistemi, paket içi inserts için marka şablonları ve müşteri e-postaları için responsive HTML imza tasarımı dahil edilir. Bir e-ticaret müşterimizde bu yaklaşım marketplace'lerde mağaza tıklama oranını %34 artırdı."
   - q: "Mobil uygulama icon tasarımında hangi faktörler indirme oranını etkiler?"
     a: "App Store ve Google Play araştırmaları, kullanıcıların %62'sinin ilk 3 saniyede icon tasarımına bakarak karar verdiğini gösterir. Etkili app icon basit geometri (3-4 temel şekilden fazla değil), yüksek kontrast (koyu-açık denge), platform kurallarına uyum (iOS rounded square, Android adaptive icon) ve kategori farklılaşması (rakiplerden görsel ayrışma) gerektirir. Gonet'te app icon A/B testi yaptığımız bir fintech uygulamasında, minimalist tek harf icon karmaşık grafik içeren versiyona göre %127 daha yüksek indirme oranı gösterdi. Icon ayrıca 1024x1024px master dosyadan otomatik generate edilen 20+ boyutta (iOS 20x20'den 1024x1024'e, Android 48x48'den 512x512'ye) test edilir ve her boyutta netlik korunur."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Marka kimliği ve logo tasarımı nedir?
@@ -47,6 +54,25 @@ Dijital ekosistemde marka kimliği, yalnızca estetik bir tercih değildir — r
 Klasik marka kimliği tasarımından farklı olarak, dijital odaklı yaklaşımımız animasyonlu logo varyantları, mikro-interaksiyon tasarımları ve marka varlıklarının (brand assets) kod tabanlı yönetimini (design tokens sistemi) içerir. 26 yıllık ajans deneyimimizde gördük ki; çoğu marka, basılı malzeme için mükemmel olan bir logo ile dijitalde görünürlük sorunu yaşıyor.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">Signature</div>
+    <div class="l">Marka<br>monogram</div>
+  </div>
+  <div class="stat">
+    <div class="n">1 saniye</div>
+    <div class="l">Taninma<br>esigi</div>
+  </div>
+  <div class="stat">
+    <div class="n">Vector</div>
+    <div class="l">SVG-first<br>cikti</div>
+  </div>
+  <div class="stat">
+    <div class="n">Token</div>
+    <div class="l">Color+Type<br>system</div>
+  </div>
+</div>
 
 Dijital temas noktalarının (touchpoint) çeşitliliği 2010'dan bu yana 8 kat arttı. Bir marka bugün web sitesi, mobil uygulama, sosyal medya profilleri, e-posta imzaları, dijital reklamlar, market yerlerinde (marketplace) satıcı profilleri ve sesli asistan uygulamalarında tutarlı görünmelidir. Her platformun teknik kısıtları farklıdır: Instagram 110x110px profil görseli, Twitter/X 400x400px, LinkedIn banner 1584x396px, favicon 32x32px.
 

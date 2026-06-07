@@ -36,6 +36,13 @@ faqs:
     a: "TikTok Ads için minimum günlük bütçe ad group seviyesinde $20'dir (yaklaşık ₺580), ancak makul test için günlük $50-100 (₺1450-2900) önerilir. TikTok algoritması öğrenme fazı (learning phase) için 50 conversion'a ihtiyaç duyar, bu 7-10 gün sürebilir. İlk 3-5 gün içinde kampanya kararsız performans gösterebilir, bu normaldir. Gonet metodolojisi: İlk hafta 3 farklı creative varyantı, her birine eşit bütçe dağıtım ($30-50/gün toplam $100-150). 5. günden itsonra winning creative'e %60 budget shift yapılır, diğerleri durdurulur veya refresh edilir. Toplam test süresi minimum 14 gündür — bu süre sonunda CPA, CTR, video completion rate (VCR) metrikleri stabilize olur. Küçük B2C markalar için aylık $1500-3000 (₺43K-87K) başlangıç bütçesi yeterlidir, ölçeklendirme ROAS >2 olduğunda yapılmalıdır."
   - q: "TikTok Ads creative'leri (içerik) nasıl olmalı, hangi hatalardan kaçınılmalı?"
     a: "TikTok creative'leri için 5 altın kural: (1) İlk 1 saniyede hareket + metin hook olmalı (örnek: 'Dur! Bu ürünü denemeden önce...'), hook olmadan %70 kullanıcı kayar. (2) Dikey 9:16 formatı zorunlu, yatay veya kare videolar TikTok'ta kötü perform eder. (3) Ses kritik — TikTok kullanıcılarının %80'i sesli izler, trending sound kullanın veya voiceover (seslendirme) ekleyin. (4) CTA (call-to-action — harekete geçirici mesaj) 20. saniyede gelmeli, daha erken olursa kullanıcı rahatsız olur. (5) Over-produced (aşırı prodüksiyonlu) videolardan kaçının, TikTok'ta UGC tarzı, el kamerası çekimler daha iyi perform eder. Kaçınılması gereken hatalar: (a) Logo veya marka adını ilk 3 saniyede büyük göstermek (TikTok kültürüne aykırı), (b) sessiz video yüklemek (engagement %60 düşer), (c) aynı creative'i 7 günden uzun süre çalıştırmak (fatigue hızlı gelir), (d) ürün özellikleri yerine benefit (fayda) anlatmamak. Gonet, her TikTok creative'ini A/B test eder: aynı mesaj, 3 farklı hook, kazanan hook'u 5 gün sonra belirlenir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "Ilk yayin"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## TikTok Ads + Spark Ads nedir?
@@ -45,6 +52,25 @@ TikTok Ads Manager (TikTok Reklam Yöneticisi), platformun kendi reklam arayüz�
 TikTok algoritması full-screen video formatı ve ses odaklı içerik tüketimine optimize edilmiştir. Kullanıcı ortalama oturum süresi 52 dakika civarındadır (2024 verileri) ve platform henüz saturation (doygunluk) aşamasında değil — CPC/CPM değerleri Meta'ya göre %30-50 daha düşük olabilir. Ancak içerik formatı zorunlu: TikTok'ta klasik banner veya statik görsel reklam yoktur, her şey dikey videodur.
 
 ## Neden kritik?
+
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">1B+</div>
+    <div class="l">TikTok aylik<br>aktif</div>
+  </div>
+  <div class="stat">
+    <div class="n">Spark Ads</div>
+    <div class="l">Organik post<br>boost format</div>
+  </div>
+  <div class="stat">
+    <div class="n">15-60sn</div>
+    <div class="l">Yaratici<br>format range</div>
+  </div>
+  <div class="stat">
+    <div class="n">Pixel</div>
+    <div class="l">Conversion<br>tracking</div>
+  </div>
+</div>
 
 1. **Demografik avantaj**: TikTok kullanıcılarının %60'ı Z kuşağı (16-24 yaş), %26'sı millenyal. B2C markaların bu segmentlere ulaşmak için Meta Ads'den daha düşük maliyetle erişim sağlama fırsatı var.
 2. **Spark Ads = organik güç + media budget**: Creator'larla anlaşma yapıp onların organik içeriğini Spark Ads ile amplify ettiğinizde %40-60 daha yüksek CTR alabilirsiniz (standart In-Feed'e göre). Kullanıcılar reklamı değil, beğendikleri creator'ın sponsorlu içeriğini görür.
