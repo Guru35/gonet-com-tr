@@ -205,7 +205,7 @@ const orgSkillSchema = {
         </ol>
 
         <!-- KART GÖRÜNÜMÜ — dikey (3:4 portrait), çerçevesiz + gölge, image background, hover'da teaser -->
-        <div data-view="card" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6" style="perspective: 1200px;">
+        <div data-view="card" class="hidden grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-6" style="perspective: 1200px;">
           {cat.skills.map((sk, i) => {
             const skillSlug = sk.slug ?? sk.name
               .toLowerCase()
