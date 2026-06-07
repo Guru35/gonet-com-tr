@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "mobile-api-gelistirme-rest-graphql"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-mobileapi.jpg"
 keywords:
   - mobile-api-geliştirme
   - rest-api

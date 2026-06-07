@@ -276,8 +276,75 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       /* Tablo aralıkları */
       .body-typography table {
-        margin-top: 2rem !important;
-        margin-bottom: 2rem !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+        width: 100% !important;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+      }
+      .body-typography th, .body-typography td {
+        padding: 1rem 1.25rem !important;
+        vertical-align: top !important;
+        line-height: 1.7 !important;
+      }
+      .body-typography th {
+        font-weight: 600 !important;
+        color: rgb(15 23 42) !important;
+        background: rgb(248 250 252) !important;
+        border-bottom: 1.5px solid rgb(0 0 0 / 0.15) !important;
+      }
+      .body-typography td {
+        border-bottom: 1px solid rgb(0 0 0 / 0.06) !important;
+      }
+      .body-typography tr:last-child td {
+        border-bottom: 0 !important;
+      }
+      .body-typography td:first-child {
+        font-weight: 500 !important;
+        color: rgb(15 23 42) !important;
+        white-space: nowrap !important;
+      }
+
+      /* MOBİL: tabloyu satır-bazlı kart yapısına çevir */
+      @media (max-width: 768px) {
+        .body-typography table thead { display: none !important; }
+        .body-typography table, .body-typography tbody, .body-typography tr, .body-typography td {
+          display: block !important;
+          width: 100% !important;
+        }
+        .body-typography tr {
+          margin-bottom: 1.5rem !important;
+          border: 1px solid rgb(0 0 0 / 0.1) !important;
+          padding: 1rem 1.25rem !important;
+          background: white !important;
+        }
+        .body-typography td {
+          padding: 0.5rem 0 !important;
+          border: 0 !important;
+          white-space: normal !important;
+        }
+        .body-typography td:first-child {
+          font-weight: 600 !important;
+          color: rgb(15 23 42) !important;
+          font-size: 0.95rem !important;
+          padding-bottom: 0.5rem !important;
+          border-bottom: 1px solid rgb(0 0 0 / 0.08) !important;
+          margin-bottom: 0.5rem !important;
+        }
+      }
+
+      /* İçerik blokları arası ekstra hava — sıkışıklığı azalt */
+      .body-typography > * + * {
+        margin-top: 1.5rem !important;
+      }
+      .body-typography blockquote {
+        margin: 2.5rem 0 !important;
+        padding: 1.5rem 1.5rem 1.5rem 2rem !important;
+        border-left: 3px solid rgb(220 38 38) !important;
+        background: rgb(248 250 252) !important;
+        font-size: 1.05rem !important;
+        line-height: 1.75 !important;
+        font-style: normal !important;
       }
 
       /* FAQ akordiyon — native <details> + custom UI */

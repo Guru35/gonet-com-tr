@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "wordpress-legacy-headless"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-wordpress.jpg"
 keywords:
   - wordpress-geliştirme
   - custom-wordpress-theme

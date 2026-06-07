@@ -6,6 +6,7 @@ categorySlug: "strateji-danismanlik"
 categoryName: "Strateji & Danışmanlık"
 skillSlug: "m-a-dijital-due-diligence"
 skillLevel: "Orta"
+detailHero: "/yetenekler-images/strateji-danismanlik/detail-strateji-ma.jpg"
 keywords:
   - m&a-dijital-due-diligence
   - dijital-varlik-degerleme

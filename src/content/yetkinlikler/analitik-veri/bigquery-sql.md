@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "bigquery-sql"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-bigquery.jpg"
 keywords:
   - bigquery
   - sql-analizi

@@ -6,6 +6,7 @@ categorySlug: "strateji-danismanlik"
 categoryName: "Strateji & Danışmanlık"
 skillSlug: "marka-iletisimi-krizi-yonetimi"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/strateji-danismanlik/detail-strateji-kriz.jpg"
 keywords:
   - kriz-yonetimi
   - dijital-kriz

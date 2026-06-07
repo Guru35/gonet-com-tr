@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "astro-5-content-collections"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-astro.jpg"
 keywords:
   - astro-5
   - server-islands

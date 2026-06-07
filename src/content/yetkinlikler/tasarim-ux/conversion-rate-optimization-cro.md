@@ -6,6 +6,7 @@ categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
 skillSlug: "conversion-rate-optimization-cro"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/tasarim-ux/detail-tasarim-cro.jpg"
 keywords:
   - conversion-rate-optimization
   - cro

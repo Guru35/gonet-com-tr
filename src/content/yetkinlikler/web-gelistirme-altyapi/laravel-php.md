@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "laravel-php"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-laravel.jpg"
 keywords:
   - laravel
   - php

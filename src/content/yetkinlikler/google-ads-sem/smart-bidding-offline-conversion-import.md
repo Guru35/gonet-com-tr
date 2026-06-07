@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "smart-bidding-offline-conversion-import"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-smartbid.jpg"
 keywords:
   - smart-bidding
   - tcpa

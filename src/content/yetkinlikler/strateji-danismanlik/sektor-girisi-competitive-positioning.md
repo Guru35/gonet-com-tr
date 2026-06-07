@@ -6,6 +6,7 @@ categorySlug: "strateji-danismanlik"
 categoryName: "Strateji & Danışmanlık"
 skillSlug: "sektor-girisi-competitive-positioning"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/strateji-danismanlik/detail-strateji-sektor.jpg"
 keywords:
   - sektör-girişi
   - competitive-positioning

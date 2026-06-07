@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "a-b-test-deney-tasarimi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-abtest.jpg"
 keywords:
   - a/b-test
   - deney-tasarımı

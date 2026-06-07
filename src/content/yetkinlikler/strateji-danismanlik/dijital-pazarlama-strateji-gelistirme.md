@@ -6,6 +6,7 @@ categorySlug: "strateji-danismanlik"
 categoryName: "Strateji & Danışmanlık"
 skillSlug: "dijital-pazarlama-strateji-gelistirme"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/strateji-danismanlik/detail-strateji-dijital.jpg"
 keywords:
   - dijital-pazarlama-stratejisi
   - stp-analizi

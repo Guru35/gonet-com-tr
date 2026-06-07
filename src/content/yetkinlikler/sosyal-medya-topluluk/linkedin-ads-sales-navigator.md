@@ -6,6 +6,7 @@ categorySlug: "sosyal-medya-topluluk"
 categoryName: "Sosyal Medya & Topluluk"
 skillSlug: "linkedin-ads-sales-navigator"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/sosyal-medya-topluluk/detail-sosyal-linkedin.jpg"
 keywords:
   - linkedin-ads
   - sales-navigator

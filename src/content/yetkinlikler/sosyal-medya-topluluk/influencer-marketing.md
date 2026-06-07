@@ -6,6 +6,7 @@ categorySlug: "sosyal-medya-topluluk"
 categoryName: "Sosyal Medya & Topluluk"
 skillSlug: "influencer-marketing"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/sosyal-medya-topluluk/detail-sosyal-influencer.jpg"
 keywords:
   - influencer-marketing
   - micro-influencer

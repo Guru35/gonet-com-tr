@@ -6,6 +6,7 @@ categorySlug: "icerik-yaratici"
 categoryName: "İçerik & Yaratıcı"
 skillSlug: "e-mail-marketing-sequence-tasarimi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/icerik-yaratici/detail-icerik-email.jpg"
 keywords:
   - e-mail-marketing
   - sequence-tasarımı

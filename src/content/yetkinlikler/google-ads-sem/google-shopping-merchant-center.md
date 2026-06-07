@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "google-shopping-merchant-center"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-shopping.jpg"
 keywords:
   - google-shopping
   - merchant-center

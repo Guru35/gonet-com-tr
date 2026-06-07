@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "looker-studio"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-looker.jpg"
 keywords:
   - looker-studio
   - google-data-studio

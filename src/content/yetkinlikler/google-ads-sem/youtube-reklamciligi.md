@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "youtube-reklamciligi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-youtube.jpg"
 keywords:
   - youtube-reklamciligi
   - in-stream-reklamlar

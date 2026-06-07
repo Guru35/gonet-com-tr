@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "semantic-chunking"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-semantic-chunking.jpg"
 keywords:
   - semantic-chunking
   - anlamsal-bolumleme

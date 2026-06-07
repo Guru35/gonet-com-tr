@@ -6,6 +6,7 @@ categorySlug: "icerik-yaratici"
 categoryName: "İçerik & Yaratıcı"
 skillSlug: "marka-hikayelestirme"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/icerik-yaratici/detail-icerik-storytelling.jpg"
 keywords:
   - marka-hikayeleştirme
   - brand-storytelling

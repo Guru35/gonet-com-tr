@@ -6,6 +6,7 @@ categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
 skillSlug: "wcag-2-2-erisilebilirlik"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/tasarim-ux/detail-tasarim-wcag.jpg"
 keywords:
   - wcag-2.2
   - web-erisilebirligi

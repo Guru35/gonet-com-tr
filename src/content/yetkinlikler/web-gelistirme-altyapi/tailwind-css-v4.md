@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "tailwind-css-v4"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-tailwind.jpg"
 keywords:
   - tailwind-css-v4
   - utility-first-css

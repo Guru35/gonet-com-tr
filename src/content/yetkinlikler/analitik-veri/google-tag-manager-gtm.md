@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "google-tag-manager-gtm"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-gtm.jpg"
 keywords:
   - google-tag-manager
   - gtm

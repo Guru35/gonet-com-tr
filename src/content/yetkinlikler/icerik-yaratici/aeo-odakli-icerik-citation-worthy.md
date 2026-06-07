@@ -6,6 +6,7 @@ categorySlug: "icerik-yaratici"
 categoryName: "İçerik & Yaratıcı"
 skillSlug: "aeo-odakli-icerik-citation-worthy"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/icerik-yaratici/detail-icerik-aeo-citation.jpg"
 keywords:
   - aeo-odakli-icerik
   - citation-worthy-yapi

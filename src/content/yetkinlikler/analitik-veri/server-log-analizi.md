@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "server-log-analizi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-log.jpg"
 keywords:
   - server-log-analizi
   - bot-davranış-analizi

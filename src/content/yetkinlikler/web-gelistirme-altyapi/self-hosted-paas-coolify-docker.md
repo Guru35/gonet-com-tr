@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "self-hosted-paas-coolify-docker"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-coolify.jpg"
 keywords:
   - self-hosted-paas
   - coolify

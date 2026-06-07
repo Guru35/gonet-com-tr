@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "llms-txt-protokolu"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-llms-txt.jpg"
 keywords:
   - llms-txt
   - llms-txt-protokolu

@@ -6,6 +6,7 @@ categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
 skillSlug: "brand-identity-logo"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/tasarim-ux/detail-tasarim-brand.jpg"
 keywords:
   - marka-kimligi
   - logo-tasarimi

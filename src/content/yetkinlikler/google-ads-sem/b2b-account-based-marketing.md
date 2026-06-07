@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "b2b-account-based-marketing"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-abm.jpg"
 keywords:
   - b2b-account-based-marketing
   - abm-kampanyaları

@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "on-page-seo-icerik-mimarisi"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-onpage.jpg"
 keywords:
   - on-page-seo
   - içerik-mimarisi

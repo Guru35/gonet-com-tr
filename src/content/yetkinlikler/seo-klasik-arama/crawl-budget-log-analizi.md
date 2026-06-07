@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "crawl-budget-log-analizi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-crawlbudget.jpg"
 keywords:
   - crawl-budget-optimizasyonu
   - log-analizi

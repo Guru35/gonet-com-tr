@@ -6,6 +6,7 @@ categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
 skillSlug: "figma-design-system"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/tasarim-ux/detail-tasarim-figma.jpg"
 keywords:
   - figma-tasarim
   - design-system

@@ -6,6 +6,7 @@ categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
 skillSlug: "mobil-oncelikli-responsive-tasarim"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/tasarim-ux/detail-tasarim-responsive.jpg"
 keywords:
   - mobil-öncelikli-tasarım
   - responsive-tasarım

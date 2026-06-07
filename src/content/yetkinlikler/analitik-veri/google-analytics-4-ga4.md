@@ -6,6 +6,7 @@ categorySlug: "analitik-veri"
 categoryName: "Analitik & Veri"
 skillSlug: "google-analytics-4-ga4"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/analitik-veri/detail-analitik-ga4.jpg"
 keywords:
   - google-analytics-4
   - ga4

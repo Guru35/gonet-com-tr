@@ -6,6 +6,7 @@ categorySlug: "sosyal-medya-topluluk"
 categoryName: "Sosyal Medya & Topluluk"
 skillSlug: "tiktok-ads-spark-ads"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/sosyal-medya-topluluk/detail-sosyal-tiktok.jpg"
 keywords:
   - tiktok-ads
   - spark-ads

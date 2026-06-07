@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "performance-max-kampanyalari"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-pmax.jpg"
 keywords:
   - performance-max
   - pmax-kampanyalari

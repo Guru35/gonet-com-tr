@@ -6,6 +6,7 @@ categorySlug: "strateji-danismanlik"
 categoryName: "Strateji & Danışmanlık"
 skillSlug: "startup-buyume-danismanligi"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/strateji-danismanlik/detail-strateji-startup.jpg"
 keywords:
   - startup-buyume-danismanligi
   - go-to-market-stratejisi

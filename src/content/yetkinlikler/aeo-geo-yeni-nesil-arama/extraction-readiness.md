@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "extraction-readiness"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-extraction-readiness.jpg"
 keywords:
   - extraction-readiness
   - llm-uyumlu-icerik

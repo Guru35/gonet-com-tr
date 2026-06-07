@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "typescript-strict-mode"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-typescript.jpg"
 keywords:
   - typescript-strict-mode
   - zod-runtime-validation

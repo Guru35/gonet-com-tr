@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "international-seo-hreflang-geo-targeting"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-international.jpg"
 keywords:
   - international-seo
   - hreflang-etiketi

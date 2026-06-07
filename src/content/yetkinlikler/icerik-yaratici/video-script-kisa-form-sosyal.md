@@ -6,6 +6,7 @@ categorySlug: "icerik-yaratici"
 categoryName: "İçerik & Yaratıcı"
 skillSlug: "video-script-kisa-form-sosyal"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/icerik-yaratici/detail-icerik-video.jpg"
 keywords:
   - video-script
   - kısa-form-video

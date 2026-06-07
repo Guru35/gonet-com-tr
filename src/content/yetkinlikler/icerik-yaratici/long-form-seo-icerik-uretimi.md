@@ -6,6 +6,7 @@ categorySlug: "icerik-yaratici"
 categoryName: "İçerik & Yaratıcı"
 skillSlug: "long-form-seo-icerik-uretimi"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/icerik-yaratici/detail-icerik-longform.jpg"
 keywords:
   - long-form-seo-icerik
   - pillar-content

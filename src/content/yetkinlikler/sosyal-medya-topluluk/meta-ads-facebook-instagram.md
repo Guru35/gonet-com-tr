@@ -6,6 +6,7 @@ categorySlug: "sosyal-medya-topluluk"
 categoryName: "Sosyal Medya & Topluluk"
 skillSlug: "meta-ads-facebook-instagram"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/sosyal-medya-topluluk/detail-sosyal-meta.jpg"
 keywords:
   - meta-ads
   - facebook-reklamlari

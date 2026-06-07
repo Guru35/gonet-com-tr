@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "teknik-seo-core-web-vitals-inp-cls"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-teknik-cwv.jpg"
 keywords:
   - core-web-vitals
   - lcp-optimizasyonu

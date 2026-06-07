@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "common-crawl-optimizasyonu"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-common-crawl.jpg"
 keywords:
   - common-crawl
   - ccbot

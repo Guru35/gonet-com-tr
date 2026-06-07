@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "schema-org-ileri-implementasyon"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-schema-ileri.jpg"
 keywords:
   - schema-org
   - structured-data

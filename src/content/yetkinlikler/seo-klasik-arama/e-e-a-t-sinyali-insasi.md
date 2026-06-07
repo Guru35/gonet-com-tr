@@ -6,6 +6,7 @@ categorySlug: "seo-klasik-arama"
 categoryName: "SEO — Klasik Arama Motoru Optimizasyonu"
 skillSlug: "e-e-a-t-sinyali-insasi"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/seo-klasik-arama/detail-seo-eeat.jpg"
 keywords:
   - e-e-a-t
   - experience-expertise-authoritativeness-trust

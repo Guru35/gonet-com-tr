@@ -6,6 +6,7 @@ categorySlug: "aeo-geo-yeni-nesil-arama"
 categoryName: "AEO / GEO — Yeni Nesil Arama"
 skillSlug: "citation-surface-engineering"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/aeo-geo-yeni-nesil-arama/aeo-geo-citation-surface.jpg"
 keywords:
   - citation-surface-engineering
   - geo-kaynak-gosterim

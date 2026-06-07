@@ -6,6 +6,7 @@ categorySlug: "sosyal-medya-topluluk"
 categoryName: "Sosyal Medya & Topluluk"
 skillSlug: "topluluk-yonetimi-crm-entegrasyonu"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/sosyal-medya-topluluk/detail-sosyal-topluluk.jpg"
 keywords:
   - topluluk-yönetimi
   - crm-entegrasyonu

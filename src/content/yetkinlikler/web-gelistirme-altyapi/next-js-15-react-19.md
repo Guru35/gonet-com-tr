@@ -6,6 +6,7 @@ categorySlug: "web-gelistirme-altyapi"
 categoryName: "Web Geliştirme & Altyapı"
 skillSlug: "next-js-15-react-19"
 skillLevel: "İleri"
+detailHero: "/yetenekler-images/web-gelistirme-altyapi/detail-web-nextjs.jpg"
 keywords:
   - next-js-15
   - react-19

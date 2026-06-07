@@ -6,6 +6,7 @@ categorySlug: "google-ads-sem"
 categoryName: "Google Ads & SEM"
 skillSlug: "hesap-denetimi-restorasyonu"
 skillLevel: "Uzman"
+detailHero: "/yetenekler-images/google-ads-sem/detail-ads-audit.jpg"
 keywords:
   - google-ads-hesap-denetimi
   - ads-audit
