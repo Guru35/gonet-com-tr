@@ -700,6 +700,16 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           <!-- Bitiş bloğu -->
           <div id="feedback-end" class="hidden mt-4 pt-4 border-t border-black/15">
             <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-black/60 mb-3">— Sohbeti tamamla</p>
+
+            <!-- İçerik geliştirme onayı (sadece discussion mode) -->
+            <label id="feedback-consent-wrap" class="hidden flex items-start gap-3 mb-4 cursor-pointer select-none">
+              <input type="checkbox" id="feedback-consent" checked
+                     class="mt-0.5 w-4 h-4 accent-black shrink-0">
+              <span class="text-xs text-slate-700 leading-relaxed">
+                Bu sohbeti yazıyı geliştirmek ve yeni içerik üretmek için kullanabilirim. İptal edebilirsiniz.
+              </span>
+            </label>
+
             <div class="flex items-end gap-2 mb-3">
               <input type="email" id="feedback-email" placeholder="E-posta kopya için (opsiyonel)"
                      class="flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
@@ -743,6 +753,8 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         let sessionId = '', sourceUrl = '', sourceTitle = '', intent = 'error_report', messages = [], images = [], ended = false;
         const titleEl = document.getElementById('feedback-title');
         const eyebrowEl = document.getElementById('feedback-eyebrow');
+        const consentWrap = document.getElementById('feedback-consent-wrap');
+        const consentEl = document.getElementById('feedback-consent');
 
         function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
 
@@ -797,10 +809,20 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
             if (eyebrowEl) eyebrowEl.textContent = '— AI ile tartış · Sadece bu yazı';
             if (titleEl) titleEl.textContent = 'Bu yazı hakkında ne düşünüyorsunuz?';
             if (txtEl) txtEl.placeholder = 'Yazıyla ilgili görüşünüzü yazın…';
+            // Content improvement consent görünür (default checked)
+            if (consentWrap) {
+              consentWrap.classList.remove('hidden');
+              consentWrap.classList.add('flex');
+            }
+            if (consentEl) consentEl.checked = true;
           } else {
             if (eyebrowEl) eyebrowEl.textContent = '— Geri bildirim';
             if (titleEl) titleEl.textContent = 'Bu sayfada hata mı gördünüz?';
             if (txtEl) txtEl.placeholder = 'Mesajınız…';
+            if (consentWrap) {
+              consentWrap.classList.add('hidden');
+              consentWrap.classList.remove('flex');
+            }
           }
           lb.classList.remove('hidden');
           lb.classList.add('flex');
@@ -911,6 +933,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               body: JSON.stringify({
                 session_id: sessionId, source_url: sourceUrl, source_title: sourceTitle,
                 intent: intent,
+                content_improvement_consent: intent === 'discussion'
+                  ? !!(consentEl && consentEl.checked)
+                  : null,
                 messages: messages, images: images, user_email: email || null,
               }),
             });
