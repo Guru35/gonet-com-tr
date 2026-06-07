@@ -54,9 +54,33 @@ Kötü chunk yapısı (örneğin 2000 karakterlik tek parça veya rastgele kesil
 
 Gonet'in 220+ marka portföyünde gerçekleştirdiği AEO denetimleri, chunk yapısı optimize edildiğinde citation oranının ortalama 3.2 kat arttığını gösteriyor. Özellikle teknik dokümantasyon, ürün spesifikasyonları ve nasıl yapılır içeriklerinde bu etki belirgindir.
 
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Kötü chunk</div>
+    <div class="bar"><span style="--h: 32px"></span></div>
+    <div class="v">1.0×</div>
+    <div class="desc">2000 karakter tek parça,<br>rastgele kesim</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">Semantic chunk</div>
+    <div class="bar"><span style="--h: 104px"></span></div>
+    <div class="v">3.2×</div>
+    <div class="desc">H2/H3 bazlı bölümleme,<br>cosine sim ≥0.75</div>
+  </div>
+</div>
+
 ## Gonet yaklaşımı
 
 Gonet, semantic chunking'i üç katmanda gerçekleştirir:
+
+<div class="gonet-spec">
+  <div class="sp-title">Chunk teknik spesifikasyonu</div>
+  <div class="sp-row"><div class="k">Min kelime / H2</div><div class="v">150 kelime</div></div>
+  <div class="sp-row"><div class="k">Max kelime / H2</div><div class="v">600 kelime</div></div>
+  <div class="sp-row is-primary"><div class="k">Cosine similarity eşiği</div><div class="v">≥ 0.75</div></div>
+  <div class="sp-row"><div class="k">Embedding modeli</div><div class="v">text-embedding-3-small / Vertex AI</div></div>
+  <div class="sp-row"><div class="k">Entity / chunk üst sınırı</div><div class="v">1 ana + 2 destek</div></div>
+</div>
 
 **1. Başlık hiyerarşisi analizi**  
 Markdown (H2, H3, H4) ve HTML (`<h2>`, `<h3>`) yapıları doküman içindeki doğal anlamsal sınırları belirler. Her H2 bloğu bağımsız bir chunk adayı, H3 alt-bloğu ise iç tutarlılığı kontrol noktasıdır. Gonet editörleri içeriği yazarken bu hiyerarşiye özel dikkat eder; her H2 altında en az 150, en fazla 600 kelime hedefler.

@@ -42,6 +42,25 @@ faqs:
 
 Common Crawl, 2008'den beri açık internet arşivi oluşturan kar amacı gütmeyen bir proje — her ay 3+ milyar web sayfasını tarayıp halka açık veri seti haline getiriyor. OpenAI, Anthropic, Google gibi şirketler büyük dil modellerini (LLM) bu veri setleri üzerinden eğitiyor. Common Crawl optimizasyonu, markanızın bu arşivlerde **doğru, güncel ve bağlamsal olarak zengin** şekilde temsil edilmesini sağlayan teknik ve içerik stratejisidir.
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">3B+</div>
+    <div class="l">Aylık taranan<br>sayfa sayısı</div>
+  </div>
+  <div class="stat">
+    <div class="n">2008</div>
+    <div class="l">Common Crawl<br>başlangıç yılı</div>
+  </div>
+  <div class="stat">
+    <div class="n">%70+</div>
+    <div class="l">LLM eğitim<br>setindeki payı</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%340</div>
+    <div class="l">CCBot açık →<br>ChatGPT atfı</div>
+  </div>
+</div>
+
 CCBot (Common Crawl'un botu), GPTBot (OpenAI), ClaudeBot (Anthropic), Google-Extended gibi AI crawler'ları robots.txt direktifleriyle kontrol edilir. Ancak optimizasyon sadece 'engelleme' değil — hangi içeriğin taranacağını, hangi bağlamın korunacağını, marka bilgisinin nasıl yapılandırılacağını stratejik olarak yönetmektir.
 
 ## Neden kritik?
@@ -55,6 +74,16 @@ CCBot (Common Crawl'un botu), GPTBot (OpenAI), ClaudeBot (Anthropic), Google-Ext
 Gonet'in 2024 yılı analizine göre, CCBot'a açık ve yapısal veri içeren siteler, ChatGPT yanıtlarında %340 daha fazla atıf alıyor. Ancak yanlış yapılandırılmış robots.txt, binlerce sayfayı eğitim setinden dışlayabiliyor.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">4 katmanlı Common Crawl operasyonu</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Crawler policy</div><div class="d">CCBot + GPTBot + ClaudeBot granüler robots</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Bağlam zenginleştirme</div><div class="d">Schema.org + canonical + brand context</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Snapshot yönetimi</div><div class="d">lastmod + 301 + Crawl-delay</div></div>
+    <div class="step"><div class="n">4</div><div class="t">llms.txt politika</div><div class="d">Marka özeti + RAG referans dosyası</div></div>
+  </div>
+</div>
 
 Gonet, Türkiye'nin ilk AEO/GEO hizmet hattını kuran 3 Google Partner ajansından biri olarak Common Crawl optimizasyonunu 4 katmanda yönetir:
 

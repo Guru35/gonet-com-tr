@@ -44,6 +44,25 @@ Entity authority dört kanalla ölçülür:
 - **Doğrulama kaynakları** — sameAs üzerinden Wikipedia, LinkedIn, Crunchbase referansları
 - **Uzmanlık sinyalleri** — knowsAbout array'inin domain otoritesiyle eşleşmesi
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">18+</div>
+    <div class="l">Schema.org @type<br>kullanımda</div>
+  </div>
+  <div class="stat">
+    <div class="n">220+</div>
+    <div class="l">Marka portföyü<br>canlı uygulama</div>
+  </div>
+  <div class="stat">
+    <div class="n">2024</div>
+    <div class="l">AI Mode +<br>Overviews lansman</div>
+  </div>
+  <div class="stat">
+    <div class="n">~7/24</div>
+    <div class="l">LLM crawler<br>aktivitesi</div>
+  </div>
+</div>
+
 Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden gelişti. 220+ marka portföyünde Schema.org @graph mimarisini kullanan markalar AI Overviews'ta sürekli citation alıyor; geleneksel meta-tag-only yaklaşımındaki markalar görünmüyor.
 
 ## Neden şimdi kritik?
@@ -57,6 +76,18 @@ Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden 
 Bu üç katmanda entity authority **çarpan etkisi** yaratır. Yokluğu fark edilmez, varlığı sürekli marjinal kazanç sağlar — Karpathy'nin "compounding artifact" prensibi ile aynı: erken kurulan altyapı zamanla katlanmalı değer verir.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">6 adımlı entity authority kurulumu</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Entity haritalama</div><div class="d">1-2 saat workshop, @id sistemi kararı</div></div>
+    <div class="step"><div class="n">2</div><div class="t">@graph şeması</div><div class="d">1 gün, tek script tag, 5-7 @type</div></div>
+    <div class="step"><div class="n">3</div><div class="t">ContactPoint array</div><div class="d">Multi-channel (service + sales + support)</div></div>
+    <div class="step"><div class="n">4</div><div class="t">FAQPage layer</div><div class="d">50-100 kelime extraction-ready Q+A</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Haftalık denetim</div><div class="d">3 validator (GSC + Google + schema.org)</div></div>
+    <div class="step"><div class="n">6</div><div class="t">Wikidata seeding</div><div class="d">İleri seviye, sameAs zinciri kapatma</div></div>
+  </div>
+</div>
 
 Yeni veya mevcut bir site için Schema.org JSON-LD entity authority kurulumu şu sıralamayı izler:
 

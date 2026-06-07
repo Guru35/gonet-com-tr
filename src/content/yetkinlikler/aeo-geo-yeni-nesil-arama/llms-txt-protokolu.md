@@ -64,6 +64,25 @@ Bu basit yapı, LLM'lerin kullanıcı sorularına yanıt verirken sitenizin en g
 
 ## Neden kritik?
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">200M</div>
+    <div class="l">ChatGPT haftalık<br>aktif kullanıcı</div>
+  </div>
+  <div class="stat">
+    <div class="n">+%340</div>
+    <div class="l">B2B sayfa<br>citation oranı</div>
+  </div>
+  <div class="stat">
+    <div class="n">24 sa</div>
+    <div class="l">Yeni ürün<br>LLM cevabına</div>
+  </div>
+  <div class="stat">
+    <div class="n">500</div>
+    <div class="l">Önerilen<br>satır sınırı</div>
+  </div>
+</div>
+
 Geleneksel arama motorları (Google, Bing) web sayfalarını indeksleyip sıralamaya odaklanırken, LLM'ler doğrudan kullanıcıya sentezlenmiş yanıt üretir. 2024 itibariyle ChatGPT'nin 200 milyon haftalık aktif kullanıcısı, Claude'un kurumsal pazardaki yükselişi ve Google'ın AI Overviews entegrasyonu, arama davranışını kalıcı olarak değiştirdi. Kullanıcılar artık "En iyi SEO ajansı İzmir" yerine "İzmir'de 20 yıllık deneyimli, AEO konusunda uzman ajans öner ve neden tercih etmeliyim açıkla" gibi doğal dil sorguları yapıyor.
 
 llms.txt olmadan LLM'ler sitenizi tarama yaparken:
@@ -81,6 +100,15 @@ llms.txt ile:
 AEO (Answer Engine Optimization - Yanıt Motoru Optimizasyonu) stratejisinin temel taşlarından biridir. Schema.org işaretlemesi içeriği yapılandırırken, llms.txt tüm site mimarisini LLM'lere sunar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">3 katmanlı llms.txt operasyonu</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Strateji & haritalama</div><div class="d">İçerik envanteri + iş hedefine göre öncelik</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Standartlara uyum</div><div class="d">Anthropic + OpenAI önerileri, schema/robots uyum</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Test & izleme</div><div class="d">Aylık LLM kaynak gösterim raporu</div></div>
+  </div>
+</div>
 
 Gonet, llms.txt protokolünü 2024 yılında AEO hizmet hattına entegre eden Türkiye'deki ilk ajanslardan biridir. Yaklaşımımız üç katmanlı:
 

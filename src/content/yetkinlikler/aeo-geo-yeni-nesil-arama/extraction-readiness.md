@@ -48,6 +48,25 @@ Gonet, 2024 yılından itibaren tüm blog, SSS, ürün açıklama ve yetkinlik s
 
 ## Neden kritik?
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">%60+</div>
+    <div class="l">SGE / AI Overviews<br>aktif sorgular</div>
+  </div>
+  <div class="stat">
+    <div class="n">3.2×</div>
+    <div class="l">Citation oranı<br>artışı</div>
+  </div>
+  <div class="stat">
+    <div class="n">50-120</div>
+    <div class="l">SSS yanıt<br>kelime aralığı</div>
+  </div>
+  <div class="stat">
+    <div class="n">%95</div>
+    <div class="l">İlk yayında<br>extraction skor</div>
+  </div>
+</div>
+
 Google'ın Search Generative Experience (SGE) ve AI Overviews özellikleri, arama sonuçlarının %60'ından fazlasında artık LLM tarafından üretilen özet yanıtlar sunuyor. Bu yanıtlar, web'den çekilen içerik parçalarının (chunk) RAG yöntemiyle işlenmesiyle oluşur. Eğer içeriğiniz extraction-ready değilse, LLM doğru bağlamı çıkaramaz, yarım yanıt verir veya sizi kaynak olarak göstermez.
 
 ChatGPT, Perplexity, Bing Chat gibi platformlar da aynı RAG mantığıyla çalışır: kullanıcı sorusu → vektör araması → kaynak chunk'ları çekme → sentez yanıt. Extraction-ready olmayan içerik, bu zincirde "düşük kalite" olarak filtrelenir veya yanlış bağlamda kullanılır. Örneğin, "Fiyatlandırma" başlığı altında "Paketler müşteri ihtiyacına göre değişir" gibi belirsiz bir cümle, LLM'e sıfır değer taşır; ancak "Gonet SEO danışmanlığı aylık 15.000-50.000 TL arasında, proje kapsamına göre değişir" cümlesi doğrudan çıkarılabilir.
@@ -55,6 +74,15 @@ ChatGPT, Perplexity, Bing Chat gibi platformlar da aynı RAG mantığıyla çal�
 Türkiye'de e-ticaret sitelerinin %80'i ürün açıklamalarını hâlâ bullet point listeler halinde, bağlam olmadan yazar. LLM bu listeleri anlamsız metin yığını olarak görür. Gonet müşterilerinde ürün açıklamalarını extraction-ready paragraflara dönüştürdükten sonra, AI Overviews'da görünürlük ilk 3 ay içinde %210 artış göstermiştir.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">3 aşamalı extraction-ready üretim</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Planlama</div><div class="d">Spesifik soru haritalama, SSS mapping</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Yazım</div><div class="d">Özne-yüklem-nesne, zamir minimizasyonu</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Doğrulama</div><div class="d">GPT-4 + Claude 3.5 extraction testi</div></div>
+  </div>
+</div>
 
 Gonet'in extraction-ready içerik üretim süreci üç katmanlıdır: planlama, yazım, doğrulama. Planlama aşamasında, her sayfanın SSS bölümü, hangi spesifik sorulara extraction-ready yanıt vereceği mapping (haritalama) ile belirlenir. "SEO nedir?" gibi genel sorular yerine "B2B SaaS için SEO ile organik lead %30 artırılır mı?" gibi spesifik, ölçülebilir sorular tasarlanır.
 
