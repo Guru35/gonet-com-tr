@@ -670,6 +670,41 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       })();
     </script>
 
+    <style is:global>
+      /* AI mesajına eklenebilen "reaction" badge — kalp/sparkle/thumbs */
+      .gonet-reaction {
+        display: inline-flex;
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 0.5rem;
+        background: rgb(254 226 226);
+        color: rgb(220 38 38);
+        border: 1px solid rgb(220 38 38);
+        animation: gonet-reaction-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+      }
+      .gonet-reaction svg {
+        animation: gonet-reaction-pulse 1.4s ease-in-out infinite;
+      }
+      .gonet-reaction-sparkle {
+        background: rgb(254 249 195);
+        color: rgb(202 138 4);
+        border-color: rgb(202 138 4);
+      }
+      .gonet-reaction-thumbs {
+        background: rgb(220 252 231);
+        color: rgb(22 163 74);
+        border-color: rgb(22 163 74);
+      }
+      @keyframes gonet-reaction-pop {
+        0% { transform: scale(0) rotate(-12deg); opacity: 0; }
+        70% { transform: scale(1.15) rotate(8deg); opacity: 1; }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      }
+      @keyframes gonet-reaction-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.18); }
+      }
+    </style>
+
     <!-- Feedback Chatbox Lightbox — Gonet editöryel UI dili (siyah/beyaz/kırmızı, no rounded, hairline) -->
     <div id="feedback-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
       <div class="bg-white w-full max-w-2xl max-h-[92vh] flex flex-col border border-black">
@@ -727,7 +762,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               </button>
             </div>
 
-            <!-- KVKK onayı — sadece e-posta girilince görünür, ZORUNLU -->
+            <!-- KVKK onayı (mail kopyası) — sadece e-posta girilince görünür, ZORUNLU -->
             <label id="feedback-kvkk-wrap" class="hidden items-start gap-3 mb-3 cursor-pointer select-none">
               <input type="checkbox" id="feedback-kvkk"
                      class="mt-0.5 w-4 h-4 accent-black shrink-0">
@@ -735,6 +770,25 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
                 E-posta adresimin <strong>sohbet kopyası göndermek</strong> amacıyla işlenmesini KVKK kapsamında onaylıyorum. <a href="https://gonet.com.tr/kvkk" target="_blank" class="underline">Aydınlatma metni →</a>
               </span>
             </label>
+
+            <!-- KVKK onayı (sohbetteki PII) — mesajlarda kişisel veri tespit edilince server cevabıyla gösterilir -->
+            <div id="feedback-pii-wrap" class="hidden mt-3 p-3 border border-red-200 bg-red-50">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-700 mb-2">— Kişisel veri tespiti</p>
+              <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                Sohbetinizde <strong>ad, soyad, telefon veya e-posta</strong> gibi kişisel bilgiler tespit edildi. Bu bilgileri Gonet ekibine iletmemiz için KVKK kapsamında işlenmesini onaylamanız gerekiyor.
+              </p>
+              <label class="flex items-start gap-2 cursor-pointer select-none mb-2">
+                <input type="radio" name="pii-consent" id="feedback-pii-yes" value="yes"
+                       class="mt-0.5 w-4 h-4 accent-black shrink-0">
+                <span class="text-xs text-slate-800"><strong>Onaylıyorum</strong> — bilgilerimi iletin, ekip 24 saat içinde bana ulaşsın.</span>
+              </label>
+              <label class="flex items-start gap-2 cursor-pointer select-none">
+                <input type="radio" name="pii-consent" id="feedback-pii-no" value="no"
+                       class="mt-0.5 w-4 h-4 accent-black shrink-0">
+                <span class="text-xs text-slate-800"><strong>Onaylamıyorum</strong> — mesajı silin, hiçbir yere iletmeyin.</span>
+              </label>
+              <p class="mt-3 text-[10px] uppercase tracking-[0.18em] text-slate-500"><a href="https://gonet.com.tr/kvkk" target="_blank" class="underline">KVKK aydınlatma metni →</a></p>
+            </div>
             <div class="flex items-center gap-4 text-[11px]">
               <button type="button" id="feedback-copy" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">Sohbeti kopyala</button>
               <button type="button" id="feedback-skip-email" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">E-posta istemiyorum</button>
@@ -774,6 +828,22 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         const consentEl = document.getElementById('feedback-consent');
         const kvkkWrap = document.getElementById('feedback-kvkk-wrap');
         const kvkkEl = document.getElementById('feedback-kvkk');
+        const piiWrap = document.getElementById('feedback-pii-wrap');
+        const piiYes = document.getElementById('feedback-pii-yes');
+        const piiNo = document.getElementById('feedback-pii-no');
+
+        // Client-side PII detection — kullanıcı mesajlarında
+        function detectPiiInMessages(messages) {
+          const text = messages.filter(m => m.role === 'user').map(m => m.content).join('\n');
+          const patterns = [
+            /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/,  // e-posta
+            /(?:\+?9?0?[\s-]?)?5\d{2}[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}/,  // TR telefon
+            /\b\d{11}\b/,  // TC
+            /\bTR\d{2}[\s-]?\d{4}/,  // IBAN
+            /(?:adım|ismim|ben)\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]+\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]+/,  // ad-soyad
+          ];
+          return patterns.some(p => p.test(text));
+        }
 
         // E-posta input dinleyici — yazılınca KVKK consent göster, Tamamla disable et
         function updateKvkkGate() {
@@ -814,6 +884,13 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           return text;
         }
 
+        // [REACTION:type] tag çıkar, content + reaction döndür
+        function extractReaction(content) {
+          const m = content && content.match(/^\[REACTION:(heart|sparkle|thumbs)\]\s*/);
+          if (!m) return { content: content, reaction: null };
+          return { content: content.slice(m[0].length), reaction: m[1] };
+        }
+
         function renderMessage(m) {
           const wrap = document.createElement('div');
           wrap.className = m.role === 'user' ? 'flex flex-col items-end' : 'flex flex-col items-start';
@@ -821,11 +898,31 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           label.className = 'text-[9px] font-semibold uppercase tracking-[0.3em] text-black/40 mb-1.5 px-1';
           label.textContent = m.role === 'user' ? 'SİZ' : 'GONET ASİSTAN';
           wrap.appendChild(label);
+
+          // AI mesajı için reaction tag varsa: animasyonlu badge önce render
+          let bubbleContent = m.content;
+          if (m.role === 'assistant') {
+            const ext = extractReaction(m.content);
+            bubbleContent = ext.content;
+            if (ext.reaction) {
+              const react = document.createElement('div');
+              react.className = 'gonet-reaction gonet-reaction-' + ext.reaction;
+              if (ext.reaction === 'heart') {
+                react.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9.5C1 8 3 5 6 5c2 0 3 1 4 2.5C11 6 12 5 14 5c3 0 5 3 3.5 6.5C19 16.5 12 21 12 21z"/></svg>';
+              } else if (ext.reaction === 'sparkle') {
+                react.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4L22 12l-7.6 2.6L12 22l-2.4-7.4L2 12l7.6-2.6z"/></svg>';
+              } else {
+                react.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M7 11l3-7c2 0 3 1 3 3v3h5c1 0 2 1 2 2v5c0 2-1 3-3 3H9c-2 0-3-1-3-3v-6z"/></svg>';
+              }
+              wrap.appendChild(react);
+            }
+          }
+
           const bubble = document.createElement('div');
           bubble.className = m.role === 'user'
             ? 'max-w-[88%] bg-black text-white px-4 py-3 text-[15px] leading-relaxed whitespace-pre-wrap border border-black'
             : 'max-w-[88%] bg-white text-black px-4 py-3 text-[15px] leading-relaxed whitespace-pre-wrap border-l-2 border-brand-600 border-y border-r border-y-black/10 border-r-black/10';
-          bubble.textContent = sanitize(m.content);
+          bubble.textContent = sanitize(bubbleContent);
           wrap.appendChild(bubble);
           msgsEl.appendChild(wrap);
           msgsEl.scrollTop = msgsEl.scrollHeight;
@@ -861,6 +958,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           msgsEl.innerHTML = ''; imgsEl.innerHTML = ''; txtEl.value = ''; emailEl.value = '';
           if (kvkkEl) kvkkEl.checked = false;
           if (kvkkWrap) { kvkkWrap.classList.add('hidden'); kvkkWrap.classList.remove('flex'); }
+          if (piiWrap) piiWrap.classList.add('hidden');
+          if (piiYes) piiYes.checked = false;
+          if (piiNo) piiNo.checked = false;
           if (finalBtn) finalBtn.disabled = false;
           inputRow.classList.remove('hidden'); endBlock.classList.add('hidden');
           showStatus('');
@@ -926,10 +1026,17 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
                   /sohbetin kopyas[ıi]n[ıi]/i.test(data.message) ||
                   /mail kopyas[ıi]\s*ister/i.test(data.message) ||
                   /kaydedip ekibe ilett/i.test(data.message) ||
-                  /kaydediyorum[\.,]\s*sohbet kopyas/i.test(data.message)) {
+                  /kaydediyorum[\.,]\s*sohbet kopyas/i.test(data.message) ||
+                  /talebinizi.*ekibimiz/i.test(data.message) ||
+                  /ekibimiz.*size geri d[oö]n/i.test(data.message)) {
                 ended = true;
                 inputRow.classList.add('hidden');
                 endBlock.classList.remove('hidden');
+                // PII tespit edildiyse KVKK consent radio bloğu göster
+                if (detectPiiInMessages(messages)) {
+                  piiWrap.classList.remove('hidden');
+                  if (finalBtn) finalBtn.disabled = true;
+                }
               }
               showStatus('');
             } else {
@@ -1000,6 +1107,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
                 content_improvement_consent: intent === 'discussion'
                   ? !!(consentEl && consentEl.checked)
                   : null,
+                pii_consent: piiConsentValue(),
                 messages: messages, images: images, user_email: email || null,
               }),
             });
@@ -1072,12 +1180,34 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         });
         emailEl.addEventListener('input', updateKvkkGate);
         if (kvkkEl) kvkkEl.addEventListener('change', updateKvkkGate);
+
+        // PII consent — radio değişince finalize butonunu aç
+        function piiConsentValue() {
+          if (piiYes && piiYes.checked) return true;
+          if (piiNo && piiNo.checked) return false;
+          return null;
+        }
+        function updatePiiGate() {
+          if (!piiWrap || piiWrap.classList.contains('hidden')) return;
+          const v = piiConsentValue();
+          if (finalBtn) finalBtn.disabled = v === null;
+        }
+        if (piiYes) piiYes.addEventListener('change', updatePiiGate);
+        if (piiNo) piiNo.addEventListener('change', updatePiiGate);
+
         finalBtn.addEventListener('click', () => {
           const email = emailEl.value.trim();
-          // KVKK kontrolü: email varsa onay zorunlu
           if (email && (!kvkkEl || !kvkkEl.checked)) {
             showStatus('E-posta gönderilmesi için KVKK onayı gerekli.', true);
             return;
+          }
+          // PII consent zorunlu kontrol
+          if (piiWrap && !piiWrap.classList.contains('hidden')) {
+            const v = piiConsentValue();
+            if (v === null) {
+              showStatus('Lütfen KVKK onayı seçeneklerinden birini işaretleyin.', true);
+              return;
+            }
           }
           finalize(email);
         });

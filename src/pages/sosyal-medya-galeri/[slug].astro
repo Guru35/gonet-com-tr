@@ -7,9 +7,9 @@ export async function getStaticPaths() {
     { slug: '01-mevlana-aynasi',   name: 'Mevlânâ Aynası',  kategori: 'Varyasyon A · Felsefi köprü' },
     { slug: '02-kirmizi-nokta',    name: 'Kırmızı Nokta',   kategori: 'Varyasyon B-1 · Manifesto' },
     { slug: '03-numara-bir',       name: 'Numara Bir',      kategori: 'Varyasyon B-2 · Tipografik ilk' },
-    { slug: '04-ai-zeki-sen',      name: 'AI Zeki. Sen?',   kategori: 'Varyasyon C-1 · Toscani modu' },
     { slug: '05-yansima',          name: 'Yansıma',         kategori: 'Varyasyon C-2 · Felsefi ayna' },
     { slug: '06-at-sahibine-gore', name: 'At Sahibine Göre',kategori: 'Varyasyon D · Atasözü köprüsü' },
+    { slug: '07-creative-ai-nedir',name: 'Creative AI Nedir?', kategori: 'Varyasyon E · Marka tanımı' },
   ];
   return postlar.map((p) => ({
     params: { slug: p.slug },
