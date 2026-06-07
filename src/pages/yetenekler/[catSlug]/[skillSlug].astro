@@ -219,28 +219,65 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
     </section>
 
     <!-- Global tipografi modülasyonu — Astro scoped style markdown'a uygulanmıyor, is:global lazım -->
+    <!-- Google ferah: bolt değil, lighter weight, geniş satır/paragraf aralığı, yavaş kademeli küçülme -->
     <style is:global>
-      .body-typography > p:first-of-type {
-        font-size: 1.6rem !important;
+      /* Tüm paragraflar — geniş hava */
+      .body-typography > p {
+        line-height: 1.85 !important;
+        margin-bottom: 1.75rem !important;
+        font-weight: 400 !important;
+        color: rgb(30 41 59) !important;
+      }
+      /* H2 ve H3 başlıklar için de geniş aralık */
+      .body-typography > h2 {
+        margin-top: 3.5rem !important;
+        margin-bottom: 1.25rem !important;
+        line-height: 1.3 !important;
+      }
+      .body-typography > h3 {
+        margin-top: 2.5rem !important;
+        margin-bottom: 1rem !important;
         line-height: 1.4 !important;
-        font-weight: 600 !important;
+      }
+
+      /* Editöryel kademeli küçülme — title'dan 2 punto altından başla, bolt değil */
+      .body-typography > p:first-of-type {
+        font-size: 1.5rem !important;       /* ~24px — title 30-48px'in 2 punto altı */
+        line-height: 1.6 !important;
+        font-weight: 450 !important;         /* bolt değil, hafif yumuşak */
         color: rgb(15 23 42) !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 2rem !important;
       }
       .body-typography > p:nth-of-type(2) {
-        font-size: 1.2rem !important;
-        line-height: 1.55 !important;
-        font-weight: 500 !important;
-        color: rgb(30 41 59) !important;
+        font-size: 1.25rem !important;       /* ~20px */
+        line-height: 1.7 !important;
+        font-weight: 400 !important;
       }
       .body-typography > p:nth-of-type(3) {
-        font-size: 1.075rem !important;
-        font-weight: 450 !important;
+        font-size: 1.125rem !important;      /* ~18px */
+        line-height: 1.8 !important;
       }
+      /* H2 sonrası ilk paragraf hafif vurgu (her bölümün başı) */
       .body-typography h2 + p {
         font-size: 1.15rem !important;
-        font-weight: 500 !important;
-        color: rgb(30 41 59) !important;
+        font-weight: 450 !important;
+        color: rgb(15 23 42) !important;
+        line-height: 1.75 !important;
+      }
+      /* Liste içi her madde geniş */
+      .body-typography ul, .body-typography ol {
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.75rem !important;
+      }
+      .body-typography li {
+        margin-top: 0.625rem !important;
+        margin-bottom: 0.625rem !important;
+        line-height: 1.75 !important;
+      }
+      /* Tablo aralıkları */
+      .body-typography table {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
       }
 
       /* FAQ akordiyon — native <details> + custom UI */
