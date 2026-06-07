@@ -1018,7 +1018,8 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         const STEP_PX = 2;        // her tıklamada ±2px
         const MIN_PX = 13;
         const MAX_PX = 56;
-        const paragraphs = body.querySelectorAll(':scope > p');
+        // Direct child P'leri + nested wrapper'lar içindekiler (markdown render bazen wrap eder)
+        const paragraphs = Array.from(body.children).filter(c => c.tagName === 'P');
         paragraphs.forEach((p) => {
           const ctrl = document.createElement('span');
           ctrl.className = 'p-zoom';

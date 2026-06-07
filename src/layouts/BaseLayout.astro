@@ -663,59 +663,59 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       })();
     </script>
 
-    <!-- Feedback Chatbox Lightbox — site-wide, [data-feedback-open] butonlarıyla açılır -->
-    <div id="feedback-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
-      <div class="bg-white w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl border border-black/10">
-        <header class="flex items-start justify-between p-5 border-b border-black/10 shrink-0">
+    <!-- Feedback Chatbox Lightbox — Gonet editöryel UI dili (siyah/beyaz/kırmızı, no rounded, hairline) -->
+    <div id="feedback-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
+      <div class="bg-white w-full max-w-xl max-h-[88vh] flex flex-col border border-black">
+        <header class="flex items-start justify-between px-6 py-5 border-b border-black/15 shrink-0">
           <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500 mb-1">Geri bildirim</p>
-            <h3 id="feedback-title" class="text-lg font-bold leading-snug">Bu sayfada hata mı gördünüz?</h3>
-            <p class="text-xs text-slate-600 mt-1">Gonet asistanıyla kısa bir sohbet — 1-2 dakika.</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 mb-2">— Geri bildirim</p>
+            <h3 id="feedback-title" class="text-xl font-bold leading-tight">Bu sayfada hata mı gördünüz?</h3>
           </div>
           <button type="button" id="feedback-close" aria-label="Kapat"
-                  class="text-2xl leading-none text-slate-500 hover:text-black p-1 -mt-1">×</button>
+                  class="shrink-0 w-8 h-8 flex items-center justify-center border border-black hover:bg-black hover:text-white transition-colors">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
+          </button>
         </header>
 
-        <div id="feedback-messages" class="flex-1 overflow-y-auto p-5 space-y-4 bg-slate-50/50 min-h-[280px]"></div>
+        <div id="feedback-messages" class="flex-1 overflow-y-auto px-6 py-6 space-y-5 bg-white min-h-[240px]"></div>
 
-        <div id="feedback-images" class="px-5 pt-2 flex flex-wrap gap-2"></div>
+        <div id="feedback-images" class="px-6 flex flex-wrap gap-2"></div>
 
-        <footer class="border-t border-black/10 p-4 shrink-0 bg-white">
-          <div id="feedback-status" class="text-xs text-slate-500 mb-2 hidden"></div>
+        <footer class="border-t border-black/15 px-6 py-4 shrink-0 bg-white">
+          <div id="feedback-status" class="text-[10px] uppercase tracking-[0.2em] text-black/60 mb-2 hidden"></div>
 
           <div id="feedback-input-row" class="flex items-end gap-2">
-            <label for="feedback-file" class="shrink-0 cursor-pointer p-2 text-slate-500 hover:text-black border border-black/15 hover:border-black transition-colors" title="Ekran görüntüsü ekle (max 2)">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16l4-4a3 3 0 014 0l4 4m-2-2l1-1a3 3 0 014 0l3 3M14 8h.01M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <label for="feedback-file" class="shrink-0 cursor-pointer w-10 h-10 flex items-center justify-center text-black/60 hover:text-black hover:bg-black/5 border border-black/20 hover:border-black transition-colors" title="Ekran görüntüsü ekle (max 2)">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
               <input type="file" id="feedback-file" accept="image/jpeg,image/png,image/webp" class="hidden">
             </label>
-            <textarea id="feedback-text" rows="1" placeholder="Mesajınızı yazın…"
-                      class="flex-1 resize-none border border-black/15 focus:border-black focus:outline-none p-2.5 text-sm leading-relaxed max-h-32"></textarea>
+            <textarea id="feedback-text" rows="1" placeholder="Mesajınız…"
+                      class="flex-1 resize-none border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm leading-relaxed max-h-28 bg-white"></textarea>
             <button type="button" id="feedback-send"
-                    class="shrink-0 px-4 py-2.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-brand-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                    class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
               Gönder
             </button>
           </div>
 
-          <!-- Bitiş bloğu — kapama aşamasında görünür -->
-          <div id="feedback-end" class="hidden mt-4 pt-4 border-t border-black/10">
-            <p class="text-sm text-slate-700 mb-3">Sohbetin kopyasını e-postanıza göndermek ister misiniz? (İsteğe bağlı)</p>
-            <div class="flex items-end gap-2 mb-2">
-              <input type="email" id="feedback-email" placeholder="ornek@gonet.com.tr"
-                     class="flex-1 border border-black/15 focus:border-black focus:outline-none p-2.5 text-sm">
+          <!-- Bitiş bloğu -->
+          <div id="feedback-end" class="hidden mt-4 pt-4 border-t border-black/15">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-black/60 mb-3">— Sohbeti tamamla</p>
+            <div class="flex items-end gap-2 mb-3">
+              <input type="email" id="feedback-email" placeholder="E-posta kopya için (opsiyonel)"
+                     class="flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
               <button type="button" id="feedback-finalize"
-                      class="shrink-0 px-4 py-2.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-brand-700 transition-colors">
-                Tamamla & gönder
+                      class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 transition-colors">
+                Tamamla
               </button>
             </div>
-            <div class="flex items-center gap-3 text-xs">
-              <button type="button" id="feedback-copy" class="text-slate-600 hover:text-black underline underline-offset-2">Sohbeti kopyala</button>
-              <span class="text-slate-300">·</span>
-              <button type="button" id="feedback-skip-email" class="text-slate-600 hover:text-black underline underline-offset-2">E-posta istemem, sadece kaydet</button>
+            <div class="flex items-center gap-4 text-[11px]">
+              <button type="button" id="feedback-copy" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">Sohbeti kopyala</button>
+              <button type="button" id="feedback-skip-email" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">E-posta istemiyorum</button>
             </div>
           </div>
 
-          <p class="mt-3 text-[10px] uppercase tracking-[0.2em] text-slate-400">
-            Sohbet AI ile yapılır · 6 ay sonra otomatik silinir · KVKK uyumlu
+          <p class="mt-3 text-[9px] uppercase tracking-[0.25em] text-black/40 font-medium">
+            AI ile sohbet · 6 ay retention · KVKK
           </p>
         </footer>
       </div>
@@ -751,16 +751,31 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           statusEl.className = 'text-xs mb-2 ' + (isError ? 'text-red-600' : 'text-slate-500');
         }
 
+        // Emoji + markdown bold sanitize — AI prompt'a uymasa bile UI temiz
+        function sanitize(text) {
+          if (!text) return '';
+          // Bold ** → düz metin
+          text = text.replace(/\*\*(.+?)\*\*/g, '$1');
+          text = text.replace(/\*(.+?)\*/g, '$1');
+          // Emoji range temizle (Unicode emoji blocks)
+          text = text.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}\u{1F000}-\u{1F02F}\u{1F0A0}-\u{1F0FF}]/gu, '');
+          // Çoklu newline'ları normalize
+          text = text.replace(/\n{3,}/g, '\n\n').trim();
+          return text;
+        }
+
         function renderMessage(m) {
           const wrap = document.createElement('div');
-          wrap.className = m.role === 'user'
-            ? 'flex flex-col items-end'
-            : 'flex flex-col items-start';
+          wrap.className = m.role === 'user' ? 'flex flex-col items-end' : 'flex flex-col items-start';
+          const label = document.createElement('p');
+          label.className = 'text-[9px] font-semibold uppercase tracking-[0.3em] text-black/40 mb-1.5 px-1';
+          label.textContent = m.role === 'user' ? 'SİZ' : 'GONET ASİSTAN';
+          wrap.appendChild(label);
           const bubble = document.createElement('div');
           bubble.className = m.role === 'user'
-            ? 'max-w-[85%] bg-black text-white px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap'
-            : 'max-w-[85%] bg-white border border-black/10 px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap';
-          bubble.textContent = m.content;
+            ? 'max-w-[88%] bg-black text-white px-4 py-3 text-[15px] leading-relaxed whitespace-pre-wrap border border-black'
+            : 'max-w-[88%] bg-white text-black px-4 py-3 text-[15px] leading-relaxed whitespace-pre-wrap border-l-2 border-brand-600 border-y border-r border-y-black/10 border-r-black/10';
+          bubble.textContent = sanitize(m.content);
           wrap.appendChild(bubble);
           msgsEl.appendChild(wrap);
           msgsEl.scrollTop = msgsEl.scrollHeight;
