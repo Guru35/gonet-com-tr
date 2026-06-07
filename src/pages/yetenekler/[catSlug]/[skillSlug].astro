@@ -1142,13 +1142,9 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .p-zoom button:hover {
         color: rgb(220 38 38);   /* kırmızı vurgu */
-        transform: scale(1.35) rotate(180deg);
-      }
-      .p-zoom button[data-zoom-down]:hover {
-        transform: scale(1.35) rotate(-180deg);
+        transform: scale(1.3);   /* rotate KALDIRILDI — tooltip ile çakışma yok */
       }
       .p-zoom button[data-paragraph-ai]:hover {
-        transform: scale(1.3);
         animation: gonet-bubble-pulse 0.9s ease-in-out infinite;
       }
       .p-zoom button:active {
