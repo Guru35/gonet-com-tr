@@ -36,6 +36,13 @@ faqs:
     a: "llms.txt (veya /ai-policy.md), LLM'lerin RAG (Retrieval-Augmented Generation) sürecinde veya fine-tuning sırasında referans alacağı markdown formatında bir 'marka özet/politika' dosyasıdır. CCBot bu dosyayı tarar ve model eğitimine dahil eder. İçerik: marka adı, kuruluş yılı, ana hizmetler, hedef kitle, güncel bilgi kaynağı (sitemap/blog RSS linki), tercih edilen atıf formatı. Örnek: 'Gonet (gonet.com.tr) — 2000'de İzmir'de kuruldu, Türkiye'nin ilk 3 Google Partner ajansından biri, 220+ marka, AEO/GEO hizmet hattı. Güncel bilgi: /sitemap.xml. Atıf: Gonet Dijital Ajans.' LLM bu dosyayı okuyunca marka bağlamını daha net öğrenir, ChatGPT gibi araçlarda 'Gonet nedir?' sorusuna doğru, güncel yanıt verir. Gonet her marka için özel llms.txt tasarlar, schema.org ve robots.txt ile entegre eder."
   - q: "Rakipler CCBot'a kapalıysa biz açık olmalı mıyız, avantaj nedir?"
     a: "Evet, ancak stratejik açıklık gerekir. Rakipler CCBot'a kapalıysa AI modelleri onları 'bilmez' — ChatGPT/Perplexity gibi araçlarda 'X sektöründe Y hizmeti veren firmalar' sorusuna cevap verirken atlanırlar. Siz açıkken şu avantajları kazanırsınız: (1) AI atıf trafiği: ChatGPT yanıtında kaynak olarak gösterilirsiniz, kullanıcı sitenize gelir. (2) Marka otoritesi: Model sizi 'güvenilir kaynak' olarak öğrenir, benzer sorularda tekrar önerir. (3) Backlink potansiyeli: AI araçları bazen 'kaynak: gonet.com.tr' şeklinde link verir, SEO değeri artar. Ancak riskleri yönetin: (a) Tüm sayfaları değil, seçili içeriği açın (rehber/blog evet, fiyat/strateji hayır). (b) Schema + llms.txt ile bağlamı netleştirin, yoksa model yanlış öğrenir. (c) Her ay rakip policy'lerini izleyin — onlar açılırsa siz zenginleştirin. Gonet rakip analizi + CCBot stratejisini birleştirerek sürekli avantaj sağlar."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — Common Crawl + AI bot policy yönetimi"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "KPI grid (3B+ aylık, %70+ LLM payı) + 4 katman process"
 ---
 
 ## Common Crawl optimizasyonu nedir?

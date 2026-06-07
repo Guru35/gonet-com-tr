@@ -36,6 +36,13 @@ faqs:
     a: "Öncelik sırası: (1) Ana hizmet/ürün sayfaları - iş modelinizin özü, (2) Hakkımızda/Ekip - otorite ve güven, (3) İletişim/Destek - kullanıcı eylemi, (4) Referanslar/Vaka çalışmaları - sosyal kanıt, (5) SSS/Kılavuzlar - bilgi kaynağı, (6) Güncel blog yazıları (son 6-12 ay) - taze içerik. Listelememeniz gerekenler: gizlilik politikası, çerez bildirimi gibi yasal sayfalar (LLM yanıtlarında kullanıcıya değer katmaz), eski kampanya landing pageları, test sayfaları. Gonet müşterileri için sayfa seçimini Google Analytics verisiyle birleştiriyoruz: son 90 günde organik trafiğin %80'ini getiren sayfalar + dönüşüm hunisindeki kritik sayfalar llms.txt'ye dahil ediliyor. E-ticaret sitelerde kategori sayfaları ürün detaylarından daha öncelikli."
   - q: "llms.txt uygulamasının etkisini nasıl ölçerim, hangi metrikler önemli?"
     a: "Doğrudan LLM atıf takibi: ChatGPT ve Claude'a markanızla ilgili sorular sorup kaynak olarak sitenizin gösterilme oranını izleyin (Gonet bunu aylık manuel kontrol + API entegrasyonuyla otomatikleştiriyor). Dolaylı metrikler: (1) 'Dark social' trafik artışı - Google Analytics'te direct/none kaynağından gelen, ancak içerik sayfalarına (anasayfa değil) inen ziyaretler, LLM referanslarını işaret edebilir. (2) Marka arama hacmi - kullanıcılar LLM'den markanızı öğrenip Google'da doğrudan arama yapabilir, brand search trendine bakın. (3) Engagement metrikleri - LLM'den gelen kullanıcılar genellikle yüksek intent taşır, bounce rate düşer, sayfa/oturum artar. Gonet raporlarında 'AI Visibility Score' oluşturuyoruz: 10 farklı sektörel sorguya LLM'lerin verdiği yanıtlarda markanın görünme sıklığını puanlıyoruz (0-100 skala). Müşterilerimizde 3 ay içinde ortalama 28 puanlık artış gözlüyoruz."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — llms.txt protokolü, Anthropic spec"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "KPI grid (200M ChatGPT WAU, +%340 citation) + 3 katman process"
 ---
 
 ## llms.txt nedir?

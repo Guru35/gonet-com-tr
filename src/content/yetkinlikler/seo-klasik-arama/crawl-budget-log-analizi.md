@@ -36,6 +36,13 @@ faqs:
     a: "Doğru yapıldığında hayır. Faceted navigation sayfaları (örneğin /ayakkabi?marka=nike&renk=siyah&beden=42) genellikle kategori sayfasının duplicate versiyonlarıdır, nadiren unique içerik taşır. Eğer filtre kombinasyonu arama talebine karşılık geliyorsa (örneğin 'siyah nike 42 numara ayakkabı' araması), o sayfayı indeksletmek doğrudur. Ancak çoğu kombinasyon aranmaz. Stratejimiz: (1) Arama hacmi yüksek filtre kombinasyonlarını canonical URL olarak indeksle. (2) Diğerlerini robots.txt veya URL parameter handling (Search Console) ile engelle. (3) Rel=canonical ile duplicate içeriği ana kategoriye yönlendir. Gonet, anahtar kelime araştırması + log analizi ile hangi filtrelerin değerli olduğunu tespit eder, gereksiz taramayı %70-80 azaltır."
   - q: "Log analizinde 503 (Service Unavailable) hatası yüksekse ne yapmalıyım?"
     a: "503 hatası sunucunun geçici olarak hizmet veremediğini gösterir, genellikle yüksek trafik veya kaynak tükenmesinden kaynaklanır. Log analizinde Googlebot için %5'ten fazla 503 görüyorsanız: (1) Sunucu kaynaklarını artırın (CPU, RAM, worker process sayısı). (2) Googlebot trafiğinin geldiği saatleri tespit edin (genellikle gece 02:00-06:00), o saatlerde diğer otomatik işlemleri (backup, cron job) kaydırın. (3) CDN kullanıyorsanız bot trafiğini origin'e yönlendirmek yerine cache'ten servis edin. (4) Eğer site DDoS saldırısı altındaysa, Cloudflare Bot Management veya Google reCAPTCHA Enterprise kullanın. Gonet, DevOps ekibiyle birlikte çalışarak sunucu optimizasyonu yapar, 503 oranını %1 altına çeker, Google'ın tarama güvenini (crawl trust) yükseltir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — server log analizi + crawl budget optimizasyonu"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Calendar heatmap eklendi: Googlebot 7-gün × 24-saat pattern"
 ---
 
 ## Crawl budget + log analizi nedir?

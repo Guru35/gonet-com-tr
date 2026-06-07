@@ -29,6 +29,16 @@ faqs:
     a: "İki ayrı validator kullanın: (1) Schema.org Validator (validator.schema.org) — spec uyumu için, (2) Google Rich Results Test (search.google.com/test/rich-results) — Google-spesifik kurallar için. Google'ın gizli zorunlulukları vardır: Event için startDate + location, Article için datePublished + author, Product için offers, Organization için logo'nun mutlak URL olması. GSC URL Inspection 'Geçersiz öğeler' uyarısı verirse validator'larda %100 yeşil olmalı."
   - q: "Birden çok schema entity'sini tek sayfada nasıl bağlarım?"
     a: "@graph pattern'i kullanın. Tek '@context' altında bir array içinde tüm entity'leri tanımlayın ('Organization', 'Person', 'WebSite', 'WebPage', 'BreadcrumbList', 'Service', 'FAQPage'). Her entity'ye @id ver (örn. 'https://site.com/#organization'). Entity'ler birbirine bu @id'lerle referans verir (publisher: {@id: ...}). Bu yapı LLM'lere bir 'mini knowledge graph' sunar ve entity authority sinyalini katlanmalı artırır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — Schema.org JSON-LD entity authority kapsamlı rehber"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "KPI grid (18+ @type, 220+ marka) + 6-adımlı process flow eklendi"
+  - date: "2026-06-07"
+    type: "schema"
+    summary: "Künye + AI disclosure + kaynakça footer eklendi"
 ---
 
 ChatGPT, Claude, Perplexity ve Google AI Overviews bir markayı **"ne yapan kim"** olarak tanımayı, sayfa HTML'inden değil **JSON-LD yapısal verisinden** öğrenir. Schema.org doğru implementasyonu olmayan bir marka, LLM cevaplarında ya hiç çıkmaz ya da rakip bir entity'ye karışır.

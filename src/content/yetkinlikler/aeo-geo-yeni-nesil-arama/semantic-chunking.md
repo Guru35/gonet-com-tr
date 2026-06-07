@@ -36,6 +36,13 @@ faqs:
     a: "Her bilgi türü ayrı chunk olmalı. Ürün açıklaması (genel tanım, kullanım alanı) bir chunk, teknik özellikler (boyut, ağırlık, malzeme) ikinci chunk, fiyat-stok-kargo üçüncü chunk, kullanıcı yorumları dördüncü chunk. Böylece 'X ürünün ağırlığı kaç kilo?' sorgusu yalnızca özellikler chunk'ını tetikler. Yorumlar ise sentiment (duygu analizi) odaklı sorgular için ayrı citation sağlar. JSON-LD Product schema'sını kullanıyorsanız, her chunk ilgili schema property'sine mapping yapmalı (description, weight, offers, review). Gonet bu yapıyı llms.txt hint'leriyle pekiştirir."
   - q: "Semantic chunking'in citation oranı üzerindeki etkisini nasıl ölçebilirim, hangi metriklere bakmalıyım?"
     a: "1) Google Search Console'da 'AI snapshot' impression ve click verilerini izleyin (SGE citation'ları buraya yansır). 2) Perplexity, ChatGPT gibi platformlarda marka adı + anahtar kelime sorguları yapın, citation listesinde sitenizin görünüp görünmediğini kontrol edin. 3) Google Analytics 4'te referrer olarak 'chatgpt.com', 'perplexity.ai' kaynaklı trafiği segmentleyin. 4) Embedding test araçlarında (OpenAI API, LangChain) sorgu-chunk similarity skorlarını ölçün; pre/post chunking optimizasyonu karşılaştırması yapın. Gonet müşterileri için aylık AEO citation raporu sağlıyoruz; chunk seviyesinde hangi parçaların citation aldığını gösterir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — semantic chunking RAG odaklı"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Compare bar (1.0× vs 3.2×) + teknik spec list eklendi"
 ---
 
 ## Semantic chunking nedir?

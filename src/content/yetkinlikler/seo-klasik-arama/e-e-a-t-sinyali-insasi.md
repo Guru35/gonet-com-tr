@@ -36,6 +36,13 @@ faqs:
     a: "AI-generated content'te E-E-A-T sağlamak için üç strateji zorunludur: (1) Human expert review ve editorial oversight markup'ları — Article schema'da 'reviewedBy' property'si ile domain expert'in (alan uzmanı) Person entity'sine bağlantı. (2) Fact-checking ve citation transparency — her claim'in (iddia) doğrulanabilir kaynaklara bağlanması, 'citation' property kullanımı. (3) Experience layer ekleme — AI draft'ına first-hand insight, case study, original data eklenmesi. Gonet yaklaşımı: LLM output'u %60 iskelet olarak kullanır, %40 human expertise injection (insan uzmanlık enjeksiyonu) yapar ve bunu 'contributors' markup'ında şeffaf şekilde gösterir. Pure AI content (author/reviewer olmadan) YMYL'de 2024 itibariyle ranking kazanamıyor."
   - q: "E-E-A-T için 'About Us' ve 'Editorial Policy' sayfaları nasıl optimize edilir?"
     a: "About Us sayfası Organization schema ile işaretlenmeli: 'founder' (Person entity link), 'foundingDate', 'address', 'contactPoint', 'sameAs' (sosyal medya, Crunchbase, Wikipedia) property'leri doldurulmalıdır. Team section'da her üyenin Person schema'sı olmalı. Editorial Policy sayfası WebPage schema + Article schema kombinasyonu alır; 'about', 'mainEntity' property'leriyle 'editorial process' keyword'üne bağlanır. İçerik: fact-checking süreci, correction policy (düzeltme politikası), conflict of interest disclosure (çıkar çatışması açıklaması), review cycle (inceleme döngüsü) detaylandırılmalı. Gonet standardı: her iki sayfa da homepage navigation'da (ana sayfa navigasyonunda) yer alır, footer'dan sitewide link (site geneli bağlantı) alır. Medya sitelerinde 'Corrections' dedicated page (özel sayfa) ek trust signal'dir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — Experience/Expertise/Authority/Trust sinyali"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Spider chart 5 eksen eklendi: Gonet portföy ortalaması"
 ---
 
 ## E-E-A-T sinyali inşası nedir?

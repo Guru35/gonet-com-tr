@@ -976,6 +976,61 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         .gonet-heatmap .hm-grid, .gonet-heatmap .hm-x-axis { min-width: 600px; }
       }
 
+      /* Changelog — değişiklik geçmişi timeline */
+      .changelog-list {
+        list-style: none; padding: 0; margin: 0;
+        position: relative;
+      }
+      .changelog-list::before {
+        content: ''; position: absolute;
+        left: 5px; top: 8px; bottom: 8px; width: 1px;
+        background: rgb(0 0 0 / 0.1);
+      }
+      .changelog-item {
+        position: relative;
+        padding: 0.875rem 0 0.875rem 1.75rem;
+        border-bottom: 1px solid rgb(0 0 0 / 0.04);
+      }
+      .changelog-item:last-child { border-bottom: 0; }
+      .changelog-item::before {
+        content: ''; position: absolute;
+        left: 2px; top: 1.25rem;
+        width: 8px; height: 8px;
+        background: rgb(148 163 184);
+        border-radius: 50%;
+      }
+      .changelog-item.is-latest::before {
+        background: rgb(220 38 38);
+        box-shadow: 0 0 0 3px rgb(220 38 38 / 0.15);
+      }
+      .changelog-item .cl-meta {
+        display: flex; align-items: center; gap: 0.75rem;
+        margin-bottom: 0.375rem;
+        flex-wrap: wrap;
+      }
+      .changelog-item .cl-date {
+        font-size: 0.75rem; font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        color: rgb(15 23 42);
+        letter-spacing: 0.05em;
+      }
+      .changelog-item .cl-type {
+        font-size: 0.625rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.18em;
+        padding: 0.125rem 0.5rem;
+        background: rgb(241 245 249);
+        color: rgb(71 85 105);
+      }
+      .changelog-item .cl-type-initial { background: rgb(15 23 42); color: white; }
+      .changelog-item .cl-type-enhancement { background: rgb(220 38 38); color: white; }
+      .changelog-item .cl-type-correction { background: rgb(254 226 226); color: rgb(153 27 27); }
+      .changelog-item .cl-type-schema { background: rgb(219 234 254); color: rgb(30 64 175); }
+      .changelog-item .cl-summary {
+        font-size: 0.875rem; line-height: 1.6;
+        color: rgb(51 65 85);
+        margin: 0;
+      }
+
       /* Spec list — minimal teknik özellik listesi */
       .gonet-spec {
         margin: 2.5rem 0 !important;
@@ -1277,6 +1332,34 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
             </button>
           </div>
         </div>
+
+        <!-- Değişiklik geçmişi — sayfa dinamik sinyali (AEO + şeffaflık) -->
+        {fm.changelog && fm.changelog.length > 0 && (
+          <div class="mt-10 pt-8 border-t border-black/10">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 mb-5">Değişiklik geçmişi</p>
+            <ol class="changelog-list">
+              {fm.changelog.slice().reverse().map((entry, idx) => (
+                <li class={`changelog-item ${idx === 0 ? 'is-latest' : ''}`}>
+                  <div class="cl-meta">
+                    <span class="cl-date">{entry.date}</span>
+                    <span class={`cl-type cl-type-${entry.type}`}>
+                      {entry.type === 'initial' ? 'İlk yayın' :
+                       entry.type === 'revision' ? 'Revize' :
+                       entry.type === 'enhancement' ? 'Zenginleştirme' :
+                       entry.type === 'factcheck' ? 'Doğrulama' :
+                       entry.type === 'correction' ? 'Düzeltme' :
+                       entry.type === 'schema' ? 'Şema' : entry.type}
+                    </span>
+                  </div>
+                  <p class="cl-summary">{entry.summary}</p>
+                </li>
+              ))}
+            </ol>
+            <p class="mt-4 text-[10px] uppercase tracking-[0.2em] text-slate-400">
+              {fm.changelog.length} kayıt · İçerik son {fm.updated ? new Date(fm.updated).toISOString().slice(0, 10) : (fm.changelog[fm.changelog.length - 1]?.date || '—')} tarihinde güncellendi
+            </p>
+          </div>
+        )}
 
         <!-- Telif notu -->
         <p class="mt-10 pt-6 border-t border-black/10 text-xs text-slate-500 leading-relaxed">

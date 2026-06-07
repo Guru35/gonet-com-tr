@@ -36,6 +36,13 @@ faqs:
     a: "Google My Business (şimdi Google Business Profile) bir işletme listeleme platformu, LocalBusiness schema ise web sitenizdeki yapılandırılmış veri işaretlemesidir. İkisi birbirini tamamlar ama ayrı sistemlerdir. GMB, Google Maps ve yerel arama sonuçlarında işletme bilgilerini gösterir; schema ise sitenin organik sıralamalarında ve Knowledge Panel'de aynı bilgilerin tutarlı görünmesini sağlar. Google, GMB'den gelen veri ile schema'dan gelen veriyi karşılaştırır — tutarsızlık varsa (adres farklı, telefon farklı) güven puanı düşer. Gonet, LocalBusiness markup'ında GMB ile birebir uyumlu `address`, `telephone`, `openingHours`, `geo` (koordinat) property'lerini kullanır. Özellikle çok şubeli işletmeler için her şube ayrı LocalBusiness entity'si olarak işaretlenir, `branchOf` ile ana organizasyona bağlanır."
   - q: "FAQ schema sayfada kaç soru-cevap çifti içermeli ve cevap uzunluğu rich snippet çıkma şansını etkiler mi?"
     a: "Google, FAQPage schema için minimum soru sayısı belirtmiyor ancak 'sıkça sorulan sorular' tanımına uygun en az 3-5 soru olması beklenir. Her soru (`Question` type) bir `name` (soru metni) ve `acceptedAnswer` (Answer type, `text` property ile cevap) içermelidir. Cevap uzunluğu 50-300 kelime arasında optimize — çok kısa (1-2 cümle) snippet'a yetmez, çok uzun (500+ kelime) kesilerek gösterilir ve kullanıcı tıklamaya ikna olmaz. Google, tüm FAQ setini tek snippet'ta gösterebilir (accordion şeklinde) veya People Also Ask kutusunda tekil soruları kullanabilir. Gonet, FAQ schema'sını içerik stratejisiyle senkronize eder: semantik aramalara (voice search) uygun, extraction-ready (LLM'lerin tek paragraftan yanıt çıkarabileceği) cevaplar yazarız. Ayrıca, ticari promosyon içeren metinler ('Hemen satın alın!') FAQ cevaplarında kabul edilmez, Google policy ihlali sayar."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — Schema.org ileri implementasyon, rich results"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Donut chart eklendi: +%35 FAQ snippet CTR avantajı"
 ---
 
 ## Schema.org ileri implementasyon nedir?

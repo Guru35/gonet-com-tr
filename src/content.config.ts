@@ -102,6 +102,12 @@ const yetkinlikler = defineCollection({
     })).default([]),
     editorReviewedAt: z.string().optional(),  // YYYY-MM-DD; boşsa "bekliyor" gösterilir
     editorReviewedBy: z.string().optional(),  // Onaylayan editör adı
+    // Değişiklik geçmişi — sayfa dinamik sinyali (AEO için pozitif), şeffaflık
+    changelog: z.array(z.object({
+      date: z.string(),  // YYYY-MM-DD
+      type: z.enum(['initial','revision','enhancement','factcheck','correction','schema']).default('revision'),
+      summary: z.string(),
+    })).default([]),
     published: z.date().optional(),
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),

@@ -36,6 +36,13 @@ faqs:
     a: "Third-party script'ler özellikle INP ve LCP'yi olumsuz etkiler. Google Tag Manager (GTM) üzerinden yüklenen çoklu pixel/script, ana thread'de uzun tasklar yaratır (INP artışı) ve LCP elementinin render'ını geciktirebilir. Gonet'in optimizasyon stratejisi: (1) Script önceliği sınıflandırması — kritik (consent management, fraud detection) vs. kritik olmayan (analytics, remarketing). Kritik olmayanları defer veya requestIdleCallback ile ertele. (2) GTM'de 'Firing Priority' ayarı: consent script'i 100, analytics 50, remarketing 10 gibi. (3) Self-hosting: Google Analytics yerine Plausible/Fathom gibi lightweight alternatif veya gtag.js self-host (cache control kazancı). (4) Facade pattern: YouTube embed yerine önce thumbnail + tıklamada iframe yükleme (örnek: lite-youtube-embed web component). (5) Web worker'a taşıma: Partytown gibi kütüphanelerle third-party script'leri ana thread'den izole etme. Gonet projelerinde GTM optimizasyonu sonrası INP ortalama 80-120ms düşüş gözlemledik."
   - q: "Core Web Vitals'ı sürekli izlemek için hangi araçlar ve metrikler kullanılmalı?"
     a: "Sürekli izleme için hem lab hem field data gerekir. **Field data** (gerçek kullanıcı): (1) Google Search Console > Deneyim > Core Web Vitals raporu — sayfa URL gruplarını 'Good/Needs Improvement/Poor' segmentlerine ayırır, 28 günlük CrUX verisi. (2) Google Analytics 4 (GA4) custom event: web-vitals.js kütüphanesi ile LCP, INP, CLS değerlerini event olarak gönder, cihaz/bölge/sayfa bazında dashboard oluştur. (3) Real User Monitoring (RUM) araçları: SpeedCurve, Calibre, DebugBear — percentile dağılımları, trend grafikleri, otomatik alarm. **Lab data** (kontrollü test): (1) Lighthouse CI — her deploy sonrası otomatik test, eşik altı değerlerde CI pipeline'ı fail ettir. (2) WebPageTest — farklı coğrafya/cihaz/bağlantı simülasyonu, filmstrip view ile render timeline. Gonet'in izleme stack'i: Search Console haftalık review + GA4 real-time dashboard (eşik: LCP >2s kullanıcı sayısı >100/hafta ise alarm) + Lighthouse CI GitHub Action (her PR'da otomatik kontrol). Bu üçlü sistemle regresyon 24 saat içinde yakalanır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — Core Web Vitals 2024 spec (LCP/INP/CLS)"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Gauge meter eklendi: Gonet hedef vs Google \"Good\" eşik karşılaştırma"
 ---
 
 ## Teknik SEO — Core Web Vitals, INP, CLS nedir?

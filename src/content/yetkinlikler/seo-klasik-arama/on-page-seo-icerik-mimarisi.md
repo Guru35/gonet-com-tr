@@ -36,6 +36,13 @@ faqs:
     a: "Cluster içerikler, pillar'ın bir H2/H3 başlığını genişlettiği için 800-1200 kelime ideal dengedir. Daha kısa (400-600 kelime) içerikler thin content (zayıf içerik) sinyali verebilir, daha uzun (1500+) içerikler pillar ile rekabete girer. Derinlik, search intent'e (arama niyeti) göre belirlenir: 'nasıl yapılır' sorgusu için step-by-step tutorial, 'nedir' sorgusu için tanım + örnekler + karşılaştırma yeterli. Gonet, her cluster için SERP analysis (arama sonuçları analizi) yapar: top 3 sıradaki sayfaların ortalama kelime sayısı + kapsadığı alt başlıklar benchmark alınır, ardından %10-20 daha kapsamlı içerik üretilir. Örnek: 'Schema.org nedir?' cluster'ı için top 3 ortalama 900 kelime + 5 alt başlık ise, Gonet 1000 kelime + 6 alt başlık + FAQ section hedefler. Derinlik, kelime sayısından çok kullanıcı sorusuna tam yanıt verme yeteneğidir."
   - q: "E-ticaret sitesinde ürün kategorileri için pillar-cluster nasıl uygulanır?"
     a: "E-ticaret'te kategori sayfaları doğal pillar adayıdır, ancak ürün listeleme odaklı olduğu için informational content eklenmeli. Gonet yaklaşımı: (1) Kategori sayfasına (örn. '/sürdürülebilir-ayakkabı') 500-800 kelimelik editorial section ekleyin: tema tanımı, satın alma rehberi, trend analizi. (2) Her alt kategori veya özellik için cluster oluşturun: '/vegan-deri-ayakkabı-rehberi', '/ayakkabı-beden-tablosu', '/ayakkabı-bakım-ipuçları'. (3) Blog bölümünde derinlemesine cluster'lar yayınlayın: '/sürdürülebilir-moda-nedir', '/karbon-ayak-izi-hesaplama'. (4) Ürün sayfalarından ilgili cluster'lara, cluster'lardan kategori pillar'ına internal link döngüsü kurun. Örnek: Gonet'in moda e-ticaret müşterisi, 'sürdürülebilir moda' pillar'ı + 14 cluster ile 9 ayda 'vegan ayakkabı', 'organik pamuk' gibi long-tail keyword'lerde %120 organik trafik artışı sağladı. E-ticaret'te pillar-cluster, hem informational hem transactional intent'i dengeler, kullanıcıyı eğitip satışa yönlendirir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — pillar-cluster topology, internal link velocity"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Hub-spoke SVG diyagram eklendi: 7-küme topology"
 ---
 
 ## On-page SEO + içerik mimarisi nedir?

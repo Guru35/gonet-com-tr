@@ -36,6 +36,13 @@ faqs:
     a: "WebPage schema'sında `inLanguage` özelliği her dil versiyonu için belirtilmeli (\"inLanguage\": \"de-DE\"). Organization schema'sı global marka bilgisiyle merkezi sitede, her bölgesel versiyonda `areaServed` özelliği ile hedef coğrafya tanımlanmalı. Product schema'sında `priceCurrency` (EUR, USD) ve `availableAtOrFrom` (teslimat bölgesi) bölgesel farklılıklar yansıtmalı. BreadcrumbList schema dil bazlı URL yapısını desteklemeli. SearchAction schema global sitede x-default URL'i target olarak göstermeli. JSON-LD formatında, her dil versiyonu için ayrı schema set'i HTML head'e eklenmeli, Google'ın dil-bölge eşleştirmesini güçlendirmeli."
   - q: "International SEO performansı nasıl ölçülür ve hangi metrikler kritiktir?"
     a: "Google Search Console'da her bölge için ayrı property (mülk) oluşturulmalı, 'Performance' raporunda country filter (ülke filtresi) ile organik trafik, CTR (tıklama oranı), average position (ortalama sıralama) izlenmeli. Google Analytics 4'te geo-segmented exploration (coğrafi segmentli keşif) raporları: dil-bölge-cihaz kombinasyonlarında bounce rate (hemen çıkma oranı), session duration (oturum süresi), conversion rate (dönüşüm oranı). hreflang error rate (hata oranı) haftalık takip, Screaming Frog ile aylık audit. Backlink profili Ahrefs/Semrush'ta bölgesel dağılım analizi: her hedef ülkeden referring domain (referans domain) oranı %15+ olmalı. BigQuery'de cross-language user journey (diller arası kullanıcı yolculuğu) analizi, hangi dil versiyonunun dönüşüm hunisinde daha etkili olduğu belirlenmeli."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — hreflang + AB diaspora SEO"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "KPI grid eklendi: €45B diaspora, +%340 Google.nl artış"
 ---
 
 ## International SEO nedir?

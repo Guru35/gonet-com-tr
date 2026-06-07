@@ -36,6 +36,13 @@ faqs:
     a: "Citation signal'larını LLM'lere kodlamak için Schema.org tipleri kritik: (1) Schema.org/Quotation — uzman alıntıları için, 'author' ve 'text' property'leri ile, (2) Schema.org/Dataset veya Schema.org/Table — statistics için sayısal verilerin structured sunumu, (3) Schema.org/Citation veya 'isBasedOn' property — dış kaynaklara referanslar için. JSON-LD formatı tercih edilir çünkü LLM crawler'ları bunu microdata'dan daha kolay parse eder. Ek olarak llms.txt dosyasında bu structured data lokasyonları belirtilmeli. Gonet uygulamalarında her citation katmanı (statistics/quotation/cite sources) için ayrı Schema markup'ı oluşturuyoruz; bu, AI tarafından 'extraction-ready' (çıkarıma hazır) içerik olarak algılanmayı sağlar."
   - q: "Cite sources katmanında hangi tür dış kaynaklar LLM citation değerini artırır?"
     a: "LLM'ler retrieval sürecinde kaynak güvenilirliğini skorlarken şu faktörleri ağırlıklandırır: (1) akademik yayınlar (Google Scholar, PubMed indeksli), (2) resmi istatistik kurumları (TUIK, Eurostat, Statista gibi), (3) endüstri otoriteleri (Gartner, Forrester, IDC raporları), (4) open-access araştırmalar (arXiv, SSRN), (5) devlet ve sivil toplum kuruluşları (.gov, .edu domainleri). Ticari blog'lar veya editoryal içerikler düşük citation value taşır. Gonet'te cite sources stratejisinde her sektör için otorite haritası çıkarırız; örneğin e-ticaret müşterisi için Baymard Institute, Nielsen raporları; fintech için BIS, IMF yayınları referans alınır. Önemli: atıf sayısı değil kalitesi kritik; 3 yüksek otoriteli kaynak, 20 zayıf kaynaktan daha etkilidir."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — GEO Aggarwal et al. KDD 2024 framework"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Stat bar chart (5 teknik etki) + donut (%65 kaynak güvenilirlik) eklendi"
 ---
 
 ## Citation surface engineering nedir?

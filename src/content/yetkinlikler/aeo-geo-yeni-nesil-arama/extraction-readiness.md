@@ -36,6 +36,13 @@ faqs:
     a: "Gonet'in uyguladığı test süreci üç aşamalıdır. Birinci aşamada içerik GPT-4, Claude 3.5 ve Gemini 1.5 gibi farklı LLM'lerden geçirilir; her modele 'Şu sayfadaki X sorusunun yanıtını tek paragrafta çıkar' promptu verilir ve çıktı orijinal metinle karşılaştırılır. Eğer LLM eksik bilgi, yanlış atıf veya bağlam kayması gösteriyorsa, içerik revize edilir. İkinci aşamada RAG simülasyonu yapılır: içerik chunk'lara (512-1024 token) bölünür, her chunk'tan soru-cevap çifti çıkarılabilir mi kontrol edilir. Üçüncü aşamada Google Search Console'daki AI Overviews ve ChatGPT web browse logları analiz edilir; hangi sayfalar kaynak gösteriliyor, citation rate (kaynak gösterilme oranı) nedir izlenir. Gonet müşterilerinde extraction-ready geçiş sonrası ilk 3 ayda citation rate ortalama %280 artmış, bu artış doğrudan organik trafik kalitesine yansımıştır. Test araçları: LangChain, LlamaIndex gibi RAG framework'leri, custom extraction scorer."
   - q: "B2B hizmet sayfalarında extraction-readiness için hangi içerik blokları öncelikli optimize edilmeli?"
     a: "B2B hizmet sayfalarında öncelikle 'Hizmet kapsamı', 'Süre ve fiyatlandırma', 'Metodoloji', 'Başarı kriterleri' blokları extraction-ready yapılmalıdır. LLM'ler, B2B alıcılarının 'X hizmeti nasıl çalışır, ne kadar sürer, maliyet nedir, ROI nedir?' gibi spesifik sorularını yanıtlamak için bu blokları tarar. Her blok 80-150 kelime, tek paragraf formatında, sayısal verilerle desteklenmelidir. Örnek: 'Gonet SEO danışmanlığı, 3 aylık keyword araştırması, 6 aylık içerik stratejisi ve 12 aylık backlink planını kapsar; ortalama proje süresi 9 ay, aylık maliyet 20.000-45.000 TL, ilk 6 ayda organik trafik %40-80 artar'. Belirsiz ifadeler ('esnek fiyatlandırma', 'hızlı teslimat') yerine spesifik aralıklar verilir. Gonet'in B2B müşterilerinde bu blokların extraction-ready hale getirilmesi sonrası, AI Overviews'dan gelen lead kalitesi (SQL/MQL oranı) %55 artmış, satış döngüsü 18 günden 11 güne düşmüştür. JSON-LD Service Schema ile extraction-ready içerik birleştirildiğinde, Google'ın 'Best X service for Y industry' sorgularında görünürlük maksimize olur."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın — LLM extraction-ready içerik mühendisliği"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "KPI grid (%60+ SGE, 3.2× citation) + 3-aşama process"
 ---
 
 ## Extraction-readiness nedir?
