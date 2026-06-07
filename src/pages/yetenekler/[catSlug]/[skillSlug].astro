@@ -20,8 +20,15 @@ const fm = page.data;
 
 // Aynı kategorideki diğer yetkinlikler (internal link için)
 const cat = categories.find((c) => c.slug === fm.categorySlug);
-const siblings = (await getCollection('yetkinlikler'))
-  .filter((p) => p.data.categorySlug === fm.categorySlug && p.data.skillSlug !== fm.skillSlug && !p.data.draft)
+const allSiblings = (await getCollection('yetkinlikler'))
+  .filter((p) => p.data.categorySlug === fm.categorySlug && !p.data.draft)
+  .sort((a, b) => a.data.skillSlug.localeCompare(b.data.skillSlug));
+const currentIdx = allSiblings.findIndex((p) => p.data.skillSlug === fm.skillSlug);
+const prevSkill = currentIdx > 0 ? allSiblings[currentIdx - 1] : null;
+const nextSkill = currentIdx < allSiblings.length - 1 ? allSiblings[currentIdx + 1] : null;
+// "İlgili yetkinlikler" bloğunda current dışı (sibling card list)
+const siblings = allSiblings
+  .filter((p) => p.data.skillSlug !== fm.skillSlug)
   .map((p) => ({ slug: p.data.skillSlug, title: p.data.title }));
 
 const url = `https://gonet.com.tr/yetenekler/${fm.categorySlug}/${fm.skillSlug}`;
@@ -85,6 +92,42 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       {fm.detailHero && (
         <div class="absolute inset-0 z-0 pointer-events-none bg-white/25 transition-opacity duration-300"
              data-detail-hero-fade></div>
+      )}
+
+      <!-- Önceki yetkinliğe slider okuyu (sol) -->
+      {prevSkill && (
+        <a href={`/yetenekler/${fm.categorySlug}/${prevSkill.data.skillSlug}`}
+           title={`Önceki: ${prevSkill.data.title}`}
+           class="hero-nav-arrow group hidden lg:flex absolute left-2 xl:left-6 top-1/2 -translate-y-1/2 z-20
+                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center
+                  bg-white/70 hover:bg-white backdrop-blur border border-black/10 hover:border-black
+                  transition-all rounded-full shadow-sm hover:shadow-md"
+           aria-label={`Önceki yetkinlik: ${prevSkill.data.title}`}>
+          <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span class="absolute left-full ml-3 px-3 py-1.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap
+                       opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300">
+            ← {prevSkill.data.title}
+          </span>
+        </a>
+      )}
+      {nextSkill && (
+        <a href={`/yetenekler/${fm.categorySlug}/${nextSkill.data.skillSlug}`}
+           title={`Sonraki: ${nextSkill.data.title}`}
+           class="hero-nav-arrow group hidden lg:flex absolute right-2 xl:right-6 top-1/2 -translate-y-1/2 z-20
+                  w-12 h-12 xl:w-14 xl:h-14 items-center justify-center
+                  bg-white/70 hover:bg-white backdrop-blur border border-black/10 hover:border-black
+                  transition-all rounded-full shadow-sm hover:shadow-md"
+           aria-label={`Sonraki yetkinlik: ${nextSkill.data.title}`}>
+          <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+          <span class="absolute right-full mr-3 px-3 py-1.5 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap
+                       opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300">
+            {nextSkill.data.title} →
+          </span>
+        </a>
       )}
 
       <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-20">
@@ -333,7 +376,13 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .body-typography td:first-child {
         font-weight: 500 !important;
         color: rgb(15 23 42) !important;
-        white-space: nowrap !important;
+        width: 38% !important;
+      }
+      .body-typography td:nth-child(2) {
+        width: 62% !important;
+      }
+      .body-typography table {
+        table-layout: fixed !important;
       }
 
       /* MOBİL: tabloyu satır-bazlı kart yapısına çevir */
@@ -368,6 +417,129 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .body-typography > * + * {
         margin-top: 1.5rem !important;
       }
+
+      /* ───── İnfografik bileşenleri ───── */
+
+      /* Statistic bars — yatay çubuk grafik (3-5 metric için) */
+      .gonet-stat-bars {
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+      }
+      .gonet-stat-bars .stat-title {
+        font-size: 0.8125rem !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: rgb(100 116 139);
+        margin-bottom: 2rem;
+      }
+      .gonet-stat-bar {
+        display: grid;
+        grid-template-columns: minmax(140px, 30%) 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.95rem;
+      }
+      .gonet-stat-bar > .label {
+        font-weight: 500;
+        color: rgb(15 23 42);
+      }
+      .gonet-stat-bar > .track {
+        position: relative;
+        height: 8px;
+        background: rgb(241 245 249);
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+      .gonet-stat-bar > .track > .fill {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #cbd5e1, #475569);
+        border-radius: 9999px;
+        width: var(--val, 0%);
+        transform-origin: left;
+        animation: gonet-bar-grow 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .gonet-stat-bar.is-primary > .track > .fill {
+        background: linear-gradient(90deg, #f87171, #dc2626);
+      }
+      .gonet-stat-bar > .value {
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: rgb(15 23 42);
+        min-width: 60px;
+        text-align: right;
+        font-size: 1.05rem;
+      }
+      .gonet-stat-bar.is-primary > .value { color: rgb(220 38 38); }
+      @keyframes gonet-bar-grow {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      /* Donut chart — basit, single-segment vurgu */
+      .gonet-donut {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+        flex-wrap: wrap;
+      }
+      .gonet-donut svg {
+        width: 140px;
+        height: 140px;
+        flex-shrink: 0;
+        transform: rotate(-90deg);
+      }
+      .gonet-donut svg .track { fill: none; stroke: rgb(241 245 249); stroke-width: 18; }
+      .gonet-donut svg .fill {
+        fill: none; stroke: rgb(220 38 38); stroke-width: 18;
+        stroke-dasharray: var(--circumference, 320);
+        stroke-dashoffset: var(--offset, 80);
+        stroke-linecap: round;
+        animation: gonet-donut-grow 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes gonet-donut-grow {
+        from { stroke-dashoffset: var(--circumference, 320); }
+        to { stroke-dashoffset: var(--offset, 80); }
+      }
+      .gonet-donut .donut-text { flex: 1; min-width: 200px; }
+      .gonet-donut .donut-value {
+        font-size: 2.5rem; font-weight: 700; line-height: 1; color: rgb(220 38 38);
+        font-variant-numeric: tabular-nums;
+      }
+      .gonet-donut .donut-label {
+        font-size: 0.875rem; font-weight: 600; text-transform: uppercase;
+        letter-spacing: 0.18em; color: rgb(100 116 139); margin-top: 0.5rem;
+      }
+      .gonet-donut .donut-desc {
+        font-size: 0.95rem; color: rgb(51 65 85); line-height: 1.65; margin-top: 0.75rem;
+      }
+
+      /* Pull-quote — istatistik amplifier */
+      .gonet-pullquote {
+        margin: 3rem 0 !important;
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid rgb(0 0 0 / 0.08);
+        border-bottom: 1px solid rgb(0 0 0 / 0.08);
+      }
+      .gonet-pullquote .big-number {
+        font-size: 4rem; font-weight: 800; line-height: 1;
+        color: rgb(220 38 38); font-variant-numeric: tabular-nums;
+        margin-bottom: 0.5rem;
+      }
+      .gonet-pullquote .big-label {
+        font-size: 0.875rem; text-transform: uppercase;
+        letter-spacing: 0.2em; color: rgb(100 116 139);
+      }
+
       .body-typography blockquote {
         margin: 2.5rem 0 !important;
         padding: 1.5rem 1.5rem 1.5rem 2rem !important;

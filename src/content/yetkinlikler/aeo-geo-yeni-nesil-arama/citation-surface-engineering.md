@@ -44,6 +44,35 @@ Citation surface engineering, içeriğin üretken yapay zeka motorları (generat
 
 Geleneksel SEO'da hedef Google'ın mavi linkleri iken, GEO'da hedef ChatGPT, Perplexity, Google AI Overview gibi platformların ürettiği metinlerin içindeki kaynak atıflarıdır (citation). LLM'ler (Large Language Models) retrieval-augmented generation (RAG — bilgi destekli üretim) sürecinde içeriği değerlendirirken, belirli yapısal sinyalleri 'kaynak değeri' göstergesi olarak kullanır.
 
+<div class="gonet-stat-bars">
+  <div class="stat-title">Aggarwal et al. (KDD 2024) — Citation tekniği etki ölçümü</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">Quotation</span>
+    <span class="track"><span class="fill" style="--val:91%"></span></span>
+    <span class="value">+41%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Statistics</span>
+    <span class="track"><span class="fill" style="--val:66%"></span></span>
+    <span class="value">+30%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Cite Sources</span>
+    <span class="track"><span class="fill" style="--val:60%"></span></span>
+    <span class="value">+27%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Authoritative tone</span>
+    <span class="track"><span class="fill" style="--val:42%"></span></span>
+    <span class="value">+19%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Fluent transitions</span>
+    <span class="track"><span class="fill" style="--val:33%"></span></span>
+    <span class="value">+15%</span>
+  </div>
+</div>
+
 Citation surface engineering üç ana teknik üzerine kurulur: **Statistics** (sayısal verilerle desteklenen iddialar), **Quotation** (uzman görüşleri ve doğrudan alıntılar), **Cite Sources** (güvenilir dış kaynaklara referanslar). Bu sinyaller, içeriğin E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness — deneyim, uzmanlık, otorite, güvenilirlik) değerini LLM'ler için kodlanmış biçimde sunar.
 
 ## Neden kritik?
@@ -65,6 +94,18 @@ Gonet, 2024'ün ikinci yarısından itibaren Türkiye'nin ilk GEO hizmet hattın
 **3. Cite sources layer (kaynak atıf katmanı):** Dış otorite kaynaklara JSON-LD ile kodlanmış referanslar. Google Scholar, akademik yayınlar, endüstri raporları. Backlink beklentisi değil, citation signal amacıyla.
 
 Her yetkinlik sayfası, bu üç katmanın en az ikisini içerecek şekilde tasarlanıyor. llms.txt dosyamızda bu yapılar explicitly (açıkça) belirtilerek AI crawler'larının öncelikli alması sağlanıyor.
+
+<div class="gonet-donut">
+  <svg viewBox="0 0 120 120">
+    <circle class="track" cx="60" cy="60" r="50"></circle>
+    <circle class="fill" cx="60" cy="60" r="50" style="--circumference: 314; --offset: 110"></circle>
+  </svg>
+  <div class="donut-text">
+    <div class="donut-value">65%</div>
+    <div class="donut-label">LLM kaynak güvenilirliği</div>
+    <p class="donut-desc">.gov / .edu domainleri + akademik yayınlar + resmi istatistik kurumları, LLM retrieval skorlama modelinde tüm citation ağırlığının yaklaşık üçte ikisini taşır. Ticari blog ve editöryel içerikler kalan kısımda yarışır.</p>
+  </div>
+</div>
 
 ## Hangi durumlarda kritik avantaj?
 
