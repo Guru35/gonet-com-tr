@@ -228,6 +228,15 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
                 <span data-share-copy-done class="hidden text-emerald-600">✓ Kopyalandı</span>
               </button>
             </div>
+            <button type="button"
+                    data-feedback-open
+                    data-feedback-intent="discussion"
+                    data-source-url={url}
+                    data-source-title={fm.title}
+                    title="Bu yazı hakkında düşüncelerinizi paylaşın"
+                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white hover:bg-black hover:text-white transition-colors">
+              Tartış
+            </button>
           </div>
           <a href={`/yetenekler/${fm.categorySlug}`} class="text-slate-600 hover:text-black underline underline-offset-4 decoration-1">
             ← {fm.categoryName}
@@ -255,17 +264,18 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         <!-- Yazı sonu ikinci paylaş butonu -->
         <div class="mt-12 pt-8 border-t border-black/10 flex items-center justify-between gap-4 flex-wrap text-[11px] font-semibold uppercase tracking-[0.2em]">
           <p class="text-slate-500">İşine yarayan bir yazı mıydı?</p>
-          <div class="share-wrap relative">
-            <button type="button"
-                    data-share-trigger
-                    data-share-url={url}
-                    data-share-title={fm.title}
-                    data-share-text={fm.description}
-                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white hover:bg-black hover:text-white transition-colors"
-                    aria-expanded="false"
-                    aria-haspopup="menu">
-              Paylaş
-            </button>
+          <div class="flex items-center gap-2 flex-wrap">
+            <div class="share-wrap relative">
+              <button type="button"
+                      data-share-trigger
+                      data-share-url={url}
+                      data-share-title={fm.title}
+                      data-share-text={fm.description}
+                      class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white hover:bg-black hover:text-white transition-colors"
+                      aria-expanded="false"
+                      aria-haspopup="menu">
+                Paylaş
+              </button>
             <div data-share-menu
                  class="hidden absolute bottom-full right-0 mb-2 z-30 min-w-[200px] bg-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] border border-black/10"
                  role="menu">
@@ -283,6 +293,16 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
                 <span data-share-copy-done class="hidden text-emerald-600">✓ Kopyalandı</span>
               </button>
             </div>
+          </div>
+            <button type="button"
+                    data-feedback-open
+                    data-feedback-intent="discussion"
+                    data-source-url={url}
+                    data-source-title={fm.title}
+                    title="Bu yazı hakkında düşüncelerinizi paylaşın"
+                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white hover:bg-black hover:text-white transition-colors">
+              Tartış
+            </button>
           </div>
         </div>
       </div>

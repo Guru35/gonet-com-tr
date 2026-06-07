@@ -668,7 +668,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       <div class="bg-white w-full max-w-xl max-h-[88vh] flex flex-col border border-black">
         <header class="flex items-start justify-between px-6 py-5 border-b border-black/15 shrink-0">
           <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 mb-2">— Geri bildirim</p>
+            <p id="feedback-eyebrow" class="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 mb-2">— Geri bildirim</p>
             <h3 id="feedback-title" class="text-xl font-bold leading-tight">Bu sayfada hata mı gördünüz?</h3>
           </div>
           <button type="button" id="feedback-close" aria-label="Kapat"
@@ -740,7 +740,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         const copyBtn = document.getElementById('feedback-copy');
         const skipBtn = document.getElementById('feedback-skip-email');
 
-        let sessionId = '', sourceUrl = '', sourceTitle = '', messages = [], images = [], ended = false;
+        let sessionId = '', sourceUrl = '', sourceTitle = '', intent = 'error_report', messages = [], images = [], ended = false;
+        const titleEl = document.getElementById('feedback-title');
+        const eyebrowEl = document.getElementById('feedback-eyebrow');
 
         function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
 
@@ -785,14 +787,25 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           sessionId = uid();
           sourceUrl = trigger.getAttribute('data-source-url') || window.location.href;
           sourceTitle = trigger.getAttribute('data-source-title') || document.title;
+          intent = trigger.getAttribute('data-feedback-intent') || 'error_report';
           messages = []; images = []; ended = false;
           msgsEl.innerHTML = ''; imgsEl.innerHTML = ''; txtEl.value = ''; emailEl.value = '';
           inputRow.classList.remove('hidden'); endBlock.classList.add('hidden');
           showStatus('');
+          // Başlık + üst etiketi intent'e göre
+          if (intent === 'discussion') {
+            if (eyebrowEl) eyebrowEl.textContent = '— Tartışma';
+            if (titleEl) titleEl.textContent = 'Bu yazı hakkında ne düşünüyorsunuz?';
+            if (txtEl) txtEl.placeholder = 'Görüşünüzü yazın…';
+          } else {
+            if (eyebrowEl) eyebrowEl.textContent = '— Geri bildirim';
+            if (titleEl) titleEl.textContent = 'Bu sayfada hata mı gördünüz?';
+            if (txtEl) txtEl.placeholder = 'Mesajınız…';
+          }
           lb.classList.remove('hidden');
           lb.classList.add('flex');
           document.body.style.overflow = 'hidden';
-          requestAi();  // AI'yı ilk mesajı için tetikle
+          requestAi();
         }
 
         function close() {
@@ -812,6 +825,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
                 session_id: sessionId,
                 source_url: sourceUrl,
                 source_title: sourceTitle,
+                intent: intent,
                 messages: messages,
                 images: images,
               }),
@@ -821,9 +835,12 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               const m = { role: 'assistant', content: data.message };
               messages.push(m);
               renderMessage(m);
-              // Sohbet bitiş işareti yakala
+              // Sohbet bitiş işareti yakala (her iki intent için)
               if (/e-posta adresinizi vermek ister/i.test(data.message) ||
-                  /sohbetin kopyas[ıi]n[ıi]/i.test(data.message)) {
+                  /sohbetin kopyas[ıi]n[ıi]/i.test(data.message) ||
+                  /mail kopyas[ıi]\s*ister/i.test(data.message) ||
+                  /kaydedip ekibe ilett/i.test(data.message) ||
+                  /kaydediyorum[\.,]\s*sohbet kopyas/i.test(data.message)) {
                 ended = true;
                 inputRow.classList.add('hidden');
                 endBlock.classList.remove('hidden');
@@ -893,6 +910,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 session_id: sessionId, source_url: sourceUrl, source_title: sourceTitle,
+                intent: intent,
                 messages: messages, images: images, user_email: email || null,
               }),
             });
