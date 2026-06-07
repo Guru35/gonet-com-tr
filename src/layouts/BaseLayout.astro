@@ -974,6 +974,21 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         document.querySelectorAll('[data-feedback-open]').forEach((b) => {
           b.addEventListener('click', () => open(b));
         });
+
+        // Global expose — başka script'ler programatik açabilsin
+        // Örn. paragraf yanındaki AI ikonu, blog'da inline tartış butonu vs.
+        window.gonetOpenFeedback = function (opts) {
+          opts = opts || {};
+          const fakeTrigger = {
+            getAttribute(attr) {
+              if (attr === 'data-source-url') return opts.url || window.location.href;
+              if (attr === 'data-source-title') return opts.title || document.title;
+              if (attr === 'data-feedback-intent') return opts.intent || 'discussion';
+              return null;
+            }
+          };
+          open(fakeTrigger);
+        };
         closeBtn.addEventListener('click', close);
         lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.classList.contains('hidden')) close(); });

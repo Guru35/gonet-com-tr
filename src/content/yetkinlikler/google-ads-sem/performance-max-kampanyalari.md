@@ -48,6 +48,25 @@ Audience signal (hedef kitle sinyali) ise kampanyanın ilk öğrenme aşamasınd
 
 ## Neden kritik?
 
+<div class="gonet-stat-grid">
+  <div class="stat is-primary">
+    <div class="n">+%30-45</div>
+    <div class="l">PMax ROAS<br>artış aralığı</div>
+  </div>
+  <div class="stat">
+    <div class="n">6</div>
+    <div class="l">Envanter kanalı<br>(Arama+Display+YT+...)</div>
+  </div>
+  <div class="stat">
+    <div class="n">2-3</div>
+    <div class="l">Hafta öğrenme<br>aşaması süresi</div>
+  </div>
+  <div class="stat">
+    <div class="n">3-5</div>
+    <div class="l">İdeal asset<br>group sayısı</div>
+  </div>
+</div>
+
 Google Ads'in 2024 itibariyle Smart Shopping ve Yerel kampanya türlerini tamamen PMax'e entegre etmesiyle, bu kampanya türü e-ticaret ve lead generation (potansiyel müşteri kazanımı) için kaçınılmaz hale geldi. Gonet'in 220+ marka portföyünde gözlemlediğimiz veriler, doğru yapılandırılmış PMax kampanyalarının geleneksel Arama + Display kombinasyonlarına göre %30-45 daha yüksek ROAS (Return on Ad Spend - reklam harcaması getirisi) sağladığını gösteriyor.
 
 Ancak bu performans otomatik olarak gelmez. PMax'in başarısı üç kritik faktöre bağlıdır:

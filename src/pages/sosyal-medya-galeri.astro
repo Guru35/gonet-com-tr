@@ -225,18 +225,25 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
               <span class="text-xs font-mono uppercase tracking-[0.2em] opacity-60 inline-block mb-4">post · 1:1</span>
               <p class="text-sm leading-relaxed italic">"{s.caption.split('\n')[0]}"</p>
 
-              <h4 class="hpan-meta-section">Yayın Metni</h4>
-              <div class="hpan-meta-caption">{s.caption}</div>
+              <div class="hpan-meta-tabs">
+                <button class="hpan-meta-tab is-active" data-tab="yayin" type="button">Yayın</button>
+                <button class="hpan-meta-tab" data-tab="anatomi" type="button">Anatomi</button>
+              </div>
 
-              <h4 class="hpan-meta-section">Anatomi</h4>
-              <dl class="hpan-meta-anatomi">
-                {s.anatomi.map((a) => (
-                  <>
-                    <dt>{a.etiket}</dt>
-                    <dd>{a.deger}</dd>
-                  </>
-                ))}
-              </dl>
+              <div class="hpan-meta-tab-content is-active" data-tab-content="yayin">
+                <div class="hpan-meta-caption">{s.caption}</div>
+              </div>
+
+              <div class="hpan-meta-tab-content" data-tab-content="anatomi">
+                <dl class="hpan-meta-anatomi">
+                  {s.anatomi.map((a) => (
+                    <>
+                      <dt>{a.etiket}</dt>
+                      <dd>{a.deger}</dd>
+                    </>
+                  ))}
+                </dl>
+              </div>
             </div>
             <div class={`hpan-image ${s.aspect === 'landscape' ? 'is-landscape' : ''} ${s.aspect === 'mobile' ? 'is-mobile' : ''} ${s.aspect === 'square' ? 'is-square' : ''}`}>
               <a
@@ -751,49 +758,81 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
     }
 
     /* Versiyon mini-kartları */
-    /* ───────── Sol meta içinde Yayın Metni + Anatomi ─────────
-       Sol sütun text-align: right; Caption + Anatomi okunabilirlik için
-       text-align: left'e döndürülür. */
-    .hpan-meta-section {
-      font-size: 9px;
-      letter-spacing: 0.4em;
+    /* ───────── Sol meta içinde Yayın + Anatomi (tab yapısı) ─────────
+       İki tap (tab) — sadece bir içerik aktif. Scroll gitti, içerik
+       ekrana sığar. Tablar sağa hizalı (meta sütununun gen. hizasıyla),
+       içerik sola hizalı (uzun yazı okunabilir). */
+    .hpan-meta-tabs {
+      display: flex;
+      gap: 1.25rem;
+      margin: 1.4rem 0 0.85rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.18);
+      justify-content: flex-end;
+    }
+    .hpan-meta-tab {
+      background: transparent;
+      border: 0;
+      padding: 0.35rem 0;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       font-weight: 700;
-      color: #ff0000;
-      margin: 1.5rem 0 0.7rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid rgba(0,0,0,0.18);
-      text-align: right;
+      color: rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: color 0.2s ease;
+      position: relative;
     }
+    .hpan-meta-tab:hover { color: rgba(0,0,0,0.75); }
+    .hpan-meta-tab.is-active { color: #ff0000; }
+    .hpan-meta-tab.is-active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0.35em;
+      bottom: -3px;
+      height: 1.5px;
+      background: #ff0000;
+    }
+
+    .hpan-meta-tab-content {
+      display: none;
+      text-align: left;
+    }
+    .hpan-meta-tab-content.is-active {
+      display: block;
+    }
+
     .hpan-meta-caption {
       white-space: pre-wrap;
       font-family: var(--font-sans);
-      font-size: 11px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.6;
       color: #000;
       margin: 0;
       text-align: left;
     }
     .hpan-meta-anatomi {
       margin: 0;
-      font-size: 11px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.55;
       text-align: left;
     }
     .hpan-meta-anatomi dt {
-      font-size: 9px;
+      font-size: 10.5px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       font-weight: 600;
       color: #ff0000;
-      margin-top: 0.85rem;
-      margin-bottom: 0.25rem;
+      margin-top: 0.95rem;
+      margin-bottom: 0.3rem;
     }
     .hpan-meta-anatomi dt:first-of-type {
       margin-top: 0;
     }
     .hpan-meta-anatomi dd {
-      margin: 0 0 0.6rem;
+      margin: 0 0 0.7rem;
       color: #000;
       opacity: 0.9;
     }
@@ -1350,8 +1389,19 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
         else if (e.key === 'End') { goTo(total - 1); e.preventDefault(); }
       });
 
+      // Scrollable bölge tespiti — sol meta veya sağ versiyon seçici içindeyse
+      // slider navigasyonu tetikleme, yerli scroll çalışsın.
+      function isInScrollableArea(el) {
+        if (!el || !el.closest) return false;
+        return !!(el.closest('.hpan-meta') || el.closest('.hpan-page-acc'));
+      }
+
       let wheelLock = false;
       hpan.addEventListener('wheel', (e) => {
+        if (isInScrollableArea(e.target)) {
+          // Native vertical scroll — preventDefault YOK, slider navigate YOK
+          return;
+        }
         e.preventDefault();
         if (wheelLock) return;
         const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
@@ -1362,10 +1412,13 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
       }, { passive: false });
 
       let touchStartX = 0;
+      let touchStartInScrollable = false;
       hpan.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
+        touchStartInScrollable = isInScrollableArea(e.target);
       }, { passive: true });
       hpan.addEventListener('touchend', (e) => {
+        if (touchStartInScrollable) return; // Scrollable bölgede başladıysa slider'a dokunma
         const dx = touchStartX - e.changedTouches[0].clientX;
         if (Math.abs(dx) < 40) return;
         if (dx > 0) next(); else prev();
@@ -1418,6 +1471,29 @@ Yeni gonet.com.tr yayında — AI'ı bir araç olarak değil, bir ayna olarak g�
           if (!src) return;
           e.preventDefault();
           open(src, title);
+        });
+      });
+    })();
+  </script>
+
+  <script is:inline>
+    /* Sol meta tab geçişi — her .hpan-meta içinde Yayın/Anatomi sekmeleri.
+       Tek-aktif: tıklanan sekme ve içerik is-active, diğerleri pasif. */
+    (function () {
+      document.querySelectorAll('.hpan-meta').forEach(function (metaEl) {
+        var tabs = metaEl.querySelectorAll('.hpan-meta-tab');
+        var contents = metaEl.querySelectorAll('.hpan-meta-tab-content');
+        if (!tabs.length || !contents.length) return;
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            var key = tab.getAttribute('data-tab');
+            tabs.forEach(function (t) {
+              t.classList.toggle('is-active', t === tab);
+            });
+            contents.forEach(function (c) {
+              c.classList.toggle('is-active', c.getAttribute('data-tab-content') === key);
+            });
+          });
         });
       });
     })();
