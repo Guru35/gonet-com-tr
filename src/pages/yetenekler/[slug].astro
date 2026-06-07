@@ -64,12 +64,12 @@ const orgSkillSchema = {
     <header class={`relative border-b border-black/15 overflow-hidden ${cat.heroImage ? '-mt-[72px] pt-[72px]' : ''}`} data-hero>
       {cat.heroImage && (
         <div class="hero-bg absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
-             style={`background-image: url('${cat.heroImage}'); background-size: cover; background-position: center; opacity: 0.7;`}
+             style={`background-image: url('${cat.heroImage}'); background-size: cover; background-position: center; opacity: 0.25;`}
              data-hero-bg></div>
       )}
       {cat.heroImage && (
-        <!-- Subtle white overlay — yazıların okunabilirliği için daha hafif -->
-        <div class="hero-fade absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/40 via-white/55 to-white/75 transition-opacity duration-300"
+        <!-- Hafif beyaz pus — okunabilirliği garantilemek için -->
+        <div class="hero-fade absolute inset-0 z-0 pointer-events-none bg-white/30 transition-opacity duration-300"
              data-hero-fade></div>
       )}
 
@@ -282,7 +282,7 @@ const orgSkillSchema = {
         function applyHero(visible) {
           if (!heroBg || !heroFade) return;
           if (visible) {
-            heroBg.style.opacity = '0.55';
+            heroBg.style.opacity = '0.25';
             heroFade.style.opacity = '1';
             heroOn?.classList.remove('hidden');
             heroOff?.classList.add('hidden');

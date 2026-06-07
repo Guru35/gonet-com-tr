@@ -79,11 +79,11 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
     <header class={`relative border-b border-black/15 overflow-hidden ${fm.detailHero ? '-mt-[72px] pt-[72px]' : ''}`} data-detail-hero>
       {fm.detailHero && (
         <div class="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
-             style={`background-image: url('${fm.detailHero}'); background-size: cover; background-position: center; opacity: 0.85;`}
+             style={`background-image: url('${fm.detailHero}'); background-size: cover; background-position: center; opacity: 0.25;`}
              data-detail-hero-bg></div>
       )}
       {fm.detailHero && (
-        <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/30 via-white/55 to-white/85 transition-opacity duration-300"
+        <div class="absolute inset-0 z-0 pointer-events-none bg-white/25 transition-opacity duration-300"
              data-detail-hero-fade></div>
       )}
 
@@ -508,7 +508,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       function applyDetailHero(visible) {
         if (!dBg || !dFade) return;
         if (visible) {
-          dBg.style.opacity = '0.85';
+          dBg.style.opacity = '0.25';
           dFade.style.opacity = '1';
           dOn?.classList.remove('hidden');
           dOff?.classList.add('hidden');
