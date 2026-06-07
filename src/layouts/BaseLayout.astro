@@ -672,7 +672,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
 
     <!-- Feedback Chatbox Lightbox — Gonet editöryel UI dili (siyah/beyaz/kırmızı, no rounded, hairline) -->
     <div id="feedback-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-labelledby="feedback-title">
-      <div class="bg-white w-full max-w-xl max-h-[88vh] flex flex-col border border-black">
+      <div class="bg-white w-full max-w-2xl max-h-[92vh] flex flex-col border border-black">
         <header class="flex items-start justify-between px-6 py-5 border-b border-black/15 shrink-0">
           <div>
             <p id="feedback-eyebrow" class="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/60 mb-2">— Geri bildirim</p>
@@ -697,7 +697,8 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               <input type="file" id="feedback-file" accept="image/jpeg,image/png,image/webp" class="hidden">
             </label>
             <textarea id="feedback-text" rows="1" placeholder="Mesajınız…"
-                      class="flex-1 resize-none border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm leading-relaxed max-h-28 bg-white"></textarea>
+                      class="flex-1 resize-none border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm leading-relaxed max-h-60 bg-white"
+                      style="min-height: 2.5rem; overflow-y: hidden;"></textarea>
             <button type="button" id="feedback-send"
                     class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
               Gönder
@@ -721,10 +722,19 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
               <input type="email" id="feedback-email" placeholder="E-posta kopya için (opsiyonel)"
                      class="flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
               <button type="button" id="feedback-finalize"
-                      class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 transition-colors">
+                      class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
                 Tamamla
               </button>
             </div>
+
+            <!-- KVKK onayı — sadece e-posta girilince görünür, ZORUNLU -->
+            <label id="feedback-kvkk-wrap" class="hidden items-start gap-3 mb-3 cursor-pointer select-none">
+              <input type="checkbox" id="feedback-kvkk"
+                     class="mt-0.5 w-4 h-4 accent-black shrink-0">
+              <span class="text-xs text-slate-700 leading-relaxed">
+                E-posta adresimin <strong>sohbet kopyası göndermek</strong> amacıyla işlenmesini KVKK kapsamında onaylıyorum. <a href="https://gonet.com.tr/kvkk" target="_blank" class="underline">Aydınlatma metni →</a>
+              </span>
+            </label>
             <div class="flex items-center gap-4 text-[11px]">
               <button type="button" id="feedback-copy" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">Sohbeti kopyala</button>
               <button type="button" id="feedback-skip-email" class="text-black/70 hover:text-black border-b border-black/30 hover:border-black pb-px">E-posta istemiyorum</button>
@@ -762,6 +772,25 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         const eyebrowEl = document.getElementById('feedback-eyebrow');
         const consentWrap = document.getElementById('feedback-consent-wrap');
         const consentEl = document.getElementById('feedback-consent');
+        const kvkkWrap = document.getElementById('feedback-kvkk-wrap');
+        const kvkkEl = document.getElementById('feedback-kvkk');
+
+        // E-posta input dinleyici — yazılınca KVKK consent göster, Tamamla disable et
+        function updateKvkkGate() {
+          const hasEmail = emailEl && emailEl.value.trim().length > 0;
+          if (hasEmail) {
+            kvkkWrap.classList.remove('hidden');
+            kvkkWrap.classList.add('flex');
+          } else {
+            kvkkWrap.classList.add('hidden');
+            kvkkWrap.classList.remove('flex');
+            if (kvkkEl) kvkkEl.checked = false;
+          }
+          // Tamamla: email varsa KVKK işaretli olmadan basılamaz
+          if (finalBtn) {
+            finalBtn.disabled = hasEmail && kvkkEl && !kvkkEl.checked;
+          }
+        }
 
         function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
 
@@ -830,6 +859,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
           var overrideWelcome = trigger.getAttribute('data-feedback-welcome');
           messages = []; images = []; ended = false;
           msgsEl.innerHTML = ''; imgsEl.innerHTML = ''; txtEl.value = ''; emailEl.value = '';
+          if (kvkkEl) kvkkEl.checked = false;
+          if (kvkkWrap) { kvkkWrap.classList.add('hidden'); kvkkWrap.classList.remove('flex'); }
+          if (finalBtn) finalBtn.disabled = false;
           inputRow.classList.remove('hidden'); endBlock.classList.add('hidden');
           showStatus('');
           if (intent === 'discussion') {
@@ -1030,15 +1062,30 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         });
         txtEl.addEventListener('input', () => {
           txtEl.style.height = 'auto';
-          txtEl.style.height = Math.min(128, txtEl.scrollHeight) + 'px';
+          txtEl.style.height = Math.min(240, txtEl.scrollHeight) + 'px';
+          txtEl.style.overflowY = txtEl.scrollHeight > 240 ? 'auto' : 'hidden';
         });
         fileEl.addEventListener('change', () => {
           const f = fileEl.files && fileEl.files[0];
           if (f) uploadFile(f);
           fileEl.value = '';
         });
-        finalBtn.addEventListener('click', () => finalize(emailEl.value.trim()));
-        skipBtn.addEventListener('click', () => finalize(''));
+        emailEl.addEventListener('input', updateKvkkGate);
+        if (kvkkEl) kvkkEl.addEventListener('change', updateKvkkGate);
+        finalBtn.addEventListener('click', () => {
+          const email = emailEl.value.trim();
+          // KVKK kontrolü: email varsa onay zorunlu
+          if (email && (!kvkkEl || !kvkkEl.checked)) {
+            showStatus('E-posta gönderilmesi için KVKK onayı gerekli.', true);
+            return;
+          }
+          finalize(email);
+        });
+        skipBtn.addEventListener('click', () => {
+          emailEl.value = '';
+          updateKvkkGate();
+          finalize('');
+        });
         copyBtn.addEventListener('click', copyTranscript);
       })();
     </script>
