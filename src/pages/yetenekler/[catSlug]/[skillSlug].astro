@@ -19,15 +19,25 @@ const { Content } = await render(page);
 const fm = page.data;
 
 // Aynı kategorideki diğer yetkinlikler (internal link için)
+// Sıra: yetenekler.ts'deki cat.skills array sırasına göre (editöryel düzen),
+// alphabetical değil. Markdown dosyaları yoksa skip.
 const cat = categories.find((c) => c.slug === fm.categorySlug);
-const allSiblings = (await getCollection('yetkinlikler'))
-  .filter((p) => p.data.categorySlug === fm.categorySlug && !p.data.draft)
-  .sort((a, b) => a.data.skillSlug.localeCompare(b.data.skillSlug));
-const currentIdx = allSiblings.findIndex((p) => p.data.skillSlug === fm.skillSlug);
-const prevSkill = currentIdx > 0 ? allSiblings[currentIdx - 1] : null;
-const nextSkill = currentIdx < allSiblings.length - 1 ? allSiblings[currentIdx + 1] : null;
+const collMap = new Map(
+  (await getCollection('yetkinlikler'))
+    .filter((p) => p.data.categorySlug === fm.categorySlug && !p.data.draft)
+    .map((p) => [p.data.skillSlug, p])
+);
+const slugify = (name: string) => name.toLowerCase()
+  .replace(/[çğıöşü]/g, (c) => ({ç:'c',ğ:'g',ı:'i',ö:'o',ş:'s',ü:'u'} as Record<string,string>)[c] || c)
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const orderedSiblings = (cat?.skills ?? [])
+  .map((sk) => collMap.get(sk.slug ?? slugify(sk.name)))
+  .filter((p): p is NonNullable<typeof p> => !!p);
+const currentIdx = orderedSiblings.findIndex((p) => p.data.skillSlug === fm.skillSlug);
+const prevSkill = currentIdx > 0 ? orderedSiblings[currentIdx - 1] : null;
+const nextSkill = currentIdx >= 0 && currentIdx < orderedSiblings.length - 1 ? orderedSiblings[currentIdx + 1] : null;
 // "İlgili yetkinlikler" bloğunda current dışı (sibling card list)
-const siblings = allSiblings
+const siblings = orderedSiblings
   .filter((p) => p.data.skillSlug !== fm.skillSlug)
   .map((p) => ({ slug: p.data.skillSlug, title: p.data.title }));
 
@@ -541,65 +551,76 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
 
       /* ───── Paragraf bazında font-zoom kontrolü ───── */
-      .body-typography > p {
-        position: relative;
+      /* Butonlar paragraf'ın iç hit-area'sının solunda — hover sırasında kaybolmaz */
+      @media (min-width: 1024px) {
+        .body-typography > p {
+          position: relative;
+          padding-left: 2.5rem;
+          margin-left: -2.5rem;
+        }
       }
       .p-zoom {
         position: absolute;
-        left: -2.75rem;
-        top: 0.25rem;
+        left: 0;
+        top: 0.5rem;
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        pointer-events: none;
+        gap: 0.875rem;
+        opacity: 0.18;          /* hep hafif görünür, dikkat dağıtmaz */
+        transition: opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: auto;
         z-index: 5;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        user-select: none;
       }
       .body-typography > p:hover .p-zoom,
-      .p-zoom:hover,
-      .p-zoom.is-active {
+      .p-zoom:hover {
         opacity: 1;
-        pointer-events: auto;
       }
       .p-zoom button {
-        width: 1.5rem;
-        height: 1.5rem;
-        border: 1px solid rgb(0 0 0 / 0.15);
-        background: white;
-        font-size: 0.8125rem;
-        font-weight: 600;
+        width: 1.75rem;
+        height: 1.75rem;
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1;
         cursor: pointer;
+        color: rgb(100 116 139);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                    color 0.15s ease;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: rgb(100 116 139);
-        transition: all 0.15s ease;
-        line-height: 1;
-        padding: 0;
-        border-radius: 2px;
-        font-family: ui-sans-serif, system-ui, sans-serif;
       }
+      .p-zoom button[data-zoom-up]::before { content: '+'; }
+      .p-zoom button[data-zoom-down]::before { content: '−'; }
       .p-zoom button:hover {
-        border-color: black;
-        background: black;
-        color: white;
-        transform: scale(1.05);
+        color: rgb(220 38 38);   /* kırmızı vurgu */
+        transform: scale(1.4) rotate(180deg);
+      }
+      .p-zoom button[data-zoom-down]:hover {
+        transform: scale(1.4) rotate(-180deg);
       }
       .p-zoom button:active {
-        transform: scale(0.95);
+        transform: scale(0.9);
       }
-      /* Mobile/tablet'te paragrafın yanında yer olmadığı için her zaman görünür yap */
+      /* Mobile/tablet'te paragrafın altında inline-flex */
       @media (max-width: 1023px) {
         .p-zoom {
           position: static;
           flex-direction: row;
-          opacity: 0.5;
-          pointer-events: auto;
+          opacity: 0.4;
+          margin-top: -0.25rem;
           margin-bottom: 0.5rem;
+          gap: 1rem;
         }
-        .body-typography > p {
-          padding-left: 0;
+        .p-zoom button {
+          width: 2rem;
+          height: 2rem;
+          font-size: 1.75rem;
         }
       }
 
@@ -937,8 +958,8 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
           ctrl.className = 'p-zoom';
           ctrl.setAttribute('aria-hidden', 'false');
           ctrl.innerHTML = `
-            <button type="button" data-zoom-up aria-label="Bu paragrafı büyüt">+</button>
-            <button type="button" data-zoom-down aria-label="Bu paragrafı küçült">−</button>
+            <button type="button" data-zoom-up aria-label="Bu paragrafı büyüt"></button>
+            <button type="button" data-zoom-down aria-label="Bu paragrafı küçült"></button>
           `;
           p.appendChild(ctrl);
 
