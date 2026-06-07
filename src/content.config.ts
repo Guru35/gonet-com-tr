@@ -93,6 +93,15 @@ const yetkinlikler = defineCollection({
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     ogImage: z.string().optional(),
     detailHero: z.string().optional(),  // Detay sayfası geniş arka plan görseli (21:9 önerilir)
+    references: z.array(z.object({
+      title: z.string(),
+      url: z.string().optional(),
+      authors: z.string().optional(),
+      publisher: z.string().optional(),
+      year: z.string().optional(),
+    })).default([]),
+    editorReviewedAt: z.string().optional(),  // YYYY-MM-DD; boşsa "bekliyor" gösterilir
+    editorReviewedBy: z.string().optional(),  // Onaylayan editör adı
     published: z.date().optional(),
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),

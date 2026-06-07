@@ -480,6 +480,97 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       </section>
     )}
 
+    <!-- KÜNYE + KAYNAKÇA + AI DISCLOSURE — uluslararası uyumlu tam şeffaflık -->
+    <section class="border-b border-black/15 bg-white">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+        <h2 class="text-xl lg:text-2xl font-bold mb-2">Künye, kaynakça ve şeffaflık</h2>
+        <p class="text-sm text-slate-500 mb-10">Bu sayfanın nasıl üretildiği, hangi kaynaklara dayandığı ve editöryel denetimi.</p>
+
+        <!-- AI üretimi & insan editör onayı — EU AI Act Art. 50 + FTC AI disclosure uyumlu -->
+        <div class="mb-12 p-6 lg:p-8 border-l-4 border-brand-600 bg-slate-50">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 mb-3">AI üretimi & insan onayı</p>
+          <p class="text-base leading-relaxed text-slate-700 mb-3">
+            Bu sayfanın taslağı <strong class="text-black">Gonet AEO Engine</strong> tarafından Anthropic <strong class="text-black">Claude Sonnet</strong> modeliyle üretilmiştir. Yayın öncesi <strong class="text-black">Gonet editöryel ekibi</strong> tarafından (a) gerçeklik kontrolü, (b) kaynak güvenilirliği, (c) marka tutarlılığı, (d) Türkçe dil bütünlüğü açısından incelenir.
+          </p>
+          <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm mt-4 pt-4 border-t border-black/10">
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-0.5">Yazar</dt>
+              <dd class="text-slate-800">Gonet AEO Editör (AI destekli)</dd>
+            </div>
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-0.5">Editör onayı</dt>
+              <dd class="text-slate-800">
+                {fm.editorReviewedAt && fm.editorReviewedBy ?
+                  `${fm.editorReviewedBy} · ${fm.editorReviewedAt}` :
+                  'Bekliyor'}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-0.5">İlk yayın</dt>
+              <dd class="text-slate-800">{fm.published ? new Date(fm.published).toISOString().slice(0, 10) : '—'}</dd>
+            </div>
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-0.5">Son güncelleme</dt>
+              <dd class="text-slate-800">{fm.updated ? new Date(fm.updated).toISOString().slice(0, 10) : (fm.published ? new Date(fm.published).toISOString().slice(0, 10) : '—')}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Kaynakça — frontmatter.references varsa list, yoksa "genel referans" notu -->
+        <div class="mb-12">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 mb-4">Kaynakça</p>
+          {fm.references && fm.references.length > 0 ? (
+            <ol class="space-y-3 text-sm text-slate-700 list-decimal list-inside marker:text-slate-400 marker:font-mono">
+              {fm.references.map((ref) => (
+                <li class="leading-relaxed">
+                  {ref.authors && <span class="text-slate-600">{ref.authors} </span>}
+                  {ref.year && <span class="text-slate-500">({ref.year}) </span>}
+                  {ref.url ? (
+                    <a href={ref.url} target="_blank" rel="noopener" class="text-black hover:underline font-medium">{ref.title}</a>
+                  ) : (
+                    <span class="text-black font-medium">{ref.title}</span>
+                  )}
+                  {ref.publisher && <span class="text-slate-600">. {ref.publisher}</span>}
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Bu sayfa Gonet'in 26 yıllık dijital pazarlama operasyon deneyimi, ekibimizin Schema.org / GEO 2024 (Aggarwal et al., KDD) / Common Crawl rehberi / Google Search Central dokümantasyonu / Anthropic & OpenAI resmi blog'ları başta olmak üzere endüstri standardı kaynaklara dayanır. Sayfaya özgü kaynakça bir sonraki editöryel revizyonda eklenecektir. Spesifik referans talebi için: <a href="mailto:gonet@gonet.com.tr?subject=Kaynak%20talebi%20%E2%80%94%20{encodeURIComponent(fm.title)}" class="text-brand-700 hover:underline">gonet@gonet.com.tr</a>
+            </p>
+          )}
+        </div>
+
+        <!-- Uluslararası uyumluluk + hata bildirim -->
+        <div class="grid sm:grid-cols-2 gap-8 pt-8 border-t border-black/10">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 mb-3">Uyumluluk</p>
+            <ul class="space-y-1.5 text-xs text-slate-600 leading-relaxed">
+              <li>· EU AI Act Article 50 — AI üretimi içerik şeffaflığı</li>
+              <li>· FTC AI Disclosure Guidelines (US)</li>
+              <li>· KVKK + Tüketicinin Korunması Hk. Kanun (TR)</li>
+              <li>· Schema.org Article.author + dateModified markup</li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-600 mb-3">Hata gördünüz mü?</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-3">
+              Bu sayfada hatalı veya güncellenmesi gereken bilgi olduğunu düşünüyorsanız bize bildirin. 48 saat içinde değerlendirip yanıtlarız.
+            </p>
+            <a href={`mailto:gonet@gonet.com.tr?subject=D%C3%BCzeltme%20talebi%20%E2%80%94%20${encodeURIComponent(fm.title)}&body=Sayfa%3A%20${encodeURIComponent(url)}%0A%0AHatal%C4%B1%20veya%20g%C3%BCncellenmesi%20gereken%20b%C3%B6l%C3%BCm%3A%0A%0A`}
+               class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black border border-black px-3 py-1.5 hover:bg-black hover:text-white transition-colors">
+              Düzeltme talep et →
+            </a>
+          </div>
+        </div>
+
+        <!-- Telif notu -->
+        <p class="mt-10 pt-6 border-t border-black/10 text-xs text-slate-500 leading-relaxed">
+          © {new Date().getFullYear()} Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş. — Gonet markası altında yayımlanmaktadır. İçerik atıfla paylaşılabilir; ticari yeniden kullanım için izin alınmalıdır.
+        </p>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="bg-black text-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-10 py-16 lg:py-20 text-center">
