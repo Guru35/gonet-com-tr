@@ -121,15 +121,44 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
 
         <!-- Share + back actions -->
         <div class="mt-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.2em]">
-          <button type="button"
-                  data-share-btn
-                  data-share-url={url}
-                  data-share-title={fm.title}
-                  data-share-text={fm.description}
-                  class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white/80 backdrop-blur hover:bg-black hover:text-white transition-colors">
-            <span data-share-default>Paylaş</span>
-            <span data-share-copied class="hidden">✓ Link kopyalandı</span>
-          </button>
+          <div class="share-wrap relative">
+            <button type="button"
+                    data-share-trigger
+                    data-share-url={url}
+                    data-share-title={fm.title}
+                    data-share-text={fm.description}
+                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white/80 backdrop-blur hover:bg-black hover:text-white transition-colors"
+                    aria-expanded="false"
+                    aria-haspopup="menu">
+              Paylaş
+            </button>
+            <!-- Custom share popover — minimal editorial, ikon yok, sadece etiket -->
+            <div data-share-menu
+                 class="hidden absolute top-full left-0 mt-2 z-30 min-w-[200px] bg-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] border border-black/10"
+                 role="menu">
+              <a data-share-x href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">
+                X / Twitter
+              </a>
+              <a data-share-linkedin href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">
+                LinkedIn
+              </a>
+              <a data-share-whatsapp href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">
+                WhatsApp
+              </a>
+              <a data-share-email href="#" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">
+                E-posta
+              </a>
+              <button type="button" data-share-copy role="menuitem"
+                      class="block w-full text-left px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors">
+                <span data-share-copy-default>Bağlantıyı kopyala</span>
+                <span data-share-copy-done class="hidden text-emerald-600">✓ Kopyalandı</span>
+              </button>
+            </div>
+          </div>
           <a href={`/yetenekler/${fm.categorySlug}`} class="text-slate-600 hover:text-black underline underline-offset-4 decoration-1">
             ← {fm.categoryName}
           </a>
@@ -152,49 +181,120 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
                     prose-li:my-1">
           <Content />
         </div>
+
+        <!-- Yazı sonu ikinci paylaş butonu -->
+        <div class="mt-12 pt-8 border-t border-black/10 flex items-center justify-between gap-4 flex-wrap text-[11px] font-semibold uppercase tracking-[0.2em]">
+          <p class="text-slate-500">İşine yarayan bir yazı mıydı?</p>
+          <div class="share-wrap relative">
+            <button type="button"
+                    data-share-trigger
+                    data-share-url={url}
+                    data-share-title={fm.title}
+                    data-share-text={fm.description}
+                    class="inline-flex items-center gap-2 px-3 py-1.5 border border-black bg-white hover:bg-black hover:text-white transition-colors"
+                    aria-expanded="false"
+                    aria-haspopup="menu">
+              Paylaş
+            </button>
+            <div data-share-menu
+                 class="hidden absolute bottom-full right-0 mb-2 z-30 min-w-[200px] bg-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] border border-black/10"
+                 role="menu">
+              <a data-share-x href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">X / Twitter</a>
+              <a data-share-linkedin href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">LinkedIn</a>
+              <a data-share-whatsapp href="#" target="_blank" rel="noopener" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">WhatsApp</a>
+              <a data-share-email href="#" role="menuitem"
+                 class="block px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors border-b border-black/5">E-posta</a>
+              <button type="button" data-share-copy role="menuitem"
+                      class="block w-full text-left px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-black hover:bg-black hover:text-white transition-colors">
+                <span data-share-copy-default>Bağlantıyı kopyala</span>
+                <span data-share-copy-done class="hidden text-emerald-600">✓ Kopyalandı</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <style>
-      /* Editöryel typography modülasyonu — ilk paragraflar büyük/koyu, alta doğru standart */
+    <!-- Global tipografi modülasyonu — Astro scoped style markdown'a uygulanmıyor, is:global lazım -->
+    <style is:global>
       .body-typography > p:first-of-type {
-        font-size: 1.5rem;        /* ~24px */
-        line-height: 1.4;
-        font-weight: 600;
-        color: rgb(15 23 42);     /* slate-900 */
-        margin-bottom: 1.5rem;
+        font-size: 1.6rem !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+        color: rgb(15 23 42) !important;
+        margin-bottom: 1.5rem !important;
       }
       .body-typography > p:nth-of-type(2) {
-        font-size: 1.15rem;       /* ~18.5px */
-        line-height: 1.55;
-        font-weight: 500;
-        color: rgb(30 41 59);     /* slate-800 */
+        font-size: 1.2rem !important;
+        line-height: 1.55 !important;
+        font-weight: 500 !important;
+        color: rgb(30 41 59) !important;
       }
       .body-typography > p:nth-of-type(3) {
-        font-size: 1.05rem;       /* ~17px */
-        font-weight: 450;
+        font-size: 1.075rem !important;
+        font-weight: 450 !important;
       }
-      /* H2 sonrası ilk paragraf da hafif vurgu (her bölümün başı) */
       .body-typography h2 + p {
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: rgb(30 41 59);
+        font-size: 1.15rem !important;
+        font-weight: 500 !important;
+        color: rgb(30 41 59) !important;
+      }
+
+      /* FAQ akordiyon — native <details> + custom UI */
+      .faq-accordion details {
+        border-bottom: 1px solid rgb(0 0 0 / 0.1);
+        padding: 0.5rem 0;
+      }
+      .faq-accordion details summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 1rem 0;
+        font-weight: 600;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        color: rgb(15 23 42);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .faq-accordion details summary::-webkit-details-marker { display: none; }
+      .faq-accordion details summary::after {
+        content: '+';
+        font-weight: 300;
+        font-size: 1.5rem;
+        line-height: 1;
+        color: rgb(100 116 139);
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+      .faq-accordion details[open] summary::after {
+        content: '−';
+        color: rgb(15 23 42);
+      }
+      .faq-accordion details > div {
+        padding: 0 0 1.25rem;
+        color: rgb(51 65 85);
+        line-height: 1.65;
       }
     </style>
 
-    <!-- SSS — FAQPage schema ayrıca yukarıda eklendi -->
+    <!-- SSS — akordiyon (tek açık), FAQPage schema yukarıda eklendi; <details> içeriği botlar için her zaman okunabilir -->
     {fm.faqs && fm.faqs.length > 0 && (
       <section class="border-b border-black/15 bg-slate-50">
         <div class="max-w-3xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
-          <h2 class="text-2xl lg:text-3xl font-bold mb-8">Sık sorulan sorular</h2>
-          <dl class="space-y-6">
-            {fm.faqs.map((faq) => (
-              <div class="border-l-2 border-brand-600 pl-5">
-                <dt class="text-base lg:text-lg font-semibold text-black mb-2">{faq.q}</dt>
-                <dd class="text-slate-700 leading-relaxed">{faq.a}</dd>
-              </div>
+          <h2 class="text-2xl lg:text-3xl font-bold mb-6">Sık sorulan sorular</h2>
+          <div class="faq-accordion" data-faq-accordion>
+            {fm.faqs.map((faq, i) => (
+              <details name="faq" open={i === 0}>
+                <summary>{faq.q}</summary>
+                <div>{faq.a}</div>
+              </details>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
     )}
@@ -277,30 +377,88 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         });
       }
 
-      // Share button — Web Share API + clipboard fallback
-      const sBtn = document.querySelector('[data-share-btn]');
-      const sDefault = document.querySelector('[data-share-default]');
-      const sCopied = document.querySelector('[data-share-copied]');
-      if (sBtn) {
-        sBtn.addEventListener('click', async () => {
-          const url = sBtn.getAttribute('data-share-url') || window.location.href;
-          const title = sBtn.getAttribute('data-share-title') || document.title;
-          const text = sBtn.getAttribute('data-share-text') || '';
-          if (navigator.share) {
-            try { await navigator.share({ title, text, url }); return; } catch (_) {}
-          }
-          try {
-            await navigator.clipboard.writeText(url);
-            sDefault?.classList.add('hidden');
-            sCopied?.classList.remove('hidden');
-            setTimeout(() => {
-              sDefault?.classList.remove('hidden');
-              sCopied?.classList.add('hidden');
-            }, 2500);
-          } catch (_) {
-            window.prompt('Bu linki kopyalayın:', url);
+      // Custom share popover — her .share-wrap için ayrı (hero + body altı 2 adet)
+      document.querySelectorAll('.share-wrap').forEach((wrap) => {
+        const trigger = wrap.querySelector('[data-share-trigger]');
+        const menu = wrap.querySelector('[data-share-menu]');
+        if (!trigger || !menu) return;
+        const url = trigger.getAttribute('data-share-url') || window.location.href;
+        const title = trigger.getAttribute('data-share-title') || document.title;
+        const text = trigger.getAttribute('data-share-text') || '';
+        const enc = encodeURIComponent;
+
+        // Link href'lerini doldur
+        const links = {
+          'data-share-x': `https://x.com/intent/post?text=${enc(title)}&url=${enc(url)}`,
+          'data-share-linkedin': `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
+          'data-share-whatsapp': `https://wa.me/?text=${enc(title + ' — ' + url)}`,
+          'data-share-email': `mailto:?subject=${enc(title)}&body=${enc(text + '\n\n' + url)}`,
+        };
+        Object.entries(links).forEach(([attr, href]) => {
+          const el = wrap.querySelector(`[${attr}]`);
+          if (el) el.setAttribute('href', href);
+        });
+
+        // Trigger toggle
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = !menu.classList.contains('hidden');
+          // Tüm popover'ları kapat
+          document.querySelectorAll('[data-share-menu]').forEach((m) => m.classList.add('hidden'));
+          document.querySelectorAll('[data-share-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
+          if (!isOpen) {
+            menu.classList.remove('hidden');
+            trigger.setAttribute('aria-expanded', 'true');
           }
         });
+
+        // Copy link button
+        const copyBtn = wrap.querySelector('[data-share-copy]');
+        const copyDef = wrap.querySelector('[data-share-copy-default]');
+        const copyDone = wrap.querySelector('[data-share-copy-done]');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            try {
+              await navigator.clipboard.writeText(url);
+              copyDef?.classList.add('hidden');
+              copyDone?.classList.remove('hidden');
+              setTimeout(() => {
+                copyDef?.classList.remove('hidden');
+                copyDone?.classList.add('hidden');
+                menu.classList.add('hidden');
+                trigger.setAttribute('aria-expanded', 'false');
+              }, 1500);
+            } catch (_) {
+              window.prompt('Bu linki kopyalayın:', url);
+            }
+          });
+        }
+      });
+
+      // Dış tıklama ile popover kapat
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.share-wrap')) {
+          document.querySelectorAll('[data-share-menu]').forEach((m) => m.classList.add('hidden'));
+          document.querySelectorAll('[data-share-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
+        }
+      });
+
+      // FAQ accordion — Safari/eski Chrome <details name="..."> mutex polyfill
+      const faqAcc = document.querySelector('[data-faq-accordion]');
+      if (faqAcc) {
+        const detailsList = Array.from(faqAcc.querySelectorAll('details'));
+        // Native browser zaten name="faq" ile çözüyorsa skip; eski sürümler için manuel
+        const supportsExclusive = 'name' in document.createElement('details');
+        if (!supportsExclusive) {
+          detailsList.forEach((d) => {
+            d.addEventListener('toggle', () => {
+              if (d.open) {
+                detailsList.forEach((other) => { if (other !== d) other.open = false; });
+              }
+            });
+          });
+        }
       }
     })();
   </script>
