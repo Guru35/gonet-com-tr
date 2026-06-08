@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, serviceSchema, faqSchema } from '../lib/schema';
 
-const title = 'Uzmanlık Alanları — Gonet\'in 13 Dijital ve AI Hizmeti';
+const title = 'Uzmanlık Alanları — Gonet\'in 14 Dijital ve AI Hizmeti';
 const description =
   'Gonet\'in 13 dijital ve AI hizmeti: Google Ads (Türkiye ilk 3 Partner), ' +
   'SEO (İzmir\'in ilki), AEO/GEO, sosyal medya, web tasarım, sağlık turizmi, e-ticaret.';
@@ -19,7 +19,7 @@ const pageSchema = webpageSchema({
   ],
 });
 
-// 13 hizmet — her birinin slug, kategori, highlight (varsa)
+// 14 hizmet — her birinin slug, kategori, highlight (varsa); link varsa derin sayfaya yönlendirir
 const services = [
   {
     slug: 'google-ads',
@@ -210,6 +210,22 @@ const services = [
       'Kalite kontrol',
       'Teslim + devir + dökümantasyon',
     ],
+  },
+  {
+    slug: 'aeo-geo-denetimi',
+    name: 'AEO/GEO Denetim Hizmeti',
+    category: 'Yeni nesil arama',
+    highlight: 'ChatGPT, Claude, Perplexity, Gemini\'de markanız nasıl temsil ediliyor? Common Crawl 5-kontrollü framework + 4 platform LLM probe.',
+    description:
+      'Klasik SEO denetiminin AI çağına evrilmiş hâli. Erişim katmanı (robots/WAF/CDN) → Crawl katmanı (Common Crawl) → Tech-Auditor (Schema.org/llms.txt) → Content-Auditor (extraction-ready) → Researcher (4 platform LLM probe + drift). Express (1 hafta), Standart (2 hafta), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).',
+    deliverables: [
+      'Common Crawl 5-kontrollü AI Visibility Audit',
+      'Schema.org @graph + llms.txt entity authority denetimi',
+      '4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini)',
+      'Share-of-Model + Citation Rate + drift takibi',
+      'Markdown + PDF rapor + Merhaba portal canlı dashboard (Enterprise)',
+    ],
+    link: '/aeo-geo-denetimi',
   },
 ];
 

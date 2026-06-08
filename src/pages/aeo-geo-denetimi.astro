@@ -1,0 +1,422 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "AEO/GEO Denetim Hizmeti — ChatGPT, Claude, Perplexity Markanı Nasıl Tanıyor? | Gonet";
+const description =
+  "Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor (robots/schema/llms.txt) + Content-Auditor + Drift Detection. " +
+  "ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de markanın temsiline kanıt-bazlı denetim. " +
+  "Express / Standart / Enterprise paketler. 3 hafta içinde rapor.";
+const url = `${SITE_URL}/aeo-geo-denetimi`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'Service',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'AEO/GEO Denetimi', url },
+  ],
+});
+
+// Service schema — satılabilir hizmet
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'AEO/GEO Denetim Hizmeti',
+  alternateName: [
+    'Answer Engine Optimization Audit',
+    'Generative Engine Optimization Audit',
+    'AI Visibility Audit',
+    'LLM SEO Audit',
+  ],
+  serviceType: 'Digital Marketing Audit',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  category: 'Search Engine Optimization',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AEO/GEO Denetim Paketleri',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Express',
+        description: '1 haftada — Tech-Auditor (robots.txt + schema.org + llms.txt + SSR + 5 sayfa) + 1 sayfalık özet rapor',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Standart',
+        description: '2 haftada — Express + Common Crawl 5-kontrol + Content-Auditor (10 sayfa) + 4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini) + 8 sayfalık tam rapor + 3 aylık drift baseline',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Enterprise',
+        description: 'Aylık abonelik — Standart + her ay drift takibi + Cloudflare AI Crawl Control baseline + öncelikli implementation desteği + aylık review konuşması',
+      },
+    ],
+  },
+};
+
+const faq = faqSchema([
+  {
+    question: 'AEO/GEO denetimi nedir, klasik SEO denetimiyle farkı nedir?',
+    answer:
+      "Klasik SEO denetimi Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO. AEO/GEO denetimi ise " +
+      "LLM motorlarını (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) hedefler: markanın bu motorlarda nasıl temsil edildiği, " +
+      "Common Crawl arşivine girip girmediği, llms.txt rehberinin doğru olup olmadığı, Schema.org JSON-LD entity authority yapısı, " +
+      "extraction-ready içerik formatı, semantic chunking. 2025-2026'da arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO " +
+      "yetmiyor, ek olarak AEO/GEO denetimi gerek.",
+  },
+  {
+    question: 'Denetim kapsamı nedir, hangi katmanları içerir?',
+    answer:
+      "Beş katmanlı framework: (1) Erişim katmanı — robots.txt + CDN/WAF + Cloudflare AI Crawl Control: CCBot, GPTBot, ClaudeBot, " +
+      "PerplexityBot, Google-Extended erişimi. (2) Crawl katmanı — Common Crawl arşivinde domain var mı, son snapshot ne zaman, kapsam ne. " +
+      "(3) Tech-Auditor — Schema.org JSON-LD (Organization, Person, Service, FAQPage), llms.txt protokolü, sitemap, SSR durumu (Inertia/SPA tuzağı), " +
+      "Open Graph + Twitter Card. (4) Content-Auditor — extraction-ready format (front-loading, atomic cevaplar, soru-bazlı heading), " +
+      "FAQPage Q&A katmanı, citation surface. (5) Researcher (Faz 2) — gerçek LLM probe: ChatGPT/Claude/Perplexity/Gemini'a markayı sor, " +
+      "yanıtları analiz et, drift takibi.",
+  },
+  {
+    question: 'Bir denetim ne kadar sürer, ne zaman rapor alırım?',
+    answer:
+      "Express paket: 1 hafta — sözleşme + erişim + Tech-Auditor + 1 sayfalık öneri raporu. " +
+      "Standart paket: 2 hafta — Express + Common Crawl 5-kontrol + 4 platform LLM probe + 8 sayfalık tam rapor + drift baseline. " +
+      "Enterprise: aylık abonelik — Standart + her ay drift takibi + Cloudflare baseline + öncelikli implementation desteği.",
+  },
+  {
+    question: 'Hangi platformlar test ediliyor?',
+    answer:
+      "Erişim ve crawl katmanları için Common Crawl (CCBot), OpenAI (GPTBot, ChatGPT-User, OAI-SearchBot), Anthropic " +
+      "(ClaudeBot, anthropic-ai, Claude-Web), Google (Google-Extended, AI Overviews crawler), Perplexity (PerplexityBot, Perplexity-User), " +
+      "Meta, xAI, Apple test edilir. Researcher katmanında (Standart+) ChatGPT, Claude, Perplexity, Gemini ile gerçek soru-cevap probe yapılır.",
+  },
+  {
+    question: "Gonet bu hizmeti kendi sitesi üzerinde uyguluyor mu?",
+    answer:
+      "Evet — gonet.com.tr şu anda bu hizmetin canlı vitrini: Cloudflare AI Crawl Control baseline 2026-06-05'te alındı, " +
+      "Schema.org @graph (Organization + Person + WebSite + Service + FAQPage) 18+ tip kullanılıyor, llms.txt aktif " +
+      "(LLM rehberi), 130+ Organization entity ile entity authority yapısı kuruldu. Bu sayfada açıkladığımız her tekniğin " +
+      "uygulamasını canlı görebilirsiniz. Hizmet metodolojisi vault'ta açık (audits/seo-llm/), denetim çıktıları " +
+      "compounding artifact: her yeni denetim önceki üzerine inşa eder.",
+  },
+  {
+    question: 'Bulduğunuz sorunları çözüm uygulamak da hizmete dahil mi?',
+    answer:
+      "Denetim → rapor + öneri kapsamı temel pakettedir. Uygulama (Schema.org @graph yazımı, llms.txt kurulumu, " +
+      "robots.txt/WAF açma, content rewrite, semantic chunking) Enterprise pakette dahildir. Express + Standart paketlerde " +
+      "uygulama ayrı saatli proje olarak teklifle çalışır. Tipik uygulama 2-4 hafta sürer.",
+  },
+  {
+    question: 'Denetim sonucu raporunu nasıl alacağım?',
+    answer:
+      "Üç biçim: (1) Markdown rapor — kanıt-bazlı, vault'a entegre edilebilir. (2) PDF özet — 1-2 sayfa, paydaş paylaşımı için. " +
+      "(3) Müşteri portalına (Merhaba) entegrasyon — Enterprise paket: aylık drift verisini portal'dan canlı takip edersiniz, " +
+      "AI çağında markanın görünürlüğü canlı gauge olarak.",
+  },
+  {
+    question: 'Fiyatlandırma nasıl?',
+    answer:
+      "Fiyatlandırma proje kapsamı + müşteri büyüklüğü + drift takip periyoduna göre özelleşir. " +
+      "Express: tek-seferlik, küçük ve orta ölçekli site için uygun. Standart: en yaygın paket, çoklu domain ya da büyük site için. " +
+      "Enterprise: aylık abonelik, sürekli takip + implementation desteği gerektiren kurumsal markalar için. " +
+      "Teklif için iletişim formundan bize ulaşın veya AI ile Tartış butonu ile konuyu açın.",
+  },
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">AEO/GEO Denetim Hizmeti</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Hizmet · Denetim & Strateji
+      </p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[100px] leading-[0.95] mb-12">
+        ChatGPT'e markanı sor.<br/>
+        <span style="color:#ff0000">Ne çıkıyor?</span>
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        2025'te arama trafiğinin <strong>%35'i AI motorlarına kaydı</strong>. Klasik SEO sıralama oyununu hâlâ oynuyor —
+        ama markanız <strong>ChatGPT, Claude, Perplexity, Gemini</strong> ve <strong>Google AI Overviews</strong>'de görünmüyorsa,
+        yeni alıcı yolculuğunun ilk durağı kapanmış demektir. <strong>AEO/GEO Denetimi</strong> bu görünmezliği
+        kanıt-bazlı haritalar: erişim katmanından entity authority'ye, 5 katmanda <strong>~90 dakikadan başlayan</strong>
+        Common Crawl framework'ü ile.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5 katmanlı metodoloji -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Metodoloji</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        5 katmanlı denetim
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Stephen Burns / Common Crawl Foundation çerçevesinin Gonet uyarlaması. <strong>Erişim → Crawl → Tech → İçerik → Researcher</strong>.
+        Sıralı çalıştırılır: erken katmandaki bir başarısızlık sonrakileri açıklar.
+      </p>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Erişim katmanı — bot girebiliyor mu?</h3>
+            <p class="text-slate-700 mb-2">
+              <code>robots.txt</code> + CDN/WAF + Cloudflare AI Crawl Control. CCBot, GPTBot, ClaudeBot, PerplexityBot,
+              Google-Extended, OAI-SearchBot, ChatGPT-User, Perplexity-User, Bytespider, Applebot-Extended erişimi.
+              UA-bazlı WAF tuzakları (siten 200 dönüyor ama CCBot 403 alıyor) burada yakalanır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Bot başına erişim haritası + WAF düzeltme talimatı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Crawl katmanı — gerçekten arşivde miyim?</h3>
+            <p class="text-slate-700 mb-2">
+              İzin ≠ gerçeklik. Common Crawl Index sorgusu (CC-MAIN-YYYY-WW) ile domain'in arşivde olup olmadığı,
+              kapsam derinliği, snapshot tazeliği ölçülür. Harmonic Centrality (web graph yakınlık)
+              centrality skoru da burada raporlanır — crawl önceliğini belirler.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Snapshot tablosu + centrality skoru + tahmin gelecek crawl önceliği.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Tech-Auditor — yapısal sinyal sağlam mı?</h3>
+            <p class="text-slate-700 mb-2">
+              Schema.org JSON-LD (Organization, Person, Service, FAQPage, BreadcrumbList, Event, Article) tip envanteri +
+              entity authority @graph yapısı. llms.txt protokolü varlığı + format. Sitemap.xml + canonical disiplini.
+              <strong>SSR durumu</strong> — JS-disabled HTML'de gerçek içerik render edilmiş mi (Inertia / Vue / React SPA tuzağı).
+              Open Graph + Twitter Card.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Schema.org tip envanteri + format hataları + entity authority haritası.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Content-Auditor — alıntılanabilir miyim?</h3>
+            <p class="text-slate-700 mb-2">
+              Extraction-ready format: front-loading (cevap önce, açıklama sonra), atomic cevaplar (tek cümle, tek iddia),
+              soru-bazlı heading yapısı. FAQPage Q&A katmanı + RAG için Best Chunk Extraction (BCE) uyumu.
+              Citation surface — LLM'in markayı eylem-örnek olarak alıntılayabileceği yüzey.
+              Aggarwal et al. 9 GEO yöntemi (Cite Sources, Quotation, Statistics, vd.) etkililik haritası.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> İçerik rewrite öncelik listesi + GEO yöntem uygulama skorları.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">05</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Researcher — LLM'ler beni nasıl temsil ediyor?</h3>
+            <p class="text-slate-700 mb-2">
+              <strong>Standart + Enterprise pakette.</strong> ChatGPT, Claude, Perplexity, Gemini'a markayı sor, yanıtları analiz et:
+              Share-of-Model (SoM), Citation Rate, Sentiment, Citation Error Rate (CER), platform-spesifik bias.
+              Drift detection — önceki audit ile kıyaslama, hangi platformda hangi yönde değişim.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> 4 platform LLM yanıt tablosu + SoM skorları + drift değişimleri.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3 paket -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Paketler</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Üç paket, üç kapsam.
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Express -->
+        <div class="border-2 border-slate-300 p-8 hover:border-black transition">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-4">Hızlı başlangıç</p>
+          <h3 class="editorial-display text-4xl mb-4">Express</h3>
+          <p class="text-slate-700 mb-6">1 hafta — hızlı resim + somut öneri.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ Tech-Auditor — robots/schema/llms.txt/SSR</li>
+            <li>✓ Anasayfa + 5 strategik sayfa</li>
+            <li>✓ 1 sayfalık öncelik raporu</li>
+            <li>✓ Markdown + PDF biçim</li>
+          </ul>
+        </div>
+
+        <!-- Standart -->
+        <div class="border-2 p-8 hover:border-black transition relative" style="border-color:#ff0000">
+          <span class="absolute -top-3 left-8 bg-white px-3 text-xs font-medium uppercase tracking-wider" style="color:#ff0000">En yaygın</span>
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4" style="color:#ff0000">Önerilen</p>
+          <h3 class="editorial-display text-4xl mb-4">Standart</h3>
+          <p class="text-slate-700 mb-6">2 hafta — tam tablo + LLM probe + baseline.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ <strong>Express paket tümü</strong></li>
+            <li>✓ Common Crawl 5-kontrol</li>
+            <li>✓ Content-Auditor (10 sayfa derin)</li>
+            <li>✓ 4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini)</li>
+            <li>✓ Share-of-Model + Citation Rate</li>
+            <li>✓ 8 sayfalık tam rapor</li>
+            <li>✓ 3 ay drift baseline (CF AI Crawl Control)</li>
+          </ul>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="border-2 border-slate-300 p-8 hover:border-black transition">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-4">Kurumsal</p>
+          <h3 class="editorial-display text-4xl mb-4">Enterprise</h3>
+          <p class="text-slate-700 mb-6">Aylık abonelik — sürekli takip + implementation.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ <strong>Standart paket tümü</strong></li>
+            <li>✓ Aylık drift raporu + CF baseline</li>
+            <li>✓ Implementation desteği (schema/llms.txt/content rewrite)</li>
+            <li>✓ Merhaba portal'da canlı drift dashboard</li>
+            <li>✓ Aylık review konuşması</li>
+            <li>✓ Öncelikli yanıt + Slack/Discord kanalı</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Teklif al →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Canlı vitrin -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Canlı vitrin</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Gonet kendi sitesinde uyguluyor.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Hizmetin metodolojisi gonet.com.tr'de canlı olarak uygulanıyor — kanıt-bazlı vitrin. Aşağıdaki her madde
+        bu sayfada veya site genelinde gözlemlenebilir.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">Schema.org @graph — 18+ tip, 130+ Organization entity</h3>
+          <p class="text-slate-700 text-sm">Organization, Person, WebSite, Service, FAQPage, Article, BreadcrumbList, DefinedTerm, AccessAction, ImageObject ve dahası — entity authority kuran @graph yapısı.</p>
+        </div>
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">llms.txt — Anthropic önerisi LLM rehberi</h3>
+          <p class="text-slate-700 text-sm"><a href="/llms.txt" class="underline">gonet.com.tr/llms.txt</a> — markayı LLM motorlarına tanıtan structured guide. <code>/llms-full.txt</code> ve <code>/llms-blog.txt</code> uzantıları ile.</p>
+        </div>
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">21 AI bot policy — robots.txt açık politikası</h3>
+          <p class="text-slate-700 text-sm">GPTBot, ClaudeBot, CCBot, Google-Extended, PerplexityBot vd. için kasıtlı <code>Allow: /</code> — AEO/GEO görünürlük için pozitif sinyal.</p>
+        </div>
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Cloudflare AI Crawl Control baseline</h3>
+          <p class="text-slate-700 text-sm">2026-06-05 baseline + gün 7 + gün 14 ölçüm; AI crawler trafiği canlı izleniyor.</p>
+        </div>
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Extraction-ready içerik — 52 detay sayfa</h3>
+          <p class="text-slate-700 text-sm">Front-loading + atomic cevap + soru-bazlı heading; her sayfa FAQPage Q&A ile zenginleştirilmiş.</p>
+        </div>
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">IndexNow protokolü — Bing + Yandex submission</h3>
+          <p class="text-slate-700 text-sm">Yeni içerik anında 2 search engine'e bildirilir; AI motorları için crawl hızı artışı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        AEO/GEO denetimi hakkında.
+      </h2>
+      <div class="space-y-10">
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            AEO/GEO denetimi nedir, klasik SEO denetimiyle farkı nedir?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Klasik SEO Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO.
+            AEO/GEO denetimi ise <strong>LLM motorlarını</strong> hedefler: markanın ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de
+            nasıl temsil edildiği. 2025'te arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO yetmez, ek AEO/GEO denetimi gerek.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Bir denetim ne kadar sürer, ne zaman rapor alırım?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            <strong>Express:</strong> 1 hafta. <strong>Standart:</strong> 2 hafta. <strong>Enterprise:</strong> aylık abonelik (her ay drift takibi).
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Hangi platformlar test ediliyor?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Erişim + crawl: Common Crawl, OpenAI, Anthropic, Google, Perplexity, Meta, xAI, Apple. Researcher (Standart+):
+            ChatGPT, Claude, Perplexity, Gemini gerçek probe.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Gonet bu hizmeti kendi sitesinde uyguluyor mu?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Evet — gonet.com.tr canlı vitrindir. Cloudflare AI Crawl Control baseline 2026-06-05'te alındı,
+            Schema.org @graph 18+ tip, llms.txt aktif, 130+ Organization entity. <a href="/creative-ai" class="underline">/creative-ai</a> sayfasında 5 canlı sistem.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Bulduğunuz sorunları çözüm uygulamak da hizmete dahil mi?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Express + Standart pakette rapor + öneri var; uygulama Enterprise'a dahil veya ayrı saatli projeyle çalışır (2-4 hafta).
+          </p>
+        </details>
+        <details class="pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Fiyatlandırma nasıl?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Proje kapsamı + müşteri büyüklüğü + drift periyoduna göre özelleşir. Teklif için <a href="/iletisim" class="underline">iletişim</a> formundan ulaşın.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        AI motorlarında ne kadar görünür olduğunuzu<br/>
+        <span style="color:#ff0000">öğrenmenin tek yolu denetimdir</span>.
+      </p>
+      <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+        Teklif al →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
