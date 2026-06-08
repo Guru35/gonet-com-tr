@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = "Dupia — Digital Utopian Planet | Gonet Labs";
+const description =
+  "Dupia (Digital Utopian Planet) — Gökhan Kazancı tarafından 2026'da başlatılan dijital gezegen / " +
+  "dijital ülke / dijital ütopya girişimi. Şirket değil — fikir, girişim, ekosistem. " +
+  "Kolektif fon + ortak karar + etik-ilk yaklaşımı.";
+const url = `${SITE_URL}/labs/dupia`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Labs', url: 'https://gonet.com.tr/labs' },
+    { name: 'Dupia', url },
+  ],
+});
+
+const workSchema = {
+  '@type': 'CreativeWork',
+  '@id': `${url}#work`,
+  name: 'Dupia',
+  alternateName: ['Digital Utopian Planet', 'DUPIA'],
+  description: 'Dijital gezegen / dijital ülke / dijital ütopya girişimi. Şirket değil — fikir + girişim + ekosistem.',
+  creator: { '@id': ORG_ID },
+  dateCreated: '2026-04-27',
+  inLanguage: 'tr-TR',
+  keywords: 'dijital ütopya, dijital gezegen, dijital ülke, kolektif fon, etik-ilk, ekosistem',
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, workSchema]}>
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/labs" class="hover:text-black">Labs</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Dupia</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Labs · 02 · Sosyal Ekosistem
+      </p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[100px] leading-[0.95] mb-8">
+        Dupia
+      </h1>
+      <p class="editorial-display text-2xl md:text-3xl text-slate-600 mb-12 leading-[1.1]">
+        Digital Utopian Planet.
+      </p>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        <strong>Dijital gezegen / dijital ülke / dijital ütopya girişimi.</strong>
+        2026 Nisan'da başlatıldı. Şirket değil — bir fikir + girişim + ekosistem.
+        Kolektif fon, ortak karar, etik-ilk yaklaşımı.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ne</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-8 leading-[1]">
+        Dupia nedir, ne değildir?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-12 mt-12">
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-4">Kullan</p>
+          <ul class="space-y-2 text-slate-700">
+            <li>· girişim</li>
+            <li>· platform</li>
+            <li>· oluşum</li>
+            <li>· ekosistem</li>
+            <li>· Dupia</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-4">Kaçın</p>
+          <ul class="space-y-2 text-slate-700">
+            <li>· şirket</li>
+            <li>· kripto saadet zinciri</li>
+            <li>· parti / tarikat</li>
+            <li>· ayrılıkçı yapı</li>
+            <li>· salt sosyal medya / SaaS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Neden</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-8 leading-[1]">
+        Topluluk-tasarımı pratiği için canlı zemin.
+      </h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-6">
+        Müşterilere "topluluk inşa edin" tavsiyesi vermek kolay; <strong>bir topluluğun nasıl
+        sürdürülebilir karar verdiğini, fonu nasıl yönettiğini, etik krizi nasıl atlattığını</strong>
+        gerçekten bilmeden iyi tavsiye verilemez.
+      </p>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        Dupia bu sorulara <strong>canlı deney</strong> ile cevap arıyor — Anayasa, ekonomi, governance
+        protokolleri, etik çerçeve (YBF ile entegre).
+        Gonet bu deneyimi <a href="/yetenekler/strateji-danismanlik" class="underline">strateji & danışmanlık</a>
+        hizmetlerine geri dönüştürür.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Durum</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-8 leading-[1]">
+        Geliştirme aşamasında.
+      </h2>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        Belge altyapısı, anayasa taslakları, governance modeli, ekonomi modeli — vault tabanlı
+        Karpathy LLM Wiki paradigmasıyla yönetiliyor. Pilot lansman tarihi belirsiz; metodolojik olgunluk önceliği.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

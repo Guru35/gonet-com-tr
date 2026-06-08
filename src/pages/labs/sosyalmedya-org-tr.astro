@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = "Sosyalmedya.org.tr — AI × Sosyal Medya Yayını | Gonet Labs";
+const description =
+  "Sosyalmedya.org.tr — Gonet/Pigme A.Ş.'nin tam otonom AI haber yayını. " +
+  "Yapay zeka × sosyal medya kesişimi: günlük analiz, araç incelemeleri, trend raporları. " +
+  "Pazartesi 09:00 cron ile haftalık otomatik içerik üretimi. AEO Content Engine'in canlı vitrini.";
+const url = `${SITE_URL}/labs/sosyalmedya-org-tr`;
+const externalUrl = "https://sosyalmedya.org.tr";
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Labs', url: 'https://gonet.com.tr/labs' },
+    { name: 'Sosyalmedya.org.tr', url },
+  ],
+});
+
+const workSchema = {
+  '@type': 'WebSite',
+  '@id': `${externalUrl}/#website`,
+  name: 'Sosyalmedya.org.tr',
+  alternateName: 'AI × Sosyal Medya',
+  url: externalUrl,
+  description: 'Tam otonom AI haber yayını — günlük analiz, araç incelemeleri, trend raporları.',
+  author: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  inLanguage: 'tr-TR',
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, workSchema]}>
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/labs" class="hover:text-black">Labs</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Sosyalmedya.org.tr</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Labs · 01 · İçerik & Medya
+      </p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[100px] leading-[0.95] mb-12">
+        Sosyalmedya.org.tr
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        <strong>AI × Sosyal Medya</strong> — Pigme A.Ş.'nin tam otonom AI haber yayını.
+        Günlük analiz, araç incelemeleri, trend raporları. Pazartesi 09:00 cron ile haftalık otonom
+        içerik üretimi yapıyor.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href={externalUrl} target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-8 py-3 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Canlı yayını ziyaret et →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Neden var</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-8 leading-[1]">
+        AI içerik üretimini canlı laboratuvarda denemek için.
+      </h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-6">
+        Müşterilere AEO/GEO Content Engine satıyoruz — ama önce kendimiz bilmemiz lazım: AI tam otonom
+        haftalık içerik nasıl üretir, hangi kaynaklar çalışır, hangi tonlar tutar, hangi başlık formatları
+        Common Crawl'a hızlı girer.
+      </p>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        Sosyalmedya.org.tr bu sorulara <strong>4+ yıllık canlı veri</strong> ile cevap veriyor.
+        Engine altyapısı gonet.com.tr için aynı stack'e fork edildi:
+        <a href="/aeo-geo-denetimi" class="underline">AEO/GEO Denetim Hizmeti</a>'nin teknik temeli.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ne öğrendik</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-12 leading-[1]">
+        4 önemli bulgu.
+      </h2>
+
+      <div class="space-y-8">
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">AI yazımı insan editör onayı olmadan hızla itibar yakar</h3>
+          <p class="text-slate-700">İnsan-in-loop disiplini olmadan AI çıktısı kalitesi düşer; otomasyon ≠ otonom.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">Pazartesi 09:00 cron pattern hafif ve sürdürülebilir</h3>
+          <p class="text-slate-700">Haftalık tek yayın, derin analiz, AEO-ready format. "Her gün post atma" baskısı yok.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">Schema.org NewsArticle + IndexNow combo crawl hızlandırıcı</h3>
+          <p class="text-slate-700">Bing/Yandex anında haber alır; CC sonraki snapshot'ında yer alır.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">14 kaynaklı çoklu-besleme sistemi içerik konvexitesini artırıyor</h3>
+          <p class="text-slate-700">Tek kaynak değil, 14 farklı haber-platformu ham veri akışı + AI sentez = derin analiz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

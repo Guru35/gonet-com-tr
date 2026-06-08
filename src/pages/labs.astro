@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "Gonet Labs — Yan & Araştırma Projeleri";
+const description =
+  "Gonet sadece müşteri hizmeti vermez — kendi yan projelerini de yürütür. " +
+  "Sosyalmedya.org.tr (AI × Sosyal Medya yayını), Dupia (Digital Utopian Planet girişimi) " +
+  "ve YBF (Yalın Bilinç Felsefesi · AI hizalama hipotezi). Yapan ajansın laboratuvarı.";
+const url = `${SITE_URL}/labs`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Labs', url },
+  ],
+});
+
+const labsCollectionSchema = {
+  '@type': 'ItemList',
+  '@id': `${url}#projects`,
+  name: 'Gonet Labs — Yan ve Araştırma Projeleri',
+  numberOfItems: 3,
+  itemListElement: [
+    {
+      '@type': 'CreativeWork',
+      position: 1,
+      name: 'Sosyalmedya.org.tr',
+      url: 'https://sosyalmedya.org.tr',
+      description: 'Tam otonom AI haber yayını — AI × sosyal medya günlük analiz + araç incelemeleri + trend raporları.',
+      author: { '@id': ORG_ID },
+    },
+    {
+      '@type': 'CreativeWork',
+      position: 2,
+      name: 'Dupia',
+      alternateName: 'Digital Utopian Planet',
+      description: 'Dijital gezegen / dijital ülke / dijital ütopya girişimi. Topluluk + ekosistem modelinde araştırma projesi.',
+      author: { '@id': ORG_ID },
+    },
+    {
+      '@type': 'CreativeWork',
+      position: 3,
+      name: 'YBF',
+      alternateName: 'Yalın Bilinç Felsefesi',
+      description: 'AI hizalama için bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model hipotezi. Kitap projesi + araştırma white-paper.',
+      author: { '@id': ORG_ID },
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, labsCollectionSchema]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Labs</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Yan projeler · Araştırma laboratuvarı
+      </p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[100px] leading-[0.95] mb-12">
+        Gonet Labs
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Gonet, 26 yıllık ajans birikiminin yanı sıra <strong>kendi yan projelerini</strong> de yürütür.
+        İçerik üretimi, dijital topluluk ve felsefi-akademik AI araştırması — üç farklı katmanda
+        deneysel girişimler. <strong>Yapan ajansın</strong> laboratuvarı.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 Proje Kartı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-16">3 aktif proje</p>
+
+      <div class="space-y-12">
+        <!-- Sosyalmedya.org.tr -->
+        <a href="/labs/sosyalmedya-org-tr" class="block group">
+          <div class="grid md:grid-cols-12 gap-6 border-l-2 border-slate-300 pl-8 py-6 transition group-hover:border-black">
+            <span class="md:col-span-2 editorial-display text-5xl text-slate-900">01</span>
+            <div class="md:col-span-10">
+              <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-3">
+                İçerik & Medya · Canlı
+              </p>
+              <h2 class="editorial-display text-4xl md:text-5xl mb-4 leading-[1] group-hover:text-black transition">
+                Sosyalmedya.org.tr
+              </h2>
+              <p class="text-lg text-slate-700 mb-3">
+                <strong>AI × Sosyal Medya</strong> — tam otonom AI haber yayını.
+                Günlük analiz, araç incelemeleri, trend raporları. Pazartesi 09:00 cron otomatik içerik üretimi.
+              </p>
+              <p class="text-sm text-slate-500">
+                Detayları gör →
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Dupia -->
+        <a href="/labs/dupia" class="block group">
+          <div class="grid md:grid-cols-12 gap-6 border-l-2 border-slate-300 pl-8 py-6 transition group-hover:border-black">
+            <span class="md:col-span-2 editorial-display text-5xl text-slate-900">02</span>
+            <div class="md:col-span-10">
+              <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-3">
+                Sosyal Ekosistem · Geliştirme aşaması
+              </p>
+              <h2 class="editorial-display text-4xl md:text-5xl mb-4 leading-[1] group-hover:text-black transition">
+                Dupia
+              </h2>
+              <p class="text-lg text-slate-700 mb-3">
+                <strong>Digital Utopian Planet</strong> — dijital gezegen / dijital ülke / dijital ütopya girişimi.
+                Topluluk + kolektif fon + ortak karar modelinde araştırma platformu.
+                Şirket değil — fikir + girişim + ekosistem.
+              </p>
+              <p class="text-sm text-slate-500">
+                Detayları gör →
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- YBF — TEK KIRMIZI VURGU: en derin/araştırmacı katman -->
+        <a href="/labs/ybf" class="block group">
+          <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-8 py-6 transition" style="border-color:#ff0000">
+            <span class="md:col-span-2 editorial-display text-5xl text-slate-900">03</span>
+            <div class="md:col-span-10">
+              <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-3">
+                Felsefi-Akademik · Hipotez & White-Paper
+              </p>
+              <h2 class="editorial-display text-4xl md:text-5xl mb-4 leading-[1] group-hover:text-black transition">
+                YBF — Yalın Bilinç Felsefesi
+              </h2>
+              <p class="text-lg text-slate-700 mb-3">
+                AI hizalama için <strong>bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model</strong> hipotezi.
+                Kültürel görelilikten bağımsız, öğrenilebilir, genelleştirilebilir bir etik sinyal arayışı.
+                Kitap projesi + akademik white-paper.
+              </p>
+              <p class="text-sm text-slate-500">
+                Detayları gör →
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Manifesto -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-400 mb-8">
+        Neden lab?
+      </p>
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Müşteriye verilen tavsiye<br/>
+        <span style="color:#ff0000">ajansın kendi yatırımıyla sınanmadan</span><br/>
+        eksiktir.
+      </p>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Yan projeler, ajansın felsefi disiplinini somutlaştırır.
+        Sosyalmedya'da AI içerik üretimini yıllardır deniyoruz; Dupia'da topluluk-tasarımı pratiği yürütüyoruz;
+        YBF'de AI etik hizalama için derin araştırma yapıyoruz. <strong>Bilgi orada, denenmiş, kaydedilmiş.</strong>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

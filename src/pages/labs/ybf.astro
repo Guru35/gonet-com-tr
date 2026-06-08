@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = "YBF — Yalın Bilinç Felsefesi · AI Hizalama Hipotezi | Gonet Labs";
+const description =
+  "YBF (Yalın Bilinç Felsefesi) — AI hizalama için bilincin evrimsel mimarisinden türetilmiş " +
+  "çok-eksenli etik model hipotezi. Kültürel görelilikten bağımsız, öğrenilebilir, " +
+  "genelleştirilebilir bir etik sinyal arayışı. Kitap projesi + akademik white-paper.";
+const url = `${SITE_URL}/labs/ybf`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Labs', url: 'https://gonet.com.tr/labs' },
+    { name: 'YBF', url },
+  ],
+});
+
+const workSchema = {
+  '@type': 'CreativeWork',
+  '@id': `${url}#work`,
+  name: 'YBF — Yalın Bilinç Felsefesi',
+  alternateName: ['Yalın Bilinç Felsefesi', 'YBF-AI'],
+  description: 'AI hizalama için bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model hipotezi.',
+  creator: { '@id': ORG_ID },
+  inLanguage: 'tr-TR',
+  keywords: 'AI hizalama, AI alignment, etik model, bilinç felsefesi, evrimsel etik, alignment alternative',
+  about: [
+    { '@type': 'Thing', name: 'AI Alignment' },
+    { '@type': 'Thing', name: 'Philosophy of Mind' },
+    { '@type': 'Thing', name: 'Evolutionary Ethics' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, workSchema]}>
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/labs" class="hover:text-black">Labs</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">YBF</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Labs · 03 · Felsefi-Akademik
+      </p>
+      <h1 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[90px] leading-[0.95] mb-8">
+        YBF
+      </h1>
+      <p class="editorial-display text-2xl md:text-3xl text-slate-600 mb-12 leading-[1.1]">
+        Yalın Bilinç Felsefesi.
+      </p>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        AI hizalama için <strong>bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model</strong> hipotezi.
+        Mevcut AI alignment yöntemlerine alternatif veya tamamlayıcı zemin sunma iddiası.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ana Hipotez kutu -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ana hipotez (H1)</p>
+      <div class="border-l-4 pl-8 py-2" style="border-color:#ff0000">
+        <p class="editorial-display text-3xl md:text-4xl leading-[1.15] mb-8">
+          "Bilincin evrimsel mimarisinden türetilmiş çok-eksenli bir model,
+          <span class="text-slate-500">etik davranış için</span> tutarlı, öğrenilebilir ve genelleştirilebilir bir sinyal üretir."
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">İddia 1</p>
+            <p class="text-slate-700">Kültürel görelilikten bağımsızdır.</p>
+          </div>
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">İddia 2</p>
+            <p class="text-slate-700">İnsan tercihlerinden daha kararlıdır.</p>
+          </div>
+          <div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">İddia 3</p>
+            <p class="text-slate-700">Mevcut AI hizalama yöntemlerine alternatif veya tamamlayıcı zemin sunar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Neden Gonet bu işle uğraşıyor</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-8 leading-[1]">
+        Müşteriye AI tavsiyesi vermek için<br/>AI'nin ne olduğunu derinden bilmek gerek.
+      </h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-6">
+        AEO/GEO denetim hizmeti satıyoruz — Claude, ChatGPT, Perplexity, Gemini'nin
+        nasıl "düşündüğünü", neyi neden alıntıladığını anlamak için <strong>AI hizalama, etik model,
+        eğitim hedefi</strong> konularını derinden bilmek lazım.
+      </p>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        YBF bu disiplini sürdürüyor — Gonet'in "müşteri için strateji" yetkinliğinin felsefi-akademik temelidir.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Çıktılar</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-12 leading-[1]">
+        Kitap + white-paper + matematik modeli.
+      </h2>
+
+      <div class="space-y-8">
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">Kitap Taslağı (Kitap 1)</h3>
+          <p class="text-slate-700">YBF'in temel felsefi kapsamı — hazırlanıyor.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">White-paper v0.3 (Kitap 2 raw)</h3>
+          <p class="text-slate-700">YBF2-AI hizalama uygulamaları, matematiksel model, MLP deney sonuçları, toy deneyler.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">Bibliyografya + Argümanlar</h3>
+          <p class="text-slate-700">Felsefi (bilinç çalışmaları) + akademik (alignment literatürü) kaynak haritası.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-6">
+          <h3 class="text-xl font-medium mb-2">Üç-Sistem Rolleri + Veto-Döngü Evrim Modeli</h3>
+          <p class="text-slate-700">Bilincin evrimsel katmanları ile etik karar dinamiği matematiksel formülasyonu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-400 mb-8">
+        Açıklama
+      </p>
+      <p class="editorial-display text-2xl md:text-3xl leading-[1.3] mb-10">
+        YBF açık-erişim bir araştırma projesidir.<br/>
+        Kitap ve white-paper yayınlandığında <strong>kamuya açık</strong> olarak paylaşılacaktır.
+      </p>
+      <p class="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Bu sayfa şu an için bir araştırma showcase'i; sonraki sürümlerde indirilebilir PDF'ler ve
+        akademik makalelere bağlantılar eklenecek.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

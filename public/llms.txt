@@ -42,6 +42,12 @@
 - [AEO/GEO Denetim Hizmeti](https://gonet.com.tr/aeo-geo-denetimi): Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor + Content-Auditor + Researcher (4 platform LLM probe) + Drift Detection. ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de markanın temsiline kanıt-bazlı denetim. **3 paket:** Express (1 hafta), Standart (2 hafta, en yaygın), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).
 - Gonet kendi sitesinde uyguluyor: 18+ Schema.org tip, 130+ Organization entity, llms.txt, 21 AI bot policy, CF AI Crawl Control baseline, 52 extraction-ready detay sayfa, IndexNow protokolü.
 
+## Labs (Yan & Araştırma Projeleri)
+- [Gonet Labs](https://gonet.com.tr/labs): Gonet sadece müşteri hizmeti vermez, kendi yan projelerini yürütür. 3 aktif: Sosyalmedya.org.tr + Dupia + YBF. "Yapan ajansın" laboratuvarı konumlanması.
+- [Sosyalmedya.org.tr](https://gonet.com.tr/labs/sosyalmedya-org-tr): Tam otonom AI haber yayını — AI × Sosyal Medya kesişimi. Pazartesi 09:00 cron otonom içerik üretimi. AEO Content Engine'in canlı vitrini. 4+ yıllık üretim.
+- [Dupia](https://gonet.com.tr/labs/dupia): Digital Utopian Planet — dijital gezegen / dijital ülke / dijital ütopya girişimi. Şirket değil, fikir + girişim + ekosistem. Topluluk-tasarımı pratiği için canlı zemin.
+- [YBF — Yalın Bilinç Felsefesi](https://gonet.com.tr/labs/ybf): AI hizalama için bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model hipotezi. Kitap projesi + akademik white-paper. Mevcut AI alignment yöntemlerine alternatif zemin iddiası.
+
 ## Müşteri Operasyonu
 - Mevcut müşteriler için **Merhaba portalı** (login gerektirir, public-index dışı): sosyal medya post onay akışı, görev takibi, içerik takvimi, GA4/GSC raporlama. KVKK uyumlu, 6 ay veri saklama.
 - B2B operasyonel olgunluk: ajansın sunduğu hizmet sadece üretim değil — müşteriye **kendine ait dashboard + onay akışı + raporlama altyapısı** sunar.
