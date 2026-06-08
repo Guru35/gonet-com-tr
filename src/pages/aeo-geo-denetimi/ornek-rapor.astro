@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = "Örnek Denetim Raporu — Gonet AEO/GEO Denetim Hizmeti | Canlı Vitrin";
+const description =
+  "Gonet'in kendi sitesinde uyguladığı AEO/GEO denetim raporunun tam paket örneği. 5 katmanlı metodoloji (Erişim → Crawl → Tech → Content → Researcher), Anthropic Claude probe Share-of-Model %20 bulgusu, 6 P0-P5 aksiyon planı. PDF indirilebilir.";
+const url = `${SITE_URL}/aeo-geo-denetimi/ornek-rapor`;
+const pdfUrl = `${SITE_URL}/raporlar/gonet-aeo-geo-denetim-ornek-2026-06.pdf`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'AEO/GEO Denetim Hizmeti', url: 'https://gonet.com.tr/aeo-geo-denetimi' },
+    { name: 'Örnek Rapor', url },
+  ],
+});
+
+const reportSchema = {
+  '@type': 'Report',
+  '@id': `${url}#report`,
+  name: 'Gonet AEO/GEO Denetim Raporu — İlk Pilot (canlı vitrin)',
+  datePublished: '2026-06-08',
+  inLanguage: 'tr-TR',
+  author: { '@id': ORG_ID },
+  about: {
+    '@type': 'Service',
+    name: 'AEO/GEO Denetim Hizmeti',
+    url: 'https://gonet.com.tr/aeo-geo-denetimi',
+  },
+  encoding: {
+    '@type': 'MediaObject',
+    encodingFormat: 'application/pdf',
+    contentUrl: pdfUrl,
+  },
+  abstract:
+    "5 katmanlı sistematik denetim: Erişim (5/5 AI bot 200), Crawl (Common Crawl 10 kayıt), Tech-Auditor (0 critical), Content (extraction-ready), Researcher (Anthropic Claude SoM %20). Tanı: altyapı sınıfının en iyisi, ama LLM eğitim setlerine henüz girmemiş. 6 P0-P5 aksiyon planı önceliklendirildi.",
+};
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, reportSchema]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/aeo-geo-denetimi" class="hover:text-black">AEO/GEO Denetim</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Örnek Rapor</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Canlı vitrin · Otantik denetim
+      </p>
+      <h1 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[90px] leading-[0.95] mb-12">
+        Gonet kendi sitesinde<br/>
+        <span style="color:#ff0000">aynı hizmeti uyguladı</span>.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Aşağıdaki rapor, <a href="/aeo-geo-denetimi" class="underline">AEO/GEO Denetim Hizmeti</a>'nin
+        <strong>Standart paket</strong> kapsamı ile gonet.com.tr'a uygulanmış halidir.
+        <strong>Hiçbir bulguyu gizlemedik</strong> — Researcher katmanında Claude'un Share-of-Model'i
+        sadece %20 çıktı. Bu dürüstlük, sunduğumuz hizmetin değerinin kanıtıdır:
+        denetim olmadan markanızın AI motorlarında nasıl temsil edildiğini bilemezsiniz.
+      </p>
+
+      <div class="mt-12 flex flex-wrap items-center gap-4">
+        <a href={pdfUrl} target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-10 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          → Tam raporu indir (PDF, 1.6 MB)
+        </a>
+        <a href="/iletisim"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Bizim için teklif al
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Katman Özeti -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Tam paket sonuçları</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        5 katman · 4 yeşil · 1 kırmızı.
+      </h2>
+
+      <div class="space-y-6">
+        <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-6 py-4" style="border-color:#22c55e">
+          <span class="md:col-span-2 editorial-display text-5xl" style="color:#22c55e">1</span>
+          <div class="md:col-span-10">
+            <h3 class="text-xl font-medium mb-2">Erişim — Bot girebiliyor mu?</h3>
+            <p class="text-slate-700">
+              CCBot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended <strong>hepsi 200 dönüyor</strong>.
+              robots.txt 21 AI bot için <strong>explicit allow</strong> — açık politika doğru uygulanmış.
+              WAF/CDN tuzak yok.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-6 py-4" style="border-color:#22c55e">
+          <span class="md:col-span-2 editorial-display text-5xl" style="color:#22c55e">2</span>
+          <div class="md:col-span-10">
+            <h3 class="text-xl font-medium mb-2">Crawl — Arşivde miyim?</h3>
+            <p class="text-slate-700">
+              Common Crawl 2026-21 snapshot'ında <strong>10 kayıt mevcut</strong> (13 Mayıs 2026 taze).
+              Snapshot eski 2010, 2022, 2026 kayıtlarının karışımı — site evrim takip ediliyor.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-6 py-4" style="border-color:#22c55e">
+          <span class="md:col-span-2 editorial-display text-5xl" style="color:#22c55e">3</span>
+          <div class="md:col-span-10">
+            <h3 class="text-xl font-medium mb-2">Tech-Auditor — Yapısal sinyal sağlam mı?</h3>
+            <p class="text-slate-700">
+              <strong>0 critical, 1 warning, 3 info</strong> — hepsi false positive
+              (Astro <code>sitemap-index.xml</code> + Schema.org @graph regex tespit edememesi).
+              Manuel kontrol: <strong>10+ Schema.org @type aktif</strong> (Organization, Person, Service,
+              DefinedTerm, AccessAction, FAQPage, BreadcrumbList vd.). llms.txt zengin, SSR static.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-6 py-4" style="border-color:#22c55e">
+          <span class="md:col-span-2 editorial-display text-5xl" style="color:#22c55e">4</span>
+          <div class="md:col-span-10">
+            <h3 class="text-xl font-medium mb-2">Content — Alıntılanabilir miyim?</h3>
+            <p class="text-slate-700">
+              <strong>Front-loading + atomic + soru-bazlı heading</strong> uygulanmış.
+              FAQPage Q&A her detay sayfada. Aggarwal 9 GEO yönteminden 6'sı yüksek skor:
+              Cite Sources, Authoritative, Fluency, Unique Words, Statistics, Quotation (kısmen).
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 border-l-4 pl-6 py-4" style="border-color:#ff0000">
+          <span class="md:col-span-2 editorial-display text-5xl" style="color:#ff0000">5</span>
+          <div class="md:col-span-10">
+            <h3 class="text-xl font-medium mb-2" style="color:#ff0000">Researcher — Beni nasıl temsil ediyor?</h3>
+            <p class="text-slate-700">
+              <strong>Anthropic Claude Haiku 4.5</strong> ile 5 probe yapıldı.
+              Sonuç: <strong>Share-of-Model %20</strong> (1/5), Citation Rate %0, CER %80.
+              "Gonet kimdir?" sorusunda Claude <strong>yanlış tanım</strong> üretti
+              (<em>"ağ yönetimi ve internet altyapısı hizmetleri sağlayan kuruluşlar içi…"</em>).
+              Gökhan Kazancı tanınmadı.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 p-6 bg-white border-l-4 border-black">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-3">Tek cümlelik tanı</p>
+        <p class="text-lg text-slate-700">
+          Gonet'in <strong>altyapısı sınıfının en iyisi</strong> (Schema.org @graph + llms.txt + 21 AI bot policy + CF AI Crawl Control),
+          ama bu altyapı <strong>henüz LLM eğitim setlerine ulaşmamış</strong>. Common Crawl'da görünüyor ancak Claude'un parametrik belleğine girememiş.
+          <strong>Wikipedia/Wikidata + basın PR + 3rd-party referans inşası</strong> 6 ay vadede etkili.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aksiyon planı -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Aksiyon planı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        6 öncelik · P0 → P5.
+      </h2>
+
+      <div class="space-y-6">
+        <div class="border-b border-slate-200 pb-4">
+          <p class="font-medium text-lg"><span style="color:#ff0000">P0</span> — Wikipedia / Wikidata entity oluştur (en yüksek ROI)</p>
+          <p class="text-slate-600 text-sm mt-1">Vakıf-kaynaklı Wikidata Q-item + Türkçe & İngilizce Wikipedia maddesi. 3-6 ay vade.</p>
+        </div>
+        <div class="border-b border-slate-200 pb-4">
+          <p class="font-medium text-lg"><span style="color:#f97316">P1</span> — Common Crawl deep crawl tetikle</p>
+          <p class="text-slate-600 text-sm mt-1">High-authority backlink ile Harmonic Centrality artır. IndexNow protokolüne devam.</p>
+        </div>
+        <div class="border-b border-slate-200 pb-4">
+          <p class="font-medium text-lg"><span style="color:#eab308">P2</span> — Basın açıklaması + 3rd-party doğrulama</p>
+          <p class="text-slate-600 text-sm mt-1">"İzmir'in İlk AI Ajansı" temasında Marketing Türkiye / Capital / Webrazzi PR.</p>
+        </div>
+        <div class="border-b border-slate-200 pb-4">
+          <p class="font-medium text-lg"><span style="color:#94a3b8">P3</span> — Yapısal iyileştirmeler</p>
+          <p class="text-slate-600 text-sm mt-1">OAI-SearchBot + Perplexity-User explicit allow. GEO Quotation yöntemini artır.</p>
+        </div>
+        <div class="border-b border-slate-200 pb-4">
+          <p class="font-medium text-lg"><span style="color:#94a3b8">P4</span> — İçerik genişletme</p>
+          <p class="text-slate-600 text-sm mt-1">Industry-vertical specific landing (sağlık turizmi, siyasi, e-ticaret). Daha fazla tek-cümle Q&A.</p>
+        </div>
+        <div>
+          <p class="font-medium text-lg"><span style="color:#94a3b8">P5</span> — Drift takibi</p>
+          <p class="text-slate-600 text-sm mt-1">Aylık (Standart) veya haftalık (Enterprise) LLM probe. Merhaba portal canlı drift dashboard (Enterprise).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maliyet + CTA -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-400 mb-8">
+        Bu denetimin maliyeti
+      </p>
+      <p class="editorial-display text-5xl md:text-7xl mb-6">$0.0083</p>
+      <p class="text-lg text-slate-300 mb-16 max-w-xl mx-auto">
+        Tek seferlik LLM probe maliyeti (Anthropic Haiku 4.5, 5 soru).
+        Standart pakette 4 platform · Enterprise pakette aylık tekrar — fiyatlandırma kanıt-bazlı sürdürülebilir.
+      </p>
+      <p class="editorial-display text-3xl md:text-4xl leading-[1.2] mb-10">
+        Kendi markanız için<br/>
+        <span style="color:#ff0000">aynı tabloyu görmek ister misiniz?</span>
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Teklif al →
+        </a>
+        <a href="/aeo-geo-denetimi" class="inline-flex items-center gap-2 px-10 py-4 border border-white text-white font-medium hover:bg-white hover:text-black transition">
+          3 paketi gör
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
