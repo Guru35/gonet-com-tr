@@ -42,8 +42,6 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
-  - date: "2026-06-07"
-    type: "enhancement"
     summary: "Kreatif viz eklendi (compare, process)"
   - date: "2026-06-08"
     type: "enhancement"

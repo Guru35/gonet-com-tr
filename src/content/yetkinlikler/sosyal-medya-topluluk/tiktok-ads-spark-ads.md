@@ -42,8 +42,6 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
-  - date: "2026-06-07"
-    type: "enhancement"
     summary: "Kreatif viz eklendi (stat-bars, process)"
   - date: "2026-06-08"
     type: "enhancement"

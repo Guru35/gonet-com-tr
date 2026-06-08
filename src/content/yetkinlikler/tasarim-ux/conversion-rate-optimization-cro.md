@@ -43,8 +43,6 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
-  - date: "2026-06-07"
-    type: "enhancement"
     summary: "Kreatif viz eklendi (process, compare)"
   - date: "2026-06-08"
     type: "enhancement"
