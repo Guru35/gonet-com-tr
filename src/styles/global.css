@@ -296,7 +296,8 @@
   text-shadow: none !important;
 }
 
-/* Kırmızı metinlere kırmızı dış ışıma (siyah halo'yu override eder) */
+/* Kırmızı metinlerde ışıma YOK — kullanıcı tercihi 2026-06-08.
+   Eski kırmızı text-shadow bloğu kaldırıldı. */
 [style*="#ff0000"],
 [style*="color:#ff0000"],
 [style*="color: #ff0000"],
@@ -304,14 +305,9 @@
 .text-accent-500,
 .text-accent-600,
 .text-accent-700,
-/* Hover/group-hover ile kırmızıya geçen metinler */
 [class*="hover:text-[#ff"]:hover,
 .group:hover [class*="group-hover:text-[#ff"] {
-  text-shadow:
-    0 0 1px rgba(255,0,0,0.9),
-    0 0 3px rgba(255,0,0,0.4),
-    0 0 8px rgba(255,0,0,0.2),
-    0 0 16px rgba(255,0,0,0.08) !important;
+  text-shadow: none !important;
 }
 /* Kırmızı arka planlı kutular (hover invert vs.) için kırmızı box-shadow */
 [style*="background:#ff0000"],
