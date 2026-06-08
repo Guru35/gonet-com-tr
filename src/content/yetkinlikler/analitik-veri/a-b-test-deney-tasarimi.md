@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -85,6 +88,8 @@ Gonet'in metodolojisi bu hataları engeller. Her testten önce güç analizi yap
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process"><div class="pt">GONET A/B TEST SÜRECİ</div><div class="steps"><div class="step is-primary"><div class="n">1</div><div class="t">Hipotez & Önceliklendirme</div><div class="d">PIE/ICE skorlama, MDE tanımlama, darboğaz tespiti</div></div><div class="step"><div class="n">2</div><div class="t">Deney Protokolü</div><div class="d">Sample size, randomizasyon, metrik tanımı, segmentasyon</div></div><div class="step"><div class="n">3</div><div class="t">Uygulama & İzleme</div><div class="d">Real-time monitoring, SRM kontrolü, trafik dağılımı</div></div><div class="step"><div class="n">4</div><div class="t">İstatistiksel Analiz</div><div class="d">Frequentist/Bayesian yöntem, p-value, güven aralığı</div></div></div></div>
+
 Gonet'in A/B test sürecinde dört ana aşama vardır:
 
 **1. Hipotez geliştirme ve önceliklendirme**
@@ -121,6 +126,8 @@ Gonet, özellikle düşük trafikli siteler için Bayesian yaklaşım önerir �
 | **Fiyatlandırma stratejisi testi** | €49 vs €47 vs €52 gibi price point testlerinde psychological pricing etkisi ölçülür. Revenue per user metriği ile sadece dönüşüm değil, toplam gelir optimize edilir. |
 
 ## İlgili yetkinlikler
+
+<div class="gonet-pullquote"><div class="big-number">+%22</div><div class="big-label">Conversion Lift</div><p class="pq-desc">E-ticaret müşterisi için 14 günlük test, 18.500 session, C varyantı (p=0.003, Bayesian %99.2).</p></div>
 
 A/B test & deney tasarımı şu yetkinliklerle bütünleşir:
 

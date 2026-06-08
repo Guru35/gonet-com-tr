@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -84,6 +87,16 @@ LinkedIn CPC (cost-per-click / tıklama başı maliyet) yüksektir (Türkiye'de 
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">GONET LİNKEDİN ABM YAPILANDIRMA SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">ICP + CRM Senkronizasyonu</div><div class="d">Salesforce/HubSpot'tan Tier-1/2 hesaplar Sales Navigator'a aktarılır</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Insight Tag + GTM Event Tracking</div><div class="d">GA4 event'leri LinkedIn Conversion'a eşlenir, segment oluşturulur</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Multi-Format Kampanya</div><div class="d">Sponsored Content/InMail/Dynamic Ads AIDA aşamalarına göre yapılandırılır</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Conversion API + Lead Gen</div><div class="d">LinkedIn Lead Gen Forms CRM'e aktarılır, offline conversion geri beslenir</div></div>
+  </div>
+</div>
+
 Gonet, LinkedIn Ads + Sales Navigator yapılandırmasını dört katmanda işler:
 
 1. **ICP tanımı ve CRM-Sales Navigator senkronizasyonu**: Müşterinin Salesforce/HubSpot/Pipedrive CRM'inden 'Tier-1' ve 'Tier-2' hesap listeleri çıkarılır. Sales Navigator'da bu şirketler Account List'e eklenir. Aynı listelerdeki karar verici unvanlar (VP, Director, Head of) Lead List'e eklenir. Bu listeler Campaign Manager Matched Audiences'a senkronize edilir (API veya CSV).
@@ -97,6 +110,11 @@ Gonet, LinkedIn Ads + Sales Navigator yapılandırmasını dört katmanda işler
 Gonet, kampanya başlangıcında 4 haftalık 'learning phase' (öğrenme aşaması) tanımlar: haftada 50+ dönüşüm (lead form submission veya site conversion) hedeflenir ki algoritma optimize olsun. İlk 2 hafta geniş hedefleme (sektör + unvan), 3-4. haftalarda Matched Audiences daraltması yapılır.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Meta Ads</div><div class="bar"><span style="--h: 19px"></span></div><div class="v">%0,6</div><div class="desc">Genel B2B retargeting dönüşüm oranı</div></div>
+  <div class="col is-primary"><div class="lab">LinkedIn Ads</div><div class="bar"><span style="--h: 134px"></span></div><div class="v">%4,2</div><div class="desc">Endüstriyel IoT müşterisi retargeting (800 aylık ziyaretçi)</div></div>
+</div>
 
 | **Durum** | **Etki** |
 |-----------|----------|

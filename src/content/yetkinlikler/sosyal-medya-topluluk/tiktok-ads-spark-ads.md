@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (stat-bars, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,14 @@ TikTok Ads Manager (TikTok Reklam Yöneticisi), platformun kendi reklam arayüz�
 TikTok algoritması full-screen video formatı ve ses odaklı içerik tüketimine optimize edilmiştir. Kullanıcı ortalama oturum süresi 52 dakika civarındadır (2024 verileri) ve platform henüz saturation (doygunluk) aşamasında değil — CPC/CPM değerleri Meta'ya göre %30-50 daha düşük olabilir. Ancak içerik formatı zorunlu: TikTok'ta klasik banner veya statik görsel reklam yoktur, her şey dikey videodur.
 
 ## Neden kritik?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">SPARK ADS PERFORMANS AVANTAJI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">CTR Artışı</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">+%40-60</span></div>
+  <div class="gonet-stat-bar"><span class="label">Hook Rate</span><span class="track"><span class="fill" style="--val:56%"></span></span><span class="value">%28</span></div>
+  <div class="gonet-stat-bar"><span class="label">CPA Düşüşü</span><span class="track"><span class="fill" style="--val:40%"></span></span><span class="value">-%20-40</span></div>
+  <div class="gonet-stat-bar"><span class="label">Form Completion</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">%60+</span></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -79,6 +90,15 @@ TikTok algoritması full-screen video formatı ve ses odaklı içerik tüketimin
 5. **Düşük CPA potansiyeli**: E-ticaret markaları için TikTok Ads CPA'sı (cost per acquisition — edinim başına maliyet) Meta'dan %20-40 düşük olabilir — özellikle 18-34 yaş hedef kitlede.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET 3 AŞAMALI TİKTOK ADS METODOLOJİSİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Creative-First Strateji</div><div class="d">5-10 hook varyasyonu test, kazanan %60 budget alır</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Spark Ads Orkestrasyonu</div><div class="d">Micro-influencer UGC + paid media gücü birleşimi</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Pixel + GA4 Entegrasyonu</div><div class="d">Multi-touch attribution, cross-channel karşılaştırma</div></div>
+  </div>
+</div>
 
 Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 

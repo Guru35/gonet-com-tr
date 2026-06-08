@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,21 @@ Tailwind CSS v4, utility-first (yardımcı sınıf öncelikli) yaklaşımla CSS 
 Gonet olarak Tailwind CSS v4'ü 2000'den beri edindiğimiz frontend deneyimimizle birleştiriyor, marka kimliğinizi kod seviyesinde standartlaştırıyoruz. Framework'ün JIT (Just-In-Time) derleyicisi, yalnızca kullandığınız sınıfları üretir; bu sayede production CSS dosyaları %95'e kadar küçülür.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Geleneksel CSS</div>
+    <div class="bar"><span style="--h: 48px"></span></div>
+    <div class="v">1.0×</div>
+    <div class="desc">Ayrı CSS dosyaları, manuel tutarlılık</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">Tailwind v4</div>
+    <div class="bar"><span style="--h: 168px"></span></div>
+    <div class="v">3.5×</div>
+    <div class="desc">JIT derleyici, utility-first mimari</div>
+  </div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -83,6 +101,32 @@ Kurumsal web projelerinde en büyük maliyet kalemlerinden biri CSS teknik borcu
 **Responsive tasarım**: Breakpoint önekleri (`md:`, `lg:`, `xl:`) ile responsive davranışlar kod seviyesinde görünür ve test edilebilir hale gelir. Ayrı media query blokları yerine `flex md:grid` gibi declarative (bildirimsel) yapılar kullanılır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">TAILWIND V4 ENTEGRASYON SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Design Token Aktarımı</div>
+      <div class="d">Figma değişkenleri → tailwind.config.js</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Komponent Kütüphanesi</div>
+      <div class="d">React/Vue blokları, prop-based styling</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Accessibility Entegrasyonu</div>
+      <div class="d">WCAG 2.1 AA uyumluluğu, ARIA state'ler</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">Performance Monitoring</div>
+      <div class="d">Lighthouse CI, bundle analizi, PurgeCSS</div>
+    </div>
+  </div>
+</div>
 
 Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 220+ marka deneyiminden süzülen tasarım sistemi metodolojisidir. Her proje için özel tailwind.config.js dosyası oluştururuz; marka renkleri, tipografi hiyerarşisi, shadow sistemleri ve custom utility'ler bu dosyada tanımlanır.
 

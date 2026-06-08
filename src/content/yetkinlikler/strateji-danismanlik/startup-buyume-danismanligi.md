@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -86,6 +89,16 @@ Tek seferlik kampanyalar yerine kendini besleyen sistemler inşa ediyoruz. DEPAR
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">STARTUP BÜYÜME YOLCULUĞU</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Keşif + Hipotez</div><div class="d">TAM/SAM/SOM hesabı, persona atölyesi, rekabetçi analiz</div></div>
+    <div class="step"><div class="n">2</div><div class="t">MVP Pazarlama Stack</div><div class="d">GA4/GTM kurulum, ilk landing page A/B testleri</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Traction Kanalları</div><div class="d">Paid search, sosyal ads, influencer iş birlikleri</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Ölçekleme + Otomasyon</div><div class="d">CRM entegrasyonu, lookalike audiences, retargeting</div></div>
+  </div>
+</div>
+
 **Keşif + hipotez haritası (1. ay)**  
 Rekabetçi analiz, TAM/SAM/SOM (Total/Serviceable/Obtainable Addressable Market) hesaplaması, kullanıcı persona (kişilik) atölyesi. DEPARK için belediye + özel otopark işletmecisi ayrımını ilk hafta tespit ettik; satış materyalleri bu ikiye özel ayrıldı.
 
@@ -102,6 +115,13 @@ Marketing automation (pazarlama otomasyonu), CRM (Customer Relationship Manageme
 Her karar dashboards (gösterge panelleri) destekli. DEPARK için haftalık cohort (grup) analizi, Bambu için günlük revenue per session (oturum başı gelir), Dojonote için feature adoption (özellik benimseme) skorları — ekip Looker Studio + Mixpanel raporlarını ortak dil olarak kullanıyor.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">DEPARK ETKİ METRİKLERİ</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Demo talepleri</span><span class="track"><span class="fill" style="--val:100%"></span></span><span class="value">340</span></div>
+  <div class="gonet-stat-bar"><span class="label">Dönüşüm oranı</span><span class="track"><span class="fill" style="--val:18%"></span></span><span class="value">%18</span></div>
+  <div class="gonet-stat-bar"><span class="label">Satış süresi azalma</span><span class="track"><span class="fill" style="--val:62%"></span></span><span class="value">45→28 gün</span></div>
+</div>
 
 | **Durum** | **Etki** |
 |-----------|----------|

@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -80,6 +83,15 @@ Gonet'in yönettiği siyasi kampanyalarda, rakip kampanyaların dezenformasyon i
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">KRİZ YÖNETİMİ SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Erken Uyarı</div><div class="d">7/24 sosyal dinleme, Google Trends, otomatik alarm</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Müdahale Protokolü</div><div class="d">Hazır senaryo, onaylı sözcü, kanal/ton kılavuzu</div></div>
+    <div class="step"><div class="n">3</div><div class="t">İyileştirme</div><div class="d">SEO rehabilitasyon, pozitif içerik, advocacy hareketi</div></div>
+  </div>
+</div>
+
 Gonet'in kriz yönetimi modeli üç katmanlıdır: erken uyarı, müdahale ve iyileştirme.
 
 **Erken uyarı sistemi**, markanın dijital ayak izini 7/24 izler. Social listening (sosyal dinleme) araçları ile X (Twitter), Instagram, YouTube, forum ve haber sitelerinde marka, ürün ve yönetici adlarına yapılan atıflar gerçek zamanlı takip edilir. Google Alerts, Google Trends ve özel crawler'lar (tarayıcılar) ile arama motoru davranışı izlenir. Anormal artış tespit edildiğinde (mention spike, negatif sentiment artışı) otomatik bildirim tetiklenir.
@@ -109,5 +121,11 @@ Marka iletişimi krizi yönetimi, Gonet'in diğer stratejik yetkinlikleri ile en
 - [Dijital kampanya planlama](/yetkinlikler/dijital-kampanya-planlama) — Kriz sonrası itibar düzeltme kampanyalarının tasarımı
 
 ## Gonet ile çalışmak
+
+<div class="gonet-pullquote">
+  <div class="big-number">26 yıl</div>
+  <div class="big-label">Ajans deneyimi</div>
+  <p class="pq-desc">Yüzlerce marka için kanıtlanmış kriz protokolleri, ilk 24 saatte doğru adımları garanti eder.</p>
+</div>
 
 Kriz anında hız ve deneyim fark yaratır. Gonet'in 26 yıllık ajans geçmişinde yüzlerce marka için geliştirdiği kriz protokolleri, ilk 24 saatte doğru adımları garanti eder. Sağlık, siyaset ve enterprise sektörlerinde kanıtlanmış senaryolarımız var. Markanız için özelleştirilmiş erken uyarı sistemi ve müdahale planı kurmak için [iletişime geçin](/iletisim).

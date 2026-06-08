@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,11 @@ BigQuery, Google Cloud'un sunduğu sunucusuz (serverless) veri ambarı servisidi
 Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 220+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">GA4 Arayüzü</div><div class="bar"><span style="--h: 28px"></span></div><div class="v">Sampling</div><div class="desc">14 ay veri, örnekleme var</div></div>
+  <div class="col is-primary"><div class="lab">BigQuery + SQL</div><div class="bar"><span style="--h: 112px"></span></div><div class="v">Tüm Veri</div><div class="desc">25+ ay, %100 granülarite</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -83,6 +91,15 @@ GA4 raporlama arayüzü sampling (örnekleme) uygular, 14 aylık veri saklama s�
 E-ticaret, SaaS, abonelik modellerinde BigQuery + SQL, veri analistinden bağımsız hareket kabiliyeti sağlar. Gonet müşterileri, kampanya performansını yalnızca 'tıklama' veya 'conversion' ile değil, 'ilk ziyaret → ilk satın alma arası median gün', 'ikinci satın alma olasılığı', 'ortalama sipariş değeri değişim trendi' gibi metriklere dayalı optimize eder.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET BİGQUERY ALTYAPISI</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Altyapı Kurulumu</div><div class="d">GA4→BigQuery export, partitioned tables</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Script Kütüphanesi</div><div class="d">Funnel, cohort, attribution SQL sorguları</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Custom Modelleme</div><div class="d">Churn skoru, lead kalite, product affinity</div></div>
+  </div>
+</div>
 
 Gonet BigQuery + SQL yetkinliği üç katmanda çalışır:
 

@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -50,6 +53,11 @@ changelog:
 Astro 5, statik site oluşturma (SSG) ile sunucu tarafı render (SSR) arasındaki sınırları ortadan kaldıran, hibrit mimari destekli modern web framework'üdür. Content Collections özelliği ise içeriği TypeScript ile tip güvenli şekilde yönetmeyi sağlar—Markdown, MDX, JSON veya headless CMS'ten gelen veriler unified bir API üzerinden sorgulanır ve render edilir. Server Islands (sunucu adacıkları), statik sayfaya gömülü dinamik parçalar oluşturarak cache stratejisini sayfa bazından component bazına indirir. View Transitions API, istemci tarafında SPA benzeri geçişler sağlarken server-rendered içeriği korur. Edge runtime desteği, Cloudflare Workers veya Vercel Edge gibi dağıtık noktalarda minimum gecikme ile render imkanı verir. Gonet, Astro 5 + Content Collections'ı hız, SEO ve ölçeklenebilir içerik mimarisi gerektiren projelerde temel stack olarak konumlandırır.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Geleneksel React/Next.js</div><div class="bar"><span style="--h: 100px"></span></div><div class="v">100%</div><div class="desc">Ortalama bundle boyutu</div></div>
+  <div class="col is-primary"><div class="lab">Astro 5 Zero-JS</div><div class="bar"><span style="--h: 25px"></span></div><div class="v">25%</div><div class="desc">%70-80 daha küçük</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -73,6 +81,15 @@ Astro 5, statik site oluşturma (SSG) ile sunucu tarafı render (SSR) arasındak
 2025'te Google ve yapay zeka arama motorları (Bing Copilot, Perplexity, ChatGPT Search) sayfa hızını, structured data kalitesini ve crawl budget verimliliğini birincil sıralama faktörü olarak kullanır. Astro 5'in zero-JS-by-default yaklaşımı, istemciye yalnızca gerekli JavaScript'i gönderir—ortalama bundle boyutu geleneksel React/Next.js uygulamalarına göre %70-80 daha küçüktür. Content Collections, içeriği type-safe şekilde tanımlayarak iki temel avantaj sağlar: (1) Frontmatter ve metadata validation build-time'da yapılır, hatalı veri production'a ulaşmaz. (2) GraphQL veya REST endpoint yazmadan sorgu API'si sunulur, böylece içerik takımı kod dokunmadan yeni içerik türü ekleyebilir. Server Islands, e-ticaret sepet bileşeni veya kullanıcı dashboardı gibi dinamik parçaların cache edilebilir statik sayfa içinde çalışmasını sağlar—Core Web Vitals skorları sabit kalırken kişiselleştirme artar. View Transitions, SPA deneyimini SSR güvenilirliği ile birleştirir; kullanıcı sayfalar arasında gezinirken tam sayfa yenileme olmaz, ancak her rota sunucudan render edilir (SEO kaybı sıfır). Edge runtime, coğrafi olarak dağık kullanıcılara 50ms altı TTFB (Time to First Byte) sunar—özellikle AEO (Answer Engine Optimization) senaryolarında LLM'lerin crawl süresi kritik olduğunda belirleyici faktör olur.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET ÜÇ KATMANLI MİMARİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Content Layer</div><div class="d">TypeScript schema + unified CMS adaptor</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Hybrid Rendering</div><div class="d">SSG/SSR/Server Islands strateji mix</div></div>
+    <div class="step"><div class="n">3</div><div class="t">View Transitions</div><div class="d">Progressive enhancement + edge deploy</div></div>
+  </div>
+</div>
 
 Gonet, Astro 5 + Content Collections'ı üç katmanlı mimari ile uygular:
 

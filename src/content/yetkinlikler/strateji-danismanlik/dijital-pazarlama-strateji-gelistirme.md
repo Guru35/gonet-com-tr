@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -82,6 +85,16 @@ Türkiye pazarında mobil kullanım oranı %75'i aşmış, çok kanallı etkile�
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">GONET STRATEJİ GELİŞTİRME SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Veri Toplama</div><div class="d">GA4, CRM, rakip analizi birleştirilerek segmentler kümelenir</div></div>
+    <div class="step"><div class="n">2</div><div class="t">STP Çerçevesi</div><div class="d">Segmentasyon, hedefleme ve konumlandırma tasarımı</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Journey Haritalama</div><div class="d">Farkındalıktan sadakate tüm temas noktaları görselleştirilir</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Attribution Modeli</div><div class="d">Kanal katkıları ölçülür, aylık dashboard kurulur</div></div>
+  </div>
+</div>
+
 Gonet'in strateji geliştirme süreci dört aşamalıdır:
 
 **1. Veri toplama ve kategori analizi**  
@@ -99,6 +112,13 @@ Farkındalık (awareness), değerlendirme (consideration), karar (decision), sat
 Gonet, stratejileri statik doküman değil, canlı süreç olarak yönetir. Aylık performans gözden geçirmeleri, A/B test sonuçları ve pazar değişimleri stratejiyi günceller.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KRİTİK AVANTAJ ALANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Çok kanallı kampanyalar</span><span class="track"><span class="fill" style="--val:50%"></span></span><span class="value">%30-50</span></div>
+  <div class="gonet-stat-bar"><span class="label">Farklı demografik segmentler</span><span class="track"><span class="fill" style="--val:40%"></span></span><span class="value">%20-40</span></div>
+  <div class="gonet-stat-bar"><span class="label">Yüksek sepet terk oranı</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">%60+</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

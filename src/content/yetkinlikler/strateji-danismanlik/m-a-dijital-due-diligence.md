@@ -42,10 +42,19 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## M&A dijital due diligence nedir?
+
+<div class="gonet-pullquote">
+  <div class="big-number">40+</div>
+  <div class="big-label">PARAMETRE</div>
+  <p class="pq-desc">Organik trafik kalitesi, Core Web Vitals, backlink toksisite, Schema kullanımı dahil teknik ve stratejik değerlendirme.</p>
+</div>
 
 M&A (Mergers & Acquisitions — birleşme ve satın alma) süreçlerinde dijital due diligence, hedef şirketin dijital varlıklarının sistematik değerlendirilmesidir. Organik arama trafiği, marka görünürlüğü, sosyal medya varlığı, teknik altyapı kalitesi, mevcut cezalar (Google penalty'leri), backlink portföyü ve dijital pazarlama performansı incelenir. Gonet bu incelemeyi 26 yıllık deneyimiyle standart bir çerçevede yapar: Google Search Console, Google Analytics 4, SEMrush, Ahrefs gibi araçlardan elde edilen veriler çapraz doğrulanır, tarihsel trendler analiz edilir, risk alanları raporlanır.
 
@@ -79,6 +88,32 @@ Dijital due diligence ayrıca entegrasyon maliyetlerini öngörür. Google Tag M
 Son olarak, rakip analizi. Hedef şirket kendi kategorisinde ne kadar güçlü? Organik sıralamada ilk 3'te kaç anahtar kelimede var? Backlink profili rakiplerine göre nasıl? Bu sorular, satın almanın stratejik mantığını test eder.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">4 AŞAMALI DUE DİLİGENCE SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Veri Toplama</div>
+      <div class="d">GSC, GA4, reklam hesapları + bağımsız araçlarla çapraz doğrulama (1-2 hafta)</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Teknik SEO Denetimi</div>
+      <div class="d">Core Web Vitals, Schema, duplicate content, teknik borç skoru (1 hafta)</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Trafik Analizi</div>
+      <div class="d">Brand/non-brand trafik, dönüşüm hunisi, backlink kalitesi, penalty kontrolü (1 hafta)</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">Rakip Karşılaştırma</div>
+      <div class="d">Sektör kıyaslaması, fırsat/tehdit analizi, entegrasyon roadmap (3-5 gün)</div>
+    </div>
+  </div>
+</div>
 
 Gonet'in M&A dijital due diligence süreci 4 aşamadan oluşur:
 

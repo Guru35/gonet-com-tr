@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -78,6 +81,17 @@ Restorasyonsuz bir hesap zamanla ölü ağırlık haline gelir. Google'ın makin
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">HESAP DENETİMİ PROTOKOLÜMÜz</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Veri toplama & baseline</div><div class="d">Google Ads export, GA4 event verisi, 90 günlük arama terimleri — 1-2 gün</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Katman katman audit</div><div class="d">Kampanya mimarisi, anahtar kelime hijyeni, tracking sağlığı — 3-5 gün</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Restorasyon planı</div><div class="d">40-50 sayfalık rapor, önceliklendirme matrisi, actionable öneriler</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Uygulama & temizlik</div><div class="d">Ölü kampanya temizliği, negatif kelime sistemi, Quality Score taktikleri — 5-10 gün</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Test & iterasyon</div><div class="d">İlk 30 gün haftalık raporlar, hızlı performans iyileştirmeleri</div></div>
+  </div>
+</div>
+
 Hesap denetimi, Gonet'te üç fazlı bir protokoldür:
 
 **1. Veri toplama & baseline tespiti (1-2 gün):** Google Ads editörü export, Google Analytics 4 (GA4) event verisi, GTM (Google Tag Manager) konteyner export, dönüşüm piksel sağlık kontrolü, arama terimlerinden (search terms report) 90 günlük veri çekimi. Son 12 aylık performans grafiği (harcama, tıklama, dönüşüm, CPA, ROAS trend), mevsimsellik ayrıştırması.
@@ -102,6 +116,14 @@ Hesap denetimi, Gonet'te üç fazlı bir protokoldür:
 Audit sonuçlarını 40-50 sayfalık bir rapor + exec summary (yönetici özeti) ile sunarız; actionable (uygulanabilir) öneriler, önceliklendirme matrisi (hızlı kazanç vs. uzun vadeli yapı) dahil.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">RESTORASYON ETKİ ÖRNEKLERİ</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">CPA düşüşü</span><span class="track"><span class="fill" style="--val:70%"></span></span><span class="value">-%35</span></div>
+  <div class="gonet-stat-bar"><span class="label">ROAS artışı (PMax)</span><span class="track"><span class="fill" style="--val:80%"></span></span><span class="value">+%100</span></div>
+  <div class="gonet-stat-bar"><span class="label">Quality Score</span><span class="track"><span class="fill" style="--val:65%"></span></span><span class="value">+2.4 puan</span></div>
+  <div class="gonet-stat-bar"><span class="label">Bütçe tasarruf</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">-%30</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

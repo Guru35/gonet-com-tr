@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -50,6 +53,21 @@ changelog:
 B2B Account-Based Marketing (ABM, hesap bazlı pazarlama), geleneksel geniş kitleli B2B pazarlamanın tersine, belirli yüksek değerli hesaplara (firmalar/karar vericiler) özel olarak tasarlanmış, kişiselleştirilmiş kampanya yaklaşımıdır. LinkedIn Ads, Google Ads ve e-mail otomasyon platformlarının senkronize kullanımıyla, hedef hesaplardaki kilit roller için tutarlı mesaj akışı oluşturulur. Gonet'te ABM, 2018'den bu yana özellikle SaaS, fintech, kurumsal yazılım ve danışmanlık sektörlerinde sözleşme değeri yüksek hesaplar için standart yöntemdir. Tek bir hedef hesap, birden fazla kanalda aynı anda eşgüdümlü mesaj alır: Google Ads'te arama + display retargeting, LinkedIn'de decision-maker'lara sponsored content, e-mail'de personalized sequence.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Geleneksel Lead Gen</div>
+    <div class="bar"><span style="--h: 42px"></span></div>
+    <div class="v">18 gün</div>
+    <div class="desc">Satış döngüsü</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">ABM Yaklaşımı</div>
+    <div class="bar"><span style="--h: 26px"></span></div>
+    <div class="v">11 gün</div>
+    <div class="desc">%39 daha kısa cycle</div>
+  </div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -73,6 +91,37 @@ B2B Account-Based Marketing (ABM, hesap bazlı pazarlama), geleneksel geniş kit
 Geleneksel B2B lead generation, geniş hunilerde yüzlerce niteliksiz lead üretir; sales cycle uzar, dönüşüm maliyeti yükselir. ABM, kaynakları en yüksek potansiyelli 10-50-100 hesaba odaklar — conversion rate ve deal size artar, satış ekibi verimliliği katlanır. Gonet'in 2023-2024 B2B portföyünde ABM uygulayan hesaplar, geleneksel lead gen'e göre %47 daha yüksek MQL-SQL conversion, %62 daha kısa sales cycle kaydetti. LinkedIn'de job title/company targeting ile CEO/CFO seviyesine direkt ulaşım, Google Ads'te branded + competitor keyword'lerde aynı hesabın araştırma anlarını yakalamak, e-mail'de CRM tetikli kişiselleştirilmiş içerik gönderimi — bu üçünün senkronizasyonu, hesabın birden fazla touchpoint'te markanızla karşılaşmasını garanti eder. Özellikle enterprise satış döngüsünde, 6-12 aylık karar süreçlerinde, sürekli görünürlük olmadan hesap kaybolur; ABM bu görünürlüğü sistematik hale getirir.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">ABM KAMPANYA AŞAMALARI</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">ICP + Hedef Liste</div>
+      <div class="d">Müşteri ile firma adı + karar verici profilleri belirleme</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">LinkedIn Matched Audiences</div>
+      <div class="d">Firma domain + job title filtreleriyle sponsored content</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Google Ads Multi-Channel</div>
+      <div class="d">Search + Display + Gmail + Discovery remarketing</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">E-mail Otomasyon Tetikleme</div>
+      <div class="d">CRM entegrasyonuyla engagement bazlı sequence</div>
+    </div>
+    <div class="step">
+      <div class="n">5</div>
+      <div class="t">Hesap Bazlı Ölçümleme</div>
+      <div class="d">UTM + CRM dashboard'unda journey izleme</div>
+    </div>
+  </div>
+</div>
 
 Gonet'te ABM üç katmanlı çalışır: strateji, teknoloji, sürekli optimizasyon. İlk aşamada müşteri ile birlikte Ideal Customer Profile (ICP) ve hedef hesap listesi oluşturulur (firma adı + karar verici profilleri). Ardından:
 

@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -50,6 +53,14 @@ changelog:
 Kısa form sosyal video, 15-90 saniye aralığında Instagram Reels, TikTok, YouTube Shorts ve benzeri dikey video platformlarında yayınlanan, yüksek engagement potansiyeline sahip içerik formatıdır. Video script + kısa form sosyal yetkinliği, bu formatlara özgü senaryo yazımı, hook (kanca) tasarımı, görsel-metin dengesi, platform-spesifik algoritma optimizasyonu ve community (topluluk) tetikleyici anlatım mimarisini kapsar. Klasik video prodüksiyonundan farkı, ilk 1.3 saniyedeki dikkat tutma mekanizması, loop (döngü) uyumlu yapı, trending sound (trend ses) entegrasyonu ve algorithm-friendly metadata (algoritma dostu üstveri) kullanımıdır. Gonet'te bu yetkinlik, platform API'lerinden gelen performans verisi, A/B testli hook varyantları ve markanın tone of voice'unu (ses tonu) platform diline çeviren hibrid yaklaşımla yürütülür. Amaç, organik reach (erişim) maksimizasyonu, watch time (izlenme süresi) optimizasyonu ve shareable (paylaşılabilir) içerik mimarisini aynı scriptte harmanlayarak marka görünürlüğünü sosyal grafiklerde katlanarak büyütmektir.
 
 ## Neden kritik?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KİTLE TÜKETİM ORANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Kısa form video</span><span class="track"><span class="fill" style="--val:65%"></span></span><span class="value">%65</span></div>
+  <div class="gonet-stat-bar"><span class="label">İlk 3 sn tutma</span><span class="track"><span class="fill" style="--val:8%"></span></span><span class="value">%8</span></div>
+  <div class="gonet-stat-bar"><span class="label">Viral potansiyel</span><span class="track"><span class="fill" style="--val:3%"></span></span><span class="value">%3</span></div>
+  <div class="gonet-stat-bar"><span class="label">Reels engagement artışı</span><span class="track"><span class="fill" style="--val:53%"></span></span><span class="value">+%53</span></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -73,6 +84,15 @@ Kısa form sosyal video, 15-90 saniye aralığında Instagram Reels, TikTok, You
 Kısa form video, 2024 itibarıyla küresel internet kullanıcılarının günlük sosyal medya tüketim süresinin %65'inden fazlasını oluşturuyor. Platform algoritmaları Reels ve Shorts'a öncelikli dağıtım sağlarken, statik görsellere göre 2.5x daha yüksek engagement oranı sunuyor. TikTok'ta ortalama kullanıcı günde 95 dakika, Instagram'da Reels başına 53% daha fazla etkileşim veriyor. Ancak başarı oranı düşük: kısa form içeriklerin sadece %8'i ilk 3 saniyede izleyiciyi tutuyor, %3'ü viral potansiyel yakalıyor. Bu nedenle platform-spesifik script tasarımı — TikTok'un discovery algoritması ile Instagram'ın follower-weighted dağıtımı arasındaki fark — hayati önem taşır. Gonet için kritiklik, markaların paid media (ücretli medya) bütçelerini azaltıp organik sosyal yatırıma kaydırdığı 2023-2024 trendiyle birleşir. SEO'da E-E-A-T nasıl temelimizse, sosyal medyada hook quality + watch time + share rate (kanca kalitesi + izlenme süresi + paylaşım oranı) üçlüsü yeni meta-metrik oldu. Algoritma mekaniğini bilmeyen script 'görünmez' kalır; bilenler organik 10M+ reach alır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">DATA-CREATIVE FUSION MODELİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Platform Analytics</div><div class="d">Trend hashtag, sound, format verisi çekimi + geçmiş performans segmentasyonu</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Script Matrix</div><div class="d">3 hook varyantı × 2 story arc × 2 CTA stratejisi + timing chart + on-screen text</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Test-Iterate</div><div class="d">İlk 48 saat CTR/watch %/save rate izleme, düşük performans revize, yüksek format şablona çevirme</div></div>
+  </div>
+</div>
 
 Gonet'te kısa form sosyal script süreci 3 aşamalı data-creative fusion (veri-yaratıcı füzyon) modeliyle işler. İlk aşama platform analytics (analitik): TikTok Creative Center, Meta Content Library, YouTube Trending API'lerinden trend hashtag, sound, format verileri çekiliriz; markanın geçmiş video performansını hook tipi, CTA (harekete geçirici mesaj) pozisyonu, müzik türü bazında segmente ederiz. İkinci aşama script matrix (senaryo matrisi): her brief için 3 hook varyantı (problem-based, curiosity-gap, trend-hijack), 2 story arc (hikaye yayı — linear/loop), 2 CTA stratejisi (implicit/explicit) üretiriz. Her script 3 bileşen taşır: (1) Frame-by-frame timing chart (kare-kare zamanlama çizelgesi — 0-1.3s hook, 1.3-8s value delivery, 8-15s CTA/loop), (2) On-screen text guideline (ekran metni kılavuzu — font hierarchy, kaydırma hızı), (3) Sound/music suggestion (ses/müzik önerisi — trending library tag'leri). Üçüncü aşama test-iterate (test-iterasyon): ilk 48 saatte CTR (tıklama oranı), average watch % (ortalama izlenme yüzdesi), save rate (kaydetme oranı) izlenir; düşük performanslı hook değiştirilir, yüksek performanslılar format template'ine (şablon) dönüştürülür. Gonet'in 26 yıllık brand storytelling deneyimi burada devreye girer: viral mekanik bilgisini marka kimliğiyle dengeleyerek, 'satıcı değil anlatıcı' pozisyonunu koruruz.
 

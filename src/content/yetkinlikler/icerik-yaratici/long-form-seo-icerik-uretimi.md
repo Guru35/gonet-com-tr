@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -84,6 +87,17 @@ Semantic clustering, site mimarisini Google'ın topical graph (konu grafiği) ya
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">5 AŞAMALI PRODUCTION PIPELINE</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Topic Research</div><div class="d">Semantic mapping ve keyword gap analizi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Intent-based Outline</div><div class="d">8-12 H2, PAA entegrasyonu</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Entity Tagging</div><div class="d">Schema markup ve claim kaynak atama</div></div>
+    <div class="step"><div class="n">4</div><div class="t">LLM Optimization</div><div class="d">150-250 kelime self-contained bölümler</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Cluster Bağlama</div><div class="d">Internal linking ve GTM tracking kurulumu</div></div>
+  </div>
+</div>
+
 Gonet'in long-form içerik metodolojisi, 5 aşamalı production pipeline (üretim hattı) üzerine kuruludur:
 
 **1. Topic research ve semantic mapping:** Google Trends, Answer the Public, SEMrush Topic Research, Ahrefs Content Explorer verilerini birleştirip konu haritası oluştururuz. Ana pillar'ı ve 8-15 cluster konusunu belirleriz. Keyword gap analysis (anahtar kelime açık analizi) ile rakiplerin kaçırdığı subtopic'leri tespit ederiz.
@@ -99,6 +113,14 @@ Gonet'in long-form içerik metodolojisi, 5 aşamalı production pipeline (üreti
 Gonet'in content production team'i, SEO editörü + content writer + technical SEO specialist üçlüsünden oluşur. Her pillar içerik, 3 iterasyon (yineleme) sonrası yayına alınır: draft → SEO review → LLM-readiness check → publish.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">LONG-FORM İÇERİK ETKİ SIRALAMASI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">AI Overview Cite Oranı</span><span class="track"><span class="fill" style="--val:73%"></span></span><span class="value">%73</span></div>
+  <div class="gonet-stat-bar"><span class="label">E-commerce Dönüşüm Artışı</span><span class="track"><span class="fill" style="--val:35%"></span></span><span class="value">%35</span></div>
+  <div class="gonet-stat-bar"><span class="label">MQL Maliyet Düşüşü</span><span class="track"><span class="fill" style="--val:38%"></span></span><span class="value">%38</span></div>
+  <div class="gonet-stat-bar"><span class="label">Backlink Avantajı</span><span class="track"><span class="fill" style="--val:180%"></span></span><span class="value">+%180</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

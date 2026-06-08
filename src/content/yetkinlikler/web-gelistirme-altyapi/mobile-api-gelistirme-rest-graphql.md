@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -80,6 +83,27 @@ Güvenlik boyutu kritiktir: OAuth 2.0, JWT (JSON Web Token), API rate limiting, 
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">GONET MOBİLE API GELİŞTİRME SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Tasarım</div>
+      <div class="d">OpenAPI/GraphQL SDL ile endpoint tanımı, versiyonlama stratejisi</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Geliştirme</div>
+      <div class="d">Node.js/Python/Go stack, Docker/K8s, CI/CD pipeline kurulumu</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Operasyon</div>
+      <div class="d">Prometheus/Grafana monitoring, load testing, otomatik ölçekleme</div>
+    </div>
+  </div>
+</div>
+
 Gonet'in mobile API geliştirme süreci üç katmanlıdır: **tasarım, geliştirme, operasyon**.
 
 **Tasarım aşaması**: Mobil uygulama ekipleriyle ortak workshop düzenlenir, endpoint ihtiyaçları, veri modelleri ve performans beklentileri OpenAPI Specification (OAS) 3.0 veya GraphQL Schema Definition Language (SDL) ile dokümante edilir. Versiyonlama stratejisi (v1, v2) baştan belirlenir. Habertürk projesinde 120+ endpoint, ilk iki haftada SDL ile tanımlandı.
@@ -91,6 +115,21 @@ Gonet'in mobile API geliştirme süreci üç katmanlıdır: **tasarım, gelişti
 Gonet, RESTful API'larda HATEOAS (Hypermedia as the Engine of Application State) prensibi ile self-descriptive endpoint'ler üretir. GraphQL'de ise DataLoader pattern ile N+1 query problemi çözülür, subscription'larla gerçek zamanlı veri akışı sağlanır (WebSocket). Fenerbahçe projesinde canlı skor güncellemeleri GraphQL subscription ile 500ms gecikmeyle mobil uygulamaya iletilir.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Önceki Durum</div>
+    <div class="bar"><span style="--h: 40px"></span></div>
+    <div class="v">1.0×</div>
+    <div class="desc">Kod tekrarı, yüksek bakım maliyeti</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">Gonet API</div>
+    <div class="bar"><span style="--h: 160px"></span></div>
+    <div class="v">%60 ↓</div>
+    <div class="desc">Tek API, çoklu platform, bakım maliyeti düşüşü</div>
+  </div>
+</div>
 
 | Durum | Etki |
 |-------|------|

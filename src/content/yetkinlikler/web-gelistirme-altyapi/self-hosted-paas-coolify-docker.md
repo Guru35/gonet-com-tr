@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -54,6 +57,11 @@ Gonet'in tercih ettiği stack: **Hetzner** (maliyet-performans lideri bare-metal
 Örnek senaryo: 12 mikrosite + 3 headless CMS + 5 API servisi çalıştıran bir müşteri, Vercel'de aylık €800 yerine Hetzner CCX23 (€28/ay) + Coolify üzerinde €50 toplam maliyetle işletiliyor — trafik patlamalarında fiyat artışı riski yok.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Vercel</div><div class="bar"><span style="--h: 90px"></span></div><div class="v">€800/ay</div><div class="desc">12 site + 500K pageview</div></div>
+  <div class="col is-primary"><div class="lab">Coolify</div><div class="bar"><span style="--h: 9px"></span></div><div class="v">€50/ay</div><div class="desc">Aynı trafik, 10× tasarruf</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -90,6 +98,16 @@ Coolify, unlimited staging ortamı sağlar. Her PR için otomatik preview URL, d
 Coolify açık kaynak. Proje dursa bile fork'layıp devam edebilirsiniz. Proprietary PaaS'larda böyle bir güvence yoktur.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GIT-BASED DEPLOYMENT AKIŞI</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Push to Git</div><div class="d">GitHub/GitLab'a kod gönder</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Webhook Trigger</div><div class="d">Coolify otomatik algıla</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Docker Build</div><div class="d">Konteyner imajı oluştur</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Auto Deploy</div><div class="d">Zero-downtime yayın</div></div>
+  </div>
+</div>
 
 Gonet, 2023'ten bu yana orta-büyük ölçekli projelerde self-hosted PaaS altyapısını standart hale getirdi. Yaklaşımımız:
 

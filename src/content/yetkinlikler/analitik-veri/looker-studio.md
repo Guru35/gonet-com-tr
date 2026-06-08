@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -84,6 +87,16 @@ Calculated fields olmadan standart raporlar yüzeysel kalır. Örneğin 'Qualifi
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">LOOKER STUDIO DASHBOARD KURULUM SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Veri Mimarisi</div><div class="d">BigQuery merkezi ambar kurup 12 kaynağı birleştir</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Calculated Field</div><div class="d">Sektörel KPI kütüphanesi oluştur (CASE, REGEXP)</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Stakeholder Journey</div><div class="d">Hikaye akışı tasarla: Summary → Detay → Zaman serisi</div></div>
+    <div class="step"><div class="n">4</div><div class="t">GTM Entegrasyon</div><div class="d">Custom event'leri GA4'e gönder, dashboard'a besle</div></div>
+  </div>
+</div>
+
 Looker Studio dashboard'larını üç katmanda kuruyoruz:
 
 **Katman 1: Veri mimarisi (Data Architecture)**
@@ -98,6 +111,15 @@ Dashboard'u hikaye akışıyla kuruyoruz. Üstte executive summary kartları (to
 Google Tag Manager (GTM) ile custom event'leri GA4'e gönderip, Looker Studio'da görselleştiriyoruz. Örneğin 'Video %75 Watched' event'i, hangi ürün videosunun conversion'a yakın olduğunu gösteriyor. Bu veri, içerik ekibine video süresini optimize ettirdi.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">LOOKER STUDIO KRİTİK KULLANIM ALANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Çoklu kaynak entegrasyon</span><span class="track"><span class="fill" style="--val:90%"></span></span><span class="value">+%18 store visit</span></div>
+  <div class="gonet-stat-bar"><span class="label">Executive reporting</span><span class="track"><span class="fill" style="--val:100%"></span></span><span class="value">15 saat → 0</span></div>
+  <div class="gonet-stat-bar"><span class="label">A/B test iletişimi</span><span class="track"><span class="fill" style="--val:95%"></span></span><span class="value">%95 güven</span></div>
+  <div class="gonet-stat-bar"><span class="label">Anomali tespiti</span><span class="track"><span class="fill" style="--val:75%"></span></span><span class="value">COVID dalga izleme</span></div>
+  <div class="gonet-stat-bar"><span class="label">SaaS cohort analizi</span><span class="track"><span class="fill" style="--val:80%"></span></span><span class="value">3. ay churn</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

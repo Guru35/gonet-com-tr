@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -54,6 +57,14 @@ WCAG 2.2, 2023'te yayınlanan son versiyon olarak 2.1'e 9 yeni başarı kriteri 
 Gonet'te WCAG 2.2 uyumluluğu, semantic HTML5, ARIA (Accessible Rich Internet Applications) etiketleri, form validation mesajlarının doğru iletilmesi ve odak (focus) yönetimi gibi tekniklerle sağlanır. Manuel testler yanında Axe, WAVE ve Lighthouse gibi otomatik araçlar kullanılır, ancak asıl doğrulama gerçek ekran okuyucu testleri ile yapılır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">ERİŞİLEBİLİRLİK ETKİ ALANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Dönüşüm Artışı</span><span class="track"><span class="fill" style="--val:75%"></span></span><span class="value">%15-25</span></div>
+  <div class="gonet-stat-bar"><span class="label">Geniş Kitle Erişimi</span><span class="track"><span class="fill" style="--val:70%"></span></span><span class="value">%20-30</span></div>
+  <div class="gonet-stat-bar"><span class="label">ABD Erişilebilirlik Davaları</span><span class="track"><span class="fill" style="--val:100%"></span></span><span class="value">4.000+</span></div>
+  <div class="gonet-stat-bar"><span class="label">Türkiye Engelli Nüfus</span><span class="track"><span class="fill" style="--val:90%"></span></span><span class="value">8.5M</span></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -81,6 +92,17 @@ Türkiye'de 8,5 milyonun üzerinde engelli birey yaşamaktadır (TÜİK 2022). B
 Teknik boyutta, erişilebilir kod temiz koddur: semantic HTML, iyi tanımlanmış başlıklar (H1-H6 hiyerarşisi), anlamlı link metinleri ('buraya tıklayın' yerine 'ürün kataloğunu inceleyin') hem erişilebilirliği hem SEO'yu güçlendirir. ARIA etiketleri (aria-label, aria-describedby, role) dinamik içerik ve SPA (Single Page Application) uygulamalarında ekran okuyucuların sayfa değişikliklerini algılamasını sağlar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET TEST SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Otomatik Tarama</div><div class="d">Axe DevTools ve Pa11y CI ile kod analizi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Manuel Klavye Testi</div><div class="d">Mouse kullanmadan tüm site gezinme kontrolü</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Ekran Okuyucu Testi</div><div class="d">NVDA, JAWS ve VoiceOver ile doğrulama</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Kontrast Doğrulama</div><div class="d">WebAIM Contrast Checker ile oran kontrolü</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Zoom Testi</div><div class="d">%200-400 büyütme responsive davranış testi</div></div>
+  </div>
+</div>
 
 Gonet'te WCAG 2.2 uyumluluğu, projenin ilk gününden itibaren tasarım ve geliştirme süreçlerine entegre edilir. 26 yıllık deneyimimizde, erişilebilirliğin sonradan eklenen bir özellik değil, temel mimari kararı olduğunu öğrendik.
 

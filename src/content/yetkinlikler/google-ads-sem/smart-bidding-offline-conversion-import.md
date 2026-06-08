@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -82,6 +85,17 @@ Smart Bidding (Akıllı Teklif Verme), Google Ads'in makine öğrenmesi algoritm
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">GONET SMART BIDDING UYGULAMA SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Kampanya Denetimi</div><div class="d">Dönüşüm etiketleri, GTM ve GA4 entegrasyon kontrolü</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Offline Veri Akışı</div><div class="d">CRM/POS entegrasyon tasarımı, GCLID kalıcılık testi</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Strateji Seçimi</div><div class="d">tCPA/tROAS belirleme ve 2-4 hafta öğrenme dönemi</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Sürekli Optimizasyon</div><div class="d">Haftalık ROAS/CPA trend raporu ve sezonsal ayarlamalar</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Şeffaf Raporlama</div><div class="d">Tıklama → lead → satış hunisi dashboard sunumu</div></div>
+  </div>
+</div>
+
 **Aşama 1 – Kampanya denetimi ve veri hijyeni:** Geçmiş kampanyalardaki dönüşüm etiketlerini, Google Tag Manager (GTM) kurulumunu, Analytics 4 (GA4) entegrasyonunu denetleriz. Çift sayım (double-counting), yanlış atfetme, eksik GCLID kaydı gibi yaygın hataları tespit eder, düzeltiriz.
 
 **Aşama 2 – Offline veri akış tasarımı:** Müşterinin CRM (Salesforce, HubSpot, özel yazılım) veya POS sisteminden hangi alanların (işlem ID, tutar, tarih, müşteri e-posta) Google Ads'e aktarılacağını belirleriz. API, manuel CSV, ya da Zapier/Make gibi otomasyon araçlarıyla entegrasyon senaryosu çizeriz. GCLID kalıcılığını (cookie süresi, cross-device takip) test ederiz.
@@ -93,6 +107,15 @@ Smart Bidding (Akıllı Teklif Verme), Google Ads'in makine öğrenmesi algoritm
 **Aşama 5 – Şeffaf raporlama:** Müşteriye aylık dashboard: kampanya bazında tıklama → lead → offline satış hunisi, CPL (maliyet/lead), CPA (maliyet/satış), ROAS. Offline import sayısı, eşleşme oranı, ortalama gecikme (tıklama-satış arası gün) detayları paylaşılır.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KRİTİK AVANTAJ SEKTÖRLERI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">B2B Lead Gen</span><span class="track"><span class="fill" style="--val:90%"></span></span><span class="value">30-90 gün</span></div>
+  <div class="gonet-stat-bar"><span class="label">Çok Kanallı E-ticaret</span><span class="track"><span class="fill" style="--val:85%"></span></span><span class="value">Birleşik ROAS</span></div>
+  <div class="gonet-stat-bar"><span class="label">Otomotiv</span><span class="track"><span class="fill" style="--val:75%"></span></span><span class="value">Test→Satış</span></div>
+  <div class="gonet-stat-bar"><span class="label">Finans/Sigorta</span><span class="track"><span class="fill" style="--val:70%"></span></span><span class="value">%15-30 onay</span></div>
+  <div class="gonet-stat-bar"><span class="label">Sağlık</span><span class="track"><span class="fill" style="--val:65%"></span></span><span class="value">No-show azaltma</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

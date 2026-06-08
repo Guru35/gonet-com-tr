@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -81,6 +84,17 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">CAPI KURULUMUNDAN ADVANTAGE+ OPTİMİZASYONUNA</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">CAPI & GTM Server-Side</div><div class="d">Event matching, EMQ %8+ skor, deduplication</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Catalog Ads Feed</div><div class="d">Ürün verisi zenginleştirme, hata crawl, format optimize</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Advantage+ Kampanya</div><div class="d">Creative varyasyon, 50 conversion eşik, CBO aktif</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Audience Segmentasyon</div><div class="d">Lookalike %1-3, Custom Audiences, GDPR uyumlu</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Cross-Platform Ölçüm</div><div class="d">GA4 & Meta Attribution, data-driven ROAS rapor</div></div>
+  </div>
+</div>
+
 1. **CAPI kurulumu ve event matching**: Google Tag Manager Server-Side Container üzerinden CAPI endpoint'ini yapılandırır, event_id deduplication (olay kimliği tekil tutma) kurallarıyla browser-side piksel ile sunucu tarafı olaylarını eşleştirir. E-posta, telefon, kullanıcı IP gibi parametrelerin hash'lenerek Meta'ya gönderilmesini sağlar ve Event Match Quality (EMQ) skorunu %8+ seviyede tutar.
 2. **Catalog Ads ürün feed optimizasyonu**: E-ticaret platformundan (Shopify, WooCommerce, custom API) gelen ürün verilerini Facebook Product Catalog formatına çevirir; başlık, açıklama, fiyat, stok durumu, kategori bilgilerini zenginleştirir. Feed hatalarını düzenli crawl ile tespit eder, Google Merchant Center standartlarıyla uyumlu bir veri katmanı oluşturur.
 3. **Advantage+ Shopping kampanyaları**: Manuel audience (hedef kitle), placement (yerleşim) ve creative kombinasyon testleri yerine, Advantage+ modeline geçişte doğru creative varyasyonları (birincil metin, başlık, görsel seti) hazırlar. Makine öğrenmesi için ilk 50 conversion eşiğini hızla aşmak üzere bütçe planlaması yapar, Campaign Budget Optimization (CBO — kampanya bütçe optimizasyonu) ile ad set seviyesi müdahaleyi minimize eder.
@@ -91,6 +105,14 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 26 yıllık ajans deneyimi, Meta'nın her algoritma güncellemesinde hızlı adaptasyon sağlar; Gonet, yeni özellik beta programlarına (Reels Ads, Shops entegrasyonu) erken erişim için Meta Partner statüsünden yararlanır.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">CAPI & ADVANTAGE+ ETKİ KARŞILAŞTIRMASI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Conversion Artışı (CAPI)</span><span class="track"><span class="fill" style="--val:80%"></span></span><span class="value">+%25-40</span></div>
+  <div class="gonet-stat-bar"><span class="label">ROAS İyileşmesi (Advantage+)</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">+%20-30</span></div>
+  <div class="gonet-stat-bar"><span class="label">Retargeting CTR (Catalog Ads)</span><span class="track"><span class="fill" style="--val:50%"></span></span><span class="value">+%2</span></div>
+  <div class="gonet-stat-bar"><span class="label">CAC Düşüşü (Lookalike)</span><span class="track"><span class="fill" style="--val:45%"></span></span><span class="value">-%15-20</span></div>
+</div>
 
 | **Durum** | **Etki** |
 |-----------|----------|

@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -81,6 +84,42 @@ Gonet'te GTM'i yalnızca etiket yönetimi aracı olarak görmüyoruz. 2014'ten b
 **Çeviklik ve iterasyon hızı**: Yeni kampanya parametrelerini, conversion (dönüşüm) etkinliklerini veya custom event'leri (özel olaylar) kod değişikliği olmadan GTM arayüzünden dakikalar içinde yayına alabilirsiniz. A/B test kurulumu, dinamik remarketİng listeleri, gelişmiş e-ticaret izleme gibi karmaşık senaryolar geliştirici bağımlılığını ortadan kaldırır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Öncesi</div>
+    <div class="bar"><span style="--h: 80px"></span></div>
+    <div class="v">%40</div>
+    <div class="desc">Ad-blocker veri kaybı</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">Server-Side GTM</div>
+    <div class="bar"><span style="--h: 16px"></span></div>
+    <div class="v">%8</div>
+    <div class="desc">Veri kaybı minimize</div>
+  </div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">GONET GTM MİMARİSİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Data Layer</div>
+      <div class="d">JSON nesneleri ile yapılandırılmış veri toplama</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Server-Side GTM</div>
+      <div class="d">GCP/AWS üzerinde sunucu taraflı işleme</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Consent Mode v2</div>
+      <div class="d">CMP entegrasyonu ile KVKK/GDPR uyumu</div>
+    </div>
+  </div>
+</div>
 
 Gonet, GTM'i üç katmanlı bir mimari üzerinde kurar:
 

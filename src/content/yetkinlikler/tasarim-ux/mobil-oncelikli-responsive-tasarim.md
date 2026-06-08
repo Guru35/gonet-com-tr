@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,11 @@ Mobil-öncelikli responsive tasarım (mobile-first responsive design), kullanıc
 Container queries (@container), CSS'te yeni bir paradigma değişimidir. Geleneksel media queries'in viewport (görüntü alanı) genişliğine baktığı yerde, container queries bir elementin kendi konteynerinin boyutuna göre stil uygulamasına izin verir. Bu, bileşen odaklı tasarımda oyunun kurallarını değiştirir. Fluid typography, viewport birimleri (vw, vh) ve clamp() fonksiyonu kullanarak metin boyutlarının ekran boyutuyla orantılı şekilde ölçeklenmesini sağlar. Intrinsic sizing ise min(), max() ve fit-content gibi CSS fonksiyonlarıyla elementlerin içeriklerine göre doğal boyutlanmasını mümkün kılar.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Geleneksel</div><div class="bar"><span style="--h: 32px"></span></div><div class="v">Desktop-first</div><div class="desc">Viewport media queries, küçültme yaklaşımı</div></div>
+  <div class="col is-primary"><div class="lab">Mobil-öncelikli</div><div class="bar"><span style="--h: 96px"></span></div><div class="v">+%40 dönüşüm</div><div class="desc">Container queries, fluid typography, progressive enhancement</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -81,6 +89,17 @@ Container queries özellikle kritiktir çünkü component-level (bileşen seviye
 Fluid typography kullanıcı deneyimini iyileştirir çünkü her ekran boyutunda optimal okunabilirlik sağlar. Sabit font boyutları küçük ekranlarda okunamaz, büyük ekranlarda yetersiz olabilir. `clamp(1rem, 2.5vw, 1.5rem)` gibi bir tanım minimum, ideal ve maksimum boyut arasında sorunsuz geçiş sağlar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">MOBİL-ÖNCELİKLİ TASARIM SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Mobil base styles</div><div class="d">320px'den başla, core content odaklı</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Container queries</div><div class="d">Bileşen seviyesinde responsive davranış</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Fluid typography</div><div class="d">clamp() ile viewport-based ölçekleme</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Intrinsic sizing</div><div class="d">İçerik odaklı layout, media query'siz grid</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Progressive enhancement</div><div class="d">Desktop için aşamalı geliştirme</div></div>
+  </div>
+</div>
 
 Gonet'te mobil-öncelikli tasarım 2012'den beri standart uygulamadır. 220+ marka portföyümüzde edindiğimiz deneyim, her sektörün kendine özgü mobil gereksinimlerini anlamamızı sağlamıştır.
 

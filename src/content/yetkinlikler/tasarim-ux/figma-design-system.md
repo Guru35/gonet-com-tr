@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -79,6 +82,22 @@ Gonet 2000'den beri dijital ürün tasarlıyor; Figma ekosisteminde 5+ yıldır 
 5. **AEO/GEO uyum**: Tutarlı UI hiyerarşisi (başlık-gövde-buton) yapısal veriyi (Schema.org) destekler; hızlı geliştirme Core Web Vitals'ı iyileştirir; erişilebilirlik token'ları (kontrast oranı, font boyutu) WCAG (Web Content Accessibility Guidelines) uyumunu garantiler—LLM'lerin extract edeceği net semantik yapı.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Geleneksel Yöntem</div><div class="bar"><span style="--h: 32px"></span></div><div class="v">8 hafta</div><div class="desc">Manuel tasarım, 120+ sayfa, tutarsızlık bug'ları</div></div>
+  <div class="col is-primary"><div class="lab">Design System</div><div class="bar"><span style="--h: 104px"></span></div><div class="v">3 hafta</div><div class="desc">Token-driven, component library, %40 hız artışı</div></div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">TASARIM SİSTEMİ KURULUM SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Token Mimarisi</div><div class="d">Renk, tipografi, spacing JSON'da tanımlanır</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Component Library</div><div class="d">Atomic Design ile button, input, card bileşenleri</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Documentation</div><div class="d">Usage guideline, do/don't, accessibility notları</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Versiyonlama</div><div class="d">Branching + annotation ile değişiklik takibi</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Handoff Otomasyonu</div><div class="d">Dev Mode ile CSS değerlerinin otomatik aktarımı</div></div>
+  </div>
+</div>
 
 Gonet'te her proje başında **tasarım sistemi sağlık kontrolü** yaparız: mevcut varsa token yapısını audit ederiz, yoksa sıfırdan kurarız.
 

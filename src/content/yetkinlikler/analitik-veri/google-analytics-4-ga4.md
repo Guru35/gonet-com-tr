@@ -42,10 +42,19 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Google Analytics 4 (GA4) nedir?
+
+<div class="gonet-pullquote">
+  <div class="big-number">220+</div>
+  <div class="big-label">MARKA PORTFÖYÜ</div>
+  <p class="pq-desc">Temmuz 2023 son tarihinden önce GA4 geçişi tamamlandı, veri kaybı olmadan sağlandı.</p>
+</div>
 
 Google Analytics 4, Ekim 2020'de duyurulan ve Temmuz 2023'te Universal Analytics'in yerini tamamen alan yeni nesil web ve uygulama analitik platformudur. GA4, oturum tabanlı (session-based) eski modeli terk ederek event-based (olay temelli) bir veri mimarisine geçmiştir. Her kullanıcı etkileşimi — sayfa görüntüleme, tıklama, form gönderimi, video izleme — bağımsız bir event olarak kaydedilir ve bu eventler custom parameters (özel parametreler) ile zenginleştirilir.
 
@@ -91,6 +100,15 @@ Universal Analytics 1 Temmuz 2023'te veri toplamayı durdurdu. GA4'e geçmeyen m
 Markalar GA4'ü yalnızca 'rapor aracı' olarak kullanırsa değerinin %20'sine erişir. Gerçek güç: event taxonomy (olay taksonomisi) tasarımı, custom dimensions stratejisi, BigQuery SQL analizi, GTM entegrasyonu. Gonet bu katmanları 26 yıllık uygulama deneyimiyle kurar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET GA4 IMPLEMENTATION SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Audit & Planning</div><div class="d">UA analizi, event taxonomy, consent mode stratejisi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Implementation</div><div class="d">GTM config, e-commerce tracking, cross-domain setup</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Activation & Optimization</div><div class="d">Custom reports, predictive audiences, BigQuery export</div></div>
+  </div>
+</div>
 
 Gonet GA4 implementasyonu üç fazda ilerler:
 

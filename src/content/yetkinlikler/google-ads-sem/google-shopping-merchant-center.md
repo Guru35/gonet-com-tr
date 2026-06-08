@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, spec)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -79,6 +82,24 @@ Bir Shopping kampanyasının performansı doğrudan feed kalitesiyle orantılıd
 5. **Çok kanallı kullanım**: Aynı feed, Google Free Listings, YouTube Shopping, Display remarketing kampanyalarında paylaşılır. Bir kez optimize edilmiş feed, tüm ekosistemi besler.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-spec">
+  <div class="sp-title">STANDART CUSTOM LABEL MİMARİSİ</div>
+  <div class="sp-row is-primary"><div class="k">custom_label_0</div><div class="v">Marj segmenti (Yüksek / Orta / Düşük)</div></div>
+  <div class="sp-row"><div class="k">custom_label_1</div><div class="v">Satış hızı (Bestseller / Normal / Yavaş)</div></div>
+  <div class="sp-row"><div class="k">custom_label_2</div><div class="v">Sezonluk/Kampanya (Yaz / İndirimli / Yeni)</div></div>
+  <div class="sp-row"><div class="k">custom_label_3</div><div class="v">Müşteri segment (Yeni / Remarketing / VIP)</div></div>
+  <div class="sp-row"><div class="k">custom_label_4</div><div class="v">Ürün yaşam döngüsü (Lansman / Olgunluk / Çıkarma)</div></div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">FEED OPTİMİZASYON KATMANLARI</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Teknik Altyapı</div><div class="d">GTIN zorunluluğu, günde 4× otomatik güncelleme, API hata yönetimi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">İçerik Optimizasyonu</div><div class="d">Başlık formülü (70 karakter), 500-1000 karakter açıklama zenginleştirme</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Custom Label Stratejisi</div><div class="d">5 katman segmentasyon: marj, satış hızı, sezonluk, müşteri, yaşam döngüsü</div></div>
+  </div>
+</div>
 
 Gonet, feed optimizasyonunu üç katmanda yürütür:
 

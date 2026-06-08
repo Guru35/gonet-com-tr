@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -93,6 +96,51 @@ CRM entegrasyonu üç kritik sorun çözer:
 Türkiye'de özellikle e-ticaret, fintech ve kurumsal hizmet sektörlerinde CRM entegrasyonu olmayan topluluk yönetimi yatırım israfı yaratır. Gonet, 2022-2024 arasında yönettiği 18 marka portföyünde sosyal CRM entegrasyonu sonrası ortalama %47 lead-to-customer dönüşüm artışı ölçtü.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">LEAD SCORING ÖRNEĞİ</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">Organik Mention</span>
+    <span class="track"><span class="fill" style="--val:100%"></span></span>
+    <span class="value">+30</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">LinkedIn Yorum</span>
+    <span class="track"><span class="fill" style="--val:83%"></span></span>
+    <span class="value">+25</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Story Ürün Etiketi</span>
+    <span class="track"><span class="fill" style="--val:67%"></span></span>
+    <span class="value">+20</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Instagram DM</span>
+    <span class="track"><span class="fill" style="--val:50%"></span></span>
+    <span class="value">+15</span>
+  </div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">3 KATMANLI MİMARİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Platform + Teknik Altyapı</div>
+      <div class="d">HubSpot/Pipedrive/Zoho seçimi, API entegrasyonları</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Lead Scoring + Segmentasyon</div>
+      <div class="d">Etkileşim puanlama, MQL işaretleme, Slack bildirimleri</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Raporlama + Optimizasyon</div>
+      <div class="d">Kanal bazlı lead hacmi, dönüşüm analizi, bütçe ayarı</div>
+    </div>
+  </div>
+</div>
 
 Gonet, topluluk yönetimi ve CRM entegrasyonunu üç katmanlı mimari ile kurar:
 

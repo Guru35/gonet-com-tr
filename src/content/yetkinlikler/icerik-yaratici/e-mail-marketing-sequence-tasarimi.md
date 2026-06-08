@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,14 @@ E-mail marketing sequence tasarımı, kullanıcı davranışlarına (behavioral 
 Gonet'te sequence tasarımı üç katmanda yürür: segmentasyon (hangi kitleye, ne zaman), içerik mimarisi (kaç e-posta, hangi mesaj sıralaması, CTA stratejisi) ve deliverability optimizasyonu (spam skorları, authentication, engagement rate). ESP (Email Service Provider) platformlarında (HubSpot, Klaviyo, Mailchimp, ActiveCampaign) kurulum, A/B testler ve performans izleme de sürecin parçasıdır.
 
 ## Neden kritik?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">SEQUENCE ETKİ ORANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Abandon cart recovery</span><span class="track"><span class="fill" style="--val:40%"></span></span><span class="value">%15-40</span></div>
+  <div class="gonet-stat-bar"><span class="label">Trial-to-paid conversion artışı</span><span class="track"><span class="fill" style="--val:35%"></span></span><span class="value">%20-35</span></div>
+  <div class="gonet-stat-bar"><span class="label">Re-engagement (winback)</span><span class="track"><span class="fill" style="--val:20%"></span></span><span class="value">%10-20</span></div>
+  <div class="gonet-stat-bar"><span class="label">Inbox placement (auth + hygiene)</span><span class="track"><span class="fill" style="--val:90%"></span></span><span class="value">%90+</span></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -81,6 +92,18 @@ Gonet'te sequence tasarımı üç katmanda yürür: segmentasyon (hangi kitleye,
 **Deliverability hayati**: En iyi içerik, spam klasöründe işe yaramaz. SPF, DKIM, DMARC authentication, IP reputation yönetimi, engagement-based list hygiene (inaktif temizliği) olmadan sequence'lar etkisiz kalır. Gonet bu katmanı teknik altyapı olarak kurar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">SEQUENCE TASARIM SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Trigger Mapping</div><div class="d">Kullanıcı eylem noktalarını CRM/analytics üzerinden haritalama</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Segmentasyon</div><div class="d">Demografik + behavioral + lifecycle segmentlerini tanımlama</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Copywriting</div><div class="d">Her e-posta için amaç, ton ve CTA tasarımı</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Timing</div><div class="d">E-posta arası zaman aralıkları ve frekans optimizasyonu</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Technical Setup</div><div class="d">ESP automation, UTM, authentication ve spam testi</div></div>
+    <div class="step"><div class="n">6</div><div class="t">Monitoring</div><div class="d">Deliverability ve liste hijyeni sürekli izleme</div></div>
+  </div>
+</div>
 
 **1. Trigger mapping ve customer journey audit**: Hangi kullanıcı eylemi (veya eylemsizlik) hangi sequence'ı tetiklemeli? Lead magnet indirme, ürün kategori gezinme, demo talep formu, ilk alışverişten 30 gün sonra — trigger noktalarını CRM/analytics datası üzerinden haritalıyoruz.
 

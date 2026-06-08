@@ -36,6 +36,13 @@ faqs:
     a: "PMax için birincil metrik ROAS veya Cost per Conversion'dır, çünkü kampanya hedefi dönüşümdür. CTR (Click-through Rate - tıklama oranı) ve CPC (Cost per Click - tıklama başı maliyet) yanıltıcı olabilir: Display ve YouTube kanallarında CTR doğal olarak düşük, ancak impression (gösterim) hacmi yüksektir. Gonet dashboard'larında izlediğimiz metrikler: (1) Conversion Rate asset group bazında, (2) Asset performance skorları (Best, Good, Low), (3) Search Impression Share (arama gösterim payı - PMax'in arama kanalındaki gücünü ölçer), (4) New vs. Returning customer dönüşüm oranı (incrementality göstergesi). Aylık raporlamalarda channel-level (kanal seviyesi) breakdown (dağılım) talep ediyoruz, Google'ın verdiği sınırlı datadan maksimum통찰 çıkartıyoruz."
   - q: "Video varlığı oluşturma kaynağımız yok, PMax kampanyası yine de çalışır mı?"
     a: "Evet çalışır, ancak %20-30 daha düşük erişim ve engagement (etkileşim) beklemelisiniz. Google, video olmayan asset group'lara statik görsellerden otomatik video benzeri animasyonlar üretir, ancak bunlar manuel üretilmiş videolardan kalite ve etki olarak geridedir. Gonet çözümü: (1) Düşük bütçeli kampanyalar için stok görsellerden 15sn hızlı montaj (Adobe Express, Canva gibi araçlarla 1-2 saatte üretilebilir), (2) Mevcut ürün fotoğraflarının dinamik zoom-pan animasyonları, (3) Uzun vadede Gonet tasarım ekibiyle profesyonel video varlık üretimi planlaması. İlk lansmanı video olmadan yapıp, 30. günden sonra video ekleyerek karşılaştırmalı performans ölçümü stratejik bir yaklaşımdır."
+changelog:
+  - date: "2026-06-06"
+    type: "initial"
+    summary: "İlk yayın"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
 ---
 
 ## Performance Max kampanyaları nedir?
@@ -47,6 +54,14 @@ PMax kampanyalarının temel yapı taşları asset group'lardır (varlık grupla
 Audience signal (hedef kitle sinyali) ise kampanyanın ilk öğrenme aşamasında algoritmanın hangi kullanıcı segmentlerine odaklanması gerektiğini belirten stratejik ipuçlarıdır. Remarketing listeleri, demografik özellikler, ilgi alanları ve arama niyetleri bu sinyalleri oluşturur.
 
 ## Neden kritik?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">PMAX KRİTİK BAŞARI FAKTÖRLERİ</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Asset Group Mimarisi</span><span class="track"><span class="fill" style="--val:100%"></span></span><span class="value">3-5 grup</span></div>
+  <div class="gonet-stat-bar"><span class="label">Varlık Çeşitliliği</span><span class="track"><span class="fill" style="--val:85%"></span></span><span class="value">15-20/grup</span></div>
+  <div class="gonet-stat-bar"><span class="label">Video Varlık Etkisi</span><span class="track"><span class="fill" style="--val:75%"></span></span><span class="value">+%20-30</span></div>
+  <div class="gonet-stat-bar"><span class="label">Audience Signal Katmanı</span><span class="track"><span class="fill" style="--val:65%"></span></span><span class="value">2-3 hafta</span></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -80,6 +95,15 @@ Ancak bu performans otomatik olarak gelmez. PMax'in başarısı üç kritik fakt
 PMax kampanyalarının şeffaflık eksiği (hangi kanalda ne kadar harcandığı detayı sınırlı) bazı ajansları bu yapıya mesafeli tutar. Gonet deneyiminde, doğru conversion tracking (GA4 + Google Ads entegrasyonu, server-side tagging) ve düzenli asset performance raporlamasıyla bu belirsizlik yönetilebilir ve üstün performans elde edilebilir.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET PMAX METODOLOJİSİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Strateji & Mimari</div><div class="d">GA4/CRM segmentasyon, asset group planlama (1-2 hafta)</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Uygulama & Varlık</div><div class="d">15-20 varlık/grup, video üretimi, mesaj varyasyonları (2-3 hafta)</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Yönetim & Optimizasyon</div><div class="d">14 gün günlük izleme, 21. gün asset rapor, aylık incrementality test</div></div>
+  </div>
+</div>
 
 Gonet'in PMax metodolojisi, 26 yıllık SEM deneyimi ve yüzlerce kampanya datasından beslenen üç aşamalı bir süreçtir:
 

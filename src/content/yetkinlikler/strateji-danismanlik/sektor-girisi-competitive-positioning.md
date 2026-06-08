@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -82,6 +85,17 @@ Bu süreç yalnızca bir web sitesi açmak veya sosyal medya hesabı kurmak değ
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">SEKTÖR GİRİŞİ SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Sektör DNA analizi</div><div class="d">4-6 hafta: hedef kitle, rakip SWOT, kategori dinamikleri</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Pozisyon manifestosu</div><div class="d">1 sayfa değer önerisi, 3 diferansiyatör, mesaj hiyerarşisi</div></div>
+    <div class="step"><div class="n">3</div><div class="t">MVP lansmanı</div><div class="d">6. hafta: JSON-LD işaretli site, GA4/GTM tracking, llms.txt</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Kanal validasyonu</div><div class="d">8-12 hafta: test kampanyaları, CPA/ROAS ölçümü, kanal kararnamesı</div></div>
+    <div class="step"><div class="n">5</div><div class="t">İteratif optimizasyon</div><div class="d">3 aylık sprint'ler: CRO, teknik SEO, AEO güncellemeleri</div></div>
+  </div>
+</div>
+
 **1. Sektör DNA analizi (4-6 hafta)**  
 Gonet, yeni sektöre girerken ilk 2 haftada masabaşı ve saha araştırması yapar: hedef kitlenin dijital davranış verileri (Google Trends, GA4 Benchmarking, sosyal dinleme araçları), rakip SWOT matrisi, kategori liderlerinin mesaj haritası, fiyat-değer algısı anketi. Örneğin, bir sağlık teknolojileri platformu için hekim ve hasta segmentlerini ayrı persona'lara böler, her birinin arama niyetini (transactional, informational, navigational) haritalandırır.
 
@@ -98,6 +112,14 @@ MVP yayına aldıktan sonra Google Ads (arama + display), LinkedIn Ads (B2B içi
 Gonet, "launch and leave" yapmaz. 3 aylık sprint'lerle (Agile metodoloji) içerik, teknik SEO (Core Web Vitals, mobile usability), conversion rate optimization (CRO—A/B testing, heatmap analizi) ve AEO (answer engine optimization) güncellemeleri döner. Rakip hareketleri (yeni ürün lansmanı, fiyat değişikliği) için Slack/Teams uyarı sistemi kurar.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KRİTİK AVANTAJ ALANLARI</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Kategori yaratma</span><span class="track"><span class="fill" style="--val:80%"></span></span><span class="value">%80 organik</span></div>
+  <div class="gonet-stat-bar"><span class="label">Fiziksel→e-ticaret</span><span class="track"><span class="fill" style="--val:60%"></span></span><span class="value">%60 dönüşüm</span></div>
+  <div class="gonet-stat-bar"><span class="label">Kriz sonrası rebranding</span><span class="track"><span class="fill" style="--val:70%"></span></span><span class="value">%70 azalma</span></div>
+  <div class="gonet-stat-bar"><span class="label">B2B SaaS MQL</span><span class="track"><span class="fill" style="--val:40%"></span></span><span class="value">%40 düşük</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

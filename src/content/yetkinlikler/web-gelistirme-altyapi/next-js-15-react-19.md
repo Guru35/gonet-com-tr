@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,11 @@ Next.js 15 ve React 19, modern web geliştirme yığınının en güncel sürüm
 Gonet, 2000'den bu yana 220+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Geleneksel SPA</div><div class="bar"><span style="--h: 80px"></span></div><div class="v">800ms</div><div class="desc">First Contentful Paint</div></div>
+  <div class="col is-primary"><div class="lab">RSC (Next.js 15)</div><div class="bar"><span style="--h: 32px"></span></div><div class="v">320ms</div><div class="desc">%60 daha hızlı FCP</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -97,6 +105,13 @@ TypeScript strict mode, ESLint + Prettier konfigürasyonu, Zod ile runtime valid
 Gonet ekibi, Next.js Conf ve React ekibi blog yazılarını takip eder; canary ve beta sürümlerle deneyler yaparak yeni özellikleri (örneğin, taint API, use hook, form actions) hızla production'a taşır. 26 yıllık deneyimimiz, hype değil gerçek iş değeri yaratan teknolojileri seçmemizi sağlar.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">E-TİCARET PERFORMANS ETKİSİ</div>
+  <div class="gonet-stat-bar is-primary"><span class="label">Conversion artışı</span><span class="track"><span class="fill" style="--val:25%"></span></span><span class="value">+%25</span></div>
+  <div class="gonet-stat-bar"><span class="label">Google Discover trafiği</span><span class="track"><span class="fill" style="--val:40%"></span></span><span class="value">+%40</span></div>
+  <div class="gonet-stat-bar"><span class="label">JS paket boyutu azalması</span><span class="track"><span class="fill" style="--val:50%"></span></span><span class="value">-%50</span></div>
+</div>
 
 | Durum | Etki |
 |-------|------|

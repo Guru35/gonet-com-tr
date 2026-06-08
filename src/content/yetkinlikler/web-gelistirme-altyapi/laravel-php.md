@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -80,6 +83,47 @@ Kurumsal web projelerinin %70'inden fazlası backend altyapı sorunları, kötü
 PHP 8.x ile JIT compiler, typed properties ve modern dil özellikleri, Laravel'i Node.js veya Go alternatiflerine karşı rekabetçi tutar. Gonet, PHP 8.2+ ve Laravel 10.x standartlarında çalışır, legacy kod modernizasyonu yapar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Standart Laravel</div>
+    <div class="bar"><span style="--h: 40px"></span></div>
+    <div class="v">120ms</div>
+    <div class="desc">Ortalama response time</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">Laravel Octane</div>
+    <div class="bar"><span style="--h: 172px"></span></div>
+    <div class="v">28ms</div>
+    <div class="desc">4.3x daha hızlı performans</div>
+  </div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">GONET LARAVEL PROJE AKIŞI</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Discovery Workshop</div>
+      <div class="d">Altyapı audit, performans analizi, migration roadmap</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Sprint Döngüleri</div>
+      <div class="d">2 haftalık iterative development, haftalık demo</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Production Geçiş</div>
+      <div class="d">Zero-downtime deployment, CI/CD entegrasyonu</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">Monitoring & Optimization</div>
+      <div class="d">1 ay boyunca Horizon/Telescope ile performans tuning</div>
+    </div>
+  </div>
+</div>
 
 Gonet'in Laravel uzmanlığı üç temelde şekillenir:
 

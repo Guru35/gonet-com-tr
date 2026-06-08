@@ -42,10 +42,42 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## YouTube reklamcılığı nedir?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">FORMAT PERFORMANS ETKİSİ</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">In-stream skippable</span>
+    <span class="track"><span class="fill" style="--val:85%"></span></span>
+    <span class="value">Dönüşüm</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Discovery</span>
+    <span class="track"><span class="fill" style="--val:75%"></span></span>
+    <span class="value">CTR</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Shorts</span>
+    <span class="track"><span class="fill" style="--val:90%"></span></span>
+    <span class="value">Erişim</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Bumper ad</span>
+    <span class="track"><span class="fill" style="--val:70%"></span></span>
+    <span class="value">Bilinirlik</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">PMax for video</span>
+    <span class="track"><span class="fill" style="--val:80%"></span></span>
+    <span class="value">ROAS</span>
+  </div>
+</div>
 
 YouTube reklamcılığı, dünyanın en büyük video platformunda çeşitli reklam formatlarıyla hedef kitlenize ulaşmanızı sağlayan Google Ads yapısıdır. In-stream (akış içi) reklamlar, Discovery (keşif) reklamları, Shorts reklamları ve Performance Max for video (video için Performans Maksimum) kampanyaları farklı kullanıcı davranışlarına ve kampanya hedeflerine hitap eder. Türkiye'de günde ortalama 1 saat YouTube izleyen kullanıcılar göz önüne alındığında, doğru strateji ve format seçimi marka bilinirliğinden performans kampanyalarına kadar geniş bir yelpazede sonuç üretir.
 
@@ -77,6 +109,37 @@ YouTube, Türkiye'de 70+ milyon aylık kullanıcıyla televizyonun ötesinde bir
 Yanlış format seçimi veya kötü video kreatifi bütçe israfına yol açar. Örneğin awareness (farkındalık) kampanyasında conversion odaklı in-stream yerine bumper ad (6 saniyelik atlanamaz) veya Discovery formatı daha verimli olabilir. Optimizasyon stratejisi ise bid adjustments (teklif ayarlamaları), audience segmentation (kitle segmentasyonu), placement exclusions (yayın yeri hariç tutmaları) ve creative testing (kreatif testleri) gerektirir. Google'ın Video Experiments (video deneyleri) özelliği ile A/B testler yapılır ve hangi görselin, mesajın veya CTA'nın (call-to-action) daha etkili olduğu veriyle kanıtlanır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">YOUTUBE KAMPANYA KURULUM SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Brand Safety</div>
+      <div class="d">Hassas içerik ve rekabetçi kanal hariç tutmaları</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Learning Phase</div>
+      <div class="d">İlk 7-10 gün kitle performansı izleme</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Kreatif Test</div>
+      <div class="d">Thumbnail, başlık ve hook kombinasyonları A/B testi</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">Segmentasyon</div>
+      <div class="d">Düşük CPV veren demografik ve ilgi alanı belirleme</div>
+    </div>
+    <div class="step">
+      <div class="n">5</div>
+      <div class="t">Optimizasyon</div>
+      <div class="d">Bid adjustment ve audience scaling</div>
+    </div>
+  </div>
+</div>
 
 Gonet'te YouTube kampanyalarını 2015'ten beri yönetiyoruz ve her format için kanıtlanmış playbook'larımız var. Kampanya başlatmadan önce brand safety (marka güvenliği) ayarlarını devreye alır, hassas içeriklerden ve rekabetçi kanallardan placement exclusion yaparız. İlk 7-10 günde learning phase (öğrenme aşaması) verilerini izler, audience performance (kitle performansı) raporlarıyla hangi demografik ve ilgi alanı segmentlerinin düşük CPV (cost per view - görüntüleme başına maliyet) verdiğini belirleriz.
 

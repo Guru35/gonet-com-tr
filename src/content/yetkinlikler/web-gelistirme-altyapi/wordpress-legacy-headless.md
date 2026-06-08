@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (compare, process)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -52,6 +55,11 @@ WordPress, dünya çapında web sitelerinin %43'ünü çalıştıran açık kayn
 Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 220+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Hazır Tema</div><div class="bar"><span style="--h: 32px"></span></div><div class="v">1.0×</div><div class="desc">Varsayılan WordPress, yavaş yükleme, güvenlik açıkları</div></div>
+  <div class="col is-primary"><div class="lab">Custom Theme</div><div class="bar"><span style="--h: 96px"></span></div><div class="v">%40-60</div><div class="desc">Sayfa hızı iyileşmesi, markalı kontrol, azaltılmış plugin yükü</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -77,6 +85,15 @@ WordPress, kurumsal markaların hız ve esneklik ihtiyacını karşılarken yön
 Headless mimari, özellikle çok kanallı (omnichannel) dağıtım gerektiren markalarda kritiktir. Aynı içerik deposundan web sitesi, mobil uygulama, dijital kiosk ve voice interface'lere içerik servis edilebilir. WP REST API, içerik CRUD işlemlerini standart HTTP endpoint'leri üzerinden sunar; custom endpoint'ler ile markanıza özel iş mantığı (fiyatlandırma algoritmaları, kullanıcı segmentasyonu, recommendation engine entegrasyonu) API seviyesinde uygulanır. Gonet projelerinde headless WordPress, Core Web Vitals metriklerinde %50 iyileşme, sunucu yükünde %40 azalma sağlamıştır. Google'ın Page Experience güncellemesi (2021) ve yapay zeka destekli arama motorlarının (Bing Chat, Bard, Perplexity) yapılandırılmış veri talebi, performanslı ve semantik zengin WordPress kurulumlarını zorunlu kılmaktadır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET WORDPRESS METODOLOJİSİ</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Performans-first</div><div class="d">Webpack/Vite build, SCSS/ES6+ optimization, zero dependency starter</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Semantic content</div><div class="d">ACF JSON sync, custom blocks, Schema.org automation</div></div>
+    <div class="step"><div class="n">3</div><div class="t">DevOps entegrasyon</div><div class="d">CI/CD pipeline (GitHub Actions), Redis caching, Cloudflare CDN</div></div>
+  </div>
+</div>
 
 Gonet'in WordPress metodolojisi üç temele dayanır: **performans-first architecture**, **semantic content modeling** ve **DevOps entegrasyonu**. Legacy projeler için, starter theme'den sıfır bağımlılıkla özel tema geliştiririz; Webpack/Vite build pipeline ile SCSS, ES6+ JavaScript ve asset optimization otomatize edilir. ACF JSON sync kullanarak field group'ları versiyon kontrolüne dahil eder, staging-production senkronizasyonunu sorunsuz hale getiririz. Gutenberg için custom block library geliştirme (block.json, @wordpress/scripts) ile marka bileşenlerini blok sistemine entegre ederiz — editörler, tasarım sisteminden sapmadan içerik oluşturabilir.
 

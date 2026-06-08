@@ -42,6 +42,9 @@ changelog:
     summary: "İlk yayın"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -82,6 +85,27 @@ Gonet'te server log analizi, özellikle büyük e-ticaret siteleri ve yüksek bo
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">3 AŞAMALI SERVER LOG ANALİZİ SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Log Toplama</div>
+      <div class="d">Apache/Nginx logları parse, GZIP sıkıştırma, yapılandırılmış veri</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Bot Sınıflandırma</div>
+      <div class="d">User-agent analizi, IP doğrulama, crawler kategorize</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Davranış Analizi</div>
+      <div class="d">URL tarama, durum kodları, GA4 çaprazlama, raporlama</div>
+    </div>
+  </div>
+</div>
+
 Gonet'in server log analizi süreci üç aşamalıdır:
 
 **1. Log toplama ve normalizasyon**: Apache, Nginx, IIS gibi sunuculardan ham logları alırız (Common Log Format veya Combined Log Format). Büyük sitelerde günlük GB'larca veri olabilir. Bu logları GZIP sıkıştırarak depolama maliyetini düşürür, parse ederek (user-agent, IP, URL, timestamp) yapılandırılmış veri haline getiririz. Python (regex + pandas) veya özelleştirilmiş ETL pipeline'lar kullanırız.
@@ -106,6 +130,30 @@ Bu veriyi GTM/GA4 verileriyle çaprazlarız: GA4'te düşük etkileşimli ama y�
 Örneğin, bir SaaS müşterisinde ClaudeBot'un documentation (dokümantasyon) sayfalarını günde 2.400 kez taradığını tespit ettik. Bu sayfalar GA4'te düşük trafikli, ancak Claude AI'da sık referans gösteriliyordu. Dokümantasyon sayfalarına JSON-LD BreadcrumbList ve HowTo schema ekleyerek yapısal derinlik artırdık. Claude yanıtlarında müşteri dokümanlarının alıntılanma oranı 3 ay içinde %41 yükseldi.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KRİTİK AVANTAJ DURUMLARI</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">Bot trafiği >%40</span>
+    <span class="track"><span class="fill" style="--val:85%"></span></span>
+    <span class="value">Yüksek</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">AI crawler yönetimi</span>
+    <span class="track"><span class="fill" style="--val:80%"></span></span>
+    <span class="value">Yüksek</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Crawl budget >10K sayfa</span>
+    <span class="track"><span class="fill" style="--val:70%"></span></span>
+    <span class="value">Orta-Yüksek</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">DDoS/spam tespiti</span>
+    <span class="track"><span class="fill" style="--val:75%"></span></span>
+    <span class="value">Yüksek</span>
+  </div>
+</div>
 
 | Durum | Etki |
 |-------|------|

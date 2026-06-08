@@ -43,6 +43,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -55,6 +58,11 @@ Bir CRO programı dört temel bileşenden oluşur: heatmap (ısı haritası) ana
 Gonet'te CRO, izole bir proje değil sürekli bir iyileştirme döngüsüdür. Her optimizasyon hipotezini nicel veriyle destekler, her değişikliği istatistiksel anlamlılık seviyesinde test eder, her kazanımı dokümante ederiz.
 
 ## Neden kritik?
+
+<div class="gonet-compare">
+  <div class="col"><div class="lab">Önce</div><div class="bar"><span style="--h: 28px"></span></div><div class="v">%1.5</div><div class="desc">Ortalama e-ticaret dönüşüm oranı</div></div>
+  <div class="col is-primary"><div class="lab">Sonra (CRO)</div><div class="bar"><span style="--h: 72px"></span></div><div class="v">%2.5</div><div class="desc">Optimizasyon sonrası dönüşüm, %66 daha fazla müşteri</div></div>
+</div>
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
@@ -82,6 +90,15 @@ Heatmap analizi, kullanıcıların sayfanızda nereye tıkladığını, hangi b�
 CRO yapmadan dijital pazarlama, delik bir kovaya su doldurmaya benzer. Trafik artırırsınız ama dönüşüm altyapısı zayıfsa bütçenin büyük kısmı boşa gider.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">CRO DÖNGÜSÜ: TANI → HİPOTEZ → VALİDASYON</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Tanı</div><div class="d">GA4, Hotjar, Clarity ile heatmap/session/funnel analizi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Hipotez</div><div class="d">ICE framework ile önceliklendirme, etki tahmini</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Validasyon</div><div class="d">A/B test, %95 güven, min 2 hafta, deploy/arşiv</div></div>
+  </div>
+</div>
 
 26 yıldır 220+ markayla çalışan Gonet'in CRO metodolojisi üç katmanlıdır: tanı, hipotez, validasyon.
 

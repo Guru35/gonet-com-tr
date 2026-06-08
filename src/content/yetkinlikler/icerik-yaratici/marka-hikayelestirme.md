@@ -42,10 +42,19 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
 ## Marka hikayeleştirme nedir?
+
+<div class="gonet-pullquote">
+  <div class="big-number">220+</div>
+  <div class="big-label">MARKA PROJESİ</div>
+  <p class="pq-desc">2000'den bu yana hikaye anlatan ajans deneyimi: ürün özellikleri unutulur, hikayeler kalıcıdır.</p>
+</div>
 
 Marka hikayeleştirme (brand storytelling), bir markanın değerlerini, kökenini ve vaadini yapılandırılmış anlatı teknikleriyle aktarma disiplinidir. Founder story (kurucu hikayesi), brand archetype (marka arketipi) ve narrative arc (anlatı yayı) gibi yöntemlerle marka, tüketicinin zihninde rakiplerden ayrışan duygusal bir konum kazanır.
 
@@ -81,6 +90,27 @@ Gonet'in 2000'den bu yana 220+ markayla yürüttüğü projelerde gözlemlediği
 **Yatırımcı ve ortaklık ilişkileri:** B2B ve kurumsal iletişimde, rakamlar kadar 'yolculuk hikayesi' de önemlidir. Yatırımcılar, kurucu ekibin motivasyonunu ve vizyonu anlatan tutarlı narrative'e güven duyar.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET MARKa HİKAYELEŞTİRME SÜRECİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Archetype Belirleme</div>
+      <div class="d">12 arketipten markanın karakter rolü tespit edilir</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Founder Story Kurgusu</div>
+      <div class="d">Kişisel motivasyon 3-5 dakikalık manifesto videosuna dönüşür</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Narrative Arc Haritası</div>
+      <div class="d">Her kanal için hangi evrede olduğumuz belirlenir</div>
+    </div>
+  </div>
+</div>
 
 Gonet, marka hikayeleştirmeyi üç katmanda tasarlar:
 

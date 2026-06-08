@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, pullquote)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -82,6 +85,15 @@ Ayrıca, dijital reklamların tıklama oranı (CTR) ve dönüşüm oranı (CVR) 
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">ÜÇ KATMANLI SİSTEM</div>
+  <div class="steps">
+    <div class="step is-primary"><div class="n">1</div><div class="t">Temel Kimlik</div><div class="d">Logo varyantları, renk sistemi, tipografi ailesi</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Dijital Varlıklar</div><div class="d">Design tokens, SVG/PNG/WebP, favicon paketi</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Uygulama Sistemi</div><div class="d">Canlı dokümantasyon, kod örnekleri, versiyon kontrolü</div></div>
+  </div>
+</div>
+
 Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır: **temel kimlik**, **dijital varlıklar** ve **uygulama sistemi**.
 
 **Temel kimlik** aşamasında logo (primary, secondary, icon-only varyantları), renk sistemi (primary, secondary, accent, semantic colors), tipografi ailesi (heading, body, display fontları) ve temel görsel elemanlar (shapes, patterns, iconography) tasarlanır. Ancak bunları yaparken mutlaka dijital kullanımı önceliklendiririz: her logo varyantı 16px yüksekliğinde bile okunabilir mi? Renk paleti WCAG 2.1 AA kontrast oranını (contrast ratio) karşılıyor mu?
@@ -111,5 +123,11 @@ Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır
 - [Görsel İçerik Üretimi](/yetkinlikler/gorsel-icerik-uretimi) — Sosyal medya ve dijital reklam görselleri marka kimliğinin uzantısıdır
 
 ## Gonet ile çalışmak
+
+<div class="gonet-pullquote">
+  <div class="big-number">220+</div>
+  <div class="big-label">Marka Kimliği Projesi</div>
+  <p class="pq-desc">26 yıllık deneyimimizle dijital öncelikli, ölçeklenebilir sistemler tasarladık.</p>
+</div>
 
 26 yıllık deneyimimizle 220+ marka için marka kimliği tasarladık. Ajansımız Google Partner statüsünde olduğu için, tasarladığımız her marka kimliği aynı zamanda dijital reklam performansı için optimize edilir. Markanız için tutarlı, ölçeklenebilir, dijital öncelikli bir kimlik sistemi kurmak istiyorsanız [iletişime geçin](/iletisim).

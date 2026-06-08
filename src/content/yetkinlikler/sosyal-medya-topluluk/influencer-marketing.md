@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -80,6 +83,27 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
 
 ## Gonet yaklaşımı
 
+<div class="gonet-process">
+  <div class="pt">SEGMENTLİ KAMPANYA MİMARİSİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Awareness</div>
+      <div class="d">Macro-influencer ile marka hikayesini geniş kitleye duyurma</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Consideration</div>
+      <div class="d">Mid-tier ürün incelemesi, unboxing, tutorial içeriği</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Conversion</div>
+      <div class="d">Micro-influencer özel kod ve affiliate link ile satışa yönlendirme</div>
+    </div>
+  </div>
+</div>
+
 1. **Veri destekli influencer scouting:** Gonet, HypeAuditor, Modash gibi araçlarla influencer'ın takipçi kalitesini (gerçek/fake oranı), geçmiş kampanya performansını, kitle demografisini analiz eder. Ajansın 220+ marka deneyiminden türetilen 'kategori-influencer' veritabanı, eşleşme süresini %60 kısaltır.
 
 2. **Segmentli kampanya mimarisi:**
@@ -97,6 +121,30 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
 5. **Gerçek zamanlı raporlama:** Google Tag Manager (GTM) ve Meta Pixel entegrasyonuyla influencer linklerinden gelen trafiği, sepete ekleme, ödeme adımlarını canlı izler. Her kampanya sonunda detaylı ROI raporu (harcama/gelir, CPA, ROAS) sunar.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">PERFORMANS ORANI KARŞILAŞTIRMA</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">Micro ER</span>
+    <span class="track"><span class="fill" style="--val:80%"></span></span>
+    <span class="value">5-8%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Influencer sepet</span>
+    <span class="track"><span class="fill" style="--val:100%"></span></span>
+    <span class="value">18%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Site ortalaması</span>
+    <span class="track"><span class="fill" style="--val:50%"></span></span>
+    <span class="value">9%</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Organik erişim</span>
+    <span class="track"><span class="fill" style="--val:33%"></span></span>
+    <span class="value">6%</span>
+  </div>
+</div>
 
 | Durum | Etki |
 |-------|------|

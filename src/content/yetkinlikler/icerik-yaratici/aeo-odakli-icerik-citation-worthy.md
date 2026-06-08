@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, compare)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -84,6 +87,52 @@ Gonet'in 2023-2024 AEO pilot projelerinde, citation-worthy yapıya dönüştür�
 Ayrıca GEO (Generative Engine Optimization) stratejisinin omurgası budur: içeriğinizi yalnızca sıralamak değil, **yapay zekanın yanıtının parçası yapmak**. Eğer yanıt içinde kaynak gösterilmezseniz, trafik sıfırdır.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-compare">
+  <div class="col">
+    <div class="lab">Klasik SEO trafik</div>
+    <div class="bar"><span style="--h: 82px"></span></div>
+    <div class="v">-%18</div>
+    <div class="desc">Geleneksel faktörlere daha az ağırlık</div>
+  </div>
+  <div class="col is-primary">
+    <div class="lab">AI-generated trafik</div>
+    <div class="bar"><span style="--h: 136px"></span></div>
+    <div class="v">+%340</div>
+    <div class="desc">ChatGPT, Perplexity, Bing Chat referansları</div>
+  </div>
+</div>
+
+<div class="gonet-process">
+  <div class="pt">GONET AEO İÇERİK METODOLOJİSİ</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Statistik + Kaynak</div>
+      <div class="d">Doğrulanabilir veri, tarih, kaynak üçlüsü eklenir</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Quotation Architecture</div>
+      <div class="d">15-25 kelime alıntı formatı, yazar/kaynak notasyonu</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Fluent Transition</div>
+      <div class="d">Paragraflar arası semantic bağlayıcı cümleler</div>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <div class="t">Extraction Formatting</div>
+      <div class="d">Hiyerarşik yapı, llms.txt priority endpoint işaretleme</div>
+    </div>
+    <div class="step">
+      <div class="n">5</div>
+      <div class="t">Schema + RAG</div>
+      <div class="d">Custom property: dataSources, citationUrl, verifiedDate</div>
+    </div>
+  </div>
+</div>
 
 Gonet'in AEO odaklı içerik metodolojisi üç katmandan oluşur:
 

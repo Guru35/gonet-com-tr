@@ -42,6 +42,9 @@ changelog:
     summary: "Ilk yayin"
   - date: "2026-06-07"
     type: "enhancement"
+  - date: "2026-06-07"
+    type: "enhancement"
+    summary: "Kreatif viz eklendi (process, stat-bars)"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
@@ -83,6 +86,27 @@ JavaScript'in dinamik doğası esneklik sağlar, ancak ölçekte bakım maliyeti
 Zod ekosistemindeki kritik rol: API contract'ı `zod.object({...})` ile tanımlanınca, aynı şemadan hem TypeScript interface (`z.infer<typeof schema>`) hem OpenAPI spec hem form validation kuralları türetilebilir. Tek kaynak, üç kullanım — DRY (Don't Repeat Yourself) prensibinin zirvesi.
 
 ## Gonet yaklaşımı
+
+<div class="gonet-process">
+  <div class="pt">GONET TYPE-SAFE STACK: ÜÇ KATMAN</div>
+  <div class="steps">
+    <div class="step is-primary">
+      <div class="n">1</div>
+      <div class="t">Schema-first API</div>
+      <div class="d">Zod schema ile endpoint contract tanımı, paylaşılan @repo/schemas paketi</div>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <div class="t">Discriminated Unions</div>
+      <div class="d">AsyncData<T> pattern ile form/async state type-safe modelleme</div>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <div class="t">Build-time Checks</div>
+      <div class="d">CI/CD'de tsc --noEmit + schema test, production'a tip hatası geçirmez</div>
+    </div>
+  </div>
+</div>
 
 Gonet'te TypeScript strict mode standart, Zod ise tüm API ve form katmanlarında zorunludur. Yaklaşımımız üç katmandan oluşur:
 
@@ -131,6 +155,35 @@ React component'lerinde `if (state.status === 'success')` kontrolü yaptığın�
 Gonet müşterilerinden biri için geliştirdiğimiz headless CMS entegrasyonunda, 40+ content type Zod schema'yla tanımlandı. Content editör yanlış formatta veri girdiğinde, kaydetme öncesi validation UI'da gösterildi — API'ye invalid request asla ulaşmadı. Sonuç: 6 ay içinde production'da sıfır tip hatası.
 
 ## Hangi durumlarda kritik avantaj?
+
+<div class="gonet-stat-bars">
+  <div class="stat-title">KRİTİK AVANTAJ ALANLARI: ETKİ SKALASI</div>
+  <div class="gonet-stat-bar is-primary">
+    <span class="label">Büyük Ekip</span>
+    <span class="track"><span class="fill" style="--val:85%"></span></span>
+    <span class="value">-%40 onboarding</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">API-heavy SPA</span>
+    <span class="track"><span class="fill" style="--val:75%"></span></span>
+    <span class="value">Contract garanti</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Form-intensive</span>
+    <span class="track"><span class="fill" style="--val:70%"></span></span>
+    <span class="value">Tek kaynak</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Monorepo</span>
+    <span class="track"><span class="fill" style="--val:65%"></span></span>
+    <span class="value">Otomatik sync</span>
+  </div>
+  <div class="gonet-stat-bar">
+    <span class="label">Yüksek Uptime</span>
+    <span class="track"><span class="fill" style="--val:80%"></span></span>
+    <span class="value">99.97% SLA</span>
+  </div>
+</div>
 
 | Durum | Etki |
 |-------|------|
