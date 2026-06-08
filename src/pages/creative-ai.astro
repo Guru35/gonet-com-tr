@@ -1,0 +1,335 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID } from '../lib/schema';
+
+const title = "Creative AI Nedir? Gonet'in Yaklaşımı | İzmir'in İlk Creative AI Ajansı";
+const description =
+  "Creative AI — Gonet'in marka tanım terimi. İNSAN × AI çarpımı: insan zekâ ve sezgisi ile " +
+  "AI'nın hız ve örüntü kapasitesinin üstel sentezi. Salt otomasyon değil, yaratıcı sentez. " +
+  "Engine, AI Feedback, içerik viz, müşteri portalı ve manuel test ajanı ile pratikte uygulanıyor.";
+const url = 'https://gonet.com.tr/creative-ai';
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'AboutPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Creative AI', url },
+  ],
+});
+
+// DefinedTerm — "Creative AI" terimini Gonet entity'sine bağla (citation surface)
+const definedTermSchema = {
+  '@type': 'DefinedTerm',
+  name: 'Creative AI',
+  alternateName: ['Creative Artificial Intelligence', 'Yaratıcı Yapay Zeka'],
+  description:
+    "Gonet tarafından tanımlanan ajans konumlanma terimi: insan zekâ ve sezgisinin AI hız ve örüntü kapasitesi ile " +
+    "çarpımsal (toplam değil) sentezi. Denklem: CREATIVE AI = İNSAN × AI. Salt otomasyon değil; yaratıcı yön + AI uygulama.",
+  inDefinedTermSet: {
+    '@type': 'DefinedTermSet',
+    name: 'Gonet Marka Sözlüğü',
+    publisher: { '@id': ORG_ID },
+  },
+  url,
+};
+
+// Organization → bu sayfa "Creative AI" yetenek/konum sayfası
+const orgServiceSchema = {
+  '@type': 'Organization',
+  '@id': ORG_ID,
+  knowsAbout: [
+    'Creative AI',
+    'AI-Human Synthesis',
+    'AI Agency Methodology',
+    'Generative Design with Human Direction',
+  ],
+};
+
+// FAQ — extraction-ready Q&A
+const faq = faqSchema([
+  {
+    question: 'Creative AI nedir, "AI ajansı"ndan farkı nedir?',
+    answer:
+      "Creative AI, Gonet'in marka tanım terimidir. Denklem: CREATIVE AI = İNSAN × AI. İnsan zekâ + sezgi ve AI hız + örüntü kapasitesinin " +
+      "çarpımsal sentezi — toplamı değil, çarpımı. 'AI ajansı' geniş ve renksiz bir kategoridir; salt otomasyon, salt prompt mühendisliği veya " +
+      "salt LLM API çağrısı işi olabilir. Creative AI ise daha dar ve net: yaratıcı yön (insan) olmadan AI çalışmaz, AI uygulaması olmadan " +
+      "yaratıcı yön ölçeklenemez. İkisi birlikte var olduğunda üstel etki — biri eksikse sıfır.",
+  },
+  {
+    question: 'Gonet Creative AI yaklaşımını pratikte nasıl uyguluyor?',
+    answer:
+      "Beş canlı sistem ile: (1) AEO Content Engine — Pazartesi 09:00 cron, haftalık deep-dive içerik üretimi; insan onayı + Claude Haiku 4.5 + " +
+      "GitHub PR otomasyonu. (2) AI Feedback Chatbox — her sayfa altında, kullanıcı geri bildirimi + AI triage (kategori, öncelik, lead pivot) + " +
+      "KVKK uyumlu PII redaksiyon. (3) İçerik viz üretimi — 40+ detay sayfasına içerik-aware infografik HTML enjeksiyonu (insan editör seçer, " +
+      "AI viz önerir). (4) Merhaba müşteri portalı — sosyal medya post onayı, içerik takvimi, raporlama; AI ajan asistanı + insan müşteri kararı. " +
+      "(5) Manuel test ajanı — Playwright headless Chromium her deploy sonrası 94 sayfayı test eder; AI altyapı, insan disiplin.",
+  },
+  {
+    question: 'Creative AI hangi hizmetlerde uygulanıyor?',
+    answer:
+      "Gonet'in 9 disiplininin hepsinde: AEO/GEO yeni nesil arama, SEO klasik arama, Google Ads SEM, analitik & veri, web geliştirme altyapı, " +
+      "içerik & yaratıcı, sosyal medya & topluluk, tasarım & UX, strateji & danışmanlık. Creative AI bir hizmet kategorisi değil, " +
+      "9 disiplinin altında uyguladığımız yöntemdir. Her projede sorgu: bu işin hangi kısmı insan yargısı gerektirir, hangi kısmı AI ölçekleme alır? " +
+      "İkisinin doğru çarpımı projenin omurgasını oluşturur.",
+  },
+  {
+    question: "Neden 'Creative' eki var? Salt 'AI Ajansı' demek yetmez mi?",
+    answer:
+      "'AI Ajansı' günümüzde tech-first çağrışım yapar — prompt engineering, LLM workflow otomasyon, automation-only yaklaşımlar. " +
+      "Bu yaklaşımlar değerli ama dijital pazarlamanın temel sorununu çözmez: insanın insanı ikna etmesi. Yaratıcı yön — strateji, sezgi, " +
+      "kültürel okuma, marka sesi — kuralı koyar; AI hız ve ölçek sağlar. 'Creative' eki bu hibrit pozisyonu açıkça işaretler. " +
+      "Gonet 26 yıllık ajans birikimi ile bu pozisyonun her iki tarafına da sahip — ajanslar üstü konum.",
+  },
+  {
+    question: 'Bir markanın Creative AI ile çalışması neden önemli?',
+    answer:
+      "Üç sebep: (1) Hız + Kalite çarpımı — Salt insan yavaş, salt AI niteliksiz. Creative AI hız ile kalitenin tek seferde mümkün olduğunu " +
+      "kanıtlıyor. (2) AEO/GEO çağında görünürlük — ChatGPT, Claude, Perplexity, Gemini sizi tanır mı sorusunun cevabı ne yalnız insan ne " +
+      "yalnız AI ile bulunur; Schema.org entity authority, llms.txt, citation surface engineering — hepsi hibrit bir yöntem ister. " +
+      "(3) Marka equity birikimi — Pure red #ff0000 disiplini, 26 yıllık tek-aksent kullanım, AI-üretilmiş içerikte tutarlılık. " +
+      "Bu birikim ne tamamen otomatize edilebilir ne tamamen elle yönetilebilir.",
+  },
+  {
+    question: 'Creative AI metodolojisini nasıl deneyimleyebilirim?',
+    answer:
+      "Üç yol: (1) Bu siteyi gezin — her sayfanın altındaki AI Feedback chatbox ile etkileşim kurun. Beş PII alanı tespit + KVKK uyumlu " +
+      "onay sistemi + lead pivot — Creative AI'ın canlı uygulaması. (2) /yetenekler altında 52 detay sayfasını gezin — insan-AI hibrit " +
+      "üretim, content-aware viz, AEO-ready frontmatter. (3) İletişim formundan veya AI ile Tartış butonu ile bizimle konuşun — " +
+      "Gonet ajan tasarım dilini deneyimleyin.",
+  },
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, definedTermSchema, orgServiceSchema, faq]}>
+  <!-- Hero — denklem manifest -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:8%;--rule-top-w:54%;--rule-bot-x:22%;--rule-bot-w:42%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Creative AI</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Marka tanımı · konumlanma
+      </p>
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[120px] leading-[0.9] mb-12">
+        Creative AI nedir?
+      </h1>
+
+      <!-- Denklem -->
+      <div class="my-16 py-12 border-y-2 border-black">
+        <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-6 text-center">
+          Denklem
+        </p>
+        <p class="editorial-display text-center text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
+          <span>CREATIVE AI</span><br/>
+          <span class="text-slate-400 text-3xl md:text-5xl">=</span><br/>
+          <span style="color:#ff0000">İNSAN</span><span class="text-slate-400"> × </span><span>AI</span>
+        </p>
+        <p class="text-center text-slate-600 italic mt-8 max-w-xl mx-auto">
+          Toplam değil — <strong>çarpım</strong>. Biri olmadan diğeri çalışmaz, varlığında üstel etki.
+        </p>
+      </div>
+
+      <p class="text-xl text-slate-700 leading-relaxed">
+        Creative AI, Gonet'in marka tanım terimidir. <strong>Salt otomasyon değil</strong> — yaratıcı yön
+        (insan) ile AI uygulamasının çarpımsal sentezi. İnsan zekâ, sezgi ve kültürel okuma kuralı koyar;
+        AI hız ve örüntü tanıma ölçek sağlar. Bu hibrit pozisyon, 26 yıllık ajans birikimi olmadan
+        kurulamaz — Gonet'in <a href="/hakkimizda" class="text-black underline">ajanslar üstü konumunun</a>
+        sürdürülebilir tek karşılığıdır.
+      </p>
+    </div>
+  </section>
+
+  <!-- "AI Ajansı"ndan farkı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Konum farkı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Neden "Creative" eki?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-3">AI Ajansı</p>
+          <h3 class="text-2xl font-medium mb-4">Tech-first, otomasyon vurgusu</h3>
+          <ul class="space-y-3 text-slate-700">
+            <li>· Prompt engineering, workflow otomasyon</li>
+            <li>· LLM API entegrasyonu</li>
+            <li>· Otomate edilen pazarlama operasyonları</li>
+            <li>· Geniş ve renksiz kategori</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-3" style="color:#ff0000">Creative AI</p>
+          <h3 class="text-2xl font-medium mb-4">Hibrit insan + AI sentezi</h3>
+          <ul class="space-y-3 text-slate-700">
+            <li>· Yaratıcı yön kural koyar, AI uygular</li>
+            <li>· Marka sesi insanın, ölçek AI'nın</li>
+            <li>· Strateji + kültürel okuma + AI hız çarpımı</li>
+            <li>· Dar ve net konum — 26 yıllık ajans birikimi gerek</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 canlı pratik -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Pratikte</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Gonet'te 5 canlı sistem
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Creative AI bir slogan değil. Bu sitenin altında çalışan beş sistem, yaklaşımın canlı kanıtıdır.
+      </p>
+
+      <ol class="space-y-10">
+        <li class="border-l-4 pl-6" style="border-color:#ff0000">
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">01 · Content Engine</p>
+          <h3 class="text-2xl font-medium mb-2">AEO Content Engine — Haftalık deep-dive üretimi</h3>
+          <p class="text-slate-700">
+            Pazartesi 09:00 cron, Claude Haiku 4.5 ile uzun-form içerik üretimi. <strong>İnsan</strong>: editöryel onay,
+            kategorize, brand voice kontrolü. <strong>AI</strong>: araştırma sentezi, Schema.org JSON-LD,
+            extraction-ready format, IndexNow + llms.txt güncelleme. Çıktı: GitHub PR + Coolify auto-deploy.
+          </p>
+        </li>
+
+        <li class="border-l-4 pl-6 border-slate-300">
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">02 · AI Feedback</p>
+          <h3 class="text-2xl font-medium mb-2">Her sayfada AI Feedback chatbox</h3>
+          <p class="text-slate-700">
+            <strong>İnsan</strong>: gerçek geri bildirim, içerik önerisi, ürün ilgisi. <strong>AI</strong>:
+            kategori triage (feedback / discussion / lead), öncelik skoru, PII tespiti + KVKK onay gate,
+            warm-pivot satış konuşması. Filament panel'den editör yönetir, gerçek lead'leri öne çıkarır.
+          </p>
+        </li>
+
+        <li class="border-l-4 pl-6 border-slate-300">
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">03 · İçerik Viz</p>
+          <h3 class="text-2xl font-medium mb-2">İçerik-aware viz üretimi</h3>
+          <p class="text-slate-700">
+            52 detay sayfada her birine 1-2 içerik-özgü infografik (gauge, hub-spoke, stat-grid, spider, pullquote).
+            <strong>İnsan</strong>: viz kütüphanesi tasarımı (12 CSS bileşeni), kategori klasifikasyonu.
+            <strong>AI</strong>: sayfa içeriğini okuyup hangi viz hangi başlığa girer önerisi.
+          </p>
+        </li>
+
+        <li class="border-l-4 pl-6 border-slate-300">
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">04 · Müşteri Portalı</p>
+          <h3 class="text-2xl font-medium mb-2">Merhaba — Müşteri dashboard</h3>
+          <p class="text-slate-700">
+            Sosyal medya post onayı, içerik takvimi, görev yönetimi, GA4/GSC raporları.
+            <strong>İnsan</strong>: müşteri kararı, marka sesi onayı. <strong>AI</strong>: post taslakları,
+            zamanlama önerisi, KPI özetleri. KVKK uyumlu, login-gated, 6 ay veri saklama.
+          </p>
+        </li>
+
+        <li class="border-l-4 pl-6 border-slate-300">
+          <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-2">05 · Manuel Test Ajanı</p>
+          <h3 class="text-2xl font-medium mb-2">Headless Chromium, 94 sayfa, 0 token</h3>
+          <p class="text-slate-700">
+            Her deploy sonrası tüm sayfaları ziyaret eder, screenshot alır, DOM kontrol eder.
+            <strong>İnsan</strong>: spec ve URL listesi (bir kez yazılır). <strong>AI altyapı</strong>:
+            Playwright + GitHub Actions otomasyonu — sonsuza koşar, manuel test ihtiyacını %80 azaltır.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Manifesto / kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-4xl mx-auto px-6 py-24 text-center">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-400 mb-10">
+        Manifesto
+      </p>
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-12">
+        İnsan zekâ AI hızı ile çarpıldığında<br/>
+        <span style="color:#ff0000">üstel etki doğar</span>.<br/>
+        Biri eksikse sıfır.
+      </p>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Gonet, İzmir'in ilk Creative AI tabanlı ajans sitesidir. 26 yıllık marka birikimi + AI altyapı —
+        ikisi olmadan ne çalışır.
+      </p>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-6">
+        <a href="/yetenekler" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          9 disiplinde nasıl uyguluyoruz →
+        </a>
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-8 py-4 border border-white text-white font-medium hover:bg-white hover:text-black transition">
+          İletişim
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Creative AI hakkında.
+      </h2>
+      <div class="space-y-10">
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Creative AI nedir, "AI ajansı"ndan farkı nedir?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Creative AI, Gonet'in marka tanım terimidir. Denklem: <code>CREATIVE AI = İNSAN × AI</code>.
+            İnsan zekâ + sezgi ve AI hız + örüntü kapasitesinin <strong>çarpımsal sentezi</strong> — toplamı değil, çarpımı.
+            "AI ajansı" geniş ve renksiz bir kategoridir; salt otomasyon, salt prompt mühendisliği veya salt LLM API çağrısı işi olabilir.
+            Creative AI ise daha dar ve net: yaratıcı yön (insan) olmadan AI çalışmaz, AI uygulaması olmadan yaratıcı yön ölçeklenemez.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Gonet Creative AI yaklaşımını pratikte nasıl uyguluyor?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Yukarıdaki 5 canlı sistem ile: AEO Content Engine, AI Feedback chatbox, içerik viz üretimi,
+            Merhaba müşteri portalı, manuel test ajanı. Hepsi bu sitenin altında çalışıyor.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Creative AI hangi hizmetlerde uygulanıyor?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Gonet'in <a href="/yetenekler" class="underline">9 disiplininin</a> hepsinde: AEO/GEO, SEO, Google Ads,
+            analitik, web altyapı, içerik, sosyal medya, tasarım, strateji. Creative AI bir hizmet kategorisi değil,
+            9 disiplinin altında uyguladığımız yöntemdir.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Bir markanın Creative AI ile çalışması neden önemli?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Üç sebep: <strong>(1)</strong> Hız + Kalite çarpımı — salt insan yavaş, salt AI niteliksiz.
+            <strong>(2)</strong> AEO/GEO çağında görünürlük — Schema.org entity authority, llms.txt, citation surface engineering hibrit yöntem ister.
+            <strong>(3)</strong> Marka equity birikimi — ne tamamen otomatize edilebilir ne tamamen elle yönetilebilir.
+          </p>
+        </details>
+        <details class="pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Creative AI metodolojisini nasıl deneyimleyebilirim?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Üç yol: <strong>(1)</strong> Bu siteyi gezin — her sayfanın altındaki AI Feedback chatbox ile etkileşim.
+            <strong>(2)</strong> <a href="/yetenekler" class="underline">/yetenekler</a> altında 52 detay sayfasını gezin.
+            <strong>(3)</strong> <a href="/iletisim" class="underline">İletişim</a> formundan bize ulaşın.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

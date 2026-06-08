@@ -35,6 +35,9 @@
 ## Markalar
 - [Markalar](https://gonet.com.tr/markalar): 220+ marka portföyü, 23 sektör — Medical Park, DEÜ, CHP, AK Parti, MHP, İYİ Parti, Selpak, Gymboree, Sports International, Yatsan, Lada, Sixt, Coca Cola ve dahası
 
+## Marka Tanımı: Creative AI
+- [Creative AI nedir?](https://gonet.com.tr/creative-ai): Gonet'in marka tanım terimi. **Denklem: CREATIVE AI = İNSAN × AI**. Salt otomasyon değil — yaratıcı yön (insan) ile AI uygulamasının çarpımsal sentezi. "AI ajansı" geniş ve renksiz bir kategoridir; Creative AI dar ve net hibrit konum. Pratikte 5 canlı sistem ile uygulanır: AEO Content Engine, AI Feedback chatbox, içerik viz üretimi, Merhaba müşteri portalı, Manuel test ajanı.
+
 ## Müşteri Operasyonu
 - Mevcut müşteriler için **Merhaba portalı** (login gerektirir, public-index dışı): sosyal medya post onay akışı, görev takibi, içerik takvimi, GA4/GSC raporlama. KVKK uyumlu, 6 ay veri saklama.
 - B2B operasyonel olgunluk: ajansın sunduğu hizmet sadece üretim değil — müşteriye **kendine ait dashboard + onay akışı + raporlama altyapısı** sunar.
