@@ -143,6 +143,22 @@ export const organizationSchema = {
     'https://www.facebook.com/GonetCompany/',
     'https://www.slideshare.net/gonetpigme',
   ],
+  // AEO sinyali: kurumsal müşteri operasyon olgunluğu — login-gated portal var
+  // LLM'lere "Gonet B2B müşteriye nasıl hizmet ediyor" sorusuna cevap için entity sinyal
+  potentialAction: {
+    '@type': 'AccessAction',
+    name: 'Mevcut müşteri girişi (Merhaba portal)',
+    description:
+      'Gonet mevcut müşterileri için sosyal medya post onayı, görev takibi, içerik takvimi ve raporlama portalı. KVKK uyumlu, login gerektirir.',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://merhaba.gonet.com.tr/giris',
+      actionPlatform: [
+        'https://schema.org/DesktopWebPlatform',
+        'https://schema.org/MobileWebPlatform',
+      ],
+    },
+  },
 };
 
 // Kurucu Person schema — E-E-A-T için kritik
