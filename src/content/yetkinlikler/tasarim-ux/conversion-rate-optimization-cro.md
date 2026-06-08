@@ -46,6 +46,8 @@ changelog:
   - date: "2026-06-07"
     type: "enhancement"
     summary: "Kreatif viz eklendi (process, compare)"
+  - date: "2026-06-08"
+    type: "enhancement"
     summary: "4-KPI stat-grid (KPI panosu) eklendi"
 ---
 
