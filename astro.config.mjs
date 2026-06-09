@@ -55,9 +55,20 @@ export default defineConfig({
       // Sitemap'ten çıkar: admin, eski tasarım galeri iterasyonları (/galeri/01-07),
       // duplicate istatistik1. Search engine'lerin (özellikle Bing) bunları
       // crawl edip site kalitesini düşürmesini engelle.
+      //
+      // 2026-06-09 GSC tarama bulgusu: sosyal-medya-galeri/* detay sayfaları
+      // <meta robots=noindex> içeriyor ama sitemap'te vardı (çelişki) →
+      // "Crawled - currently not indexed" GSC raporuna düşüyorlardı.
+      // /sosyal-medya-galeri/<slug> görsel viewer'lar; noindex + sitemap dışı olmalı.
+      // /yaratici-manifesto + /sergi de thin (131w/159w) deneme sayfaları → çıkarıldı.
       filter: (page) =>
         !page.includes('/admin/') &&
         !/\/galeri\/0[1-7]-/.test(page) &&
+        !/\/sosyal-medya-galeri\/[0-9]/.test(page) &&
+        !page.endsWith('/yaratici-manifesto/') &&
+        !page.endsWith('/yaratici-manifesto') &&
+        !page.endsWith('/sergi/') &&
+        !page.endsWith('/sergi') &&
         !page.endsWith('/istatistik1/') &&
         !page.endsWith('/istatistik1'),
     }),
