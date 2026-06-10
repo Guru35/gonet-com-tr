@@ -75,6 +75,14 @@
   --color-brand-200: #2a2a2a;
   --color-brand-600: #2a2a2a;   /* Merhaba butonu zemini */
 
+  /* Fonksiyonel kırmızı tint'ler (KVKK/PII uyarı, hata metni) — koyu varyant.
+     Tailwind red-* yalnız fonksiyonel kutularda; brand kırmızı #ff0000 ayrı. */
+  --color-red-50: #2a1416;      /* uyarı kutusu zemini */
+  --color-red-100: #3a1a1d;
+  --color-red-200: #5c2326;     /* uyarı kutusu border */
+  --color-red-600: #ff6b6b;     /* hata metni — açık kırmızı, AA geçer */
+  --color-red-700: #ff8585;     /* PII başlık — açık kırmızı */
+
   /* Semantik token'lar */
   --bg: #0a0a0a;
   --surface: #161616;
@@ -123,6 +131,11 @@
 [data-theme="dark"] .klaro .cm-link {
   color: #ff2b2b !important;
 }
+
+/* Changelog kategori chip'leri (skillSlug inline rgb) — koyu varyant.
+   correction (kırmızı tint) + schema (mavi tint) anlamı korunur, kontrast AA. */
+[data-theme="dark"] .changelog-item .cl-type-correction { background: #3a1a1d; color: #ff8585; }
+[data-theme="dark"] .changelog-item .cl-type-schema { background: #16243a; color: #8ab4ff; }
 
 /* Editöryel display utility — devasa typografi */
 .editorial-display {
