@@ -32,6 +32,98 @@
   --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   DARK MODE (2026-06-11) — semantik token + Tailwind token flip
+   Mekanik: Tailwind v4 utility'leri var(--color-*) referans eder;
+   [data-theme=dark] scope'unda token'ları flip ederiz → özgüllük ile
+   çalışır, !important GEREKMEZ. Dual-use (bg-black/text-white) için
+   birkaç düzeltici kural. accent #ff0000 flip EDİLMEZ (tek-kırmızı).
+   ════════════════════════════════════════════════════════════════ */
+
+/* Semantik yüzey token'ları — açık tema varsayılan */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #000000;
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-heading: #0a0a0a;
+  --accent: #ff0000;
+  --accent-strong: #ff0000;     /* açık temada normal kırmızı yeterli */
+  color-scheme: light;
+}
+
+/* Koyu tema — Tailwind renk token override (flip) + semantik */
+[data-theme="dark"] {
+  /* Tailwind utility'lerinin çözümlediği token'lar — bunları değiştirince
+     bg-white/text-black/border-black/text-slate-* hepsi koyuya döner */
+  --color-white: #0a0a0a;       /* bg-white → koyu zemin */
+  --color-black: #e6e6e6;       /* text-black + border-black/* → açık */
+  --color-slate-50: #161616;
+  --color-slate-100: #1d1d1d;
+  --color-slate-200: #2a2a2a;
+  --color-slate-300: #404040;
+  --color-slate-400: #737373;
+  --color-slate-500: #a3a3a3;
+  --color-slate-600: #a3a3a3;
+  --color-slate-700: #c4c4c4;
+  --color-slate-800: #d4d4d4;
+  --color-slate-900: #f2f2f2;   /* text-slate-900 (body+başlık) → açık */
+  --color-brand-50: #161616;
+  --color-brand-100: #1d1d1d;
+  --color-brand-200: #2a2a2a;
+  --color-brand-600: #2a2a2a;   /* Merhaba butonu zemini */
+
+  /* Semantik token'lar */
+  --bg: #0a0a0a;
+  --surface: #161616;
+  --surface-2: #1d1d1d;
+  --border: #2a2a2a;
+  --text: #e6e6e6;
+  --text-secondary: #a3a3a3;
+  --text-heading: #f2f2f2;
+  --accent-strong: #ff2b2b;     /* yalnız küçük puntolu kırmızı metin AA düşerse */
+  color-scheme: dark;
+}
+
+/* Dual-use düzeltmeleri — inverted bölümler (bg-black text-white) bozulmasın */
+[data-theme="dark"] .bg-black { background-color: #000000; }   /* siyah emphasis #0a0a0a üstünde */
+[data-theme="dark"] .text-white { color: #f2f2f2; }            /* inverted metin açık kalsın (saf beyaz değil) */
+
+/* Gölge koyu zeminde kaybolur → başlık ink-bleed kapanır */
+[data-theme="dark"] .editorial-display,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2 { text-shadow: none; }
+
+/* Tema toggle ikonları — açıkta ay (koyuya geç), koyuda güneş (açığa geç) */
+.theme-icon-sun { display: none; }
+.theme-icon-moon { display: block; }
+[data-theme="dark"] .theme-icon-sun { display: block; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+
+/* Klaro çerez banner — koyu temada element override (üçüncü-taraf CSS,
+   var sistemi güvenilmez → doğrudan; !important burada haklı: bizim kod değil.
+   Yeşil "kabul" butonu fonksiyonel olarak korunur). */
+[data-theme="dark"] .klaro .cookie-notice,
+[data-theme="dark"] .klaro .cookie-modal .cm-modal,
+[data-theme="dark"] .klaro .context-notice {
+  background-color: #161616 !important;
+  color: #e6e6e6 !important;
+  border-color: #2a2a2a !important;
+}
+[data-theme="dark"] .klaro .cookie-notice p,
+[data-theme="dark"] .klaro .cookie-notice strong,
+[data-theme="dark"] .klaro .cm-modal p,
+[data-theme="dark"] .klaro .cm-modal strong,
+[data-theme="dark"] .klaro .cm-caption {
+  color: #e6e6e6 !important;
+}
+[data-theme="dark"] .klaro .cookie-notice a,
+[data-theme="dark"] .klaro .cm-link {
+  color: #ff2b2b !important;
+}
+
 /* Editöryel display utility — devasa typografi */
 .editorial-display {
   font-family: var(--font-display);
@@ -362,7 +454,6 @@ body {
    Kullanıcı tercihi (2026-06-08): "az kullanalım, sadece başlıklarda".
    strong/b/h3/blockquote'tan kaldırıldı — gövde metnindeki bold'lar artık temiz. */
 .editorial-display,
-.font-display,
 h1,
 h2 {
   text-shadow:
