@@ -30,6 +30,26 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+# Claude canlı web erişimi (kullanıcı sorgusu sırasında sayfa çeker)
+User-agent: Claude-User
+Allow: /
+
+# ChatGPT Search — retrieval/atıf botu (eğitim botu GPTBot'tan ayrı)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity canlı kullanıcı sorgusu fetch'i (PerplexityBot'tan ayrı)
+User-agent: Perplexity-User
+Allow: /
+
+# Google'ın Gemini/diğer ürünleri için genel fetch botu
+User-agent: GoogleOther
+Allow: /
+
+# DuckDuckGo AI asistanı (DuckAssist)
+User-agent: DuckAssistBot
+Allow: /
+
 # Common Crawl — LLM eğitim setlerinin %70+ kaynağı
 User-agent: CCBot
 Allow: /

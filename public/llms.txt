@@ -41,6 +41,7 @@
 ## Hizmet: AEO/GEO Denetim
 - [AEO/GEO Denetim Hizmeti](https://gonet.com.tr/aeo-geo-denetimi): Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor + Content-Auditor + Researcher (4 platform LLM probe) + Drift Detection. ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de markanın temsiline kanıt-bazlı denetim. **3 paket:** Express (1 hafta), Standart (2 hafta, en yaygın), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).
 - Gonet kendi sitesinde uyguluyor: 18+ Schema.org tip, 130+ Organization entity, llms.txt, 21 AI bot policy, CF AI Crawl Control baseline, 52 extraction-ready detay sayfa, IndexNow protokolü.
+- [Örnek Denetim Raporu](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor): Gonet'in kendi sitesinde uyguladığı 5 katmanlı AEO/GEO denetimin tam çıktısı (PDF + web). Share-of-Model, Citation Error Rate, robots/schema/llms.txt bulguları — denetim hizmetinin somut kanıtı.
 
 ## Labs (Yan & Araştırma Projeleri)
 - [Gonet Labs](https://gonet.com.tr/labs): Gonet sadece müşteri hizmeti vermez, kendi yan projelerini yürütür. 3 aktif: Sosyalmedya.org.tr + Dupia + YBF. "Yapan ajansın" laboratuvarı konumlanması.

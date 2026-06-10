@@ -454,3 +454,46 @@ h2 {
 .prose-aeo strong {
   @apply text-slate-900 font-semibold;
 }
+
+/* ── Erişilebilirlik (2026-06-11 denetim) ───────────────────────── */
+
+/* Klavye odağı: marka kırmızısı outline — fare kullanıcısını rahatsız etmez
+   (yalnız klavye/AT odağında görünür), klavye kullanıcısına net hedef verir. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 2px;
+}
+
+/* Hareket azaltma güvenlik ağı: sonsuz blink/pulse/pop animasyonları ve
+   smooth-scroll, prefers-reduced-motion açıkken kapanır (vestibüler güvenlik). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dokunma hedefi genişletme (mobil) — WCAG 2.5.8 + parmak konforu.
+   Footer link listeleri 17px idi → ≥40px; hızlı-gez menüsüne dikey nefes. */
+@media (max-width: 767px) {
+  #site-footer ul a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+  #eye-menu ul a {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+}
