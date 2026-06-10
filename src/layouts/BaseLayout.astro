@@ -90,7 +90,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
     <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/brand/gonet-logo-dark.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/brand/gonet-logo-dark.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Schema.org JSON-LD — AEO kalbı -->
     <JsonLd schema={allSchemas} />
@@ -158,8 +158,8 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       };
     </script>
     <!-- Klaro consent manager vendor (KVKK + GDPR) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro-no-css.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" integrity="sha384-taFXrNMi1VZwc+Zky3cqPQ5bod5e1b2OIvxdRIOsdrP6eJlkh89oUgWoYAJfhCiY" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro-no-css.js" integrity="sha384-gbHapy+he0c0UfGLjIFH6bcO03Ojfs8HQvJqZCNK46p7rnEq+9yFVv/KwSI7GCsy" crossorigin="anonymous"></script>
     <!-- GTM container — Klaro consent verilene dek BLOKLI (type="text/plain" + data-name).
          Klaro accept sonrası otomatik aktive olur. -->
     <script type="text/plain" data-name="google-tag-manager" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-PLNFNL"></script>

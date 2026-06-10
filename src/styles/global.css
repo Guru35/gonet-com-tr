@@ -346,33 +346,6 @@
   width: var(--rule-bot-w, 28%);
 }
 
-/* Partial rule sistem — tüm border-t-black/border-b-black için */
-.partial-rule {
-  position: relative;
-  border-color: transparent !important;
-  border-top-color: transparent !important;
-  border-bottom-color: transparent !important;
-}
-.partial-rule::before,
-.partial-rule::after {
-  content: '';
-  position: absolute;
-  height: 1px;
-  background: currentColor;
-  pointer-events: none;
-}
-.partial-rule.has-top::before {
-  top: 0;
-  left: var(--pr-top-x, 12%);
-  width: var(--pr-top-w, 40%);
-}
-.partial-rule.has-bot::after {
-  bottom: 0;
-  left: var(--pr-bot-x, 32%);
-  width: var(--pr-bot-w, 36%);
-}
-
-
 html {
   scroll-behavior: smooth;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
@@ -429,31 +402,6 @@ h2 {
   }
 }
 
-/* AEO için typography — okuma akışı + extraction-readiness */
-.prose-aeo p {
-  @apply text-lg leading-relaxed mb-6 text-slate-700;
-}
-.prose-aeo p:first-of-type {
-  @apply text-xl font-medium text-slate-900;
-}
-.prose-aeo h2 {
-  @apply text-3xl font-semibold mt-12 mb-4 text-slate-900;
-}
-.prose-aeo h3 {
-  @apply text-xl font-semibold mt-8 mb-3 text-slate-900;
-}
-.prose-aeo ul {
-  @apply list-disc mb-6 ml-6 space-y-2 text-slate-700;
-}
-.prose-aeo ol {
-  @apply list-decimal mb-6 ml-6 space-y-2 text-slate-700;
-}
-.prose-aeo a {
-  @apply text-accent-600 underline underline-offset-2 hover:text-accent-700;
-}
-.prose-aeo strong {
-  @apply text-slate-900 font-semibold;
-}
 
 /* ── Erişilebilirlik (2026-06-11 denetim) ───────────────────────── */
 

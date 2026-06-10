@@ -1,0 +1,5 @@
+# Gonet — gonet.com.tr güvenlik iletişim politikası (RFC 9116)
+Contact: mailto:gonet@gonet.com.tr
+Expires: 2027-06-11T00:00:00.000Z
+Preferred-Languages: tr, en
+Canonical: https://gonet.com.tr/.well-known/security.txt
