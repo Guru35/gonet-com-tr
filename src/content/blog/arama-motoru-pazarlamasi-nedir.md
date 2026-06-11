@@ -38,15 +38,15 @@ Bu iki kavram sıklıkla birbirine karıştırılır. İşte temel ayrım:
 | Maliyet | Tıklama başı ücretsiz | Tıklama başı ödeme (Google Ads CPC) |
 | Sonuç süresi | 3-12 ay | Aynı gün (kampanya yayında) |
 | Sürdürülebilirlik | Yatırım kesilse de kalıcı | Ödeme kesilince trafik 0'a düşer |
-| Tıklama oranı (CTR) | Ortalama %3,17 (1. sıra %39,8) | Ortalama %3,17 |
-| Dönüşüm oranı | %2,4 ortalama | %3,75 ortalama (yüksek niyet) |
+| Tıklama oranı (CTR) | 1. sıra %39,8 (organik) | Ortalama %6,64 |
+| Dönüşüm oranı | %2,4 ortalama | %8,18 ortalama (yüksek niyet) |
 
-Kaynak: [WordStream Google Ads Benchmark, 2024](https://www.wordstream.com/blog/ws/2022/06/16/google-ads-industry-benchmarks)
+Kaynak: [WordStream Google Ads Benchmark, 2026](https://www.wordstream.com/blog/2026-google-ads-benchmarks)
 
 ## SEM neden hâlâ kritik? Sayılarla cevap
 
-- Google'ın 2024 yıllık reklam geliri **264,6 milyar USD** — bu rakamın **%58'i** doğrudan arama reklamlarından (Google Search) geliyor ([Alphabet 10-K, 2024](https://abc.xyz/investor/static/pdf/2024Q4_alphabet_10K.pdf)).
-- B2B segmentinde ücretli arama, en yüksek dönüşüm getiren kanal — ortalama **%3,75** dönüşüm oranı ile sosyal medyanın (%0,9) yaklaşık 4 katı ([WordStream, 2024](https://www.wordstream.com/blog/ws/2022/12/14/conversion-rate-benchmarks)).
+- Google'ın 2025 yıllık reklam geliri yaklaşık **295 milyar USD** — bunun **224,5 milyar USD'si (≈ %76)** doğrudan Google Search reklamlarından geliyor ([Alphabet 2025 10-K, SEC](https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000018/goog-20251231.htm)).
+- Ücretli arama, yüksek satın alma niyetli kullanıcıyı yakalayan en güçlü kanallardan biri — WordStream'in 2026 benchmark'ına göre Google Ads ortalama dönüşüm oranı **%8,18** ([WordStream, 2026](https://www.wordstream.com/blog/2026-google-ads-benchmarks)).
 - Google Ads kullanıcılarının **%65'i** SERP'in en üstündeki ücretli sonuçları tıklıyor (yüksek satın alma niyetli aramalarda) ([Search Engine Land, 2023](https://searchengineland.com/)).
 - Türkiye'de Google Ads'i kullanan KOBİ sayısı **2014'te ~8.000**'den **2024'te ~85.000**'e yükseldi.
 
@@ -112,8 +112,8 @@ Hayır — **SEO, SEM'in bir alt kümesidir**. SEM çatı disiplini; SEO ücrets
 
 **Kaynaklar:**
 
-- WordStream, "Google Ads Industry Benchmarks 2024", [wordstream.com/.../benchmarks](https://www.wordstream.com/blog/ws/2022/06/16/google-ads-industry-benchmarks)
-- Alphabet 2024 10-K Filing, [abc.xyz/investor](https://abc.xyz/investor/)
+- WordStream, "Google Ads Benchmarks 2026", [wordstream.com/blog/2026-google-ads-benchmarks](https://www.wordstream.com/blog/2026-google-ads-benchmarks)
+- Alphabet 2025 10-K Filing (SEC EDGAR), [sec.gov](https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000018/goog-20251231.htm)
 - Backlinko, "Google CTR Stats 2024", [backlinko.com/google-ctr-stats](https://backlinko.com/google-ctr-stats)
 - Aggarwal et al., "GEO: Generative Engine Optimization", KDD '24, [arXiv:2311.09735](https://arxiv.org/abs/2311.09735)
 
