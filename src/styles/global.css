@@ -107,6 +107,8 @@
 
 /* SEPARATÖRLER — border-black koyu temada parlak (#e6e6e6) kalıyordu → --border (#2a2a2a) */
 [data-theme="dark"] .border-black { border-color: var(--border); }
+/* Blog hero görseli BEYAZ — koyu temada çerçeveyle ayrılır (Gökhan: "çerçeveyle çözeriz") */
+[data-theme="dark"] .blog-hero-img { border: 1px solid var(--border); }
 /* footer dev wordmark koyu rengi --wordmark-color token'ı ile (aşağıdaki !important blok) */
 
 /* Gölge koyu zeminde kaybolur → başlık ink-bleed kapanır */

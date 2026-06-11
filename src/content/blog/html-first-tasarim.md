@@ -2,7 +2,7 @@
 title: "HTML-First Tasarım: Kullanıcıyı ve LLM Crawler'ını İkiye Katlar"
 description: "HTML-first tasarım, anlam taşıyan tüm metni gerçek DOM text olarak sunan ve LLM crawler'ının yüksek-güvenle çıkarım yapmasını sağlayan extraction-ready mimaridir. Kontrol listesiyle."
 h1: "HTML-First Tasarım Neden Hem Kullanıcıyı Hem LLM Crawler'ını İkiye Katlar"
-ogImage: "/blog/blog-html-first-tasarim-2.png"
+ogImage: "/blog/blog-html-first-tasarim-3.png"
 keywords:
   - "HTML-first"
   - "extraction-readiness"
