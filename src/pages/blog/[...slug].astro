@@ -112,12 +112,17 @@ const breadcrumb = webpageSchema({
   <!-- HERO — editöryel, massive, image tilt+BW+offscreen -->
   <section class="blog-hero-section relative bg-white border-b border-black overflow-hidden">
     {post.data.ogImage && (
-      <img
-        src={post.data.ogImage}
-        alt={post.data.title}
-        class="blog-hero-img absolute select-none"
-        style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); --img-rot: 0deg; z-index: 0;"
-      />
+      <picture class="hidden lg:block">
+        {/* lg (1024px) altında source eşleşmez → fallback 1px data-URI: hero PNG
+            mobilde HİÇ inmez (network doğrulandı). Mobil hero saf tipografi. */}
+        <source media="(min-width: 1024px)" srcset={post.data.ogImage} />
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          alt={post.data.title}
+          class="blog-hero-img absolute select-none"
+          style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); --img-rot: 0deg; z-index: 0;"
+        />
+      </picture>
     )}
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
@@ -148,10 +153,10 @@ const breadcrumb = webpageSchema({
         </div>
       </div>
 
-      <!-- Title MASSIVE -->
-      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-12 max-w-5xl">
-        {post.data.h1 || post.data.title}
-      </h1>
+      <!-- Title MASSIVE — set:html: İngilizce kelimeler frontmatter'da <span lang="en">
+           ile işaretlenebilir; uppercase dönüşümü i→İ yerine i→I üretir (CİTATİON fix) -->
+      <h1 class="editorial-display text-[14vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-12 max-w-5xl"
+          set:html={post.data.h1 || post.data.title} />
 
       <!-- Description lead -->
       <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl mb-16">

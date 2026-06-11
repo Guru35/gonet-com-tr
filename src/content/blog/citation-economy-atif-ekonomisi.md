@@ -1,7 +1,7 @@
 ---
 title: "Citation Economy: AEO Çağının Yeni Para Birimi Atıf"
 description: "Citation economy (atıf ekonomisi): AEO/GEO çağında markanın LLM yanıtında atıflı geçmesi, link gibi ölçülebilir bir varlık ve görünürlük para birimidir."
-h1: "Citation Economy: Atıf Yeni Para Birimi"
+h1: '<span lang="en">Citation</span> Economy: Atıf Yeni Para Birimi'
 ogImage: "/blog/blog-citation-economy-atif-ekonomisi-3.png"
 keywords:
   - "citation economy"

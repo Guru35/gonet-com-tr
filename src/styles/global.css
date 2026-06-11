@@ -109,6 +109,9 @@
 [data-theme="dark"] .border-black { border-color: var(--border); }
 /* Blog hero görseli BEYAZ — koyu temada çerçeveyle ayrılır (Gökhan: "çerçeveyle çözeriz") */
 [data-theme="dark"] .blog-hero-img { border: 1px solid var(--border); }
+/* Yetenekler detay foto hero — KARAR KESİN (2026-06-11): fotoğraf kalır, kırmızı
+   dönüşüm yok; koyu temada blog hero'larındaki ince çerçeve mantığı uygulanır. */
+[data-theme="dark"] [data-detail-hero]:has([data-detail-hero-bg]) { border: 1px solid var(--border); }
 /* footer dev wordmark koyu rengi --wordmark-color token'ı ile (aşağıdaki !important blok) */
 
 /* Gölge koyu zeminde kaybolur → başlık ink-bleed kapanır */
@@ -388,25 +391,8 @@ a.ext-link::after {
   }
 }
 
-/* Mobil + tablet — resim %40 görünür + ekstra parlatma, başlığın altına tam ekran döşenir, slide-in yok */
-@media (max-width: 1023px) {
-  .blog-hero-img {
-    filter: grayscale(100%) contrast(0.85) brightness(1.25);
-    opacity: 0.4;
-    transform: none !important;
-    top: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    object-fit: cover;
-    object-position: center;
-    cursor: default;
-    transition: none;
-  }
-}
+/* Mobil + tablet (<1024): hero görseli TAMAMEN gizli — picture/source ile PNG
+   hiç inmez, hero saf tipografi (2026-06-11 karar). Eski %40-görünür blok kaldırıldı. */
 
 /* Case study hero görsel — sağ kenara yakın, hero padding'i içinde kalır,
    default %40'ı görünür (%60 dışarda), hover'da %100 görünür + renkli.

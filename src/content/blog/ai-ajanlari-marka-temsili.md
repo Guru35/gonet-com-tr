@@ -1,7 +1,7 @@
 ---
 title: "AI Ajanları Markanızı Uydurmasın: AEO'nun Agentic Katmanı"
 description: "Bağlamsal güvenlik ve doğru marka temsili, AEO'nun yeni dördüncü katmanı. AI ajanları markanız adına eylem alırken doğru bağlamla beslenmezse uydurur ve marka zarar görür."
-h1: "AI Ajanları Markanızı Uydurmasın: AEO'nun Agentic Katmanı"
+h1: 'AI Ajanları Markanızı Uydurmasın: AEO’nun <span lang="en">Agentic</span> Katmanı'
 ogImage: "/blog/blog-ai-ajanlari-marka-temsili-3.png"
 keywords:
   - "agentic AEO"
