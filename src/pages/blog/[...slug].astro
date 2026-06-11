@@ -14,6 +14,45 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+// FAQ otomasyonu (2026-06-11): markdown'daki "## Sık sorulan sorular" (veya SSS)
+// bölümünü FAQPage schema'ya çevirir. Format: **Soru?** bold satır + cevap
+// paragrafı; bölüm bir sonraki ## başlık veya --- ile biter. Bölüm yoksa schema eklenmez.
+function parseFaq(md: string): { question: string; answer: string }[] {
+  const head = md.match(/^##\s+(?:SSS|Sık(?:ça)?\s+[Ss]orulan\s+[Ss]orular?)\s*$/m);
+  if (!head || head.index === undefined) return [];
+  const rest = md.slice(head.index + head[0].length);
+  const end = rest.search(/^(?:##\s|---\s*$)/m);
+  const section = end === -1 ? rest : rest.slice(0, end);
+  const faqs: { question: string; answer: string }[] = [];
+  const re = /^\*\*(.+?)\*\*\s*$\n([\s\S]*?)(?=^\*\*|\s*$(?![\s\S]))/gm;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(section))) {
+    const question = m[1].trim();
+    const answer = m[2]
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // linkler → düz metin
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (question && answer) faqs.push({ question, answer });
+  }
+  return faqs;
+}
+
+const faqs = parseFaq(post.body ?? '');
+const faqSchema = faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    }
+  : null;
+
 // Her blog post'a özel CTA — eyebrow + iki satır heading
 const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string }> = {
   '21-yuzyilda-reklam-ajanslari': {
@@ -104,7 +143,7 @@ const breadcrumb = webpageSchema({
   description={post.data.description}
   canonical={url}
   ogImage={post.data.ogImage}
-  schemas={[article, breadcrumb]}
+  schemas={faqSchema ? [article, breadcrumb, faqSchema] : [article, breadcrumb]}
 >
   {/* Deterministik random per-post (slug hash) — hero image konum/rotation */}
   {(() => null)()}
