@@ -37,7 +37,7 @@ draft: false
 
 ## 3. Atıf ekonomisi ticarileşiyor
 
-**Ne oldu:** Warner Music, bir AI atıf girişimi olan Sureel AI'yı satın aldı; Google'ın Lyria müzik modelinin YouTube içeriğini izinsiz beslediğine dair dava büyüdü. İki gelişme aynı şeyi söylüyor: içeriğin bir modele atıflı mı atıfsız mı girdiği artık para konuşulan bir masada. (Kaynak: [TechCrunch — Warner/Sureel](https://techcrunch.com/2026/06/10/warner-music-acquires-ai-attribution-sureel), [The Verge — Lyria davası](https://www.theverge.com/tech/947770/google-lyria-music-ai-lawsuit-youtube))
+**Ne oldu:** Warner Music, bir AI atıf girişimi olan Sureel AI'yı satın aldı; Google'ın Lyria müzik modelinin YouTube içeriğini izinsiz beslediğine dair dava büyüdü. İki gelişme aynı şeyi söylüyor: içeriğin bir modele atıflı mı atıfsız mı girdiği artık para konuşulan bir masada. (Kaynak: [TechCrunch — Warner/Sureel](https://techcrunch.com/2026/06/10/warner-music-acquires-ai-attribution-startup-sureel-ai/), [The Verge — Lyria davası](https://www.theverge.com/tech/947770/google-lyria-music-ai-lawsuit-youtube))
 
 **Gonet yorumu:** SEO'da para birimi "link"ti; AEO çağında "atıf" (LLM yanıtında kaynak gösterilerek geçmek) oluyor. Telif davaları yıllar alır ama görünürlük savaşı bugün kazanılıyor — markanız modele doğru atıfla girmezse ya yanlış temsil edilir ya hiç anılmaz. Detaylı analiz: [Citation Economy: Atıf Yeni Para Birimi](/blog/citation-economy-atif-ekonomisi).
 
