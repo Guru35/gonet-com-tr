@@ -52,6 +52,7 @@
   --accent: #ff0000;
   --accent-strong: #ff0000;     /* açık temada normal kırmızı yeterli */
   --viz-ink-bg: #0f172a;        /* viz inverted koyu kart zemini (skillSlug) */
+  --wordmark-color: #000000;    /* footer dev wordmark */
   color-scheme: light;
 }
 
@@ -64,16 +65,18 @@
   --color-slate-50: #161616;
   --color-slate-100: #1d1d1d;
   --color-slate-200: #2a2a2a;
-  --color-slate-300: #404040;
-  --color-slate-400: #737373;
+  --color-slate-300: #8a8a8a;   /* muted metin — AA geçer (#404040 fail idi) */
+  --color-slate-400: #9a9a9a;   /* muted metin — AA geçer (#737373 fail idi) */
   --color-slate-500: #a3a3a3;
-  --color-slate-600: #a3a3a3;
+  --color-slate-600: #b0b0b0;
   --color-slate-700: #c4c4c4;
   --color-slate-800: #d4d4d4;
   --color-slate-900: #f2f2f2;   /* text-slate-900 (body+başlık) → açık */
   --color-brand-50: #161616;
   --color-brand-100: #1d1d1d;
   --color-brand-200: #2a2a2a;
+  --color-brand-300: #b0b0b0;   /* muted metin */
+  --color-brand-400: #9a9a9a;   /* küçük muted label — AA geçer */
   --color-brand-600: #2a2a2a;   /* Merhaba butonu zemini */
 
   /* Fonksiyonel kırmızı tint'ler (KVKK/PII uyarı, hata metni) — koyu varyant.
@@ -94,12 +97,17 @@
   --text-heading: #f2f2f2;
   --accent-strong: #ff2b2b;     /* yalnız küçük puntolu kırmızı metin AA düşerse */
   --viz-ink-bg: #1d1d1d;        /* inverted koyu kart → koyu temada yüzey (açığa dönmez) */
+  --wordmark-color: #6e6e6e;    /* footer dev wordmark — görünür dekoratif gri (AA-large) */
   color-scheme: dark;
 }
 
 /* Dual-use düzeltmeleri — inverted bölümler (bg-black text-white) bozulmasın */
 [data-theme="dark"] .bg-black { background-color: #000000; }   /* siyah emphasis #0a0a0a üstünde */
 [data-theme="dark"] .text-white { color: #f2f2f2; }            /* inverted metin açık kalsın (saf beyaz değil) */
+
+/* SEPARATÖRLER — border-black koyu temada parlak (#e6e6e6) kalıyordu → --border (#2a2a2a) */
+[data-theme="dark"] .border-black { border-color: var(--border); }
+/* footer dev wordmark koyu rengi --wordmark-color token'ı ile (aşağıdaki !important blok) */
 
 /* Gölge koyu zeminde kaybolur → başlık ink-bleed kapanır */
 [data-theme="dark"] .editorial-display,
@@ -111,6 +119,12 @@
 .theme-icon-moon { display: block; }
 [data-theme="dark"] .theme-icon-sun { display: block; }
 [data-theme="dark"] .theme-icon-moon { display: none; }
+
+/* Göz widget (sağ alt) — koyu tema: siyah stroke/pupil görünmezdi → açık;
+   inline box-shadow (siyah) koyuda kaybolur → ince border ile "yüzen" görünüm. */
+[data-theme="dark"] .eye-svg { stroke: #e6e6e6; }
+[data-theme="dark"] .eye-pupil { fill: #e6e6e6; }
+[data-theme="dark"] #eye-toggle { border: 1px solid var(--border); border-bottom: 0; }
 
 /* Klaro çerez banner — koyu temada element override (üçüncü-taraf CSS,
    var sistemi güvenilmez → doğrudan; !important burada haklı: bizim kod değil.
@@ -489,7 +503,7 @@ a.ext-link::after {
 .footer-wordmark:active,
 .footer-wordmark:focus,
 .footer-wordmark:visited {
-  color: #000 !important;
+  color: var(--wordmark-color) !important;   /* tema-bilinçli (açık #000, koyu #6e6e6e) */
   background: transparent !important;
   background-color: transparent !important;
 }
