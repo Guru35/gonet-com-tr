@@ -2,7 +2,7 @@
 title: "Gonet Signal — 11 Haziran 2026: Haftanın AI Sinyalleri"
 description: "Gonet Signal haftalık seçki: Anthropic Fable 5 ve guardrail tartışması, AI ajan bağlam güvenliği, atıf ekonomisinin ticarileşmesi ve markanız için ne anlama geldikleri."
 h1: "Gonet Signal — 11 Haziran 2026"
-ogImage: "/blog/blog-gonet-signal-2026-06-11.png"
+ogImage: "/blog/blog-gonet-signal-2026-06-11-2.png"
 keywords:
   - "Gonet Signal"
   - "AI haftalık seçki"
