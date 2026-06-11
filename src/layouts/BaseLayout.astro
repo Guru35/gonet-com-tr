@@ -133,6 +133,7 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
         hideDeclineAll: false,
         hideLearnMore: false,
         noticeAsModal: false,
+        disablePoweredBy: true,
         lang: 'tr',
         translations: {
           tr: {
@@ -155,7 +156,11 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
             service: {
               disableAll: { title: 'Tümünü devre dışı bırak', description: 'Tüm üçüncü taraf servisleri kapatır.' },
             },
-            poweredBy: '',
+            purposeItem: {
+              service: 'servis',
+              services: 'servis',
+            },
+            poweredBy: 'Gizlilik tercihleri',
           },
         },
         services: [
@@ -274,6 +279,53 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
             const m = document.getElementById('theme-color-meta');
             if (m) m.setAttribute('content', next === 'dark' ? '#0a0a0a' : '#ffffff');
           });
+        })();
+      </script>
+      <!-- Dış link otomasyonu (site geneli kural) — alan-dışı linkler yeni sekme +
+           rel güvenlik + ↗ + SR etiketi. Tüm sayfalara/içeriğe otomatik uygulanır. -->
+      <script is:inline>
+        (function () {
+          function isExternal(host) {
+            return host && host !== 'gonet.com.tr' && !host.endsWith('.gonet.com.tr');
+          }
+          function process(root) {
+            var links = (root || document).querySelectorAll('a[href]');
+            for (var i = 0; i < links.length; i++) {
+              var a = links[i];
+              if (a.dataset.extDone) continue;
+              var href = a.getAttribute('href') || '';
+              if (!/^https?:\/\//i.test(href)) continue;       // relative/mailto/tel/# → iç
+              var host;
+              try { host = new URL(href, location.href).hostname; } catch (e) { continue; }
+              if (!isExternal(host)) continue;                  // *.gonet.com.tr → iç, dokunma
+              a.setAttribute('target', '_blank');
+              var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+              if (rel.indexOf('noopener') === -1) rel.push('noopener');
+              if (rel.indexOf('noreferrer') === -1) rel.push('noreferrer');
+              a.setAttribute('rel', rel.join(' '));
+              a.classList.add('ext-link');
+              if (!a.querySelector('.sr-ext')) {
+                var s = document.createElement('span');
+                s.className = 'sr-only sr-ext';
+                s.textContent = ' (yeni sekmede açılır)';
+                a.appendChild(s);
+              }
+              a.dataset.extDone = '1';
+            }
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { process(document); });
+          } else {
+            process(document);
+          }
+          // Dinamik eklenen içerik (feedback widget, vb.) için hafif gözlem
+          try {
+            new MutationObserver(function (muts) {
+              for (var j = 0; j < muts.length; j++) {
+                if (muts[j].addedNodes && muts[j].addedNodes.length) { process(document); break; }
+              }
+            }).observe(document.body, { childList: true, subtree: true });
+          } catch (e) {}
         })();
       </script>
       <script is:inline>
