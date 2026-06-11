@@ -223,6 +223,12 @@ const sayfalar = [
   </div>
 
   <style>
+    /* Koyu tema: bu showcase intentional beyaz "kağıt örnek" yüzeyi (OG-asset gibi
+       dışa dönük sabit tasarım). Paneller beyaz kalır; metin inherit ile koyu temada
+       açığa dönüyordu → beyaz panelde görünmez. Metni koyu sabitle. */
+    :global([data-theme="dark"]) .hpan,
+    :global([data-theme="dark"]) .lightbox { color: #111111; }
+
     /* Desktop ≥1024 — fullscreen slider, dikey scroll kilitli */
     @media (min-width: 1024px) {
       :global(html), :global(body) {

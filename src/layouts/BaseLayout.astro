@@ -667,49 +667,9 @@ const allSchemas = [...globalSchemas, ...pageSchemas];
       })();
     </script>
 
-    <!-- Tilt-card 3D hover — .tilt-card class'lı element fareye göre rotateX/Y alır -->
-    <script is:inline>
-      (function () {
-        if (window.matchMedia('(pointer: coarse)').matches) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        function init() {
-          var cards = document.querySelectorAll('.tilt-card');
-          if (!cards.length) return;
-          var MAX_TILT = 8;
-          var SCALE = 1.02;
-          cards.forEach(function (card) {
-            if (card.dataset.tiltBound === '1') return;
-            card.dataset.tiltBound = '1';
-            var rect = null;
-            var rafId = null;
-            card.addEventListener('mouseenter', function () {
-              rect = card.getBoundingClientRect();
-              card.style.transition = 'transform 100ms ease-out';
-            });
-            card.addEventListener('mousemove', function (e) {
-              if (!rect) return;
-              if (rafId) cancelAnimationFrame(rafId);
-              rafId = requestAnimationFrame(function () {
-                var x = (e.clientX - rect.left) / rect.width;
-                var y = (e.clientY - rect.top) / rect.height;
-                var rotateX = (y - 0.5) * -MAX_TILT * 2;
-                var rotateY = (x - 0.5) * MAX_TILT * 2;
-                card.style.transform = 'rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) scale(' + SCALE + ')';
-              });
-            });
-            card.addEventListener('mouseleave', function () {
-              card.style.transition = 'transform 400ms cubic-bezier(0.4, 0, 0.2, 1)';
-              card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
-            });
-          });
-        }
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', init);
-        } else { init(); }
-        // Yeni eklenen tilt-card'lar için (blog infinite-scroll vs.)
-        new MutationObserver(init).observe(document.body, { childList: true, subtree: true });
-      })();
-    </script>
+    <!-- (Ölü tilt-card 3D hover JS kaldırıldı 2026-06-11: hiçbir markup .tilt-card
+         kullanmıyordu; MutationObserver her DOM değişiminde boşa querySelectorAll
+         çalıştırıyordu — perf temizliği.) -->
 
     <!-- Mobil otomatik perspektif-to-fit: sığmayan editorial-display başlıkları rotateY ile sığacak kadar eğer -->
     <script is:inline>

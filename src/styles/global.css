@@ -370,20 +370,7 @@ a.ext-link::after {
     0 50px 80px -10px rgba(0, 0, 0, 0.18);
 }
 
-/* Tilt-card — fare ile 3D rotation. JS BaseLayout'ta. Touch + reduced-motion atlanır.
-   .paper-sheet ile birlikte kullanılabilir (gölge + eğim). */
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-.tilt-card-content {
-  transform: translateZ(20px);
-  transform-style: preserve-3d;
-}
-@media (prefers-reduced-motion: reduce) {
-  .tilt-card { transform: none !important; transition: none !important; }
-}
+/* (Ölü .tilt-card CSS kaldırıldı 2026-06-11 — markup'ta 0 kullanım, JS de kaldırıldı.) */
 
 /* Blog hero görsel — siyah/beyaz, sağ kenara hizalı, default %40 dışarda, hover'da tamamı görünür */
 @media (min-width: 1024px) {
