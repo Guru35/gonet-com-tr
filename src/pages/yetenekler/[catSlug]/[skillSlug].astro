@@ -316,7 +316,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         line-height: 1.85 !important;
         margin-bottom: 1.75rem !important;
         font-weight: 400 !important;
-        color: rgb(30 41 59) !important;
+        color: var(--color-slate-800) !important;
       }
       /* H2 ve H3 başlıklar için de geniş aralık */
       .body-typography > h2 {
@@ -337,7 +337,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-size: 1.625rem !important;      /* ~26px mobile */
         line-height: 1.5 !important;
         font-weight: 400 !important;          /* bolt DEĞİL */
-        color: rgb(15 23 42) !important;
+        color: var(--color-slate-900) !important;
         margin-bottom: 2.25rem !important;
       }
       @media (min-width: 1024px) {
@@ -377,7 +377,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .body-typography h2 + p {
         font-size: 1.3125rem !important;     /* ~21px */
         font-weight: 400 !important;
-        color: rgb(15 23 42) !important;
+        color: var(--color-slate-900) !important;
         line-height: 1.7 !important;
       }
       @media (min-width: 1024px) {
@@ -442,8 +442,8 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .body-typography th {
         font-weight: 600 !important;
-        color: rgb(15 23 42) !important;
-        background: rgb(248 250 252) !important;
+        color: var(--color-slate-900) !important;
+        background: var(--color-slate-50) !important;
         border-bottom: 1.5px solid rgb(0 0 0 / 0.15) !important;
       }
       .body-typography td {
@@ -454,7 +454,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .body-typography td:first-child {
         font-weight: 500 !important;
-        color: rgb(15 23 42) !important;
+        color: var(--color-slate-900) !important;
         width: 38% !important;
       }
       .body-typography td:nth-child(2) {
@@ -475,7 +475,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
           margin-bottom: 1.5rem !important;
           border: 1px solid rgb(0 0 0 / 0.1) !important;
           padding: 1rem 1.25rem !important;
-          background: white !important;
+          background: var(--color-white) !important;
         }
         .body-typography td {
           padding: 0.5rem 0 !important;
@@ -484,7 +484,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         }
         .body-typography td:first-child {
           font-weight: 600 !important;
-          color: rgb(15 23 42) !important;
+          color: var(--color-slate-900) !important;
           font-size: 0.95rem !important;
           padding-bottom: 0.5rem !important;
           border-bottom: 1px solid rgb(0 0 0 / 0.08) !important;
@@ -511,7 +511,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        color: rgb(100 116 139);
+        color: var(--color-slate-500);
         margin-bottom: 2rem;
       }
       .gonet-stat-bar {
@@ -524,19 +524,19 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-stat-bar > .label {
         font-weight: 500;
-        color: rgb(15 23 42);
+        color: var(--color-slate-900);
       }
       .gonet-stat-bar > .track {
         position: relative;
         height: 8px;
-        background: rgb(241 245 249);
+        background: var(--color-slate-100);
         border-radius: 9999px;
         overflow: hidden;
       }
       .gonet-stat-bar > .track > .fill {
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, #cbd5e1, #475569);
+        background: linear-gradient(90deg, var(--color-slate-300), var(--color-slate-600));
         border-radius: 9999px;
         width: var(--val, 0%);
         transform-origin: left;
@@ -548,7 +548,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .gonet-stat-bar > .value {
         font-weight: 700;
         font-variant-numeric: tabular-nums;
-        color: rgb(15 23 42);
+        color: var(--color-slate-900);
         min-width: 60px;
         text-align: right;
         font-size: 1.05rem;
@@ -576,7 +576,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         flex-shrink: 0;
         transform: rotate(-90deg);
       }
-      .gonet-donut svg .track { fill: none; stroke: rgb(241 245 249); stroke-width: 18; }
+      .gonet-donut svg .track { fill: none; stroke: var(--color-slate-100); stroke-width: 18; }
       .gonet-donut svg .fill {
         fill: none; stroke: rgb(255 0 0); stroke-width: 18;
         stroke-dasharray: var(--circumference, 320);
@@ -595,10 +595,10 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-donut .donut-label {
         font-size: 0.875rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.18em; color: rgb(100 116 139); margin-top: 0.5rem;
+        letter-spacing: 0.18em; color: var(--color-slate-500); margin-top: 0.5rem;
       }
       .gonet-donut .donut-desc {
-        font-size: 0.95rem; color: rgb(51 65 85); line-height: 1.65; margin-top: 0.75rem;
+        font-size: 0.95rem; color: var(--color-slate-700); line-height: 1.65; margin-top: 0.75rem;
       }
 
       /* Pull-quote — istatistik amplifier */
@@ -616,10 +616,10 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-pullquote .big-label {
         font-size: 0.875rem; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139);
+        letter-spacing: 0.2em; color: var(--color-slate-500);
       }
       .gonet-pullquote .pq-desc {
-        font-size: 0.95rem; color: rgb(51 65 85); line-height: 1.6;
+        font-size: 0.95rem; color: var(--color-slate-700); line-height: 1.6;
         margin-top: 1rem; max-width: 32rem; margin-left: auto; margin-right: auto;
       }
 
@@ -642,13 +642,13 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .gonet-stat-grid > .stat:last-child { border-right: 0; }
       .gonet-stat-grid > .stat .n {
         font-size: 2.5rem; font-weight: 700; line-height: 1;
-        color: rgb(15 23 42); font-variant-numeric: tabular-nums;
+        color: var(--color-slate-900); font-variant-numeric: tabular-nums;
         margin-bottom: 0.5rem;
       }
       .gonet-stat-grid > .stat.is-primary .n { color: rgb(255 0 0); }
       .gonet-stat-grid > .stat .l {
         font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.18em; color: rgb(100 116 139); line-height: 1.4;
+        letter-spacing: 0.18em; color: var(--color-slate-500); line-height: 1.4;
       }
       @media (max-width: 640px) {
         .gonet-stat-grid > .stat {
@@ -674,25 +674,25 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-compare > .col .lab {
         font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 1rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 1rem;
       }
       .gonet-compare > .col .bar {
-        width: 60%; max-width: 80px; background: rgb(241 245 249);
+        width: 60%; max-width: 80px; background: var(--color-slate-100);
         position: relative; align-self: flex-end; margin-bottom: 1rem;
       }
       .gonet-compare > .col .bar > span {
-        display: block; background: rgb(15 23 42);
+        display: block; background: var(--viz-ink-bg);
         height: var(--h, 60px);
         transform-origin: bottom; animation: gonet-bar-grow 1.2s cubic-bezier(0.22, 1, 0.36, 1);
       }
       .gonet-compare > .col.is-primary .bar > span { background: rgb(255 0 0); }
       .gonet-compare > .col .v {
-        font-size: 1.5rem; font-weight: 700; color: rgb(15 23 42);
+        font-size: 1.5rem; font-weight: 700; color: var(--color-slate-900);
         font-variant-numeric: tabular-nums;
       }
       .gonet-compare > .col.is-primary .v { color: rgb(255 0 0); }
       .gonet-compare > .col .desc {
-        font-size: 0.8rem; color: rgb(100 116 139); margin-top: 0.25rem; line-height: 1.4;
+        font-size: 0.8rem; color: var(--color-slate-500); margin-top: 0.25rem; line-height: 1.4;
       }
 
       /* Process flow — 3-5 adım numbered horizontal */
@@ -704,7 +704,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-process .pt {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 2rem;
       }
       .gonet-process .steps {
         display: grid;
@@ -719,23 +719,23 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .gonet-process .step:not(:last-child)::after {
         content: '→';
         position: absolute; right: 0; top: 0;
-        color: rgb(203 213 225); font-size: 1.5rem; font-weight: 300;
+        color: var(--color-slate-300); font-size: 1.5rem; font-weight: 300;
       }
       .gonet-process .step .n {
         display: inline-flex; align-items: center; justify-content: center;
         width: 1.75rem; height: 1.75rem;
-        background: rgb(15 23 42); color: white;
+        background: var(--viz-ink-bg); color: white;
         font-size: 0.875rem; font-weight: 700;
         font-variant-numeric: tabular-nums;
         margin-bottom: 0.875rem;
       }
       .gonet-process .step.is-primary .n { background: rgb(255 0 0); }
       .gonet-process .step .t {
-        font-size: 0.95rem; font-weight: 600; color: rgb(15 23 42);
+        font-size: 0.95rem; font-weight: 600; color: var(--color-slate-900);
         margin-bottom: 0.375rem; line-height: 1.4;
       }
       .gonet-process .step .d {
-        font-size: 0.8125rem; color: rgb(71 85 105); line-height: 1.55;
+        font-size: 0.8125rem; color: var(--color-slate-600); line-height: 1.55;
       }
       @media (max-width: 768px) {
         .gonet-process .step:not(:last-child)::after { display: none; }
@@ -753,7 +753,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-timeline .tl-title {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 2rem;
       }
       .gonet-timeline .tl-line {
         position: relative;
@@ -771,20 +771,20 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-timeline .tl-pt::before {
         content: ''; display: block; width: 12px; height: 12px;
-        background: rgb(15 23 42); border-radius: 0;
+        background: var(--viz-ink-bg); border-radius: 0;
         margin-left: 0; margin-bottom: 1rem; position: relative; z-index: 1;
       }
       .gonet-timeline .tl-pt.is-primary::before { background: rgb(255 0 0); }
       .gonet-timeline .tl-pt .when {
         font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.18em; color: rgb(100 116 139); margin-bottom: 0.375rem;
+        letter-spacing: 0.18em; color: var(--color-slate-500); margin-bottom: 0.375rem;
       }
       .gonet-timeline .tl-pt .what {
-        font-size: 0.9rem; font-weight: 600; color: rgb(15 23 42);
+        font-size: 0.9rem; font-weight: 600; color: var(--color-slate-900);
         line-height: 1.45; margin-bottom: 0.25rem;
       }
       .gonet-timeline .tl-pt .who {
-        font-size: 0.78rem; color: rgb(100 116 139); line-height: 1.5;
+        font-size: 0.78rem; color: var(--color-slate-500); line-height: 1.5;
       }
       @media (max-width: 640px) {
         .gonet-timeline .tl-line::before { display: none; }
@@ -802,27 +802,27 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-gauge .g-title {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 2rem;
       }
       .gonet-gauge .g-row {
         display: grid; grid-template-columns: minmax(80px, 16%) 1fr auto;
         align-items: center; gap: 1rem; margin-bottom: 1.5rem;
       }
       .gonet-gauge .g-row > .g-name {
-        font-weight: 600; color: rgb(15 23 42); font-size: 0.95rem;
+        font-weight: 600; color: var(--color-slate-900); font-size: 0.95rem;
       }
       .gonet-gauge .g-row > .g-track {
         position: relative; height: 14px;
-        background: rgb(241 245 249);
+        background: var(--color-slate-100);
         display: flex;
       }
       .gonet-gauge .g-row > .g-track > .zone {
         height: 100%;
         flex: var(--w, 33);
       }
-      .gonet-gauge .g-row > .g-track > .zone.good { background: rgb(15 23 42); opacity: 0.85; }
-      .gonet-gauge .g-row > .g-track > .zone.mid { background: rgb(148 163 184); opacity: 0.6; }
-      .gonet-gauge .g-row > .g-track > .zone.bad { background: rgb(226 232 240); }
+      .gonet-gauge .g-row > .g-track > .zone.good { background: var(--viz-ink-bg); opacity: 0.85; }
+      .gonet-gauge .g-row > .g-track > .zone.mid { background: var(--color-slate-400); opacity: 0.6; }
+      .gonet-gauge .g-row > .g-track > .zone.bad { background: var(--color-slate-200); }
       .gonet-gauge .g-row > .g-track > .marker {
         position: absolute;
         top: -6px;
@@ -839,21 +839,21 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-gauge .g-row > .g-val {
         font-weight: 700; font-variant-numeric: tabular-nums;
-        color: rgb(15 23 42); min-width: 70px; text-align: right;
+        color: var(--color-slate-900); min-width: 70px; text-align: right;
         font-size: 1rem;
       }
       .gonet-gauge .g-legend {
         display: flex; gap: 1.5rem; margin-top: 1rem;
-        font-size: 0.75rem; color: rgb(100 116 139);
+        font-size: 0.75rem; color: var(--color-slate-500);
         text-transform: uppercase; letter-spacing: 0.15em;
       }
       .gonet-gauge .g-legend span::before {
         content: ''; display: inline-block; width: 10px; height: 10px;
         margin-right: 0.5rem; vertical-align: middle;
       }
-      .gonet-gauge .g-legend .lg-good::before { background: rgb(15 23 42); opacity: 0.85; }
-      .gonet-gauge .g-legend .lg-mid::before { background: rgb(148 163 184); opacity: 0.6; }
-      .gonet-gauge .g-legend .lg-bad::before { background: rgb(226 232 240); }
+      .gonet-gauge .g-legend .lg-good::before { background: var(--viz-ink-bg); opacity: 0.85; }
+      .gonet-gauge .g-legend .lg-mid::before { background: var(--color-slate-400); opacity: 0.6; }
+      .gonet-gauge .g-legend .lg-bad::before { background: var(--color-slate-200); }
       @keyframes gonet-marker-slide {
         from { left: 0%; opacity: 0; }
         to { left: var(--pos, 50%); opacity: 1; }
@@ -869,7 +869,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-hub .h-title {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 2rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 2rem;
       }
       .gonet-hub .h-svg {
         width: 100%; max-width: 480px; height: 320px;
@@ -884,11 +884,11 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         fill: rgb(255 0 0);
       }
       .gonet-hub .h-svg .satellite {
-        fill: white; stroke: rgb(15 23 42); stroke-width: 1.5;
+        fill: white; stroke: var(--color-slate-900); stroke-width: 1.5;
       }
       .gonet-hub .h-svg text {
         font-size: 11px; font-weight: 600;
-        text-anchor: middle; fill: rgb(15 23 42);
+        text-anchor: middle; fill: var(--color-slate-900);
       }
       .gonet-hub .h-svg text.center-label {
         fill: white; font-size: 12px;
@@ -908,7 +908,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-spider .s-title {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 1.5rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 1.5rem;
       }
       .gonet-spider .s-svg {
         width: 280px; height: 280px; flex-shrink: 0; display: block;
@@ -926,7 +926,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-spider .s-svg .axis-label {
         font-size: 11px; font-weight: 600; text-anchor: middle;
-        fill: rgb(15 23 42); text-transform: uppercase; letter-spacing: 0.1em;
+        fill: var(--color-slate-900); text-transform: uppercase; letter-spacing: 0.1em;
       }
       .gonet-spider .s-legend { flex: 1; min-width: 220px; }
       .gonet-spider .s-legend ul {
@@ -938,7 +938,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-size: 0.9rem;
       }
       .gonet-spider .s-legend li:last-child { border-bottom: 0; }
-      .gonet-spider .s-legend .l-name { font-weight: 500; color: rgb(15 23 42); }
+      .gonet-spider .s-legend .l-name { font-weight: 500; color: var(--color-slate-900); }
       .gonet-spider .s-legend .l-val {
         font-weight: 700; color: rgb(255 0 0);
         font-variant-numeric: tabular-nums;
@@ -957,7 +957,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-heatmap .hm-title {
         font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.2em; color: rgb(100 116 139); margin-bottom: 1.5rem;
+        letter-spacing: 0.2em; color: var(--color-slate-500); margin-bottom: 1.5rem;
       }
       .gonet-heatmap .hm-grid {
         display: grid;
@@ -966,28 +966,28 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-size: 0.7rem;
       }
       .gonet-heatmap .hm-row-label {
-        color: rgb(100 116 139); font-weight: 600;
+        color: var(--color-slate-500); font-weight: 600;
         display: flex; align-items: center; padding-right: 0.5rem;
         text-transform: uppercase; letter-spacing: 0.1em;
       }
       .gonet-heatmap .hm-cell {
-        aspect-ratio: 1 / 1; background: rgb(241 245 249);
+        aspect-ratio: 1 / 1; background: var(--color-slate-100);
         position: relative;
       }
-      .gonet-heatmap .hm-cell[data-v="1"] { background: rgb(226 232 240); }
-      .gonet-heatmap .hm-cell[data-v="2"] { background: rgb(203 213 225); }
-      .gonet-heatmap .hm-cell[data-v="3"] { background: rgb(148 163 184); }
-      .gonet-heatmap .hm-cell[data-v="4"] { background: rgb(71 85 105); }
+      .gonet-heatmap .hm-cell[data-v="1"] { background: var(--color-slate-200); }
+      .gonet-heatmap .hm-cell[data-v="2"] { background: var(--color-slate-300); }
+      .gonet-heatmap .hm-cell[data-v="3"] { background: var(--color-slate-400); }
+      .gonet-heatmap .hm-cell[data-v="4"] { background: var(--color-slate-600); }
       .gonet-heatmap .hm-cell[data-v="5"] { background: rgb(255 0 0); }
       .gonet-heatmap .hm-x-axis {
         display: grid; grid-template-columns: 60px repeat(24, 1fr);
         gap: 2px; margin-top: 0.5rem;
-        font-size: 0.65rem; color: rgb(100 116 139);
+        font-size: 0.65rem; color: var(--color-slate-500);
       }
       .gonet-heatmap .hm-x-axis .x { text-align: center; font-variant-numeric: tabular-nums; }
       .gonet-heatmap .hm-legend {
         display: flex; align-items: center; gap: 0.75rem;
-        margin-top: 1rem; font-size: 0.7rem; color: rgb(100 116 139);
+        margin-top: 1rem; font-size: 0.7rem; color: var(--color-slate-500);
         text-transform: uppercase; letter-spacing: 0.15em;
       }
       .gonet-heatmap .hm-legend .scale {
@@ -1021,7 +1021,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         content: ''; position: absolute;
         left: 2px; top: 1.25rem;
         width: 8px; height: 8px;
-        background: rgb(148 163 184);
+        background: var(--color-slate-400);
         border-radius: 50%;
       }
       .changelog-item.is-latest::before {
@@ -1036,23 +1036,23 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       .changelog-item .cl-date {
         font-size: 0.75rem; font-weight: 600;
         font-variant-numeric: tabular-nums;
-        color: rgb(15 23 42);
+        color: var(--color-slate-900);
         letter-spacing: 0.05em;
       }
       .changelog-item .cl-type {
         font-size: 0.625rem; font-weight: 600;
         text-transform: uppercase; letter-spacing: 0.18em;
         padding: 0.125rem 0.5rem;
-        background: rgb(241 245 249);
-        color: rgb(71 85 105);
+        background: var(--color-slate-100);
+        color: var(--color-slate-600);
       }
-      .changelog-item .cl-type-initial { background: rgb(15 23 42); color: white; }
+      .changelog-item .cl-type-initial { background: var(--viz-ink-bg); color: white; }
       .changelog-item .cl-type-enhancement { background: rgb(255 0 0); color: white; }
       .changelog-item .cl-type-correction { background: rgb(254 226 226); color: rgb(153 27 27); }
       .changelog-item .cl-type-schema { background: rgb(219 234 254); color: rgb(30 64 175); }
       .changelog-item .cl-summary {
         font-size: 0.875rem; line-height: 1.6;
-        color: rgb(51 65 85);
+        color: var(--color-slate-700);
         margin: 0;
       }
 
@@ -1065,7 +1065,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-spec .sp-title {
         font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-        letter-spacing: 0.22em; color: rgb(100 116 139); margin-bottom: 1.25rem;
+        letter-spacing: 0.22em; color: var(--color-slate-500); margin-bottom: 1.25rem;
       }
       .gonet-spec .sp-row {
         display: grid; grid-template-columns: minmax(140px, 30%) 1fr;
@@ -1075,10 +1075,10 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .gonet-spec .sp-row:last-child { border-bottom: 0; }
       .gonet-spec .sp-row > .k {
-        font-weight: 500; color: rgb(15 23 42);
+        font-weight: 500; color: var(--color-slate-900);
       }
       .gonet-spec .sp-row > .v {
-        color: rgb(51 65 85); line-height: 1.6;
+        color: var(--color-slate-700); line-height: 1.6;
         font-variant-numeric: tabular-nums;
       }
       .gonet-spec .sp-row.is-primary > .v {
@@ -1123,7 +1123,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-weight: 300;
         line-height: 1;
         cursor: pointer;
-        color: rgb(71 85 105);   /* slate-600, daha güçlü kontrast */
+        color: var(--color-slate-600);   /* slate-600, daha güçlü kontrast */
         transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
                     color 0.15s ease;
         display: flex;
@@ -1163,7 +1163,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         right: calc(100% + 0.6rem);
         top: 50%;
         transform: translateY(-50%);
-        background: rgb(15 23 42);
+        background: var(--viz-ink-bg);
         color: white;
         padding: 0.3rem 0.7rem;
         font-size: 0.6875rem;
@@ -1199,7 +1199,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         margin: 2.5rem 0 !important;
         padding: 1.5rem 1.5rem 1.5rem 2rem !important;
         border-left: 3px solid rgb(255 0 0) !important;
-        background: rgb(248 250 252) !important;
+        background: var(--color-slate-50) !important;
         font-size: 1.05rem !important;
         line-height: 1.75 !important;
         font-style: normal !important;
@@ -1217,7 +1217,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-weight: 500;
         font-size: 1.2rem;
         line-height: 1.55;
-        color: rgb(15 23 42);
+        color: var(--color-slate-900);
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -1236,7 +1236,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
         font-weight: 300;
         font-size: 2rem;
         line-height: 1;
-        color: rgb(100 116 139);
+        color: var(--color-slate-500);
         flex-shrink: 0;
         transition: transform 0.3s ease;
         margin-top: 0.25rem;
@@ -1250,7 +1250,7 @@ const schemas = [pageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])];
       }
       .faq-accordion details > div {
         padding: 0.5rem 0 1.75rem;
-        color: rgb(51 65 85);
+        color: var(--color-slate-700);
         font-size: 1.125rem;
         line-height: 1.85;
         max-width: 65ch;  /* okunabilirlik için */

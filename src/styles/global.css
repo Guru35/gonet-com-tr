@@ -51,6 +51,7 @@
   --text-heading: #0a0a0a;
   --accent: #ff0000;
   --accent-strong: #ff0000;     /* açık temada normal kırmızı yeterli */
+  --viz-ink-bg: #0f172a;        /* viz inverted koyu kart zemini (skillSlug) */
   color-scheme: light;
 }
 
@@ -92,6 +93,7 @@
   --text-secondary: #a3a3a3;
   --text-heading: #f2f2f2;
   --accent-strong: #ff2b2b;     /* yalnız küçük puntolu kırmızı metin AA düşerse */
+  --viz-ink-bg: #1d1d1d;        /* inverted koyu kart → koyu temada yüzey (açığa dönmez) */
   color-scheme: dark;
 }
 
