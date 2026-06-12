@@ -1,0 +1,4 @@
+{
+  "_comment": "Kullanıcıların 'Diğer' ile girip onaylanan sektörleri buraya engine ekler (Faz 2). Her giriş: { id, label, short, examples: { 'f-high': [...], ... }, eklendi: 'YYYY-MM-DD' }. Şimdilik boş.",
+  "sektorler": []
+}

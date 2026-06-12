@@ -2,6 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleSchema, webpageSchema } from '../../lib/schema';
 import { getCollection, render } from 'astro:content';
+import ModelKilavuzu from '../../components/interactive/ModelKilavuzu.astro';
+
+// İnteraktif yazı bileşen haritası — frontmatter `interactive` anahtarına göre.
+const interactiveComponents = { 'model-kilavuzu': ModelKilavuzu } as const;
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -13,6 +17,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const Interactive = post.data.interactive ? interactiveComponents[post.data.interactive] : null;
 
 // FAQ otomasyonu (2026-06-11): markdown'daki "## Sık sorulan sorular" (veya SSS)
 // bölümünü FAQPage schema'ya çevirir. Format: **Soru?** bold satır + cevap
@@ -55,6 +60,12 @@ const faqSchema = faqs.length
 
 // Her blog post'a özel CTA — eyebrow + iki satır heading
 const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string }> = {
+  'model-kilavuzu': {
+    eyebrow: 'Yapay zekâyı işinize doğru yerde kullanmak',
+    h2a: 'AI’yı markanız için',
+    h2b: 'biz yönetelim.',
+    btn: 'Creative AI ile tanışın →',
+  },
   '21-yuzyilda-reklam-ajanslari': {
     eyebrow: 'Ajans seçimi 21. yüzyılın en stratejik kararı',
     h2a: '21. yüzyıl ajansını',
@@ -105,9 +116,11 @@ const cta = blogCTAs[post.id] || {
   btn: 'Konuşalım →',
 };
 
-// Sıradaki post — published DESC, current'tan bir sonraki (daha eski)
+// Sıradaki post — published DESC, current'tan bir sonraki (daha eski).
+// İnteraktif yazılar sonsuz-akış hedefi OLAMAZ: DOMParser ile enjekte edilince
+// scoped style/script çalışmaz → bozuk görünür. Bu yüzden zincirden çıkarılır.
 const allPosts = (await getCollection('blog'))
-  .filter((p) => !p.data.draft)
+  .filter((p) => !p.data.draft && !p.data.interactive)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 const currentIdx = allPosts.findIndex((p) => p.id === post.id);
 const nextPost = currentIdx >= 0 && currentIdx < allPosts.length - 1 ? allPosts[currentIdx + 1] : null;
@@ -144,6 +157,7 @@ const breadcrumb = webpageSchema({
   canonical={url}
   ogImage={post.data.ogImage}
   schemas={faqSchema ? [article, breadcrumb, faqSchema] : [article, breadcrumb]}
+  noindex={post.data.draft}
 >
   {/* Deterministik random per-post (slug hash) — hero image konum/rotation */}
   {(() => null)()}
@@ -223,6 +237,13 @@ const breadcrumb = webpageSchema({
       <div class="prose-irregular">
         <Content />
       </div>
+
+      {/* İnteraktif bileşen — prose-irregular DIŞINDA (nth-of-type kartları bozar) */}
+      {Interactive && (
+        <div class="mt-16 lg:mt-20">
+          <Interactive />
+        </div>
+      )}
 
       <!-- Author block — editorial -->
       <aside class="mt-24 lg:mt-32 pt-16 lg:pt-20 border-t border-black flex items-baseline gap-6 lg:gap-10 flex-wrap">

@@ -40,6 +40,9 @@ const blog = defineCollection({
     readingMinutes: z.number().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // İnteraktif yazı bileşeni anahtarı. Set ise [...slug].astro prose'dan sonra
+    // ilgili bileşeni render eder. Enum: typo build'de patlar (sessiz kayıp yok).
+    interactive: z.enum(['model-kilavuzu']).optional(),
   }),
 });
 

@@ -1,0 +1,624 @@
+---
+/**
+ * Model Kılavuzu — interaktif blog bileşeni.
+ * v2 HTML taslağından port edildi; renkler --mk-* self-contained token'lara
+ * çevrildi (koyu tema otomatik flip). Sektöre uyarlanan görev listeleri
+ * MKTaskList ile data-driven; geri kalan içerik sabit.
+ *
+ * AEO: tüm sektör varyantları sunucuda HTML'de. JS yalnızca görünürlük + view.
+ */
+import { SECTORS } from '../../data/model-kilavuzu';
+import MKTaskList from './MKTaskList.astro';
+import JsonLd from '../JsonLd.astro';
+import { faqSchema } from '../../lib/schema';
+
+const faqItems = [
+  {
+    question: 'Hangi Claude modelini seçmeliyim?',
+    answer:
+      'Emin değilseniz Sonnet · Medium ile başlayın. İş basitse Haiku’ya inin, kritik ve geri alınamaz bir kararsa Opus’a çıkın, kullanıcıya gidecek bir metinse Fable kullanın. Hem yetenek hem maliyet açısından varsayılan başlangıç Sonnet’tir.',
+  },
+  {
+    question: 'Thinking (düşünme) modu nedir?',
+    answer:
+      'Claude’un adım adım muhakeme sürecini görünür kıldığı moddur. Web arayüzünde effort dropdown’ı, Claude Code’da /effort komutu, API’de output_config.effort ile kontrol edilir. Fable 5’te Thinking her zaman aktiftir ve kapatılamaz.',
+  },
+  {
+    question: 'Effort seviyesi (Low, Medium, High, Max) ne işe yarar?',
+    answer:
+      'Effort, modelin bir göreve ne kadar derin düşüneceğini ve ne kadar token harcayacağını belirler. Düşük effort hızlı ve ucuzdur; yüksek effort daha derin muhakeme ve daha fazla token demektir. Önce düşük effort’la deneyip gerekiyorsa kademeli yükseltmek en ekonomik yaklaşımdır.',
+  },
+  {
+    question: 'Ultracode nedir?',
+    answer:
+      'Ultracode, Claude Code’a özgü bir oturum modudur: en yüksek effort (xHigh) seviyesini açar ve paralel çok-ajanlı orkestrasyona (Dynamic Workflows) izin verir. Web arayüzünde bulunmaz. Büyük, bölünebilir görevlerde işi hızlandırır ama token tüketimini ajan sayısıyla çarpar.',
+  },
+  {
+    question: 'Bu kılavuzdaki bilgiler güvenilir mi?',
+    answer:
+      'Evet. Tüm model ve effort bilgileri Anthropic’in dört ayrı resmî kaynağından (Claude Code dokümantasyonu, Effort parametresi, Extended Thinking dokümanı ve resmî duyuru) doğrulanmıştır. Kaynaklar yazının sonundaki Kaynakça bölümünde listelenmiştir.',
+  },
+];
+---
+
+<section class="mk" data-mk-root>
+  <!-- ── SEKTÖR SEÇİCİ (JS açar; no-JS = genel içerik) ── -->
+  <div class="mk-sectorbar" hidden data-mk-sectorbar>
+    <div class="mk-sectorbar-inner">
+      <span class="mk-sectorbar-label">Sektörünüz:</span>
+      <div class="mk-chips" role="tablist" aria-label="Sektör seçimi">
+        {SECTORS.map((s, i) => (
+          <button
+            class:list={['mk-chip', { on: s.id === 'genel' }]}
+            data-sektor={s.id}
+            role="tab"
+            aria-selected={s.id === 'genel' ? 'true' : 'false'}
+          >{s.short}</button>
+        ))}
+        <button class="mk-chip mk-chip-diger" data-sektor="diger" aria-selected="false">+ Diğer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO doğrulama rozeti + view toggle ── -->
+  <div class="mk-tophead">
+    <div class="mk-verify"><span class="mk-vtick">✓</span>Veriler dört ayrı resmî kaynaktan doğrulanmıştır</div>
+    <div class="mk-seg-group" role="tablist" aria-label="Görünüm">
+      <button class="mk-seg on" data-view="capability">Yetenek</button>
+      <button class="mk-seg" data-view="token">Token Ekonomisi</button>
+    </div>
+  </div>
+
+  <!-- ── "Diğer" sektör formu (chip ile açılır) ── -->
+  <div class="mk-diger-panel" hidden data-mk-diger>
+    <div class="mk-diger-inner">
+      <p class="mk-diger-title">Sektörünüz listede yok mu?</p>
+      <p class="mk-diger-desc">Sektörünüzü bir cümleyle anlatın; örnekleri yapay zekâ ile sizin işinize göre hazırlayıp <b>e-posta ile gönderelim</b>. Onaylandığında bu kılavuzun altındaki <b>“Diğer sektörler”</b> bölümüne de eklenir.</p>
+      <form class="mk-diger-form" data-mk-diger-form>
+        <label class="mk-field">
+          <span class="mk-field-l">Sektörünüz / işiniz</span>
+          <input type="text" name="sektor" maxlength="120" required placeholder="Örn. Veteriner kliniği işletiyorum" />
+        </label>
+        <label class="mk-field">
+          <span class="mk-field-l">E-posta adresiniz</span>
+          <input type="email" name="email" required placeholder="ornek@firma.com" />
+        </label>
+        <label class="mk-consent">
+          <input type="checkbox" name="kvkk" required />
+          <span>Örnek listemin hazırlanıp e-posta ile gönderilmesi için iletişim bilgimin işlenmesine onay veriyorum. <a href="/kvkk" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></span>
+        </label>
+        <button type="submit" class="mk-diger-submit">Örneklerimi hazırlayın →</button>
+        <p class="mk-diger-status" data-mk-diger-status hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ════════ VIEW A — YETENEK ════════ -->
+  <div class="mk-view active" data-view-panel="capability">
+    <div class="mk-view-label">Yetenek Kılavuzu — hangi model neyi iyi yapar</div>
+
+    <!-- 01 FABLE -->
+    <section class="mk-model-section" id="mk-cap-fable">
+      <div class="mk-model-header">
+        <div>
+          <div class="mk-model-num">01 — Model</div>
+          <div class="mk-model-name">Fable</div>
+          <div class="mk-model-desc">Metin ustası — etkilemek, iz bırakmak için yazar</div>
+        </div>
+        <div class="mk-model-id">claude-fable-5<br /><span class="mk-eff">effort: Low · Medium · High · Extra · Max · Ultracode</span></div>
+      </div>
+      <div class="mk-alert"><strong>Fable 5’te Thinking her zaman aktiftir.</strong> Devre dışı bırakılamaz; effort yükseldikçe Thinking derinliği de artar.</div>
+
+      <div class="mk-card-grid g2">
+        <!-- F1 Hızlı/Low -->
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Hızlı <span class="mk-effort-en">· Low</span></div></div><span class="mk-badge b-lim">Taslak</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:48%"></div></div>
+          <ul class="task-list"><li>Küçük kopya revizyonu</li><li>Buton veya etiket metni değişikliği</li><li>Hızlı başlık alternatifi üret</li></ul>
+          <div class="mk-note">Hız odaklı; ton tutarlılığı ikincil planda kalır. İşlevsel taslaklar için yeterli.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Aktif, minimum düzey. Fable hafif düşünür ama ton değerlendirmesi kısadır.</div></div>
+        </div>
+        <!-- F2 Standart/Medium -->
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Standart <span class="mk-effort-en">· Medium</span></div></div><span class="mk-badge b-ok">Yapabilir</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:62%"></div></div>
+          <ul class="task-list"><li>Ürün açıklamaları, özellik tanımları</li><li>Push bildirimi ve in-app mesaj</li><li>Kullanıcı hikayesi (user story) yazımı</li></ul>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Orta düzey aktif. Tonun bağlamla uyumunu kontrol eder; standart görevler için yeterli.</div></div>
+        </div>
+        <!-- F3 Özgün/High İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Özgün <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
+          <MKTaskList cardId="f-high" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Ton, bağlam ve marka sesini bilinçli dengeler; en uygun alternatifleri üretir. Bu seviye Fable’ın tatlı noktasıdır.</div></div>
+        </div>
+        <!-- F4 Derin Anlatı/Extra İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin Anlatı <span class="mk-effort-en">· Extra</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
+          <MKTaskList cardId="f-extra" />
+          <div class="mk-note">API parametresi: <code>effort: "xhigh"</code></div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Uzun formlarda yapı ve mesaj hiyerarşisini önceden planlar. Ton tutarlılığı metin boyunca korunur.</div></div>
+        </div>
+        <!-- F5 Max İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Maksimum <span class="mk-effort-en">· Max</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:93%"></div></div>
+          <MKTaskList cardId="f-max" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">En derin yaratıcı değerlendirme. Token kısıtı yok; tüm ton ve ses alternatifleri değerlendirilir.</div></div>
+        </div>
+        <!-- F6 Ultracode -->
+        <div class="mk-card cc-card">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Mod</div><div class="mk-effort-name">Ultracode <span class="mk-effort-en">· xHigh + Çok Ajanlı</span></div></div><span class="mk-badge b-cc">Claude Code</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:100%"></div></div>
+          <div class="mk-ccnote">Yalnızca Claude Code · Web arayüzünde yok</div>
+          <ul class="task-list"><li>Paralel ajanlarda toplu içerik üretimi</li><li>Büyük içerik kütüphanesi — iş yükü bölüştürülür</li><li>Çok kanallı kampanya materyali — eş zamanlı</li></ul>
+          <div class="mk-note">Ultracode effort seviyesi değildir; xHigh’ı ayarlar + Dynamic Workflow iznini açar. Prompt’a "ultracode" yazarak etkinleştirilir.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Fable 5’te Thinking zaten her zaman aktiftir. Ultracode xHigh’ı tetiklediğinden derinlik otomatik maksimuma çıkar.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 OPUS -->
+    <section class="mk-model-section" id="mk-cap-opus">
+      <div class="mk-model-header">
+        <div>
+          <div class="mk-model-num">02 — Model</div>
+          <div class="mk-model-name">Opus</div>
+          <div class="mk-model-desc">Ağır kaldırıcı — hata affedilmez olduğunda</div>
+        </div>
+        <div class="mk-model-id">claude-opus-4-8<br /><span class="mk-eff">effort: Low · Medium · High · Extra · Max · Ultracode</span></div>
+      </div>
+
+      <div class="mk-card-grid g2">
+        <!-- O1 Low avoid -->
+        <div class="mk-card avoid">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Hızlı <span class="mk-effort-en">· Low</span></div></div><span class="mk-badge b-avoid">Pahalıya Gelir</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:20%"></div></div>
+          <ul class="task-list"><li>Git işlemleri → Haiku</li><li>Kısa notlar, şablon → Sonnet</li><li>Sonnet takılırsa buraya taşı</li></ul>
+          <div class="mk-note">Low’da Opus, Sonnet’ten pahalı ama daha iyi değil. Kaçış yolu olarak kullan, kural değil.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk toff"><span class="mk-tcheck">✓</span>Kapalı</span><span class="mk-tv">Low’da Thinking otomatik atlanır; maliyeti artırma.</span></div></div>
+        </div>
+        <!-- O2 Medium ok -->
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Standart <span class="mk-effort-en">· Medium</span></div></div><span class="mk-badge b-ok">Yapabilir</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:52%"></div></div>
+          <ul class="task-list"><li>Büyük refactor (Sonnet yetmezse)</li><li>Karmaşık state yönetimi</li><li>Çok dosyalı bağımlılık düzenleme</li></ul>
+          <div class="mk-note">Sonnet Medium ile başla; yetmezse buraya taşı.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Büyük refactorda sistematik plan çıkarır; dosyalar arası tutarlılığı sağlar.</span></div></div>
+        </div>
+        <!-- O3 High İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
+          <MKTaskList cardId="o-high" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Derin analizin standart kullanımı — alternatifleri ve ödünleşimleri adım adım değerlendirir.</span></div></div>
+        </div>
+        <!-- O4 Extra İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Uzun Görev <span class="mk-effort-en">· Extra</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
+          <MKTaskList cardId="o-extra" />
+          <div class="mk-note">API parametresi: <code>effort: "xhigh"</code></div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">xHigh bu seviye için tasarlandı — Thinking’siz çalıştırmak kapasitesini kısıtlar.</span></div></div>
+        </div>
+        <!-- O5 Max İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Maksimum <span class="mk-effort-en">· Max</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
+          <MKTaskList cardId="o-max" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Max + Thinking: en güçlü kombinasyon. Token kısıtı yok — en derin muhakeme bu noktada gerçekleşir.</span></div></div>
+        </div>
+        <!-- O6 Ultracode -->
+        <div class="mk-card cc-card">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Mod</div><div class="mk-effort-name">Ultracode <span class="mk-effort-en">· xHigh + Çok Ajanlı</span></div></div><span class="mk-badge b-cc">Claude Code</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:100%"></div></div>
+          <div class="mk-ccnote">Yalnızca Claude Code · Web arayüzünde yok</div>
+          <ul class="task-list"><li>Paralel alt-ajan orkestrasyonu (Dynamic Workflows)</li><li>Büyük ölçek codebase taraması — bölüşülmüş iş yükü</li><li>Kapsamlı kod/güvenlik denetimi — çok ajanlı</li></ul>
+          <div class="mk-note">Ultracode effort seviyesi değildir; xHigh’ı ayarlar + Dynamic Workflow iznini açar.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Ultracode xHigh effort’unu içerdiğinden Thinking otomatik aktiftir.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 SONNET -->
+    <section class="mk-model-section" id="mk-cap-sonnet">
+      <div class="mk-model-header">
+        <div>
+          <div class="mk-model-num">03 — Model</div>
+          <div class="mk-model-name">Sonnet</div>
+          <div class="mk-model-desc">Günlük iş atı — işlerin %80’i burada çözülür</div>
+        </div>
+        <div class="mk-model-id">claude-sonnet-4-6<br /><span class="mk-eff">effort: Low · Medium · High · Max</span></div>
+      </div>
+
+      <div class="mk-card-grid g2">
+        <!-- S1 Low İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Hızlı <span class="mk-effort-en">· Low</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:90%"></div></div>
+          <MKTaskList cardId="s-low" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk toff"><span class="mk-tcheck">✓</span>Kapalı</span><span class="mk-tv">Low’da Thinking zaten atlanır; basit işlere değer katmaz.</span></div></div>
+        </div>
+        <!-- S2 Medium İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Standart <span class="mk-effort-en">· Medium</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
+          <MKTaskList cardId="s-medium" />
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Yaklaşım belirsizse veya edge case’ler kritikse açık; alternatifleri karşılaştırır.</span></div></div>
+        </div>
+        <!-- S3 High İDEAL -->
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:93%"></div></div>
+          <MKTaskList cardId="s-high" />
+          <div class="mk-note">Geri dönülemez ve kritik kararlarda Opus tercih et — Sonnet High güçlüdür ama Opus kadar derin değildir.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Karmaşık hata ayıklama ve yol ayrımında işe yarar; adım adım alternatifleri listeler.</span></div></div>
+        </div>
+        <!-- S4 Max ok -->
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Maksimum <span class="mk-effort-en">· Max</span></div></div><span class="mk-badge b-ok">Yapabilir</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:70%"></div></div>
+          <ul class="task-list"><li>En zorlu çok-dosyalı hata ayıklama</li><li>Mimari taslak — Opus incelemesi öncesi</li><li>Kapsamlı test stratejisi tasarımı</li></ul>
+          <div class="mk-note">Sonnet’in tavanı. Buraya sık geliyorsan görev muhtemelen Opus işidir.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Max’ta Thinking’in tam kapasitesi açılır; en derin Sonnet muhakemesi burada gerçekleşir.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 HAIKU -->
+    <section class="mk-model-section" id="mk-cap-haiku">
+      <div class="mk-model-header">
+        <div>
+          <div class="mk-model-num">04 — Model</div>
+          <div class="mk-model-name">Haiku</div>
+          <div class="mk-model-desc">Cevabı belli işler için — karar yok, eylem var</div>
+        </div>
+        <div class="mk-model-id">claude-haiku-4-5<br /><span class="mk-eff">effort seçeneği yok · Thinking desteklenmez</span></div>
+      </div>
+      <div class="mk-alert"><strong>Effort seçeneği bu modelde yok.</strong> Haiku tek modda çalışır; claude.ai veya Claude Code’da effort dropdown görünmez.</div>
+
+      <div class="mk-card-grid g1">
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Tek Mod <span class="mk-effort-en">· sabit</span></div></div><span class="mk-badge b-ideal">İdeal: Basit İşler</span></div>
+          <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
+          <MKTaskList cardId="h-tek" />
+          <div class="mk-note">Sınırları bil: derin analiz → Opus · yaratıcı metin → Fable. Haiku bu işlerde yanlış yanıt verir, fark etmez, devam eder.</div>
+          <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-no">Bu modelde Thinking desteklenmez.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ════════ VIEW B — TOKEN EKONOMİSİ ════════ -->
+  <div class="mk-view" data-view-panel="token" hidden>
+    <div class="mk-view-label">Token Ekonomisi — hangi token nerede feda edilir</div>
+    <div class="mk-cost-ladder">
+      <div class="mk-cl-row"><span class="mk-cl-name">Haiku</span><div class="mk-cl-track"><div class="mk-cl-bar" style="width:12%"></div></div><span class="mk-cl-tag">en düşük maliyet</span></div>
+      <div class="mk-cl-row"><span class="mk-cl-name">Sonnet</span><div class="mk-cl-track"><div class="mk-cl-bar" style="width:35%"></div></div><span class="mk-cl-tag">orta — en iyi değer/oran</span></div>
+      <div class="mk-cl-row"><span class="mk-cl-name">Fable</span><div class="mk-cl-track"><div class="mk-cl-bar" style="width:68%"></div></div><span class="mk-cl-tag">premium · yaratıcı taban</span></div>
+      <div class="mk-cl-row"><span class="mk-cl-name">Opus</span><div class="mk-cl-track"><div class="mk-cl-bar" style="width:95%"></div></div><span class="mk-cl-tag">en yüksek maliyet</span></div>
+    </div>
+
+    <section class="mk-model-section" id="mk-tok-fable">
+      <div class="mk-model-header"><div><div class="mk-model-num">01 — Token Profili</div><div class="mk-model-name">Fable</div><div class="mk-model-desc">Yaratıcı taban — Thinking sürekli açık, her çağrı bir taban öder</div></div><div class="mk-model-id">claude-fable-5</div></div>
+      <div class="mk-card-grid g2">
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Token profili</div><div class="mk-effort-name">Fable <span class="mk-effort-en">· premium</span></div></div><span class="mk-badge b-lim">Premium</span></div>
+          <div class="mk-cost-row"><span class="mk-cr-label">Görece maliyet</span><div class="mk-cr-track"><div class="mk-cr-fill" style="width:68%"></div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↓ Tasarruf et</div><div class="mk-tok-v">Taslağı Low’da ürettir, sonra elle cilala. İskeleti al, üstüne sen koy.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Harcamaya değer</div><div class="mk-tok-v">Lansman kopyası, mağaza açıklaması — bir kez yazılır, binlerce kişi okur. Token feda etmek en ucuz yatırımdır.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">× Token tuzağı</div><div class="mk-tok-v">Kod veya teknik analizi Fable’a yaptırmak: hem yanlış çıkar hem sürekli açık Thinking tabanı boşa yanar.</div></div>
+        </div>
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Anahtar kural</div><div class="mk-effort-name">Taban maliyet</div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">≡ Thinking kapatılamaz</div><div class="mk-tok-v">Fable 5’te kısa işlerde bile düşünme-token tabanı ödersin; mikro işleri Haiku/Sonnet’e bırak.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Effort = uzunluk</div><div class="mk-tok-v">Low → Max yükseldikçe alternatif ve derinlik (token) artar. Maliyeti effort ile yönet.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mk-model-section" id="mk-tok-opus">
+      <div class="mk-model-header"><div><div class="mk-model-num">02 — Token Profili</div><div class="mk-model-name">Opus</div><div class="mk-model-desc">En pahalı model — her token Sonnet’in katı, doğru yerde harca</div></div><div class="mk-model-id">claude-opus-4-8</div></div>
+      <div class="mk-card-grid g2">
+        <div class="mk-card avoid">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Token profili</div><div class="mk-effort-name">Opus <span class="mk-effort-en">· en yüksek</span></div></div><span class="mk-badge b-lim">En Pahalı</span></div>
+          <div class="mk-cost-row"><span class="mk-cr-label">Görece maliyet</span><div class="mk-cr-track"><div class="mk-cr-fill" style="width:95%"></div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↓ Tasarruf et</div><div class="mk-tok-v">Low/Medium işleri Opus’a verme — Sonnet aynısını maliyetin kesirine yapar.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Harcamaya değer</div><div class="mk-tok-v">Geri alınamaz mimari / güvenlik kararı. Yanlış kararın maliyeti, en yüksek token faturasından kat kat büyüktür.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">× Token tuzağı</div><div class="mk-tok-v">Ultracode’da paralel ajanlar token tüketimini çarpar (N ajan ≈ N kat). Küçük işte açma.</div></div>
+        </div>
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Anahtar kural</div><div class="mk-effort-name">Pahalı ama haklı</div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Yüksek effort = yatırım</div><div class="mk-tok-v">Opus’un değeri High/Extra/Max’ta ortaya çıkar. Düşük effort’ta ya yüksek aç ya Sonnet’e in.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">≡ İnsan saati > token</div><div class="mk-tok-v">Kritik kararda doğru cevabı bir kerede almak, ucuz modelde defalarca yanılmaktan toplamda daha ucuzdur.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mk-model-section" id="mk-tok-sonnet">
+      <div class="mk-model-header"><div><div class="mk-model-num">03 — Token Profili</div><div class="mk-model-name">Sonnet</div><div class="mk-model-desc">Ekonominin merkezi — en iyi token/değer oranı</div></div><div class="mk-model-id">claude-sonnet-4-6</div></div>
+      <div class="mk-card-grid g2">
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Token profili</div><div class="mk-effort-name">Sonnet <span class="mk-effort-en">· en iyi oran</span></div></div><span class="mk-badge b-ideal">En İyi Değer</span></div>
+          <div class="mk-cost-row"><span class="mk-cr-label">Görece maliyet</span><div class="mk-cr-track"><div class="mk-cr-fill" style="width:35%"></div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↓ Tasarruf et</div><div class="mk-tok-v">High thinking’i her işte açma; Low/Medium işlerin çoğunu çözer. Varsayılanı düşük tut.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Harcamaya değer</div><div class="mk-tok-v">Karmaşık debug’da High + Thinking. Fazladan token, saatlerce elle hata ayıklamadan çok ucuza patlar.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">× Token tuzağı</div><div class="mk-tok-v">Sonnet’te tıkanıp aynı işi tekrar denemek. Üç-dört turdan sonra tek Opus çağrısı toplamda ucuzdur.</div></div>
+        </div>
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Anahtar kural</div><div class="mk-effort-name">Varsayılan başlangıç</div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">≡ Önce buradan başla</div><div class="mk-tok-v">İşlerin %80’i Sonnet’te en düşük toplam maliyetle biter. Sapmayı ancak görev zorlarsa yap.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Effort’u kademeli aç</div><div class="mk-tok-v">Low → Medium → High. Doğrudan Max açmak çoğu işte gereksiz token harcar.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mk-model-section" id="mk-tok-haiku">
+      <div class="mk-model-header"><div><div class="mk-model-num">04 — Token Profili</div><div class="mk-model-name">Haiku</div><div class="mk-model-desc">En ucuz — Thinking yok, düşünme-token maliyeti sıfır</div></div><div class="mk-model-id">claude-haiku-4-5</div></div>
+      <div class="mk-card-grid g2">
+        <div class="mk-card ideal">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Token profili</div><div class="mk-effort-name">Haiku <span class="mk-effort-en">· en düşük</span></div></div><span class="mk-badge b-ok">En Ucuz</span></div>
+          <div class="mk-cost-row"><span class="mk-cr-label">Görece maliyet</span><div class="mk-cr-track"><div class="mk-cr-fill" style="width:12%"></div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↓ Tasarruf et</div><div class="mk-tok-v">Yüksek hacimli basit işler: toplu commit, etiketleme, dosya işlemleri. Birim maliyet dipte.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">↑ Harcamaya değer</div><div class="mk-tok-v">Hacim. Bin küçük işi Haiku’ya dağıt — aynı işi Opus’a vermek yüzlerce kat fazlaya mal olur.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">× Token tuzağı</div><div class="mk-tok-v">Derin işi Haiku’ya vermek: yanlış çıkar → düzeltme turu → toplam iki kat token.</div></div>
+        </div>
+        <div class="mk-card ok">
+          <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Anahtar kural</div><div class="mk-effort-name">Hacim modeli</div></div></div>
+          <div class="mk-tok"><div class="mk-tok-k">≡ Thinking yok = ek maliyet yok</div><div class="mk-tok-v">Haiku düşünme-token üretmez. Maliyet yalnızca girdi + çıktıdır; tekrarlı basit işlerde rakipsizdir.</div></div>
+          <div class="mk-tok"><div class="mk-tok-k">× Sınırı zorlama</div><div class="mk-tok-v">Karar, analiz, yaratıcı metin Haiku’nun işi değil. Zorlarsan düzeltme maliyeti tasarrufu siler.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── DİĞER SEKTÖRLER (engine ekledikçe büyür — Faz 2) ── -->
+  <div class="mk-extra-sectors" data-mk-extra hidden>
+    <div class="mk-view-label">Diğer sektörler — okuyucularımızın talebiyle eklendi</div>
+    <ul class="mk-extra-list" data-mk-extra-list></ul>
+  </div>
+
+  <!-- ── FOOTER kuralları + KAYNAKÇA ── -->
+  <div class="mk-footer">
+    <div class="mk-rules">
+      <div class="mk-rule"><strong>Emin değilsen</strong><p>Sonnet · Medium ile başla. Basit işse Haiku’ya in, kritikse Opus’a çık. Varsayılan başlangıç Sonnet’tir.</p></div>
+      <div class="mk-rule"><strong>Thinking nedir?</strong><p>Claude’un adım adım muhakemesini görünür kıldığı mod. Web’de effort dropdown, Claude Code’da /effort. API: output_config.effort</p></div>
+      <div class="mk-rule"><strong>Token altın kuralı</strong><p>Hata maliyeti yüksekse token feda et (Opus). İş tekrar ediyor ve basitse token kıs (Haiku).</p></div>
+      <div class="mk-rule"><strong>Ultracode nedir?</strong><p>Claude Code’a özgü oturum modu: xHigh effort + paralel çok-ajanlı orkestrasyon. Web arayüzünde yoktur.</p></div>
+    </div>
+    <div class="mk-sources">
+      <div class="mk-sources-title"><span class="mk-vtick">✓</span>Kaynakça — dört ayrı resmî kaynaktan doğrulanmıştır</div>
+      <ol class="mk-sources-list">
+        <li><a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">Claude Code — Model Yapılandırması & Effort</a><span>code.claude.com · resmî dokümantasyon</span></li>
+        <li><a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener">Anthropic — Effort Parametresi</a><span>platform.claude.com · resmî API dokümantasyonu</span></li>
+        <li><a href="https://platform.claude.com/docs/en/build-with-claude/extended-thinking" target="_blank" rel="noopener">Anthropic — Extended Thinking</a><span>platform.claude.com · resmî API dokümantasyonu</span></li>
+        <li><a href="https://www.anthropic.com/news/visible-extended-thinking" target="_blank" rel="noopener">Anthropic — Claude's Extended Thinking (duyuru)</a><span>anthropic.com · resmî blog</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <JsonLd schema={faqSchema(faqItems)} />
+</section>
+
+<style is:global>
+/* Model Kılavuzu — self-contained token'lar (koyu tema flip). Global çünkü
+   bileşen içeriği prose dışında; site token sistemine paralel ama bağımsız. */
+.mk{
+  --mk-white:#ffffff; --mk-ink:#000000; --mk-near:#171717;
+  --mk-g1:#262626; --mk-g2:#525252; --mk-g3:#8a8a8a; --mk-g4:#d4d4d4;
+  --mk-g5:#e5e5e5; --mk-g6:#f5f5f5; --mk-red:#ff0000;
+  font-family:var(--font-sans,'Inter',sans-serif); line-height:1.5; color:var(--mk-ink);
+}
+[data-theme="dark"] .mk{
+  --mk-white:#161616; --mk-ink:#e6e6e6; --mk-near:#000000;
+  --mk-g1:#d0d0d0; --mk-g2:#b3b3b3; --mk-g3:#8a8a8a; --mk-g4:#3a3a3a;
+  --mk-g5:#2a2a2a; --mk-g6:#1d1d1d;
+}
+.mk *{box-sizing:border-box}
+.mk code{font-size:11px;color:var(--mk-g2);font-family:'Courier New',monospace}
+
+/* sektör barı */
+.mk-sectorbar{position:sticky;top:52px;z-index:30;background:var(--mk-white);border-bottom:1px solid var(--mk-g5);padding:12px 0;margin-bottom:4px}
+.mk-sectorbar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mk-sectorbar-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mk-g3);flex-shrink:0}
+.mk-chips{display:flex;flex-wrap:wrap;gap:6px}
+.mk-chip{font-family:inherit;font-size:12px;font-weight:600;padding:6px 13px;border:1px solid var(--mk-g4);background:var(--mk-white);color:var(--mk-g2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.mk-chip:hover{border-color:var(--mk-ink);color:var(--mk-ink)}
+.mk-chip.on{background:var(--mk-ink);color:var(--mk-white);border-color:var(--mk-ink)}
+.mk-chip-diger{border-style:dashed;border-color:var(--mk-red);color:var(--mk-red)}
+.mk-chip-diger.on{background:var(--mk-red);color:#fff;border-color:var(--mk-red)}
+
+/* top head */
+.mk-tophead{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 0}
+.mk-verify{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mk-g2)}
+.mk-vtick{color:var(--mk-red);font-size:12px}
+.mk-seg-group{display:inline-flex;border:1px solid var(--mk-g4)}
+.mk-seg{font-family:inherit;padding:0 14px;height:32px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mk-g3);background:var(--mk-white);border:none;cursor:pointer;transition:all .15s;white-space:nowrap}
+.mk-seg+.mk-seg{border-left:1px solid var(--mk-g4)}
+.mk-seg.on{background:var(--mk-ink);color:var(--mk-white)}
+.mk-seg:hover:not(.on){color:var(--mk-ink)}
+
+/* diğer form */
+.mk-diger-panel{margin-top:24px;border:1px solid var(--mk-g4);background:var(--mk-g6)}
+.mk-diger-inner{padding:28px 24px}
+.mk-diger-title{font-size:18px;font-weight:700;margin-bottom:8px}
+.mk-diger-desc{font-size:13px;color:var(--mk-g2);line-height:1.6;margin-bottom:20px;max-width:620px}
+.mk-diger-form{display:flex;flex-direction:column;gap:16px;max-width:520px}
+.mk-field{display:flex;flex-direction:column;gap:5px}
+.mk-field-l{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--mk-g3)}
+.mk-field input{font-family:inherit;font-size:14px;padding:11px 13px;border:1px solid var(--mk-g4);background:var(--mk-white);color:var(--mk-ink)}
+.mk-field input:focus{outline:2px solid var(--mk-red);outline-offset:-1px}
+.mk-consent{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--mk-g2);line-height:1.5}
+.mk-consent input{margin-top:2px;flex-shrink:0}
+.mk-consent a{color:var(--mk-red);text-decoration:underline}
+.mk-diger-submit{font-family:inherit;font-size:13px;font-weight:600;padding:12px 20px;background:var(--mk-red);color:#fff;border:none;cursor:pointer;align-self:flex-start;transition:background .15s}
+.mk-diger-submit:hover{background:var(--mk-ink)}
+.mk-diger-status{font-size:13px;line-height:1.5;padding:12px 14px;background:var(--mk-white);border-left:3px solid var(--mk-red);color:var(--mk-ink)}
+
+/* view */
+.mk-view{display:none}
+.mk-view.active{display:block}
+.mk-view-label{padding:36px 0 0;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mk-g3)}
+
+/* model section */
+.mk-model-section{padding:56px 0;border-bottom:1px solid var(--mk-g5)}
+.mk-model-header{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding-bottom:24px;border-bottom:1px solid var(--mk-g5)}
+.mk-model-num{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mk-g3);margin-bottom:6px}
+.mk-model-name{font-size:40px;font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+.mk-model-desc{font-size:14px;color:var(--mk-g2)}
+.mk-model-id{font-size:11px;color:var(--mk-g3);font-family:'Courier New',monospace;text-align:right;flex-shrink:0}
+.mk-eff{font-size:10px;color:var(--mk-g3)}
+.mk-alert{background:var(--mk-g6);border-left:3px solid var(--mk-g4);padding:12px 16px;margin-top:1px;font-size:12px;color:var(--mk-g2);line-height:1.5}
+.mk-alert strong{color:var(--mk-ink);font-weight:600}
+
+/* card grid */
+.mk-card-grid{display:grid;gap:1px;background:var(--mk-g5);margin-top:1px}
+.mk-card-grid.g1{grid-template-columns:1fr}
+.mk-card-grid.g2{grid-template-columns:repeat(2,1fr)}
+.mk-card{background:var(--mk-white);padding:26px 22px 30px;border-top:3px solid transparent;position:relative}
+.mk-card.ideal{border-top-color:var(--mk-ink)}
+.mk-card.ok{border-top-color:var(--mk-g4)}
+.mk-card.avoid{border-top-color:var(--mk-g6);background:var(--mk-g6)}
+.mk-card.cc-card{border-top-color:var(--mk-ink);background:var(--mk-near)}
+.mk-card.cc-card .mk-effort-name,.mk-card.cc-card .mk-tok-v{color:#e8e8e8}
+.mk-card.cc-card .mk-effort-lv,.mk-card.cc-card .mk-effort-en,.mk-card.cc-card .mk-note,.mk-card.cc-card .task-list li{color:#a3a3a3}
+.mk-card.cc-card .task-list li::before{color:#666}
+
+.mk-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.mk-effort{flex:1}
+.mk-effort-lv{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mk-g3);margin-bottom:3px}
+.mk-effort-name{font-size:18px;font-weight:700;line-height:1.1}
+.mk-effort-en{font-size:13px;font-weight:400;color:var(--mk-g3)}
+.mk-card.avoid .mk-effort-name{color:var(--mk-g2)}
+.mk-badge{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 8px;flex-shrink:0;margin-left:12px;white-space:nowrap}
+.b-ideal{background:var(--mk-red);color:#fff}
+.b-ok{border:1px solid var(--mk-ink);color:var(--mk-ink)}
+.b-lim{border:1px solid var(--mk-g3);color:var(--mk-g3)}
+.b-avoid{border:1px solid var(--mk-g4);color:var(--mk-g3)}
+.b-cc{background:var(--mk-g1);color:var(--mk-g6);font-size:9px}
+
+.mk-compat{height:2px;background:var(--mk-g6);margin-bottom:18px}
+.mk-compat-fill{height:2px}
+.ideal .mk-compat-fill{background:var(--mk-ink)}
+.ok .mk-compat-fill{background:var(--mk-g3)}
+.avoid .mk-compat-fill{background:var(--mk-g5)}
+.cc-card .mk-compat{background:var(--mk-g1)} .cc-card .mk-compat-fill{background:var(--mk-g3)}
+
+.mk-tasks{margin-bottom:0}
+.task-list{list-style:none;margin-bottom:18px;padding:0}
+.task-list li{font-size:13px;color:var(--mk-g2);line-height:1.6;display:flex;align-items:baseline;gap:9px}
+.task-list li::before{content:'—';color:var(--mk-g4);flex-shrink:0;font-size:10px}
+.task-list li.ex-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mk-red);margin-bottom:4px}
+.task-list li.ex-label::before{content:'';width:0;margin:0}
+.mk-card.avoid .task-list li{color:var(--mk-g3)}
+.mk-note{font-size:12px;color:var(--mk-g3);font-style:italic;margin-bottom:16px;line-height:1.5}
+.mk-ccnote{display:inline-flex;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#a3a3a3;padding:3px 7px;border:1px solid var(--mk-g2);margin-bottom:14px}
+
+.mk-thinking{border-top:1px solid var(--mk-g5);padding:14px 0 0}
+.cc-card .mk-thinking{border-top-color:var(--mk-g2)}
+.mk-thinking-hd{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mk-g4);margin-bottom:8px}
+.mk-thinking-always{font-size:12px;color:var(--mk-g2);line-height:1.5}
+.mk-thinking-no{font-size:12px;color:var(--mk-g4);font-style:italic;line-height:1.5}
+.mk-thinking-row{display:flex;gap:10px;margin-bottom:5px;align-items:flex-start}
+.mk-tk{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0;width:46px;display:flex;align-items:center;gap:3px}
+.mk-tk.ton{color:var(--mk-ink)} .mk-tk.toff{color:var(--mk-g3)}
+.mk-tcheck{color:var(--mk-red);font-size:10px}
+.mk-tv{font-size:12px;color:var(--mk-g2);line-height:1.5}
+
+/* token economy */
+.mk-cost-ladder{padding:30px 0 6px;display:flex;flex-direction:column;gap:13px}
+.mk-cl-row{display:flex;align-items:center;gap:16px}
+.mk-cl-name{width:72px;font-size:14px;font-weight:700;flex-shrink:0}
+.mk-cl-track{flex:1;height:8px;background:var(--mk-g6)}
+.mk-cl-bar{height:8px;background:var(--mk-ink)}
+.mk-cl-tag{width:auto;font-size:11px;color:var(--mk-g3);text-align:right;flex-shrink:0}
+.mk-cost-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.mk-cr-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mk-g3);flex-shrink:0}
+.mk-cr-track{flex:1;height:4px;background:var(--mk-g6)} .mk-cr-fill{height:4px;background:var(--mk-ink)}
+.mk-tok{margin-bottom:14px}
+.mk-tok-k{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;color:var(--mk-ink)}
+.mk-tok-v{font-size:13px;color:var(--mk-g2);line-height:1.55}
+
+/* diğer sektörler */
+.mk-extra-sectors{padding-top:8px}
+.mk-extra-list{list-style:none;padding:0;margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+
+/* footer */
+.mk-footer{padding:48px 0 8px}
+.mk-rules{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-bottom:36px;border-bottom:1px solid var(--mk-g5);margin-bottom:28px}
+.mk-rule strong{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;color:var(--mk-ink)}
+.mk-rule p{font-size:12px;color:var(--mk-g2);line-height:1.6}
+.mk-sources-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mk-g3);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.mk-sources-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px;counter-reset:fs}
+.mk-sources-list li{font-size:12px;line-height:1.5;padding-left:24px;position:relative;counter-increment:fs}
+.mk-sources-list li::before{content:counter(fs,decimal-leading-zero);position:absolute;left:0;top:1px;font-size:10px;font-weight:700;color:var(--mk-g4)}
+.mk-sources-list a{color:var(--mk-ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--mk-g4)}
+.mk-sources-list a:hover{border-bottom-color:var(--mk-ink)}
+.mk-sources-list span{display:block;color:var(--mk-g3);font-weight:400;margin-top:3px;font-size:11px}
+
+@media (max-width:820px){
+  .mk-card-grid.g2{grid-template-columns:1fr}
+  .mk-model-name{font-size:32px}
+  .mk-rules{grid-template-columns:repeat(2,1fr)}
+  .mk-sources-list,.mk-extra-list{grid-template-columns:1fr}
+  .mk-sectorbar{top:0}
+}
+@media (max-width:520px){
+  .mk-model-header{flex-direction:column;align-items:flex-start}
+  .mk-model-id{text-align:left}
+  .mk-tophead{align-items:flex-start;flex-direction:column}
+}
+</style>
+
+<script is:inline>
+(function(){
+  var root=document.querySelector('[data-mk-root]'); if(!root) return;
+  var KNOWN=Array.prototype.map.call(root.querySelectorAll('.mk-chip[data-sektor]'),function(c){return c.getAttribute('data-sektor');});
+
+  // view toggle
+  var segs=root.querySelectorAll('.mk-seg');
+  var panels=root.querySelectorAll('[data-view-panel]');
+  function setView(v){
+    segs.forEach(function(s){s.classList.toggle('on',s.getAttribute('data-view')===v);});
+    panels.forEach(function(p){var on=p.getAttribute('data-view-panel')===v;p.classList.toggle('active',on);p.hidden=!on;});
+  }
+  segs.forEach(function(s){s.addEventListener('click',function(){setView(this.getAttribute('data-view'));});});
+
+  // sektör seçici (JS varsa göster)
+  var bar=root.querySelector('[data-mk-sectorbar]'); if(bar) bar.hidden=false;
+  var diger=root.querySelector('[data-mk-diger]');
+  var chips=root.querySelectorAll('.mk-chip');
+  function applySector(sec){
+    root.querySelectorAll('.mk-tasks').forEach(function(box){
+      var lists=box.querySelectorAll('.task-list');
+      var hasVariant=box.querySelector('.task-list[data-sektor="'+sec+'"]');
+      lists.forEach(function(ul){
+        var s=ul.getAttribute('data-sektor');
+        ul.hidden = hasVariant ? (s!==sec) : (s!=='genel');
+      });
+    });
+    chips.forEach(function(c){var on=c.getAttribute('data-sektor')===sec;c.classList.toggle('on',on);c.setAttribute('aria-selected',on?'true':'false');});
+    if(diger) diger.hidden = (sec!=='diger');
+    if(sec!=='diger'){ try{localStorage.setItem('gonet-mk-sektor',sec);}catch(e){}
+      try{var u=new URL(window.location);u.searchParams.set('sektor',sec);history.replaceState({},'',u);}catch(e){} }
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){applySector(this.getAttribute('data-sektor'));});});
+
+  // başlangıç: ?sektor= veya localStorage
+  var init='genel';
+  try{var q=new URL(window.location).searchParams.get('sektor'); if(q&&KNOWN.indexOf(q)>=0) init=q;
+      else{var ls=localStorage.getItem('gonet-mk-sektor'); if(ls&&KNOWN.indexOf(ls)>=0) init=ls;}}catch(e){}
+  if(init!=='genel') applySector(init);
+
+  // diğer form (Faz 1: ön-uç; backend Faz 2)
+  var form=root.querySelector('[data-mk-diger-form]');
+  if(form){form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var st=root.querySelector('[data-mk-diger-status]');
+    var sek=form.sektor.value.trim();
+    if(st){st.hidden=false;st.textContent='Teşekkürler! "'+sek+'" için örnekleriniz hazırlanıp en kısa sürede e-posta ile gönderilecek. (Bu özellik çok yakında tam otomatik çalışacak.)';}
+    form.querySelector('.mk-diger-submit').disabled=true;
+  });}
+})();
+</script>
