@@ -83,9 +83,17 @@ const faqItems = [
           <span class="mk-field-l">E-posta adresiniz</span>
           <input type="email" name="email" required placeholder="ornek@firma.com" />
         </label>
+        <label class="mk-field">
+          <span class="mk-field-l">Telefon <span style="text-transform:none;font-weight:400;color:var(--mk-g3)">(isteğe bağlı — SMS bildirimi çok yakında)</span></span>
+          <input type="tel" name="phone" maxlength="20" placeholder="05xx xxx xx xx" />
+        </label>
+        <label class="mk-consent">
+          <input type="checkbox" name="wants_sms" />
+          <span>Hazır olduğunda SMS olarak da almak isterim. <em style="color:var(--mk-g3)">(SMS hattı çok yakında aktifleşecek; şimdilik e-posta ile gönderiyoruz.)</em></span>
+        </label>
         <label class="mk-consent">
           <input type="checkbox" name="kvkk" required />
-          <span>Örnek listemin hazırlanıp e-posta ile gönderilmesi için iletişim bilgimin işlenmesine onay veriyorum. <a href="/kvkk" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></span>
+          <span>Örnek listemin hazırlanıp e-posta/SMS ile gönderilmesi için iletişim bilgimin işlenmesine onay veriyorum. <a href="/kvkk" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a></span>
         </label>
         <button type="submit" class="mk-diger-submit">Örneklerimi hazırlayın →</button>
         <p class="mk-diger-status" data-mk-diger-status hidden></p>
@@ -611,14 +619,37 @@ const faqItems = [
       else{var ls=localStorage.getItem('gonet-mk-sektor'); if(ls&&KNOWN.indexOf(ls)>=0) init=ls;}}catch(e){}
   if(init!=='genel') applySector(init);
 
-  // diğer form (Faz 1: ön-uç; backend Faz 2)
+  // diğer form → engine API (capture; üretim+yayın panelden onaylanır)
   var form=root.querySelector('[data-mk-diger-form]');
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault();
     var st=root.querySelector('[data-mk-diger-status]');
-    var sek=form.sektor.value.trim();
-    if(st){st.hidden=false;st.textContent='Teşekkürler! "'+sek+'" için örnekleriniz hazırlanıp en kısa sürede e-posta ile gönderilecek. (Bu özellik çok yakında tam otomatik çalışacak.)';}
-    form.querySelector('.mk-diger-submit').disabled=true;
+    var btn=form.querySelector('.mk-diger-submit');
+    function show(msg){ if(st){st.hidden=false;st.textContent=msg;} }
+    var payload={
+      sektor:(form.sektor.value||'').trim(),
+      email:(form.email.value||'').trim(),
+      phone:form.phone?(form.phone.value||'').trim():'',
+      wants_sms:form.wants_sms?form.wants_sms.checked:false,
+      kvkk:form.kvkk.checked
+    };
+    btn.disabled=true;btn.textContent='Gönderiliyor…';
+    fetch('https://engine.gonet.com.tr/api/sector-request',{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+    }).then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
+    .then(function(res){
+      if(res.ok&&res.d&&res.d.ok){
+        show(res.d.message||'Talebiniz alındı. Sektörünüze özel örnekleri e-posta ile göndereceğiz.');
+        var ins=form.querySelectorAll('input');for(var i=0;i<ins.length;i++)ins[i].disabled=true;
+        btn.textContent='Talebiniz alındı ✓';
+      }else{
+        show((res.d&&res.d.message)||'Bir sorun oluştu, lütfen tekrar deneyin.');
+        btn.disabled=false;btn.textContent='Örneklerimi hazırlayın →';
+      }
+    }).catch(function(){
+      show('Bağlantı hatası. Lütfen birazdan tekrar deneyin.');
+      btn.disabled=false;btn.textContent='Örneklerimi hazırlayın →';
+    });
   });}
 })();
 </script>
