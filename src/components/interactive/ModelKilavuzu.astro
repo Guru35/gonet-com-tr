@@ -7,10 +7,26 @@
  *
  * AEO: tüm sektör varyantları sunucuda HTML'de. JS yalnızca görünürlük + view.
  */
-import { SECTORS } from '../../data/model-kilavuzu';
+import { SECTORS, EXAMPLES } from '../../data/model-kilavuzu';
+import ekData from '../../data/model-kilavuzu-ek-sektorler.json';
 import MKTaskList from './MKTaskList.astro';
 import JsonLd from '../JsonLd.astro';
 import { faqSchema } from '../../lib/schema';
+
+// "Diğer" ile gelip onaylanan ek sektörler (engine ekler). Base sektörlerle merge.
+const extraSectors = (ekData?.sektorler ?? []).filter((s: any) => s?.id && s?.examples);
+const allSectors = [
+  ...SECTORS,
+  ...extraSectors.map((s: any) => ({ id: s.id, label: s.label, short: s.short || s.label })),
+];
+// Her kart için base örnekler + ek sektörlerin örneklerini birleştir.
+const mergedExamples: Record<string, Record<string, string[]>> = {};
+for (const cardId of Object.keys(EXAMPLES)) {
+  mergedExamples[cardId] = { ...EXAMPLES[cardId] };
+  for (const es of extraSectors) {
+    if (es.examples?.[cardId]) mergedExamples[cardId][es.id] = es.examples[cardId];
+  }
+}
 
 const faqItems = [
   {
@@ -47,7 +63,7 @@ const faqItems = [
     <div class="mk-sectorbar-inner">
       <span class="mk-sectorbar-label">Sektörünüz:</span>
       <div class="mk-chips" role="tablist" aria-label="Sektör seçimi">
-        {SECTORS.map((s, i) => (
+        {allSectors.map((s) => (
           <button
             class:list={['mk-chip', { on: s.id === 'genel' }]}
             data-sektor={s.id}
@@ -137,14 +153,14 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Özgün <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
-          <MKTaskList cardId="f-high" />
+          <MKTaskList cardId="f-high" cardExamples={mergedExamples["f-high"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Ton, bağlam ve marka sesini bilinçli dengeler; en uygun alternatifleri üretir. Bu seviye Fable’ın tatlı noktasıdır.</div></div>
         </div>
         <!-- F4 Derin Anlatı/Extra İDEAL -->
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin Anlatı <span class="mk-effort-en">· Extra</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
-          <MKTaskList cardId="f-extra" />
+          <MKTaskList cardId="f-extra" cardExamples={mergedExamples["f-extra"]} sectors={allSectors} />
           <div class="mk-note">API parametresi: <code>effort: "xhigh"</code></div>
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">Uzun formlarda yapı ve mesaj hiyerarşisini önceden planlar. Ton tutarlılığı metin boyunca korunur.</div></div>
         </div>
@@ -152,7 +168,7 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Maksimum <span class="mk-effort-en">· Max</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:93%"></div></div>
-          <MKTaskList cardId="f-max" />
+          <MKTaskList cardId="f-max" cardExamples={mergedExamples["f-max"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-always">En derin yaratıcı değerlendirme. Token kısıtı yok; tüm ton ve ses alternatifleri değerlendirilir.</div></div>
         </div>
         <!-- F6 Ultracode -->
@@ -199,14 +215,14 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
-          <MKTaskList cardId="o-high" />
+          <MKTaskList cardId="o-high" cardExamples={mergedExamples["o-high"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Derin analizin standart kullanımı — alternatifleri ve ödünleşimleri adım adım değerlendirir.</span></div></div>
         </div>
         <!-- O4 Extra İDEAL -->
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Uzun Görev <span class="mk-effort-en">· Extra</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
-          <MKTaskList cardId="o-extra" />
+          <MKTaskList cardId="o-extra" cardExamples={mergedExamples["o-extra"]} sectors={allSectors} />
           <div class="mk-note">API parametresi: <code>effort: "xhigh"</code></div>
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">xHigh bu seviye için tasarlandı — Thinking’siz çalıştırmak kapasitesini kısıtlar.</span></div></div>
         </div>
@@ -214,7 +230,7 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Maksimum <span class="mk-effort-en">· Max</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
-          <MKTaskList cardId="o-max" />
+          <MKTaskList cardId="o-max" cardExamples={mergedExamples["o-max"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Max + Thinking: en güçlü kombinasyon. Token kısıtı yok — en derin muhakeme bu noktada gerçekleşir.</span></div></div>
         </div>
         <!-- O6 Ultracode -->
@@ -245,21 +261,21 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Hızlı <span class="mk-effort-en">· Low</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:90%"></div></div>
-          <MKTaskList cardId="s-low" />
+          <MKTaskList cardId="s-low" cardExamples={mergedExamples["s-low"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk toff"><span class="mk-tcheck">✓</span>Kapalı</span><span class="mk-tv">Low’da Thinking zaten atlanır; basit işlere değer katmaz.</span></div></div>
         </div>
         <!-- S2 Medium İDEAL -->
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Standart <span class="mk-effort-en">· Medium</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:97%"></div></div>
-          <MKTaskList cardId="s-medium" />
+          <MKTaskList cardId="s-medium" cardExamples={mergedExamples["s-medium"]} sectors={allSectors} />
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Yaklaşım belirsizse veya edge case’ler kritikse açık; alternatifleri karşılaştırır.</span></div></div>
         </div>
         <!-- S3 High İDEAL -->
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Derin <span class="mk-effort-en">· High</span></div></div><span class="mk-badge b-ideal">İdeal</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:93%"></div></div>
-          <MKTaskList cardId="s-high" />
+          <MKTaskList cardId="s-high" cardExamples={mergedExamples["s-high"]} sectors={allSectors} />
           <div class="mk-note">Geri dönülemez ve kritik kararlarda Opus tercih et — Sonnet High güçlüdür ama Opus kadar derin değildir.</div>
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-row"><span class="mk-tk ton"><span class="mk-tcheck">✓</span>Açık</span><span class="mk-tv">Karmaşık hata ayıklama ve yol ayrımında işe yarar; adım adım alternatifleri listeler.</span></div></div>
         </div>
@@ -290,7 +306,7 @@ const faqItems = [
         <div class="mk-card ideal">
           <div class="mk-card-head"><div class="mk-effort"><div class="mk-effort-lv">Effort</div><div class="mk-effort-name">Tek Mod <span class="mk-effort-en">· sabit</span></div></div><span class="mk-badge b-ideal">İdeal: Basit İşler</span></div>
           <div class="mk-compat"><div class="mk-compat-fill" style="width:95%"></div></div>
-          <MKTaskList cardId="h-tek" />
+          <MKTaskList cardId="h-tek" cardExamples={mergedExamples["h-tek"]} sectors={allSectors} />
           <div class="mk-note">Sınırları bil: derin analiz → Opus · yaratıcı metin → Fable. Haiku bu işlerde yanlış yanıt verir, fark etmez, devam eder.</div>
           <div class="mk-thinking"><div class="mk-thinking-hd">Thinking</div><div class="mk-thinking-no">Bu modelde Thinking desteklenmez.</div></div>
         </div>
@@ -381,11 +397,17 @@ const faqItems = [
     </section>
   </div>
 
-  <!-- ── DİĞER SEKTÖRLER (engine ekledikçe büyür — Faz 2) ── -->
-  <div class="mk-extra-sectors" data-mk-extra hidden>
-    <div class="mk-view-label">Diğer sektörler — okuyucularımızın talebiyle eklendi</div>
-    <ul class="mk-extra-list" data-mk-extra-list></ul>
-  </div>
+  <!-- ── DİĞER SEKTÖRLER (engine onayladıkça büyür) ── -->
+  {extraSectors.length > 0 && (
+    <div class="mk-extra-sectors">
+      <div class="mk-view-label">Diğer sektörler — okuyucularımızın talebiyle eklendi</div>
+      <ul class="mk-extra-list">
+        {extraSectors.map((s: any) => (
+          <li><button class="mk-chip" data-sektor={s.id}>{s.label}</button></li>
+        ))}
+      </ul>
+    </div>
+  )}
 
   <!-- ── FOOTER kuralları + KAYNAKÇA ── -->
   <div class="mk-footer">

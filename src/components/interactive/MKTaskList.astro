@@ -3,26 +3,28 @@
  * Model Kılavuzu — sektöre uyarlanan görev listesi.
  * Jenerik liste (her zaman görünür) + her sektör override'ı için `hidden` blok.
  * Tüm varyantlar sunucuda HTML'e basılır (AEO: LLM crawler JS çalıştırmaz).
+ *
+ * cardExamples: { genel: [...], <sektorId>: [...] } — base + ek sektörler merge edilmiş.
+ * sectors: seçici sırasındaki tüm sektörler ({ id, short }).
  */
-import { SECTORS, EXAMPLES } from '../../data/model-kilavuzu';
-
 interface Props {
   cardId: string;
+  cardExamples: Record<string, string[]>;
+  sectors: { id: string; short: string }[];
 }
-const { cardId } = Astro.props;
-const ex = EXAMPLES[cardId];
-const variants = SECTORS.filter((s) => s.id !== 'genel' && ex && ex[s.id]);
+const { cardId, cardExamples, sectors } = Astro.props;
+const variants = sectors.filter((s) => s.id !== 'genel' && cardExamples?.[s.id]);
 ---
 
-{ex && (
+{cardExamples?.genel && (
   <div class="mk-tasks" data-card={cardId}>
     <ul class="task-list" data-sektor="genel">
-      {ex.genel.map((item) => <li>{item}</li>)}
+      {cardExamples.genel.map((item) => <li>{item}</li>)}
     </ul>
     {variants.map((s) => (
       <ul class="task-list" hidden data-sektor={s.id}>
         <li class="ex-label">{s.short} için örnek görevler:</li>
-        {ex[s.id].map((item) => <li>{item}</li>)}
+        {cardExamples[s.id].map((item) => <li>{item}</li>)}
       </ul>
     ))}
   </div>
