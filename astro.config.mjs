@@ -70,7 +70,11 @@ export default defineConfig({
         !page.endsWith('/sergi/') &&
         !page.endsWith('/sergi') &&
         !page.endsWith('/istatistik1/') &&
-        !page.endsWith('/istatistik1'),
+        !page.endsWith('/istatistik1') &&
+        // /merhaba — müşteri portalı yapım-aşamasında placeholder (noindex); portal
+        // canlıya çıkınca bu satır kaldırılır. (2026-06-12)
+        !page.endsWith('/merhaba/') &&
+        !page.endsWith('/merhaba'),
     }),
   ],
 });

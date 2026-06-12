@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, SITE_URL } from '../lib/schema';
+
+const title = "Merhaba Müşteri Portalı — Yakında";
+const description =
+  "Gonet Merhaba müşteri portalı yapım aşamasında. Sosyal medya onayları, " +
+  "görev takibi, takvim ve performans raporları tek panelde — çok yakında.";
+const url = `${SITE_URL}/merhaba`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Merhaba', url },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]} noindex={true}>
+  <section class="bg-white border-b border-black overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
+      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-10" style="color: #ff0000">
+        Müşteri Portalı
+      </p>
+      <h1 class="editorial-display text-[16vw] lg:text-[12vw] xl:text-[200px] leading-[0.82] mb-10">
+        Merhaba<span style="color: #ff0000">.</span>
+      </h1>
+      <p class="editorial-display text-3xl lg:text-5xl xl:text-6xl leading-[0.95] mb-12 max-w-3xl">
+        Yapım aşamasında.
+      </p>
+      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-2xl mb-16 text-slate-600">
+        Sosyal medya gönderi onaylarınız, görev takibiniz, içerik takviminiz ve
+        performans raporlarınız tek panelde toplanıyor. Merhaba portalını
+        müşterilerimize özenle hazırlıyoruz — çok yakında buradan giriş yapacaksınız.
+      </p>
+
+      <div class="flex flex-wrap items-baseline gap-6 lg:gap-10">
+        <a
+          href="/iletisim"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white hover:bg-black transition-colors font-semibold"
+        >
+          Bize ulaşın <span aria-hidden="true">→</span>
+        </a>
+        <a href="/" class="editorial-display text-xl lg:text-2xl hover:text-[#ff0000] transition-colors">
+          ← Ana sayfaya dön
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ne gelecek — kısa önizleme -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-12 text-slate-500">
+        Portalda neler olacak
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200">
+        {[
+          { n: '01', t: 'Gönderi onayı', d: 'Sosyal medya içeriklerinizi versiyonlarıyla görüp tek dokunuşla onaylayın.' },
+          { n: '02', t: 'Görev takibi', d: 'Ekibimizin sizin için yürüttüğü işleri canlı durumlarıyla izleyin.' },
+          { n: '03', t: 'İçerik takvimi', d: 'Yayın planınızı aylık takvimde görün, neyin ne zaman çıkacağını bilin.' },
+          { n: '04', t: 'Performans raporu', d: 'Trafik ve arama görünürlüğünüz otomatik raporlarla elinizin altında.' },
+        ].map((f) => (
+          <div class="bg-white p-8 lg:p-10">
+            <div class="editorial-display text-4xl lg:text-5xl mb-5">{f.n}</div>
+            <h2 class="text-lg font-bold mb-3">{f.t}</h2>
+            <p class="text-sm leading-relaxed text-slate-600">{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
