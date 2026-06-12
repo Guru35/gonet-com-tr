@@ -74,11 +74,7 @@ export default defineConfig({
         // /merhaba — müşteri portalı yapım-aşamasında placeholder (noindex); portal
         // canlıya çıkınca bu satır kaldırılır. (2026-06-12)
         !page.endsWith('/merhaba/') &&
-        !page.endsWith('/merhaba') &&
-        // /blog/model-kilavuzu — interaktif yazı DRAFT incelemede (noindex).
-        // Yayına alınınca bu iki satır kaldırılır. (2026-06-12)
-        !page.endsWith('/blog/model-kilavuzu/') &&
-        !page.endsWith('/blog/model-kilavuzu'),
+        !page.endsWith('/merhaba'),
     }),
   ],
 });

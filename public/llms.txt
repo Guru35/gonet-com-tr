@@ -57,6 +57,7 @@
 ## Blog & Yayınlar
 - [Editöryel Blog](https://gonet.com.tr/blog): Stratejik yazılar — AEO/GEO, SEO, dijital pazarlama analizleri
 - [Gonet Signal (haftalık seçki serisi)](https://gonet.com.tr/blog/gonet-signal-2026-06-11): Haftanın AI sinyalleri — her gelişme + kaynak + "markanız için ne anlama geliyor" yorumu. Gökhan Kazancı imzasıyla. Kategori: Signal.
+- [Claude Model Kılavuzu (interaktif)](https://gonet.com.tr/blog/model-kilavuzu): Dört Claude modeli (Fable, Opus, Sonnet, Haiku) — hangi model hangi iş için, effort seviyeleri ve token ekonomisi. Sektör seçiciyle örnekler işinize göre değişir. Dört resmî Anthropic kaynağından doğrulanmış. Kategori: Rehber.
 - [Haberler — Liste Görünümü](https://gonet.com.tr/haberler): Aynı yazılar, kronolojik sade liste
 - [Tüm Blog (LLM-friendly döküm)](https://gonet.com.tr/llms-blog.txt): Her yazının title, URL, özet, kategori, etiketler — tek dosyada extraction-ready
 

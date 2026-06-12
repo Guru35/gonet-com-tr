@@ -9,14 +9,14 @@ keywords:
   - "Claude effort thinking"
   - "token ekonomisi"
 published: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 author:
   name: "Gökhan Kazancı"
   role: "Kurucu · Gonet"
 category: "Rehber"
 tags: ["rehber", "yapay-zeka", "claude", "model-secimi", "interaktif"]
 readingMinutes: 7
-draft: true
+draft: false
 interactive: "model-kilavuzu"
 ogImage: "/blog/blog-model-kilavuzu.png"
 ---
