@@ -165,17 +165,22 @@ const breadcrumb = webpageSchema({
   <!-- HERO — editöryel, massive, image tilt+BW+offscreen -->
   <section class="blog-hero-section relative bg-white border-b border-black overflow-hidden">
     {post.data.ogImage && (
-      <picture class="hidden lg:block">
-        {/* lg (1024px) altında source eşleşmez → fallback 1px data-URI: hero PNG
-            mobilde HİÇ inmez (network doğrulandı). Mobil hero saf tipografi. */}
-        <source media="(min-width: 1024px)" srcset={post.data.ogImage} />
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          alt={post.data.title}
-          class="blog-hero-img absolute select-none"
-          style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); --img-rot: 0deg; z-index: 0;"
-        />
-      </picture>
+      <Fragment>
+        {/* Masaüstü: sağda absolute görsel. lg altında source eşleşmez → 1px fallback
+            (mobilde inmez; mobil görsel aşağıda ayrı, in-flow). */}
+        <picture class="hidden lg:block">
+          <source media="(min-width: 1024px)" srcset={post.data.ogImage} />
+          <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt={post.data.title}
+            class="blog-hero-img absolute select-none"
+            style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); z-index: 0;"
+          />
+        </picture>
+        {/* Masaüstü hover tetikleyici — yalnız görsel alanını kapsar, sabittir.
+            Üzerine gelince görsel %40 sağa kayar (flicker yok; başlık üstünde tetiklenmez). */}
+        <div class="blog-hero-hot hidden lg:block" aria-hidden="true"></div>
+      </Fragment>
     )}
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
@@ -229,6 +234,14 @@ const breadcrumb = webpageSchema({
         </div>
       )}
     </div>
+    {post.data.ogImage && (
+      <img
+        src={post.data.ogImage}
+        alt={post.data.title}
+        class="blog-hero-mobile-img block lg:hidden w-full h-auto border-t border-black"
+        loading="lazy"
+      />
+    )}
   </section>
 
   <!-- BODY — cascading paragraph sizes -->
