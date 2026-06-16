@@ -363,6 +363,22 @@ a.ext-link::after {
 }
 .prose-irregular th { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75em; }
 .prose-irregular hr { border: 0; height: 1px; background: currentColor; width: 38%; margin-left: 22%; margin-top: 3rem; margin-bottom: 3rem; }
+/* Inline kod / komut token'ları — teknik yazılar (komut rehberi vb.) için.
+   accent #ff0000 her iki temada sabit; color-mix ile zemin/çerçeve tema-bağımsız.
+   white-space: nowrap → komut isimleri (/permissions) asla kelime ortasından
+   bölünmez; akışkan metinde sığmazsa token bütün hâlde alt satıra iner. */
+.prose-irregular :not(pre) > code {
+  font-family: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  font-size: 0.84em;
+  font-weight: 600;
+  color: #ff0000;
+  background: color-mix(in srgb, #ff0000 9%, transparent);
+  border: 1px solid color-mix(in srgb, #ff0000 26%, transparent);
+  border-radius: 5px;
+  padding: 0.08em 0.4em;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
 
 /* Paper sheet — dikey duran kağıt, arkasına yumuşak realistik gölge (çoklu katman). */
 .paper-sheet {
