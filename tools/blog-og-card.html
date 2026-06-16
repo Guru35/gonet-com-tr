@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<!--
+  GONET blog og-card şablonu — editöryel tipografik poster (1792×2400, 3:4).
+  "AGENTIC KATMAN." kartının standardı. Inter (site display fontu), beyaz zemin,
+  dev siyah başlık + kırmızı nokta accent, sağ üst kicker, footer.
+
+  Kullanım (896×1200 logical, device-scale-factor=2 → 1792×2400 PNG):
+    chrome --headless --force-device-scale-factor=2 --window-size=896,1200 \
+      --virtual-time-budget=10000 --default-background-color=FFFFFFFF \
+      --screenshot=out.png "file://.../blog-og-card.html?kicker=...&l1=...&l2=...&sub=..."
+  Parametreler (hepsi opsiyonel, URL-encoded):
+    kicker  sağ üst etiket   (örn. "AEO / GEO")
+    l1      başlık 1. satır  (örn. "AGENTIC")
+    l2      başlık 2. satır  (örn. "KATMAN")  → sonuna . + kırmızı nokta eklenir
+    sub     alt başlık       (örn. "AI ajanı markanızı uydurmasın")
+  Başlık çok genişse otomatik küçülür (auto-fit).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#0a0a0a; --red:#ff0000; --muted:#8a8a8a; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:896px;height:1200px;}
+  body{
+    background:#ffffff;color:var(--ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+  }
+  .card{width:896px;height:1200px;padding:86px 84px 78px;display:flex;flex-direction:column;}
+  .top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .rule{width:150px;height:5px;background:var(--ink);margin-top:16px;}
+  .kicker{font-weight:700;font-size:23px;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap;}
+  .mid{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .headline{font-weight:800;font-size:165px;line-height:.9;letter-spacing:-.035em;text-transform:uppercase;}
+  .dot{display:inline-block;width:.17em;height:.17em;background:var(--red);border-radius:50%;margin-left:.05em;vertical-align:baseline;}
+  .sub{font-weight:700;font-size:40px;letter-spacing:-.01em;margin-top:36px;max-width:90%;line-height:1.1;}
+  .bottom{display:flex;justify-content:space-between;align-items:baseline;}
+  .url{font-weight:700;font-size:27px;letter-spacing:-.01em;}
+  .brand{font-weight:600;font-size:25px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;white-space:nowrap;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="rule"></div>
+      <div class="kicker" id="kicker">AEO / GEO</div>
+    </div>
+    <div class="mid">
+      <div class="headline"><span id="l1">AGENTIC</span><br><span id="l2">KATMAN</span><span class="period">.</span><span class="dot"></span></div>
+      <div class="sub" id="sub">AI ajanı markanızı uydurmasın</div>
+    </div>
+    <div class="bottom">
+      <div class="url">gonet.com.tr</div>
+      <div class="brand">GONET · İZMIR</div>
+    </div>
+  </div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const set = (id,v) => { if (v) document.getElementById(id).textContent = v; };
+    set('kicker', p.get('kicker')); set('l1', p.get('l1')); set('l2', p.get('l2')); set('sub', p.get('sub'));
+    // Auto-fit: başlık satırları content genişliğini aşmasın
+    const h = document.querySelector('.headline');
+    const l1 = document.getElementById('l1'), l2 = document.getElementById('l2');
+    const maxW = 896 - 84*2;
+    let fs = 165;
+    function widest(){ return Math.max(l1.getBoundingClientRect().width, l2.getBoundingClientRect().width); }
+    (function fit(){ while (widest() > maxW && fs > 64){ fs -= 3; h.style.fontSize = fs + 'px'; } })();
+  </script>
+</body>
+</html>

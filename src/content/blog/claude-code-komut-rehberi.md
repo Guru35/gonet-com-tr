@@ -2,7 +2,7 @@
 title: "Claude Code Slash Komutları: 95 Komutun Tam Türkçe Rehberi (2026)"
 description: "Claude Code'un terminal içinden kullanılan tüm \"/\" (slash) komutları — kurulumdan model seçimine, paralel çalışmadan kod incelemesine, hesap yönetiminden bulut entegrasyonuna kadar 95 komut, 10 kategoride, Türkçe açıklamalarıyla. Bir mesajın başında / yazarak hepsini görebilir, harf ekleyerek filtreleyebilirsiniz."
 h1: "Claude Code Komutları"
-ogImage: "/blog/blog-claude-code-komut-rehberi.jpg"
+ogImage: "/blog/blog-claude-code-komut-rehberi.png"
 keywords:
   - "Claude Code komutları"
   - "Claude Code slash commands"
