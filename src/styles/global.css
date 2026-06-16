@@ -394,8 +394,8 @@ a.ext-link::after {
 /* Blog hero görsel — siyah/beyaz, sağ kenara hizalı, default %40 dışarda, hover'da tamamı görünür */
 @media (min-width: 1024px) {
   .blog-hero-img {
-    filter: grayscale(100%) contrast(1.05);
-    transform: translateX(40%) !important;
+    /* B&W filtresi kaldırıldı — görsel renkli (2026-06-17) */
+    transform: translateX(0) !important;           /* varsayılan: tam görünür, renkli */
     transform-origin: right center;
     transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
     cursor: pointer;
@@ -403,7 +403,7 @@ a.ext-link::after {
   }
   .blog-hero-section:hover .blog-hero-img,
   .blog-hero-img:hover {
-    transform: translateX(0) !important;
+    transform: translateX(40%) !important;          /* üzerine gelince %40 sağa, ekran dışına */
   }
 }
 
@@ -469,7 +469,7 @@ a.ext-link::after {
 }
 
 .prose-irregular img {
-  filter: grayscale(100%) contrast(1.05);
+  /* B&W filtresi kaldırıldı — görsel renkli (2026-06-17) */
   display: block;
   margin: 3rem auto;
   max-width: 88%;
