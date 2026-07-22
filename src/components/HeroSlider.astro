@@ -266,6 +266,17 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
   .dots button[aria-selected="true"] { background: var(--dot); }
   .counter { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3em; margin-left: auto; color: var(--label); }
 
+  /* MOBİL (≤767px) — sadeleştirilmiş hero: sadece manşet + özet + Oku.
+     KONUM/KONSEPT/AKSİYON gizlenir (nav'da erişilebilir); dikey nefes açılır.
+     Metinler DOM'da kalır (AEO) — yalnızca görsel gizlenir. Masaüstü etkilenmez. */
+  @media (max-width: 767px) {
+    .hero-fixed-meta .fixed-grid { display: none; }
+    .hero-fixed-meta { padding-bottom: 1rem; }
+    .slide-inner { padding-bottom: 5.5rem; }         /* yalnız kontroller için yer */
+    .hero-headline .block { font-size: clamp(2.4rem, 12vw, 4rem); }  /* mobilde daha çarpıcı */
+    .slider-ctrl { margin-top: 0; padding-top: 1rem; border-top: 1px solid var(--border); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-slide { transition: opacity 0.2s ease; }
     .news-headline { transform: none; }
