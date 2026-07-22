@@ -304,9 +304,8 @@ export function articleSchema(opts: {
   category?: string;
   tags?: string[];
   image?: string;
-  basePath?: string;   // URL segmenti; default 'blog' (örn. 'gelistirme-gunlugu')
 }) {
-  const url = `${SITE_URL}/${opts.basePath ?? 'blog'}/${opts.slug}`;
+  const url = `${SITE_URL}/blog/${opts.slug}`;
   return {
     '@type': 'Article',
     '@id': `${url}#article`,

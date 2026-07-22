@@ -1,12 +1,20 @@
 ---
-title: Yapay zeka motorlarında görünürlüğü ölçen denetim aracını geliştirdik
+title: "Yapay zeka motorlarında görünürlüğü ölçen denetim aracını geliştirdik"
+description: "ChatGPT, Claude, Perplexity gibi AI cevap motorlarının bir siteyi ne kadar \"gördüğünü\" ölçen deterministik bir denetim aracı kurduk — arşiv varlığı + bağlantı-merkeziyeti sinyalleriyle skorlu rapor."
+h1: "AI seni görüyor mu?"
+published: 2026-07-22
+author:
+  name: "Gonet"
+  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+category: "Geliştirme Günlüğü"
+tags: ["aeo", "geo", "ai-gorunurluk"]
 sliderLines:
   - AI SENİ
   - GÖRÜYOR
   - MU?
-summary: ChatGPT, Claude, Perplexity gibi AI cevap motorlarının bir siteyi ne kadar "gördüğünü" ölçen deterministik bir denetim aracı kurduk — arşiv varlığı + bağlantı-merkeziyeti sinyalleriyle skorlu rapor.
-etiket: AEO/GEO
-published: 2026-07-22
+sliderEtiket: "AEO/GEO"
+ogImage: "/blog/blog-aeo-gorunurluk-denetim-motoru.jpg"
+ogImageLight: "/blog/blog-aeo-gorunurluk-denetim-motoru-light.jpg"
 draft: false
 ---
 

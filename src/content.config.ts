@@ -34,7 +34,8 @@ const blog = defineCollection({
     }).default({ name: 'Gonet' }),
     published: z.date(),
     updated: z.date().optional(),
-    ogImage: z.string().optional(),
+    ogImage: z.string().optional(),          // dark/varsayılan görsel (OG meta + slider dark BG)
+    ogImageLight: z.string().optional(),     // slider light-tema BG (aydınlık versiyon)
     category: z.string().optional(),
     tags: z.array(z.string()).default([]),
     readingMinutes: z.number().optional(),
@@ -43,6 +44,10 @@ const blog = defineCollection({
     // İnteraktif yazı bileşeni anahtarı. Set ise [...slug].astro prose'dan sonra
     // ilgili bileşeni render eder. Enum: typo build'de patlar (sessiz kayıp yok).
     interactive: z.enum(['model-kilavuzu']).optional(),
+    // "Geliştirme Günlüğü" kategorisi için ana sayfa hero-slider alanları
+    // (yalnızca o kategori doldurur; diğer postlarda boş kalır).
+    sliderLines: z.array(z.string()).optional(),  // slider'da satır satır dev tipografi
+    sliderEtiket: z.string().optional(),          // slider alt-etiketi (AEO/GEO, Otomasyon, Ürün...)
   }),
 });
 
@@ -118,20 +123,4 @@ const yetkinlikler = defineCollection({
   }),
 });
 
-// Geliştirme Günlüğü — ana sayfa hero-slider'ını besleyen lab haberleri.
-// Her haber kendi /gelistirme-gunlugu/<slug> detay sayfasına gider.
-// sliderLines: dev tipografiyle satır satır gösterilen kısa "çığlık" metni (AEO: SSR-render).
-const gelistirmeGunlugu = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/gelistirme-gunlugu' }),
-  schema: z.object({
-    title: z.string(),                 // detay sayfası başlığı
-    sliderLines: z.array(z.string()),  // slider'da satır satır dev tipografi
-    summary: z.string(),               // özet — slider + detay lead
-    etiket: z.string(),                // AEO/GEO, Otomasyon, Ürün vb.
-    published: z.date(),
-    updated: z.date().optional(),
-    draft: z.boolean().default(false),
-  }),
-});
-
-export const collections = { pages, blog, 'case-studies': caseStudies, services, yetkinlikler, 'gelistirme-gunlugu': gelistirmeGunlugu };
+export const collections = { pages, blog, 'case-studies': caseStudies, services, yetkinlikler };

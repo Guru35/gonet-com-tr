@@ -1,11 +1,19 @@
 ---
-title: Çok kaynaklı sinyalleri içeriğe çeviren besleme motorunu kurduk
+title: "Çok kaynaklı sinyalleri içeriğe çeviren besleme motorunu kurduk"
+description: "Web'deki dağınık sinyalleri toplayıp nişe göre süzen, haber ve makale adaylarına dönüştüren bir içerik besleme hattı geliştirdik."
+h1: "Sinyalden içeriğe"
+published: 2026-07-16
+author:
+  name: "Gonet"
+  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+category: "Geliştirme Günlüğü"
+tags: ["icerik", "ai", "otomasyon"]
 sliderLines:
   - SİNYALDEN
   - İÇERİĞE
-summary: Web'deki dağınık sinyalleri toplayıp nişe göre süzen, haber ve makale adaylarına dönüştüren bir içerik besleme hattı geliştirdik.
-etiket: İçerik/AI
-published: 2026-07-16
+sliderEtiket: "İçerik/AI"
+ogImage: "/blog/blog-sinyalden-icerige-besleme.jpg"
+ogImageLight: "/blog/blog-sinyalden-icerige-besleme-light.jpg"
 draft: false
 ---
 

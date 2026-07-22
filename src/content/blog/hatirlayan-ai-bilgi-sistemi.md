@@ -1,11 +1,19 @@
 ---
-title: Projeleri oturumlar arası hatırlayan AI-yerel bilgi tabanı mimarisi
+title: "Projeleri oturumlar arası hatırlayan AI-yerel bilgi tabanı mimarisi"
+description: "Her projenin bilgisini sade markdown dosyalarında tutan, oturumlar arası hatırlayan, kendini derleyen bir AI çalışma hafızası kurduk (Karpathy LLM-Wiki deseni)."
+h1: "Hatırlayan AI"
+published: 2026-07-13
+author:
+  name: "Gonet"
+  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+category: "Geliştirme Günlüğü"
+tags: ["ai", "mimari", "karpathy"]
 sliderLines:
   - HATIRLAYAN
   - AI
-summary: Her projenin bilgisini sade markdown dosyalarında tutan, oturumlar arası hatırlayan, kendini derleyen bir AI çalışma hafızası kurduk (Karpathy LLM-Wiki deseni).
-etiket: Mimari
-published: 2026-07-13
+sliderEtiket: "Mimari"
+ogImage: "/blog/blog-hatirlayan-ai-bilgi-sistemi.jpg"
+ogImageLight: "/blog/blog-hatirlayan-ai-bilgi-sistemi-light.jpg"
 draft: false
 ---
 

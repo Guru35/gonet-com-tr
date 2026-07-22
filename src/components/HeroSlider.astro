@@ -1,123 +1,273 @@
 ---
-import HeroClassic from './HeroClassic.astro';
 import { getCollection } from 'astro:content';
 
-// Haberler `gelistirme-gunlugu` content collection'ından — en yeniden eskiye.
-// Tümü SSR-HTML'de render edilir (AEO: JS kapalıyken curl'de tüm metin görünmeli);
-// JS yalnızca aktif-slide + tıklanan-gizleme yönetir. Her haber /gelistirme-gunlugu/<slug> detayına gider.
-const entries = (await getCollection('gelistirme-gunlugu'))
-  .filter((e) => !e.data.draft)
+// Haberler Blog'un "Geliştirme Günlüğü" kategorisinden — en yeniden eskiye.
+// Her haber /blog/<slug> detay sayfasına gider (blog şablonu + Article schema).
+// YAPI: TAM EKRAN (100dvh) slider, çözünürlüğe/ekrana otomatik uyum (clamp + dvh).
+// Her slide'ın 2 arka plan görseli var: LIGHT tema (aydınlık + siyah metin) / DARK tema (koyu + beyaz metin).
+// Manşet DÖNER; KONUM/KONSEPT/AKSİYON SABİT bindirilir. AEO: tüm metin SSR-HTML'de.
+const entries = (await getCollection('blog'))
+  .filter((e) => !e.data.draft && e.data.category === 'Geliştirme Günlüğü' && e.data.sliderLines?.length)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
 const haberler = entries.map((e) => ({
-  slug: `/gelistirme-gunlugu/${e.id}`,
-  etiket: e.data.etiket,
+  slug: `/blog/${e.id}`,
+  etiket: e.data.sliderEtiket ?? '',
   tarih: e.data.published.toLocaleDateString('tr-TR', { month: 'short', year: 'numeric' }),
-  lines: e.data.sliderLines,
-  ozet: e.data.summary,
+  lines: e.data.sliderLines!,
+  ozet: e.data.description,
+  bgDark: e.data.ogImage ?? '',
+  bgLight: e.data.ogImageLight ?? e.data.ogImage ?? '',
 }));
 
-// Slide-başı hafif tilt açıları (editöryel "çılgın" his — mevcut hero diliyle aynı)
-const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
+const markaBgDark = '/blog/hero-marka-dark.jpg';
+const markaBgLight = '/blog/hero-marka-light.jpg';
+const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1deg'];
 ---
 
-<section class="hero-slider bg-white text-black" data-hero-slider aria-roledescription="carousel" aria-label="Gonet öne çıkanlar">
-  <div class="hero-track relative">
+<section class="hero-slider" data-hero-slider aria-roledescription="carousel" aria-label="Gonet öne çıkanlar">
 
-    <!-- Slide 0 — KALICI marka slide'ı (mevcut hero, birebir). Asla döngüden düşmez. -->
-    <div class="hero-slide" data-brand data-active>
-      <HeroClassic />
+  <!-- Slide 0 — KALICI marka. -->
+  <div class="hero-slide" data-brand data-active style={`--bg-dark: url(${markaBgDark}); --bg-light: url(${markaBgLight})`}>
+    <div class="slide-inner">
+      <p class="hero-eyebrow">
+        Gonet — İzmir · 2000 → 2026 · Türkiye'nin ilk 3 Google Partner ajansından biri
+      </p>
+      <h1 class="editorial-display hero-headline">
+        <span class="block">Her iş'te</span>
+        <span class="block">Gonet var.</span>
+      </h1>
     </div>
-
-    <!-- Haber slide'ları — hepsi SSR-HTML'de (AEO görünür); JS sadece görünürlük yönetir -->
-    {haberler.map((h, i) => (
-      <a
-        class="hero-slide hero-news"
-        href={h.slug}
-        data-slug={h.slug}
-        aria-label={`Haber: ${h.lines.join(' ')}`}
-        style={`--tilt:${tilts[i % tilts.length]}`}
-      >
-        <div class="hero-news-inner max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-12 w-full">
-          <p class="text-[10px] sm:text-xs font-medium uppercase tracking-[0.4em] mb-12 lg:mb-16">
-            Geliştirme Günlüğü · {h.etiket} · {h.tarih}
-          </p>
-          <h2 class="editorial-display text-black mb-10 lg:mb-14 news-headline">
-            {h.lines.map((l) => (
-              <span class="block text-[14vw] lg:text-[10vw] xl:text-[150px] leading-[0.8]">{l}</span>
-            ))}
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-6 items-end">
-            <p class="md:col-span-7 text-base lg:text-xl leading-snug font-medium">{h.ozet}</p>
-            <span class="md:col-span-5 read-cta editorial-display text-3xl lg:text-5xl md:text-right leading-[1]">→ Oku</span>
-          </div>
-        </div>
-      </a>
-    ))}
-
   </div>
 
-  <!-- Kontroller — minimal editöryel: prev/next + nokta + sayaç -->
-  <div class="slider-ctrl max-w-7xl mx-auto px-6 lg:px-10 flex items-center gap-6" aria-hidden="false">
-    <button type="button" class="ctrl-prev editorial-display text-2xl lg:text-3xl hover:text-[#ff0000] transition-colors" aria-label="Önceki">←</button>
-    <div class="dots flex items-center gap-2" role="tablist"></div>
-    <button type="button" class="ctrl-next editorial-display text-2xl lg:text-3xl hover:text-[#ff0000] transition-colors" aria-label="Sonraki">→</button>
-    <span class="counter text-[10px] font-medium uppercase tracking-[0.3em] ml-auto tabular-nums"></span>
+  <!-- Haber manşetleri — hepsi SSR-HTML'de (AEO); JS sadece görünürlük yönetir. -->
+  {haberler.map((h, i) => (
+    <a
+      class="hero-slide hero-news"
+      href={h.slug}
+      data-slug={h.slug}
+      aria-label={`Geliştirme günlüğü: ${h.lines.join(' ')}`}
+      style={`--bg-dark: url(${h.bgDark}); --bg-light: url(${h.bgLight}); --tilt:${tilts[i % tilts.length]}`}
+    >
+      <div class="slide-inner">
+        <p class="hero-eyebrow">
+          Geliştirme Günlüğü · <span class="acc">{h.etiket}</span> · {h.tarih}
+        </p>
+        <h2 class="editorial-display hero-headline news-headline">
+          {h.lines.map((l) => <span class="block">{l}</span>)}
+        </h2>
+        <p class="hero-ozet">{h.ozet}</p>
+        <span class="read-cta editorial-display">→ Oku</span>
+      </div>
+    </a>
+  ))}
+
+  <!-- SABİT: KONUM / KONSEPT / AKSİYON — görselin üstüne bindirilir, dönmez -->
+  <div class="hero-fixed-meta">
+    <div class="fixed-grid">
+      <div class="fm-col">
+        <p class="fm-label">Konum</p>
+        <p class="editorial-display fm-konum">Ajanslar üstü kreatif marketing stratejist.</p>
+      </div>
+      <div class="fm-col fm-konsept">
+        <p class="fm-label">Konsept</p>
+        <p class="fm-text">
+          26 yıl önce dijital pazarlamayı bilenlerdendik. Bugün <strong>AEO</strong>,
+          <strong>GEO</strong> ve LLM citation engineering üzerinde çalışıyoruz.
+        </p>
+      </div>
+      <div class="fm-col fm-aksiyon">
+        <p class="fm-label">Aksiyon</p>
+        <ul>
+          <li><a href="/creative-ai">→ Creative AI nedir?</a></li>
+          <li><a href="/markalar">→ Markalar (220+)</a></li>
+          <li><a href="/iletisim">→ Görüşelim</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slider-ctrl">
+      <button type="button" class="ctrl-prev" aria-label="Önceki">←</button>
+      <div class="dots" role="tablist"></div>
+      <button type="button" class="ctrl-next" aria-label="Sonraki">→</button>
+      <span class="counter tabular-nums"></span>
+    </div>
   </div>
 </section>
 
 <style>
-  .hero-slider { position: relative; overflow: hidden; }
+  /* Tema değişkenleri — LIGHT varsayılan (aydınlık görsel + siyah metin: eski beyaz tasarım hissi) */
+  .hero-slider {
+    --txt: #111;
+    --txt-soft: #2c2c2c;
+    --eyebrow: #1a1a1a;
+    --label: #5a5a5a;
+    --border: rgba(0,0,0,0.22);
+    --dot: #000;
+    --overlay:
+      linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.42) 45%, rgba(255,255,255,0.2) 100%),
+      linear-gradient(to top, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.1) 42%, rgba(255,255,255,0.3) 100%);
+    position: relative;
+    /* Header (nav bar) akışta yer kaplıyor → slider onun yüksekliği kadar kısalır ki
+       header + slider = tam viewport olsun (taşma yok). --header-h JS ile gerçek değere set edilir. */
+    height: calc(100vh - var(--header-h, 72px));
+    height: calc(100dvh - var(--header-h, 72px));
+    min-height: 520px;
+    overflow: hidden;
+    background: #fff;
+    color: var(--txt);
+  }
+  /* DARK tema — koyu görsel + beyaz metin */
+  :global([data-theme="dark"]) .hero-slider {
+    --txt: #fff;
+    --txt-soft: #ededed;
+    --eyebrow: #f2f2f2;
+    --label: #bdbdbd;
+    --border: rgba(255,255,255,0.28);
+    --dot: #fff;
+    --overlay:
+      linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.35) 100%),
+      linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 42%, rgba(0,0,0,0.35) 100%);
+    background: #000;
+  }
 
-  /* Marka slide akışta (yükseklik referansı); haber slide'ları üstüne absolute */
-  .hero-slide[data-brand] { position: relative; }
-  .hero-news {
+  /* Tam ekran BG görselli slide'lar — cross-fade. Light görsel varsayılan, dark temada dark görsel. */
+  .hero-slide {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: flex-start;
-    background: #fff;
+    background-image: var(--bg-light);
+    background-size: cover;
+    background-position: center;
+    display: block;
     text-decoration: none;
-    color: inherit;
-  }
-
-  /* Görünürlük — tüm metin DOM'da kalır (AEO), sadece opacity/visibility değişir */
-  .hero-slide {
+    color: var(--txt);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.55s ease, transform 0.55s ease;
-    transform: translateY(8px);
+    transition: opacity 0.7s ease;
   }
-  .hero-slide[data-active] {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-  /* Tıklanıp tüketilen haber — döngüden ve görünümden tamamen çıkar */
+  :global([data-theme="dark"]) .hero-slide { background-image: var(--bg-dark); }
+  .hero-slide[data-active] { opacity: 1; visibility: visible; }
   .hero-slide.is-consumed { display: none; }
 
-  /* Haber tipografisi — editöryel tilt (mevcut hero diliyle uyumlu) */
-  .news-headline { transform: rotate(var(--tilt, 0deg)); transform-origin: left top; }
-  .hero-news:hover .read-cta { color: #ff0000; }
-  .read-cta { transition: color 0.2s ease; }
+  .hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+    pointer-events: none;
+  }
 
-  /* Kontroller */
-  .slider-ctrl { padding-top: 1.5rem; padding-bottom: 2.5rem; }
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: clamp(5.5rem, 11vh, 8rem) 1.5rem clamp(11rem, 27vh, 15rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (min-width: 1024px) { .slide-inner { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+  .hero-eyebrow {
+    font-size: clamp(10px, 1vw, 13px);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    margin-bottom: clamp(1rem, 3vh, 2rem);
+    color: var(--eyebrow);
+  }
+  .hero-eyebrow .acc { color: #ff0000; }
+
+  .hero-headline {
+    color: var(--txt);
+    line-height: 0.82;
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline .block {
+    display: block;
+    font-size: clamp(2.1rem, 5.6vw, 5.5rem);
+  }
+  .news-headline { transform: rotate(var(--tilt, 0deg)); transform-origin: left top; }
+
+  .hero-ozet {
+    max-width: 38rem;
+    font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+    line-height: 1.35;
+    font-weight: 500;
+    color: var(--txt-soft);
+    margin-bottom: 0.85rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .read-cta {
+    font-size: clamp(1.5rem, 3vw, 2.75rem);
+    line-height: 1;
+    color: var(--txt);
+    transition: color 0.2s ease;
+  }
+  .hero-news:hover .read-cta { color: #ff0000; }
+
+  /* ===== SABİT alt katman ===== */
+  .hero-fixed-meta {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 5;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem clamp(1.25rem, 3vh, 2rem);
+    color: var(--txt);
+  }
+  @media (min-width: 1024px) { .hero-fixed-meta { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+  .fixed-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 2.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  @media (min-width: 768px) { .fixed-grid { grid-template-columns: 1.1fr 1.4fr 1fr; } }
+
+  .fm-label {
+    font-size: 10px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.3em; margin-bottom: 0.5rem; color: var(--label);
+  }
+  .fm-konum { font-size: clamp(1.1rem, 1.7vw, 1.75rem); line-height: 1; color: var(--txt); }
+  .fm-text {
+    font-size: clamp(0.75rem, 0.9vw, 0.9rem); line-height: 1.35; color: var(--txt-soft);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .fm-konsept { display: none; }
+  @media (min-width: 768px) { .fm-konsept { display: block; } }
+  .fm-aksiyon ul { display: flex; flex-direction: column; gap: 0.35rem; }
+  .fm-aksiyon a {
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: clamp(1rem, 1.5vw, 1.5rem); line-height: 1.05;
+    color: var(--txt); text-decoration: none; transition: color 0.2s ease;
+  }
+  .fm-aksiyon a:hover { color: #ff0000; }
+
+  .slider-ctrl { display: flex; align-items: center; gap: 1.5rem; margin-top: 0.85rem; }
+  .ctrl-prev, .ctrl-next {
+    font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--txt); background: none; border: 0; cursor: pointer; transition: color 0.2s ease;
+  }
+  .ctrl-prev:hover, .ctrl-next:hover { color: #ff0000; }
+  .dots { display: flex; align-items: center; gap: 0.5rem; }
   .dots button {
-    width: 10px; height: 10px; border-radius: 9999px;
-    border: 1px solid #000; background: transparent;
+    width: 9px; height: 9px; border-radius: 9999px;
+    border: 1px solid var(--border); background: transparent;
     padding: 0; cursor: pointer; transition: background 0.2s ease;
   }
-  .dots button[aria-selected="true"] { background: #000; }
+  .dots button[aria-selected="true"] { background: var(--dot); }
+  .counter { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3em; margin-left: auto; color: var(--label); }
 
-  /* Dark mode — site [data-theme="dark"] destekliyor */
-  :global([data-theme="dark"]) .hero-news { background: #000; }
-  :global([data-theme="dark"]) .dots button { border-color: #fff; }
-  :global([data-theme="dark"]) .dots button[aria-selected="true"] { background: #fff; }
-
-  /* Hareket hassasiyeti — otomatik geçiş JS'te kapatılır; burada da yumuşat */
   @media (prefers-reduced-motion: reduce) {
-    .hero-slide { transition: opacity 0.2s ease; transform: none; }
+    .hero-slide { transition: opacity 0.2s ease; }
     .news-headline { transform: none; }
   }
 </style>
@@ -134,10 +284,17 @@ const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
     const KEY = 'gonet:hero:seen';
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Header (nav bar) yüksekliğini ölç → slider tam olarak kalan viewport'a otursun.
+    function setHeaderOffset() {
+      const header = document.querySelector<HTMLElement>('header');
+      if (header) root.style.setProperty('--header-h', header.offsetHeight + 'px');
+    }
+    setHeaderOffset();
+    window.addEventListener('resize', setHeaderOffset);
+
     let seen: string[] = [];
     try { seen = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { seen = []; }
 
-    // Tıklanıp tüketilen haberleri döngüden çıkar (DOM'da kalır — SSR bot zaten okudu)
     slides.forEach((s) => {
       const slug = s.dataset.slug;
       if (slug && seen.includes(slug)) s.classList.add('is-consumed');
@@ -183,7 +340,6 @@ const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
       timer = window.setInterval(() => { idx += 1; render(); }, 6500);
     }
 
-    // Tıklama → seen'e ekle (tık anında), sonra default navigasyon detaya gider
     slides.forEach((s) => {
       if (!s.dataset.slug) return;
       s.addEventListener('click', () => {
@@ -197,17 +353,13 @@ const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
 
     prevBtn?.addEventListener('click', () => { prev(); restart(); });
     nextBtn?.addEventListener('click', () => { next(); restart(); });
-
     root.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') { prev(); restart(); }
       if (e.key === 'ArrowRight') { next(); restart(); }
     });
-
-    // Hover'da otomatik geçişi durdur
     root.addEventListener('mouseenter', () => { if (timer) window.clearInterval(timer); });
     root.addEventListener('mouseleave', restart);
 
-    // Dokunmatik swipe
     let x0: number | null = null;
     root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     root.addEventListener('touchend', (e) => {
@@ -222,7 +374,6 @@ const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
     restart();
   }
 
-  // Astro view transitions + ilk yükleme
   document.addEventListener('astro:page-load', initHeroSlider);
   if (document.readyState !== 'loading') initHeroSlider();
   else document.addEventListener('DOMContentLoaded', initHeroSlider);
