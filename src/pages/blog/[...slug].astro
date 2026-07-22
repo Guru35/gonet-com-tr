@@ -167,8 +167,18 @@ const breadcrumb = webpageSchema({
     {post.data.ogImage && (
       <Fragment>
         {/* Masaüstü: sağda absolute görsel. lg altında source eşleşmez → 1px fallback
-            (mobilde inmez; mobil görsel aşağıda ayrı, in-flow). */}
-        <picture class="hidden lg:block">
+            (mobilde inmez; mobil görsel aşağıda ayrı, in-flow).
+            Tema-duyarlı: light temada ogImageLight (varsa), dark temada ogImage. */}
+        <picture class="blog-hero-pic blog-hero-pic--light">
+          <source media="(min-width: 1024px)" srcset={post.data.ogImageLight || post.data.ogImage} />
+          <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt={post.data.title}
+            class="blog-hero-img absolute select-none"
+            style="top: 8%; right: 0; width: clamp(360px, 48vw, 640px); z-index: 0;"
+          />
+        </picture>
+        <picture class="blog-hero-pic blog-hero-pic--dark">
           <source media="(min-width: 1024px)" srcset={post.data.ogImage} />
           <img
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -235,12 +245,20 @@ const breadcrumb = webpageSchema({
       )}
     </div>
     {post.data.ogImage && (
-      <img
-        src={post.data.ogImage}
-        alt={post.data.title}
-        class="blog-hero-mobile-img block lg:hidden w-full h-auto border-t border-black"
-        loading="lazy"
-      />
+      <Fragment>
+        <img
+          src={post.data.ogImageLight || post.data.ogImage}
+          alt={post.data.title}
+          class="blog-hero-mobile-img blog-hero-mobile--light w-full h-auto border-t border-black"
+          loading="lazy"
+        />
+        <img
+          src={post.data.ogImage}
+          alt={post.data.title}
+          class="blog-hero-mobile-img blog-hero-mobile--dark w-full h-auto border-t border-black"
+          loading="lazy"
+        />
+      </Fragment>
     )}
   </section>
 
@@ -313,6 +331,18 @@ const breadcrumb = webpageSchema({
     </div>
   )}
   <style>
+    /* Blog hero görseli tema-duyarlı: LIGHT tema → light görsel, DARK tema → dark görsel.
+       ogImageLight yoksa (tema-nötr eski poster'lar) light picture da ogImage kullanır → görsel değişmez. */
+    .blog-hero-pic { display: none; }
+    @media (min-width: 1024px) { .blog-hero-pic--light { display: block; } }
+    :global([data-theme="dark"]) .blog-hero-pic--light { display: none; }
+    @media (min-width: 1024px) { :global([data-theme="dark"]) .blog-hero-pic--dark { display: block; } }
+
+    .blog-hero-mobile-img { display: none; }
+    @media (max-width: 1023px) { .blog-hero-mobile--light { display: block; } }
+    :global([data-theme="dark"]) .blog-hero-mobile--light { display: none; }
+    @media (max-width: 1023px) { :global([data-theme="dark"]) .blog-hero-mobile--dark { display: block; } }
+
     @keyframes next-post-pulse {
       0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
       50% { transform: scaleY(1); opacity: 1; }
