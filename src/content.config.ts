@@ -118,4 +118,20 @@ const yetkinlikler = defineCollection({
   }),
 });
 
-export const collections = { pages, blog, 'case-studies': caseStudies, services, yetkinlikler };
+// Geliştirme Günlüğü — ana sayfa hero-slider'ını besleyen lab haberleri.
+// Her haber kendi /gelistirme-gunlugu/<slug> detay sayfasına gider.
+// sliderLines: dev tipografiyle satır satır gösterilen kısa "çığlık" metni (AEO: SSR-render).
+const gelistirmeGunlugu = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/gelistirme-gunlugu' }),
+  schema: z.object({
+    title: z.string(),                 // detay sayfası başlığı
+    sliderLines: z.array(z.string()),  // slider'da satır satır dev tipografi
+    summary: z.string(),               // özet — slider + detay lead
+    etiket: z.string(),                // AEO/GEO, Otomasyon, Ürün vb.
+    published: z.date(),
+    updated: z.date().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { pages, blog, 'case-studies': caseStudies, services, yetkinlikler, 'gelistirme-gunlugu': gelistirmeGunlugu };

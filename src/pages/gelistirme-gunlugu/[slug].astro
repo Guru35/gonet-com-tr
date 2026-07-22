@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articleSchema, webpageSchema, SITE_URL } from '../../lib/schema';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('gelistirme-gunlugu')).filter((e) => !e.data.draft);
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const url = `${SITE_URL}/gelistirme-gunlugu/${entry.id}`;
+
+const article = articleSchema({
+  title: d.title,
+  description: d.summary,
+  slug: entry.id,
+  published: d.published,
+  updated: d.updated,
+  author: { name: 'Gökhan Kazancı', role: 'Gonet' },
+  category: d.etiket,
+  basePath: 'gelistirme-gunlugu',
+});
+
+const breadcrumb = webpageSchema({
+  title: d.title,
+  description: d.summary,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Geliştirme Günlüğü', url },
+  ],
+});
+
+const tarih = d.published.toLocaleDateString('tr-TR', { day: '2-digit', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title={`${d.title} — Gonet Geliştirme Günlüğü`}
+  description={d.summary}
+  canonical={url}
+  schemas={[article, breadcrumb]}
+>
+  <!-- HERO — editöryel, ana sayfa slider diliyle uyumlu -->
+  <section class="bg-white text-black border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-14 lg:pb-20">
+      <!-- Breadcrumb tiny -->
+      <nav class="text-[10px] uppercase tracking-[0.3em] font-medium mb-12 lg:mb-16" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-3 flex-wrap">
+          <li><a href="/" class="hover:underline">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="opacity-60" aria-current="page">Geliştirme Günlüğü</li>
+        </ol>
+      </nav>
+
+      <!-- Etiket + tarih -->
+      <p class="text-[10px] sm:text-xs font-medium uppercase tracking-[0.4em] mb-10 lg:mb-14">
+        Geliştirme Günlüğü · <span style="color: #ff0000">{d.etiket}</span> · {tarih}
+      </p>
+
+      <!-- Slider metni MASSIVE — sürekliliğin görsel bağı -->
+      <h1 class="editorial-display text-black mb-10 lg:mb-14">
+        {d.sliderLines.map((l) => (
+          <span class="block text-[13vw] lg:text-[9vw] xl:text-[140px] leading-[0.82]">{l}</span>
+        ))}
+      </h1>
+
+      <!-- Detay başlığı + özet lead -->
+      <p class="editorial-display text-2xl lg:text-4xl leading-[1.05] max-w-4xl mb-8">{d.title}</p>
+      <p class="text-base lg:text-xl leading-snug font-medium max-w-3xl">{d.summary}</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <article class="bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <div class="prose-irregular">
+        <Content />
+      </div>
+
+      <!-- Geri dön -->
+      <div class="mt-20 lg:mt-24 pt-12 border-t border-black">
+        <a href="/" class="inline-block editorial-display text-2xl lg:text-3xl hover:text-[#ff0000] transition-colors">← Ana sayfa</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

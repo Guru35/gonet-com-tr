@@ -1,0 +1,229 @@
+---
+import HeroClassic from './HeroClassic.astro';
+import { getCollection } from 'astro:content';
+
+// Haberler `gelistirme-gunlugu` content collection'ından — en yeniden eskiye.
+// Tümü SSR-HTML'de render edilir (AEO: JS kapalıyken curl'de tüm metin görünmeli);
+// JS yalnızca aktif-slide + tıklanan-gizleme yönetir. Her haber /gelistirme-gunlugu/<slug> detayına gider.
+const entries = (await getCollection('gelistirme-gunlugu'))
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const haberler = entries.map((e) => ({
+  slug: `/gelistirme-gunlugu/${e.id}`,
+  etiket: e.data.etiket,
+  tarih: e.data.published.toLocaleDateString('tr-TR', { month: 'short', year: 'numeric' }),
+  lines: e.data.sliderLines,
+  ozet: e.data.summary,
+}));
+
+// Slide-başı hafif tilt açıları (editöryel "çılgın" his — mevcut hero diliyle aynı)
+const tilts = ['-1.2deg', '0.8deg', '-0.6deg', '1.1deg'];
+---
+
+<section class="hero-slider bg-white text-black" data-hero-slider aria-roledescription="carousel" aria-label="Gonet öne çıkanlar">
+  <div class="hero-track relative">
+
+    <!-- Slide 0 — KALICI marka slide'ı (mevcut hero, birebir). Asla döngüden düşmez. -->
+    <div class="hero-slide" data-brand data-active>
+      <HeroClassic />
+    </div>
+
+    <!-- Haber slide'ları — hepsi SSR-HTML'de (AEO görünür); JS sadece görünürlük yönetir -->
+    {haberler.map((h, i) => (
+      <a
+        class="hero-slide hero-news"
+        href={h.slug}
+        data-slug={h.slug}
+        aria-label={`Haber: ${h.lines.join(' ')}`}
+        style={`--tilt:${tilts[i % tilts.length]}`}
+      >
+        <div class="hero-news-inner max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-12 w-full">
+          <p class="text-[10px] sm:text-xs font-medium uppercase tracking-[0.4em] mb-12 lg:mb-16">
+            Geliştirme Günlüğü · {h.etiket} · {h.tarih}
+          </p>
+          <h2 class="editorial-display text-black mb-10 lg:mb-14 news-headline">
+            {h.lines.map((l) => (
+              <span class="block text-[14vw] lg:text-[10vw] xl:text-[150px] leading-[0.8]">{l}</span>
+            ))}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-6 items-end">
+            <p class="md:col-span-7 text-base lg:text-xl leading-snug font-medium">{h.ozet}</p>
+            <span class="md:col-span-5 read-cta editorial-display text-3xl lg:text-5xl md:text-right leading-[1]">→ Oku</span>
+          </div>
+        </div>
+      </a>
+    ))}
+
+  </div>
+
+  <!-- Kontroller — minimal editöryel: prev/next + nokta + sayaç -->
+  <div class="slider-ctrl max-w-7xl mx-auto px-6 lg:px-10 flex items-center gap-6" aria-hidden="false">
+    <button type="button" class="ctrl-prev editorial-display text-2xl lg:text-3xl hover:text-[#ff0000] transition-colors" aria-label="Önceki">←</button>
+    <div class="dots flex items-center gap-2" role="tablist"></div>
+    <button type="button" class="ctrl-next editorial-display text-2xl lg:text-3xl hover:text-[#ff0000] transition-colors" aria-label="Sonraki">→</button>
+    <span class="counter text-[10px] font-medium uppercase tracking-[0.3em] ml-auto tabular-nums"></span>
+  </div>
+</section>
+
+<style>
+  .hero-slider { position: relative; overflow: hidden; }
+
+  /* Marka slide akışta (yükseklik referansı); haber slide'ları üstüne absolute */
+  .hero-slide[data-brand] { position: relative; }
+  .hero-news {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Görünürlük — tüm metin DOM'da kalır (AEO), sadece opacity/visibility değişir */
+  .hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    transform: translateY(8px);
+  }
+  .hero-slide[data-active] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  /* Tıklanıp tüketilen haber — döngüden ve görünümden tamamen çıkar */
+  .hero-slide.is-consumed { display: none; }
+
+  /* Haber tipografisi — editöryel tilt (mevcut hero diliyle uyumlu) */
+  .news-headline { transform: rotate(var(--tilt, 0deg)); transform-origin: left top; }
+  .hero-news:hover .read-cta { color: #ff0000; }
+  .read-cta { transition: color 0.2s ease; }
+
+  /* Kontroller */
+  .slider-ctrl { padding-top: 1.5rem; padding-bottom: 2.5rem; }
+  .dots button {
+    width: 10px; height: 10px; border-radius: 9999px;
+    border: 1px solid #000; background: transparent;
+    padding: 0; cursor: pointer; transition: background 0.2s ease;
+  }
+  .dots button[aria-selected="true"] { background: #000; }
+
+  /* Dark mode — site [data-theme="dark"] destekliyor */
+  :global([data-theme="dark"]) .hero-news { background: #000; }
+  :global([data-theme="dark"]) .dots button { border-color: #fff; }
+  :global([data-theme="dark"]) .dots button[aria-selected="true"] { background: #fff; }
+
+  /* Hareket hassasiyeti — otomatik geçiş JS'te kapatılır; burada da yumuşat */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide { transition: opacity 0.2s ease; transform: none; }
+    .news-headline { transform: none; }
+  }
+</style>
+
+<script>
+  function initHeroSlider() {
+    const root = document.querySelector<HTMLElement>('[data-hero-slider]');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('.hero-slide'));
+    const dotsWrap = root.querySelector<HTMLElement>('.dots');
+    const counter = root.querySelector<HTMLElement>('.counter');
+    const prevBtn = root.querySelector<HTMLButtonElement>('.ctrl-prev');
+    const nextBtn = root.querySelector<HTMLButtonElement>('.ctrl-next');
+    const KEY = 'gonet:hero:seen';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let seen: string[] = [];
+    try { seen = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { seen = []; }
+
+    // Tıklanıp tüketilen haberleri döngüden çıkar (DOM'da kalır — SSR bot zaten okudu)
+    slides.forEach((s) => {
+      const slug = s.dataset.slug;
+      if (slug && seen.includes(slug)) s.classList.add('is-consumed');
+    });
+
+    const live = () => slides.filter((s) => !s.classList.contains('is-consumed'));
+    let idx = 0;
+    let timer: number | undefined;
+
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      live().forEach((_, i) => {
+        const b = document.createElement('button');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', `Slide ${i + 1}`);
+        b.addEventListener('click', () => { go(i); restart(); });
+        dotsWrap.appendChild(b);
+      });
+    }
+
+    function render() {
+      const list = live();
+      slides.forEach((s) => s.removeAttribute('data-active'));
+      if (!list.length) return;
+      idx = ((idx % list.length) + list.length) % list.length;
+      list[idx].setAttribute('data-active', '');
+      if (dotsWrap) {
+        Array.from(dotsWrap.children).forEach((d, i) =>
+          d.setAttribute('aria-selected', String(i === idx))
+        );
+      }
+      if (counter) counter.textContent = `${idx + 1} / ${list.length}`;
+    }
+
+    function go(i: number) { idx = i; render(); }
+    function next() { idx += 1; render(); }
+    function prev() { idx -= 1; render(); }
+
+    function restart() {
+      if (timer) window.clearInterval(timer);
+      if (reduce) return;
+      timer = window.setInterval(() => { idx += 1; render(); }, 6500);
+    }
+
+    // Tıklama → seen'e ekle (tık anında), sonra default navigasyon detaya gider
+    slides.forEach((s) => {
+      if (!s.dataset.slug) return;
+      s.addEventListener('click', () => {
+        const slug = s.dataset.slug!;
+        if (!seen.includes(slug)) {
+          seen.push(slug);
+          try { localStorage.setItem(KEY, JSON.stringify(seen)); } catch {}
+        }
+      });
+    });
+
+    prevBtn?.addEventListener('click', () => { prev(); restart(); });
+    nextBtn?.addEventListener('click', () => { next(); restart(); });
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { prev(); restart(); }
+      if (e.key === 'ArrowRight') { next(); restart(); }
+    });
+
+    // Hover'da otomatik geçişi durdur
+    root.addEventListener('mouseenter', () => { if (timer) window.clearInterval(timer); });
+    root.addEventListener('mouseleave', restart);
+
+    // Dokunmatik swipe
+    let x0: number | null = null;
+    root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); restart(); }
+      x0 = null;
+    }, { passive: true });
+
+    buildDots();
+    render();
+    restart();
+  }
+
+  // Astro view transitions + ilk yükleme
+  document.addEventListener('astro:page-load', initHeroSlider);
+  if (document.readyState !== 'loading') initHeroSlider();
+  else document.addEventListener('DOMContentLoaded', initHeroSlider);
+</script>

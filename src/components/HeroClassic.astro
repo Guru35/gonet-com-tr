@@ -1,0 +1,58 @@
+---
+// Mevcut statik hero — DEĞİŞTİRİLMEDİ, birebir index.astro'dan çıkarıldı.
+// Geri-alınabilirlik için: HeroSlider beğenilmezse index.astro'da USE_SLIDER=false → bu geri gelir.
+---
+
+<!-- Hero — pure white/black editorial typography -->
+<section class="bg-white text-black">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-12">
+    <!-- Top meta: tiny scale -->
+    <p class="text-[10px] sm:text-xs font-medium uppercase tracking-[0.4em] text-black mb-16 lg:mb-24">
+      Gonet — İzmir · 2000 → 2026 · Türkiye'nin ilk 3 Google Partner ajansından biri · İzmir'in ilk AI ajansı
+    </p>
+
+    <!-- HUGE display headline — tek h1, görsel olarak iki satır -->
+    <h1 class="editorial-display text-black mb-12 lg:mb-20">
+      <span class="block text-[18vw] lg:text-[14vw] xl:text-[200px] mb-2">Her iş'te</span>
+      <span class="block text-[28vw] lg:text-[22vw] xl:text-[320px]">Gonet var.</span>
+    </h1>
+
+    <!-- Three-column meta — karışık tilt + farklı boyut/dikey hizalama -->
+    <div class="relative grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-6 lg:gap-x-10 pt-8 mt-4">
+      <!-- Üst çizgi — viewport boydan boya -->
+      <span class="absolute top-0 h-px bg-black pointer-events-none" style="left:50%;transform:translateX(-50%);width:100vw"></span>
+
+      <!-- Konum — sola yaslı, hafif yukarı kayık, Anton ile -->
+      <div class="md:col-span-3 md:pt-0 md:-mt-2" style="transform: rotate(-0.8deg); transform-origin: left top;">
+        <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4 ml-1">Konum</p>
+        <p class="editorial-display text-3xl lg:text-5xl leading-[0.92]">
+          Ajanslar<br />üstü<br />kreatif<br />marketing<br />stratejist.
+        </p>
+      </div>
+
+      <!-- Konsept — biraz aşağıda, sağa kayık tilt -->
+      <div class="md:col-span-5 md:pt-12 md:ml-[3%]" style="transform: rotate(0.6deg); transform-origin: center top;">
+        <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4">Konsept</p>
+        <p class="text-base lg:text-xl leading-snug font-medium">
+          26 yıl önce kurulduğumuzda dijital pazarlamayı bilenler arasındaydık.
+          Bugün <strong>Answer Engine Optimization</strong> (AEO),
+          <strong>Generative Engine Optimization</strong> (GEO) ve LLM citation engineering
+          üzerinde çalışıyoruz. İzmir'in ilk AI ajansı olarak, fikirde ve sonuçta rekabet ederiz.
+        </p>
+      </div>
+
+      <!-- Aksiyon — sağa, içe kayık, link'ler farklı boyutta -->
+      <div class="md:col-span-4 md:pt-4 md:-ml-[2%]" style="transform: rotate(-0.5deg); transform-origin: right top;">
+        <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4">Aksiyon</p>
+        <ul class="space-y-3">
+          <li><a href="/creative-ai" class="block editorial-display text-3xl lg:text-5xl hover:text-[#ff0000] transition-colors leading-[1]">→ Creative AI nedir?</a></li>
+          <li><a href="/case-studies" class="block editorial-display text-xl lg:text-3xl hover:text-[#ff0000] transition-colors leading-[1] ml-[6%]">→ Vaka çalışmaları (8)</a></li>
+          <li><a href="/markalar" class="block editorial-display text-2xl lg:text-4xl hover:text-[#ff0000] transition-colors leading-[1] ml-[3%]">→ Markalar (220+)</a></li>
+          <li><a href="/hakkimizda" class="block editorial-display text-lg lg:text-2xl hover:text-[#ff0000] transition-colors leading-[1] ml-[10%]">→ Hakkımızda</a></li>
+          <li><a href="/iletisim" class="block editorial-display text-xl lg:text-3xl hover:text-[#ff0000] transition-colors leading-[1] ml-[12%]">→ Görüşelim</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
