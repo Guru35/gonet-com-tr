@@ -252,6 +252,55 @@ a.ext-link::after {
 }
 /* Kabul butonu koyuda da kırmızı+siyah (yeterli kontrast) — değişmez */
 
+/* Klaro banner — container + tipografi editöryel dile uydurma (2026-07-29).
+   Öncekinde generic gri kutu duruyordu (bkz. Gökhan geri bildirimi: "çok basit").
+   Buton renk mantığına dokunulmadı, yalnız çerçeve/tipografi/spacing katmanı. */
+.klaro .cookie-notice {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border-top: 2px solid #000 !important;
+  padding: 28px 24px !important;
+}
+@media (min-width: 1024px) {
+  .klaro .cookie-notice { padding: 32px 40px !important; }
+}
+[data-theme="dark"] .klaro .cookie-notice { border-top-color: #e6e6e6 !important; }
+
+/* Küçük uppercase eyebrow — site genelindeki "SIK SORULAN SORULAR" vb. etiket
+   deseniyle aynı dil. Klaro'nun DOM'una elle etiket ekleyemediğimiz için
+   ::before ile üretiliyor (yalnız görsel, config metnine karışmaz). */
+.klaro .cn-body::before {
+  content: "Çerez Tercihleri";
+  display: block;
+  font-family: var(--font-sans) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: #ff0000 !important;
+  margin-bottom: 12px !important;
+}
+
+.klaro .cn-body p {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+  max-width: 640px;
+}
+
+/* Tercihler linki — site'nin "İletişim →" gibi ok-bitişli link deseni.
+   .cn-learn-more Klaro'da doğrudan <a class="cm-link cn-learn-more"> — alt-eleman değil. */
+.klaro a.cn-learn-more::after { content: " →"; }
+
+/* Butonlar — nav/CTA'daki uppercase + geniş tracking diline taşındı */
+.klaro .cn-buttons { gap: 12px !important; }
+.klaro .cn-buttons .cm-btn {
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  padding: 13px 26px !important;
+}
+
 /* Editöryel display utility — devasa typografi */
 .editorial-display {
   font-family: var(--font-display);
