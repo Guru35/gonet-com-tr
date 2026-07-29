@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, SITE_URL } from '../lib/schema';
+
+const title = "AEO/GEO Sık Sorulan Sorular — Yapay Zekâ Aramasında Görünürlük | Gonet";
+const description =
+  "AEO ve GEO hakkında en çok sorulan 15 soru: ChatGPT markamı neden göstermiyor, " +
+  "Common Crawl nedir, llms.txt gerekli mi, Share of Model nasıl ölçülür, AI botlarını engellemeli miyim? " +
+  "İzmir merkezli Creative AI ajansı Gonet'ten kanıt-bazlı cevaplar.";
+const url = `${SITE_URL}/sss`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Sık Sorulan Sorular', url },
+  ],
+});
+
+/*
+  Tek kaynak: bu dizi hem görünür SSS bölümünü hem FAQPage schema'sını besler.
+  Cevaplar düz metin (schema için) — görünür tarafta aynı metin render edilir.
+*/
+const gruplar = [
+  {
+    baslik: 'Temeller',
+    sorular: [
+      {
+        question: 'AEO nedir?',
+        answer:
+          'AEO (Answer Engine Optimization / Cevap Motoru Optimizasyonu), markanın ChatGPT, Claude, Perplexity, Gemini ve Google AI Overviews gibi cevap üreten sistemlerin yanıtlarında doğru ve görünür şekilde yer almasını hedefleyen çalışmadır. Klasik SEO bir sonuç listesinde sıra almayı hedefler; AEO ise listenin yerini alan cevabın içine girmeyi hedefler. Kullanıcı artık on mavi link görmüyor, tek bir sentezlenmiş cevap okuyor — o cevabın içinde yoksanız, pratikte yoksunuz.',
+      },
+      {
+        question: 'GEO nedir, AEO ile farkı nedir?',
+        answer:
+          'GEO (Generative Engine Optimization / Üretken Motor Optimizasyonu) akademik literatürde tanımlanan, üretken motorların ürettiği metinde kaynak olarak alıntılanmayı hedefleyen yaklaşımdır. Pratikte ikisi büyük ölçüde örtüşür: AEO "cevapta yer al" tarafını, GEO "hangi kaynağın alıntılandığı" tarafını vurgular. Gonet ikisini tek disiplin olarak ele alır, çünkü aynı teknik zemine dayanırlar: erişilebilirlik, yapılandırılmış veri ve çıkarıma hazır içerik.',
+      },
+      {
+        question: 'SEO bitti mi, AEO onun yerini mi alıyor?',
+        answer:
+          'Hayır. AEO, SEO\'nun yerine geçen değil, üstüne binen bir katmandır. Teknik SEO temeli (taranabilirlik, hız, sunucu tarafı render, temiz bilgi mimarisi) AEO\'nun ön koşuludur — sitenizi tarayamayan bir sistem sizi alıntılayamaz. Fark şurada: klasik SEO sıralama için optimize eder, AEO anlaşılabilirlik ve alıntılanabilirlik için optimize eder. İkisini birlikte yürütmek gerekir.',
+      },
+      {
+        question: 'ChatGPT veya Claude markamı neden hiç göstermiyor?',
+        answer:
+          'En yaygın üç sebep: (1) Siteniz modelin eğitim verisine hiç girmemiş olabilir — genellikle Common Crawl arşivinde bulunmadığınız anlamına gelir. (2) robots.txt veya CDN/WAF katmanınız AI tarayıcılarını engelliyor olabilir. (3) İçeriğiniz taranıyor ama çıkarıma uygun değil: bilgi görsel içine gömülü, JavaScript ile sonradan yükleniyor veya yapılandırılmış veri yok. Doğru teşhis için önce hangi katmanda takıldığınızı ölçmek gerekir; üçünün çözümü birbirinden tamamen farklıdır.',
+      },
+    ],
+  },
+  {
+    baslik: 'Yapay zekâ siteni nasıl görüyor',
+    sorular: [
+      {
+        question: 'LLM\'ler sitemi nasıl buluyor?',
+        answer:
+          'İki ayrı yoldan ve bu ayrımı bilmek kritiktir. Birincisi parametrik bellek: model eğitilirken öğrendikleri, ağırlıklarının içine gömülüdür. Buraya girmek için eğitim verisine dahil olmanız gerekir ve bu yavaş, gecikmeli bir süreçtir. İkincisi canlı erişim (retrieval): Perplexity gibi sistemler ve web araması açık modeller soruyu aldıkları anda web\'de arama yapar. Buraya girmek daha hızlıdır ama güncel taranabilirlik ve otorite sinyalleri gerektirir. Sağlam bir AEO stratejisi her iki katmanı da ayrı ayrı hedefler.',
+      },
+      {
+        question: 'Common Crawl nedir, neden bu kadar önemli?',
+        answer:
+          'Common Crawl, web\'i düzenli olarak tarayıp açık arşiv olarak yayınlayan bir kâr amacı gütmeyen kuruluştur. Önemi şudur: büyük dil modellerinin eğitim verisinin önemli bir bölümü doğrudan veya dolaylı olarak bu arşivden gelir. Bu arşivde yoksanız, modelin parametrik belleğine girme şansınız ciddi biçimde düşer. Bu yüzden Gonet, AEO denetimini "sitede ne yazıyor" sorusundan önce "bu site arşivde var mı" sorusuyla başlatır.',
+      },
+      {
+        question: 'AI botlarını engellemeli miyim?',
+        answer:
+          'Bu bilinçli bir stratejik karardır, teknik bir varsayılan değil. Engellerseniz içeriğiniz eğitim verisine girmez ve cevaplarda görünmezsiniz — görünürlük kaybı. Açarsanız içeriğiniz karşılığında doğrudan bir ödeme almadan kullanılır — kontrol kaybı. Çoğu marka için doğru yaklaşım seçici olmaktır: cevaplarda temsil edilmek istediğiniz kurumsal ve bilgilendirici içeriği açmak, korumak istediğiniz varlıkları kapatmak. Kritik nokta: kararı bilerek vermek. Sahadaki en sık hata, kimsenin farkında olmadığı bir CDN ayarının tüm AI trafiğini sessizce engellemesidir.',
+      },
+      {
+        question: 'llms.txt nedir, gerekli mi?',
+        answer:
+          'llms.txt, sitenin köküne konan ve dil modellerine sitedeki önemli içeriğin küratörlü bir haritasını sunan markdown tabanlı bir dosyadır. robots.txt\'ten farkı: robots.txt izin verir veya yasaklar, llms.txt yol gösterir. Dürüst cevap: bugün hiçbir büyük sağlayıcı bu dosyayı okuduğunu resmen taahhüt etmiyor, dolayısıyla getirisi henüz kanıtlanmış değil. Buna karşılık maliyeti çok düşük ve doğru hazırlandığında sitenin bilgi mimarisini netleştirmeye zorlar. Gonet bunu "düşük maliyetli bahis" olarak konumlandırır, garantili kazanç olarak değil.',
+      },
+    ],
+  },
+  {
+    baslik: 'Teknik taraf',
+    sorular: [
+      {
+        question: 'Schema.org / JSON-LD neden AEO için kritik?',
+        answer:
+          'Schema.org, sayfadaki bilgiyi makinelerin tartışmasız okuyabileceği yapılandırılmış veriye çevirir. Bir dil modeli düz metinden "bu bir ajans mı, nerede, kim kurmuş" bilgisini tahmin etmek zorunda kalır; JSON-LD ile bunu tahmin etmez, okur. Kurumsal kimlik (Organization), kurucu (Person), hizmetler (Service) ve soru-cevap (FAQPage) tiplerinin birbirine bağlandığı tutarlı bir varlık grafiği, modelin markanız hakkında yüksek güvenle konuşabilmesinin en doğrudan yoludur. Bu sayfanın kendisi de FAQPage yapılandırılmış verisiyle yayınlanmaktadır.',
+      },
+      {
+        question: 'İçeriğimi yapay zekânın alıntılayacağı şekilde nasıl yazarım?',
+        answer:
+          'Temel ilke çıkarıma hazırlık (extraction-readiness): her bilgi parçası, sayfanın geri kalanı olmadan da tek başına anlamlı olmalıdır. Pratikte: soruyu başlık yapın ve cevabı hemen altında ilk cümlede verin; bir paragraf bir fikir taşısın; tanımları, rakamları ve tarihleri açıkça yazın; anlam taşıyan metni görsel içine gömmeyin — model görseldeki yazıyı güvenilir biçimde okuyamaz. Sayfa sonuna gerçek soru-cevap bölümü eklemek en yüksek getirili tek hamledir, çünkü modelin ihtiyaç duyduğu formatla birebir örtüşür.',
+      },
+      {
+        question: 'Hangi yapay zekâ motoru benim için önemli?',
+        answer:
+          'Hepsi aynı davranmaz ve bu fark stratejiyi belirler. Perplexity yoğun biçimde canlı web kaynağı gösterir, bu yüzden güncel ve taranabilir içerik orada hızlı karşılık bulur. ChatGPT büyük ölçüde eğitilmiş bilgiden konuşur, orada varlık göstermek daha yavaş ve birikimlidir. Google AI Overviews klasik arama otoritesiyle güçlü biçimde ilişkilidir. Doğru soru "hangisi en iyi" değil, "müşterim satın alma kararını hangisinde veriyor" sorusudur — Türkiye B2B pazarında bu genellikle aynı anda birden fazla motordur.',
+      },
+    ],
+  },
+  {
+    baslik: 'Ölçüm ve süreç',
+    sorular: [
+      {
+        question: 'AEO başarısı nasıl ölçülür?',
+        answer:
+          'Klasik sıralama metrikleri burada işe yaramaz, çünkü tek bir sabit sonuç listesi yoktur. Kullanılan temel ölçü Share of Model\'dir: sektörünüzle ilgili belirlenmiş soru setini farklı motorlarda tekrar tekrar sorup markanızın kaç cevapta geçtiğini ölçmek. Buna eşlik eden ölçüler: atıf oranı (geçtiğinde kaynak olarak da gösteriliyor mu), temsil doğruluğu (anlatılan bilgi gerçekten doğru mu) ve duygu tonu. Kritik uyarı: dil modeli çıktısı olasılıklıdır, aynı soru farklı zamanlarda farklı cevap verebilir. Bu yüzden tek ölçüm anlamlı değildir; anlamlı olan zaman içindeki eğilimdir.',
+      },
+      {
+        question: 'Sonuçlar ne kadar sürede görünür?',
+        answer:
+          'İki katmanın hızı çok farklıdır. Canlı erişimle çalışan motorlarda (Perplexity, web araması açık modeller) teknik düzeltmelerin etkisi haftalar içinde görülebilir. Eğitim verisine dayalı parametrik bellekte ise etki model güncellemelerine bağlıdır ve aylar sürer — bu takvimi kimse garanti edemez. Dürüst beklenti: ilk ölçülebilir hareket 4-8 hafta, kalıcı konumlanma 6-12 ay. Size bundan hızlı kesin sonuç vaat eden bir yaklaşıma temkinli yaklaşın.',
+      },
+      {
+        question: 'Yapay zekâ ajanları gerçekten alışveriş yapacak mı?',
+        answer:
+          'Yön bu tarafa gidiyor. Agentic commerce, kullanıcı adına araştırma yapan ve işlemi tamamlayan yapay zekâ ajanlarını tanımlar; sektörde bu akışı standartlaştırmayı hedefleyen protokoller şimdiden şekilleniyor. Marka açısından sonucu şudur: ajan sizi bulamıyorsa, ürününüzü yapılandırılmış biçimde okuyamıyorsa veya sizi güvenilir bulmuyorsa alışveriş listesine hiç girmezsiniz. Bugün yapılan AEO çalışması, bu döneme hazırlığın da temelidir — çünkü ikisi de aynı şeyi ister: makinenin okuyabildiği, doğrulanabilir, tutarlı bilgi.',
+      },
+      {
+        question: 'Nereden başlamalıyım?',
+        answer:
+          'Tahminle değil ölçümle başlayın. İlk adım bir görünürlük denetimidir: siteniz AI tarayıcılarına açık mı, Common Crawl arşivinde var mı, yapılandırılmış veriniz tutarlı mı, içeriğiniz çıkarıma uygun mu ve motorlar bugün markanız hakkında ne söylüyor. Bu beş sorunun cevabı, yapılacak işin sırasını kendiliğinden belirler. Gonet bu denetimi hem kendi sitesinde canlı olarak uygular hem de hizmet olarak sunar — detay için AEO/GEO Denetimi sayfasına bakabilir veya doğrudan iletişime geçebilirsiniz.',
+      },
+    ],
+  },
+];
+
+const tumSorular = gruplar.flatMap((g) => g.sorular);
+const faq = faqSchema(tumSorular);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  schemas={[pageSchema, faq]}
+>
+  <!-- Hero -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-5xl mx-auto px-6 pt-24 pb-16">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sık sorulan sorular</p>
+      <h1 class="editorial-display text-5xl md:text-8xl leading-[0.92] mb-8">
+        Yapay zekâ<br />markanı<br />nasıl anlatıyor?
+      </h1>
+      <p class="text-lg md:text-xl text-slate-700 max-w-2xl leading-relaxed">
+        AEO ve GEO hakkında en çok sorulan {tumSorular.length} soru — pazarlama dili olmadan,
+        ölçülebilir cevaplarla. Bu sayfa kendi anlattığı yöntemle yazılmıştır:
+        soru başlık, cevap hemen altında, yapılandırılmış veriyle işaretli.
+      </p>
+    </div>
+  </section>
+
+  <!-- SSS grupları -->
+  {gruplar.map((grup) => (
+    <section class="bg-white border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="editorial-display text-3xl md:text-5xl mb-12 leading-[1.05]">
+          {grup.baslik}
+        </h2>
+        <div class="space-y-8">
+          {grup.sorular.map((s) => (
+            <details class="border-b border-slate-300 pb-6 group">
+              <summary class="text-lg md:text-xl font-medium cursor-pointer list-none flex items-start gap-4">
+                <span class="text-red-600 shrink-0 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                <span>{s.question}</span>
+              </summary>
+              <p class="mt-4 ml-8 text-slate-700 leading-relaxed">
+                {s.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Sorunuzun cevabı<br />burada yoksa, sorun.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/aeo-geo-denetimi"
+          class="inline-block border border-white px-8 py-4 text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors"
+          style="color:inherit"
+        >
+          AEO/GEO Denetimi
+        </a>
+        <a
+          href="/iletisim"
+          class="inline-block border border-white px-8 py-4 text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors"
+          style="color:inherit"
+        >
+          İletişime geç →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

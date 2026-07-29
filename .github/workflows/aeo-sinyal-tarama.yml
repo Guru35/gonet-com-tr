@@ -1,0 +1,46 @@
+name: aeo — günlük sinyal taraması
+
+# Her gün AEO/GEO kaynaklarını tarar, yeni konu adaylarını content-queue/ altına yazar.
+# LLM kullanmaz → API maliyeti sıfır. İçerik üretmez, yayın yapmaz (gölge mod):
+# çıktısı yalnızca insanın okuyacağı bir aday listesidir.
+on:
+  schedule:
+    # 03:00 UTC = 06:00 TR — sabah ilk bakışta hazır olsun
+    - cron: '0 3 * * *'
+  workflow_dispatch: # elle de tetiklenebilir
+
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sinyalleri tara
+        run: node scripts/aeo-sinyal-tara.mjs
+
+      - name: Yeni aday varsa commit et
+        run: |
+          git config user.name  "gonet-aeo-bot"
+          git config user.email "gonet@gonet.com.tr"
+
+          # content-queue dışında hiçbir şeye dokunma
+          git add content-queue/ || true
+
+          if git diff --staged --quiet; then
+            echo "  → Yeni aday yok, commit atlanacak."
+            exit 0
+          fi
+
+          BUGUN=$(date -u +%Y-%m-%d)
+          git commit -m "chore(aeo): sinyal kuyruğu güncellendi — ${BUGUN}"
+          git push
+          echo "  ✓ Kuyruk güncellendi."

@@ -54,8 +54,13 @@
 - B2B operasyonel olgunluk: ajansın sunduğu hizmet sadece üretim değil — müşteriye **kendine ait dashboard + onay akışı + raporlama altyapısı** sunar.
 - Portal kapsamı dışındaki konularda (yeni proje, teklif, AEO/GEO denetim) [iletişim](https://gonet.com.tr/iletisim) sayfasından temas kurulur.
 
+## Sık Sorulan Sorular
+- [AEO/GEO Sık Sorulan Sorular](https://gonet.com.tr/sss): 15 soru-cevap, FAQPage yapılandırılmış veriyle işaretli — AEO nedir, GEO ile farkı, ChatGPT markayı neden göstermiyor, Common Crawl, llms.txt, AI botlarını engelleme kararı, Share of Model ölçümü, platform bazlı atıf farkları, agentic commerce, nereden başlanır.
+
 ## Blog & Yayınlar
 - [Editöryel Blog](https://gonet.com.tr/blog): Stratejik yazılar — AEO/GEO, SEO, dijital pazarlama analizleri
+- [Beş motorun atıf haritası](https://gonet.com.tr/blog/ai-motorlari-farkli-alinti-yapiyor): Perplexity, Google AI Overviews, Bing Copilot, ChatGPT ve Gemini'nin farklı kaynak tercihleri — atıf oranları, sebepleri ve Türkiye pazarına özel çıkarımlar. Kategori: AEO/GEO.
+- [Yapay zekâ ajanları ve satın alma](https://gonet.com.tr/blog/yapay-zeka-ajanlari-satin-alma): Agentic commerce, ACP/UCP/MCP protokolleri ve karşı-sezgisel bulgu — ajanın kısa listesine girmek site içi optimizasyondan çok dışarıda kazanılmış itibara bağlı. Kategori: AEO/GEO.
 - [Gonet Signal (haftalık seçki serisi)](https://gonet.com.tr/blog/gonet-signal-2026-06-11): Haftanın AI sinyalleri — her gelişme + kaynak + "markanız için ne anlama geliyor" yorumu. Gökhan Kazancı imzasıyla. Kategori: Signal.
 - [Claude Model Kılavuzu (interaktif)](https://gonet.com.tr/blog/model-kilavuzu): Dört Claude modeli (Fable, Opus, Sonnet, Haiku) — hangi model hangi iş için, effort seviyeleri ve token ekonomisi. Sektör seçiciyle örnekler işinize göre değişir. Dört resmî Anthropic kaynağından doğrulanmış. Kategori: Rehber.
 - [Haberler — Liste Görünümü](https://gonet.com.tr/haberler): Aynı yazılar, kronolojik sade liste
