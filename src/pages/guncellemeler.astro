@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, SITE_URL } from '../lib/schema';
+import kayitlar from '../data/guncellemeler.json';
+
+const title = 'Güncellemeler — Sitede ne değişti? | Gonet';
+const description =
+  'gonet.com.tr üzerinde yapılan tüm güncellemelerin tarihli listesi: yeni sayfalar, ' +
+  'iyileştirmeler ve düzeltmeler. Her kayıt ilgili sayfaya bağlanır. Liste git geçmişinden otomatik üretilir.';
+const url = `${SITE_URL}/guncellemeler`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'Güncellemeler', url },
+  ],
+});
+
+const TIP_ETIKET = {
+  yeni: 'Yeni',
+  iyilestirme: 'İyileştirme',
+  duzeltme: 'Düzeltme',
+};
+
+const AYLAR = [
+  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+];
+
+// Aya göre grupla — liste kronolojik okunur, tarih başlıkları çıpa görevi görür.
+const gruplar = [];
+for (const k of kayitlar) {
+  const [yil, ay] = k.tarih.split('-');
+  const anahtar = `${yil}-${ay}`;
+  let grup = gruplar.find((g) => g.anahtar === anahtar);
+  if (!grup) {
+    grup = { anahtar, baslik: `${AYLAR[Number(ay) - 1]} ${yil}`, kayitlar: [] };
+    gruplar.push(grup);
+  }
+  grup.kayitlar.push(k);
+}
+
+const sayim = {
+  tumu: kayitlar.length,
+  yeni: kayitlar.filter((k) => k.tip === 'yeni').length,
+  iyilestirme: kayitlar.filter((k) => k.tip === 'iyilestirme').length,
+  duzeltme: kayitlar.filter((k) => k.tip === 'duzeltme').length,
+};
+
+const filtreler = [
+  { deger: 'tumu', etiket: 'Tümü', adet: sayim.tumu },
+  { deger: 'yeni', etiket: 'Yeni', adet: sayim.yeni },
+  { deger: 'iyilestirme', etiket: 'İyileştirme', adet: sayim.iyilestirme },
+  { deger: 'duzeltme', etiket: 'Düzeltme', adet: sayim.duzeltme },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={pageSchema}>
+  <!-- Hero -->
+  <section class="bg-white border-b border-black">
+    <div class="max-w-5xl mx-auto px-6 pt-24 pb-14">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Güncellemeler</p>
+      <h1 class="editorial-display text-5xl md:text-8xl leading-[0.92] mb-8">
+        Sitede<br />ne değişti?
+      </h1>
+      <p class="text-lg md:text-xl text-slate-700 max-w-2xl leading-relaxed">
+        Bu sitede yapılan her güncelleme burada tarihiyle listelenir — {sayim.tumu} kayıt.
+        Liste elle tutulmuyor: her yayında git geçmişinden otomatik üretiliyor.
+        Bağlantılı kayıtlara tıklayınca değişikliğin yapıldığı sayfaya gidersiniz.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtre -->
+  <section class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex flex-wrap gap-2">
+      {filtreler.map((f) => (
+        <button
+          type="button"
+          class="tip-chip text-[11px] font-medium uppercase tracking-[0.2em] border border-black px-4 py-2 transition-colors hover:bg-black hover:text-white"
+          data-tip={f.deger}
+          aria-pressed={f.deger === 'tumu' ? 'true' : 'false'}
+        >
+          {f.etiket} <span class="opacity-60">· {f.adet}</span>
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- Liste -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-16">
+      {gruplar.map((grup) => (
+        <div class="ay-grup mb-16" data-ay={grup.anahtar}>
+          <h2 class="editorial-display text-3xl md:text-5xl mb-8 leading-[1.05]">
+            {grup.baslik}
+          </h2>
+          <ul class="space-y-0">
+            {grup.kayitlar.map((k) => (
+              <li
+                class="kayit border-b border-slate-200 py-5 grid grid-cols-12 gap-3 md:gap-6 items-baseline"
+                data-tip={k.tip}
+              >
+                <span class="col-span-4 md:col-span-2 text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
+                  {k.tarih.split('-').reverse().slice(0, 2).join('.')}
+                </span>
+                <span
+                  class={`col-span-8 md:col-span-2 text-[10px] font-medium uppercase tracking-[0.18em] ${
+                    k.tip === 'yeni' ? 'text-red-600' : 'text-slate-500'
+                  }`}
+                >
+                  {TIP_ETIKET[k.tip]}
+                </span>
+                <div class="col-span-12 md:col-span-8">
+                  {k.link ? (
+                    <a
+                      href={k.link}
+                      class="kayit-link text-base md:text-lg leading-snug underline decoration-1 underline-offset-4 transition-colors"
+                    >
+                      {k.baslik}
+                    </a>
+                  ) : (
+                    <span class="text-base md:text-lg leading-snug text-slate-700">{k.baslik}</span>
+                  )}
+                  {k.kapsam && (
+                    <span class="ml-2 text-[10px] uppercase tracking-[0.18em] text-slate-500">
+                      #{k.kapsam}
+                    </span>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <p class="bos-uyari hidden text-slate-500 text-lg py-10">
+        Bu filtrede kayıt yok.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    /* Semantik token kullanılıyor: --text/--bg tema ile birlikte yer değiştirdiği için
+       ayrıca [data-theme="dark"] kuralı gerekmiyor. Bu sayfada Tailwind'in text-black
+       utility'si tema flip'ini almıyordu; token yolu her iki temada da doğru çalışıyor. */
+    .tip-chip.is-active { background: var(--text); color: var(--bg); }
+    .kayit-link { color: var(--text); }
+    .kayit-link:hover { background: var(--text); color: var(--bg); }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const chipler = document.querySelectorAll('.tip-chip');
+      const kayitlar = document.querySelectorAll('.kayit');
+      const gruplar = document.querySelectorAll('.ay-grup');
+      const bosUyari = document.querySelector('.bos-uyari');
+      if (!chipler.length) return;
+
+      function uygula(secili) {
+        kayitlar.forEach((k) => {
+          const goster = secili === 'tumu' || k.dataset.tip === secili;
+          k.classList.toggle('hidden', !goster);
+        });
+
+        // Tamamen boşalan ay başlıklarını gizle
+        let toplam = 0;
+        gruplar.forEach((g) => {
+          const gorunur = g.querySelectorAll('.kayit:not(.hidden)').length;
+          toplam += gorunur;
+          g.classList.toggle('hidden', gorunur === 0);
+        });
+
+        if (bosUyari) bosUyari.classList.toggle('hidden', toplam > 0);
+
+        chipler.forEach((c) => {
+          const aktif = c.dataset.tip === secili;
+          c.classList.toggle('is-active', aktif);
+          c.setAttribute('aria-pressed', aktif ? 'true' : 'false');
+        });
+      }
+
+      chipler.forEach((c) => {
+        c.addEventListener('click', () => uygula(c.dataset.tip));
+      });
+
+      uygula('tumu');
+    })();
+  </script>
+</BaseLayout>

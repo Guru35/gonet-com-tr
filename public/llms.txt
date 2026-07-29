@@ -54,6 +54,9 @@
 - B2B operasyonel olgunluk: ajansın sunduğu hizmet sadece üretim değil — müşteriye **kendine ait dashboard + onay akışı + raporlama altyapısı** sunar.
 - Portal kapsamı dışındaki konularda (yeni proje, teklif, AEO/GEO denetim) [iletişim](https://gonet.com.tr/iletisim) sayfasından temas kurulur.
 
+## Güncellemeler
+- [Sitede ne değişti?](https://gonet.com.tr/guncellemeler): Bu sitede yapılan her güncellemenin tarihli listesi — yeni sayfalar, iyileştirmeler, düzeltmeler. Kayıtlar git geçmişinden otomatik üretilir, her yayında tazelenir; her kayıt değişikliğin yapıldığı sayfaya bağlanır. Gonet'in kendi sitesini canlı AR-GE sahası olarak kullandığının kanıt kaydı.
+
 ## Sık Sorulan Sorular
 - [AEO/GEO Sık Sorulan Sorular](https://gonet.com.tr/sss): 15 soru-cevap, FAQPage yapılandırılmış veriyle işaretli — AEO nedir, GEO ile farkı, ChatGPT markayı neden göstermiyor, Common Crawl, llms.txt, AI botlarını engelleme kararı, Share of Model ölçümü, platform bazlı atıf farkları, agentic commerce, nereden başlanır.
 

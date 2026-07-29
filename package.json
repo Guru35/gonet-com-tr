@@ -7,7 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/guncellemeler-uret.mjs && astro build",
+    "build:hizli": "astro build",
+    "guncellemeler": "node scripts/guncellemeler-uret.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -1,0 +1,738 @@
+[
+  {
+    "hash": "53a58b4",
+    "tarih": "2026-07-29",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Kart görselleri tema-duyarlı + yeni 2 yazıya light/dark görsel",
+    "link": "/blog"
+  },
+  {
+    "hash": "b0d90c6",
+    "tarih": "2026-07-29",
+    "tip": "yeni",
+    "kapsam": "aeo",
+    "baslik": "Kalıcı SSS sayfası + 2 yeni AEO/GEO yazısı + 7 yazıya SSS + günlük sinyal taraması",
+    "link": "/sss"
+  },
+  {
+    "hash": "7bec4d5",
+    "tarih": "2026-07-29",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Yaratıcı Manifesto sayfasını dark tema uyumlu yap",
+    "link": "/yaratici-manifesto"
+  },
+  {
+    "hash": "61c9013",
+    "tarih": "2026-07-22",
+    "tip": "duzeltme",
+    "kapsam": "blog",
+    "baslik": "Detay hero görselini tema-duyarlı yap (light→light, dark→dark)",
+    "link": null
+  },
+  {
+    "hash": "94f9f96",
+    "tarih": "2026-07-22",
+    "tip": "yeni",
+    "kapsam": "hero",
+    "baslik": "Mobilde sadeleştirilmiş hero (≤767px)",
+    "link": null
+  },
+  {
+    "hash": "bf1ee21",
+    "tarih": "2026-07-22",
+    "tip": "duzeltme",
+    "kapsam": "hero",
+    "baslik": "Sinyalden görseli genel yapıya uyumlu yenile + başlık line-height",
+    "link": null
+  },
+  {
+    "hash": "6f7f3a5",
+    "tarih": "2026-07-22",
+    "tip": "yeni",
+    "kapsam": "hero",
+    "baslik": "Tam ekran light/dark görselli Geliştirme Günlüğü slider'ı",
+    "link": "/blog/kirik-link-avcisi"
+  },
+  {
+    "hash": "9fd32a4",
+    "tarih": "2026-07-22",
+    "tip": "yeni",
+    "kapsam": "hero",
+    "baslik": "Ana sayfa hero'sunu Geliştirme Günlüğü haber-slider'ına çevir",
+    "link": null
+  },
+  {
+    "hash": "186f10d",
+    "tarih": "2026-06-23",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "MYvia/Myway isim sırası düzeltildi (index.astro)",
+    "link": null
+  },
+  {
+    "hash": "47c09e8",
+    "tarih": "2026-06-17",
+    "tip": "duzeltme",
+    "kapsam": "blog-hero",
+    "baslik": "Hover'ı görsele bağla (başlıkta tetiklenmesin) + mobilde görseli göster",
+    "link": null
+  },
+  {
+    "hash": "1235a71",
+    "tarih": "2026-06-17",
+    "tip": "iyilestirme",
+    "kapsam": "blog",
+    "baslik": "Görselleri optimize et + hero B&W kaldır, hover'da %40 sağa kaydır",
+    "link": "/blog"
+  },
+  {
+    "hash": "40a6b46",
+    "tarih": "2026-06-17",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Claude Code og-görselini editöryel kart standardına çevir",
+    "link": "/blog/claude-code-komut-rehberi"
+  },
+  {
+    "hash": "e469026",
+    "tarih": "2026-06-16",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Claude Code komut rehberi yazısını yayına al",
+    "link": "/blog/claude-code-komut-rehberi"
+  },
+  {
+    "hash": "608ec8d",
+    "tarih": "2026-06-13",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Model Kılavuzu yazısını yayına al (draft→false)",
+    "link": "/blog/model-kilavuzu"
+  },
+  {
+    "hash": "9fdabef",
+    "tarih": "2026-06-13",
+    "tip": "yeni",
+    "kapsam": "model-kilavuzu",
+    "baslik": "Ek-sektorler.json merge — onaylanan sektörler render edilir",
+    "link": null
+  },
+  {
+    "hash": "81310e2",
+    "tarih": "2026-06-13",
+    "tip": "yeni",
+    "kapsam": "model-kilavuzu",
+    "baslik": "Diğer formu engine API'ye bağlandı + telefon/SMS-ilgi alanı",
+    "link": null
+  },
+  {
+    "hash": "7ee45a1",
+    "tarih": "2026-06-12",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Model Kılavuzu interaktif yazı — sektör seçici + Diğer lead-gen (DRAFT)",
+    "link": "/blog/model-kilavuzu"
+  },
+  {
+    "hash": "59449f3",
+    "tarih": "2026-06-12",
+    "tip": "yeni",
+    "kapsam": "merhaba",
+    "baslik": "/merhaba yapım-aşamasında sayfası + ölü subdomain linki düzeltildi",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "07dc128",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": "schema",
+    "baslik": "FAQ otomasyonu — SSS bölümleri otomatik FAQPage schema",
+    "link": null
+  },
+  {
+    "hash": "b0f107a",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": "mobil-hero",
+    "baslik": "Blog hero PNG lg altında hiç inmiyor + H1 İ fix + yetenekler dark çerçeve",
+    "link": "/blog/ai-ajanlari-marka-temsili"
+  },
+  {
+    "hash": "f873698",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Kazara duplicate blog dosyası kaldırıldı (arama-motoru...nedir 2.md)",
+    "link": "/blog/arama-motoru-pazarlamasi-nedir 2"
+  },
+  {
+    "hash": "39ed860",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": "hero",
+    "baslik": "PNG cache-bust — kırmızı-beyaz hero'lar -2 suffix",
+    "link": "/blog/ai-ajanlari-marka-temsili"
+  },
+  {
+    "hash": "94df32d",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": "dark-qa",
+    "baslik": "Hover sweep + separatör + küçük yazı kontrast + göz menüsü",
+    "link": null
+  },
+  {
+    "hash": "cd0cfe1",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": "blog",
+    "baslik": "Kırık kaynak linkleri güncel otoriter kaynaklarla değiştirildi",
+    "link": "/blog/arama-motoru-pazarlamasi-nedir"
+  },
+  {
+    "hash": "c705129",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": "blog",
+    "baslik": "Signal Warner/Sureel kaynak URL düzeltildi (kırık link tarama)",
+    "link": "/blog/gonet-signal-2026-06-11"
+  },
+  {
+    "hash": "ac1f5d0",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Site-geneli dış-link kuralı + çerez bandı marka uyarlaması",
+    "link": null
+  },
+  {
+    "hash": "008157c",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": "dark-mode",
+    "baslik": "Faz 3 — skillSlug viz inline renk tokenizasyonu",
+    "link": null
+  },
+  {
+    "hash": "6650f6d",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": "dark-mode",
+    "baslik": "Faz 2 — fonksiyonel renkler (KVKK/PII, changelog chip)",
+    "link": null
+  },
+  {
+    "hash": "a9aa2d0",
+    "tarih": "2026-06-11",
+    "tip": "yeni",
+    "kapsam": "dark-mode",
+    "baslik": "Faz 1 — token foundation + no-flash toggle + shell",
+    "link": null
+  },
+  {
+    "hash": "a8f0f65",
+    "tarih": "2026-06-11",
+    "tip": "duzeltme",
+    "kapsam": "denetim",
+    "baslik": "2026-06-11 tam denetim — kritik+yüksek + a11y + AI kanal",
+    "link": "/galeri"
+  },
+  {
+    "hash": "182a3e8",
+    "tarih": "2026-06-09",
+    "tip": "duzeltme",
+    "kapsam": "seo",
+    "baslik": "Noindex sayfalar sitemap'ten çıkarıldı (GSC crawled-not-indexed)",
+    "link": null
+  },
+  {
+    "hash": "dba4be4",
+    "tarih": "2026-06-09",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Gonet Labs — yan & araştırma projeleri showcase",
+    "link": "/labs"
+  },
+  {
+    "hash": "08b87b3",
+    "tarih": "2026-06-08",
+    "tip": "yeni",
+    "kapsam": "rapor",
+    "baslik": "PDF antet sistemi — header (logo) + footer (iletişim) + printer-safe margin + tek kırmızı kural",
+    "link": null
+  },
+  {
+    "hash": "7e998fe",
+    "tarih": "2026-06-08",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AEO/GEO denetim örnek rapor sayfası + PDF (satış aracı)",
+    "link": "/aeo-geo-denetimi"
+  },
+  {
+    "hash": "dfdd33f",
+    "tarih": "2026-06-08",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/aeo-geo-denetimi hizmet sayfası + uzmanlık katalog 14. hizmet",
+    "link": "/aeo-geo-denetimi"
+  },
+  {
+    "hash": "129ed6a",
+    "tarih": "2026-06-08",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/creative-ai marka manifesto sayfası",
+    "link": "/creative-ai"
+  },
+  {
+    "hash": "a0da066",
+    "tarih": "2026-06-08",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Changelog'da summary'siz boş entry'leri sil (39 dosya, schema validation)",
+    "link": null
+  },
+  {
+    "hash": "e2c7a12",
+    "tarih": "2026-06-08",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Viz-batch changelog duplicate summary YAML hatası (39 dosya)",
+    "link": null
+  },
+  {
+    "hash": "b90d4bd",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Lightbox — [REACTION:heart] tag + PII consent radio + UI",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "051826f",
+    "tarih": "2026-06-07",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Paragraf buton hover rotate animasyonu kaldırıldı",
+    "link": null
+  },
+  {
+    "hash": "c194816",
+    "tarih": "2026-06-07",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Tooltip pseudo-element yerine <span class='tt'> (rotate-immune)",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "42a6982",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "40 yetkinlik sayfasına manifesto pattern KPI grid + changelog",
+    "link": null
+  },
+  {
+    "hash": "f9c4e67",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Paragraf +/− daha görünür + tooltip + AI ikonu (3. buton)",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "0ce3e73",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Lightbox content improvement consent checkbox (discussion mode)",
+    "link": null
+  },
+  {
+    "hash": "75b3f8b",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "'Tartış' butonu + lightbox intent mode (error_report / discussion)",
+    "link": null
+  },
+  {
+    "hash": "76e48fe",
+    "tarih": "2026-06-07",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "Wrapping grid'lerde satır arası ferah (process/stat/timeline)",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "3543148",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Değişiklik geçmişi (changelog) bloğu + 12 sayfaya retroactive entry",
+    "link": null
+  },
+  {
+    "hash": "dbf553e",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "SEO klasik 6 sayfa + 4 yeni infografik aleti (v2)",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "18f08ab",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AEO audit otonom fix turu",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "4756889",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AEO/GEO 6 sayfa infografik enjeksiyon + 7 yeni CSS bileşen",
+    "link": null
+  },
+  {
+    "hash": "c0f850c",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Lightbox editöryel UI + emoji sanitize + +/− fix",
+    "link": null
+  },
+  {
+    "hash": "9f948b0",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Cross-category nav okları + scroll-aware sticky daire",
+    "link": null
+  },
+  {
+    "hash": "e3493f9",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AI feedback lightbox + chatbox UI (BaseLayout site-wide)",
+    "link": null
+  },
+  {
+    "hash": "5e3dbb8",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Paragraf bazında font-zoom (+/−) kontrolleri",
+    "link": null
+  },
+  {
+    "hash": "766d07f",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Künye + kaynakça + AI disclosure footer (52 detay sayfası)",
+    "link": null
+  },
+  {
+    "hash": "c963030",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "46 detail hero görseli + ferah tipografi + mobile tablo",
+    "link": null
+  },
+  {
+    "hash": "166db8f",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Yetenekler — tüm 8 kategori için hero görsel + tıklanır skill + ferah tipografi",
+    "link": "/yetenekler"
+  },
+  {
+    "hash": "eb59047",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Yetkinlik kategorisi sayfası — hero image toggle + Card/List view",
+    "link": null
+  },
+  {
+    "hash": "bd8b137",
+    "tarih": "2026-06-07",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Yetkinlikler mikrosite alt-sayfa pattern + AEO/GEO pilot",
+    "link": null
+  },
+  {
+    "hash": "ab88a6f",
+    "tarih": "2026-06-06",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "İletisim formu success sonrası tekrar kullanılabilir",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "e8b6fed",
+    "tarih": "2026-06-06",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "İletisim formu engine.gonet.com.tr/api/contact'a fetch POST",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "7e4a0c0",
+    "tarih": "2026-06-06",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AEO post-publish — IndexNow workflow + llms-blog.txt dinamik route",
+    "link": null
+  },
+  {
+    "hash": "bb1effa",
+    "tarih": "2026-06-05",
+    "tip": "yeni",
+    "kapsam": "contact",
+    "baslik": "İkinci telefon numarası eklendi — +90 232 463 46 49",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "9bc3945",
+    "tarih": "2026-06-05",
+    "tip": "yeni",
+    "kapsam": "analytics",
+    "baslik": "GTM + Klaro consent manager — KVKK/GDPR uyumlu",
+    "link": null
+  },
+  {
+    "hash": "7cfecda",
+    "tarih": "2026-06-05",
+    "tip": "yeni",
+    "kapsam": "galeri",
+    "baslik": "/galeri yeni editöryel slider tasarımı",
+    "link": "/galeri"
+  },
+  {
+    "hash": "76e29cb",
+    "tarih": "2026-06-05",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Production-ready Hetzner deploy (Coolify)",
+    "link": "/galeri"
+  },
+  {
+    "hash": "1ae90e3",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "3 yeni marka + Lada URL",
+    "link": "/markalar"
+  },
+  {
+    "hash": "d941bc1",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "URL eklemeleri — Luna Cookware + Santek İzmir (Santel→Santek düzeltme)",
+    "link": "/markalar"
+  },
+  {
+    "hash": "cf3b973",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "\"Her iş'te Gonet var\" slogan + 6 URL + 2 yeni marka",
+    "link": "/markalar"
+  },
+  {
+    "hash": "5ca37ff",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "YBF kitabı + Google MYvia case study + AI iddialarımız + Molly/Bigg düzeltme",
+    "link": "/hakkimizda"
+  },
+  {
+    "hash": "bbbfbec",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Instagram URL + Olea + Bigg Sinerji eklendi",
+    "link": "/markalar"
+  },
+  {
+    "hash": "0c52e36",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Google ödülleri + DEÜ Ergonomi sponsorluğu + eğitim verdiği yerler",
+    "link": "/hakkimizda"
+  },
+  {
+    "hash": "a003766",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Medifema Hastaneleri eklendi (Sağlık sektörü)",
+    "link": "/markalar"
+  },
+  {
+    "hash": "2b073c3",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "4 yeni inşaat markası + JFF kısaltma",
+    "link": "/markalar"
+  },
+  {
+    "hash": "8d1c216",
+    "tarih": "2026-06-03",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "İTB → toprakvecocuk.com + DEÜ Rektörlük danışmanlığı + 6 yeni marka",
+    "link": "/markalar"
+  },
+  {
+    "hash": "ac056dd",
+    "tarih": "2026-06-03",
+    "tip": "duzeltme",
+    "kapsam": null,
+    "baslik": "İTB sahipliği düzeltildi + 2016 marka_musteriler.php'den 17 yeni marka",
+    "link": "/markalar"
+  },
+  {
+    "hash": "2b50311",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "16 yeni marka + Gündoğdu→Gündoğmuş düzeltme + Narova/MYvia detaylar",
+    "link": "/markalar"
+  },
+  {
+    "hash": "7d71f5d",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Wayback 2011 bulgu — 25+ yeni marka + /yaratici-arsiv Wayback section",
+    "link": "/markalar"
+  },
+  {
+    "hash": "10ed877",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Blog AEO rewrite faz A (1/4) — seo-nedir + arama-motoru-pazarlamasi-nedir",
+    "link": "/blog/arama-motoru-pazarlamasi-nedir"
+  },
+  {
+    "hash": "3d6d48a",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/yaratici-arsiv sayfası — 24 Behance projesi + flash banner mirası",
+    "link": "/yaratici-arsiv"
+  },
+  {
+    "hash": "d45b5ab",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "MYvia çoklu proje detayı + Dernekler sektörü + \"eksik var\" disclaimer",
+    "link": "/markalar"
+  },
+  {
+    "hash": "6a62ba7",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Hakkımızda AI ajansı + ajanslar üstü konumlanma + 11 yeni marka",
+    "link": "/hakkimizda"
+  },
+  {
+    "hash": "3078c1a",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Enrich Person + Organization schema with AI/AEO/GEO + LinkedIn",
+    "link": null
+  },
+  {
+    "hash": "3c5e96a",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "AI ajansı pozisyonu + logo + 28 yeni marka + brand expansion",
+    "link": "/markalar"
+  },
+  {
+    "hash": "5719deb",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Add /deneyimler + /yetenekler + brand palette update",
+    "link": "/deneyimler"
+  },
+  {
+    "hash": "48fcfdc",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/iletisim — ContactPage + ContactPoint + FAQ + 2 ofis + sosyal medya",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "52be6a0",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/uzmanlik 13 Service schema + FAQPage + 25 yeni marka",
+    "link": "/uzmanlik"
+  },
+  {
+    "hash": "2d97d3e",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/case-studies — 7 vaka + 15 yeni marka (Toyota/Hyundai/Ford İzmir, Simtronik DE/NL)",
+    "link": "/case-studies"
+  },
+  {
+    "hash": "873bef0",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/markalar + Adepo + Google Analytics 2. + Habertürk/Unilever/Fenerbahçe mobil API + ekol bölümü",
+    "link": "/markalar"
+  },
+  {
+    "hash": "f687377",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Hakkımızda + güçlü Organization/Person schema + 'İlkler' anasayfa",
+    "link": "/hakkimizda"
+  },
+  {
+    "hash": "b60a3ef",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Blog index + dynamic route + 5 eski post (markdown)",
+    "link": "/blog"
+  },
+  {
+    "hash": "c78ea7e",
+    "tarih": "2026-06-03",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "Anasayfa + AEO temel altyapısı",
+    "link": null
+  }
+]
