@@ -17,6 +17,8 @@ updated: 2026-07-29
 author:
   name: "Gonet"
   role: "İzmir'in ilk AI ajansı — AEO/GEO uzmanı"
+ogImage: "/blog/blog-ai-motorlari-farkli-alinti-yapiyor.jpg"
+ogImageLight: "/blog/blog-ai-motorlari-farkli-alinti-yapiyor-light.jpg"
 category: "AEO/GEO"
 tags: ["aeo", "geo", "citation-bias", "platform-stratejisi", "llm-gorunurluk"]
 draft: false

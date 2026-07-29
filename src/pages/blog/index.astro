@@ -125,11 +125,19 @@ const blogSchema = webpageSchema({
                     <!-- Görsel — sol/sağ alternasyon, mobilde tam genişlik üstte -->
                     {post.data.ogImage && (
                       <div class={`col-span-12 lg:col-span-4 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                        {/* Tema-duyarlı: light temada ogImageLight (varsa), dark temada ogImage.
+                            Blog detay hero'suyla aynı desen (kart-light / kart-dark). */}
+                        <img
+                          src={post.data.ogImageLight || post.data.ogImage}
+                          alt=""
+                          loading="lazy"
+                          class="blog-kart-img blog-kart-img--light w-full h-auto transition-all duration-500"
+                        />
                         <img
                           src={post.data.ogImage}
                           alt=""
                           loading="lazy"
-                          class="w-full h-auto block transition-all duration-500"
+                          class="blog-kart-img blog-kart-img--dark w-full h-auto transition-all duration-500"
                         />
                       </div>
                     )}
@@ -181,6 +189,13 @@ const blogSchema = webpageSchema({
   <style>
     .blog-card .editorial-display { text-transform: none; }
     .cat-chip.is-active { background: #000; color: #fff; }
+
+    /* Kart görseli tema-duyarlı — light varsayılan, dark temada koyu versiyon.
+       ogImageLight yoksa iki img de aynı dosyayı gösterir (davranış değişmez). */
+    .blog-kart-img { display: none; }
+    .blog-kart-img--light { display: block; }
+    :global([data-theme="dark"]) .blog-kart-img--light { display: none; }
+    :global([data-theme="dark"]) .blog-kart-img--dark { display: block; }
   </style>
 
   <script is:inline>
