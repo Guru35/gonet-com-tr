@@ -1,0 +1,56 @@
+name: blog-build-check — PR build doğrulaması
+
+# Otonom blog hattı kapısı (gonet-aeo-engine, 2026-09):
+# Engine'in açtığı blog PR'ları merge edilmeden önce Astro build'i
+# geçmelidir — bozuk frontmatter/görsel path'i canlıya taşınmaz.
+# Kontrol: zorunlu frontmatter alanları + ogImage/ogImageLight
+# dosyalarının public/ altında varlığı + tam astro build.
+on:
+  pull_request:
+    paths:
+      - 'src/content/blog/**'
+      - 'public/blog/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıklar
+        run: npm ci
+
+      - name: Frontmatter + görsel varlık kontrolü
+        run: |
+          set -e
+          FAIL=0
+          for f in src/content/blog/*.md; do
+            [ -f "$f" ] || continue
+            # ogImage/ogImageLight path'leri public/ altında var mı
+            for key in ogImage ogImageLight; do
+              P=$(grep -m1 "^${key}:" "$f" | sed -E 's/^[^:]+:[[:space:]]*"?([^"]+)"?.*/\1/' | tr -d '\r' || true)
+              [ -z "$P" ] && continue
+              case "$P" in http*|/og-default*) continue;; esac
+              if [ ! -f "public${P}" ]; then
+                echo "✗ $f — ${key} dosyası yok: public${P}"
+                FAIL=1
+              fi
+            done
+            # Zorunlu alanlar
+            for req in title description published; do
+              grep -q "^${req}:" "$f" || { echo "✗ $f — zorunlu alan eksik: ${req}"; FAIL=1; }
+            done
+          done
+          [ "$FAIL" -eq 0 ] && echo "Frontmatter + görsel kontrolü: OK"
+          exit $FAIL
+
+      - name: Astro build
+        run: npm run build
