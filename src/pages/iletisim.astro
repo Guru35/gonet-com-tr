@@ -445,7 +445,7 @@ const contactPoints = {
       line-height: 0.92;
       letter-spacing: -0.01em;
       text-transform: none;                  /* normal cümle düzeni */
-      color: rgba(0, 0, 0, 0.06);            /* iyice transparan, BG'de fısıltı */
+      color: var(--text-secondary);          /* okunur ikincil yazı rengi (CEOV2-075b) */
       text-shadow: none !important;
       display: flex;
       align-items: flex-start;
@@ -470,6 +470,8 @@ const contactPoints = {
     .msg-wrap:has(#message:not(:placeholder-shown)) .msg-caret {
       display: none;
     }
+    /* İpucu artık okunur renkte: kullanıcı yazınca yazının altında kalıp çakışmasın (yerleşim korunur) */
+    .msg-wrap:has(#message:not(:placeholder-shown)) .msg-hint { visibility: hidden; }
     @keyframes msg-blink { to { visibility: hidden; } }
   </style>
 </BaseLayout>
