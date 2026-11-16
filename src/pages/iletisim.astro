@@ -202,6 +202,25 @@ const contactPoints = {
               const m = t.match(/\+?\d[\d \t\n\r\f\v().-]{8,18}\d/);
               return !!m && m[0].replace(/[^\d+]/g, '').length >= 7;
             }
+            // KAYNAK-ETIKETI-BASLA
+            // CEOV2-084: sayfa adresindeki utm_source / utm_campaign -> motorun `source` alanı.
+            // İZİN LİSTESİ [a-z0-9_-], birleşik en çok 64; süzgeçten geçmeyen değer sessizce atılır,
+            // hiçbiri kalmazsa 'gonet.com.tr'. Asla istisna atmaz: form kaynak yüzünden REDDEDİLMEZ.
+            // Kalıcılık YOK: yalnız o anki adres okunur (sessionStorage/localStorage kullanılmaz).
+            function kaynakEtiketi(search) {
+              const VARSAYILAN = 'gonet.com.tr';
+              try {
+                const p = new URLSearchParams(search);
+                const etiket = ['utm_source', 'utm_campaign']
+                  .map(function (k) { return p.get(k) || ''; })
+                  .filter(function (v) { return /^[a-z0-9_-]{1,64}$/.test(v); })
+                  .join('-');
+                return etiket && etiket.length <= 64 ? etiket : VARSAYILAN;
+              } catch (e) {
+                return VARSAYILAN;
+              }
+            }
+            // KAYNAK-ETIKETI-BITIS
             function hideAllStates() {
               err.classList.add('hidden');
               if (serverErr) serverErr.classList.add('hidden');
@@ -233,7 +252,7 @@ const contactPoints = {
                 const res = await fetch(ENDPOINT, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                  body: JSON.stringify({ message: text, source: 'gonet.com.tr' }),
+                  body: JSON.stringify({ message: text, source: kaynakEtiketi(location.search) }),
                 });
                 const data = await res.json().catch(() => ({}));
 
