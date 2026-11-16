@@ -132,7 +132,7 @@ const contactPoints = {
               style="font-family: var(--font-display); letter-spacing: -0.01em; overflow: hidden; caret-color: #ff0000;"
             ></textarea>
             <div class="msg-overlay" aria-hidden="true">
-              <span class="msg-caret"></span><span class="msg-hint">bir şeyler yazın, mail ya da<br />telefon ekleyin, döneriz.</span>
+              <span class="msg-caret"></span><span class="msg-hint">bir şeyler yazın, mail ya da<br />alan koduyla telefon ekleyin, döneriz.</span>
             </div>
           </div>
 
@@ -152,7 +152,7 @@ const contactPoints = {
               class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95]"
               style="color: #ff0000;"
             >
-              telefon ya da mail<br />adresi yazmazsanız<br />zor döneriz <span class="font-display">:)</span>
+              alan koduyla telefon ya da<br />mail adresi yazmazsanız<br />zor döneriz <span class="font-display">:)</span>
             </div>
 
             <!-- Server error (network / 5xx) -->
@@ -176,6 +176,10 @@ const contactPoints = {
             <p class="text-[10px] uppercase tracking-[0.3em] opacity-60">
               Mesajınız doğrudan ekibe ulaşır — üyelik / kayıt yok.
             </p>
+
+            <p class="text-xs opacity-70">
+              Kişisel verilerinizin nasıl işlendiği için <a href="/kvkk" class="underline">KVKK aydınlatma metnine</a> bakabilirsiniz.
+            </p>
           </div>
         </form>
 
@@ -191,9 +195,12 @@ const contactPoints = {
             if (!form || !msg || !err || !btn) return;
 
             function hasEmail(t) { return /[\w.+-]+@[\w.-]+\.\w{2,}/.test(t); }
+            // Sunucudaki ContactMessage::extractPhone ile BİREBİR (gonet-aeo-engine, ContactMessage.php:38-40):
+            // ilk eşleşme · ASCII boşluk (JS \s Unicode boşluğu da yakalar, PHP \s yakalamaz) ·
+            // eşleşmede + dahil ≥7 karakter. Sunucu kuralı değişirse BURASI da değişmeli.
             function hasPhone(t) {
-              const digits = (t.match(/\d/g) || []).length;
-              return digits >= 7;
+              const m = t.match(/\+?\d[\d \t\n\r\f\v().-]{8,18}\d/);
+              return !!m && m[0].replace(/[^\d+]/g, '').length >= 7;
             }
             function hideAllStates() {
               err.classList.add('hidden');
