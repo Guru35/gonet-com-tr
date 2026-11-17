@@ -303,6 +303,43 @@ Yeni gonet.com.tr yayında — İzmir'in ilk creative AI tabanlı ajans siteleri
             {/* Sağ sütun: discuss kart (üstte) + versiyon seçici (altta), flex.
                 V4 (final) akordiyonda en üstte, V1 en altta. */}
             <div class="hpan-page-side">
+              <aside class="hpan-page-discuss" aria-label="Tasarım hakkında konuş">
+                <button
+                  type="button"
+                  data-feedback-open
+                  data-feedback-intent="discussion"
+                  data-feedback-title={`${s.name} — bu tasarım hakkında ne düşünüyorsun?`}
+                  data-feedback-eyebrow={`— Tasarım sohbeti · Sadece bu post`}
+                  data-feedback-placeholder="Tasarımla ilgili görüşünü yaz…"
+                  data-feedback-welcome={`Hoş geldin. "${s.name}" tasarımı hakkındaki düşüncelerini dinlemek istiyorum. Söylediklerin bu tasarımın bir sonraki revizyonunda kullanılabilir — sondaki onay seninde. (KVKK)`}
+                  data-source-url={`https://gonet.com.tr/sosyal-medya-galeri${s.url}`}
+                  data-source-title={`Sosyal Medya · ${s.no} ${s.name}`}
+                  class="hpan-page-discuss-btn"
+                >
+                  <span>Ne düşünüyorsun?</span>
+                  {/* AI ikonu — hairline outline, üç vektörel katman:
+                      (1) konuşma balonu, (2) AI lettermark path-based ortalı, (3) 4-point sparkle outline */}
+                  <svg class="hpan-page-discuss-icon" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="0.8"
+                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    {/* Konuşma balonu, kuyruk sol altta */}
+                    <path d="M19 11.5a7 7 0 0 1-10.3 6.18L4.5 18.5l1.2-3.6A7 7 0 1 1 19 11.5z"/>
+                    {/* "A" — sol kenar yukarı + sağ kenar aşağı (V tersi) */}
+                    <path d="M8.25 14.5 L10.25 7.5 L12.25 14.5"/>
+                    {/* "A" crossbar */}
+                    <path d="M9 12 L11.5 12"/>
+                    {/* "I" — dikey */}
+                    <path d="M14 7.5 L14 14.5"/>
+                    {/* 4-point sparkle outline — sağ üst köşede */}
+                    <path d="M20.5 2 L21.5 3.5 L23 4.5 L21.5 5.5 L20.5 7 L19.5 5.5 L18 4.5 L19.5 3.5 Z"/>
+                  </svg>
+                </button>
+                <p class="hpan-page-discuss-text">
+                  Tasarımla ilgili düşüncelerini AI ile konuş.<br />
+                  Görüşün bir sonraki revizyona yansıyabilir.
+                </p>
+              </aside>
+
               <aside class="hpan-page-acc" aria-label={`${s.name} versiyonlar`}>
                 {[...s.versions].reverse().map((v, vi) => (
                   <div

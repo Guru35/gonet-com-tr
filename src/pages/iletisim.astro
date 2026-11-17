@@ -114,11 +114,209 @@ const contactPoints = {
       <!-- Form (2 col) -->
       <div class="lg:col-span-2">
         <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">
-          Bize ulaşın
+          Bir şeyler yazın, gönderin
         </p>
-        <p id="form-kapali-not" class="text-xl text-slate-700 leading-relaxed">
-          İletişim formu geçici olarak kapalıdır. Bize telefon ya da e-posta ile ulaşabilirsiniz.
-        </p>
+        <form
+          id="mega-form"
+          method="POST"
+          action="https://engine.gonet.com.tr/api/contact"
+          class="space-y-6"
+        >
+          <div class="msg-wrap relative">
+            <textarea
+              id="message"
+              name="message"
+              rows="1"
+              placeholder=" "
+              class="editorial-display w-full text-[10vw] lg:text-[6vw] xl:text-[96px] leading-[1.05] bg-transparent border-0 focus:outline-none resize-none p-0 block relative z-10"
+              style="font-family: var(--font-display); letter-spacing: -0.01em; overflow: hidden; caret-color: #ff0000;"
+            ></textarea>
+            <div class="msg-overlay" aria-hidden="true">
+              <span class="msg-caret"></span><span class="msg-hint">bir şeyler yazın, mail ya da<br />alan koduyla telefon ekleyin, döneriz.</span>
+            </div>
+          </div>
+
+          <!-- Submit + state messages -->
+          <div class="flex flex-col gap-6">
+            <p id="kvkk-bilgi" class="max-w-2xl text-sm leading-relaxed text-slate-700">
+              Bu formu göndererek yazdıklarınızı (ad, e-posta, telefon, mesaj) bize iletmiş olursunuz;
+              verileriniz <a href="/kvkk" class="underline">Aydınlatma Metni</a> kapsamında işlenir.
+            </p>
+            <button
+              type="submit"
+              id="send-btn"
+              class="self-start text-2xl lg:text-3xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
+            >
+              Gönder →
+            </button>
+
+            <!-- Validation error (mail/telefon yok) -->
+            <div
+              id="form-error"
+              class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95]"
+              style="color: #ff0000;"
+            >
+              alan koduyla telefon ya da<br />mail adresi yazmazsanız<br />zor döneriz <span class="font-display">:)</span>
+            </div>
+
+            <!-- Server error (network / 5xx) -->
+            <div
+              id="form-server-error"
+              class="hidden editorial-display text-[6vw] lg:text-[4vw] xl:text-[56px] leading-[0.95]"
+              style="color: #ff0000;"
+            >
+              bir aksaklık oldu.<br />direkt <a href="mailto:gonet@gonet.com.tr" class="underline">gonet@gonet.com.tr</a> &rsquo;ye yazın.
+            </div>
+
+            <!-- Success state — birkaç saniye gösterilir, sonra solar; form çalışmaya devam eder -->
+            <div
+              id="form-success"
+              class="hidden editorial-display text-[8vw] lg:text-[5vw] xl:text-[72px] leading-[0.95] transition-opacity duration-500"
+              style="color: #16a34a;"
+            >
+              mesajınız gönderildi.<br />en kısa sürede döneceğiz.
+            </div>
+
+            <p class="text-[10px] uppercase tracking-[0.3em] opacity-60">
+              Mesajınız doğrudan ekibe ulaşır — üyelik / kayıt yok.
+            </p>
+          </div>
+        </form>
+
+        <script is:inline>
+          (function () {
+            const form = document.getElementById('mega-form');
+            const msg = document.getElementById('message');
+            const err = document.getElementById('form-error');
+            const serverErr = document.getElementById('form-server-error');
+            const success = document.getElementById('form-success');
+            const btn = document.getElementById('send-btn');
+            const ENDPOINT = 'https://engine.gonet.com.tr/api/contact';
+            if (!form || !msg || !err || !btn) return;
+
+            function hasEmail(t) { return /[\w.+-]+@[\w.-]+\.\w{2,}/.test(t); }
+            // Sunucudaki ContactMessage::extractPhone ile BİREBİR (gonet-aeo-engine, ContactMessage.php:38-40):
+            // ilk eşleşme · ASCII boşluk (JS \s Unicode boşluğu da yakalar, PHP \s yakalamaz) ·
+            // eşleşmede + dahil ≥7 karakter. Sunucu kuralı değişirse BURASI da değişmeli.
+            function hasPhone(t) {
+              const m = t.match(/\+?\d[\d \t\n\r\f\v().-]{8,18}\d/);
+              return !!m && m[0].replace(/[^\d+]/g, '').length >= 7;
+            }
+            // KAYNAK-ETIKETI-BASLA
+            // CEOV2-084: sayfa adresindeki utm_source / utm_campaign -> motorun `source` alanı.
+            // İZİN LİSTESİ [a-z0-9_-], birleşik en çok 64; süzgeçten geçmeyen değer sessizce atılır,
+            // hiçbiri kalmazsa 'gonet.com.tr'. Asla istisna atmaz: form kaynak yüzünden REDDEDİLMEZ.
+            // Kalıcılık YOK: yalnız o anki adres okunur (sessionStorage/localStorage kullanılmaz).
+            function kaynakEtiketi(search) {
+              const VARSAYILAN = 'gonet.com.tr';
+              try {
+                const p = new URLSearchParams(search);
+                const etiket = ['utm_source', 'utm_campaign']
+                  .map(function (k) { return p.get(k) || ''; })
+                  .filter(function (v) { return /^[a-z0-9_-]{1,64}$/.test(v); })
+                  .join('-');
+                return etiket && etiket.length <= 64 ? etiket : VARSAYILAN;
+              } catch (e) {
+                return VARSAYILAN;
+              }
+            }
+            // KAYNAK-ETIKETI-BITIS
+            function hideAllStates() {
+              err.classList.add('hidden');
+              if (serverErr) serverErr.classList.add('hidden');
+              if (success) success.classList.add('hidden');
+            }
+
+            form.addEventListener('submit', async function (e) {
+              e.preventDefault();
+              hideAllStates();
+
+              const text = (msg.value || '').trim();
+              if (!text) {
+                err.classList.remove('hidden');
+                msg.focus();
+                return;
+              }
+              if (!hasEmail(text) && !hasPhone(text)) {
+                err.classList.remove('hidden');
+                msg.focus();
+                return;
+              }
+
+              // Send to engine.gonet.com.tr/api/contact
+              btn.disabled = true;
+              const originalBtnText = btn.textContent;
+              btn.textContent = 'Gönderiliyor…';
+
+              try {
+                const res = await fetch(ENDPOINT, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify({ message: text, source: kaynakEtiketi(location.search) }),
+                });
+                const data = await res.json().catch(() => ({}));
+
+                if (res.ok && data.ok) {
+                  // Başarı — textarea temizle, success göster, form çalışmaya DEVAM eder
+                  msg.value = '';
+                  if (success) {
+                    success.style.opacity = '1';
+                    success.classList.remove('hidden');
+                    // 6 saniye sonra fade-out + gizle (kullanıcı yeni mesaj atabilsin)
+                    setTimeout(() => {
+                      success.style.opacity = '0';
+                      setTimeout(() => success.classList.add('hidden'), 500);
+                    }, 6000);
+                  }
+                  btn.disabled = false;
+                  btn.textContent = originalBtnText;
+                  // textarea boyutunu sıfırla (auto-grow için input event tetikle)
+                  msg.dispatchEvent(new Event('input'));
+                  msg.focus();
+                } else if (res.status === 422 && data.error === 'no_contact_info') {
+                  err.classList.remove('hidden');
+                  btn.disabled = false;
+                  btn.textContent = originalBtnText;
+                } else {
+                  // 429 (rate limit), 5xx, network — server error
+                  if (serverErr) serverErr.classList.remove('hidden');
+                  btn.disabled = false;
+                  btn.textContent = originalBtnText;
+                }
+              } catch (_) {
+                if (serverErr) serverErr.classList.remove('hidden');
+                btn.disabled = false;
+                btn.textContent = originalBtnText;
+              }
+            });
+
+            // Kullanıcı yazmaya başladığında error gizlensin + auto-grow
+            const overlay = document.querySelector('.msg-overlay');
+            function syncMinHeight() {
+              if (!overlay) return;
+              const h = overlay.offsetHeight;
+              if (h > 0) msg.style.minHeight = h + 'px';
+            }
+            function autoGrow() {
+              msg.style.height = 'auto';
+              const target = Math.max(msg.scrollHeight + 8, overlay ? overlay.offsetHeight : 0);
+              msg.style.height = target + 'px';
+            }
+            msg.addEventListener('input', function () {
+              err.classList.add('hidden');
+              autoGrow();
+            });
+            // İlk yüklemede overlay yüksekliği = textarea min-height → GÖNDER overlay altına oturur
+            window.addEventListener('load', function () {
+              syncMinHeight();
+              autoGrow();
+            });
+            window.addEventListener('resize', function () {
+              syncMinHeight();
+              autoGrow();
+            });
+          })();
+        </script>
       </div>
 
       <!-- İletişim bilgileri -->
