@@ -51,9 +51,6 @@ Bu öncülük, Gonet'in **sağlık ve sağlık turizmi dikeyinde en kapsamlı po
 - **Nano Dental**
 - **Metin İlaç**
 - **Emot, Atakalp**
-- **Dr. İbrahim Aşkar** (estetik cerrah)
-- **Vasfi Karaoğlu** (ortopedist)
-- **Dr. Rıza Çetingöz**
 - **Saç ekim merkezleri**
 - Sayısız diş hekimi, kadın doğum doktoru ve estetik cerrah
 
