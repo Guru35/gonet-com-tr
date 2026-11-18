@@ -11,7 +11,9 @@ import { webpageSchema, SITE_URL } from '../lib/schema';
 // `taslak` alanları henüz kesinleşmemiş yer tutuculardır; sayfada «Taslak» işaretiyle görünür.
 
 const GIRIS_URL = 'https://merhaba.gonet.com.tr/giris';
-const KATIL_URL = 'https://merhaba.gonet.com.tr/katil'; // TODO(P2): kayıt ucu motor tarafında açılınca doğrula
+// Bekleme listesi: mevcut iletişim formu; form bu adresten kaynak etiketini «winner-club-bekleme-listesi» olarak
+// motora gönderir (iletisim.astro kaynakEtiketi()). Operatör kararı 2026-11-19 (WEBDV-5).
+const KATIL_URL = '/iletisim?utm_source=winner-club&utm_campaign=bekleme-listesi'; // TODO(P2): P2 kayıt ucu açılınca KATIL_URL kayıt adresine döner
 const KVKK_URL = '/kvkk';
 
 const title = 'Gonet Winner Club | Yöneticiler için yapay zekâ pazarlama kulübü';
@@ -24,7 +26,8 @@ const metin = {
     ad: 'Gonet Winner Club',
     baslik: 'Yapay zekâ müşterinize sizi nasıl anlatıyor?',
     alt: 'Yöneticiler için ücretsiz kulüp: sektörünüze özel notlar, kendi başınıza deneyeceğiniz araçlar ve ekibinize ileteceğiniz özetler.',
-    katil: 'Kulübe katılın',
+    katil: 'Bekleme listesine yazılın',
+    bekleme: 'Kayıt yakında açılıyor; e-postanızı bırakın, açıldığında haber verelim.',
     giris: 'Giriş yapın',
   },
   neden: {
@@ -153,9 +156,10 @@ const pageSchema = webpageSchema({
         <h1 class="wc-h1">{baslikGovde}<span class="wc-nokta">{baslikSon}</span></h1>
         <p class="wc-alt">{metin.kapi.alt}</p>
         <div class="wc-dugmeler">
-          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil}</a>
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana text-center">{metin.kapi.katil}</a>
           <a href={GIRIS_URL} class="wc-dugme wc-dugme-ikincil">{metin.kapi.giris}</a>
         </div>
+        <p class="wc-soluk mt-4">{metin.kapi.bekleme}</p>
       </div>
       <p class="wc-ok" aria-hidden="true">↓</p>
     </section>
@@ -264,8 +268,9 @@ const pageSchema = webpageSchema({
         <h2 class="wc-h2">{metin.kapanis.baslik}</h2>
         <p class="wc-soluk wc-kapanis-d">{metin.kapanis.d}</p>
         <div class="wc-dugmeler">
-          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil}</a>
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana text-center">{metin.kapi.katil}</a>
         </div>
+        <p class="wc-soluk mb-6">{metin.kapi.bekleme}</p>
         <p>
           <a href={KVKK_URL} class="wc-bag">{metin.kapanis.kvkk}</a>
         </p>
