@@ -270,6 +270,8 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
      KONUM/KONSEPT/AKSİYON gizlenir (nav'da erişilebilir); dikey nefes açılır.
      Metinler DOM'da kalır (AEO) — yalnızca görsel gizlenir. Masaüstü etkilenmez. */
   @media (max-width: 767px) {
+    /* Telefonda hero kısalır → ilk çağrı ilk ekrana girer (ARTDR site yönü §2.4 adım 1; WEBDV-2 kalem 5) */
+    .hero-slider { height: 440px; min-height: 0; }
     .hero-fixed-meta .fixed-grid { display: none; }
     .hero-fixed-meta { padding-bottom: 1rem; }
     .slide-inner { padding-bottom: 5.5rem; }         /* yalnız kontroller için yer */

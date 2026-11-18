@@ -470,19 +470,21 @@ const faq = faqSchema([
   </section>
 
   <!-- CTA -->
-  <section class="editorial-section bg-white text-black py-32" style="--rule-top-x:18%;--rule-top-w:38%;--rule-bot-x:35%;--rule-bot-w:28%">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Sizinle de bir &ldquo;ilk&rdquo;e imza atalım</h2>
-      <p class="text-lg text-white mb-8 max-w-2xl mx-auto">
+  <section class="bg-white text-black border-t border-black py-[72px] lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 flex flex-col gap-6 lg:gap-7">
+      <h2 class="editorial-display font-normal uppercase text-[34px] lg:text-[56px] leading-[1.03] tracking-[-0.02em] max-w-[960px] m-0">Sizinle de bir &ldquo;ilk&rdquo;e imza atalım<span class="text-accent-600">.</span></h2>
+      <p class="text-[17px] lg:text-xl leading-normal text-slate-600 max-w-[680px] m-0">
         Projeniz için stratejik destek mi arıyorsunuz? Gökhan Kazancı ile doğrudan görüşmek için
         iletişime geçin.
       </p>
-      <a
-        href="/iletisim"
-        class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
-      >
-        İletişime Geç →
-      </a>
+      <div>
+        <a
+          href="/iletisim"
+          class="flex md:inline-flex items-center justify-center text-center min-h-[52px] px-4 md:px-7 bg-accent-600 text-[#000000] text-[13px] font-semibold uppercase tracking-[0.2em] md:tracking-[0.25em] hover:bg-black hover:text-white transition-colors"
+        >
+          İletişime geçin <span aria-hidden="true">&nbsp;→</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
