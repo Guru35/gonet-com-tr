@@ -432,7 +432,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
           </li>
         </ul>
         <!-- Telefon: kulüp düğmesi + tema seçimi (üst çubukta yer yok — taslak Menu-Telefon-Acik) -->
-        <div class="md:hidden mt-8 space-y-4 text-left">
+        <div class="md:hidden mt-5 space-y-3 text-left">
           <a href="/merhaba" class={`flex w-full ${ctaCerceveli} min-h-[52px] text-[13px] tracking-[0.25em]`}>
             Merhaba <span aria-hidden="true">&nbsp;→</span>
           </a>
@@ -492,8 +492,9 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
           }
           #eye-menu[hidden] { display: none !important; }
           #eye-menu ul { font-size: 1.5rem !important; line-height: 1.2; }
-          #eye-menu ul li { margin-bottom: 1rem; }
-          #eye-menu > p { font-size: 12px !important; margin-bottom: 2rem !important; }
+          /* Telefon: Merhaba + Tema satırı ilk görünümde ekran içinde kalsın (375×812; WEBDV-4 kalem 3) */
+          #eye-menu ul li { margin-bottom: 0.625rem; }
+          #eye-menu > p { font-size: 12px !important; margin-bottom: 1.25rem !important; }
           /* Eye widget overlay'in üstünde kalsın ki kapatma için tıklanabilsin */
           #eye-widget { z-index: 110 !important; }
           /* Geri butonu sadece mobil/tablet fullscreen menüde görünür — dikeyde ortalı, siyah bold */
