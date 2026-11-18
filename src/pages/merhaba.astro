@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, SITE_URL } from '../lib/schema';
 
 // Gonet Winner Club — tanıtım («kapı») sayfası.
-// Metin: CPYWR taslağı (başlık Seçenek A), birebir; tek yerde, aşağıdaki `metin` nesnesinde durur.
+// Metin: CPYWR taslağı v2 (CPYWR-3), birebir; büyük başlık operatör kararıyla Seçenek A (soru cümlesi).
+// Tek yerde, aşağıdaki `metin` nesnesinde durur.
 // Görsel yön: ARTDR Yön A «Kapalı Salon». Renkler sitenin KOYU tema jetonlarıdır
 // (src/styles/global.css → [data-theme="dark"]); `.wc` kabı `data-theme="dark"` taşıdığı için
 // ziyaretçinin tema tercihinden bağımsız olarak o jetonları alır. Sayfa içi <style> yeni renk tanımlamaz.
@@ -22,16 +23,16 @@ const metin = {
   kapi: {
     ad: 'Gonet Winner Club',
     baslik: 'Yapay zekâ müşterinize sizi nasıl anlatıyor?',
-    alt: 'Gonet Winner Club; yöneticiler için sektöre özel yapay zekâ pazarlama notları, kendi başınıza deneyebileceğiniz ücretsiz araçlar ve ekibinize iletebileceğiniz kısa özetler sunan ücretsiz bir kulüptür.',
-    katil: 'Kulübe katıl',
-    giris: 'Üye girişi',
+    alt: 'Yöneticiler için ücretsiz kulüp: sektörünüze özel notlar, kendi başınıza deneyeceğiniz araçlar ve ekibinize ileteceğiniz özetler.',
+    katil: 'Kulübe katılın',
+    giris: 'Giriş yapın',
   },
   neden: {
     baslik: 'Neden üye olmalı',
     maddeler: [
       {
         t: 'Sektörünüze özel.',
-        d: 'Genel yapay zekâ haberleri değil; kurumunuzun pazarlamasına doğrudan dokunan kısa notlar. İlk içerikler sağlık ve emlak/inşaat için.',
+        d: 'Genel yapay zekâ haberleri değil; kurumunuzun pazarlamasına doğrudan dokunan kısa notlar. Açılış içerikleri sağlık ve emlak/inşaat için.',
       },
       {
         t: 'Kendi başınıza deneyin.',
@@ -39,16 +40,34 @@ const metin = {
       },
       {
         t: 'Ekibinize iletin.',
-        d: 'Her içeriğin sonunda, yönetim kurulunuza ya da ekibinize olduğu gibi gönderebileceğiniz tek sayfalık bir özet var.',
+        d: 'Her içeriğin sonunda, yönetim kurulunuza ya da ekibinize olduğu gibi gönderebileceğiniz bir sayfalık özet var.',
       },
     ],
   },
   katmanlar: {
     baslik: 'Üç katman',
     liste: [
-      { ad: 'Üye', kademe: 1, etiket: '', d: 'Kayıt olan herkes; beş rafın içerikleri, ücretsiz araçlar ve bülten arşivi hemen açılır.' },
-      { ad: 'Seçkin', kademe: 2, etiket: 'yakında', d: 'Üyeler arasından Gonet onayıyla yükselenler; derinleştirilmiş rehberler ve küçük gruplu çevrim içi oturumlar.' },
-      { ad: 'Müşteri', kademe: 3, etiket: '', d: 'Gonet ile çalışan kurumlar; kulübün tamamı ve kendi raporlarınızın bulunduğu müşteri paneli aynı kapıdan.' },
+      {
+        ad: 'Üye',
+        kademe: 1,
+        etiket: '',
+        maddeler: ['5 yazı: beş rafın her birinden', '2 ücretsiz araç', 'Sektör bülteni arşivi'],
+        gecis: 'Nasıl geçilir: Kayıt olun; telefonunuzu ve e-postanızı doğrulayın.',
+      },
+      {
+        ad: 'Seçkin',
+        kademe: 2,
+        etiket: 'yakında',
+        maddeler: ['Derinleştirilmiş rehberler', 'Araç sonucunuzu bir uzmanla yorumlama görüşmesi', 'Küçük gruplu çevrim içi oturumlar'],
+        gecis: 'Nasıl geçilir: Ölçütü karşılayan üyeler arasından, Gonet onayıyla.',
+      },
+      {
+        ad: 'Müşteri',
+        kademe: 3,
+        etiket: '',
+        maddeler: ['Kulübün tamamı', 'Kurumunuza ait raporlar ve işler', 'Müşteri paneli aynı kapıdan'],
+        gecis: 'Nasıl geçilir: Gonet ile çalışan kurumların hesapları.',
+      },
     ],
   },
   raflar: {
@@ -61,31 +80,46 @@ const metin = {
       { t: 'Yapay Zekâ ve Yaratıcılık', d: 'Üretimde yapay zekânın hızı ile insanın kararının nerede buluştuğu.' },
     ],
   },
+  araclar: {
+    liste: [
+      {
+        ad: 'Model Kılavuzu',
+        d: 'Hangi işin hangi yapay zekâ modeliyle yapılacağını, sektörünüzün örnek görevleriyle görün.',
+        etiket: 'ÜYELERE AÇIK',
+      },
+      {
+        ad: 'Yapay Zekâ Görünürlüğü: Örnek Rapor',
+        d: 'Bir kurumun yapay zekâ asistanlarında nasıl göründüğünü beş soruda okuyun.',
+        etiket: 'ÜYELERE AÇIK',
+      },
+    ],
+  },
   sss: {
     baslik: 'Sık sorulan sorular (SSS)',
     sorular: [
       {
         s: 'Kimler katılabilir?',
-        c: 'Kulüp, kurum yöneticileri ve pazarlama sorumluları için hazırlandı. İlk içerikler sağlık ve emlak/inşaat sektörlerine odaklanıyor. Kayıt ad soyad, e-posta ve cep telefonuyla yapılır.',
+        c: 'Kulüp, kurum yöneticileri ve pazarlama sorumluları için hazırlandı. Açılış içerikleri sağlık ve emlak/inşaat sektörlerine odaklanıyor. Kayıt ad soyad, e-posta ve cep telefonuyla yapılır.',
         taslak: '',
       },
       { s: 'Üyelik ücretli mi?', c: 'Hayır. Üç katmanın üçü de ücretsizdir.', taslak: '' },
       {
         s: 'Seçkin katmanına nasıl geçilir?',
-        c: 'Seçkin katmanı yakında açılacak. Üyeler arasından Gonet onayıyla yükselinir.',
-        taslak: '[K1 kararından sonra: yükselme ölçütü, tek cümle]',
+        c: 'Seçkin katmanı yakında açılacak. Bilgilerini tamamlamış, kulüpteki içerikleri ve araçlardan birini kullanmış ve ilgisini göstermiş üyeler aday olur; adayları Gonet tek tek değerlendirir ve onaylar.',
+        taslak: '',
       },
       {
         s: 'Cep telefonumu neden istiyorsunuz?',
-        c: 'Kulüpte gerçek kişilerle olduğunuzdan emin olmak için numaranız tek seferlik bir SMS koduyla doğrulanır.',
+        c: 'Kayıt için cep telefonu gereklidir. Kulüpte gerçek kişilerle olduğunuzdan emin olmak için numaranız bir kez gönderilen SMS koduyla doğrulanır.',
         taslak: '',
       },
     ],
   },
   kapanis: {
     baslik: 'Kulübe katılın',
-    d: 'Üyelik ücretsizdir; istediğiniz zaman hesabınızdan ayrılabilirsiniz. Pazarlama izinleri isteğe bağlıdır, üye olmak için gerekmez.',
-    taslak: '[HKDAN-2: aydınlatma metni bağlantısı ve izin kutuları]',
+    d: 'Üyelik ücretsizdir. Pazarlama izinleri isteğe bağlıdır, üye olmak için gerekmez.',
+    // HKDAN-2 Rev.1 tanıtım sayfası için hazır satır/bağlantı adresi vermiyor (kulüp aydınlatma metni henüz bir sayfada değil) — yer tutucu CPYWR v2 biçiminde kalır.
+    taslak: '[HKDAN-2: aydınlatma metni bağlantısı]',
     kvkk: 'KVKK Aydınlatma Metni',
   },
   taslakEtiketi: 'Taslak',
@@ -157,7 +191,10 @@ const pageSchema = webpageSchema({
                 <h3 class="wc-h3 wc-h3-buyuk">{k.ad}</h3>
                 {k.etiket && <span class="wc-etiket wc-etiket-vurgu">{k.etiket}</span>}
               </div>
-              <p class="wc-soluk">{k.d}</p>
+              <ul class="wc-maddeler">
+                {k.maddeler.map((m) => <li>{m}</li>)}
+              </ul>
+              <p class="wc-soluk">{k.gecis}</p>
             </article>
           ))}
         </div>
@@ -177,6 +214,21 @@ const pageSchema = webpageSchema({
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+
+    <!-- 4b. Ücretsiz araçlar bandı (CPYWR v2 §5; bant başlığı metinde yok) -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <ul class="wc-araclar">
+          {metin.araclar.liste.map((a) => (
+            <li class="wc-arac">
+              <h3 class="wc-h3">{a.ad}</h3>
+              <p class="wc-soluk">{a.d}</p>
+              <p class="wc-etiket wc-soluk wc-arac-etiket">{a.etiket}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
 
@@ -312,6 +364,12 @@ const pageSchema = webpageSchema({
     justify-content: center;
     width: 100%;
   }
+  /* ARTDR R3: telefonda üstteki ortalama boşluğu kaldır — ana düğme ilk ziyaretteki çerez kutusunun üstünde kalsın */
+  @media (max-width: 639px) {
+    .wc-kapi-ic {
+      justify-content: flex-start;
+    }
+  }
   .wc-ok {
     color: var(--wc-muted);
     font-size: 1.5rem;
@@ -432,6 +490,32 @@ const pageSchema = webpageSchema({
     margin-bottom: 1rem;
   }
 
+  .wc-maddeler {
+    margin-bottom: 1rem;
+  }
+  .wc-maddeler li {
+    padding: 0.25rem 0;
+  }
+
+  /* Ücretsiz araçlar: iki kutu (--surface = §6 «araç kutusu» #161616) */
+  .wc-araclar {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wc-araclar {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .wc-arac {
+    background-color: var(--surface);
+    border: 1px solid var(--wc-line);
+    padding: 2rem;
+  }
+  .wc-arac-etiket {
+    margin-top: 1.5rem;
+  }
+
   /* Beş raf listesi */
   .wc-raflar {
     border-top: 1px solid var(--wc-line);
@@ -486,7 +570,7 @@ const pageSchema = webpageSchema({
     display: none;
   }
   .wc-arti {
-    color: var(--accent);
+    color: var(--wc-text-2); /* ARTDR R2: kırmızı yalnız birincil eylemde */
     font-size: 1.5rem;
     line-height: 1;
   }
