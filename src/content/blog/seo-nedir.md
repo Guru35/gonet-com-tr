@@ -98,4 +98,4 @@ Hayır — dönüştürüyor. ChatGPT/Perplexity gibi sistemler yanıtlarında *
 - Ahrefs, "What Percentage of Pages Get Organic Traffic", [ahrefs.com/blog/search-traffic-study](https://ahrefs.com/blog/search-traffic-study/)
 - Common Crawl Foundation, "AI Visibility Field Guide" — eğitim verisine dahiliyet ranking faktörü gibi davranır
 
-*Bu yazı Gonet ekibi tarafından 2026 Haziran'da güncel literatür ve AEO/GEO yöntemleriyle yeniden yazılmıştır. Gonet, İzmir'in ilk AI ajansı ve Türkiye'nin ilk 3 Google Partner ajansından biridir — 2000'den beri arama motoru optimizasyonu yapıyoruz.*
+*Bu yazı Gonet ekibi tarafından 2026 Haziran'da güncel literatür ve AEO/GEO yöntemleriyle yeniden yazılmıştır. Gonet, İzmir'in ilk AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır — 2000'den beri arama motoru optimizasyonu yapıyoruz.*

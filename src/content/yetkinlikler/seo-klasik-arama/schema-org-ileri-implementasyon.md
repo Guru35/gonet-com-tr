@@ -105,4 +105,4 @@ Schema.org implementasyonu şu yetkinliklerle sinerji yaratır:
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık deneyimiyle Türkiye'nin ilk 3 Google Partner ajansından biri olarak schema.org implementasyonunu test-hata ayıklama-izleme döngüsüyle sunar. Statik şablon değil, CMS-entegre dinamik yapı kurar, Search Console raporlarını düzenli takip ederiz. Zengin sonuçlarla organik trafiğinizi artırmak için [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 26 yıllık deneyimiyle schema.org implementasyonunu test-hata ayıklama-izleme döngüsüyle sunar. Statik şablon değil, CMS-entegre dinamik yapı kurar, Search Console raporlarını düzenli takip ederiz. Zengin sonuçlarla organik trafiğinizi artırmak için [iletişime geçin](/iletisim).

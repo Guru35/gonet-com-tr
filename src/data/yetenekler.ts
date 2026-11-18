@@ -94,7 +94,7 @@ export const categories: Category[] = [
     name: 'Google Ads & SEM',
     emoji: '◉',
     intro:
-      'Türkiye\'nin ilk 3 Google Partner ajansından biri. 2003\'ten bu yana AdWords/Google Ads ' +
+      '2005–2017 arasında Google\'ın ajans programlarında sertifikalı iş ortağıydık (bugünkü adıyla Google Partner). 2003\'ten bu yana AdWords/Google Ads ' +
       'operasyonu — sağlık, inşaat, e-ticaret, siyaset, otomotiv, turizm, eğitim sektörlerinde.',
     heroImage: '/yetenekler-images/google-ads-sem/google-ads-hero.jpg',
     skills: [

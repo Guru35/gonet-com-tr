@@ -24,7 +24,7 @@ export const organizationSchema = {
     url: `${SITE_URL}/brand/gonet-logo-dark.svg`,
   },
   description:
-    "İzmir ve Ege'nin ilk dijital ajansı (2000) ve İzmir'in ilk AI ajansı. Türkiye'nin ilk 3 Google Partner ajansından biri, " +
+    "İzmir ve Ege'nin ilk dijital ajansı (2000) ve İzmir'in ilk AI ajansı. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). " +
     'Google Ads Türkiye beta tester. İzmir Reklamcılar Derneği (IRD) üyesi. ' +
     'Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), ' +
     'dijital strateji, web tasarım, SEO, sosyal medya, kreatif kampanyalar, ' +
@@ -131,7 +131,7 @@ export const organizationSchema = {
   // Google ödülleri — Türkiye Google Partner programının önde gelen ajanslarından biri olarak
   award: [
     'Google\'dan birden fazla ajans ödülü (yıllar boyunca, çeşitli kategorilerde)',
-    'Türkiye\'nin ilk 3 Google Partner ajansından biri',
+    '2005–2017 arasında Google\'ın ajans programlarında sertifikalı iş ortağı (bugünkü adıyla Google Partner)',
     '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi seçimi',
     'Google Analytics 2 numaralı Türkiye partneri (2025)',
     'Google tarafından yayımlanan case study — MYvia inşaat kampanyası',
@@ -220,7 +220,7 @@ export const founderSchema = {
     'Mobile API Geliştirme',
   ],
   description:
-    "Gonet kurucusu. 2000'den beri İzmir merkezli, Türkiye'nin ilk 3 Google Partner ajansından birini yönetiyor. " +
+    "Gonet kurucusu. 2000'den beri İzmir merkezli; yönettiği Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). " +
     "Yaşar Üniversitesi'nde dijital pazarlama dersleri verdi. " +
     "Dokuz Eylül Üniversitesi (DEÜ) Rektörlük danışmanı (uzaktan eğitim sistemleri) ve DEUZEM (DEÜ Uzaktan Eğitim Merkezi) danışmanı görevlerinde bulundu — DEÜ\\'nün Avrupa\\'nın en büyük uzaktan eğitim sisteminin (25K anlık kullanıcı) inşasında stratejik danışman. " +
     'Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından. ' +
@@ -234,7 +234,7 @@ export const founderSchema = {
   award: [
     'Google ajans ödülleri (çoklu, yıllar boyunca)',
     '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi',
-    'Türkiye\'nin ilk 3 Google Partner ajansından biri (kurucu)',
+    '2005–2017 arasında Google\'ın ajans programlarında sertifikalı iş ortağı (bugünkü adıyla Google Partner) (kurucu)',
   ],
   // Yazarlık — Yalın Bilinç Felsefesi (YBF) kitabı
   workExample: {

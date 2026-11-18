@@ -14,7 +14,7 @@ published: 2026-06-03
 updated: 2026-06-03
 author:
   name: "Gonet"
-  role: "Türkiye'nin ilk 3 Google Partner ajansından biri"
+  role: "2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı (bugünkü adıyla Google Partner)"
 category: "AEO/SEO Sözlük"
 tags: ["sem", "google ads", "ppc", "seo", "arama motoru pazarlaması"]
 draft: false
@@ -117,4 +117,4 @@ Hayır — **SEO, SEM'in bir alt kümesidir**. SEM çatı disiplini; SEO ücrets
 - Backlinko, "Google CTR Stats 2024", [backlinko.com/google-ctr-stats](https://backlinko.com/google-ctr-stats)
 - Aggarwal et al., "GEO: Generative Engine Optimization", KDD '24, [arXiv:2311.09735](https://arxiv.org/abs/2311.09735)
 
-*Gonet, 2003'ten beri Google Ads (eski adıyla AdWords) yöneten, Türkiye'nin ilk 3 Google Partner ajansından biridir. Google Ads'in Türkiye'deki ilk beta tester ajansı olarak sağlık, inşaat, e-ticaret, siyaset ve otomotiv sektörlerinde 100+ markada SEM stratejisi uyguladık.*
+*Gonet, 2003'ten beri Google Ads (eski adıyla AdWords) yöneten, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır. Google Ads'in Türkiye'deki ilk beta tester ajansı olarak sağlık, inşaat, e-ticaret, siyaset ve otomotiv sektörlerinde 100+ markada SEM stratejisi uyguladık.*

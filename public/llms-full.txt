@@ -164,7 +164,7 @@ Gonet'in 2024 yılı analizine göre, CCBot'a açık ve yapısal veri içeren si
     4llms.txt politikaMarka özeti + RAG referans dosyası
   
 
-Gonet, Türkiye'nin ilk AEO/GEO hizmet hattını kuran 3 Google Partner ajansından biri olarak Common Crawl optimizasyonunu 4 katmanda yönetir:
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). Common Crawl optimizasyonunu 4 katmanda yönetir:
 
 **1. Crawler policy audit (robots.txt + meta robots)**  
 CCBot, GPTBot, ClaudeBot, Google-Extended, Omgilibot, Amazonbot gibi AI botlarının mevcut erişim haklarını analiz ederiz. Çoğu site yanlışlıkla `Disallow: /` ile tüm botları engelliyor veya `User-agent: *` kuralıyla stratejik ayrım yapmıyor. Gonet, bot bazında granüler kurallar oluşturur — örneğin GPTBot'a blog/rehber sayfalarını açarken, klonlama riski taşıyan iç dokümanları kapatır.
@@ -875,7 +875,7 @@ Schema.org implementasyonu şu yetkinliklerle sinerji yaratır:
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık deneyimiyle Türkiye'nin ilk 3 Google Partner ajansından biri olarak schema.org implementasyonunu test-hata ayıklama-izleme döngüsüyle sunar. Statik şablon değil, CMS-entegre dinamik yapı kurar, Search Console raporlarını düzenli takip ederiz. Zengin sonuçlarla organik trafiğinizi artırmak için [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 26 yıllık deneyimiyle schema.org implementasyonunu test-hata ayıklama-izleme döngüsüyle sunar. Statik şablon değil, CMS-entegre dinamik yapı kurar, Search Console raporlarını düzenli takip ederiz. Zengin sonuçlarla organik trafiğinizi artırmak için [iletişime geçin](/iletisim).
 
 ---
 
@@ -2721,7 +2721,7 @@ Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 
 ## Gonet ile çalışmak
 
-Gonet, Türkiye'nin ilk 3 Google Partner ajansından biri olarak 220+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).
 
 ---
 
@@ -3103,7 +3103,7 @@ JSON-LD ile structured data, ekran okuyucuların içerik yapısını daha iyi an
 
 ## Gonet ile çalışmak
 
-Gonet, Türkiye'nin ilk üç Google Partner ajansından biri olarak 220+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).
 
 ---
 

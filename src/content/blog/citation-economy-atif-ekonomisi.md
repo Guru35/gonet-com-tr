@@ -106,4 +106,4 @@ Hayır. Telif tarafı yıllar alacak; görünürlük tarafı bugün kazanılıyo
 - [Gonet AEO/GEO Denetimi — Örnek Rapor](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor)
 - [Ahrefs Brand Radar — AI mention vs backlink analizi](https://ahrefs.com/)
 
-*Bu yazı Gonet ekibi tarafından, markaların AI cevap motorlarındaki görünürlüğünü ölçen citation-surface mühendisliği ve Share-of-Model disiplini temel alınarak hazırlanmıştır. Gonet, İzmir'in ilk AI ajansı ve Türkiye'nin ilk 3 Google Partner ajansından biridir; AEO/GEO denetimi ve Creative AI hizmetleriyle markaları yeni nesil aramaya hazırlar.*
+*Bu yazı Gonet ekibi tarafından, markaların AI cevap motorlarındaki görünürlüğünü ölçen citation-surface mühendisliği ve Share-of-Model disiplini temel alınarak hazırlanmıştır. Gonet, İzmir'in ilk AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır; AEO/GEO denetimi ve Creative AI hizmetleriyle markaları yeni nesil aramaya hazırlar.*

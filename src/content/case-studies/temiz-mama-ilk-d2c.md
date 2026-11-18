@@ -15,8 +15,6 @@ results:
     value: "İlk D2C (üreticiden tüketiciye) online satış kampanyası"
   - metric: "Dönem"
     value: "2007 — Türkiye'de e-ticaret kavramı henüz emekleme döneminde"
-  - metric: "Bizim portföyümüzde"
-    value: "Aynı yıl Tatil Vitrini ile turizmde, Adepo ile online markette de ilk olduk"
 lang: tr
 draft: false
 ---
@@ -51,7 +49,7 @@ Gonet, **Temiz Mama** için Türkiye'nin ilk D2C online satış kampanyasını t
 2007'de Türkiye'de Google Ads, beta veya yeni özelliklerine erişimi olan ajans sayısı çok azdı. Gonet:
 
 - **Google Ads'in Türkiye'deki ilk beta tester ajansıydı**
-- **Türkiye'nin ilk 3 Google Partner ajansından biriydi**
+- **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)**
 - Daha sonra **Google Analytics sertifikası alan 2. Türk ajansı** olacaktı
 
 Bu üç avantaj, henüz olgunlaşmamış bir Türkiye e-ticaret pazarında **3 farklı dikeyde "ilk online" sistemini** Gonet'in tasarlayabilmesini sağladı.

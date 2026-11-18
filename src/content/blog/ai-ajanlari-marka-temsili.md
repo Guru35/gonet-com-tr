@@ -107,4 +107,4 @@ Ajanın bağlamı zehirlenir ya da boş kalırsa, ajan en olası görünen şeyi
 
 ---
 
-*Bu yazı Gonet ekibi tarafından AEO/GEO disiplinindeki gelişmeleri Türk markaları için yorumlamak üzere hazırlanmıştır. Markanızın AI ajanları karşısında nasıl temsil edildiğini ölçmek için [AEO/GEO denetim hizmetimize](https://gonet.com.tr/aeo-geo-denetimi) ve [örnek raporumuza](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor) göz atabilirsiniz. Gonet, İzmir'in ilk AI ajansı ve Türkiye'nin ilk 3 Google Partner ajansından biridir.*
+*Bu yazı Gonet ekibi tarafından AEO/GEO disiplinindeki gelişmeleri Türk markaları için yorumlamak üzere hazırlanmıştır. Markanızın AI ajanları karşısında nasıl temsil edildiğini ölçmek için [AEO/GEO denetim hizmetimize](https://gonet.com.tr/aeo-geo-denetimi) ve [örnek raporumuza](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor) göz atabilirsiniz. Gonet, İzmir'in ilk AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır.*

@@ -9,7 +9,7 @@ services:
   - "Web tasarım & geliştirme"
   - "Dijital pazarlama"
   - "SEO"
-year: 2005
+year: 2008
 results:
   - metric: "Türkiye ölçeği"
     value: "İlk online market"
@@ -47,13 +47,13 @@ Proje kapsamı:
 Bu proje, Gonet'in farklı bir avantajını gösterir: **teknoloji öncülüğü**.
 
 - **Google Ads'in Türkiye'deki ilk beta tester ajansı** — yeni özellikleri ilk biz deniyorduk
-- **Türkiye'nin ilk 3 Google Partner ajansından biri** — Google ile birinci elden iletişim
+- **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)** — Google ile birinci elden iletişim
 - **Google Analytics sertifikası alan 2. Türk ajansı** — ölçüm + optimize disiplini
 
 Bu üç avantaj, Türkiye'de e-ticaret kavramı henüz olgunlaşmadan **3 farklı dikey için ilk online satış sistemini** Gonet'in tasarlamasını sağladı:
 
 | Yıl | Müşteri | Türkiye ölçeğinde ilk |
 |---|---|---|
-| Erken 2000'ler | **Adepo.com** | İlk online marketi |
+| 2008 | **Adepo.com** | İlk online marketi |
 | 2007 | **Temiz Mama** | İlk D2C (üreticiden tüketiciye) online satış |
 | 2007 | **Tatil Vitrini** | İlk online tatil satış sistemi reklamları |

@@ -522,19 +522,19 @@ const ringSegs = annularSegments(services);
 
       {(() => {
         const data = [
+          { y: 2005, case: 'Ege Tüp Bebek' },
           { y: 2007, case: 'CHP siyasal · Temiz Mama · Tatil Vitrini' },
-          { y: 2008, case: 'Adepo.com' },
+          { y: 2008, case: 'Adepo.com · Sixt Rent A Car' },
           { y: 2010, case: 'MYvia inşaat' },
-          { y: 2011, case: 'Ege Tüp Bebek' },
           { y: 2014, case: 'DEÜ Uzaktan Eğitim' },
           { y: 2015, case: 'İzsu' },
         ];
         const w = 1000, h = 260, padL = 70, padR = 20, padT = 30, padB = 50;
-        const xMin = 2007, xMax = 2015;
+        const xMin = 2005, xMax = 2015;
         // Cumulative case count
         let cum = 0;
         const pts = data.map((d) => {
-          cum += d.y === 2007 ? 3 : 1;
+          cum += d.y === 2007 ? 3 : d.y === 2008 ? 2 : 1;
           return { x: padL + ((d.y - xMin) / (xMax - xMin)) * (w - padL - padR), yPos: (h - padB) - (cum / 9) * (h - padT - padB), val: cum, ...d };
         });
         // Step path: H then V
