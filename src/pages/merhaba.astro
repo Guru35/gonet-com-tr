@@ -2,11 +2,80 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, SITE_URL } from '../lib/schema';
 
-const title = "Merhaba Müşteri Portalı — Yakında";
+// Gonet Winner Club — tanıtım («kapı») sayfası İSKELETİ.
+// Metinlerin tamamı YER TUTUCUDUR (gerçek metin CPYWR'den gelecek) ve tek
+// yerde, aşağıdaki `metin` nesnesinde durur. Renkler sayfa sonundaki <style>
+// bloğunda, `.wc` üzerindeki CSS değişkenlerindedir (görsel yön ARTDR'den gelecek).
+
+const GIRIS_URL = 'https://merhaba.gonet.com.tr/giris';
+const KATIL_URL = 'https://merhaba.gonet.com.tr/katil'; // TODO(P2): kayıt ucu motor tarafında açılınca doğrula
+const KVKK_URL = '/kvkk';
+
+const title = "Gonet Winner Club — Yapay Zekâ Çağında Pazarlama Kulübü | Gonet";
 const description =
-  "Gonet Merhaba müşteri portalı yapım aşamasında. Sosyal medya onayları, " +
-  "görev takibi, takvim ve performans raporları tek panelde — çok yakında.";
+  "Gonet Winner Club, gonet.com.tr'nin üyelikle açılan B2B bölümüdür: sektör bazlı AI pazarlama stratejileri, " +
+  "kurumsal entegrasyon, dijital etik, sadakat sistemleri ve yaratıcılık üzerine içerikler ve araçlar.";
 const url = `${SITE_URL}/merhaba`;
+
+const metin = {
+  kapi: {
+    ustBaslik: 'Üyelere özel bölüm',
+    ad: 'Gonet Winner Club',
+    vaat: 'Yapay zekâ çağında pazarlamayı birlikte çalıştığımız, üyelikle açılan kulüp.',
+    katil: 'Kulübe katıl',
+    giris: 'Üye girişi',
+  },
+  neden: {
+    baslik: 'Neden üye ol',
+    maddeler: [
+      { t: 'Sektörünüze göre içerik', d: 'Yer tutucu: genel öneriler yerine sektörünüze göre hazırlanan strateji yazıları.' },
+      { t: 'Ücretsiz araçlar', d: 'Yer tutucu: üyelere açık, işinizde hemen deneyebileceğiniz araçlar.' },
+      { t: 'Tek yerde, düzenli', d: 'Yer tutucu: beş konu başlığı altında toplanan, düzenli güncellenen bir kitaplık.' },
+      { t: 'Ölçülebilir yaklaşım', d: 'Yer tutucu: iddia yerine ölçüm ve örnekle anlatılan yöntemler.' },
+    ],
+  },
+  raflar: {
+    baslik: 'İçeride ne var',
+    kartlar: [
+      { t: 'Sektör bazlı AI pazarlama stratejileri', d: 'Yer tutucu: sektörünüze özel yapay zekâ destekli pazarlama yaklaşımları.' },
+      { t: 'Kurumsal AI pazarlama entegrasyonu', d: 'Yer tutucu: yapay zekâyı mevcut pazarlama süreçlerinize yerleştirme adımları.' },
+      { t: 'Dijital etik ve AI ile müşteri bağı', d: 'Yer tutucu: veriye saygılı, güvene dayalı müşteri ilişkisi üzerine yazılar.' },
+      { t: 'AI sadakat sistemleri', d: 'Yer tutucu: müşteri sadakatini yapay zekâ ile kurma ve izleme yöntemleri.' },
+      { t: 'Yapay zekâ ve yaratıcılık', d: 'Yer tutucu: yaratıcı işte yapay zekâyı araç olarak kullanma örnekleri.' },
+    ],
+  },
+  katmanlar: {
+    baslik: 'Üç katman',
+    liste: [
+      { ad: 'Üye', kim: 'Kayıt olan herkes', d: 'Strateji yazıları ve ücretsiz araçlar.', etiket: '' },
+      { ad: 'Seçkin', kim: 'Davetle ya da onayla', d: 'Sektöre özel raporlar.', etiket: 'Yakında' },
+      { ad: 'Müşteri', kim: 'Çalıştığımız şirketler', d: 'Panel ve özel hizmetler.', etiket: '' },
+    ],
+  },
+  adimlar: {
+    baslik: 'Nasıl katılınır',
+    liste: [
+      { t: 'Kayıt', d: 'Ad soyad, e-posta ve cep telefonu ile kayıt olursunuz.' },
+      { t: 'Doğrulama', d: 'E-posta adresinizi ve telefonunuzu doğrularsınız.' },
+      { t: 'İçeri', d: 'Kulübün üye katmanı açılır.' },
+    ],
+  },
+  sss: {
+    baslik: 'Sık sorulan sorular (SSS)',
+    sorular: [
+      { s: 'Üyelik ücretli mi?', c: 'Yer tutucu: üye katmanının koşulları burada açıklanacak.' },
+      { s: 'Kimler katılabilir?', c: 'Yer tutucu: kulübün kimlere yönelik olduğu burada açıklanacak.' },
+      { s: 'Kayıt olurken hangi bilgiler isteniyor?', c: 'Yer tutucu: ad soyad, e-posta ve cep telefonu; ayrıntı KVKK Aydınlatma Metni\'nde.' },
+      { s: 'Seçkin katmana nasıl geçilir?', c: 'Yer tutucu: davet ve onay süreci burada açıklanacak.' },
+      { s: 'Gonet müşterisiyim, panelime nereden girerim?', c: 'Yer tutucu: müşteriler «Üye girişi» düğmesiyle giriş yapar.' },
+    ],
+  },
+  kapanis: {
+    baslik: 'Kapı açık.',
+    d: 'Yer tutucu: kısa kapanış cümlesi.',
+    kvkk: 'KVKK Aydınlatma Metni',
+  },
+};
 
 const pageSchema = webpageSchema({
   title,
@@ -15,63 +84,273 @@ const pageSchema = webpageSchema({
   type: 'WebPage',
   breadcrumb: [
     { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
-    { name: 'Merhaba', url },
+    { name: 'Gonet Winner Club', url },
   ],
 });
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]} noindex={true}>
-  <section class="bg-white border-b border-black overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
-      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-10" style="color: #ff0000">
-        Müşteri Portalı
-      </p>
-      <h1 class="editorial-display text-[16vw] lg:text-[12vw] xl:text-[200px] leading-[0.82] mb-10">
-        Merhaba<span style="color: #ff0000">.</span>
-      </h1>
-      <p class="editorial-display text-3xl lg:text-5xl xl:text-6xl leading-[0.95] mb-12 max-w-3xl">
-        Yapım aşamasında.
-      </p>
-      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-2xl mb-16 text-slate-600">
-        Sosyal medya gönderi onaylarınız, görev takibiniz, içerik takviminiz ve
-        performans raporlarınız tek panelde toplanıyor. Merhaba portalını
-        müşterilerimize özenle hazırlıyoruz — çok yakında buradan giriş yapacaksınız.
-      </p>
-
-      <div class="flex flex-wrap items-baseline gap-6 lg:gap-10">
-        <a
-          href="/iletisim"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white hover:bg-black transition-colors font-semibold"
-        >
-          Bize ulaşın <span aria-hidden="true">→</span>
-        </a>
-        <a href="/" class="editorial-display text-xl lg:text-2xl hover:text-[#ff0000] transition-colors">
-          ← Ana sayfaya dön
-        </a>
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]}>
+  <div class="wc">
+    <!-- 1. Kapı (hero) -->
+    <section class="wc-bolum wc-kapi">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
+        <p class="wc-ust">{metin.kapi.ustBaslik}</p>
+        <h1 class="wc-ad" lang="en">{metin.kapi.ad}</h1>
+        <p class="wc-vaat">{metin.kapi.vaat}</p>
+        <div class="flex flex-wrap gap-4">
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil} <span aria-hidden="true">→</span></a>
+          <a href={GIRIS_URL} class="wc-dugme wc-dugme-ikincil">{metin.kapi.giris}</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Ne gelecek — kısa önizleme -->
-  <section class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
-      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-12 text-slate-500">
-        Portalda neler olacak
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200">
-        {[
-          { n: '01', t: 'Gönderi onayı', d: 'Sosyal medya içeriklerinizi versiyonlarıyla görüp tek dokunuşla onaylayın.' },
-          { n: '02', t: 'Görev takibi', d: 'Ekibimizin sizin için yürüttüğü işleri canlı durumlarıyla izleyin.' },
-          { n: '03', t: 'İçerik takvimi', d: 'Yayın planınızı aylık takvimde görün, neyin ne zaman çıkacağını bilin.' },
-          { n: '04', t: 'Performans raporu', d: 'Trafik ve arama görünürlüğünüz otomatik raporlarla elinizin altında.' },
-        ].map((f) => (
-          <div class="bg-white p-8 lg:p-10">
-            <div class="editorial-display text-4xl lg:text-5xl mb-5">{f.n}</div>
-            <h2 class="text-lg font-bold mb-3">{f.t}</h2>
-            <p class="text-sm leading-relaxed text-slate-600">{f.d}</p>
-          </div>
-        ))}
+    <!-- 2. Neden üye ol -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.neden.baslik}</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+          {metin.neden.maddeler.map((m) => (
+            <li class="wc-madde">
+              <h3 class="wc-h3">{m.t}</h3>
+              <p class="wc-soluk">{m.d}</p>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 3. Beş konu rafı -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.raflar.baslik}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {metin.raflar.kartlar.map((k, i) => (
+            <article class="wc-kart">
+              <p class="wc-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</p>
+              <h3 class="wc-h3">{k.t}</h3>
+              <p class="wc-soluk">{k.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Üç katman -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.katmanlar.baslik}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {metin.katmanlar.liste.map((k) => (
+            <article class="wc-kart">
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <h3 class="wc-h3 wc-h3-buyuk">{k.ad}</h3>
+                {k.etiket && <span class="wc-etiket">{k.etiket}</span>}
+              </div>
+              <p class="wc-kim">{k.kim}</p>
+              <p class="wc-soluk">{k.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Nasıl katılınır -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.adimlar.baslik}</h2>
+        <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {metin.adimlar.liste.map((a, i) => (
+            <li class="wc-kart">
+              <p class="wc-no" aria-hidden="true">{i + 1}</p>
+              <h3 class="wc-h3">{a.t}</h3>
+              <p class="wc-soluk">{a.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. SSS -->
+    <section class="wc-bolum">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.sss.baslik}</h2>
+        <div class="space-y-8">
+          {metin.sss.sorular.map((q) => (
+            <details class="wc-sss group">
+              <summary class="text-lg md:text-xl font-medium cursor-pointer list-none flex items-start gap-4">
+                <span class="wc-arti shrink-0 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                <span>{q.s}</span>
+              </summary>
+              <p class="wc-soluk mt-4 ml-8">{q.c}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Kapanış çağrısı -->
+    <section class="wc-bolum wc-kapanis">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10 py-20 lg:py-28 text-center">
+        <h2 class="wc-h2">{metin.kapanis.baslik}</h2>
+        <p class="wc-soluk mb-10">{metin.kapanis.d}</p>
+        <div class="flex flex-wrap gap-4 justify-center mb-10">
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil} <span aria-hidden="true">→</span></a>
+          <a href={GIRIS_URL} class="wc-dugme wc-dugme-ikincil">{metin.kapi.giris}</a>
+        </div>
+        <p class="text-sm">
+          <a href={KVKK_URL} class="wc-bag">{metin.kapanis.kvkk}</a>
+        </p>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
+
+<style>
+  /* GEÇİCİ PALET — tek yerden değişir (ARTDR görsel yönü gelince).
+     Sitenin açık/koyu tema anahtarından BAĞIMSIZDIR: kulüp her iki temada koyu kalır. */
+  .wc {
+    --wc-zemin: #0b0f1a;
+    --wc-yuzey: #141a2a;
+    --wc-cizgi: #2a3247;
+    --wc-yazi: #f4f1ea;
+    --wc-soluk: #b9bfcc;
+    --wc-vurgu: #d4af37;
+    --wc-vurgu-ustu: #0b0f1a; /* vurgu zeminli düğmenin yazısı */
+
+    background-color: var(--wc-zemin);
+    color: var(--wc-yazi);
+    overflow-wrap: break-word;
+  }
+  .wc h1,
+  .wc h2 {
+    text-shadow: none;
+  }
+  .wc-bolum {
+    border-bottom: 1px solid var(--wc-cizgi);
+  }
+  .wc-ust {
+    color: var(--wc-vurgu);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+  .wc-ad {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.75rem, 11vw, 9rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
+  }
+  .wc-vaat {
+    font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+    line-height: 1.35;
+    max-width: 42rem;
+    margin-bottom: 3rem;
+  }
+  .wc-h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.875rem, 5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+  .wc-h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  .wc-h3-buyuk {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .wc-soluk {
+    color: var(--wc-soluk);
+    line-height: 1.65;
+  }
+  .wc-madde {
+    border-top: 1px solid var(--wc-cizgi);
+    padding-top: 1.5rem;
+  }
+  .wc-kart {
+    background-color: var(--wc-yuzey);
+    border: 1px solid var(--wc-cizgi);
+    padding: 2rem;
+  }
+  .wc-no {
+    color: var(--wc-vurgu);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.25rem;
+  }
+  .wc-kim {
+    color: var(--wc-vurgu);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .wc-etiket {
+    border: 1px solid var(--wc-vurgu);
+    color: var(--wc-vurgu);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.125rem 0.5rem;
+  }
+  .wc-sss {
+    border-bottom: 1px solid var(--wc-cizgi);
+    padding-bottom: 1.5rem;
+  }
+  .wc-sss summary::-webkit-details-marker {
+    display: none;
+  }
+  .wc-arti {
+    color: var(--wc-vurgu);
+  }
+  .wc-dugme {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    border: 1px solid var(--wc-vurgu);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .wc-dugme-ana {
+    background-color: var(--wc-vurgu);
+    color: var(--wc-vurgu-ustu);
+  }
+  .wc-dugme-ana:hover {
+    background-color: var(--wc-yazi);
+    border-color: var(--wc-yazi);
+  }
+  .wc-dugme-ikincil {
+    background-color: transparent;
+    color: var(--wc-yazi);
+    border-color: var(--wc-yazi);
+  }
+  .wc-dugme-ikincil:hover {
+    color: var(--wc-vurgu);
+    border-color: var(--wc-vurgu);
+  }
+  .wc-dugme:focus-visible,
+  .wc-bag:focus-visible,
+  .wc-sss summary:focus-visible {
+    outline: 2px solid var(--wc-vurgu);
+    outline-offset: 3px;
+  }
+  .wc-bag {
+    color: var(--wc-yazi);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .wc-bag:hover {
+    color: var(--wc-vurgu);
+  }
+</style>
