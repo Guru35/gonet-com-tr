@@ -2,11 +2,98 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, SITE_URL } from '../lib/schema';
 
-const title = "Merhaba Müşteri Portalı — Yakında";
+// Gonet Winner Club — tanıtım («kapı») sayfası.
+// Metin: CPYWR taslağı (başlık Seçenek A), birebir; tek yerde, aşağıdaki `metin` nesnesinde durur.
+// Görsel yön: ARTDR Yön A «Kapalı Salon». Renkler sitenin KOYU tema jetonlarıdır
+// (src/styles/global.css → [data-theme="dark"]); `.wc` kabı `data-theme="dark"` taşıdığı için
+// ziyaretçinin tema tercihinden bağımsız olarak o jetonları alır. Sayfa içi <style> yeni renk tanımlamaz.
+// `taslak` alanları henüz kesinleşmemiş yer tutuculardır; sayfada «Taslak» işaretiyle görünür.
+
+const GIRIS_URL = 'https://merhaba.gonet.com.tr/giris';
+const KATIL_URL = 'https://merhaba.gonet.com.tr/katil'; // TODO(P2): kayıt ucu motor tarafında açılınca doğrula
+const KVKK_URL = '/kvkk';
+
+const title = 'Gonet Winner Club | Yöneticiler için yapay zekâ pazarlama kulübü';
 const description =
-  "Gonet Merhaba müşteri portalı yapım aşamasında. Sosyal medya onayları, " +
-  "görev takibi, takvim ve performans raporları tek panelde — çok yakında.";
+  'Yöneticiler için ücretsiz kulüp: sektöre özel yapay zekâ pazarlama notları, kendi başınıza deneyeceğiniz araçlar ve ekibinize iletebileceğiniz kısa özetler.';
 const url = `${SITE_URL}/merhaba`;
+
+const metin = {
+  kapi: {
+    ad: 'Gonet Winner Club',
+    baslik: 'Yapay zekâ müşterinize sizi nasıl anlatıyor?',
+    alt: 'Gonet Winner Club; yöneticiler için sektöre özel yapay zekâ pazarlama notları, kendi başınıza deneyebileceğiniz ücretsiz araçlar ve ekibinize iletebileceğiniz kısa özetler sunan ücretsiz bir kulüptür.',
+    katil: 'Kulübe katıl',
+    giris: 'Üye girişi',
+  },
+  neden: {
+    baslik: 'Neden üye olmalı',
+    maddeler: [
+      {
+        t: 'Sektörünüze özel.',
+        d: 'Genel yapay zekâ haberleri değil; kurumunuzun pazarlamasına doğrudan dokunan kısa notlar. İlk içerikler sağlık ve emlak/inşaat için.',
+      },
+      {
+        t: 'Kendi başınıza deneyin.',
+        d: 'Ücretsiz araçlarla kurumunuzun yapay zekâ asistanlarında nasıl göründüğüne kendiniz bakın; bunun için kimseyle görüşmeniz gerekmez.',
+      },
+      {
+        t: 'Ekibinize iletin.',
+        d: 'Her içeriğin sonunda, yönetim kurulunuza ya da ekibinize olduğu gibi gönderebileceğiniz tek sayfalık bir özet var.',
+      },
+    ],
+  },
+  katmanlar: {
+    baslik: 'Üç katman',
+    liste: [
+      { ad: 'Üye', kademe: 1, etiket: '', d: 'Kayıt olan herkes; beş rafın içerikleri, ücretsiz araçlar ve bülten arşivi hemen açılır.' },
+      { ad: 'Seçkin', kademe: 2, etiket: 'yakında', d: 'Üyeler arasından Gonet onayıyla yükselenler; derinleştirilmiş rehberler ve küçük gruplu çevrim içi oturumlar.' },
+      { ad: 'Müşteri', kademe: 3, etiket: '', d: 'Gonet ile çalışan kurumlar; kulübün tamamı ve kendi raporlarınızın bulunduğu müşteri paneli aynı kapıdan.' },
+    ],
+  },
+  raflar: {
+    baslik: 'İçeride ne var',
+    liste: [
+      { t: 'Sektör Stratejileri', d: 'Müşteriniz yapay zekâya danışırken kurumunuzun bulunması ve doğru anlatılması için yöntemler.' },
+      { t: 'Kurumsal Entegrasyon', d: 'Yapay zekâ araçlarını pazarlama işinize yerleştirmenin yolu: kim, hangi adımda, hangi araçla.' },
+      { t: 'Dijital Etik ve Güven', d: 'Yapay zekâ ile iletişim kurarken müşterinizin güvenini koruyan sınırlar.' },
+      { t: 'Sadakat Sistemleri', d: 'İş bittikten sonra müşteriyle ilişkiyi sürdürmenin ve tavsiyeye çevirmenin yolları.' },
+      { t: 'Yapay Zekâ ve Yaratıcılık', d: 'Üretimde yapay zekânın hızı ile insanın kararının nerede buluştuğu.' },
+    ],
+  },
+  sss: {
+    baslik: 'Sık sorulan sorular (SSS)',
+    sorular: [
+      {
+        s: 'Kimler katılabilir?',
+        c: 'Kulüp, kurum yöneticileri ve pazarlama sorumluları için hazırlandı. İlk içerikler sağlık ve emlak/inşaat sektörlerine odaklanıyor. Kayıt ad soyad, e-posta ve cep telefonuyla yapılır.',
+        taslak: '',
+      },
+      { s: 'Üyelik ücretli mi?', c: 'Hayır. Üç katmanın üçü de ücretsizdir.', taslak: '' },
+      {
+        s: 'Seçkin katmanına nasıl geçilir?',
+        c: 'Seçkin katmanı yakında açılacak. Üyeler arasından Gonet onayıyla yükselinir.',
+        taslak: '[K1 kararından sonra: yükselme ölçütü, tek cümle]',
+      },
+      {
+        s: 'Cep telefonumu neden istiyorsunuz?',
+        c: 'Kulüpte gerçek kişilerle olduğunuzdan emin olmak için numaranız tek seferlik bir SMS koduyla doğrulanır.',
+        taslak: '',
+      },
+    ],
+  },
+  kapanis: {
+    baslik: 'Kulübe katılın',
+    d: 'Üyelik ücretsizdir; istediğiniz zaman hesabınızdan ayrılabilirsiniz. Pazarlama izinleri isteğe bağlıdır, üye olmak için gerekmez.',
+    taslak: '[HKDAN-2: aydınlatma metni bağlantısı ve izin kutuları]',
+    kvkk: 'KVKK Aydınlatma Metni',
+  },
+  taslakEtiketi: 'Taslak',
+};
+
+// Başlığın son işareti (soru işareti) sitenin «başlık sonu kırmızı nokta» imzasını taşır.
+const baslikGovde = metin.kapi.baslik.slice(0, -1);
+const baslikSon = metin.kapi.baslik.slice(-1);
 
 const pageSchema = webpageSchema({
   title,
@@ -15,63 +102,432 @@ const pageSchema = webpageSchema({
   type: 'WebPage',
   breadcrumb: [
     { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
-    { name: 'Merhaba', url },
+    { name: 'Gonet Winner Club', url },
   ],
 });
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]} noindex={true}>
-  <section class="bg-white border-b border-black overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
-      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-10" style="color: #ff0000">
-        Müşteri Portalı
-      </p>
-      <h1 class="editorial-display text-[16vw] lg:text-[12vw] xl:text-[200px] leading-[0.82] mb-10">
-        Merhaba<span style="color: #ff0000">.</span>
-      </h1>
-      <p class="editorial-display text-3xl lg:text-5xl xl:text-6xl leading-[0.95] mb-12 max-w-3xl">
-        Yapım aşamasında.
-      </p>
-      <p class="text-lg lg:text-2xl leading-snug font-medium max-w-2xl mb-16 text-slate-600">
-        Sosyal medya gönderi onaylarınız, görev takibiniz, içerik takviminiz ve
-        performans raporlarınız tek panelde toplanıyor. Merhaba portalını
-        müşterilerimize özenle hazırlıyoruz — çok yakında buradan giriş yapacaksınız.
-      </p>
-
-      <div class="flex flex-wrap items-baseline gap-6 lg:gap-10">
-        <a
-          href="/iletisim"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 text-white hover:bg-black transition-colors font-semibold"
-        >
-          Bize ulaşın <span aria-hidden="true">→</span>
-        </a>
-        <a href="/" class="editorial-display text-xl lg:text-2xl hover:text-[#ff0000] transition-colors">
-          ← Ana sayfaya dön
-        </a>
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]}>
+  <div class="wc" data-theme="dark">
+    <!-- 1. Kapı (ilk ekran) -->
+    <section class="wc-bolum wc-kapi">
+      <div class="wc-kapi-ic max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <p class="wc-etiket wc-etiket-vurgu" lang="en">{metin.kapi.ad}</p>
+        <h1 class="wc-h1">{baslikGovde}<span class="wc-nokta">{baslikSon}</span></h1>
+        <p class="wc-alt">{metin.kapi.alt}</p>
+        <div class="wc-dugmeler">
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil}</a>
+          <a href={GIRIS_URL} class="wc-dugme wc-dugme-ikincil">{metin.kapi.giris}</a>
+        </div>
       </div>
-    </div>
-  </section>
+      <p class="wc-ok" aria-hidden="true">↓</p>
+    </section>
 
-  <!-- Ne gelecek — kısa önizleme -->
-  <section class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
-      <p class="text-[10px] font-medium uppercase tracking-[0.35em] mb-12 text-slate-500">
-        Portalda neler olacak
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200">
-        {[
-          { n: '01', t: 'Gönderi onayı', d: 'Sosyal medya içeriklerinizi versiyonlarıyla görüp tek dokunuşla onaylayın.' },
-          { n: '02', t: 'Görev takibi', d: 'Ekibimizin sizin için yürüttüğü işleri canlı durumlarıyla izleyin.' },
-          { n: '03', t: 'İçerik takvimi', d: 'Yayın planınızı aylık takvimde görün, neyin ne zaman çıkacağını bilin.' },
-          { n: '04', t: 'Performans raporu', d: 'Trafik ve arama görünürlüğünüz otomatik raporlarla elinizin altında.' },
-        ].map((f) => (
-          <div class="bg-white p-8 lg:p-10">
-            <div class="editorial-display text-4xl lg:text-5xl mb-5">{f.n}</div>
-            <h2 class="text-lg font-bold mb-3">{f.t}</h2>
-            <p class="text-sm leading-relaxed text-slate-600">{f.d}</p>
-          </div>
-        ))}
+    <!-- 2. Neden üye olmalı -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.neden.baslik}</h2>
+        <ul class="wc-sutunlar">
+          {metin.neden.maddeler.map((m) => (
+            <li class="wc-sutun">
+              <h3 class="wc-h3">{m.t}</h3>
+              <p class="wc-soluk">{m.d}</p>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 3. Katmanlar bandı -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.katmanlar.baslik}</h2>
+        <div class="wc-sutunlar">
+          {metin.katmanlar.liste.map((k) => (
+            <article class="wc-sutun">
+              <p class={`wc-kademe wc-kademe-${k.kademe}`} aria-hidden="true">
+                <span class="wc-cubuklar">
+                  {[1, 2, 3].map((n) => (
+                    <span class={`wc-cubuk${n <= k.kademe ? ' wc-cubuk-dolu' : ''}${k.kademe === 3 && n === 3 ? ' wc-cubuk-vurgu' : ''}`} />
+                  ))}
+                </span>
+                <span class="wc-etiket">{k.ad}</span>
+              </p>
+              <div class="wc-katman-baslik">
+                <h3 class="wc-h3 wc-h3-buyuk">{k.ad}</h3>
+                {k.etiket && <span class="wc-etiket wc-etiket-vurgu">{k.etiket}</span>}
+              </div>
+              <p class="wc-soluk">{k.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Beş raf önizlemesi (liste) -->
+    <section class="wc-bolum">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.raflar.baslik}</h2>
+        <ol class="wc-raflar">
+          {metin.raflar.liste.map((r, i) => (
+            <li class="wc-raf">
+              <span class="wc-raf-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="wc-raf-ad">{r.t}</h3>
+              <p class="wc-soluk wc-raf-d">{r.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. SSS -->
+    <section class="wc-bolum">
+      <div class="max-w-4xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.sss.baslik}</h2>
+        <div>
+          {metin.sss.sorular.map((q) => (
+            <details class="wc-sss group">
+              <summary>
+                <span class="wc-arti shrink-0 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                <span>{q.s}</span>
+              </summary>
+              <p class="wc-soluk wc-sss-cevap">
+                {q.c}
+                {q.taslak && (
+                  <span class="wc-taslak"><span class="wc-taslak-etiket">{metin.taslakEtiketi}</span> {q.taslak}</span>
+                )}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Kapanış -->
+    <section class="wc-kapanis">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+        <h2 class="wc-h2">{metin.kapanis.baslik}</h2>
+        <p class="wc-soluk">{metin.kapanis.d}</p>
+        <p class="wc-kapanis-taslak">
+          <span class="wc-taslak"><span class="wc-taslak-etiket">{metin.taslakEtiketi}</span> {metin.kapanis.taslak}</span>
+        </p>
+        <div class="wc-dugmeler">
+          <a href={KATIL_URL} class="wc-dugme wc-dugme-ana">{metin.kapi.katil}</a>
+        </div>
+        <p>
+          <a href={KVKK_URL} class="wc-bag">{metin.kapanis.kvkk}</a>
+        </p>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
+
+<style>
+  /* Yön A «Kapalı Salon» — ARTDR §6 jetonları.
+     Sitede karşılığı olan jetonlar global.css'teki koyu tema değişkenlerinden okunur
+     (kap `data-theme="dark"` taşır); burada yalnız sitede adı olmayan iki jeton yazılıdır. */
+  .wc {
+    --wc-line: var(--border); /* ayırıcı çizgi — yalnız süs */
+    --wc-text-2: var(--text-secondary); /* ikincil yazı */
+    --wc-accent-text: var(--accent-strong); /* kırmızı etiket yazısı */
+    --wc-focus: var(--text-heading); /* odak çerçevesi */
+    --wc-muted: #6e6e6e; /* yalnız süs: raf numarası, ok — metinde kullanılmaz */
+    --wc-accent-ink: #000000; /* kırmızı zemin üstündeki yazı */
+
+    background-color: var(--bg);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+  .wc-bolum {
+    border-bottom: 1px solid var(--wc-line);
+  }
+
+  /* Yazı */
+  .wc-etiket {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+  .wc-etiket-vurgu {
+    color: var(--wc-accent-text);
+  }
+  .wc-h1,
+  .wc-h2,
+  .wc-h3,
+  .wc-raf-ad {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--text-heading);
+  }
+  .wc-h1 {
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 2rem 0;
+  }
+  .wc-nokta {
+    color: var(--accent);
+  }
+  .wc-alt {
+    color: var(--wc-text-2);
+    font-size: clamp(1.125rem, 1.9vw, 1.5rem);
+    line-height: 1.4;
+    max-width: 46rem;
+    margin-bottom: 3rem;
+  }
+  .wc-h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+  .wc-h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .wc-h3-buyuk {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  .wc-soluk {
+    color: var(--wc-text-2);
+  }
+
+  /* Kapı */
+  .wc-kapi {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - 5rem);
+  }
+  .wc-kapi-ic {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .wc-ok {
+    color: var(--wc-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* Düğmeler */
+  .wc-dugmeler {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .wc-dugme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid var(--text);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .wc-dugme-ana {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--wc-accent-ink);
+  }
+  .wc-dugme-ana:hover {
+    background-color: var(--text-heading);
+    border-color: var(--text-heading);
+  }
+  .wc-dugme-ikincil {
+    background-color: transparent;
+    color: var(--text);
+  }
+  .wc-dugme-ikincil:hover {
+    background-color: var(--text);
+    color: var(--bg);
+  }
+  .wc-dugme:focus-visible,
+  .wc-bag:focus-visible,
+  .wc-sss summary:focus-visible {
+    outline: 2px solid var(--wc-focus);
+    outline-offset: 2px;
+  }
+  @media (min-width: 640px) {
+    .wc-dugmeler {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* Üç sütun: telefonda üç satır, masaüstünde aralarında 1 px dikey çizgi */
+  .wc-sutun {
+    border-top: 1px solid var(--wc-line);
+    padding: 2rem 0;
+  }
+  @media (min-width: 768px) {
+    .wc-sutunlar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .wc-sutun {
+      border-top: 0;
+      border-left: 1px solid var(--wc-line);
+      padding: 0 2rem;
+    }
+    .wc-sutun:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  /* Katman işareti: kademe çubuğu + etiket (renk tek başına anlam taşımaz) */
+  .wc-kademe {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: calc(0.375rem + 1px) 0; /* kutusuz Üye işareti, kutulu olanlarla aynı yükseklikte dursun */
+    color: var(--wc-text-2);
+  }
+  .wc-kademe-2 {
+    color: var(--text);
+    border: 1px solid var(--text);
+    padding: 0.375rem 0.625rem;
+  }
+  .wc-kademe-3 {
+    color: var(--text-heading);
+    border: 1px solid var(--text-heading);
+    padding: 0.375rem 0.625rem;
+  }
+  .wc-cubuklar {
+    display: inline-flex;
+    gap: 3px;
+  }
+  .wc-cubuk {
+    width: 12px;
+    height: 3px;
+    border: 1px solid currentColor;
+  }
+  .wc-cubuk-dolu {
+    background-color: currentColor;
+  }
+  .wc-cubuk-vurgu {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+  .wc-katman-baslik {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Beş raf listesi */
+  .wc-raflar {
+    border-top: 1px solid var(--wc-line);
+  }
+  .wc-raf {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    align-items: baseline;
+    min-height: 4rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--wc-line);
+  }
+  .wc-raf-no {
+    color: var(--wc-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .wc-raf-ad {
+    font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+    line-height: 1.1;
+  }
+  .wc-raf-d {
+    grid-column: 2;
+  }
+  @media (min-width: 1024px) {
+    .wc-raf {
+      grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 2rem;
+    }
+    .wc-raf-d {
+      grid-column: 3;
+    }
+  }
+
+  /* SSS */
+  .wc-sss {
+    border-bottom: 1px solid var(--wc-line);
+  }
+  .wc-sss summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4rem;
+    padding: 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+  }
+  .wc-sss summary::-webkit-details-marker {
+    display: none;
+  }
+  .wc-arti {
+    color: var(--accent);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .wc-sss-cevap {
+    padding: 0 0 1.5rem 2rem;
+  }
+
+  /* Kapanış */
+  .wc-kapanis-taslak {
+    margin: 1.5rem 0 2.5rem;
+  }
+  .wc-kapanis .wc-dugmeler {
+    margin-bottom: 1.5rem;
+  }
+  .wc-bag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .wc-bag:hover {
+    color: var(--text-heading);
+  }
+
+  /* Kesinleşmemiş yer tutucu — tek biçim */
+  .wc-taslak {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--surface);
+    border: 1px dashed var(--wc-text-2);
+    color: var(--wc-text-2);
+    font-size: 0.875rem;
+  }
+  .wc-taslak-etiket {
+    margin-right: 0.5rem;
+    color: var(--text);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+</style>
