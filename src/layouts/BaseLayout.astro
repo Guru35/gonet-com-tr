@@ -41,7 +41,7 @@ const pageSchemas = schemas
 const allSchemas = [...globalSchemas, ...pageSchemas];
 
 // Kulüp sayfaları (/merhaba): üst şerit + alt bilgi her temada koyu; menüdeki
-// «Görüşme iste» çerçeveli (kırmızı kulübün birincil eylemine ait — ARTDR §2).
+// «Görüşme isteyin» çerçeveli (kırmızı kulübün birincil eylemine ait — ARTDR §2).
 const kulupSayfasi = Astro.url.pathname === '/merhaba' || Astro.url.pathname.startsWith('/merhaba/');
 const ctaCerceveli = 'items-center justify-center min-h-[44px] box-border border border-current bg-transparent text-black hover:bg-black hover:text-white transition-colors font-semibold uppercase text-[11px]';
 const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors font-semibold uppercase text-[11px]';
@@ -261,10 +261,10 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
            {...(kulupSayfasi ? { 'aria-current': 'page' } : {})}>
           Merhaba <span aria-hidden="true">&nbsp;→</span>
         </a>
-        <!-- Görüşme iste — dolu kırmızı; kulüp sayfasında çerçeveli -->
+        <!-- Görüşme isteyin — dolu kırmızı; kulüp sayfasında çerçeveli -->
         <a href="/iletisim"
-           class={`inline-flex ${kulupSayfasi ? ctaCerceveli : ctaDolu} px-3 md:px-5 tracking-[0.2em] md:tracking-[0.25em]`}>
-          Görüşme iste
+           class={`inline-flex ${kulupSayfasi ? `${ctaCerceveli} px-[5px]` : `${ctaDolu} px-1.5`} md:px-5 tracking-[0.2em] md:tracking-[0.25em]`}>
+          Görüşme isteyin
         </a>
         <!-- Mobile menu toggle — eye-menu'yu açar -->
         <button
