@@ -24,6 +24,14 @@ const homeSchema = webpageSchema({
   <!-- Hero — deneysel slider (USE_SLIDER). Slide 0 = kalıcı "Her iş'te Gonet var.", sonrası geliştirme haberleri. -->
   {USE_SLIDER ? <HeroSlider /> : <HeroClassic />}
 
+  <!-- Telefon ilk ekran çağrısı — çerçeveli (dolu kırmızı menüde) · taslak IlkEkran-Anasayfa-Telefon.
+       Taslaktaki «Sektörünüzü seçin» şeridi kodlanmadı: hedef sektör sayfaları yok (WEBDV kararı A). -->
+  <div data-ilk-cagri class="md:hidden bg-white px-4 pt-4 pb-6">
+    <a href="/iletisim" class="flex items-center justify-center min-h-[52px] border border-current text-black text-[13px] font-semibold uppercase tracking-[0.25em] hover:bg-black hover:text-white transition-colors">
+      Görüşme iste <span aria-hidden="true">&nbsp;→</span>
+    </a>
+  </div>
+
   <div class="home-body">
 
   <!-- Kim — kısa self-definition -->
