@@ -46,7 +46,7 @@ Gonet, İZSU için **"Elimizi Suyun Altına Koyduk"** sosyal medya kampanyasın�
 - **4 büyük siyasi parti** (AK Parti, CHP, MHP, İYİ Parti) — Türkiye'nin 4 partisiyle çalışan ilk ajans
 - **Dokuz Eylül Üniversitesi** — Avrupa'nın en büyük canlı uzaktan eğitim sistemi
 - **DEPARK (Dokuz Eylül Teknopark)** — danışmanlık + web sitesi
-- **Prof. Nükhet Hotar** — kişisel dijital varlık yönetimi
+- **Bir profesör** — kişisel dijital varlık yönetimi
 
 ## Neden Gonet?
 

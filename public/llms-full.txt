@@ -13,7 +13,7 @@
 ## Hakkında
 
 **Gonet**, 1999'dan beri faaliyet gösteren İzmir merkezli dijital pazarlama ajansı.
-26 yıllık operasyonel deneyim, 220+ marka portföyü, Türkiye'nin ilk Google Partner ajanslarından biri.
+26 yıllık operasyonel deneyim, 190+ marka portföyü, Türkiye'nin ilk Google Partner ajanslarından biri.
 Hizmet hatları: SEO, SEM/Google Ads, AEO/GEO, Analitik & Veri, Web Geliştirme, İçerik, Sosyal Medya, Tasarım/UX, Strateji.
 
 İletişim: gonet@gonet.com.tr · https://gonet.com.tr/iletisim
@@ -202,7 +202,7 @@ Gonet, her marka için `/llms.txt` veya `/ai-policy.md` dosyası oluşturur — 
 
 ## Gonet ile çalışmak
 
-Gonet, 2000'den beri 220+ kurumsal markayla çalışan deneyimiyle Common Crawl optimizasyonunu sadece teknik değil, **stratejik iş hedefiyle birleştirerek** yönetir. Hangi içeriğin AI modeline açılacağı, hangi bilginin korunacağı, rakiplerin pozisyonuna göre politika tasarımı — hepsini 26 yıllık SEO uzmanlığıyla planlıyoruz. [İletişime geçin](/iletisim), AI destekli arama ekosistemindeki marka temsilinizi birlikte analiz edelim.
+Gonet, 2000'den beri 190+ kurumsal markayla çalışan deneyimiyle Common Crawl optimizasyonunu sadece teknik değil, **stratejik iş hedefiyle birleştirerek** yönetir. Hangi içeriğin AI modeline açılacağı, hangi bilginin korunacağı, rakiplerin pozisyonuna göre politika tasarımı — hepsini 26 yıllık SEO uzmanlığıyla planlıyoruz. [İletişime geçin](/iletisim), AI destekli arama ekosistemindeki marka temsilinizi birlikte analiz edelim.
 
 ---
 
@@ -278,7 +278,7 @@ Gonet'in content CMS'ine entegre extraction checker tool'u, editörlere real-tim
 
 ## Gonet ile çalışmak
 
-Gonet, 2000'den bu yana Türkiye'nin dijital pazarlama altyapısını kuran, 220+ marka portföyüyle AEO/GEO geçişini öncülleyen ajanslardan biridir. Extraction-ready içerik mimarisi, llms.txt entegrasyonu ve RAG optimizasyonu konusunda danışmanlık veya uygulama desteği almak için [iletişime geçin](/iletisim).
+Gonet, 2000'den bu yana Türkiye'nin dijital pazarlama altyapısını kuran, 190+ marka portföyüyle AEO/GEO geçişini öncülleyen ajanslardan biridir. Extraction-ready içerik mimarisi, llms.txt entegrasyonu ve RAG optimizasyonu konusunda danışmanlık veya uygulama desteği almak için [iletişime geçin](/iletisim).
 
 ---
 
@@ -415,7 +415,7 @@ Entity authority dört kanalla ölçülür:
     Schema.org @type<br>kullanımda
   
   
-    220+
+    190+
     Marka portföyü<br>canlı uygulama
   
   
@@ -427,7 +427,7 @@ Entity authority dört kanalla ölçülür:
     LLM crawler<br>aktivitesi
   
 
-Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden gelişti. 220+ marka portföyünde Schema.org @graph mimarisini kullanan markalar AI Overviews'ta sürekli citation alıyor; geleneksel meta-tag-only yaklaşımındaki markalar görünmüyor.
+Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden gelişti. 190+ marka portföyünde Schema.org @graph mimarisini kullanan markalar AI Overviews'ta sürekli citation alıyor; geleneksel meta-tag-only yaklaşımındaki markalar görünmüyor.
 
 ## Neden şimdi kritik?
 
@@ -487,7 +487,7 @@ Bu sayfanın altında, **FAQPage schema** olarak işaretli SSS bölümü AI moto
 
 ## Gonet ile çalışmak
 
-26 yıllık ajans deneyimi ve 220+ marka portföyü ile Schema.org JSON-LD entity authority kurulumu Gonet'in **AEO/GEO** hizmet hattının temel disiplinidir. Bir keşif görüşmesi için [iletişime geçin](/iletisim) — markanızın mevcut yapısal veri sağlığını ücretsiz değerlendirelim.
+26 yıllık ajans deneyimi ve 190+ marka portföyü ile Schema.org JSON-LD entity authority kurulumu Gonet'in **AEO/GEO** hizmet hattının temel disiplinidir. Bir keşif görüşmesi için [iletişime geçin](/iletisim) — markanızın mevcut yapısal veri sağlığını ücretsiz değerlendirelim.
 
 ---
 
@@ -508,7 +508,7 @@ Google'ın SGE (Search Generative Experience), Perplexity, ChatGPT Search ve Bin
 
 Kötü chunk yapısı (örneğin 2000 karakterlik tek parça veya rastgele kesilmiş cümleler), LLM'in hangi bilginin sorgula alakalı olduğunu ayırt etmesini zorlaştırır. Sonuç: sıfır citation, sıfır görünürlük. Semantic chunking, her parçanın bir 'mini-landing page' gibi bağımsız anlam taşımasını sağlayarak LLM'lerin o parçayı güvenle kaynak gösterebilmesini mümkün kılar.
 
-Gonet'in 220+ marka portföyünde gerçekleştirdiği AEO denetimleri, chunk yapısı optimize edildiğinde citation oranının ortalama 3.2 kat arttığını gösteriyor. Özellikle teknik dokümantasyon, ürün spesifikasyonları ve nasıl yapılır içeriklerinde bu etki belirgindir.
+Gonet'in 190+ marka portföyünde gerçekleştirdiği AEO denetimleri, chunk yapısı optimize edildiğinde citation oranının ortalama 3.2 kat arttığını gösteriyor. Özellikle teknik dokümantasyon, ürün spesifikasyonları ve nasıl yapılır içeriklerinde bu etki belirgindir.
 
   
     Kötü chunk
@@ -710,7 +710,7 @@ Brand mention tracking (marka bahis takibi) ve unlinked mention recovery (bağla
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık deneyimle 220+ marka için E-E-A-T mimarisi kurmuştur. Sağlık sektöründen fintech'e, e-ticaretten profesyonel hizmetlere geniş yelpazede entity modeling ve trust signal inşası deneyimine sahibiz. E-E-A-T stratejinizi entity grafiği perspektifiyle yeniden tasarlamak için [iletişime geçin](/iletisim).
+Gonet, 26 yıllık deneyimle 190+ marka için E-E-A-T mimarisi kurmuştur. Sağlık sektöründen fintech'e, e-ticaretten profesyonel hizmetlere geniş yelpazede entity modeling ve trust signal inşası deneyimine sahibiz. E-E-A-T stratejinizi entity grafiği perspektifiyle yeniden tasarlamak için [iletişime geçin](/iletisim).
 
 ---
 
@@ -1115,7 +1115,7 @@ Audit sonuçlarını 40-50 sayfalık bir rapor + exec summary (yönetici özeti)
 
 ## Gonet ile çalışmak
 
-26 yıldır 220+ markanın Google Ads hesaplarını denetledik; ortalama audit süresi 7-10 iş günü, restorasyon 2-4 hafta. İlk görüşmede hesabınıza salt-okunur erişim (read-only access) talep ederiz, pre-audit sinyalleri 48 saat içinde paylaşırız. Bozuk hesap yapısı kaderiniz değil, çözülebilir bir teknik sorundur.
+26 yıldır 190+ markanın Google Ads hesaplarını denetledik; ortalama audit süresi 7-10 iş günü, restorasyon 2-4 hafta. İlk görüşmede hesabınıza salt-okunur erişim (read-only access) talep ederiz, pre-audit sinyalleri 48 saat içinde paylaşırız. Bozuk hesap yapısı kaderiniz değil, çözülebilir bir teknik sorundur.
 
 [İletişime geçin](/iletisim) — hesap sağlık kontrolü ile başlayalım.
 
@@ -1134,7 +1134,7 @@ Audience signal (hedef kitle sinyali) ise kampanyanın ilk öğrenme aşamasınd
 
 ## Neden kritik?
 
-Google Ads'in 2024 itibariyle Smart Shopping ve Yerel kampanya türlerini tamamen PMax'e entegre etmesiyle, bu kampanya türü e-ticaret ve lead generation (potansiyel müşteri kazanımı) için kaçınılmaz hale geldi. Gonet'in 220+ marka portföyünde gözlemlediğimiz veriler, doğru yapılandırılmış PMax kampanyalarının geleneksel Arama + Display kombinasyonlarına göre %30-45 daha yüksek ROAS (Return on Ad Spend - reklam harcaması getirisi) sağladığını gösteriyor.
+Google Ads'in 2024 itibariyle Smart Shopping ve Yerel kampanya türlerini tamamen PMax'e entegre etmesiyle, bu kampanya türü e-ticaret ve lead generation (potansiyel müşteri kazanımı) için kaçınılmaz hale geldi. Gonet'in 190+ marka portföyünde gözlemlediğimiz veriler, doğru yapılandırılmış PMax kampanyalarının geleneksel Arama + Display kombinasyonlarına göre %30-45 daha yüksek ROAS (Return on Ad Spend - reklam harcaması getirisi) sağladığını gösteriyor.
 
 Ancak bu performans otomatik olarak gelmez. PMax'in başarısı üç kritik faktöre bağlıdır:
 
@@ -1385,7 +1385,7 @@ URL: https://gonet.com.tr/yetenekler/analitik-veri/bigquery-sql
 
 BigQuery, Google Cloud'un sunduğu sunucusuz (serverless) veri ambarı servisidir. SQL (Structured Query Language) ile büyük veri setlerini hızla sorgulamanıza olanak tanır. Dijital pazarlama bağlamında BigQuery, Google Analytics 4 (GA4) raw data export'larını depolamak ve analiz etmek için kritik bir altyapıdır. GA4 arayüzünün sunmadığı granüler, kullanıcı düzeyinde analizler (custom funnel, cohort, churn modelleme, attribution) BigQuery + SQL ile gerçekleştirilir.
 
-Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 220+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
+Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 190+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
 
 ## Neden kritik?
 
@@ -1456,7 +1456,7 @@ GA4'ün temel farkları:
 - **Privacy-first tasarım**: Cookie'siz ölçümleme desteği, IP anonimleştirme varsayılan.
 - **BigQuery entegrasyonu**: Ücretsiz tier dahil ham veri export.
 
-Gonet, 2020'den beri GA4 implementasyonu ve danışmanlığı sunmaktadır. 220+ marka portföyünde GA4 geçişlerini Temmuz 2023 son tarihinden önce tamamladık, veri kaybı olmadan sağladık.
+Gonet, 2020'den beri GA4 implementasyonu ve danışmanlığı sunmaktadır. 190+ marka portföyünde GA4 geçişlerini Temmuz 2023 son tarihinden önce tamamladık, veri kaybı olmadan sağladık.
 
 ## Neden kritik?
 
@@ -1516,7 +1516,7 @@ Gonet ekibi GA4 Individual Qualification (Google Analytics sertifikası) sahibi,
 
 ## Gonet ile çalışmak
 
-GA4 kurulumu 'bir kez yap unut' değil, sürekli gelişen bir süreçtir. Gonet, setup'tan raporlamaya, optimizasyondan eğitime tam döngü hizmet sunar. 220+ markada kanıtlanmış event taxonomy şablonlarımız, sektörünüze özel hızlı başlangıç sağlar. Veri kalitenizi artırmak, attribution modelinizi netleştirmek, BigQuery analizine geçmek için [iletişime geçin](/iletisim).
+GA4 kurulumu 'bir kez yap unut' değil, sürekli gelişen bir süreçtir. Gonet, setup'tan raporlamaya, optimizasyondan eğitime tam döngü hizmet sunar. 190+ markada kanıtlanmış event taxonomy şablonlarımız, sektörünüze özel hızlı başlangıç sağlar. Veri kalitenizi artırmak, attribution modelinizi netleştirmek, BigQuery analizine geçmek için [iletişime geçin](/iletisim).
 
 ---
 
@@ -1584,7 +1584,7 @@ URL: https://gonet.com.tr/yetenekler/analitik-veri/looker-studio
 
 Looker Studio (eski adıyla Google Data Studio), Google'ın ücretsiz veri görselleştirme ve raporlama platformudur. GA4, Google Ads, Search Console, BigQuery gibi veri kaynaklarını tek dashboard'da birleştirerek interaktif raporlar oluşturur. Gonet'te Looker Studio'yu yalnızca bir grafik aracı olarak değil, stakeholder'ların (paydaşların) veri odaklı karar almasını sağlayan stratejik bir iletişim kanalı olarak konumlandırıyoruz.
 
-Platform, blended data (karışık veri kaynakları) özelliğiyle farklı sistemlerden gelen verileri tek metrikte birleştirir, calculated fields (hesaplanmış alanlar) ile özel KPI'lar türetir, filter (filtre) ve drill-down (detaya inme) özellikleriyle kullanıcıya keşif imkanı sunar. 2000'den beri 220+ marka portföyünde ürettiğimiz yüzlerce dashboard, müşteri CEO'larından dijital ekiplere her seviyede veri okuryazarlığını artırdı.
+Platform, blended data (karışık veri kaynakları) özelliğiyle farklı sistemlerden gelen verileri tek metrikte birleştirir, calculated fields (hesaplanmış alanlar) ile özel KPI'lar türetir, filter (filtre) ve drill-down (detaya inme) özellikleriyle kullanıcıya keşif imkanı sunar. 2000'den beri 190+ marka portföyünde ürettiğimiz yüzlerce dashboard, müşteri CEO'larından dijital ekiplere her seviyede veri okuryazarlığını artırdı.
 
 ## Neden kritik?
 
@@ -1699,7 +1699,7 @@ Server log analizi diğer analitik ve teknik SEO yetkinliklerle entegre çalış
 
 ## Gonet ile çalışmak
 
-Gonet, 2000'den beri Türkiye'nin en deneyimli dijital ajanslarından biri olarak server log analizini yalnızca teknik bir görev değil, stratejik bir keşif aracı olarak kullanır. 220+ marka portföyümüzde e-ticaret devlerinden SaaS firmalarına, yayıncılardan kurumsal platformlara kadar geniş yelpazede log analizi deneyimimiz var. Bot davranışını anlayarak sunucu maliyetlerinizi düşürür, AEO stratejinizi veriye dayalı hale getirir, teknik SEO sorunlarını kesin verilerle çözeriz. Server loglarınız bir maliyet kalemi değil, rekabet avantajı kaynağıdır. [İletişime geçin](/iletisim), loglarınızı stratejik bir varlığa dönüştürelim.
+Gonet, 2000'den beri Türkiye'nin en deneyimli dijital ajanslarından biri olarak server log analizini yalnızca teknik bir görev değil, stratejik bir keşif aracı olarak kullanır. 190+ marka portföyümüzde e-ticaret devlerinden SaaS firmalarına, yayıncılardan kurumsal platformlara kadar geniş yelpazede log analizi deneyimimiz var. Bot davranışını anlayarak sunucu maliyetlerinizi düşürür, AEO stratejinizi veriye dayalı hale getirir, teknik SEO sorunlarını kesin verilerle çözeriz. Server loglarınız bir maliyet kalemi değil, rekabet avantajı kaynağıdır. [İletişime geçin](/iletisim), loglarınızı stratejik bir varlığa dönüştürelim.
 
 ---
 
@@ -1882,7 +1882,7 @@ URL: https://gonet.com.tr/yetenekler/web-gelistirme-altyapi/next-js-15-react-19
 
 Next.js 15 ve React 19, modern web geliştirme yığınının en güncel sürümleridir. Next.js, Vercel tarafından geliştirilen ve React tabanlı uygulamalar için sunucu tarafı render (SSR), statik site oluşturma (SSG) ve artık **App Router** mimarisi ile tam yığın (full-stack) geliştirme imkanı sunan bir framework'tür. React 19 ise **React Server Components (RSC)**, geliştirilmiş concurrent rendering ve **server actions** gibi yeni özellikleri getirerek istemci-sunucu ayrımını yeniden tanımlamıştır.
 
-Gonet, 2000'den bu yana 220+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
+Gonet, 2000'den bu yana 190+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
 
 ## Neden kritik?
 
@@ -1930,7 +1930,7 @@ Gonet ekibi, Next.js Conf ve React ekibi blog yazılarını takip eder; canary v
 
 ## Gonet ile çalışmak
 
-Gonet, Next.js 15 + React 19 yığınını sadece bir framework olarak değil, dijital pazarlama hedeflerinizi destekleyen bir altyapı olarak konumlandırır. Proje başında performans KPI'ları (LCP, CLS, INP), SEO metrikleri (Core Web Vitals, indexleme hızı) ve iş hedefleri (conversion rate, engagement) birlikte tanımlanır. Sürekli entegrasyon pipeline'larında (CI/CD) Lighthouse skorları test edilir, her deploy öncesi regresyon önlenir. 220+ markaya sunduğumuz deneyimi, modern web teknolojileriyle birleştirerek ölçeklenebilir, sürdürülebilir ve performans odaklı çözümler üretiyoruz. [İletişime geçin](/iletisim) ve Next.js 15 + React 19 avantajını keşfedin.
+Gonet, Next.js 15 + React 19 yığınını sadece bir framework olarak değil, dijital pazarlama hedeflerinizi destekleyen bir altyapı olarak konumlandırır. Proje başında performans KPI'ları (LCP, CLS, INP), SEO metrikleri (Core Web Vitals, indexleme hızı) ve iş hedefleri (conversion rate, engagement) birlikte tanımlanır. Sürekli entegrasyon pipeline'larında (CI/CD) Lighthouse skorları test edilir, her deploy öncesi regresyon önlenir. 190+ markaya sunduğumuz deneyimi, modern web teknolojileriyle birleştirerek ölçeklenebilir, sürdürülebilir ve performans odaklı çözümler üretiyoruz. [İletişime geçin](/iletisim) ve Next.js 15 + React 19 avantajını keşfedin.
 
 ---
 
@@ -2034,7 +2034,7 @@ Kurumsal web projelerinde en büyük maliyet kalemlerinden biri CSS teknik borcu
 
 ## Gonet yaklaşımı
 
-Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 220+ marka deneyiminden süzülen tasarım sistemi metodolojisidir. Her proje için özel tailwind.config.js dosyası oluştururuz; marka renkleri, tipografi hiyerarşisi, shadow sistemleri ve custom utility'ler bu dosyada tanımlanır.
+Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 190+ marka deneyiminden süzülen tasarım sistemi metodolojisidir. Her proje için özel tailwind.config.js dosyası oluştururuz; marka renkleri, tipografi hiyerarşisi, shadow sistemleri ve custom utility'ler bu dosyada tanımlanır.
 
 **Design token entegrasyonu**: Tasarım ekiplerinin Figma'da kullandığı değişkenleri birebir Tailwind config'e aktarıyoruz. `colors.brand.primary`, `spacing.section`, `typography.heading` gibi semantic (anlamsal) tokenlar, tasarımcı-geliştirici arasındaki iletişim hatasını sıfırlar.
 
@@ -2160,7 +2160,7 @@ TypeScript strict mode, modern web stack'inin omurgasıdır ve şu yetkinliklerl
 
 ## Gonet ile çalışmak
 
-Gonet'in 220+ marka portföyünde TypeScript strict mode, bakım maliyetini ortalama %35 düşürdü. Zod entegrasyonuyla runtime hata oranı %60 azaldı. Ekibimiz, legacy JavaScript kodunuzu kademe kademe TypeScript'e migrate edebilir veya greenfield projenizi ilk satırdan type-safe inşa edebilir. Type safety sadece teknik tercih değil, uzun vadeli yatırım güvencesidir. [İletişime geçin](/iletisim), projeniz için type-safe stack stratejisi oluşturalım.
+Gonet'in 190+ marka portföyünde TypeScript strict mode, bakım maliyetini ortalama %35 düşürdü. Zod entegrasyonuyla runtime hata oranı %60 azaldı. Ekibimiz, legacy JavaScript kodunuzu kademe kademe TypeScript'e migrate edebilir veya greenfield projenizi ilk satırdan type-safe inşa edebilir. Type safety sadece teknik tercih değil, uzun vadeli yatırım güvencesidir. [İletişime geçin](/iletisim), projeniz için type-safe stack stratejisi oluşturalım.
 
 ---
 
@@ -2171,7 +2171,7 @@ URL: https://gonet.com.tr/yetenekler/web-gelistirme-altyapi/wordpress-legacy-hea
 
 WordPress, dünya çapında web sitelerinin %43'ünü çalıştıran açık kaynak içerik yönetim sistemidir. Gonet'teki WordPress yetkinliği iki ana eksende gelişir: **legacy (geleneksel) mimari** ve **headless (başsız) mimari**. Legacy mimaride WordPress hem içerik yönetimi hem de ön yüz sunum katmanı olarak çalışır; custom theme (özel tema) geliştirme, Advanced Custom Fields (ACF) ile esnek içerik yapıları ve PHP tabanlı template hierarchy bu alanın temelini oluşturur. Headless mimaride ise WordPress yalnızca içerik deposu ve API sağlayıcısı rolündedir — WP REST API veya GraphQL üzerinden içerik frontend framework'lerine (React, Next.js, Nuxt) aktarılır, rendering ayrı bir katmanda gerçekleşir.
 
-Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 220+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
+Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 190+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
 
 ## Neden kritik?
 
@@ -2211,7 +2211,7 @@ Bu entegrasyonlar, WordPress'in hem içerik yönetim kolaylığını hem de mode
 
 ## Gonet ile çalışmak
 
-Gonet, WordPress projelerinizde 26 yıllık geliştirme deneyimini, Google Partner statüsünün getirdiği platform entegrasyonlarını ve 220+ markada test edilmiş best practice'leri sunar. Legacy modernizasyonu, headless dönüşüm veya sıfırdan kurumsal WordPress çözümü ihtiyaçlarınız için [iletişime geçin](/iletisim) — ilk danışmanlık oturumunda mevcut altyapınızı analiz eder, ROI odaklı yol haritası sunarız.
+Gonet, WordPress projelerinizde 26 yıllık geliştirme deneyimini, Google Partner statüsünün getirdiği platform entegrasyonlarını ve 190+ markada test edilmiş best practice'leri sunar. Legacy modernizasyonu, headless dönüşüm veya sıfırdan kurumsal WordPress çözümü ihtiyaçlarınız için [iletişime geçin](/iletisim) — ilk danışmanlık oturumunda mevcut altyapınızı analiz eder, ROI odaklı yol haritası sunarız.
 
 ---
 
@@ -2228,7 +2228,7 @@ URL: https://gonet.com.tr/yetenekler/icerik-yaratici/aeo-odakli-icerik-citation-
 
 AEO odaklı içerik (Answer Engine Optimization content), büyük dil modelleri (LLM — Large Language Model) ve yapay zeka tabanlı arama sistemlerinin doğrudan yanıt üretirken **kaynak olarak göstermeyi tercih ettiği** yapısal özelliklere sahip metinlerdir. Geleneksel SEO içeriğinden farkı, insanı değil **makineyi ikna etmeye** yönelik olmasıdır: net istatistikler, atıflanabilir iddialar (quotations), semantik bağlamı koruyan akıcı geçişler ve RAG (Retrieval-Augmented Generation) süreçlerinde extraction verimliliğini artıran mikro-yapılar.
 
-2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 220+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
+2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 190+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
 
 ## Neden kritik?
 
@@ -2356,7 +2356,7 @@ Long-form SEO içerik üretimi, belirli bir konuda kapsamlı bilgi sunan, 2000 k
 
 Bu metodolojide ana sayfa (pillar), bir konunun temel çerçevesini sunarken, cluster sayfaları o konunun spesifik yönlerini detaylandırır. Örneğin "Dijital Pazarlama" pillar sayfası, "SEO", "SEM", "E-posta Pazarlama" gibi cluster sayfalarına bağlanır. Her cluster sayfası da 1500-2500 kelime arası derinlikte, kendi konusunu işler ve pillara geri link verir.
 
-Gonet'te long-form içerik üretimi, yalnızca kelime sayısı hedefi değildir. Search intent mapping (arama niyeti haritalama), entity-based SEO (varlık tabanlı SEO), structured data markup (yapılandırılmış veri işaretleme) ve LLM-extraction readiness (LLM çıkarım hazırlığı) bir arada kullanılır. 2000'den bu yana 220+ marka için üretilen binlerce içerik deneyimi, her sektörde işleyen pillar mimarileri oluşturmamızı sağlar.
+Gonet'te long-form içerik üretimi, yalnızca kelime sayısı hedefi değildir. Search intent mapping (arama niyeti haritalama), entity-based SEO (varlık tabanlı SEO), structured data markup (yapılandırılmış veri işaretleme) ve LLM-extraction readiness (LLM çıkarım hazırlığı) bir arada kullanılır. 2000'den bu yana 190+ marka için üretilen binlerce içerik deneyimi, her sektörde işleyen pillar mimarileri oluşturmamızı sağlar.
 
 ## Neden kritik?
 
@@ -2417,7 +2417,7 @@ URL: https://gonet.com.tr/yetenekler/icerik-yaratici/marka-hikayelestirme
 
 Marka hikayeleştirme (brand storytelling), bir markanın değerlerini, kökenini ve vaadini yapılandırılmış anlatı teknikleriyle aktarma disiplinidir. Founder story (kurucu hikayesi), brand archetype (marka arketipi) ve narrative arc (anlatı yayı) gibi yöntemlerle marka, tüketicinin zihninde rakiplerden ayrışan duygusal bir konum kazanır.
 
-Gonet'in 2000'den bu yana 220+ markayla yürüttüğü projelerde gözlemlediğimiz gerçek: ürün özellikleri unutulur, hikayeler kalıcıdır. İleri seviye marka hikayeleştirme, pazarlama metinlerini tutarlı bir 'evren' içinde örer; her kampanya, sosyal medya gönderisi ve kurumsal iletişim aynı anlatı omurgasından beslenir. Bu yaklaşım, marka hatırlanabilirliğini ortalama %40 artırır ve müşteri yaşam boyu değerini (CLV) %25-35 yükseltir.
+Gonet'in 2000'den bu yana 190+ markayla yürüttüğü projelerde gözlemlediğimiz gerçek: ürün özellikleri unutulur, hikayeler kalıcıdır. İleri seviye marka hikayeleştirme, pazarlama metinlerini tutarlı bir 'evren' içinde örer; her kampanya, sosyal medya gönderisi ve kurumsal iletişim aynı anlatı omurgasından beslenir. Bu yaklaşım, marka hatırlanabilirliğini ortalama %40 artırır ve müşteri yaşam boyu değerini (CLV) %25-35 yükseltir.
 
 ## Neden kritik?
 
@@ -2524,7 +2524,7 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
 
 ## Gonet yaklaşımı
 
-1. **Veri destekli influencer scouting:** Gonet, HypeAuditor, Modash gibi araçlarla influencer'ın takipçi kalitesini (gerçek/fake oranı), geçmiş kampanya performansını, kitle demografisini analiz eder. Ajansın 220+ marka deneyiminden türetilen 'kategori-influencer' veritabanı, eşleşme süresini %60 kısaltır.
+1. **Veri destekli influencer scouting:** Gonet, HypeAuditor, Modash gibi araçlarla influencer'ın takipçi kalitesini (gerçek/fake oranı), geçmiş kampanya performansını, kitle demografisini analiz eder. Ajansın 190+ marka deneyiminden türetilen 'kategori-influencer' veritabanı, eşleşme süresini %60 kısaltır.
 
 2. **Segmentli kampanya mimarisi:**
    - **Awareness katmanı:** Macro-influencer (100K–1M) ile markanın hikayesini geniş kitleye duyur.
@@ -2628,7 +2628,7 @@ URL: https://gonet.com.tr/yetenekler/sosyal-medya-topluluk/meta-ads-facebook-ins
 
 Meta Ads, Facebook ve Instagram platformlarında yürütülen ücretli reklam kampanyalarının tümünü kapsayan Meta Business Suite altyapısıdır. Advantage+ (otomatik kampanya optimizasyonu), Catalog Ads (ürün kataloğu bazlı dinamik reklamlar) ve Conversions API (CAPI — server-side conversion tracking) gibi yeni nesil araçlarla, performans pazarlamasında piksel tabanlı eski yöntemlerin ötesine geçen, makine öğrenmesi destekli bir ekosistem sunar. iOS 14.5 sonrası gizlilik güncellemeleri ve cookie kısıtlamaları nedeniyle, browser-side ölçümler yetersiz kaldı; CAPI, sunucu tarafından doğrudan Meta'ya gönderilen conversion verisiyle bu boşluğu kapatır ve kampanya optimizasyonunu güçlendirir.
 
-Gonet, 2000'den beri dijital reklamcılık deneyimini Meta platformlarına taşırken, Advantage+ Shopping ve Advantage+ App kampanyalarında makine öğrenmesine doğru veri akışı sağlamak için CAPI'yi standart uygular. Facebook pikselinin ötesinde, Google Tag Manager (GTM — etiket yönetim sistemi) ve GTM Server-Side Container yapılandırmalarıyla sunucu tarafı entegrasyonlar kurar, e-ticaret markaları için dinamik ürün setlerini (product feed) Catalog Ads formatlarına dönüştürür ve 220+ marka portföyünde edindiği audience segmentasyonu bilgisini her kampanyaya uyarlar.
+Gonet, 2000'den beri dijital reklamcılık deneyimini Meta platformlarına taşırken, Advantage+ Shopping ve Advantage+ App kampanyalarında makine öğrenmesine doğru veri akışı sağlamak için CAPI'yi standart uygular. Facebook pikselinin ötesinde, Google Tag Manager (GTM — etiket yönetim sistemi) ve GTM Server-Side Container yapılandırmalarıyla sunucu tarafı entegrasyonlar kurar, e-ticaret markaları için dinamik ürün setlerini (product feed) Catalog Ads formatlarına dönüştürür ve 190+ marka portföyünde edindiği audience segmentasyonu bilgisini her kampanyaya uyarlar.
 
 ## Neden kritik?
 
@@ -2669,7 +2669,7 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 
 ## Gonet ile çalışmak
 
-Gonet, Meta Ads kampanyalarınızı CAPI entegrasyonu, Advantage+ otomasyonu ve Catalog Ads dinamik reklamcılık ile bir üst seviyeye taşır. 26 yıllık deneyim ve 220+ marka portföyünden gelen audience segmentasyonu bilgisiyle, her bütçede ROAS hedeflerinize ulaşmanızı sağlar. Meta platformlarında sürdürülebilir büyüme için [iletişime geçin](/iletisim).
+Gonet, Meta Ads kampanyalarınızı CAPI entegrasyonu, Advantage+ otomasyonu ve Catalog Ads dinamik reklamcılık ile bir üst seviyeye taşır. 26 yıllık deneyim ve 190+ marka portföyünden gelen audience segmentasyonu bilgisiyle, her bütçede ROAS hedeflerinize ulaşmanızı sağlar. Meta platformlarında sürdürülebilir büyüme için [iletişime geçin](/iletisim).
 
 ---
 
@@ -2721,7 +2721,7 @@ Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 
 ## Gonet ile çalışmak
 
-Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 190+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).
 
 ---
 
@@ -2812,7 +2812,7 @@ Gonet'in yönettiği fintech markasında (2023 Q2-Q4), LinkedIn yorumlarından g
 
 ## Gonet ile çalışmak
 
-Gonet, HubSpot Gold Partner statüsü ve 220+ marka CRM entegrasyonu deneyimi ile sosyal topluluk verilerinizi satış motoruna dönüştürür. İlk 30 günde mevcut sosyal hesaplar + CRM audit (denetim), ikinci ayda pilot entegrasyon, üçüncü ayda tam otomasyonlu sistem devreye girer. [İletişime geçin](/iletisim), mevcut CRM kullanımınızı ve sosyal medya hacminizi analiz edelim.
+Gonet, HubSpot Gold Partner statüsü ve 190+ marka CRM entegrasyonu deneyimi ile sosyal topluluk verilerinizi satış motoruna dönüştürür. İlk 30 günde mevcut sosyal hesaplar + CRM audit (denetim), ikinci ayda pilot entegrasyon, üçüncü ayda tam otomasyonlu sistem devreye girer. [İletişime geçin](/iletisim), mevcut CRM kullanımınızı ve sosyal medya hacminizi analiz edelim.
 
 ---
 
@@ -2873,7 +2873,7 @@ Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır
 
 ## Gonet ile çalışmak
 
-26 yıllık deneyimimizle 220+ marka için marka kimliği tasarladık. Ajansımız Google Partner statüsünde olduğu için, tasarladığımız her marka kimliği aynı zamanda dijital reklam performansı için optimize edilir. Markanız için tutarlı, ölçeklenebilir, dijital öncelikli bir kimlik sistemi kurmak istiyorsanız [iletişime geçin](/iletisim).
+26 yıllık deneyimimizle 190+ marka için marka kimliği tasarladık. Ajansımız Google Partner statüsünde olduğu için, tasarladığımız her marka kimliği aynı zamanda dijital reklam performansı için optimize edilir. Markanız için tutarlı, ölçeklenebilir, dijital öncelikli bir kimlik sistemi kurmak istiyorsanız [iletişime geçin](/iletisim).
 
 ---
 
@@ -2898,7 +2898,7 @@ CRO yapmadan dijital pazarlama, delik bir kovaya su doldurmaya benzer. Trafik ar
 
 ## Gonet yaklaşımı
 
-26 yıldır 220+ markayla çalışan Gonet'in CRO metodolojisi üç katmanlıdır: tanı, hipotez, validasyon.
+26 yıldır 190+ markayla çalışan Gonet'in CRO metodolojisi üç katmanlıdır: tanı, hipotez, validasyon.
 
 **Tanı katmanı:** Google Analytics 4 (GA4), Hotjar, Microsoft Clarity ve Crazy Egg gibi araçları entegre kullanarak nicel ve nitel veri toplarız. Heatmap'ler, scroll depth (kaydırma derinliği) haritaları ve click maps (tıklama haritaları) ile kullanıcı davranışını görselleştiririz. Session recording'lerde random örneklem yerine segmentli analiz yaparız: sepete ekleyip ödemeye gitmeyen kullanıcılar, 3+ sayfa görüntüleyip çıkanlar, mobil vs. desktop gibi. Funnel'ları micro-conversion'lara (ürün detay görüntüleme → sepete ekleme → checkout başlatma → ödeme) kadar parçalarız.
 
@@ -3003,7 +3003,7 @@ Fluid typography kullanıcı deneyimini iyileştirir çünkü her ekran boyutund
 
 ## Gonet yaklaşımı
 
-Gonet'te mobil-öncelikli tasarım 2012'den beri standart uygulamadır. 220+ marka portföyümüzde edindiğimiz deneyim, her sektörün kendine özgü mobil gereksinimlerini anlamamızı sağlamıştır.
+Gonet'te mobil-öncelikli tasarım 2012'den beri standart uygulamadır. 190+ marka portföyümüzde edindiğimiz deneyim, her sektörün kendine özgü mobil gereksinimlerini anlamamızı sağlamıştır.
 
 Container queries'i production'da aktif kullanıyoruz. Design system'lerimiz @container desteğiyle inşa edilir, bu da componentlerin tamamen context-aware (bağlam farkında) olmasını sağlar. Örneğin, bir product card component'i container genişliği 300px'in altındayken vertical layout, üzerindeyken horizontal layout kullanır — sayfa layoutu ne olursa olsun.
 
@@ -3043,7 +3043,7 @@ Mobil-öncelikli responsive tasarım, web performans optimizasyonu ile el ele gi
 
 ## Gonet ile çalışmak
 
-26 yıllık deneyimimiz ve 220+ marka portföyümüzle modern responsive tasarım yaklaşımlarını production-ready seviyede uyguluyoruz. Container queries, fluid typography ve intrinsic sizing tekniklerini projelerinizde nasıl kullanabileceğinizi değerlendirmek için [iletişime geçin](/iletisim).
+26 yıllık deneyimimiz ve 190+ marka portföyümüzle modern responsive tasarım yaklaşımlarını production-ready seviyede uyguluyoruz. Container queries, fluid typography ve intrinsic sizing tekniklerini projelerinizde nasıl kullanabileceğinizi değerlendirmek için [iletişime geçin](/iletisim).
 
 ---
 
@@ -3103,7 +3103,7 @@ JSON-LD ile structured data, ekran okuyucuların içerik yapısını daha iyi an
 
 ## Gonet ile çalışmak
 
-Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 190+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).
 
 ---
 
@@ -3122,7 +3122,7 @@ Dijital pazarlama strateji geliştirme, bir markanın çevrimiçi varlığını 
 
 STP, pazarı anlamlı gruplara böler (segmentasyon), bu gruplardan hangilerine odaklanılacağını belirler (hedefleme) ve markanın zihinlerde nasıl konumlanacağını tasarlar (konumlandırma). Customer journey, bir potansiyel müşterinin farkındalıktan satın almaya ve savunuculuğa kadar geçirdiği tüm temas noktalarını (touchpoint) görselleştirir. Attribution modeling ise her bir dijital kanalın (organik arama, ücretli reklam, sosyal medya, e-posta) dönüşüme katkısını matematiksel olarak değerlendirir.
 
-Gonet, 2000'den bu yana 220'den fazla markayla çalışarak strateji geliştirme süreçlerini olgunlaştırmıştır. Her proje, veri analitiği (GA4, CRM verileri, pazar araştırması) ile başlar ve iş hedeflerine (marka bilinirliği, lead kalitesi, satış hacmi) kilitlenir.
+Gonet, 2000'den bu yana 190'dan fazla markayla çalışarak strateji geliştirme süreçlerini olgunlaştırmıştır. Her proje, veri analitiği (GA4, CRM verileri, pazar araştırması) ile başlar ve iş hedeflerine (marka bilinirliği, lead kalitesi, satış hacmi) kilitlenir.
 
 ## Neden kritik?
 
@@ -3172,7 +3172,7 @@ Dijital pazarlama strateji geliştirme, diğer Gonet yetkinlikleriyle sinerjik �
 
 ## Gonet ile çalışmak
 
-Gonet, stratejinizi iş hedeflerinize kilitleyen, veriye dayalı bir çerçeve kurar. 26 yıllık deneyim ve 220+ marka portföyü, kategori özelinde kanıtlanmış STP, journey ve attribution metodolojileri sunar. Dijital pazarlama stratejinizi bir sonraki seviyeye taşımak için [iletişime geçin](/iletisim).
+Gonet, stratejinizi iş hedeflerinize kilitleyen, veriye dayalı bir çerçeve kurar. 26 yıllık deneyim ve 190+ marka portföyü, kategori özelinde kanıtlanmış STP, journey ve attribution metodolojileri sunar. Dijital pazarlama stratejinizi bir sonraki seviyeye taşımak için [iletişime geçin](/iletisim).
 
 ---
 
@@ -3224,7 +3224,7 @@ Gonet'in M&A dijital due diligence süreci 4 aşamadan oluşur:
 
 ## Gonet ile çalışmak
 
-26 yıldır Türkiye'nin dijital dönüşümünde yer alan Gonet, M&A süreçlerinizde tarafsız, veri odaklı dijital due diligence hizmeti sunar. Google Partner statümüz ve 220+ marka deneyimimiz, raporlarımızı yatırım komitelerinizin güvenle kullanabileceği bir temel haline getirir. Satın alma öncesi dijital varlık değerlemesi için [iletişime geçin](/iletisim).
+26 yıldır Türkiye'nin dijital dönüşümünde yer alan Gonet, M&A süreçlerinizde tarafsız, veri odaklı dijital due diligence hizmeti sunar. Google Partner statümüz ve 190+ marka deneyimimiz, raporlarımızı yatırım komitelerinizin güvenle kullanabileceği bir temel haline getirir. Satın alma öncesi dijital varlık değerlemesi için [iletişime geçin](/iletisim).
 
 ---
 

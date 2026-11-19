@@ -204,4 +204,4 @@ TypeScript strict mode, modern web stack'inin omurgasıdır ve şu yetkinliklerl
 
 ## Gonet ile çalışmak
 
-Gonet'in 220+ marka portföyünde TypeScript strict mode, bakım maliyetini ortalama %35 düşürdü. Zod entegrasyonuyla runtime hata oranı %60 azaldı. Ekibimiz, legacy JavaScript kodunuzu kademe kademe TypeScript'e migrate edebilir veya greenfield projenizi ilk satırdan type-safe inşa edebilir. Type safety sadece teknik tercih değil, uzun vadeli yatırım güvencesidir. [İletişime geçin](/iletisim), projeniz için type-safe stack stratejisi oluşturalım.
+Gonet'in 190+ marka portföyünde TypeScript strict mode, bakım maliyetini ortalama %35 düşürdü. Zod entegrasyonuyla runtime hata oranı %60 azaldı. Ekibimiz, legacy JavaScript kodunuzu kademe kademe TypeScript'e migrate edebilir veya greenfield projenizi ilk satırdan type-safe inşa edebilir. Type safety sadece teknik tercih değil, uzun vadeli yatırım güvencesidir. [İletişime geçin](/iletisim), projeniz için type-safe stack stratejisi oluşturalım.

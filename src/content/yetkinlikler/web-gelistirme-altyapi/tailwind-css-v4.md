@@ -128,7 +128,7 @@ Kurumsal web projelerinde en büyük maliyet kalemlerinden biri CSS teknik borcu
   </div>
 </div>
 
-Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 220+ marka deneyiminden süzülen tasarım sistemi metodolojisidir. Her proje için özel tailwind.config.js dosyası oluştururuz; marka renkleri, tipografi hiyerarşisi, shadow sistemleri ve custom utility'ler bu dosyada tanımlanır.
+Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 190+ marka deneyiminden süzülen tasarım sistemi metodolojisidir. Her proje için özel tailwind.config.js dosyası oluştururuz; marka renkleri, tipografi hiyerarşisi, shadow sistemleri ve custom utility'ler bu dosyada tanımlanır.
 
 **Design token entegrasyonu**: Tasarım ekiplerinin Figma'da kullandığı değişkenleri birebir Tailwind config'e aktarıyoruz. `colors.brand.primary`, `spacing.section`, `typography.heading` gibi semantic (anlamsal) tokenlar, tasarımcı-geliştirici arasındaki iletişim hatasını sıfırlar.
 

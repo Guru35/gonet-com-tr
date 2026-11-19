@@ -58,7 +58,7 @@ Bir hesap genellikle şu sebeplerle bozulur: koordinasyonsuz ekip değişiklikle
 
 <div class="gonet-stat-grid">
   <div class="stat is-primary">
-    <div class="n">220+</div>
+    <div class="n">190+</div>
     <div class="l">Audit tamamlanan<br>marka portföyü</div>
   </div>
   <div class="stat">
@@ -142,6 +142,6 @@ Audit sonuçlarını 40-50 sayfalık bir rapor + exec summary (yönetici özeti)
 
 ## Gonet ile çalışmak
 
-26 yıldır 220+ markanın Google Ads hesaplarını denetledik; ortalama audit süresi 7-10 iş günü, restorasyon 2-4 hafta. İlk görüşmede hesabınıza salt-okunur erişim (read-only access) talep ederiz, pre-audit sinyalleri 48 saat içinde paylaşırız. Bozuk hesap yapısı kaderiniz değil, çözülebilir bir teknik sorundur.
+26 yıldır 190+ markanın Google Ads hesaplarını denetledik; ortalama audit süresi 7-10 iş günü, restorasyon 2-4 hafta. İlk görüşmede hesabınıza salt-okunur erişim (read-only access) talep ederiz, pre-audit sinyalleri 48 saat içinde paylaşırız. Bozuk hesap yapısı kaderiniz değil, çözülebilir bir teknik sorundur.
 
 [İletişime geçin](/iletisim) — hesap sağlık kontrolü ile başlayalım.
