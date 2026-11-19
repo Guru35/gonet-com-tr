@@ -53,4 +53,8 @@ jobs:
           exit $FAIL
 
       - name: Astro build
+        # /guncellemeler üretici betiği yasaklı-ad listesi olmadan HATA verir (public depoda müşteri adı sızmasın).
+        # Liste GitHub Secret'tan gelir; değer hiçbir adımda yazdırılmaz (echo yok). Secret tanımlı değilse bu adım kırmızı çıkar (beklenen).
+        env:
+          GUNCELLEME_YASAKLI_ADLAR: ${{ secrets.GUNCELLEME_YASAKLI_ADLAR }}
         run: npm run build
