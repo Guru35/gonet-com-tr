@@ -46,7 +46,7 @@ Proje kapsamı:
 
 Bu proje, Gonet'in farklı bir avantajını gösterir: **teknoloji öncülüğü**.
 
-- **Google Ads'in Türkiye'deki ilk beta tester ajansı** — yeni özellikleri ilk biz deniyorduk
+- **Google Ads'in Türkiye'deki ilk beta tester ajansıydı** — yeni özellikleri ilk biz deniyorduk
 - **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)** — Google ile birinci elden iletişim
 - **Google Analytics sertifikası alan 2. Türk ajansı** — ölçüm + optimize disiplini
 
