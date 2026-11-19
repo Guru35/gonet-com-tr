@@ -69,44 +69,6 @@ const faq = faqSchema([
       "extraction-ready içerik formatı, semantic chunking. 2025-2026'da arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO " +
       "yetmiyor, ek olarak AEO/GEO denetimi gerek.",
   },
-  {
-    question: 'Bir denetim ne kadar sürer, ne zaman rapor alırım?',
-    answer:
-      "Express paket: 1 hafta — sözleşme + erişim + Tech-Auditor + 1 sayfalık öneri raporu. " +
-      "Standart paket: 2 hafta — Express + Common Crawl 5-kontrol + LLM probe (Claude ve Gemini) + 8 sayfalık tam rapor + drift baseline. " +
-      "Enterprise: aylık abonelik — Standart + her ay drift takibi + Cloudflare baseline + öncelikli implementation desteği.",
-  },
-  {
-    question: 'Hangi platformlar test ediliyor?',
-    answer:
-      "Erişim ve crawl katmanları için Common Crawl (CCBot), OpenAI (GPTBot, ChatGPT-User, OAI-SearchBot), Anthropic " +
-      "(ClaudeBot, anthropic-ai, Claude-Web), Google (Google-Extended, AI Overviews crawler), Perplexity (PerplexityBot, Perplexity-User), " +
-      "Meta, xAI, Apple test edilir. Researcher katmanında (Standart+) Claude ve Gemini ile gerçek soru-cevap probe yapılır.",
-  },
-  {
-    question: "Gonet bu hizmeti kendi sitesi üzerinde uyguluyor mu?",
-    answer:
-      "Evet — gonet.com.tr şu anda bu hizmetin canlı vitrini: Cloudflare AI Crawl Control baseline 2026-06-05'te alındı, " +
-      "Schema.org @graph (Organization + Person + WebSite + Service + FAQPage) 18+ tip kullanılıyor, llms.txt yayında. " +
-      "Bu sayfada açıkladığımız her tekniğin " +
-      "uygulamasını canlı görebilirsiniz. Hizmet metodolojisi vault'ta açık (audits/seo-llm/), denetim çıktıları " +
-      "compounding artifact: her yeni denetim önceki üzerine inşa eder.",
-  },
-  {
-    question: 'Bulduğunuz sorunları çözüm uygulamak da hizmete dahil mi?',
-    answer:
-      "Denetim → rapor + öneri kapsamı temel pakettedir. Uygulama (Schema.org @graph yazımı, llms.txt kurulumu, " +
-      "robots.txt/WAF açma, content rewrite, semantic chunking) Enterprise pakette dahildir. Express + Standart paketlerde " +
-      "uygulama ayrı saatli proje olarak teklifle çalışır. Tipik uygulama 2-4 hafta sürer.",
-  },
-  {
-    question: 'Fiyatlandırma nasıl?',
-    answer:
-      "Fiyatlandırma proje kapsamı + müşteri büyüklüğü + drift takip periyoduna göre özelleşir. " +
-      "Express: tek-seferlik, küçük ve orta ölçekli site için uygun. Standart: en yaygın paket, çoklu domain ya da büyük site için. " +
-      "Enterprise: aylık abonelik, sürekli takip + implementation desteği gerektiren kurumsal markalar için. " +
-      "Teklif için iletişim formundan bize ulaşın veya AI ile Tartış butonu ile konuyu açın.",
-  },
 ]);
 ---
 
