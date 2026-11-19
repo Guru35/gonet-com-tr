@@ -56,4 +56,4 @@ Turizm sektörü dijital reklamcılıkta üç kritik zorluğa sahip:
 2. **Karar süreci** — bir kullanıcı ortalama 38 farklı sitede arama yapar tatil rezervasyonundan önce
 3. **Trust** — online ödeme güvenliği, iade politikası, rezervasyon teyidi sürekli stres testinde
 
-Gonet'in **Google Ads beta tester ajansı** olması, turizm sektörünün dijital reklamcılığa açıldığı bu kritik dönemde yeni Google özelliklerini ilk kullanan ajans olmamızı sağladı.
+Gonet'in **Google Ads'in Türkiye'deki ilk beta tester ajansı** olması, turizm sektörünün dijital reklamcılığa açıldığı bu kritik dönemde yeni Google özelliklerini ilk kullanan ajans olmamızı sağladı.

@@ -27,7 +27,7 @@ Tüp bebek (IVF), Türkiye'nin sağlık turizminde en güçlü dikeylerinden bir
 
 ## Çözüm
 
-Gonet, **Türkiye'nin ilk tüp bebek Google Ads kampanyasını** Ege Tüp Bebek için tasarladı:
+Gonet, **sağlık alanında arama reklamı çalışmalarına başladı**:
 
 - **Etik + düzenleyici uyum** — sağlık beyanları sınırları içinde kalan, hassasiyetli reklam dili
 - **Hedef kitle segmentasyonu** — yaş, lokasyon, ilgi alanı bazlı dikkatli targeting
@@ -62,4 +62,4 @@ Sağlık reklamcılığında üç şey aynı anda yapılmalıdır:
 2. **Hassas dil + güven** — kaba pazarlama mantığı bu sektörde geri tepiyor
 3. **Google ile birinci elden ilişki** — yeni sağlık reklamcılığı politikaları sürekli değişiyor, ajansın Google ile doğrudan iletişim hattı kritik
 
-Gonet'in **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olması (bugünkü adıyla Google Partner)** ve **Google Ads beta tester avantajı**, sağlık politikalarındaki değişiklikleri ilk öğrenen ve uyumlanan ajans olmamızı sağladı.
+Gonet'in **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olması (bugünkü adıyla Google Partner)** ve **Google Ads'in Türkiye'deki ilk beta tester ajansı olması**, sağlık politikalarındaki değişiklikleri ilk öğrenen ve uyumlanan ajans olmamızı sağladı.
