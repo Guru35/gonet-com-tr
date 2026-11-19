@@ -215,13 +215,13 @@ const services = [
     slug: 'aeo-geo-denetimi',
     name: 'AEO/GEO Denetim Hizmeti',
     category: 'Yeni nesil arama',
-    highlight: 'ChatGPT, Claude, Perplexity, Gemini\'de markanız nasıl temsil ediliyor? Common Crawl 5-kontrollü framework + 4 platform LLM probe.',
+    highlight: 'Claude ve Gemini\'de markanız nasıl temsil ediliyor? Common Crawl 5-kontrollü framework + Claude ve Gemini ile LLM probe.',
     description:
-      'Klasik SEO denetiminin AI çağına evrilmiş hâli. Erişim katmanı (robots/WAF/CDN) → Crawl katmanı (Common Crawl) → Tech-Auditor (Schema.org/llms.txt) → Content-Auditor (extraction-ready) → Researcher (4 platform LLM probe + drift). Express (1 hafta), Standart (2 hafta), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).',
+      'Klasik SEO denetiminin AI çağına evrilmiş hâli. Erişim katmanı (robots/WAF/CDN) → Crawl katmanı (Common Crawl) → Tech-Auditor (Schema.org/llms.txt) → Content-Auditor (extraction-ready) → Researcher (Claude ve Gemini ile LLM probe + drift). Express (1 hafta), Standart (2 hafta), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).',
     deliverables: [
       'Common Crawl 5-kontrollü AI Visibility Audit',
       'Schema.org @graph + llms.txt entity authority denetimi',
-      '4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini)',
+      'LLM probe (Claude ve Gemini)',
       'Share-of-Model + Citation Rate + drift takibi',
       'Markdown + PDF rapor + Merhaba portal canlı dashboard (Enterprise)',
     ],
@@ -282,7 +282,7 @@ const faq = faqSchema([
   title={title}
   description={description}
   canonical={url}
-  schemas={[pageSchema, faq, ...serviceSchemas]}
+  schemas={[pageSchema, ...serviceSchemas]}
 >
   <section class="bg-white">
     <div class="max-w-4xl mx-auto px-4 md:px-6 pt-6 md:pt-16 pb-16">

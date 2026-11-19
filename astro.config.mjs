@@ -75,6 +75,12 @@ export default defineConfig({
         // canlıya çıkınca bu satır kaldırılır. (2026-06-12)
         !page.endsWith('/merhaba/') &&
         !page.endsWith('/merhaba'),
+      // Site haritası adresi sayfanın canonical'ı ile aynı olsun: canonical çizgisiz (BaseLayout, Astro.url.pathname),
+      // harita çizgili üretiyordu → sondaki «/» atılır (ana sayfa «/» kalır). Canonical'a dokunulmaz.
+      serialize: (item) => {
+        const u = new URL(item.url);
+        return u.pathname === '/' ? item : { ...item, url: item.url.replace(/\/$/, '') };
+      },
     }),
   ],
 });
