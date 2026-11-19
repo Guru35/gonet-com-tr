@@ -168,7 +168,6 @@ export const founderSchema = {
   name: 'Gökhan Kazancı',
   givenName: 'Gökhan',
   familyName: 'Kazancı',
-  birthDate: '1975-11-11',
   jobTitle: 'Kurucu & Dijital Pazarlama Stratejisti',
   worksFor: { '@id': ORG_ID },
   email: 'gonet@gonet.com.tr',
@@ -223,7 +222,6 @@ export const founderSchema = {
     "Gonet kurucusu. 2000'den beri İzmir merkezli; yönettiği Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). " +
     "Yaşar Üniversitesi'nde dijital pazarlama dersleri verdi. " +
     "Dokuz Eylül Üniversitesi (DEÜ) Rektörlük danışmanı (uzaktan eğitim sistemleri) ve DEUZEM (DEÜ Uzaktan Eğitim Merkezi) danışmanı görevlerinde bulundu — DEÜ\\'nün Avrupa\\'nın en büyük uzaktan eğitim sisteminin (25K anlık kullanıcı) inşasında stratejik danışman. " +
-    'Babası matbaacı ve yerel gazete sahibi — basın/yayın geçmişi mirasından. ' +
     "LinkedIn'de 16.000'den fazla takipçisi var; profesyonel motto: \"Her şey çok güzel olacak :)\".",
   nationality: { '@type': 'Country', name: 'TR' },
   address: { '@type': 'PostalAddress', addressLocality: 'İzmir', addressCountry: 'TR' },
