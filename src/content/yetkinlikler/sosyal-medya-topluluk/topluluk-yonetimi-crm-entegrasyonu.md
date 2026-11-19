@@ -189,10 +189,10 @@ Gonet'in yönettiği fintech markasında (2023 Q2-Q4), LinkedIn yorumlarından g
 
 ## İlgili yetkinlikler
 
-- [Sosyal dinleme + sentiment analizi](/yetkinlikler/sosyal-medya-topluluk/sosyal-dinleme-sentiment-analizi) — CRM'e aktarılacak etkileşimlerin tonunu ve aciliyetini belirler
-- [Kullanıcı üretimli içerik (UGC) kampanyaları](/yetkinlikler/sosyal-medya-topluluk/ugc-kampanyalari) — UGC katkıda bulunanlar CRM'de 'Brand Advocate' segmentine eklenir
-- [Marketing automation (HubSpot, Marketo)](/yetkinlikler/veri-analitik-otomasyon/marketing-automation) — CRM entegrasyonunun e-posta ve lead nurturing ile birleştirilmesi
-- [Chatbot + canlı destek entegrasyonu](/yetkinlikler/sosyal-medya-topluluk/chatbot-canli-destek) — Sosyal platformlardaki bot yanıtları da CRM'e kaydedilir
+- Sosyal dinleme + sentiment analizi — CRM'e aktarılacak etkileşimlerin tonunu ve aciliyetini belirler
+- Kullanıcı üretimli içerik (UGC) kampanyaları — UGC katkıda bulunanlar CRM'de 'Brand Advocate' segmentine eklenir
+- Marketing automation (HubSpot, Marketo) — CRM entegrasyonunun e-posta ve lead nurturing ile birleştirilmesi
+- Chatbot + canlı destek entegrasyonu — Sosyal platformlardaki bot yanıtları da CRM'e kaydedilir
 
 ## Gonet ile çalışmak
 

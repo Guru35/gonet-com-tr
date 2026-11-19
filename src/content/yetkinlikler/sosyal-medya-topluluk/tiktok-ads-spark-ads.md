@@ -122,10 +122,10 @@ Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 
 ## İlgili yetkinlikler
 
-- [Instagram Reels Stratejisi](/yetkinlikler/sosyal-medya-topluluk/instagram-reels-stratejisi): TikTok creative'leri Reels'e repurpose edilebilir, Gonet aynı videonun her iki platformda optimize versiyonunu çalıştırır.
-- [Influencer Marketing](/yetkinlikler/sosyal-medya-topluluk/influencer-marketing): Spark Ads influencer işbirliklerinin paid amplification ayağıdır.
-- [Video Production & Editing](/yetkinlikler/sosyal-medya-topluluk/video-production-editing): TikTok formatında native görünen video üretimi kritik, Gonet ekibi 15sn hook test videolarını 24 saat içinde deliver eder.
-- [Sosyal Medya Analytics](/yetkinlikler/sosyal-medya-topluluk/sosyal-medya-analytics): TikTok Ads verisi GA4 + LookerStudio dashboard'larına entegre edilir, cross-platform performans karşılaştırması yapılır.
+- Instagram Reels Stratejisi: TikTok creative'leri Reels'e repurpose edilebilir, Gonet aynı videonun her iki platformda optimize versiyonunu çalıştırır.
+- [Influencer Marketing](/yetenekler/sosyal-medya-topluluk/influencer-marketing): Spark Ads influencer işbirliklerinin paid amplification ayağıdır.
+- Video Production & Editing: TikTok formatında native görünen video üretimi kritik, Gonet ekibi 15sn hook test videolarını 24 saat içinde deliver eder.
+- Sosyal Medya Analytics: TikTok Ads verisi GA4 + LookerStudio dashboard'larına entegre edilir, cross-platform performans karşılaştırması yapılır.
 
 ## Gonet ile çalışmak
 

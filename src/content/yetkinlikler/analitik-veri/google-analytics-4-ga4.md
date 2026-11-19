@@ -147,10 +147,10 @@ Gonet ekibi GA4 Individual Qualification (Google Analytics sertifikası) sahibi,
 
 ## İlgili yetkinlikler
 
-- [Google Tag Manager (GTM)](/yetkinlikler/analitik-veri/google-tag-manager) — GA4 event'lerinin kaynak katmanı, tüm tracking GTM üzerinden.
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/analitik-veri/conversion-rate-optimization) — GA4 funnel/exploration raporları CRO hipotezlerinin veri kaynağı.
-- [BigQuery & Veri Ambarı](/yetkinlikler/analitik-veri/bigquery-veri-ambari) — GA4 raw data export, SQL ile custom analiz.
-- [Server-Side Tracking](/yetkinlikler/analitik-veri/server-side-tracking) — GA4 measurement protocol, first-party data kalitesi.
+- Google Tag Manager (GTM) — GA4 event'lerinin kaynak katmanı, tüm tracking GTM üzerinden.
+- Conversion Rate Optimization (CRO) — GA4 funnel/exploration raporları CRO hipotezlerinin veri kaynağı.
+- BigQuery & Veri Ambarı — GA4 raw data export, SQL ile custom analiz.
+- Server-Side Tracking — GA4 measurement protocol, first-party data kalitesi.
 
 ## Gonet ile çalışmak
 

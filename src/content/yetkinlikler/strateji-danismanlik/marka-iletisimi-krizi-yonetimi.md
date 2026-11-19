@@ -115,10 +115,10 @@ Gonet, 2023'te bir sağlık grubunun karşılaştığı yanlış hasta teşhisi 
 
 Marka iletişimi krizi yönetimi, Gonet'in diğer stratejik yetkinlikleri ile entegre çalışır:
 
-- [Dijital marka dönüşüm stratejisi](/yetkinlikler/dijital-marka-donusum-stratejisi) — Kriz sonrası marka algısının yeniden inşası için uzun vadeli planlama
-- [Sosyal medya strateji danışmanlığı](/yetkinlikler/sosyal-medya-strateji-danismanligi) — Kriz anında hangi sosyal kanalda nasıl konuşulacağının belirlenmesi
-- [E-ticaret büyüme danışmanlığı](/yetkinlikler/e-ticaret-buyume-danismanligi) — Ürün krizi sonrası satış kanallarında güven inşası
-- [Dijital kampanya planlama](/yetkinlikler/dijital-kampanya-planlama) — Kriz sonrası itibar düzeltme kampanyalarının tasarımı
+- Dijital marka dönüşüm stratejisi — Kriz sonrası marka algısının yeniden inşası için uzun vadeli planlama
+- Sosyal medya strateji danışmanlığı — Kriz anında hangi sosyal kanalda nasıl konuşulacağının belirlenmesi
+- E-ticaret büyüme danışmanlığı — Ürün krizi sonrası satış kanallarında güven inşası
+- Dijital kampanya planlama — Kriz sonrası itibar düzeltme kampanyalarının tasarımı
 
 ## Gonet ile çalışmak
 

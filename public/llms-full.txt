@@ -107,10 +107,10 @@ Her yetkinlik sayfası, bu üç katmanın en az ikisini içerecek şekilde tasar
 
 ## İlgili yetkinlikler
 
-- [Llms.txt protokol uygulaması](/yetkinlikler/aeo-geo-yeni-nesil-arama/llms-txt-protokol-uygulamasi): AI crawler'lar için citation yüzeyini tanımlayan standardizasyon.
-- [Üretken arama motoru optimizasyonu (GEO)](/yetkinlikler/aeo-geo-yeni-nesil-arama/uretken-arama-motoru-optimizasyonu-geo): Citation surface engineering'in parçası olduğu üst stratejik çerçeve.
-- [Schema.org ve yapılandırılmış veri uygulaması](/yetkinlikler/aeo-geo-yeni-nesil-arama/schema-org-yapilandirilmis-veri): Quotation ve statistics katmanlarını LLM'lere kodlamak için kullanılan teknik altyapı.
-- [Veri destekli cevap optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/veri-destekli-cevap-optimizasyonu): Statistics layer'ın içerik stratejisi boyutunu ele alan yetkinlik.
+- Llms.txt protokol uygulaması: AI crawler'lar için citation yüzeyini tanımlayan standardizasyon.
+- Üretken arama motoru optimizasyonu (GEO): Citation surface engineering'in parçası olduğu üst stratejik çerçeve.
+- Schema.org ve yapılandırılmış veri uygulaması: Quotation ve statistics katmanlarını LLM'lere kodlamak için kullanılan teknik altyapı.
+- Veri destekli cevap optimizasyonu: Statistics layer'ın içerik stratejisi boyutunu ele alan yetkinlik.
 
 ## Gonet ile çalışmak
 
@@ -195,10 +195,10 @@ Gonet, her marka için `/llms.txt` veya `/ai-policy.md` dosyası oluşturur — 
 
 ## İlgili yetkinlikler
 
-- [llms.txt standart uygulaması](/yetkinlikler/llms-txt-standart-uygulamasi) — LLM'lerin crawl/RAG sürecinde kullanacağı markdown policy dosyası oluşturma.
-- [AI crawler yönetimi (robots.txt stratejisi)](/yetkinlikler/ai-crawler-yonetimi) — GPTBot, ClaudeBot, CCBot için granüler erişim kuralları.
-- [Retrieval-Augmented Generation (RAG) uyumluluğu](/yetkinlikler/rag-uyumlulugu) — AI sistemlerinin canlı veri çekimi sırasında içeriğinizi bulup kullanmasını sağlama.
-- [Schema.org ile varlık işaretleme](/yetkinlikler/schema-org-varlik-isaretleme) — AI'ın marka/ürün/hizmet bağlamını öğrenmesi için yapısal veri.
+- llms.txt standart uygulaması — LLM'lerin crawl/RAG sürecinde kullanacağı markdown policy dosyası oluşturma.
+- AI crawler yönetimi (robots.txt stratejisi) — GPTBot, ClaudeBot, CCBot için granüler erişim kuralları.
+- Retrieval-Augmented Generation (RAG) uyumluluğu — AI sistemlerinin canlı veri çekimi sırasında içeriğinizi bulup kullanmasını sağlama.
+- Schema.org ile varlık işaretleme — AI'ın marka/ürün/hizmet bağlamını öğrenmesi için yapısal veri.
 
 ## Gonet ile çalışmak
 
@@ -271,10 +271,10 @@ Gonet'in content CMS'ine entegre extraction checker tool'u, editörlere real-tim
 
 ## İlgili yetkinlikler
 
-- [RAG Optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/rag-optimizasyonu): Extraction-ready içerik, RAG sistemlerinin veri çekme sürecinde doğru chunk'ları bulmasını sağlar.
-- [llms.txt Entegrasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/llms-txt-entegrasyonu): llms.txt ile içerik discovery artarken, extraction-readiness içeriğin kullanılabilirliğini garantiler.
-- [Yapılandırılmış Veri (Schema.org)](/yetkinlikler/aeo-geo-yeni-nesil-arama/yapilandirilmis-veri-schema): JSON-LD FAQ/HowTo Schema'ları, extraction-ready içeriğin LLM'ler tarafından öncelikle işlenmesini sağlar.
-- [AI Overviews Optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/ai-overviews-optimizasyonu): Extraction-ready yapı, Google AI Overviews'da kaynak gösterilme şansını 3-5 kat artırır.
+- RAG Optimizasyonu: Extraction-ready içerik, RAG sistemlerinin veri çekme sürecinde doğru chunk'ları bulmasını sağlar.
+- llms.txt Entegrasyonu: llms.txt ile içerik discovery artarken, extraction-readiness içeriğin kullanılabilirliğini garantiler.
+- Yapılandırılmış Veri (Schema.org): JSON-LD FAQ/HowTo Schema'ları, extraction-ready içeriğin LLM'ler tarafından öncelikle işlenmesini sağlar.
+- AI Overviews Optimizasyonu: Extraction-ready yapı, Google AI Overviews'da kaynak gösterilme şansını 3-5 kat artırır.
 
 ## Gonet ile çalışmak
 
@@ -383,10 +383,10 @@ Teknik uygulama: llms.txt dosyasını CDN edge'de cache'leriz (CloudFlare, AWS C
 
 ## İlgili yetkinlikler
 
-- [Schema.org işaretlemesi](/yetkinlikler/schema-org-isaretlemesi): llms.txt site yapısını tanıtırken, Schema sayfa düzeyinde anlam katar
-- [Extraction-ready içerik](/yetkinlikler/extraction-ready-icerik): llms.txt'de listelenen sayfaların içeriği LLM'lerin kolayca çıkarabileceği formatta olmalı
-- [RAG optimizasyonu](/yetkinlikler/rag-optimizasyonu): llms.txt, Retrieval-Augmented Generation sürecinde sitenizin doğru parçalarının alınmasını sağlar
-- [AI Overview optimizasyonu](/yetkinlikler/ai-overview-optimizasyonu): Google'ın AI yanıtlarında görünürlük için llms.txt tamamlayıcı rol oynar
+- Schema.org işaretlemesi: llms.txt site yapısını tanıtırken, Schema sayfa düzeyinde anlam katar
+- Extraction-ready içerik: llms.txt'de listelenen sayfaların içeriği LLM'lerin kolayca çıkarabileceği formatta olmalı
+- RAG optimizasyonu: llms.txt, Retrieval-Augmented Generation sürecinde sitenizin doğru parçalarının alınmasını sağlar
+- AI Overview optimizasyonu: Google'ın AI yanıtlarında görünürlük için llms.txt tamamlayıcı rol oynar
 
 ## Gonet ile çalışmak
 
@@ -563,10 +563,10 @@ Bu süreç, llms.txt dosyasındaki chunking-hint direktifleriyle desteklenir:
 
 ## İlgili yetkinlikler
 
-- [Extraction-ready içerik yazımı](/yetkinlikler/extraction-ready-icerik-yazimi): Chunk içeriğinin LLM'ler tarafından doğrudan kullanılabilir formatta yazılması.
-- [Vector search optimizasyonu](/yetkinlikler/vector-search-optimizasyonu): Chunk embedding'lerinin arama vektör uzayında maksimum alakayı yakalaması.
-- [JSON-LD yapılandırılmış veri](/yetkinlikler/json-ld-yapilandirilmis-veri): Chunk'ları Schema.org entity'leriyle zenginleştirme, LLM context kalitesini artırır.
-- [llms.txt standardı uygulaması](/yetkinlikler/llms-txt-standardi-uygulamasi): Chunk sınırları ve öncelik kurallarının bot'lara açık iletilmesi.
+- Extraction-ready içerik yazımı: Chunk içeriğinin LLM'ler tarafından doğrudan kullanılabilir formatta yazılması.
+- Vector search optimizasyonu: Chunk embedding'lerinin arama vektör uzayında maksimum alakayı yakalaması.
+- JSON-LD yapılandırılmış veri: Chunk'ları Schema.org entity'leriyle zenginleştirme, LLM context kalitesini artırır.
+- llms.txt standardı uygulaması: Chunk sınırları ve öncelik kurallarının bot'lara açık iletilmesi.
 
 ## Gonet ile çalışmak
 
@@ -633,10 +633,10 @@ Gonet ayrıca Google Search Console (Crawl Stats raporu) ile log analizini çapr
 
 ## İlgili yetkinlikler
 
-- [Teknik SEO denetimi](/yetkinlikler/seo-klasik-arama/teknik-seo-denetimi): Crawl budget optimizasyonu teknik SEO'nun alt kümesidir, site hızı, mobil uyumluluk, yapısal veri ile birlikte yürür.
-- [JavaScript SEO + rendering stratejileri](/yetkinlikler/seo-klasik-arama/javascript-seo-rendering): Client-side rendering kullanıyorsanız, Googlebot'un rendering bütçesi ayrı bir katmandır. Log analizi rendering isteklerini de gösterir.
-- [International SEO + hreflang](/yetkinlikler/seo-klasik-arama/international-seo-hreflang): Çok dilli sitelerde her dil/bölge versiyonu ayrı crawl budget alır. Log analizi hangi bölgelerin yetersiz tarandığını gösterir.
-- [Kurumsal SEO stratejisi](/yetkinlikler/seo-klasik-arama/kurumsal-seo-stratejisi): Crawl budget yönetimi büyük kurumsal sitelerin omurgasıdır, birden fazla alt domain ve milyonlarca sayfa söz konusuysa zorunludur.
+- Teknik SEO denetimi: Crawl budget optimizasyonu teknik SEO'nun alt kümesidir, site hızı, mobil uyumluluk, yapısal veri ile birlikte yürür.
+- JavaScript SEO + rendering stratejileri: Client-side rendering kullanıyorsanız, Googlebot'un rendering bütçesi ayrı bir katmandır. Log analizi rendering isteklerini de gösterir.
+- International SEO + hreflang: Çok dilli sitelerde her dil/bölge versiyonu ayrı crawl budget alır. Log analizi hangi bölgelerin yetersiz tarandığını gösterir.
+- Kurumsal SEO stratejisi: Crawl budget yönetimi büyük kurumsal sitelerin omurgasıdır, birden fazla alt domain ve milyonlarca sayfa söz konusuysa zorunludur.
 
 ## Gonet ile çalışmak
 
@@ -703,10 +703,10 @@ Brand mention tracking (marka bahis takibi) ve unlinked mention recovery (bağla
 
 ## İlgili yetkinlikler
 
-- [Yapılandırılmış Veri Uygulamaları](/yetkinlikler/yapilandirilmis-veri): E-E-A-T sinyallerinin Schema.org ile teknik kodlanması
-- [Author Authority Building](/yetkinlikler/author-authority): Bireysel yazar entity'lerinin güçlendirilmesi stratejileri
-- [Content Governance Framework](/yetkinlikler/content-governance): Editorial process ve quality control süreçlerinin yapılandırılması
-- [Entity SEO](/yetkinlikler/entity-seo): Knowledge Graph'ta varlık tanıma ve ilişkilendirme teknikleri
+- Yapılandırılmış Veri Uygulamaları: E-E-A-T sinyallerinin Schema.org ile teknik kodlanması
+- Author Authority Building: Bireysel yazar entity'lerinin güçlendirilmesi stratejileri
+- Content Governance Framework: Editorial process ve quality control süreçlerinin yapılandırılması
+- Entity SEO: Knowledge Graph'ta varlık tanıma ve ilişkilendirme teknikleri
 
 ## Gonet ile çalışmak
 
@@ -759,10 +759,10 @@ Gonet, 2008'den beri Avrupa diaspora pazarlarında aktif. Almanya ve Hollanda i�
 
 ## İlgili yetkinlikler
 
-- [Technical SEO — Crawl, Index, Site Architecture](/yetkinlikler/technical-seo-crawl-index)
-- [Schema.org Structured Data — JSON-LD İşaretleme](/yetkinlikler/schema-org-structured-data)
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/conversion-rate-optimization)
-- [Google Search Console & Analytics 4 Uzmanlığı](/yetkinlikler/google-search-console-analytics)
+- Technical SEO — Crawl, Index, Site Architecture
+- Schema.org Structured Data — JSON-LD İşaretleme
+- Conversion Rate Optimization (CRO)
+- Google Search Console & Analytics 4 Uzmanlığı
 
 ## Gonet ile çalışmak
 
@@ -813,10 +813,10 @@ Gonet, müşteri CMS'ine (WordPress, Drupal, custom) özel internal link suggest
 
 ## İlgili yetkinlikler
 
-- [Teknik SEO + site sağlığı](/yetkinlikler/teknik-seo-site-sagligi): On-page mimarinin crawl ve indexlenebilir altyapıya ihtiyacı vardır. Core Web Vitals, robots.txt, XML sitemap optimizasyonu tamamlayıcıdır.
-- [Schema.org + zengin sonuçlar](/yetkinlikler/schema-zengin-sonuclar): Pillar-cluster sayfalarına Article, FAQPage, BreadcrumbList schema'sı eklemek, SERP görünürlüğünü artırır.
-- [Lokal SEO + Google Business Profile](/yetkinlikler/lokal-seo-google-business): Çok lokasyonlu işletmelerde her lokasyon için pillar-cluster adaptasyonu, geo-specific authority inşa eder.
-- [Backlink stratejisi + dijital PR](/yetkinlikler/backlink-stratejisi-dijital-pr): Yüksek authority pillar sayfalar, backlink kazanımında %60 daha başarılıdır. İçerik mimarisi, outreach hedeflerini netleştirir.
+- Teknik SEO + site sağlığı: On-page mimarinin crawl ve indexlenebilir altyapıya ihtiyacı vardır. Core Web Vitals, robots.txt, XML sitemap optimizasyonu tamamlayıcıdır.
+- Schema.org + zengin sonuçlar: Pillar-cluster sayfalarına Article, FAQPage, BreadcrumbList schema'sı eklemek, SERP görünürlüğünü artırır.
+- Lokal SEO + Google Business Profile: Çok lokasyonlu işletmelerde her lokasyon için pillar-cluster adaptasyonu, geo-specific authority inşa eder.
+- Backlink stratejisi + dijital PR: Yüksek authority pillar sayfalar, backlink kazanımında %60 daha başarılıdır. İçerik mimarisi, outreach hedeflerini netleştirir.
 
 ## Gonet ile çalışmak
 
@@ -868,10 +868,10 @@ Bir örnek: ISO 9001 belgelendirme firması için `Course` ve `Event` schema ile
 
 Schema.org implementasyonu şu yetkinliklerle sinerji yaratır:
 
-- **[Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu):** JSON-LD render performansı INP (Interaction to Next Paint) skoruna etki edebilir; asenkron yükleme optimizasyonu gerekli.
-- **[Google Search Console analitik](/yetkinlikler/google-search-console-analitik):** Enhancement reports, zengin sonuç hatalarını takip; impression-CTR değişimlerini ölçme.
-- **[Teknik SEO denetim](/yetkinlikler/teknik-seo-denetim):** Schema, crawl-index-render döngüsünün son katmanı; eksik canonical veya robots.txt blokajı schema'yı etkisiz bırakır.
-- **[E-ticaret SEO](/yetkinlikler/eticaret-seo):** Product, Offer, Review schema e-ticaret SEO'nun omurgası; kategori sayfalarında ItemList markup tamamlayıcı.
+- **Core Web Vitals optimizasyonu:** JSON-LD render performansı INP (Interaction to Next Paint) skoruna etki edebilir; asenkron yükleme optimizasyonu gerekli.
+- **Google Search Console analitik:** Enhancement reports, zengin sonuç hatalarını takip; impression-CTR değişimlerini ölçme.
+- **Teknik SEO denetim:** Schema, crawl-index-render döngüsünün son katmanı; eksik canonical veya robots.txt blokajı schema'yı etkisiz bırakır.
+- **E-ticaret SEO:** Product, Offer, Review schema e-ticaret SEO'nun omurgası; kategori sayfalarında ItemList markup tamamlayıcı.
 
 ## Gonet ile çalışmak
 
@@ -929,10 +929,10 @@ Gonet'in tipik bir optimizasyon projesi sonuçları: LCP ortalama %45-60 iyileş
 
 ## İlgili yetkinlikler
 
-- [JavaScript & Front-end Optimizasyonu](/yetkinlikler/seo-klasik-arama/javascript-frontend-optimizasyon) — Code splitting, lazy loading, bundle boyut azaltma
-- [Mobil SEO & Responsive Tasarım](/yetkinlikler/seo-klasik-arama/mobil-seo-responsive) — Viewport yapılandırma, touch target boyutları
-- [Sayfa Hızı & Performans Optimizasyonu](/yetkinlikler/seo-klasik-arama/sayfa-hizi-performans) — Server response time, caching stratejileri
-- [Google Analytics 4 & GTM Kurulum](/yetkinlikler/veri-analitics/ga4-gtm-kurulum) — Core Web Vitals custom event tracking
+- JavaScript & Front-end Optimizasyonu — Code splitting, lazy loading, bundle boyut azaltma
+- Mobil SEO & Responsive Tasarım — Viewport yapılandırma, touch target boyutları
+- Sayfa Hızı & Performans Optimizasyonu — Server response time, caching stratejileri
+- Google Analytics 4 & GTM Kurulum — Core Web Vitals custom event tracking
 
 ## Gonet ile çalışmak
 
@@ -981,10 +981,10 @@ Tüm kanallar, ortak UTM + CRM entegrasyon üzerinden izlenir. Gonet dashboard'u
 
 ## İlgili yetkinlikler
 
-- [LinkedIn Ads stratejisi](/yetkinlikler/google-ads-sem/linkedin-ads-stratejisi): ABM'nin LinkedIn ayağı, audience targeting + creative stratejisi.
-- [Google Ads Customer Match](/yetkinlikler/google-ads-sem/customer-match): E-posta listeleriyle display/search/Gmail remarketing, ABM'de Google ayağı.
-- [Marketing automation entegrasyonu](/yetkinlikler/google-ads-sem/marketing-automation): HubSpot/Pardot/ActiveCampaign ile reklam platform senkronizasyonu, ABM tetikleyici altyapı.
-- [CRM-reklam entegrasyonu](/yetkinlikler/google-ads-sem/crm-reklam-entegrasyonu): Salesforce/Dynamics 365 ile closed-loop reporting, ABM ROI ölçümü.
+- LinkedIn Ads stratejisi: ABM'nin LinkedIn ayağı, audience targeting + creative stratejisi.
+- Google Ads Customer Match: E-posta listeleriyle display/search/Gmail remarketing, ABM'de Google ayağı.
+- Marketing automation entegrasyonu: HubSpot/Pardot/ActiveCampaign ile reklam platform senkronizasyonu, ABM tetikleyici altyapı.
+- CRM-reklam entegrasyonu: Salesforce/Dynamics 365 ile closed-loop reporting, ABM ROI ölçümü.
 
 ## Gonet ile çalışmak
 
@@ -1045,10 +1045,10 @@ Bu etiketler, 10+ ayrı kampanya segmentini tek feed'den besleyerek her segmente
 
 ## İlgili yetkinlikler
 
-- [Performance Max (PMax) Kampanya Yönetimi](/yetkinlikler/google-ads-sem/performance-max-pmax-kampanya-yonetimi): PMax, Shopping feed'ini tüm Google envanterine yayar; feed kalitesi PMax performansını doğrudan etkiler.
-- [Google Ads Veri & Ölçümleme Altyapısı](/yetkinlikler/google-ads-sem/google-ads-veri-olcumleme-altyapisi): Conversion tracking (dönüşüm izleme) ve değer ataması, feed segmentlerinin ROAS analizini mümkün kılar.
-- [Dinamik Remarketing Kampanyaları](/yetkinlikler/google-ads-sem/dinamik-remarketing-kampanyalari): Aynı feed, Display ve YouTube remarketing kampanyalarında kişiselleştirilmiş ürün gösterimi için kullanılır.
-- [E-ticaret GA4 & Ölçümleme Sistemleri](/yetkinlikler/veri-analitics/e-ticaret-ga4-olcumleme-sistemleri): Feed performansı GA4 e-ticaret raporlarıyla birleştirilerek ürün düzeyinde karlılık analizi yapılır.
+- Performance Max (PMax) Kampanya Yönetimi: PMax, Shopping feed'ini tüm Google envanterine yayar; feed kalitesi PMax performansını doğrudan etkiler.
+- Google Ads Veri & Ölçümleme Altyapısı: Conversion tracking (dönüşüm izleme) ve değer ataması, feed segmentlerinin ROAS analizini mümkün kılar.
+- Dinamik Remarketing Kampanyaları: Aynı feed, Display ve YouTube remarketing kampanyalarında kişiselleştirilmiş ürün gösterimi için kullanılır.
+- E-ticaret GA4 & Ölçümleme Sistemleri: Feed performansı GA4 e-ticaret raporlarıyla birleştirilerek ürün düzeyinde karlılık analizi yapılır.
 
 ## Gonet ile çalışmak
 
@@ -1108,10 +1108,10 @@ Audit sonuçlarını 40-50 sayfalık bir rapor + exec summary (yönetici özeti)
 
 ## İlgili yetkinlikler
 
-- [Dönüşüm optimizasyonu & CRO](/yetkinlikler/google-ads-sem/donusum-optimizasyonu-cro): Restorasyon sonrası LP iyileştirmeleri dönüşüm oranını katlayabilir.
-- [Remarketing & audience stratejileri](/yetkinlikler/google-ads-sem/remarketing-audience-stratejileri): Audit, kullanılmayan veya hatalı yapılandırılmış audience segmentlerini açığa çıkarır.
-- [Shopping kampanyaları & feed optimizasyonu](/yetkinlikler/google-ads-sem/shopping-feed-optimizasyonu): E-ticaret hesaplarında product feed hatası en sık restorasyon sebebidir.
-- [Rekabet analizi & pazar istihbaratı](/yetkinlikler/google-ads-sem/rekabet-analizi-pazar-istihbarati): Audit sırasında rakip stratejilerini benchmark ederiz, restorasyon planına dahil ederiz.
+- Dönüşüm optimizasyonu & CRO: Restorasyon sonrası LP iyileştirmeleri dönüşüm oranını katlayabilir.
+- Remarketing & audience stratejileri: Audit, kullanılmayan veya hatalı yapılandırılmış audience segmentlerini açığa çıkarır.
+- Shopping kampanyaları & feed optimizasyonu: E-ticaret hesaplarında product feed hatası en sık restorasyon sebebidir.
+- Rekabet analizi & pazar istihbaratı: Audit sırasında rakip stratejilerini benchmark ederiz, restorasyon planına dahil ederiz.
 
 ## Gonet ile çalışmak
 
@@ -1182,10 +1182,10 @@ Gonet'in Google Premier Partner statüsü, beta özelliklerine erken erişim sa�
 
 ## İlgili yetkinlikler
 
-- [Google Ads dönüşüm takibi](/yetkinlikler/google-ads-donusum-takibi): PMax'in temel gereksinimi doğru conversion tracking. GA4 + server-side tagging uygulamaları.
-- [Google Shopping kampanyaları](/yetkinlikler/google-shopping-kampanyalari): PMax, Shopping Feed optimizasyonuna bağımlıdır. Ürün data quality kritik.
-- [Hedef kitle segmentasyonu](/yetkinlikler/hedef-kitle-segmentasyonu): Audience signal stratejisinin temeli, GA4 ve CRM verilerinden segment oluşturma.
-- [Video reklam stratejisi](/yetkinlikler/video-reklam-stratejisi): PMax asset group'larında video varlıklarının performans etkisi ve üretim metodolojisi.
+- Google Ads dönüşüm takibi: PMax'in temel gereksinimi doğru conversion tracking. GA4 + server-side tagging uygulamaları.
+- Google Shopping kampanyaları: PMax, Shopping Feed optimizasyonuna bağımlıdır. Ürün data quality kritik.
+- Hedef kitle segmentasyonu: Audience signal stratejisinin temeli, GA4 ve CRM verilerinden segment oluşturma.
+- Video reklam stratejisi: PMax asset group'larında video varlıklarının performans etkisi ve üretim metodolojisi.
 
 ## Gonet ile çalışmak
 
@@ -1236,10 +1236,10 @@ Smart Bidding (Akıllı Teklif Verme), Google Ads'in makine öğrenmesi algoritm
 
 ## İlgili yetkinlikler
 
-- [Performance Max Kampanya Yönetimi](/yetkinlikler/google-ads-sem/performance-max-kampanya-yonetimi) – Smart Bidding'in tüm Google envanterinde (Arama, Display, YouTube, Shopping, Discover) otomatik genişlemesi.
-- [Google Analytics 4 E-ticaret İzleme](/yetkinlikler/analitik-olcumleme/google-analytics-4-e-ticaret-izleme) – GA4'ten gelir ve ürün verisi Google Ads'e aktarılarak Smart Bidding beslenir.
-- [Dönüşüm Oranı Optimizasyonu (CRO)](/yetkinlikler/analitik-olcumleme/donusum-orani-optimizasyonu-cro) – Daha yüksek dönüşüm kalitesi, Smart Bidding öğrenme süresini kısaltır.
-- [Remarketing ve Kitle Segmentasyonu](/yetkinlikler/google-ads-sem/remarketing-kitle-segmentasyonu) – Audience sinyalleri Smart Bidding'e ek bağlam sağlar.
+- Performance Max Kampanya Yönetimi – Smart Bidding'in tüm Google envanterinde (Arama, Display, YouTube, Shopping, Discover) otomatik genişlemesi.
+- Google Analytics 4 E-ticaret İzleme – GA4'ten gelir ve ürün verisi Google Ads'e aktarılarak Smart Bidding beslenir.
+- Dönüşüm Oranı Optimizasyonu (CRO) – Daha yüksek dönüşüm kalitesi, Smart Bidding öğrenme süresini kısaltır.
+- Remarketing ve Kitle Segmentasyonu – Audience sinyalleri Smart Bidding'e ek bağlam sağlar.
 
 ## Gonet ile çalışmak
 
@@ -1283,10 +1283,10 @@ Performance Max for video kampanyalarında conversion goals (dönüşüm hedefle
 
 ## İlgili yetkinlikler
 
-- [Performance Max kampanyaları](/yetkinlikler/google-ads-sem/performance-max): Video varlıklarının tüm Google envanterinde otomatik optimizasyonu
-- [Display reklamcılığı](/yetkinlikler/google-ads-sem/display-reklamciligi): GDN (Google Display Network) ile YouTube dışı görsel kampanyalar
-- [Dönüşüm takibi ve GA4 entegrasyonu](/yetkinlikler/google-ads-sem/donusum-takibi-ga4): Video etkileşimlerinin conversion path (dönüşüm yolu) analizinde kullanılması
-- [Remarketing stratejileri](/yetkinlikler/google-ads-sem/remarketing): Video izleyicilerini özel kitlelere dönüştürerek tekrar hedefleme
+- Performance Max kampanyaları: Video varlıklarının tüm Google envanterinde otomatik optimizasyonu
+- Display reklamcılığı: GDN (Google Display Network) ile YouTube dışı görsel kampanyalar
+- Dönüşüm takibi ve GA4 entegrasyonu: Video etkileşimlerinin conversion path (dönüşüm yolu) analizinde kullanılması
+- Remarketing stratejileri: Video izleyicilerini özel kitlelere dönüştürerek tekrar hedefleme
 
 ## Gonet ile çalışmak
 
@@ -1363,10 +1363,10 @@ Gonet, özellikle düşük trafikli siteler için Bayesian yaklaşım önerir �
 
 A/B test & deney tasarımı şu yetkinliklerle bütünleşir:
 
-- **[Funnel & dönüşüm analizi](/yetkinlikler/funnel-donusum-analizi)**: Darboğazların tespit edilmesi, test hipotezlerinin kaynağıdır
-- **[Kullanıcı davranış analizi](/yetkinlikler/kullanici-davranis-analizi)**: Heatmap, session recording ile test fikirleri oluşturulur
-- **[Google Analytics 4 uygulama](/yetkinlikler/google-analytics-4)**: Test sonuçlarının segmentlere göre raporlanması için event tracking yapılandırması
-- **[CRO (Conversion Rate Optimization)](/yetkinlikler/cro-optimizasyonu)**: A/B test, CRO döngüsünün uygulama motorudur
+- **Funnel & dönüşüm analizi**: Darboğazların tespit edilmesi, test hipotezlerinin kaynağıdır
+- **Kullanıcı davranış analizi**: Heatmap, session recording ile test fikirleri oluşturulur
+- **Google Analytics 4 uygulama**: Test sonuçlarının segmentlere göre raporlanması için event tracking yapılandırması
+- **CRO (Conversion Rate Optimization)**: A/B test, CRO döngüsünün uygulama motorudur
 
 Örneğin Gonet, bir e-ticaret müşterisi için GA4 funnel raporunda 'sepete ekle → ödeme' adımında %40 düşüş tespit etti. Kullanıcı davranış analizi ile 'kargo ücreti görünümü' darboğaz olarak belirlendi. 3 varyant tasarlandı: (A) kontrol, (B) kargo ücreti ön bilgilendirme banner, (C) ücretsiz kargo threshold göstergesi. 14 günlük test sonunda (18.500 session, power 0.85), C varyantı %22 conversion lift sağladı (p=0.003). Bayesian analiz, C'nin A'dan iyi olma olasılığını %99.2 gösterdi.
 
@@ -1430,10 +1430,10 @@ BigQuery + SQL, veri hacmi veya karmaşıklık arttıkça 'nice-to-have'dan 'zor
 
 ## İlgili yetkinlikler
 
-- [GA4 Kurulum & Yönetim](/yetkinlikler/analitik-veri/ga4-kurulum-yonetim): BigQuery export için temel event tracking ve custom dimension altyapısı.
-- [Looker Studio (Data Studio)](/yetkinlikler/analitik-veri/looker-studio): BigQuery verilerini görselleştirme, scheduled query sonuçlarını dashboard'a aktarma.
-- [Google Tag Manager (GTM) İleri](/yetkinlikler/analitik-veri/gtm-ileri): Custom event'leri GA4'e, oradan BigQuery'ye akıtmak için tag yapılandırması.
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/urun-yonetimi/conversion-rate-optimization): BigQuery funnel analizi sonuçlarını A/B test hipotezlerine dönüştürme.
+- GA4 Kurulum & Yönetim: BigQuery export için temel event tracking ve custom dimension altyapısı.
+- [Looker Studio (Data Studio)](/yetenekler/analitik-veri/looker-studio): BigQuery verilerini görselleştirme, scheduled query sonuçlarını dashboard'a aktarma.
+- Google Tag Manager (GTM) İleri: Custom event'leri GA4'e, oradan BigQuery'ye akıtmak için tag yapılandırması.
+- Conversion Rate Optimization (CRO): BigQuery funnel analizi sonuçlarını A/B test hipotezlerine dönüştürme.
 
 ## Gonet ile çalışmak
 
@@ -1509,10 +1509,10 @@ Gonet ekibi GA4 Individual Qualification (Google Analytics sertifikası) sahibi,
 
 ## İlgili yetkinlikler
 
-- [Google Tag Manager (GTM)](/yetkinlikler/analitik-veri/google-tag-manager) — GA4 event'lerinin kaynak katmanı, tüm tracking GTM üzerinden.
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/analitik-veri/conversion-rate-optimization) — GA4 funnel/exploration raporları CRO hipotezlerinin veri kaynağı.
-- [BigQuery & Veri Ambarı](/yetkinlikler/analitik-veri/bigquery-veri-ambari) — GA4 raw data export, SQL ile custom analiz.
-- [Server-Side Tracking](/yetkinlikler/analitik-veri/server-side-tracking) — GA4 measurement protocol, first-party data kalitesi.
+- Google Tag Manager (GTM) — GA4 event'lerinin kaynak katmanı, tüm tracking GTM üzerinden.
+- Conversion Rate Optimization (CRO) — GA4 funnel/exploration raporları CRO hipotezlerinin veri kaynağı.
+- BigQuery & Veri Ambarı — GA4 raw data export, SQL ile custom analiz.
+- Server-Side Tracking — GA4 measurement protocol, first-party data kalitesi.
 
 ## Gonet ile çalışmak
 
@@ -1566,10 +1566,10 @@ Gonet, GTM'i üç katmanlı bir mimari üzerinde kurar:
 
 GTM uygulamaları genellikle diğer analitik ve veri yetkinlikleriyle birlikte yürütülür:
 
-- [Google Analytics 4 (GA4)](/yetkinlikler/google-analytics-4): GTM üzerinden GA4 event tracking, enhanced e-commerce, custom dimension/metric konfigürasyonları.
-- [Dönüşüm Optimizasyonu (CRO)](/yetkinlikler/donusum-optimizasyonu): A/B test araçlarının GTM ile entegrasyonu, heatmap ve session recording etiketlerinin yönetimi.
-- [GDPR & Veri Gizliliği](/yetkinlikler/gdpr-veri-gizliligi): CMP entegrasyonu, Consent Mode v2, veri minimizasyonu stratejileri.
-- [Sunucu Taraflı İzleme (Server-Side Tracking)](/yetkinlikler/server-side-tracking): GCP/AWS üzerinde server-side GTM altyapısı kurulumu, bakımı, ölçeklendirilmesi.
+- Google Analytics 4 (GA4): GTM üzerinden GA4 event tracking, enhanced e-commerce, custom dimension/metric konfigürasyonları.
+- Dönüşüm Optimizasyonu (CRO): A/B test araçlarının GTM ile entegrasyonu, heatmap ve session recording etiketlerinin yönetimi.
+- GDPR & Veri Gizliliği: CMP entegrasyonu, Consent Mode v2, veri minimizasyonu stratejileri.
+- Sunucu Taraflı İzleme (Server-Side Tracking): GCP/AWS üzerinde server-side GTM altyapısı kurulumu, bakımı, ölçeklendirilmesi.
 
 ## Gonet ile çalışmak
 
@@ -1625,7 +1625,7 @@ Google Tag Manager (GTM) ile custom event'leri GA4'e gönderip, Looker Studio'da
 
 ## İlgili yetkinlikler
 
-Looker Studio, Gonet'in **Analitik & Veri** yetkinlik setinin görselleştirme ayağıdır. Veri toplama için [Google Analytics 4 (GA4)](/yetkinlikler/google-analytics-4) ve [Google Tag Manager (GTM)](/yetkinlikler/google-tag-manager), veri depolama için [BigQuery](/yetkinlikler/bigquery), dönüşüm optimizasyonu için [Conversion Rate Optimization (CRO)](/yetkinlikler/conversion-rate-optimization) yetkinlikleriyle entegre çalışır. Dashboardlarda gördüğünüz metrikler, GTM ile topladığımız event'lerden, GA4'te işlediğimiz segmentasyonlardan, BigQuery'de birleştirdiğimiz veri setlerinden beslenir.
+Looker Studio, Gonet'in **Analitik & Veri** yetkinlik setinin görselleştirme ayağıdır. Veri toplama için Google Analytics 4 (GA4) ve Google Tag Manager (GTM), veri depolama için BigQuery, dönüşüm optimizasyonu için Conversion Rate Optimization (CRO) yetkinlikleriyle entegre çalışır. Dashboardlarda gördüğünüz metrikler, GTM ile topladığımız event'lerden, GA4'te işlediğimiz segmentasyonlardan, BigQuery'de birleştirdiğimiz veri setlerinden beslenir.
 
 ## Gonet ile çalışmak
 
@@ -1692,10 +1692,10 @@ Bu veriyi GTM/GA4 verileriyle çaprazlarız: GA4'te düşük etkileşimli ama y�
 
 Server log analizi diğer analitik ve teknik SEO yetkinliklerle entegre çalışır:
 
-- **[Google Tag Manager (GTM) kurulumu](/yetkinlikler/analitik-veri/google-tag-manager-kurulumu)**: İstemci tarafı veriyi toplarken, server loglar sunucu tarafı gerçeği gösterir. İkisini çaprazlayarak tam resim elde edersiniz.
-- **[Google Analytics 4 (GA4) denetimi](/yetkinlikler/analitik-veri/google-analytics-4-denetimi)**: GA4 bot filtreleme ayarları doğru mu? Log analizi ile GA4 verilerini doğrular, bot trafiği sızıntısını tespit edersiniz.
-- **[Teknik SEO denetimi](/yetkinlikler/teknik-seo/teknik-seo-denetimi)**: Tarama hataları, yavaş sayfalar, redirect sorunları log analiziyle kesinleşir.
-- **[AEO içerik optimizasyonu](/yetkinlikler/aeo-geo/aeo-icerik-optimizasyonu)**: Hangi sayfalar AI crawler'larca taranıyor? Log verisi AEO stratejisini yönlendirir.
+- **Google Tag Manager (GTM) kurulumu**: İstemci tarafı veriyi toplarken, server loglar sunucu tarafı gerçeği gösterir. İkisini çaprazlayarak tam resim elde edersiniz.
+- **Google Analytics 4 (GA4) denetimi**: GA4 bot filtreleme ayarları doğru mu? Log analizi ile GA4 verilerini doğrular, bot trafiği sızıntısını tespit edersiniz.
+- **Teknik SEO denetimi**: Tarama hataları, yavaş sayfalar, redirect sorunları log analiziyle kesinleşir.
+- **AEO içerik optimizasyonu**: Hangi sayfalar AI crawler'larca taranıyor? Log verisi AEO stratejisini yönlendirir.
 
 ## Gonet ile çalışmak
 
@@ -1746,10 +1746,10 @@ Gonet, Astro 5 + Content Collections'ı üç katmanlı mimari ile uygular:
 
 ## İlgili yetkinlikler
 
-- [Cloudflare Workers & Edge SEO](/yetkinlikler/cloudflare-workers-edge-seo): Astro 5'in edge runtime desteği ile birlikte coğrafi SEO ve bot routing stratejileri.
-- [Next.js 15 App Router](/yetkinlikler/nextjs-15-app-router): React ekosisteminde alternatif SSR/SSG yaklaşımı, karşılaştırmalı mimari kararları.
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Content Collections ile unified API üzerinden Contentful, Sanity, Strapi bağlantısı.
-- [Server-Side Rendering (SSR) Optimizasyonu](/yetkinlikler/ssr-optimizasyonu): Astro SSR ve Server Islands için cache, streaming, partial hydration teknikleri.
+- Cloudflare Workers & Edge SEO: Astro 5'in edge runtime desteği ile birlikte coğrafi SEO ve bot routing stratejileri.
+- Next.js 15 App Router: React ekosisteminde alternatif SSR/SSG yaklaşımı, karşılaştırmalı mimari kararları.
+- Headless CMS Entegrasyonu: Content Collections ile unified API üzerinden Contentful, Sanity, Strapi bağlantısı.
+- Server-Side Rendering (SSR) Optimizasyonu: Astro SSR ve Server Islands için cache, streaming, partial hydration teknikleri.
 
 ## Gonet ile çalışmak
 
@@ -1811,10 +1811,10 @@ Bu yapı, günlük 500K+ request'i 99.9% uptime ile karşılar.
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Mimarisi](/yetkinlikler/headless-cms-mimarisi) — Laravel backend + modern frontend kombinasyonu  
-- [API Tasarımı & Dokümantasyonu](/yetkinlikler/api-tasarimi-dokumentasyonu) — RESTful/GraphQL standartları  
-- [DevOps & CI/CD](/yetkinlikler/devops-cicd) — Laravel deployment pipeline'ları  
-- [Database Optimizasyonu](/yetkinlikler/database-optimizasyonu) — Eloquent ORM performans tuning  
+- Headless CMS Mimarisi — Laravel backend + modern frontend kombinasyonu  
+- API Tasarımı & Dokümantasyonu — RESTful/GraphQL standartları  
+- DevOps & CI/CD — Laravel deployment pipeline'ları  
+- Database Optimizasyonu — Eloquent ORM performans tuning  
 
 ## Gonet ile çalışmak
 
@@ -1864,10 +1864,10 @@ Gonet, RESTful API'larda HATEOAS (Hypermedia as the Engine of Application State)
 
 ## İlgili yetkinlikler
 
-- [Headless CMS entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): API-first içerik yönetimi ile mobil uygulama içerik güncelleme.
-- [Sunucu yönetimi & DevOps](/yetkinlikler/sunucu-yonetimi-devops): API altyapısının deploy, monitoring ve scaling operasyonları.
-- [CI/CD pipeline kurulumu](/yetkinlikler/ci-cd-pipeline-kurulumu): Otomatik test, deployment ve rollback süreçleri.
-- [Mikroservis mimarisi](/yetkinlikler/mikroservis-mimarisi): API'ların modüler, bağımsız deploy edilebilir servisler olarak yapılandırılması.
+- Headless CMS entegrasyonu: API-first içerik yönetimi ile mobil uygulama içerik güncelleme.
+- Sunucu yönetimi & DevOps: API altyapısının deploy, monitoring ve scaling operasyonları.
+- CI/CD pipeline kurulumu: Otomatik test, deployment ve rollback süreçleri.
+- Mikroservis mimarisi: API'ların modüler, bağımsız deploy edilebilir servisler olarak yapılandırılması.
 
 ## Gonet ile çalışmak
 
@@ -1923,10 +1923,10 @@ Gonet ekibi, Next.js Conf ve React ekibi blog yazılarını takip eder; canary v
 
 ## İlgili yetkinlikler
 
-- [TypeScript & Tip Güvenliği](/yetkinlikler/typescript-tip-guvenligi): Next.js 15 + React 19 yığınının omurgası; uçtan uca tip kontrolü ile runtime hatalar minimize edilir.
-- [Headless CMS Entegrasyonları](/yetkinlikler/headless-cms-entegrasyonlari): Contentful, Sanity, Strapi gibi platformlar Next.js ISR ve server actions ile seamless çalışır.
-- [Core Web Vitals Optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu): RSC, PPR ve image optimization doğrudan LCP, INP, CLS iyileştirmesi sağlar.
-- [Edge Computing & CDN Stratejileri](/yetkinlikler/edge-computing-cdn): Next.js middleware ve edge runtime, kullanıcıya en yakın sunucuda logic çalıştırır.
+- TypeScript & Tip Güvenliği: Next.js 15 + React 19 yığınının omurgası; uçtan uca tip kontrolü ile runtime hatalar minimize edilir.
+- Headless CMS Entegrasyonları: Contentful, Sanity, Strapi gibi platformlar Next.js ISR ve server actions ile seamless çalışır.
+- Core Web Vitals Optimizasyonu: RSC, PPR ve image optimization doğrudan LCP, INP, CLS iyileştirmesi sağlar.
+- Edge Computing & CDN Stratejileri: Next.js middleware ve edge runtime, kullanıcıya en yakın sunucuda logic çalıştırır.
 
 ## Gonet ile çalışmak
 
@@ -2000,10 +2000,10 @@ Cloudflare cache rules + Argo Smart Routing. Statik asset'ler (CSS/JS/resim) 7 g
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu) — Strapi/Payload CMS'i Coolify üzerinde deploy, Next.js ile entegrasyon
-- [Docker + Kubernetes Orkestrasyon](/yetkinlikler/docker-kubernetes-orkestrasyon) — Daha büyük ölçeklerde K8s'e geçiş stratejisi
-- [CI/CD Pipeline Otomasyonu](/yetkinlikler/cicd-pipeline-otomasyon) — GitHub Actions + Coolify webhook entegrasyonu
-- [Sunucu Güvenliği + Hardening](/yetkinlikler/sunucu-guvenligi-hardening) — Self-hosted altyapıda zero-trust güvenlik katmanları
+- Headless CMS Entegrasyonu — Strapi/Payload CMS'i Coolify üzerinde deploy, Next.js ile entegrasyon
+- Docker + Kubernetes Orkestrasyon — Daha büyük ölçeklerde K8s'e geçiş stratejisi
+- CI/CD Pipeline Otomasyonu — GitHub Actions + Coolify webhook entegrasyonu
+- Sunucu Güvenliği + Hardening — Self-hosted altyapıda zero-trust güvenlik katmanları
 
 ## Gonet ile çalışmak
 
@@ -2059,10 +2059,10 @@ Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 220+ m
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Tailwind ile build edilen frontend, headless CMS'ten gelen içeriği stilize eder.
-- [React & Next.js Geliştirme](/yetkinlikler/react-nextjs-gelistirme): Tailwind, React komponentleriyle native entegrasyon sağlar.
-- [Core Web Vitals Optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu): Minimal CSS bundle, LCP ve CLS metriklerini doğrudan iyileştirir.
-- [Design System Kurulumu](/yetkinlikler/design-system-kurulumu): Tailwind config, design system'in kod tarafındaki manifestosudur.
+- Headless CMS Entegrasyonu: Tailwind ile build edilen frontend, headless CMS'ten gelen içeriği stilize eder.
+- React & Next.js Geliştirme: Tailwind, React komponentleriyle native entegrasyon sağlar.
+- Core Web Vitals Optimizasyonu: Minimal CSS bundle, LCP ve CLS metriklerini doğrudan iyileştirir.
+- Design System Kurulumu: Tailwind config, design system'in kod tarafındaki manifestosudur.
 
 ## Gonet ile çalışmak
 
@@ -2153,10 +2153,10 @@ Gonet müşterilerinden biri için geliştirdiğimiz headless CMS entegrasyonund
 
 TypeScript strict mode, modern web stack'inin omurgasıdır ve şu yetkinliklerle sinerji yaratır:
 
-- [Next.js App Router](/yetkinlikler/nextjs-app-router): Server Component'lerde end-to-end type safety, özellikle async data fetching'de kritik.
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Content type'ları Zod schema'yla model edilir, GraphQL/REST response'ları runtime validate edilir.
-- [React Server Components](/yetkinlikler/react-server-components): Server-client boundary'de tip güvenliği, serialization hatalarını önler.
-- [API Tasarımı (RESTful/GraphQL)](/yetkinlikler/api-tasarimi): Zod schema'lar OpenAPI spec'e dönüştürülür, API dokümantasyonu otomatik güncellenir.
+- Next.js App Router: Server Component'lerde end-to-end type safety, özellikle async data fetching'de kritik.
+- Headless CMS Entegrasyonu: Content type'ları Zod schema'yla model edilir, GraphQL/REST response'ları runtime validate edilir.
+- React Server Components: Server-client boundary'de tip güvenliği, serialization hatalarını önler.
+- API Tasarımı (RESTful/GraphQL): Zod schema'lar OpenAPI spec'e dönüştürülür, API dokümantasyonu otomatik güncellenir.
 
 ## Gonet ile çalışmak
 
@@ -2202,10 +2202,10 @@ Güvenlik katmanında, Wordfence yapılandırması, two-factor authentication (2
 
 WordPress projelerinde sıklıkla entegre ettiğimiz yetkinlikler:
 
-- [Jamstack mimarisi](/yetkinlikler/jamstack-mimarisi) — headless WordPress + Next.js/Nuxt, static site generation, edge deployment
-- [Schema.org & JSON-LD](/yetkinlikler/schema-org-json-ld) — ACF verilerinden zengin snippet üretimi, Google Search Gallery uyumluluğu
-- [Google Tag Manager kurulumu](/yetkinlikler/google-tag-manager-kurulumu) — WordPress event tracking (form submit, CTA click, scroll depth), e-ticaret dataLayer
-- [Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu) — WordPress hosting, caching, image optimization, CLS/LCP/FID iyileştirme
+- Jamstack mimarisi — headless WordPress + Next.js/Nuxt, static site generation, edge deployment
+- Schema.org & JSON-LD — ACF verilerinden zengin snippet üretimi, Google Search Gallery uyumluluğu
+- Google Tag Manager kurulumu — WordPress event tracking (form submit, CTA click, scroll depth), e-ticaret dataLayer
+- Core Web Vitals optimizasyonu — WordPress hosting, caching, image optimization, CLS/LCP/FID iyileştirme
 
 Bu entegrasyonlar, WordPress'in hem içerik yönetim kolaylığını hem de modern web performans standartlarını aynı projede sunar.
 
@@ -2277,10 +2277,10 @@ Gonet'in GEO 2024 pilot projelerinde, AEO odaklı içerik dönüşümü uygulana
 
 ## İlgili yetkinlikler
 
-- [Üretken yapay zeka için SEO (GEO)](/yetkinlikler/icerik-yaratici/generative-engine-optimization-geo): AEO odaklı içeriğin stratejik çatısı, LLM optimizasyonunun geniş perspektifi.
-- [İçerik stratejisi & planlama](/yetkinlikler/icerik-yaratici/icerik-stratejisi-planlama): AEO içeriğin editorial calendar, persona mapping, topic cluster entegrasyonu.
-- [Yapısal veri (Schema.org) uygulaması](/yetkinlikler/teknik-seo/yapisal-veri-schema-org): Citation-worthy içeriğin makine okunabilirliğini artıran JSON-LD katmanı.
-- [Arama niyeti analizi](/yetkinlikler/strateji-analiz/arama-niyeti-analizi): Hangi sorgu türlerinde AEO odaklı yapının ROI'si en yüksek olduğunu belirler.
+- Üretken yapay zeka için SEO (GEO): AEO odaklı içeriğin stratejik çatısı, LLM optimizasyonunun geniş perspektifi.
+- İçerik stratejisi & planlama: AEO içeriğin editorial calendar, persona mapping, topic cluster entegrasyonu.
+- Yapısal veri (Schema.org) uygulaması: Citation-worthy içeriğin makine okunabilirliğini artıran JSON-LD katmanı.
+- Arama niyeti analizi: Hangi sorgu türlerinde AEO odaklı yapının ROI'si en yüksek olduğunu belirler.
 
 ## Gonet ile çalışmak
 
@@ -2336,10 +2336,10 @@ Gonet'te sequence tasarımı üç katmanda yürür: segmentasyon (hangi kitleye,
 
 ## İlgili yetkinlikler
 
-- [Copywriting — conversion odaklı metin](/yetkinlikler/icerik-yaratici/copywriting-conversion)
-- [Marketing automation mimarisi](/yetkinlikler/icerik-yaratici/marketing-automation)
-- [Customer journey mapping](/yetkinlikler/icerik-yaratici/customer-journey-mapping)
-- [A/B testing ve multivariate testler](/yetkinlikler/veri-analiz/ab-testing-multivariate)
+- Copywriting — conversion odaklı metin
+- Marketing automation mimarisi
+- Customer journey mapping
+- A/B testing ve multivariate testler
 
 ## Gonet ile çalışmak
 
@@ -2399,10 +2399,10 @@ Gonet'in content production team'i, SEO editörü + content writer + technical S
 
 Long-form SEO içerik üretimi, diğer içerik ve yaratıcı yetkinliklerle entegre çalıştığında maksimum etki yaratır:
 
-- [SEO copywriting](/yetkinlikler/icerik-yaratici/seo-copywriting): Pillar içerikteki her cümle, keyword density (anahtar kelime yoğunluğu) ve readability (okunabilirlik) dengesi gerektirir.
-- [Video içerik üretimi](/yetkinlikler/icerik-yaratici/video-icerik-uretimi): Pillar sayfalara埋め込み video (gömülü video) eklemek, dwell time ve engagement sinyallerini güçlendirir.
-- [İnfografik tasarımı](/yetkinlikler/icerik-yaratici/infografik-tasarimi): Long-form içerikteki karmaşık veriyi görselleştirmek, shareability (paylaşılabilirlik) artırır.
-- [Content marketing stratejisi](/yetkinlikler/icerik-yaratici/content-marketing-stratejisi): Pillar + cluster mimarisinin genel içerik takvimi ve dağıtım kanallarıyla senkronizasyonu.
+- SEO copywriting: Pillar içerikteki her cümle, keyword density (anahtar kelime yoğunluğu) ve readability (okunabilirlik) dengesi gerektirir.
+- Video içerik üretimi: Pillar sayfalara埋め込み video (gömülü video) eklemek, dwell time ve engagement sinyallerini güçlendirir.
+- İnfografik tasarımı: Long-form içerikteki karmaşık veriyi görselleştirmek, shareability (paylaşılabilirlik) artırır.
+- Content marketing stratejisi: Pillar + cluster mimarisinin genel içerik takvimi ve dağıtım kanallarıyla senkronizasyonu.
 
 ## Gonet ile çalışmak
 
@@ -2453,10 +2453,10 @@ Gonet'in 26 yıllık birikimi, bu süreci spekülasyondan çıkarır. Arketip te
 
 ## İlgili yetkinlikler
 
-- [İçerik stratejisi](/yetkinlikler/icerik-stratejisi): Hikayenin hangi kanallarda, hangi formatlarda yayılacağını belirleyen planlama katmanı.
-- [Sosyal medya yönetimi](/yetkinlikler/sosyal-medya-yonetimi): Narrative arc'ın günlük içerik takvimine dönüştürülmesi ve community engagement (topluluk etkileşimi).
-- [Video prodüksiyon](/yetkinlikler/video-produksiyon): Founder story ve marka manifestosunun görsel-işitsel formatta hayata geçirilmesi.
-- [Marka stratejisi](/yetkinlikler/marka-stratejisi): Archetype tespiti ve positioning (konumlandırma) çalışmasının temel katmanı.
+- İçerik stratejisi: Hikayenin hangi kanallarda, hangi formatlarda yayılacağını belirleyen planlama katmanı.
+- Sosyal medya yönetimi: Narrative arc'ın günlük içerik takvimine dönüştürülmesi ve community engagement (topluluk etkileşimi).
+- Video prodüksiyon: Founder story ve marka manifestosunun görsel-işitsel formatta hayata geçirilmesi.
+- Marka stratejisi: Archetype tespiti ve positioning (konumlandırma) çalışmasının temel katmanı.
 
 ## Gonet ile çalışmak
 
@@ -2491,7 +2491,7 @@ Gonet'te kısa form sosyal script süreci 3 aşamalı data-creative fusion (veri
 
 ## İlgili yetkinlikler
 
-Kısa form sosyal video stratejisi, [sosyal medya içerik stratejisi](/yetkinlikler/icerik-yaratici/sosyal-medya-icerik-stratejisi) ile bütünleşik çalışır; calendar planning (takvim planlama) ve community management (topluluk yönetimi) bu scriptin dağıtım altyapısını oluşturur. [Marka ton of voice tasarımı](/yetkinlikler/icerik-yaratici/marka-ton-of-voice) video script'indeki dil seçimini, emoji kullanımını, hitap biçimini standardize eder. [Sosyal medya reklam kampanyası](/yetkinlikler/icerik-yaratici/sosyal-medya-reklam-kampanyasi) ile organik performansı yüksek scriptler paid seed (ücretli tohum) bütçesiyle güçlendirilir, lookalike (benzer kitle) genişletmesi yapılır. [İçerik performans analitiği](/yetkinlikler/icerik-yaratici/icerik-performans-analitigi) hook tiplerinin engagement korelasyonunu ölçerek bir sonraki script matrisini optimize eder. Bu yetkinlikler birlikte, kısa form videoyu tek seferlik viral denemeden sürdürülebilir sosyal varlık motoruna dönüştürür.
+Kısa form sosyal video stratejisi, sosyal medya içerik stratejisi ile bütünleşik çalışır; calendar planning (takvim planlama) ve community management (topluluk yönetimi) bu scriptin dağıtım altyapısını oluşturur. Marka ton of voice tasarımı video script'indeki dil seçimini, emoji kullanımını, hitap biçimini standardize eder. Sosyal medya reklam kampanyası ile organik performansı yüksek scriptler paid seed (ücretli tohum) bütçesiyle güçlendirilir, lookalike (benzer kitle) genişletmesi yapılır. İçerik performans analitiği hook tiplerinin engagement korelasyonunu ölçerek bir sonraki script matrisini optimize eder. Bu yetkinlikler birlikte, kısa form videoyu tek seferlik viral denemeden sürdürülebilir sosyal varlık motoruna dönüştürür.
 
 ## Gonet ile çalışmak
 
@@ -2552,10 +2552,10 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
 
 ## İlgili yetkinlikler
 
-- [Topluluk yönetimi](/yetkinlikler/sosyal-medya-topluluk/topluluk-yonetimi): Influencer kampanyası sonrası oluşan topluluğu sürdürmek için.
-- [İçerik pazarlama](/yetkinlikler/icerik-pazarlama/icerik-stratejisi): Influencer içeriklerini marka blog ve sosyal kanallarda yeniden kullanma stratejisi.
-- [Sosyal medya reklamcılığı](/yetkinlikler/sosyal-medya-topluluk/sosyal-medya-reklamlari): Influencer postlarını 'boost' ederek erişimi artırma.
-- [E-ticaret entegrasyonu](/yetkinlikler/e-ticaret/e-ticaret-entegrasyonu): Influencer kodlarını sepet sistemine entegre etme, komisyon takibi.
+- Topluluk yönetimi: Influencer kampanyası sonrası oluşan topluluğu sürdürmek için.
+- İçerik pazarlama: Influencer içeriklerini marka blog ve sosyal kanallarda yeniden kullanma stratejisi.
+- Sosyal medya reklamcılığı: Influencer postlarını 'boost' ederek erişimi artırma.
+- E-ticaret entegrasyonu: Influencer kodlarını sepet sistemine entegre etme, komisyon takibi.
 
 ## Gonet ile çalışmak
 
@@ -2610,10 +2610,10 @@ Gonet, kampanya başlangıcında 4 haftalık 'learning phase' (öğrenme aşamas
 
 ## İlgili yetkinlikler
 
-- [B2B İçerik Pazarlama](/yetkinlikler/sosyal-medya-topluluk/b2b-icerik-pazarlama): LinkedIn kampanyalarına beslenen thought leadership içerik (whitepaper, case study, blog) stratejisi.
-- [CRM Entegrasyonu ve Marketing Automation](/yetkinlikler/veri-analitik/crm-entegrasyonu-marketing-automation): Salesforce/HubSpot → Sales Navigator → LinkedIn Ads veri akışının kurulumu.
-- [Programmatic Advertising (RTB)](/yetkinlikler/medya-satin-alma/programmatic-advertising-rtb): LinkedIn dışındaki B2B display kanallarıyla (Demandbase, Terminus) cross-channel ABM stratejisi.
-- [Google Analytics 4 (GA4)](/yetkinlikler/veri-analitik/google-analytics-4-ga4): LinkedIn Insight Tag event'lerinin GA4 ile birleştirilmesi, multi-touch attribution (çok dokunuşlu atıf) modelleme.
+- B2B İçerik Pazarlama: LinkedIn kampanyalarına beslenen thought leadership içerik (whitepaper, case study, blog) stratejisi.
+- CRM Entegrasyonu ve Marketing Automation: Salesforce/HubSpot → Sales Navigator → LinkedIn Ads veri akışının kurulumu.
+- Programmatic Advertising (RTB): LinkedIn dışındaki B2B display kanallarıyla (Demandbase, Terminus) cross-channel ABM stratejisi.
+- [Google Analytics 4 (GA4)](/yetenekler/analitik-veri/google-analytics-4-ga4): LinkedIn Insight Tag event'lerinin GA4 ile birleştirilmesi, multi-touch attribution (çok dokunuşlu atıf) modelleme.
 
 ## Gonet ile çalışmak
 
@@ -2662,10 +2662,10 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 
 ## İlgili yetkinlikler
 
-- [TikTok Ads & Influencer Marketing](/yetkinlikler/tiktok-ads-influencer-marketing) — Z kuşağı hedeflemesi için kısa video reklamları ve influencer kampanyaları  
-- [LinkedIn Ads — B2B Lead Generation](/yetkinlikler/linkedin-ads-b2b-lead-generation) — Karar vericilere ulaşmak için profesyonel ağ reklamları  
-- [Google Ads — Performance Max](/yetkinlikler/google-ads-performance-max) — Google ekosisteminde makine öğrenmesi tabanlı çok kanallı kampanyalar  
-- [Google Analytics 4 (GA4) & Server-Side Tagging](/yetkinlikler/google-analytics-4-server-side-tagging) — Sunucu tarafı ölçüm ve CAPI entegrasyonunun temel altyapısı
+- TikTok Ads & Influencer Marketing — Z kuşağı hedeflemesi için kısa video reklamları ve influencer kampanyaları  
+- LinkedIn Ads — B2B Lead Generation — Karar vericilere ulaşmak için profesyonel ağ reklamları  
+- Google Ads — Performance Max — Google ekosisteminde makine öğrenmesi tabanlı çok kanallı kampanyalar  
+- Google Analytics 4 (GA4) & Server-Side Tagging — Sunucu tarafı ölçüm ve CAPI entegrasyonunun temel altyapısı
 
 ## Gonet ile çalışmak
 
@@ -2714,10 +2714,10 @@ Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 
 ## İlgili yetkinlikler
 
-- [Instagram Reels Stratejisi](/yetkinlikler/sosyal-medya-topluluk/instagram-reels-stratejisi): TikTok creative'leri Reels'e repurpose edilebilir, Gonet aynı videonun her iki platformda optimize versiyonunu çalıştırır.
-- [Influencer Marketing](/yetkinlikler/sosyal-medya-topluluk/influencer-marketing): Spark Ads influencer işbirliklerinin paid amplification ayağıdır.
-- [Video Production & Editing](/yetkinlikler/sosyal-medya-topluluk/video-production-editing): TikTok formatında native görünen video üretimi kritik, Gonet ekibi 15sn hook test videolarını 24 saat içinde deliver eder.
-- [Sosyal Medya Analytics](/yetkinlikler/sosyal-medya-topluluk/sosyal-medya-analytics): TikTok Ads verisi GA4 + LookerStudio dashboard'larına entegre edilir, cross-platform performans karşılaştırması yapılır.
+- Instagram Reels Stratejisi: TikTok creative'leri Reels'e repurpose edilebilir, Gonet aynı videonun her iki platformda optimize versiyonunu çalıştırır.
+- [Influencer Marketing](/yetenekler/sosyal-medya-topluluk/influencer-marketing): Spark Ads influencer işbirliklerinin paid amplification ayağıdır.
+- Video Production & Editing: TikTok formatında native görünen video üretimi kritik, Gonet ekibi 15sn hook test videolarını 24 saat içinde deliver eder.
+- Sosyal Medya Analytics: TikTok Ads verisi GA4 + LookerStudio dashboard'larına entegre edilir, cross-platform performans karşılaştırması yapılır.
 
 ## Gonet ile çalışmak
 
@@ -2805,10 +2805,10 @@ Gonet'in yönettiği fintech markasında (2023 Q2-Q4), LinkedIn yorumlarından g
 
 ## İlgili yetkinlikler
 
-- [Sosyal dinleme + sentiment analizi](/yetkinlikler/sosyal-medya-topluluk/sosyal-dinleme-sentiment-analizi) — CRM'e aktarılacak etkileşimlerin tonunu ve aciliyetini belirler
-- [Kullanıcı üretimli içerik (UGC) kampanyaları](/yetkinlikler/sosyal-medya-topluluk/ugc-kampanyalari) — UGC katkıda bulunanlar CRM'de 'Brand Advocate' segmentine eklenir
-- [Marketing automation (HubSpot, Marketo)](/yetkinlikler/veri-analitik-otomasyon/marketing-automation) — CRM entegrasyonunun e-posta ve lead nurturing ile birleştirilmesi
-- [Chatbot + canlı destek entegrasyonu](/yetkinlikler/sosyal-medya-topluluk/chatbot-canli-destek) — Sosyal platformlardaki bot yanıtları da CRM'e kaydedilir
+- Sosyal dinleme + sentiment analizi — CRM'e aktarılacak etkileşimlerin tonunu ve aciliyetini belirler
+- Kullanıcı üretimli içerik (UGC) kampanyaları — UGC katkıda bulunanlar CRM'de 'Brand Advocate' segmentine eklenir
+- Marketing automation (HubSpot, Marketo) — CRM entegrasyonunun e-posta ve lead nurturing ile birleştirilmesi
+- Chatbot + canlı destek entegrasyonu — Sosyal platformlardaki bot yanıtları da CRM'e kaydedilir
 
 ## Gonet ile çalışmak
 
@@ -2866,10 +2866,10 @@ Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır
 
 ## İlgili yetkinlikler
 
-- [UI/UX Tasarımı](/yetkinlikler/ui-ux-tasarimi) — Marka kimliği, kullanıcı arayüzü tasarımının görsel temelini oluşturur
-- [Design System Geliştirme](/yetkinlikler/design-system) — Marka kılavuzu, ölçeklenebilir design system'in başlangıç noktasıdır
-- [Responsive Web Tasarımı](/yetkinlikler/responsive-web-tasarim) — Marka kimliği tüm ekran boyutlarında tutarlı görünmelidir
-- [Görsel İçerik Üretimi](/yetkinlikler/gorsel-icerik-uretimi) — Sosyal medya ve dijital reklam görselleri marka kimliğinin uzantısıdır
+- UI/UX Tasarımı — Marka kimliği, kullanıcı arayüzü tasarımının görsel temelini oluşturur
+- Design System Geliştirme — Marka kılavuzu, ölçeklenebilir design system'in başlangıç noktasıdır
+- Responsive Web Tasarımı — Marka kimliği tüm ekran boyutlarında tutarlı görünmelidir
+- Görsel İçerik Üretimi — Sosyal medya ve dijital reklam görselleri marka kimliğinin uzantısıdır
 
 ## Gonet ile çalışmak
 
@@ -2921,7 +2921,7 @@ Bir SaaS müşterimiz için yaptığımız CRO çalışmasında, free trial buto
 
 ## İlgili yetkinlikler
 
-CRO, izole bir disiplin değildir. **[UI/UX tasarım](/yetkinlikler/tasarim-ux/ui-ux-tasarim)** ile entegre çalışır çünkü heatmap ve session recording'lerin ortaya koyduğu UX sorunları tasarım revizyonu gerektirir. **[Google Analytics 4 (GA4) kurulum ve analiz](/yetkinlikler/veri-analitik/google-analytics-4)** olmadan funnel analizi ve segmentasyon yapılamaz. **[Landing page tasarım ve optimizasyon](/yetkinlikler/tasarim-ux/landing-page-tasarim)** CRO'nun doğrudan uygulandığı alandır. **[Google Tag Manager (GTM)](/yetkinlikler/veri-analitik/google-tag-manager)** ile A/B test araçları ve event tracking entegrasyonu sağlanır.
+CRO, izole bir disiplin değildir. **UI/UX tasarım** ile entegre çalışır çünkü heatmap ve session recording'lerin ortaya koyduğu UX sorunları tasarım revizyonu gerektirir. **Google Analytics 4 (GA4) kurulum ve analiz** olmadan funnel analizi ve segmentasyon yapılamaz. **Landing page tasarım ve optimizasyon** CRO'nun doğrudan uygulandığı alandır. **Google Tag Manager (GTM)** ile A/B test araçları ve event tracking entegrasyonu sağlanır.
 
 ## Gonet ile çalışmak
 
@@ -2971,10 +2971,10 @@ Gonet'te her proje başında **tasarım sistemi sağlık kontrolü** yaparız: m
 
 ## İlgili yetkinlikler
 
-- [UI/UX tasarım ve prototipleme](/yetkinlikler/tasarim-ux/ui-ux-prototipleme): Figma'da tasarlanan deneyimlerin kullanıcı testine hazırlanması.
-- [Responsive tasarım](/yetkinlikler/tasarim-ux/responsive-tasarim): Auto layout ile mobil/tablet/desktop grid sistemlerinin kurgulanması.
-- [Marka kimliği ve görsel dil](/yetkinlikler/tasarim-ux/marka-kimligi): Token-based renk/tipografi paletlerinin marka stratejisi ile uyumlaştırılması.
-- [Erişilebilirlik (A11y)](/yetkinlikler/tasarim-ux/erisebilirlik): WCAG uyumlu token setlerinin design system'e entegrasyonu.
+- UI/UX tasarım ve prototipleme: Figma'da tasarlanan deneyimlerin kullanıcı testine hazırlanması.
+- Responsive tasarım: Auto layout ile mobil/tablet/desktop grid sistemlerinin kurgulanması.
+- Marka kimliği ve görsel dil: Token-based renk/tipografi paletlerinin marka stratejisi ile uyumlaştırılması.
+- Erişilebilirlik (A11y): WCAG uyumlu token setlerinin design system'e entegrasyonu.
 
 ## Gonet ile çalışmak
 
@@ -3039,7 +3039,7 @@ Touch-first interaction design uygularız: 44x44px minimum tap target, yeterli s
 
 ## İlgili yetkinlikler
 
-Mobil-öncelikli responsive tasarım, [web performans optimizasyonu](/yetkinlikler/web-performans-optimizasyonu) ile el ele gider — mobil cihazlarda yükleme hızı kritiktir. [Erişilebilir kullanıcı arayüzü tasarımı](/yetkinlikler/erisilebilir-kullanici-arayuzu) touch-first yaklaşımı ve WCAG standartlarını kapsar. [Component-driven design](/yetkinlikler/component-driven-design) container queries'in tüm potansiyelinden yararlanır. [Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals) mobil-öncelikli tasarımın performans boyutunu derinleştirir.
+Mobil-öncelikli responsive tasarım, web performans optimizasyonu ile el ele gider — mobil cihazlarda yükleme hızı kritiktir. Erişilebilir kullanıcı arayüzü tasarımı touch-first yaklaşımı ve WCAG standartlarını kapsar. Component-driven design container queries'in tüm potansiyelinden yararlanır. Core Web Vitals optimizasyonu mobil-öncelikli tasarımın performans boyutunu derinleştirir.
 
 ## Gonet ile çalışmak
 
@@ -3096,10 +3096,10 @@ JSON-LD ile structured data, ekran okuyucuların içerik yapısını daha iyi an
 
 ## İlgili yetkinlikler
 
-- [Kullanıcı Deneyimi (UX) Tasarımı](/yetkinlikler/tasarim-ux/kullanici-deneyimi-tasarimi) — WCAG uyumluluğu UX'in temel bileşenidir, kapsayıcı tasarım prensipleriyle birleşir.
-- [Responsive Tasarım](/yetkinlikler/tasarim-ux/responsive-tasarim) — Erişilebilirlik tüm ekran boyutlarında çalışmalıdır; viewport zoom ve reflow kriterleri responsive yapıyı gerektirir.
-- [Semantic HTML & Schema.org](/yetkinlikler/seo/semantic-html-schema) — Erişilebilir kodun temeli semantic yapıdır; arama motorları ve ekran okuyucular aynı yapıyı kullanır.
-- [Hız Optimizasyonu (Core Web Vitals)](/yetkinlikler/teknik-seo/core-web-vitals) — Klavye ve ekran okuyucu kullanıcıları yavaş sitelerde kaybolur; FID ve INP erişilebilirlik için kritiktir.
+- Kullanıcı Deneyimi (UX) Tasarımı — WCAG uyumluluğu UX'in temel bileşenidir, kapsayıcı tasarım prensipleriyle birleşir.
+- Responsive Tasarım — Erişilebilirlik tüm ekran boyutlarında çalışmalıdır; viewport zoom ve reflow kriterleri responsive yapıyı gerektirir.
+- Semantic HTML & Schema.org — Erişilebilir kodun temeli semantic yapıdır; arama motorları ve ekran okuyucular aynı yapıyı kullanır.
+- Hız Optimizasyonu (Core Web Vitals) — Klavye ve ekran okuyucu kullanıcıları yavaş sitelerde kaybolur; FID ve INP erişilebilirlik için kritiktir.
 
 ## Gonet ile çalışmak
 
@@ -3165,10 +3165,10 @@ Gonet, stratejileri statik doküman değil, canlı süreç olarak yönetir. Ayl�
 
 Dijital pazarlama strateji geliştirme, diğer Gonet yetkinlikleriyle sinerjik çalışır:
 
-- **[Veri analitiği ve raporlama](/yetkinlikler/veri-analitigi-raporlama)**: GA4 ve CRM verileri stratejinin temelini oluşturur; attribution raporları bu yetkinlikle kurulur.
-- **[Dönüşüm optimizasyonu (CRO)](/yetkinlikler/donusum-optimizasyonu)**: Customer journey'deki darboğazlar CRO testleriyle çözülür; strateji + CRO kombinasyonu dönüşüm oranlarını ikiye katlar.
-- **[Dijital pazarlama otomasyon](/yetkinlikler/pazarlama-otomasyon)**: Segment bazlı mesajlaşma ve journey bazlı tetikleyiciler otomasyon platformlarında (HubSpot, Klaviyo) hayata geçer.
-- **[Rekabet analizi](/yetkinlikler/rekabet-analizi)**: STP çerçevesindeki konumlandırma, rakip stratejilerinin detaylı analiziyle netleşir.
+- **Veri analitiği ve raporlama**: GA4 ve CRM verileri stratejinin temelini oluşturur; attribution raporları bu yetkinlikle kurulur.
+- **Dönüşüm optimizasyonu (CRO)**: Customer journey'deki darboğazlar CRO testleriyle çözülür; strateji + CRO kombinasyonu dönüşüm oranlarını ikiye katlar.
+- **Dijital pazarlama otomasyon**: Segment bazlı mesajlaşma ve journey bazlı tetikleyiciler otomasyon platformlarında (HubSpot, Klaviyo) hayata geçer.
+- **Rekabet analizi**: STP çerçevesindeki konumlandırma, rakip stratejilerinin detaylı analiziyle netleşir.
 
 ## Gonet ile çalışmak
 
@@ -3217,10 +3217,10 @@ Gonet'in M&A dijital due diligence süreci 4 aşamadan oluşur:
 
 ## İlgili yetkinlikler
 
-- [Dijital Strateji Danışmanlığı](/yetkinlikler/dijital-strateji-danismanligi): Satın alma sonrası dijital entegrasyon stratejisi
-- [SEO Denetimi](/yetkinlikler/seo-denetimi): Teknik SEO borç tespiti ve önceliklendirme
-- [Rekabet Analizi](/yetkinlikler/rekabet-analizi): Hedef şirketin sektördeki dijital konumu
-- [Google Analytics 4 Kurulum ve Yapılandırma](/yetkinlikler/google-analytics-4-kurulum): Satın alma sonrası veri altyapısı standardizasyonu
+- Dijital Strateji Danışmanlığı: Satın alma sonrası dijital entegrasyon stratejisi
+- SEO Denetimi: Teknik SEO borç tespiti ve önceliklendirme
+- Rekabet Analizi: Hedef şirketin sektördeki dijital konumu
+- Google Analytics 4 Kurulum ve Yapılandırma: Satın alma sonrası veri altyapısı standardizasyonu
 
 ## Gonet ile çalışmak
 
@@ -3270,10 +3270,10 @@ Gonet, 2023'te bir sağlık grubunun karşılaştığı yanlış hasta teşhisi 
 
 Marka iletişimi krizi yönetimi, Gonet'in diğer stratejik yetkinlikleri ile entegre çalışır:
 
-- [Dijital marka dönüşüm stratejisi](/yetkinlikler/dijital-marka-donusum-stratejisi) — Kriz sonrası marka algısının yeniden inşası için uzun vadeli planlama
-- [Sosyal medya strateji danışmanlığı](/yetkinlikler/sosyal-medya-strateji-danismanligi) — Kriz anında hangi sosyal kanalda nasıl konuşulacağının belirlenmesi
-- [E-ticaret büyüme danışmanlığı](/yetkinlikler/e-ticaret-buyume-danismanligi) — Ürün krizi sonrası satış kanallarında güven inşası
-- [Dijital kampanya planlama](/yetkinlikler/dijital-kampanya-planlama) — Kriz sonrası itibar düzeltme kampanyalarının tasarımı
+- Dijital marka dönüşüm stratejisi — Kriz sonrası marka algısının yeniden inşası için uzun vadeli planlama
+- Sosyal medya strateji danışmanlığı — Kriz anında hangi sosyal kanalda nasıl konuşulacağının belirlenmesi
+- E-ticaret büyüme danışmanlığı — Ürün krizi sonrası satış kanallarında güven inşası
+- Dijital kampanya planlama — Kriz sonrası itibar düzeltme kampanyalarının tasarımı
 
 ## Gonet ile çalışmak
 
@@ -3329,10 +3329,10 @@ Gonet, "launch and leave" yapmaz. 3 aylık sprint'lerle (Agile metodoloji) içer
 
 ## İlgili yetkinlikler
 
-- **[Marka kimliği & mesajlaşma stratejisi](/yetkinlikler/strateji-danismanlik/marka-kimligi-mesajlasma)**: Pozisyon manifestosu, bu yetkinlikle entegre çalışır.
-- **[Rakip & benchmark analizi](/yetkinlikler/strateji-danismanlik/rakip-benchmark-analizi)**: Sektör girişinin veri omurgasıdır.
-- **[Dijital dönüşüm roadmap](/yetkinlikler/strateji-danismanlik/dijital-donusum-roadmap)**: MVP'den scale'e geçiş için gerekli altyapı planlamasıdır.
-- **[Conversion rate optimization (CRO)](/yetkinlikler/performans-optimizasyonu/conversion-rate-optimization)**: Kanal validasyonu sonrası optimizasyon döngüsünü yönetir.
+- **Marka kimliği & mesajlaşma stratejisi**: Pozisyon manifestosu, bu yetkinlikle entegre çalışır.
+- **Rakip & benchmark analizi**: Sektör girişinin veri omurgasıdır.
+- **Dijital dönüşüm roadmap**: MVP'den scale'e geçiş için gerekli altyapı planlamasıdır.
+- **Conversion rate optimization (CRO)**: Kanal validasyonu sonrası optimizasyon döngüsünü yönetir.
 
 ## Gonet ile çalışmak
 
@@ -3393,10 +3393,10 @@ Her karar dashboards (gösterge panelleri) destekli. DEPARK için haftalık coho
 
 ## İlgili yetkinlikler
 
-- [Dijital pazarlama stratejisi](/yetkinlikler/strateji-danismanlik/dijital-pazarlama-stratejisi) — Startup için uyarlanmış stratejik planlama temelleri  
-- [Veri analizi ve raporlama](/yetkinlikler/veri-analitik/veri-analizi-raporlama) — Growth kararlarının altındaki metrik altyapısı  
-- [Dönüşüm optimizasyonu (CRO)](/yetkinlikler/teknik-seo-performans/donusum-optimizasyonu) — Erken kullanıcı yolculuğunu optimize eden testler  
-- [Sosyal medya yönetimi](/yetkinlikler/sosyal-medya-icindeguzellik/sosyal-medya-yonetimi) — Organik + ücretli sosyal stratejileri  
+- Dijital pazarlama stratejisi — Startup için uyarlanmış stratejik planlama temelleri  
+- Veri analizi ve raporlama — Growth kararlarının altındaki metrik altyapısı  
+- Dönüşüm optimizasyonu (CRO) — Erken kullanıcı yolculuğunu optimize eden testler  
+- Sosyal medya yönetimi — Organik + ücretli sosyal stratejileri  
 
 ## Gonet ile çalışmak
 

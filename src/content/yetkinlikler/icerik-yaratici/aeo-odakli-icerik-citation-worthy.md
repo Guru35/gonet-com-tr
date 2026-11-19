@@ -166,10 +166,10 @@ Gonet'in GEO 2024 pilot projelerinde, AEO odaklı içerik dönüşümü uygulana
 
 ## İlgili yetkinlikler
 
-- [Üretken yapay zeka için SEO (GEO)](/yetkinlikler/icerik-yaratici/generative-engine-optimization-geo): AEO odaklı içeriğin stratejik çatısı, LLM optimizasyonunun geniş perspektifi.
-- [İçerik stratejisi & planlama](/yetkinlikler/icerik-yaratici/icerik-stratejisi-planlama): AEO içeriğin editorial calendar, persona mapping, topic cluster entegrasyonu.
-- [Yapısal veri (Schema.org) uygulaması](/yetkinlikler/teknik-seo/yapisal-veri-schema-org): Citation-worthy içeriğin makine okunabilirliğini artıran JSON-LD katmanı.
-- [Arama niyeti analizi](/yetkinlikler/strateji-analiz/arama-niyeti-analizi): Hangi sorgu türlerinde AEO odaklı yapının ROI'si en yüksek olduğunu belirler.
+- Üretken yapay zeka için SEO (GEO): AEO odaklı içeriğin stratejik çatısı, LLM optimizasyonunun geniş perspektifi.
+- İçerik stratejisi & planlama: AEO içeriğin editorial calendar, persona mapping, topic cluster entegrasyonu.
+- Yapısal veri (Schema.org) uygulaması: Citation-worthy içeriğin makine okunabilirliğini artıran JSON-LD katmanı.
+- Arama niyeti analizi: Hangi sorgu türlerinde AEO odaklı yapının ROI'si en yüksek olduğunu belirler.
 
 ## Gonet ile çalışmak
 

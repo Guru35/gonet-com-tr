@@ -123,7 +123,7 @@ Bir SaaS müşterimiz için yaptığımız CRO çalışmasında, free trial buto
 
 ## İlgili yetkinlikler
 
-CRO, izole bir disiplin değildir. **[UI/UX tasarım](/yetkinlikler/tasarim-ux/ui-ux-tasarim)** ile entegre çalışır çünkü heatmap ve session recording'lerin ortaya koyduğu UX sorunları tasarım revizyonu gerektirir. **[Google Analytics 4 (GA4) kurulum ve analiz](/yetkinlikler/veri-analitik/google-analytics-4)** olmadan funnel analizi ve segmentasyon yapılamaz. **[Landing page tasarım ve optimizasyon](/yetkinlikler/tasarim-ux/landing-page-tasarim)** CRO'nun doğrudan uygulandığı alandır. **[Google Tag Manager (GTM)](/yetkinlikler/veri-analitik/google-tag-manager)** ile A/B test araçları ve event tracking entegrasyonu sağlanır.
+CRO, izole bir disiplin değildir. **UI/UX tasarım** ile entegre çalışır çünkü heatmap ve session recording'lerin ortaya koyduğu UX sorunları tasarım revizyonu gerektirir. **Google Analytics 4 (GA4) kurulum ve analiz** olmadan funnel analizi ve segmentasyon yapılamaz. **Landing page tasarım ve optimizasyon** CRO'nun doğrudan uygulandığı alandır. **Google Tag Manager (GTM)** ile A/B test araçları ve event tracking entegrasyonu sağlanır.
 
 ## Gonet ile çalışmak
 

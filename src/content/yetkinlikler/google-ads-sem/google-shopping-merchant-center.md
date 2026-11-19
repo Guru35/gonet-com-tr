@@ -135,10 +135,10 @@ Bu etiketler, 10+ ayrı kampanya segmentini tek feed'den besleyerek her segmente
 
 ## İlgili yetkinlikler
 
-- [Performance Max (PMax) Kampanya Yönetimi](/yetkinlikler/google-ads-sem/performance-max-pmax-kampanya-yonetimi): PMax, Shopping feed'ini tüm Google envanterine yayar; feed kalitesi PMax performansını doğrudan etkiler.
-- [Google Ads Veri & Ölçümleme Altyapısı](/yetkinlikler/google-ads-sem/google-ads-veri-olcumleme-altyapisi): Conversion tracking (dönüşüm izleme) ve değer ataması, feed segmentlerinin ROAS analizini mümkün kılar.
-- [Dinamik Remarketing Kampanyaları](/yetkinlikler/google-ads-sem/dinamik-remarketing-kampanyalari): Aynı feed, Display ve YouTube remarketing kampanyalarında kişiselleştirilmiş ürün gösterimi için kullanılır.
-- [E-ticaret GA4 & Ölçümleme Sistemleri](/yetkinlikler/veri-analitics/e-ticaret-ga4-olcumleme-sistemleri): Feed performansı GA4 e-ticaret raporlarıyla birleştirilerek ürün düzeyinde karlılık analizi yapılır.
+- Performance Max (PMax) Kampanya Yönetimi: PMax, Shopping feed'ini tüm Google envanterine yayar; feed kalitesi PMax performansını doğrudan etkiler.
+- Google Ads Veri & Ölçümleme Altyapısı: Conversion tracking (dönüşüm izleme) ve değer ataması, feed segmentlerinin ROAS analizini mümkün kılar.
+- Dinamik Remarketing Kampanyaları: Aynı feed, Display ve YouTube remarketing kampanyalarında kişiselleştirilmiş ürün gösterimi için kullanılır.
+- E-ticaret GA4 & Ölçümleme Sistemleri: Feed performansı GA4 e-ticaret raporlarıyla birleştirilerek ürün düzeyinde karlılık analizi yapılır.
 
 ## Gonet ile çalışmak
 

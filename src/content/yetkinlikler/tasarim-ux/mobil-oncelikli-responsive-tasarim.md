@@ -137,7 +137,7 @@ Touch-first interaction design uygularız: 44x44px minimum tap target, yeterli s
 
 ## İlgili yetkinlikler
 
-Mobil-öncelikli responsive tasarım, [web performans optimizasyonu](/yetkinlikler/web-performans-optimizasyonu) ile el ele gider — mobil cihazlarda yükleme hızı kritiktir. [Erişilebilir kullanıcı arayüzü tasarımı](/yetkinlikler/erisilebilir-kullanici-arayuzu) touch-first yaklaşımı ve WCAG standartlarını kapsar. [Component-driven design](/yetkinlikler/component-driven-design) container queries'in tüm potansiyelinden yararlanır. [Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals) mobil-öncelikli tasarımın performans boyutunu derinleştirir.
+Mobil-öncelikli responsive tasarım, web performans optimizasyonu ile el ele gider — mobil cihazlarda yükleme hızı kritiktir. Erişilebilir kullanıcı arayüzü tasarımı touch-first yaklaşımı ve WCAG standartlarını kapsar. Component-driven design container queries'in tüm potansiyelinden yararlanır. Core Web Vitals optimizasyonu mobil-öncelikli tasarımın performans boyutunu derinleştirir.
 
 ## Gonet ile çalışmak
 

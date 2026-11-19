@@ -145,10 +145,10 @@ Cloudflare cache rules + Argo Smart Routing. Statik asset'ler (CSS/JS/resim) 7 g
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu) — Strapi/Payload CMS'i Coolify üzerinde deploy, Next.js ile entegrasyon
-- [Docker + Kubernetes Orkestrasyon](/yetkinlikler/docker-kubernetes-orkestrasyon) — Daha büyük ölçeklerde K8s'e geçiş stratejisi
-- [CI/CD Pipeline Otomasyonu](/yetkinlikler/cicd-pipeline-otomasyon) — GitHub Actions + Coolify webhook entegrasyonu
-- [Sunucu Güvenliği + Hardening](/yetkinlikler/sunucu-guvenligi-hardening) — Self-hosted altyapıda zero-trust güvenlik katmanları
+- Headless CMS Entegrasyonu — Strapi/Payload CMS'i Coolify üzerinde deploy, Next.js ile entegrasyon
+- Docker + Kubernetes Orkestrasyon — Daha büyük ölçeklerde K8s'e geçiş stratejisi
+- CI/CD Pipeline Otomasyonu — GitHub Actions + Coolify webhook entegrasyonu
+- Sunucu Güvenliği + Hardening — Self-hosted altyapıda zero-trust güvenlik katmanları
 
 ## Gonet ile çalışmak
 

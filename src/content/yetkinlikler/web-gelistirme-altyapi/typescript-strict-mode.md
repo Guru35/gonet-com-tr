@@ -197,10 +197,10 @@ Gonet müşterilerinden biri için geliştirdiğimiz headless CMS entegrasyonund
 
 TypeScript strict mode, modern web stack'inin omurgasıdır ve şu yetkinliklerle sinerji yaratır:
 
-- [Next.js App Router](/yetkinlikler/nextjs-app-router): Server Component'lerde end-to-end type safety, özellikle async data fetching'de kritik.
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Content type'ları Zod schema'yla model edilir, GraphQL/REST response'ları runtime validate edilir.
-- [React Server Components](/yetkinlikler/react-server-components): Server-client boundary'de tip güvenliği, serialization hatalarını önler.
-- [API Tasarımı (RESTful/GraphQL)](/yetkinlikler/api-tasarimi): Zod schema'lar OpenAPI spec'e dönüştürülür, API dokümantasyonu otomatik güncellenir.
+- Next.js App Router: Server Component'lerde end-to-end type safety, özellikle async data fetching'de kritik.
+- Headless CMS Entegrasyonu: Content type'ları Zod schema'yla model edilir, GraphQL/REST response'ları runtime validate edilir.
+- React Server Components: Server-client boundary'de tip güvenliği, serialization hatalarını önler.
+- API Tasarımı (RESTful/GraphQL): Zod schema'lar OpenAPI spec'e dönüştürülür, API dokümantasyonu otomatik güncellenir.
 
 ## Gonet ile çalışmak
 

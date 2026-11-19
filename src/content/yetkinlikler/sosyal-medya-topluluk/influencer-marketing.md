@@ -156,10 +156,10 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
 
 ## İlgili yetkinlikler
 
-- [Topluluk yönetimi](/yetkinlikler/sosyal-medya-topluluk/topluluk-yonetimi): Influencer kampanyası sonrası oluşan topluluğu sürdürmek için.
-- [İçerik pazarlama](/yetkinlikler/icerik-pazarlama/icerik-stratejisi): Influencer içeriklerini marka blog ve sosyal kanallarda yeniden kullanma stratejisi.
-- [Sosyal medya reklamcılığı](/yetkinlikler/sosyal-medya-topluluk/sosyal-medya-reklamlari): Influencer postlarını 'boost' ederek erişimi artırma.
-- [E-ticaret entegrasyonu](/yetkinlikler/e-ticaret/e-ticaret-entegrasyonu): Influencer kodlarını sepet sistemine entegre etme, komisyon takibi.
+- Topluluk yönetimi: Influencer kampanyası sonrası oluşan topluluğu sürdürmek için.
+- İçerik pazarlama: Influencer içeriklerini marka blog ve sosyal kanallarda yeniden kullanma stratejisi.
+- Sosyal medya reklamcılığı: Influencer postlarını 'boost' ederek erişimi artırma.
+- E-ticaret entegrasyonu: Influencer kodlarını sepet sistemine entegre etme, komisyon takibi.
 
 ## Gonet ile çalışmak
 

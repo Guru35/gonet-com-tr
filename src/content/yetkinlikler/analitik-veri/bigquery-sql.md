@@ -130,10 +130,10 @@ BigQuery + SQL, veri hacmi veya karmaşıklık arttıkça 'nice-to-have'dan 'zor
 
 ## İlgili yetkinlikler
 
-- [GA4 Kurulum & Yönetim](/yetkinlikler/analitik-veri/ga4-kurulum-yonetim): BigQuery export için temel event tracking ve custom dimension altyapısı.
-- [Looker Studio (Data Studio)](/yetkinlikler/analitik-veri/looker-studio): BigQuery verilerini görselleştirme, scheduled query sonuçlarını dashboard'a aktarma.
-- [Google Tag Manager (GTM) İleri](/yetkinlikler/analitik-veri/gtm-ileri): Custom event'leri GA4'e, oradan BigQuery'ye akıtmak için tag yapılandırması.
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/urun-yonetimi/conversion-rate-optimization): BigQuery funnel analizi sonuçlarını A/B test hipotezlerine dönüştürme.
+- GA4 Kurulum & Yönetim: BigQuery export için temel event tracking ve custom dimension altyapısı.
+- [Looker Studio (Data Studio)](/yetenekler/analitik-veri/looker-studio): BigQuery verilerini görselleştirme, scheduled query sonuçlarını dashboard'a aktarma.
+- Google Tag Manager (GTM) İleri: Custom event'leri GA4'e, oradan BigQuery'ye akıtmak için tag yapılandırması.
+- Conversion Rate Optimization (CRO): BigQuery funnel analizi sonuçlarını A/B test hipotezlerine dönüştürme.
 
 ## Gonet ile çalışmak
 

@@ -134,10 +134,10 @@ Her karar dashboards (gösterge panelleri) destekli. DEPARK için haftalık coho
 
 ## İlgili yetkinlikler
 
-- [Dijital pazarlama stratejisi](/yetkinlikler/strateji-danismanlik/dijital-pazarlama-stratejisi) — Startup için uyarlanmış stratejik planlama temelleri  
-- [Veri analizi ve raporlama](/yetkinlikler/veri-analitik/veri-analizi-raporlama) — Growth kararlarının altındaki metrik altyapısı  
-- [Dönüşüm optimizasyonu (CRO)](/yetkinlikler/teknik-seo-performans/donusum-optimizasyonu) — Erken kullanıcı yolculuğunu optimize eden testler  
-- [Sosyal medya yönetimi](/yetkinlikler/sosyal-medya-icindeguzellik/sosyal-medya-yonetimi) — Organik + ücretli sosyal stratejileri  
+- Dijital pazarlama stratejisi — Startup için uyarlanmış stratejik planlama temelleri  
+- Veri analizi ve raporlama — Growth kararlarının altındaki metrik altyapısı  
+- Dönüşüm optimizasyonu (CRO) — Erken kullanıcı yolculuğunu optimize eden testler  
+- Sosyal medya yönetimi — Organik + ücretli sosyal stratejileri  
 
 ## Gonet ile çalışmak
 
