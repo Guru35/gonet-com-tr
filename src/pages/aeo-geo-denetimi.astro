@@ -62,12 +62,11 @@ const serviceSchema = {
 const faq = faqSchema([
   {
     question: 'AEO/GEO denetimi nedir, klasik SEO denetimiyle farkı nedir?',
+    // Yapısal cevap sayfadaki görünür cevabın BİREBİR aynısıdır (WEBDV-17 M1, CEO kararı a); görünür metin değişirse bu da değişmeli.
     answer:
-      "Klasik SEO denetimi Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO. AEO/GEO denetimi ise " +
-      "LLM motorlarını hedefler (ölçüm Claude ve Gemini üzerinde yapılır): markanın bu motorlarda nasıl temsil edildiği, " +
-      "Common Crawl arşivine girip girmediği, llms.txt rehberinin doğru olup olmadığı, Schema.org JSON-LD entity authority yapısı, " +
-      "extraction-ready içerik formatı, semantic chunking. 2025-2026'da arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO " +
-      "yetmiyor, ek olarak AEO/GEO denetimi gerek.",
+      "Klasik SEO Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO. " +
+      "AEO/GEO denetimi ise LLM motorlarını hedefler: markanın Claude ve Gemini'de " +
+      "nasıl temsil edildiği. 2025'te arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO yetmez, ek AEO/GEO denetimi gerek.",
   },
 ]);
 ---
