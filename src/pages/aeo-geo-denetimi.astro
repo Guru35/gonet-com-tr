@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
 
-const title = "AEO/GEO Denetim Hizmeti — ChatGPT, Claude, Perplexity Markanızı Nasıl Tanıyor? | Gonet";
+const title = "AEO/GEO Denetim Hizmeti — Yapay Zekâ Markanızı Nasıl Tanıyor? | Gonet";
 const description =
   "Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor (robots/schema) + Content-Auditor + Drift Detection. " +
-  "ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de markanın temsiline kanıt-bazlı denetim. " +
+  "Markanın Claude ve Gemini yanıtlarındaki temsiline kanıt-bazlı denetim. " +
   "Express / Standart / Enterprise paketler. Express 1 hafta, Standart 2 hafta.";
 const url = `${SITE_URL}/aeo-geo-denetimi`;
 
@@ -48,7 +48,7 @@ const serviceSchema = {
       {
         '@type': 'Offer',
         name: 'Standart',
-        description: '2 haftada — Express + Common Crawl 5-kontrol + Content-Auditor (10 sayfa) + 4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini) + 8 sayfalık tam rapor + 3 aylık drift baseline',
+        description: '2 haftada — Express + Common Crawl 5-kontrol + Content-Auditor (10 sayfa) + LLM probe (Claude ve Gemini) + 8 sayfalık tam rapor + 3 aylık drift baseline',
       },
       {
         '@type': 'Offer',
@@ -64,65 +64,10 @@ const faq = faqSchema([
     question: 'AEO/GEO denetimi nedir, klasik SEO denetimiyle farkı nedir?',
     answer:
       "Klasik SEO denetimi Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO. AEO/GEO denetimi ise " +
-      "LLM motorlarını (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) hedefler: markanın bu motorlarda nasıl temsil edildiği, " +
+      "LLM motorlarını hedefler (ölçüm Claude ve Gemini üzerinde yapılır): markanın bu motorlarda nasıl temsil edildiği, " +
       "Common Crawl arşivine girip girmediği, llms.txt rehberinin doğru olup olmadığı, Schema.org JSON-LD entity authority yapısı, " +
       "extraction-ready içerik formatı, semantic chunking. 2025-2026'da arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO " +
       "yetmiyor, ek olarak AEO/GEO denetimi gerek.",
-  },
-  {
-    question: 'Denetim kapsamı nedir, hangi katmanları içerir?',
-    answer:
-      "Beş katmanlı framework: (1) Erişim katmanı — robots.txt + CDN/WAF + Cloudflare AI Crawl Control: CCBot, GPTBot, ClaudeBot, " +
-      "PerplexityBot, Google-Extended erişimi. (2) Crawl katmanı — Common Crawl arşivinde domain var mı, son snapshot ne zaman, kapsam ne. " +
-      "(3) Tech-Auditor — Schema.org JSON-LD (Organization, Person, Service, FAQPage), llms.txt protokolü, sitemap, SSR durumu (Inertia/SPA tuzağı), " +
-      "Open Graph + Twitter Card. (4) Content-Auditor — extraction-ready format (front-loading, atomic cevaplar, soru-bazlı heading), " +
-      "FAQPage Q&A katmanı, citation surface. (5) Researcher (Faz 2) — gerçek LLM probe: ChatGPT/Claude/Perplexity/Gemini'a markayı sor, " +
-      "yanıtları analiz et, drift takibi.",
-  },
-  {
-    question: 'Bir denetim ne kadar sürer, ne zaman rapor alırım?',
-    answer:
-      "Express paket: 1 hafta — sözleşme + erişim + Tech-Auditor + 1 sayfalık öneri raporu. " +
-      "Standart paket: 2 hafta — Express + Common Crawl 5-kontrol + 4 platform LLM probe + 8 sayfalık tam rapor + drift baseline. " +
-      "Enterprise: aylık abonelik — Standart + her ay drift takibi + Cloudflare baseline + öncelikli implementation desteği.",
-  },
-  {
-    question: 'Hangi platformlar test ediliyor?',
-    answer:
-      "Erişim ve crawl katmanları için Common Crawl (CCBot), OpenAI (GPTBot, ChatGPT-User, OAI-SearchBot), Anthropic " +
-      "(ClaudeBot, anthropic-ai, Claude-Web), Google (Google-Extended, AI Overviews crawler), Perplexity (PerplexityBot, Perplexity-User), " +
-      "Meta, xAI, Apple test edilir. Researcher katmanında (Standart+) ChatGPT, Claude, Perplexity, Gemini ile gerçek soru-cevap probe yapılır.",
-  },
-  {
-    question: "Gonet bu hizmeti kendi sitesi üzerinde uyguluyor mu?",
-    answer:
-      "Evet — gonet.com.tr şu anda bu hizmetin canlı vitrini: Cloudflare AI Crawl Control baseline 2026-06-05'te alındı, " +
-      "Schema.org @graph (Organization + Person + WebSite + Service + FAQPage) 18+ tip kullanılıyor, llms.txt yayında. " +
-      "Bu sayfada açıkladığımız her tekniğin " +
-      "uygulamasını canlı görebilirsiniz. Hizmet metodolojisi vault'ta açık (audits/seo-llm/), denetim çıktıları " +
-      "compounding artifact: her yeni denetim önceki üzerine inşa eder.",
-  },
-  {
-    question: 'Bulduğunuz sorunları çözüm uygulamak da hizmete dahil mi?',
-    answer:
-      "Denetim → rapor + öneri kapsamı temel pakettedir. Uygulama (Schema.org @graph yazımı, llms.txt kurulumu, " +
-      "robots.txt/WAF açma, content rewrite, semantic chunking) Enterprise pakette dahildir. Express + Standart paketlerde " +
-      "uygulama ayrı saatli proje olarak teklifle çalışır. Tipik uygulama 2-4 hafta sürer.",
-  },
-  {
-    question: 'Denetim sonucu raporunu nasıl alacağım?',
-    answer:
-      "Üç biçim: (1) Markdown rapor — kanıt-bazlı, vault'a entegre edilebilir. (2) PDF özet — 1-2 sayfa, paydaş paylaşımı için. " +
-      "(3) Müşteri portalına (Merhaba) entegrasyon — Enterprise paket: aylık drift verisini portal'dan canlı takip edersiniz, " +
-      "AI çağında markanın görünürlüğü canlı gauge olarak.",
-  },
-  {
-    question: 'Fiyatlandırma nasıl?',
-    answer:
-      "Fiyatlandırma proje kapsamı + müşteri büyüklüğü + drift takip periyoduna göre özelleşir. " +
-      "Express: tek-seferlik, küçük ve orta ölçekli site için uygun. Standart: en yaygın paket, çoklu domain ya da büyük site için. " +
-      "Enterprise: aylık abonelik, sürekli takip + implementation desteği gerektiren kurumsal markalar için. " +
-      "Teklif için iletişim formundan bize ulaşın veya AI ile Tartış butonu ile konuyu açın.",
   },
 ]);
 ---
@@ -143,7 +88,7 @@ const faq = faqSchema([
         Hizmet · Denetim & Strateji
       </p>
       <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[100px] leading-[0.95] mb-12">
-        ChatGPT'e markanızı sorun.<br/>
+        ChatGPT'ye markanızı sorun.<br/>
         <span style="color:#ff0000">Ne çıkıyor?</span>
       </h1>
       <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
@@ -228,11 +173,11 @@ const faq = faqSchema([
           <div class="md:col-span-10">
             <h3 class="text-2xl font-medium mb-3">Researcher — LLM'ler beni nasıl temsil ediyor?</h3>
             <p class="text-slate-700 mb-2">
-              <strong>Standart + Enterprise pakette.</strong> ChatGPT, Claude, Perplexity, Gemini'a markayı sor, yanıtları analiz et:
+              <strong>Standart + Enterprise pakette.</strong> Claude ve Gemini'ye markayı sor, yanıtları analiz et:
               Share-of-Model (SoM), Citation Rate, Sentiment, Citation Error Rate (CER), platform-spesifik bias.
               Drift detection — önceki audit ile kıyaslama, hangi platformda hangi yönde değişim.
             </p>
-            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> 4 platform LLM yanıt tablosu + SoM skorları + drift değişimleri.</p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Claude ve Gemini yanıt tablosu + SoM skorları + drift değişimleri.</p>
           </div>
         </li>
       </ol>
@@ -271,7 +216,7 @@ const faq = faqSchema([
             <li>✓ <strong>Express paket tümü</strong></li>
             <li>✓ Common Crawl 5-kontrol</li>
             <li>✓ Content-Auditor (10 sayfa derin)</li>
-            <li>✓ 4 platform LLM probe (ChatGPT, Claude, Perplexity, Gemini)</li>
+            <li>✓ LLM probe (Claude ve Gemini)</li>
             <li>✓ Share-of-Model + Citation Rate</li>
             <li>✓ 8 sayfalık tam rapor</li>
             <li>✓ 3 ay drift baseline (CF AI Crawl Control)</li>
@@ -360,7 +305,7 @@ const faq = faqSchema([
           </summary>
           <p class="mt-4 text-slate-700 leading-relaxed">
             Klasik SEO Google sıralamasını hedefler: Core Web Vitals, on-page, backlink, technical SEO.
-            AEO/GEO denetimi ise <strong>LLM motorlarını</strong> hedefler: markanın ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews'de
+            AEO/GEO denetimi ise <strong>LLM motorlarını</strong> hedefler: markanın Claude ve Gemini'de
             nasıl temsil edildiği. 2025'te arama trafiğinin %35'i AI motorlarına kaydı — klasik SEO yetmez, ek AEO/GEO denetimi gerek.
           </p>
         </details>
@@ -378,7 +323,7 @@ const faq = faqSchema([
           </summary>
           <p class="mt-4 text-slate-700 leading-relaxed">
             Erişim + crawl: Common Crawl, OpenAI, Anthropic, Google, Perplexity, Meta, xAI, Apple. Researcher (Standart+):
-            ChatGPT, Claude, Perplexity, Gemini gerçek probe.
+            Claude ve Gemini ile gerçek probe.
           </p>
         </details>
         <details class="border-b border-slate-300 pb-6">

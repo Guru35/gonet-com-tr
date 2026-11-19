@@ -54,7 +54,7 @@ Long-form SEO içerik üretimi, belirli bir konuda kapsamlı bilgi sunan, 2000 k
 
 Bu metodolojide ana sayfa (pillar), bir konunun temel çerçevesini sunarken, cluster sayfaları o konunun spesifik yönlerini detaylandırır. Örneğin "Dijital Pazarlama" pillar sayfası, "SEO", "SEM", "E-posta Pazarlama" gibi cluster sayfalarına bağlanır. Her cluster sayfası da 1500-2500 kelime arası derinlikte, kendi konusunu işler ve pillara geri link verir.
 
-Gonet'te long-form içerik üretimi, yalnızca kelime sayısı hedefi değildir. Search intent mapping (arama niyeti haritalama), entity-based SEO (varlık tabanlı SEO), structured data markup (yapılandırılmış veri işaretleme) ve LLM-extraction readiness (LLM çıkarım hazırlığı) bir arada kullanılır. 2000'den bu yana 220+ marka için üretilen binlerce içerik deneyimi, her sektörde işleyen pillar mimarileri oluşturmamızı sağlar.
+Gonet'te long-form içerik üretimi, yalnızca kelime sayısı hedefi değildir. Search intent mapping (arama niyeti haritalama), entity-based SEO (varlık tabanlı SEO), structured data markup (yapılandırılmış veri işaretleme) ve LLM-extraction readiness (LLM çıkarım hazırlığı) bir arada kullanılır. 2000'den bu yana 190+ marka için üretilen binlerce içerik deneyimi, her sektörde işleyen pillar mimarileri oluşturmamızı sağlar.
 
 ## Neden kritik?
 

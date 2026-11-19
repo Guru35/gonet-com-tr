@@ -1,6 +1,6 @@
 ---
 title: "Marka Kimliği ve Logo Tasarımı: Dijital Ekosistemde Tutarlı Marka Deneyimi"
-description: "Logo tasarımından marka kılavuzuna, dijital platformlarda tutarlı görsel kimlik. 26 yıllık deneyimle 220+ marka için ölçeklenebilir brand identity sistemleri."
+description: "Logo tasarımından marka kılavuzuna, dijital platformlarda tutarlı görsel kimlik. 26 yıllık deneyimle 190+ marka için ölçeklenebilir brand identity sistemleri."
 h1: "Marka Kimliği ve Logo Tasarımı: Dijital Ekosistemde Tutarlı Marka Deneyimi"
 categorySlug: "tasarim-ux"
 categoryName: "Tasarım & UX"
@@ -125,9 +125,9 @@ Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır
 ## Gonet ile çalışmak
 
 <div class="gonet-pullquote">
-  <div class="big-number">220+</div>
+  <div class="big-number">190+</div>
   <div class="big-label">Marka Kimliği Projesi</div>
   <p class="pq-desc">26 yıllık deneyimimizle dijital öncelikli, ölçeklenebilir sistemler tasarladık.</p>
 </div>
 
-26 yıllık deneyimimizle 220+ marka için marka kimliği tasarladık. Ajansımız Google Partner statüsünde olduğu için, tasarladığımız her marka kimliği aynı zamanda dijital reklam performansı için optimize edilir. Markanız için tutarlı, ölçeklenebilir, dijital öncelikli bir kimlik sistemi kurmak istiyorsanız [iletişime geçin](/iletisim).
+26 yıllık deneyimimizle 190+ marka için marka kimliği tasarladık. Ajansımız Google Partner statüsünde olduğu için, tasarladığımız her marka kimliği aynı zamanda dijital reklam performansı için optimize edilir. Markanız için tutarlı, ölçeklenebilir, dijital öncelikli bir kimlik sistemi kurmak istiyorsanız [iletişime geçin](/iletisim).

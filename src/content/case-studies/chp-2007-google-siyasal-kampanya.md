@@ -50,4 +50,4 @@ Bu, siyasi yelpazenin tamamıyla profesyonel düzeyde dijital iş yapan tek ajan
 
 ## Neden Gonet?
 
-2007'de Türkiye'de Google Partner olan ajansların sayısı tek elin parmaklarını geçmiyordu. Gonet, **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)** ve **Google Ads'in Türkiye'deki ilk beta tester ajansı** olarak, hem teknik bilgi hem de Google ile birinci elden iletişim avantajına sahipti.
+2007'de Türkiye'de Google Partner olan ajansların sayısı tek elin parmaklarını geçmiyordu. Gonet, **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)**. **Google Ads'in Türkiye'deki ilk beta tester ajansıydı**; hem teknik bilgi hem de Google ile birinci elden iletişim avantajına sahipti.

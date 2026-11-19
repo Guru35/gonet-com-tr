@@ -54,7 +54,7 @@ Dijital pazarlama strateji geliştirme, bir markanın çevrimiçi varlığını 
 
 STP, pazarı anlamlı gruplara böler (segmentasyon), bu gruplardan hangilerine odaklanılacağını belirler (hedefleme) ve markanın zihinlerde nasıl konumlanacağını tasarlar (konumlandırma). Customer journey, bir potansiyel müşterinin farkındalıktan satın almaya ve savunuculuğa kadar geçirdiği tüm temas noktalarını (touchpoint) görselleştirir. Attribution modeling ise her bir dijital kanalın (organik arama, ücretli reklam, sosyal medya, e-posta) dönüşüme katkısını matematiksel olarak değerlendirir.
 
-Gonet, 2000'den bu yana 220'den fazla markayla çalışarak strateji geliştirme süreçlerini olgunlaştırmıştır. Her proje, veri analitiği (GA4, CRM verileri, pazar araştırması) ile başlar ve iş hedeflerine (marka bilinirliği, lead kalitesi, satış hacmi) kilitlenir.
+Gonet, 2000'den bu yana 190'dan fazla markayla çalışarak strateji geliştirme süreçlerini olgunlaştırmıştır. Her proje, veri analitiği (GA4, CRM verileri, pazar araştırması) ile başlar ve iş hedeflerine (marka bilinirliği, lead kalitesi, satış hacmi) kilitlenir.
 
 ## Neden kritik?
 
@@ -140,4 +140,4 @@ Dijital pazarlama strateji geliştirme, diğer Gonet yetkinlikleriyle sinerjik �
 
 ## Gonet ile çalışmak
 
-Gonet, stratejinizi iş hedeflerinize kilitleyen, veriye dayalı bir çerçeve kurar. 26 yıllık deneyim ve 220+ marka portföyü, kategori özelinde kanıtlanmış STP, journey ve attribution metodolojileri sunar. Dijital pazarlama stratejinizi bir sonraki seviyeye taşımak için [iletişime geçin](/iletisim).
+Gonet, stratejinizi iş hedeflerinize kilitleyen, veriye dayalı bir çerçeve kurar. 26 yıllık deneyim ve 190+ marka portföyü, kategori özelinde kanıtlanmış STP, journey ve attribution metodolojileri sunar. Dijital pazarlama stratejinizi bir sonraki seviyeye taşımak için [iletişime geçin](/iletisim).

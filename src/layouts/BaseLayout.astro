@@ -139,7 +139,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
         var durum = { ga4: false, yandex: false, ads: false, cloudflare: false };
         var gtmYuklendi = false;
         var cfYuklendi = false;
-        // Cloudflare Web Analytics GTM'den bağımsız, yalnız «Analitik» izniyle yüklenir (kenarda otomatik enjeksiyon panelden kapalı olmalı).
+        // Cloudflare Web Analytics GTM'den bağımsız, yalnız Analitik izniyle yüklenir (kenarda otomatik enjeksiyon panelden kapalı olmalı).
         function cfYukle() {
           if (cfYuklendi || !window.gonetCfToken) return;
           cfYuklendi = true;
@@ -199,7 +199,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
               description: 'gonet.com.tr aşağıdaki servisleri yalnız izninizle yükler; her servis adıyla, amacıyla ve tarafıyla listelenir. Kararınızı istediğiniz zaman sayfa altındaki «Çerez ayarları» bağlantısından değiştirebilir ya da geri çekebilirsiniz. <a href="/kvkk">Aydınlatma metni</a>',
             },
             consentNotice: {
-              description: 'Analitik ve pazarlama çerezlerini yalnız izninizle kullanırız; karar verene kadar bu servisler yüklenmez. <a href="/kvkk">Aydınlatma metni</a>',
+              description: 'Analitik çerezlerini yalnız izninizle kullanırız; karar verene kadar bu servisler yüklenmez. <a href="/kvkk">Aydınlatma metni</a>',
               learnMore: 'Tercihler',
             },
             acceptAll: 'Hepsini kabul et',
@@ -227,7 +227,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             title: 'Google Analytics 4',
             purposes: ['analytics'],
             description: 'Google (üçüncü taraf, ABD). Site kullanım istatistikleri. Google Tag Manager üzerinden yüklenir.',
-            cookies: [/^_ga/, /^_gid/, /^_fbp/, [/^_fbp/, '/', '.gonet.com.tr']], // _fbp: eski ziyaretten kalmış kalıntı çerezi «Hepsini reddet»te silinir (QA ead49de)
+            cookies: [/^_ga/, /^_gid/, /^_fbp/, [/^_fbp/, '/', '.gonet.com.tr'], /^_fbc/, [/^_fbc/, '/', '.gonet.com.tr']], // _fbp/_fbc: eski ziyaretten kalmış kalıntı çerezler «Hepsini reddet»te silinir (QA ead49de)
             required: false,
             default: false,
             callback: function (consent) { window.gonetRiza('ga4', consent); },
@@ -716,7 +716,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
       <div class="border-t border-black">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 sm:pr-28 lg:pr-28 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
           <span>© {new Date().getFullYear()} Gonet — Her iş'te Gonet var.</span>
-          <span class="text-black/60">2000 → 2026 / 26 yıl / 220+ marka</span>
+          <span class="text-black/60">2000 → 2026 / 26 yıl / 190+ marka</span>
           <button type="button" id="cerez-ayarlari" class="underline self-start sm:self-auto min-h-[44px] sm:min-h-0 text-left uppercase tracking-[0.25em] font-medium hover:text-[#ff0000]">Çerez ayarları</button>
         </div>
       </div>

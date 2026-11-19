@@ -52,7 +52,7 @@ changelog:
 
 WordPress, dünya çapında web sitelerinin %43'ünü çalıştıran açık kaynak içerik yönetim sistemidir. Gonet'teki WordPress yetkinliği iki ana eksende gelişir: **legacy (geleneksel) mimari** ve **headless (başsız) mimari**. Legacy mimaride WordPress hem içerik yönetimi hem de ön yüz sunum katmanı olarak çalışır; custom theme (özel tema) geliştirme, Advanced Custom Fields (ACF) ile esnek içerik yapıları ve PHP tabanlı template hierarchy bu alanın temelini oluşturur. Headless mimaride ise WordPress yalnızca içerik deposu ve API sağlayıcısı rolündedir — WP REST API veya GraphQL üzerinden içerik frontend framework'lerine (React, Next.js, Nuxt) aktarılır, rendering ayrı bir katmanda gerçekleşir.
 
-Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 220+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
+Gonet, 2000'den bu yana WordPress projeleri geliştirmiş, 190+ marka portföyünde 50'den fazla kurumsal WordPress çözümü yayına almıştır. Ekibimiz, WooCommerce entegrasyonu, çok dilli mimariler (WPML/Polylang), performans optimizasyonu (object caching, CDN, lazy loading), güvenlik sertleştirme ve özel plugin geliştirme deneyimine sahiptir. Legacy projeler için Gutenberg block library geliştirme, ACF Flexible Content ile modüler sayfa yapıları; headless projeler için JWT authentication, custom REST endpoint ve frontend state management stratejilerini kurgularız.
 
 ## Neden kritik?
 
@@ -125,4 +125,4 @@ Bu entegrasyonlar, WordPress'in hem içerik yönetim kolaylığını hem de mode
 
 ## Gonet ile çalışmak
 
-Gonet, WordPress projelerinizde 26 yıllık geliştirme deneyimini, Google Partner statüsünün getirdiği platform entegrasyonlarını ve 220+ markada test edilmiş best practice'leri sunar. Legacy modernizasyonu, headless dönüşüm veya sıfırdan kurumsal WordPress çözümü ihtiyaçlarınız için [iletişime geçin](/iletisim) — ilk danışmanlık oturumunda mevcut altyapınızı analiz eder, ROI odaklı yol haritası sunarız.
+Gonet, WordPress projelerinizde 26 yıllık geliştirme deneyimini, Google Partner statüsünün getirdiği platform entegrasyonlarını ve 190+ markada test edilmiş best practice'leri sunar. Legacy modernizasyonu, headless dönüşüm veya sıfırdan kurumsal WordPress çözümü ihtiyaçlarınız için [iletişime geçin](/iletisim) — ilk danışmanlık oturumunda mevcut altyapınızı analiz eder, ROI odaklı yol haritası sunarız.

@@ -196,5 +196,5 @@ Gonet'in yönettiği fintech markasında (2023 Q2-Q4), LinkedIn yorumlarından g
 
 ## Gonet ile çalışmak
 
-Gonet, HubSpot Gold Partner statüsü ve 220+ marka CRM entegrasyonu deneyimi ile sosyal topluluk verilerinizi satış motoruna dönüştürür. İlk 30 günde mevcut sosyal hesaplar + CRM audit (denetim), ikinci ayda pilot entegrasyon, üçüncü ayda tam otomasyonlu sistem devreye girer. [İletişime geçin](/iletisim), mevcut CRM kullanımınızı ve sosyal medya hacminizi analiz edelim.
+Gonet, HubSpot Gold Partner statüsü ve 190+ marka CRM entegrasyonu deneyimi ile sosyal topluluk verilerinizi satış motoruna dönüştürür. İlk 30 günde mevcut sosyal hesaplar + CRM audit (denetim), ikinci ayda pilot entegrasyon, üçüncü ayda tam otomasyonlu sistem devreye girer. [İletişime geçin](/iletisim), mevcut CRM kullanımınızı ve sosyal medya hacminizi analiz edelim.
 

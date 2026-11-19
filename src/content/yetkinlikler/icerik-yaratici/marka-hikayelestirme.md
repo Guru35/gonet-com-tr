@@ -51,14 +51,14 @@ changelog:
 ## Marka hikayeleştirme nedir?
 
 <div class="gonet-pullquote">
-  <div class="big-number">220+</div>
+  <div class="big-number">190+</div>
   <div class="big-label">MARKA PROJESİ</div>
   <p class="pq-desc">2000'den bu yana hikaye anlatan ajans deneyimi: ürün özellikleri unutulur, hikayeler kalıcıdır.</p>
 </div>
 
 Marka hikayeleştirme (brand storytelling), bir markanın değerlerini, kökenini ve vaadini yapılandırılmış anlatı teknikleriyle aktarma disiplinidir. Founder story (kurucu hikayesi), brand archetype (marka arketipi) ve narrative arc (anlatı yayı) gibi yöntemlerle marka, tüketicinin zihninde rakiplerden ayrışan duygusal bir konum kazanır.
 
-Gonet'in 2000'den bu yana 220+ markayla yürüttüğü projelerde gözlemlediğimiz gerçek: ürün özellikleri unutulur, hikayeler kalıcıdır. İleri seviye marka hikayeleştirme, pazarlama metinlerini tutarlı bir 'evren' içinde örer; her kampanya, sosyal medya gönderisi ve kurumsal iletişim aynı anlatı omurgasından beslenir. Bu yaklaşım, marka hatırlanabilirliğini ortalama %40 artırır ve müşteri yaşam boyu değerini (CLV) %25-35 yükseltir.
+Gonet'in 2000'den bu yana 190+ markayla yürüttüğü projelerde gözlemlediğimiz gerçek: ürün özellikleri unutulur, hikayeler kalıcıdır. İleri seviye marka hikayeleştirme, pazarlama metinlerini tutarlı bir 'evren' içinde örer; her kampanya, sosyal medya gönderisi ve kurumsal iletişim aynı anlatı omurgasından beslenir. Bu yaklaşım, marka hatırlanabilirliğini ortalama %40 artırır ve müşteri yaşam boyu değerini (CLV) %25-35 yükseltir.
 
 ## Neden kritik?
 
