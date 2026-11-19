@@ -101,7 +101,7 @@ Fluid typography kullanıcı deneyimini iyileştirir çünkü her ekran boyutund
   </div>
 </div>
 
-Gonet'te mobil-öncelikli tasarım 2012'den beri standart uygulamadır. 220+ marka portföyümüzde edindiğimiz deneyim, her sektörün kendine özgü mobil gereksinimlerini anlamamızı sağlamıştır.
+Gonet'te mobil-öncelikli tasarım 2012'den beri standart uygulamadır. 190+ marka portföyümüzde edindiğimiz deneyim, her sektörün kendine özgü mobil gereksinimlerini anlamamızı sağlamıştır.
 
 Container queries'i production'da aktif kullanıyoruz. Design system'lerimiz @container desteğiyle inşa edilir, bu da componentlerin tamamen context-aware (bağlam farkında) olmasını sağlar. Örneğin, bir product card component'i container genişliği 300px'in altındayken vertical layout, üzerindeyken horizontal layout kullanır — sayfa layoutu ne olursa olsun.
 
@@ -141,4 +141,4 @@ Mobil-öncelikli responsive tasarım, web performans optimizasyonu ile el ele gi
 
 ## Gonet ile çalışmak
 
-26 yıllık deneyimimiz ve 220+ marka portföyümüzle modern responsive tasarım yaklaşımlarını production-ready seviyede uyguluyoruz. Container queries, fluid typography ve intrinsic sizing tekniklerini projelerinizde nasıl kullanabileceğinizi değerlendirmek için [iletişime geçin](/iletisim).
+26 yıllık deneyimimiz ve 190+ marka portföyümüzle modern responsive tasarım yaklaşımlarını production-ready seviyede uyguluyoruz. Container queries, fluid typography ve intrinsic sizing tekniklerini projelerinizde nasıl kullanabileceğinizi değerlendirmek için [iletişime geçin](/iletisim).
