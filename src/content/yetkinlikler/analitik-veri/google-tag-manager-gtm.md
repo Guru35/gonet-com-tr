@@ -153,4 +153,4 @@ GTM uygulamaları genellikle diğer analitik ve veri yetkinlikleriyle birlikte y
 
 ## Gonet ile çalışmak
 
-Gonet, 2014'ten beri yüzlerce GTM projesi teslim etmiş Türkiye'nin ilk Google Partner ajanslarından biridir. Server-side GTM altyapısı, data layer mimarisi ve Consent Mode v2 entegrasyonlarında kanıtlanmış deneyimimiz var. Mevcut GTM kurulumunuzu audit edebilir, eksikleri giderebilir veya sıfırdan enterprise-grade (kurumsal düzey) bir yapı kurabiliriz. [İletişime geçin](/iletisim), veri altyapınızı birlikte optimize edelim.
+Gonet, 2014'ten beri yüzlerce GTM projesi teslim etmiştir. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). Server-side GTM altyapısı, data layer mimarisi ve Consent Mode v2 entegrasyonlarında kanıtlanmış deneyimimiz var. Mevcut GTM kurulumunuzu audit edebilir, eksikleri giderebilir veya sıfırdan enterprise-grade (kurumsal düzey) bir yapı kurabiliriz. [İletişime geçin](/iletisim), veri altyapınızı birlikte optimize edelim.

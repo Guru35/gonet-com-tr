@@ -110,9 +110,10 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     position: relative;
     /* Header (nav bar) akışta yer kaplıyor → slider onun yüksekliği kadar kısalır ki
        header + slider = tam viewport olsun (taşma yok). --header-h JS ile gerçek değere set edilir. */
-    height: calc(100vh - var(--header-h, 72px));
-    height: calc(100dvh - var(--header-h, 72px));
-    min-height: 520px;
+    height: calc(100vh - var(--header-h, 72px) - var(--cerez-h, 0px));
+    height: calc(100dvh - var(--header-h, 72px) - var(--cerez-h, 0px));
+    /* Çerez kutusu açıkken (--cerez-h) hero onun yüksekliği kadar kısalır: ilk ekran bağlantıları kutunun üstünde kalır. */
+    min-height: calc(520px - var(--cerez-h, 0px));
     overflow: hidden;
     background: #fff;
     color: var(--txt);
