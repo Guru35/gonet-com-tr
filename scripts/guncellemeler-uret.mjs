@@ -106,7 +106,9 @@ function yasakliAdlariOku() {
     try {
       ham.push(...readFileSync(dosya, 'utf8').split('\n').filter((s) => !s.trim().startsWith('#')));
     } catch (hata) {
-      console.log(`  ⚠ yasaklı ad dosyası okunamadı (${hata.code || 'hata'})`);
+      // Verilen liste okunamıyorsa süzme sessizce atlanmaz: derleme durur.
+      console.error(`  ✖ HATA: yasaklı ad dosyası okunamadı (${hata.code || 'hata'}) — derleme durduruldu.`);
+      process.exit(1);
     }
   }
   if (process.env.GUNCELLEME_YASAKLI_ADLAR) ham.push(...process.env.GUNCELLEME_YASAKLI_ADLAR.split(','));
@@ -114,8 +116,11 @@ function yasakliAdlariOku() {
 }
 
 const YASAKLI = yasakliAdlariOku();
+// Liste yoksa (ya da boşsa) derleme DURUR: public depoda müşteri adı sızıntısını sessizce geçirmemek için (CEO kararı).
+// `npm run build` bu betiği çalıştırır, hata kodu astro build'i engeller. Yerel hızlı derleme: `npm run build:hizli` (betiği atlar).
 if (YASAKLI.length === 0) {
-  console.log('  ⚠ yasaklı ad listesi verilmedi (GUNCELLEME_YASAKLI_DOSYA / GUNCELLEME_YASAKLI_ADLAR) — ad süzmesi yapılmadı.');
+  console.error('  ✖ HATA: yasaklı ad listesi verilmedi (GUNCELLEME_YASAKLI_DOSYA veya GUNCELLEME_YASAKLI_ADLAR) — derleme durduruldu.');
+  process.exit(1);
 }
 let elenen = 0;
 
