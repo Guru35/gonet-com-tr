@@ -173,4 +173,4 @@ Gonet'in GEO 2024 pilot projelerinde, AEO odaklı içerik dönüşümü uygulana
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık dijital pazarlama deneyimini 2024 GEO yöntemleriyle birleştirir. AEO odaklı içerik dönüşümü, llms.txt entegrasyonu, RAG-ready yapılandırma konusunda Türkiye'nin ilk Google Partner ajanslarından biri olarak uçtan uca hizmet sunarız. Mevcut içeriğinizi citation-worthy hale getirmek veya sıfırdan AEO stratejisi kurmak için [iletişime geçin](/iletisim).
+Gonet, 26 yıllık dijital pazarlama deneyimini 2024 GEO yöntemleriyle birleştirir. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). AEO odaklı içerik dönüşümü, llms.txt entegrasyonu, RAG-ready yapılandırma konusunda uçtan uca hizmet sunarız. Mevcut içeriğinizi citation-worthy hale getirmek veya sıfırdan AEO stratejisi kurmak için [iletişime geçin](/iletisim).
