@@ -28,31 +28,12 @@ for (const cardId of Object.keys(EXAMPLES)) {
   }
 }
 
+// Yapısal veri yalnız sayfada GÖRÜNEN soru-cevabı taşır (WEBDV-17 M1): diğer dört soru çıkarıldı.
 const faqItems = [
-  {
-    question: 'Hangi Claude modelini seçmeliyim?',
-    answer:
-      'Emin değilseniz Sonnet · Medium ile başlayın. İş basitse Haiku’ya inin, kritik ve geri alınamaz bir kararsa Opus’a çıkın, kullanıcıya gidecek bir metinse Fable kullanın. Hem yetenek hem maliyet açısından varsayılan başlangıç Sonnet’tir.',
-  },
-  {
-    question: 'Thinking (düşünme) modu nedir?',
-    answer:
-      'Claude’un adım adım muhakeme sürecini görünür kıldığı moddur. Web arayüzünde effort dropdown’ı, Claude Code’da /effort komutu, API’de output_config.effort ile kontrol edilir. Fable 5’te Thinking her zaman aktiftir ve kapatılamaz.',
-  },
-  {
-    question: 'Effort seviyesi (Low, Medium, High, Max) ne işe yarar?',
-    answer:
-      'Effort, modelin bir göreve ne kadar derin düşüneceğini ve ne kadar token harcayacağını belirler. Düşük effort hızlı ve ucuzdur; yüksek effort daha derin muhakeme ve daha fazla token demektir. Önce düşük effort’la deneyip gerekiyorsa kademeli yükseltmek en ekonomik yaklaşımdır.',
-  },
   {
     question: 'Ultracode nedir?',
     answer:
       'Ultracode, Claude Code’a özgü bir oturum modudur: en yüksek effort (xHigh) seviyesini açar ve paralel çok-ajanlı orkestrasyona (Dynamic Workflows) izin verir. Web arayüzünde bulunmaz. Büyük, bölünebilir görevlerde işi hızlandırır ama token tüketimini ajan sayısıyla çarpar.',
-  },
-  {
-    question: 'Bu kılavuzdaki bilgiler güvenilir mi?',
-    answer:
-      'Evet. Tüm model ve effort bilgileri Anthropic’in dört ayrı resmî kaynağından (Claude Code dokümantasyonu, Effort parametresi, Extended Thinking dokümanı ve resmî duyuru) doğrulanmıştır. Kaynaklar yazının sonundaki Kaynakça bölümünde listelenmiştir.',
   },
 ];
 ---

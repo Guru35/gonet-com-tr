@@ -70,16 +70,6 @@ const faq = faqSchema([
       "yetmiyor, ek olarak AEO/GEO denetimi gerek.",
   },
   {
-    question: 'Denetim kapsamı nedir, hangi katmanları içerir?',
-    answer:
-      "Beş katmanlı framework: (1) Erişim katmanı — robots.txt + CDN/WAF + Cloudflare AI Crawl Control: CCBot, GPTBot, ClaudeBot, " +
-      "PerplexityBot, Google-Extended erişimi. (2) Crawl katmanı — Common Crawl arşivinde domain var mı, son snapshot ne zaman, kapsam ne. " +
-      "(3) Tech-Auditor — Schema.org JSON-LD (Organization, Person, Service, FAQPage), llms.txt protokolü, sitemap, SSR durumu (Inertia/SPA tuzağı), " +
-      "Open Graph + Twitter Card. (4) Content-Auditor — extraction-ready format (front-loading, atomic cevaplar, soru-bazlı heading), " +
-      "FAQPage Q&A katmanı, citation surface. (5) Researcher (Faz 2) — gerçek LLM probe: Claude ve Gemini'ye markayı sor, " +
-      "yanıtları analiz et, drift takibi.",
-  },
-  {
     question: 'Bir denetim ne kadar sürer, ne zaman rapor alırım?',
     answer:
       "Express paket: 1 hafta — sözleşme + erişim + Tech-Auditor + 1 sayfalık öneri raporu. " +
@@ -108,13 +98,6 @@ const faq = faqSchema([
       "Denetim → rapor + öneri kapsamı temel pakettedir. Uygulama (Schema.org @graph yazımı, llms.txt kurulumu, " +
       "robots.txt/WAF açma, content rewrite, semantic chunking) Enterprise pakette dahildir. Express + Standart paketlerde " +
       "uygulama ayrı saatli proje olarak teklifle çalışır. Tipik uygulama 2-4 hafta sürer.",
-  },
-  {
-    question: 'Denetim sonucu raporunu nasıl alacağım?',
-    answer:
-      "Üç biçim: (1) Markdown rapor — kanıt-bazlı, vault'a entegre edilebilir. (2) PDF özet — 1-2 sayfa, paydaş paylaşımı için. " +
-      "(3) Müşteri portalına (Merhaba) entegrasyon — Enterprise paket: aylık drift verisini portal'dan canlı takip edersiniz, " +
-      "AI çağında markanın görünürlüğü canlı gauge olarak.",
   },
   {
     question: 'Fiyatlandırma nasıl?',
