@@ -122,7 +122,7 @@ const ringSegs = annularSegments(services);
     <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-6 lg:gap-x-10">
         {[
-          { n: `${totalBrands}+`, l: 'marka' },
+          { n: '190+', l: 'marka' },
           { n: `${sectors.length}`, l: 'sektör' },
           { n: '26', l: 'yıl' },
           { n: '12+', l: 'türkiye ilki', accent: true },
@@ -293,8 +293,8 @@ const ringSegs = annularSegments(services);
       <div class="grid lg:grid-cols-3 gap-16 lg:gap-12">
         {[
           { lbl: 'LinkedIn · 2020 → 2026', pts: '5,55 25,52 50,48 75,40 100,32 130,22 160,12 195,5', val: '16K+', accent: true },
-          { lbl: 'Marka · 2000 → 2026', pts: '5,58 20,55 40,50 60,45 90,35 120,25 150,15 180,8 195,5', val: '220+' },
-          { lbl: 'Schema entity · 2026', pts: '5,55 30,52 60,48 90,42 110,28 140,18 170,8 195,3', val: '220+', accent: true },
+          { lbl: 'Marka · 2000 → 2026', pts: '5,58 20,55 40,50 60,45 90,35 120,25 150,15 180,8 195,5', val: '190+' },
+          { lbl: 'Schema entity · 2026', pts: '5,55 30,52 60,48 90,42 110,28 140,18 170,8 195,3', val: '200+', accent: true },
         ].map((t) => (
           <div>
             <p class="text-[10px] uppercase tracking-[0.3em] mb-6">{t.lbl}</p>
@@ -381,10 +381,10 @@ const ringSegs = annularSegments(services);
 
       {(() => {
         // Kümülatif portföy büyümesi — yıl bazında toplam marka
-        const yrs = [2000, 2003, 2005, 2007, 2010, 2013, 2016, 2019, 2022, 2024, 2026];
-        const cumul = [3, 9, 18, 32, 52, 78, 110, 145, 180, 205, 220];
+        const yrs = [2000, 2003, 2005, 2007, 2010, 2013, 2016, 2019, 2022, 2026];
+        const cumul = [3, 9, 18, 32, 52, 78, 110, 145, 180, 198];
         const w = 1000, h = 260, padL = 70, padR = 20, padT = 20, padB = 50;
-        const xMin = 2000, xMax = 2026, yMax = 220;
+        const xMin = 2000, xMax = 2026, yMax = 200;
         const pts = yrs.map((y, i) => ({
           x: padL + ((y - xMin) / (xMax - xMin)) * (w - padL - padR),
           yPos: (h - padB) - (cumul[i] / yMax) * (h - padT - padB),
@@ -431,13 +431,16 @@ const ringSegs = annularSegments(services);
             <text x="20" y="40" font-size="10" letter-spacing="2" font-weight="700" fill="#000">MARKA</text>
             <text x="20" y="55" font-size="10" letter-spacing="2" fill="#404040">SAYISI</text>
             <!-- Final emphasis -->
-            <text x={pts[pts.length - 1].x - 4} y={pts[pts.length - 1].yPos - 18} text-anchor="end" font-family="var(--font-display)" font-size="32" fill="#ff0000">220+</text>
+            <text x={pts[pts.length - 1].x - 4} y={pts[pts.length - 1].yPos - 18} text-anchor="end" font-family="var(--font-display)" font-size="32" fill="#ff0000">190+</text>
           </svg>
         );
       })()}
 
       <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-6">
-        kümülatif portföy · diagonal taralı alan = toplam birikim · 2000'de 3'ten 2026'da 220'ye
+        kümülatif portföy · diagonal taralı alan = toplam birikim · 2000'de 3'ten 2026'da 190+ markaya
+      </p>
+      <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-2">
+        ara yıllar eski kayıtlardan; 2026 değeri güncel listeden
       </p>
     </div>
   </section>

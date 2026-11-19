@@ -52,7 +52,7 @@ changelog:
 
 AEO odaklı içerik (Answer Engine Optimization content), büyük dil modelleri (LLM — Large Language Model) ve yapay zeka tabanlı arama sistemlerinin doğrudan yanıt üretirken **kaynak olarak göstermeyi tercih ettiği** yapısal özelliklere sahip metinlerdir. Geleneksel SEO içeriğinden farkı, insanı değil **makineyi ikna etmeye** yönelik olmasıdır: net istatistikler, atıflanabilir iddialar (quotations), semantik bağlamı koruyan akıcı geçişler ve RAG (Retrieval-Augmented Generation) süreçlerinde extraction verimliliğini artıran mikro-yapılar.
 
-2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 220+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
+2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 190+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
 
 ## Neden kritik?
 

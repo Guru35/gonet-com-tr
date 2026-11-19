@@ -144,4 +144,4 @@ Gonet'in M&A dijital due diligence süreci 4 aşamadan oluşur:
 
 ## Gonet ile çalışmak
 
-26 yıldır Türkiye'nin dijital dönüşümünde yer alan Gonet, M&A süreçlerinizde tarafsız, veri odaklı dijital due diligence hizmeti sunar. Google Partner statümüz ve 220+ marka deneyimimiz, raporlarımızı yatırım komitelerinizin güvenle kullanabileceği bir temel haline getirir. Satın alma öncesi dijital varlık değerlemesi için [iletişime geçin](/iletisim).
+26 yıldır Türkiye'nin dijital dönüşümünde yer alan Gonet, M&A süreçlerinizde tarafsız, veri odaklı dijital due diligence hizmeti sunar. Google Partner statümüz ve 190+ marka deneyimimiz, raporlarımızı yatırım komitelerinizin güvenle kullanabileceği bir temel haline getirir. Satın alma öncesi dijital varlık değerlemesi için [iletişime geçin](/iletisim).

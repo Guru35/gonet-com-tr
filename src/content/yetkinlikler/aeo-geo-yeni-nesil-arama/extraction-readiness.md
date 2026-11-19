@@ -118,5 +118,5 @@ Gonet'in content CMS'ine entegre extraction checker tool'u, editörlere real-tim
 
 ## Gonet ile çalışmak
 
-Gonet, 2000'den bu yana Türkiye'nin dijital pazarlama altyapısını kuran, 220+ marka portföyüyle AEO/GEO geçişini öncülleyen ajanslardan biridir. Extraction-ready içerik mimarisi, llms.txt entegrasyonu ve RAG optimizasyonu konusunda danışmanlık veya uygulama desteği almak için [iletişime geçin](/iletisim).
+Gonet, 2000'den bu yana Türkiye'nin dijital pazarlama altyapısını kuran, 190+ marka portföyüyle AEO/GEO geçişini öncülleyen ajanslardan biridir. Extraction-ready içerik mimarisi, llms.txt entegrasyonu ve RAG optimizasyonu konusunda danışmanlık veya uygulama desteği almak için [iletişime geçin](/iletisim).
 

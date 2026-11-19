@@ -35,7 +35,7 @@ changelog:
     summary: "İlk yayın — Schema.org JSON-LD entity authority kapsamlı rehber"
   - date: "2026-06-07"
     type: "enhancement"
-    summary: "KPI grid (18+ @type, 220+ marka) + 6-adımlı process flow eklendi"
+    summary: "KPI grid (18+ @type, 190+ marka) + 6-adımlı process flow eklendi"
   - date: "2026-06-07"
     type: "schema"
     summary: "Künye + AI disclosure + kaynakça footer eklendi"
@@ -60,7 +60,7 @@ Entity authority dört kanalla ölçülür:
     <div class="l">Schema.org @type<br>kullanımda</div>
   </div>
   <div class="stat">
-    <div class="n">220+</div>
+    <div class="n">190+</div>
     <div class="l">Marka portföyü<br>canlı uygulama</div>
   </div>
   <div class="stat">
@@ -73,7 +73,7 @@ Entity authority dört kanalla ölçülür:
   </div>
 </div>
 
-Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden gelişti. 220+ marka portföyünde Schema.org @graph mimarisini kullanan markalar AI Overviews'ta sürekli citation alıyor; geleneksel meta-tag-only yaklaşımındaki markalar görünmüyor.
+Gonet'in bu disipline yaklaşımı 2024'ten beri **canlı uygulama** üzerinden gelişti. 190+ marka portföyünde Schema.org @graph mimarisini kullanan markalar AI Overviews'ta sürekli citation alıyor; geleneksel meta-tag-only yaklaşımındaki markalar görünmüyor.
 
 ## Neden şimdi kritik?
 
@@ -135,4 +135,4 @@ Bu sayfanın altında, **FAQPage schema** olarak işaretli SSS bölümü AI moto
 
 ## Gonet ile çalışmak
 
-26 yıllık ajans deneyimi ve 220+ marka portföyü ile Schema.org JSON-LD entity authority kurulumu Gonet'in **AEO/GEO** hizmet hattının temel disiplinidir. Bir keşif görüşmesi için [iletişime geçin](/iletisim) — markanızın mevcut yapısal veri sağlığını ücretsiz değerlendirelim.
+26 yıllık ajans deneyimi ve 190+ marka portföyü ile Schema.org JSON-LD entity authority kurulumu Gonet'in **AEO/GEO** hizmet hattının temel disiplinidir. Bir keşif görüşmesi için [iletişime geçin](/iletisim) — markanızın mevcut yapısal veri sağlığını ücretsiz değerlendirelim.

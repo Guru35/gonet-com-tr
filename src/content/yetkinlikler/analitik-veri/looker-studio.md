@@ -52,7 +52,7 @@ changelog:
 
 Looker Studio (eski adıyla Google Data Studio), Google'ın ücretsiz veri görselleştirme ve raporlama platformudur. GA4, Google Ads, Search Console, BigQuery gibi veri kaynaklarını tek dashboard'da birleştirerek interaktif raporlar oluşturur. Gonet'te Looker Studio'yu yalnızca bir grafik aracı olarak değil, stakeholder'ların (paydaşların) veri odaklı karar almasını sağlayan stratejik bir iletişim kanalı olarak konumlandırıyoruz.
 
-Platform, blended data (karışık veri kaynakları) özelliğiyle farklı sistemlerden gelen verileri tek metrikte birleştirir, calculated fields (hesaplanmış alanlar) ile özel KPI'lar türetir, filter (filtre) ve drill-down (detaya inme) özellikleriyle kullanıcıya keşif imkanı sunar. 2000'den beri 220+ marka portföyünde ürettiğimiz yüzlerce dashboard, müşteri CEO'larından dijital ekiplere her seviyede veri okuryazarlığını artırdı.
+Platform, blended data (karışık veri kaynakları) özelliğiyle farklı sistemlerden gelen verileri tek metrikte birleştirir, calculated fields (hesaplanmış alanlar) ile özel KPI'lar türetir, filter (filtre) ve drill-down (detaya inme) özellikleriyle kullanıcıya keşif imkanı sunar. 2000'den beri 190+ marka portföyünde ürettiğimiz yüzlerce dashboard, müşteri CEO'larından dijital ekiplere her seviyede veri okuryazarlığını artırdı.
 
 ## Neden kritik?
 

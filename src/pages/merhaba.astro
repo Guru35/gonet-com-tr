@@ -147,7 +147,7 @@ const pageSchema = webpageSchema({
 });
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]}>
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]} noindex={true}>
   <div class="wc" data-theme="dark">
     <!-- 1. Kapı (ilk ekran) -->
     <section class="wc-bolum wc-kapi">
