@@ -27,6 +27,8 @@ const legacyRedirects = {
   '/Referanslarimiz-14-4.php': '/markalar',
   '/index.php': '/',
   '/home': '/',
+  // Sağlık vakası adsız yeni adrese taşındı (WEBDV-21); eski adres kalıcı yönlendirilir.
+  '/case-studies/ege-tup-bebek-google-ads': '/case-studies/saglik-2005-arama-reklami',
 };
 
 export default defineConfig({
