@@ -381,10 +381,10 @@ const ringSegs = annularSegments(services);
 
       {(() => {
         // Kümülatif portföy büyümesi — yıl bazında toplam marka
-        const yrs = [2000, 2003, 2005, 2007, 2010, 2013, 2016, 2019, 2022, 2024, 2026];
-        const cumul = [3, 9, 18, 32, 52, 78, 110, 145, 180, 205, 220];
+        const yrs = [2000, 2003, 2005, 2007, 2010, 2013, 2016, 2019, 2022, 2026];
+        const cumul = [3, 9, 18, 32, 52, 78, 110, 145, 180, 198];
         const w = 1000, h = 260, padL = 70, padR = 20, padT = 20, padB = 50;
-        const xMin = 2000, xMax = 2026, yMax = 220;
+        const xMin = 2000, xMax = 2026, yMax = 200;
         const pts = yrs.map((y, i) => ({
           x: padL + ((y - xMin) / (xMax - xMin)) * (w - padL - padR),
           yPos: (h - padB) - (cumul[i] / yMax) * (h - padT - padB),

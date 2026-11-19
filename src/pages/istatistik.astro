@@ -37,7 +37,7 @@ const sectors = [
   { name: 'Mobil API', count: 6 },
   { name: 'Holding & Kurumsal', count: 5 },
   { name: 'Birlikler & Ticaret', count: 5 },
-  { name: 'Diğer', count: 62 },
+  { name: 'Diğer', count: 40 },
 ];
 
 // 2) Hizmet türü dağılımı (donut)
@@ -221,7 +221,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
         })}
       </div>
       <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
-        siyah çubuklar = belirgin sektör · gri = "diğer" toplam
+        siyah çubuklar = belirgin sektör · gri = "diğer" toplam · çubukların toplamı = {totalBrands} marka
       </p>
     </div>
   </section>
