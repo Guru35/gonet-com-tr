@@ -142,10 +142,10 @@ Gonet, RESTful API'larda HATEOAS (Hypermedia as the Engine of Application State)
 
 ## İlgili yetkinlikler
 
-- [Headless CMS entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): API-first içerik yönetimi ile mobil uygulama içerik güncelleme.
-- [Sunucu yönetimi & DevOps](/yetkinlikler/sunucu-yonetimi-devops): API altyapısının deploy, monitoring ve scaling operasyonları.
-- [CI/CD pipeline kurulumu](/yetkinlikler/ci-cd-pipeline-kurulumu): Otomatik test, deployment ve rollback süreçleri.
-- [Mikroservis mimarisi](/yetkinlikler/mikroservis-mimarisi): API'ların modüler, bağımsız deploy edilebilir servisler olarak yapılandırılması.
+- Headless CMS entegrasyonu: API-first içerik yönetimi ile mobil uygulama içerik güncelleme.
+- Sunucu yönetimi & DevOps: API altyapısının deploy, monitoring ve scaling operasyonları.
+- CI/CD pipeline kurulumu: Otomatik test, deployment ve rollback süreçleri.
+- Mikroservis mimarisi: API'ların modüler, bağımsız deploy edilebilir servisler olarak yapılandırılması.
 
 ## Gonet ile çalışmak
 

@@ -133,10 +133,10 @@ Gonet, stratejileri statik doküman değil, canlı süreç olarak yönetir. Ayl�
 
 Dijital pazarlama strateji geliştirme, diğer Gonet yetkinlikleriyle sinerjik çalışır:
 
-- **[Veri analitiği ve raporlama](/yetkinlikler/veri-analitigi-raporlama)**: GA4 ve CRM verileri stratejinin temelini oluşturur; attribution raporları bu yetkinlikle kurulur.
-- **[Dönüşüm optimizasyonu (CRO)](/yetkinlikler/donusum-optimizasyonu)**: Customer journey'deki darboğazlar CRO testleriyle çözülür; strateji + CRO kombinasyonu dönüşüm oranlarını ikiye katlar.
-- **[Dijital pazarlama otomasyon](/yetkinlikler/pazarlama-otomasyon)**: Segment bazlı mesajlaşma ve journey bazlı tetikleyiciler otomasyon platformlarında (HubSpot, Klaviyo) hayata geçer.
-- **[Rekabet analizi](/yetkinlikler/rekabet-analizi)**: STP çerçevesindeki konumlandırma, rakip stratejilerinin detaylı analiziyle netleşir.
+- **Veri analitiği ve raporlama**: GA4 ve CRM verileri stratejinin temelini oluşturur; attribution raporları bu yetkinlikle kurulur.
+- **Dönüşüm optimizasyonu (CRO)**: Customer journey'deki darboğazlar CRO testleriyle çözülür; strateji + CRO kombinasyonu dönüşüm oranlarını ikiye katlar.
+- **Dijital pazarlama otomasyon**: Segment bazlı mesajlaşma ve journey bazlı tetikleyiciler otomasyon platformlarında (HubSpot, Klaviyo) hayata geçer.
+- **Rekabet analizi**: STP çerçevesindeki konumlandırma, rakip stratejilerinin detaylı analiziyle netleşir.
 
 ## Gonet ile çalışmak
 

@@ -117,10 +117,10 @@ Gonet'te marka kimliği tasarımı üç katmanlı bir sistem olarak ele alınır
 
 ## İlgili yetkinlikler
 
-- [UI/UX Tasarımı](/yetkinlikler/ui-ux-tasarimi) — Marka kimliği, kullanıcı arayüzü tasarımının görsel temelini oluşturur
-- [Design System Geliştirme](/yetkinlikler/design-system) — Marka kılavuzu, ölçeklenebilir design system'in başlangıç noktasıdır
-- [Responsive Web Tasarımı](/yetkinlikler/responsive-web-tasarim) — Marka kimliği tüm ekran boyutlarında tutarlı görünmelidir
-- [Görsel İçerik Üretimi](/yetkinlikler/gorsel-icerik-uretimi) — Sosyal medya ve dijital reklam görselleri marka kimliğinin uzantısıdır
+- UI/UX Tasarımı — Marka kimliği, kullanıcı arayüzü tasarımının görsel temelini oluşturur
+- Design System Geliştirme — Marka kılavuzu, ölçeklenebilir design system'in başlangıç noktasıdır
+- Responsive Web Tasarımı — Marka kimliği tüm ekran boyutlarında tutarlı görünmelidir
+- Görsel İçerik Üretimi — Sosyal medya ve dijital reklam görselleri marka kimliğinin uzantısıdır
 
 ## Gonet ile çalışmak
 

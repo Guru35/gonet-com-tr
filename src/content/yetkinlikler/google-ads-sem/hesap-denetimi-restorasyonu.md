@@ -135,10 +135,10 @@ Audit sonuçlarını 40-50 sayfalık bir rapor + exec summary (yönetici özeti)
 
 ## İlgili yetkinlikler
 
-- [Dönüşüm optimizasyonu & CRO](/yetkinlikler/google-ads-sem/donusum-optimizasyonu-cro): Restorasyon sonrası LP iyileştirmeleri dönüşüm oranını katlayabilir.
-- [Remarketing & audience stratejileri](/yetkinlikler/google-ads-sem/remarketing-audience-stratejileri): Audit, kullanılmayan veya hatalı yapılandırılmış audience segmentlerini açığa çıkarır.
-- [Shopping kampanyaları & feed optimizasyonu](/yetkinlikler/google-ads-sem/shopping-feed-optimizasyonu): E-ticaret hesaplarında product feed hatası en sık restorasyon sebebidir.
-- [Rekabet analizi & pazar istihbaratı](/yetkinlikler/google-ads-sem/rekabet-analizi-pazar-istihbarati): Audit sırasında rakip stratejilerini benchmark ederiz, restorasyon planına dahil ederiz.
+- Dönüşüm optimizasyonu & CRO: Restorasyon sonrası LP iyileştirmeleri dönüşüm oranını katlayabilir.
+- Remarketing & audience stratejileri: Audit, kullanılmayan veya hatalı yapılandırılmış audience segmentlerini açığa çıkarır.
+- Shopping kampanyaları & feed optimizasyonu: E-ticaret hesaplarında product feed hatası en sık restorasyon sebebidir.
+- Rekabet analizi & pazar istihbaratı: Audit sırasında rakip stratejilerini benchmark ederiz, restorasyon planına dahil ederiz.
 
 ## Gonet ile çalışmak
 

@@ -126,10 +126,10 @@ Gonet, kampanya başlangıcında 4 haftalık 'learning phase' (öğrenme aşamas
 
 ## İlgili yetkinlikler
 
-- [B2B İçerik Pazarlama](/yetkinlikler/sosyal-medya-topluluk/b2b-icerik-pazarlama): LinkedIn kampanyalarına beslenen thought leadership içerik (whitepaper, case study, blog) stratejisi.
-- [CRM Entegrasyonu ve Marketing Automation](/yetkinlikler/veri-analitik/crm-entegrasyonu-marketing-automation): Salesforce/HubSpot → Sales Navigator → LinkedIn Ads veri akışının kurulumu.
-- [Programmatic Advertising (RTB)](/yetkinlikler/medya-satin-alma/programmatic-advertising-rtb): LinkedIn dışındaki B2B display kanallarıyla (Demandbase, Terminus) cross-channel ABM stratejisi.
-- [Google Analytics 4 (GA4)](/yetkinlikler/veri-analitik/google-analytics-4-ga4): LinkedIn Insight Tag event'lerinin GA4 ile birleştirilmesi, multi-touch attribution (çok dokunuşlu atıf) modelleme.
+- B2B İçerik Pazarlama: LinkedIn kampanyalarına beslenen thought leadership içerik (whitepaper, case study, blog) stratejisi.
+- CRM Entegrasyonu ve Marketing Automation: Salesforce/HubSpot → Sales Navigator → LinkedIn Ads veri akışının kurulumu.
+- Programmatic Advertising (RTB): LinkedIn dışındaki B2B display kanallarıyla (Demandbase, Terminus) cross-channel ABM stratejisi.
+- [Google Analytics 4 (GA4)](/yetenekler/analitik-veri/google-analytics-4-ga4): LinkedIn Insight Tag event'lerinin GA4 ile birleştirilmesi, multi-touch attribution (çok dokunuşlu atıf) modelleme.
 
 ## Gonet ile çalışmak
 

@@ -131,10 +131,10 @@ Gonet'in tipik bir optimizasyon projesi sonuçları: LCP ortalama %45-60 iyileş
 
 ## İlgili yetkinlikler
 
-- [JavaScript & Front-end Optimizasyonu](/yetkinlikler/seo-klasik-arama/javascript-frontend-optimizasyon) — Code splitting, lazy loading, bundle boyut azaltma
-- [Mobil SEO & Responsive Tasarım](/yetkinlikler/seo-klasik-arama/mobil-seo-responsive) — Viewport yapılandırma, touch target boyutları
-- [Sayfa Hızı & Performans Optimizasyonu](/yetkinlikler/seo-klasik-arama/sayfa-hizi-performans) — Server response time, caching stratejileri
-- [Google Analytics 4 & GTM Kurulum](/yetkinlikler/veri-analitics/ga4-gtm-kurulum) — Core Web Vitals custom event tracking
+- JavaScript & Front-end Optimizasyonu — Code splitting, lazy loading, bundle boyut azaltma
+- Mobil SEO & Responsive Tasarım — Viewport yapılandırma, touch target boyutları
+- Sayfa Hızı & Performans Optimizasyonu — Server response time, caching stratejileri
+- Google Analytics 4 & GTM Kurulum — Core Web Vitals custom event tracking
 
 ## Gonet ile çalışmak
 

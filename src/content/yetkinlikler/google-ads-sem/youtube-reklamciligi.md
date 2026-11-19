@@ -160,10 +160,10 @@ Performance Max for video kampanyalarında conversion goals (dönüşüm hedefle
 
 ## İlgili yetkinlikler
 
-- [Performance Max kampanyaları](/yetkinlikler/google-ads-sem/performance-max): Video varlıklarının tüm Google envanterinde otomatik optimizasyonu
-- [Display reklamcılığı](/yetkinlikler/google-ads-sem/display-reklamciligi): GDN (Google Display Network) ile YouTube dışı görsel kampanyalar
-- [Dönüşüm takibi ve GA4 entegrasyonu](/yetkinlikler/google-ads-sem/donusum-takibi-ga4): Video etkileşimlerinin conversion path (dönüşüm yolu) analizinde kullanılması
-- [Remarketing stratejileri](/yetkinlikler/google-ads-sem/remarketing): Video izleyicilerini özel kitlelere dönüştürerek tekrar hedefleme
+- Performance Max kampanyaları: Video varlıklarının tüm Google envanterinde otomatik optimizasyonu
+- Display reklamcılığı: GDN (Google Display Network) ile YouTube dışı görsel kampanyalar
+- Dönüşüm takibi ve GA4 entegrasyonu: Video etkileşimlerinin conversion path (dönüşüm yolu) analizinde kullanılması
+- Remarketing stratejileri: Video izleyicilerini özel kitlelere dönüştürerek tekrar hedefleme
 
 ## Gonet ile çalışmak
 

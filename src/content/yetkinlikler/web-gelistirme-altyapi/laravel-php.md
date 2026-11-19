@@ -159,10 +159,10 @@ Bu yapı, günlük 500K+ request'i 99.9% uptime ile karşılar.
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Mimarisi](/yetkinlikler/headless-cms-mimarisi) — Laravel backend + modern frontend kombinasyonu  
-- [API Tasarımı & Dokümantasyonu](/yetkinlikler/api-tasarimi-dokumentasyonu) — RESTful/GraphQL standartları  
-- [DevOps & CI/CD](/yetkinlikler/devops-cicd) — Laravel deployment pipeline'ları  
-- [Database Optimizasyonu](/yetkinlikler/database-optimizasyonu) — Eloquent ORM performans tuning  
+- Headless CMS Mimarisi — Laravel backend + modern frontend kombinasyonu  
+- API Tasarımı & Dokümantasyonu — RESTful/GraphQL standartları  
+- DevOps & CI/CD — Laravel deployment pipeline'ları  
+- Database Optimizasyonu — Eloquent ORM performans tuning  
 
 ## Gonet ile çalışmak
 

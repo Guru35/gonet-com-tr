@@ -127,10 +127,10 @@ Smart Bidding (Akıllı Teklif Verme), Google Ads'in makine öğrenmesi algoritm
 
 ## İlgili yetkinlikler
 
-- [Performance Max Kampanya Yönetimi](/yetkinlikler/google-ads-sem/performance-max-kampanya-yonetimi) – Smart Bidding'in tüm Google envanterinde (Arama, Display, YouTube, Shopping, Discover) otomatik genişlemesi.
-- [Google Analytics 4 E-ticaret İzleme](/yetkinlikler/analitik-olcumleme/google-analytics-4-e-ticaret-izleme) – GA4'ten gelir ve ürün verisi Google Ads'e aktarılarak Smart Bidding beslenir.
-- [Dönüşüm Oranı Optimizasyonu (CRO)](/yetkinlikler/analitik-olcumleme/donusum-orani-optimizasyonu-cro) – Daha yüksek dönüşüm kalitesi, Smart Bidding öğrenme süresini kısaltır.
-- [Remarketing ve Kitle Segmentasyonu](/yetkinlikler/google-ads-sem/remarketing-kitle-segmentasyonu) – Audience sinyalleri Smart Bidding'e ek bağlam sağlar.
+- Performance Max Kampanya Yönetimi – Smart Bidding'in tüm Google envanterinde (Arama, Display, YouTube, Shopping, Discover) otomatik genişlemesi.
+- Google Analytics 4 E-ticaret İzleme – GA4'ten gelir ve ürün verisi Google Ads'e aktarılarak Smart Bidding beslenir.
+- Dönüşüm Oranı Optimizasyonu (CRO) – Daha yüksek dönüşüm kalitesi, Smart Bidding öğrenme süresini kısaltır.
+- Remarketing ve Kitle Segmentasyonu – Audience sinyalleri Smart Bidding'e ek bağlam sağlar.
 
 ## Gonet ile çalışmak
 

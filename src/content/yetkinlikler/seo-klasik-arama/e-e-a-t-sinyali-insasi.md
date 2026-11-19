@@ -131,10 +131,10 @@ Brand mention tracking (marka bahis takibi) ve unlinked mention recovery (bağla
 
 ## İlgili yetkinlikler
 
-- [Yapılandırılmış Veri Uygulamaları](/yetkinlikler/yapilandirilmis-veri): E-E-A-T sinyallerinin Schema.org ile teknik kodlanması
-- [Author Authority Building](/yetkinlikler/author-authority): Bireysel yazar entity'lerinin güçlendirilmesi stratejileri
-- [Content Governance Framework](/yetkinlikler/content-governance): Editorial process ve quality control süreçlerinin yapılandırılması
-- [Entity SEO](/yetkinlikler/entity-seo): Knowledge Graph'ta varlık tanıma ve ilişkilendirme teknikleri
+- Yapılandırılmış Veri Uygulamaları: E-E-A-T sinyallerinin Schema.org ile teknik kodlanması
+- Author Authority Building: Bireysel yazar entity'lerinin güçlendirilmesi stratejileri
+- Content Governance Framework: Editorial process ve quality control süreçlerinin yapılandırılması
+- Entity SEO: Knowledge Graph'ta varlık tanıma ve ilişkilendirme teknikleri
 
 ## Gonet ile çalışmak
 

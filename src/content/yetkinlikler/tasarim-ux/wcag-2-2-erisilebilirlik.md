@@ -132,10 +132,10 @@ JSON-LD ile structured data, ekran okuyucuların içerik yapısını daha iyi an
 
 ## İlgili yetkinlikler
 
-- [Kullanıcı Deneyimi (UX) Tasarımı](/yetkinlikler/tasarim-ux/kullanici-deneyimi-tasarimi) — WCAG uyumluluğu UX'in temel bileşenidir, kapsayıcı tasarım prensipleriyle birleşir.
-- [Responsive Tasarım](/yetkinlikler/tasarim-ux/responsive-tasarim) — Erişilebilirlik tüm ekran boyutlarında çalışmalıdır; viewport zoom ve reflow kriterleri responsive yapıyı gerektirir.
-- [Semantic HTML & Schema.org](/yetkinlikler/seo/semantic-html-schema) — Erişilebilir kodun temeli semantic yapıdır; arama motorları ve ekran okuyucular aynı yapıyı kullanır.
-- [Hız Optimizasyonu (Core Web Vitals)](/yetkinlikler/teknik-seo/core-web-vitals) — Klavye ve ekran okuyucu kullanıcıları yavaş sitelerde kaybolur; FID ve INP erişilebilirlik için kritiktir.
+- Kullanıcı Deneyimi (UX) Tasarımı — WCAG uyumluluğu UX'in temel bileşenidir, kapsayıcı tasarım prensipleriyle birleşir.
+- Responsive Tasarım — Erişilebilirlik tüm ekran boyutlarında çalışmalıdır; viewport zoom ve reflow kriterleri responsive yapıyı gerektirir.
+- Semantic HTML & Schema.org — Erişilebilir kodun temeli semantic yapıdır; arama motorları ve ekran okuyucular aynı yapıyı kullanır.
+- Hız Optimizasyonu (Core Web Vitals) — Klavye ve ekran okuyucu kullanıcıları yavaş sitelerde kaybolur; FID ve INP erişilebilirlik için kritiktir.
 
 ## Gonet ile çalışmak
 

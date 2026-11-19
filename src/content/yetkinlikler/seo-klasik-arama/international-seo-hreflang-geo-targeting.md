@@ -106,10 +106,10 @@ Gonet, 2008'den beri Avrupa diaspora pazarlarında aktif. Almanya ve Hollanda i�
 
 ## İlgili yetkinlikler
 
-- [Technical SEO — Crawl, Index, Site Architecture](/yetkinlikler/technical-seo-crawl-index)
-- [Schema.org Structured Data — JSON-LD İşaretleme](/yetkinlikler/schema-org-structured-data)
-- [Conversion Rate Optimization (CRO)](/yetkinlikler/conversion-rate-optimization)
-- [Google Search Console & Analytics 4 Uzmanlığı](/yetkinlikler/google-search-console-analytics)
+- Technical SEO — Crawl, Index, Site Architecture
+- Schema.org Structured Data — JSON-LD İşaretleme
+- Conversion Rate Optimization (CRO)
+- Google Search Console & Analytics 4 Uzmanlığı
 
 ## Gonet ile çalışmak
 

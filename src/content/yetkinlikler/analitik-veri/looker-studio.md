@@ -131,7 +131,7 @@ Google Tag Manager (GTM) ile custom event'leri GA4'e gönderip, Looker Studio'da
 
 ## İlgili yetkinlikler
 
-Looker Studio, Gonet'in **Analitik & Veri** yetkinlik setinin görselleştirme ayağıdır. Veri toplama için [Google Analytics 4 (GA4)](/yetkinlikler/google-analytics-4) ve [Google Tag Manager (GTM)](/yetkinlikler/google-tag-manager), veri depolama için [BigQuery](/yetkinlikler/bigquery), dönüşüm optimizasyonu için [Conversion Rate Optimization (CRO)](/yetkinlikler/conversion-rate-optimization) yetkinlikleriyle entegre çalışır. Dashboardlarda gördüğünüz metrikler, GTM ile topladığımız event'lerden, GA4'te işlediğimiz segmentasyonlardan, BigQuery'de birleştirdiğimiz veri setlerinden beslenir.
+Looker Studio, Gonet'in **Analitik & Veri** yetkinlik setinin görselleştirme ayağıdır. Veri toplama için Google Analytics 4 (GA4) ve Google Tag Manager (GTM), veri depolama için BigQuery, dönüşüm optimizasyonu için Conversion Rate Optimization (CRO) yetkinlikleriyle entegre çalışır. Dashboardlarda gördüğünüz metrikler, GTM ile topladığımız event'lerden, GA4'te işlediğimiz segmentasyonlardan, BigQuery'de birleştirdiğimiz veri setlerinden beslenir.
 
 ## Gonet ile çalışmak
 

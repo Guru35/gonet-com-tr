@@ -124,10 +124,10 @@ Gonet ekibi, Next.js Conf ve React ekibi blog yazılarını takip eder; canary v
 
 ## İlgili yetkinlikler
 
-- [TypeScript & Tip Güvenliği](/yetkinlikler/typescript-tip-guvenligi): Next.js 15 + React 19 yığınının omurgası; uçtan uca tip kontrolü ile runtime hatalar minimize edilir.
-- [Headless CMS Entegrasyonları](/yetkinlikler/headless-cms-entegrasyonlari): Contentful, Sanity, Strapi gibi platformlar Next.js ISR ve server actions ile seamless çalışır.
-- [Core Web Vitals Optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu): RSC, PPR ve image optimization doğrudan LCP, INP, CLS iyileştirmesi sağlar.
-- [Edge Computing & CDN Stratejileri](/yetkinlikler/edge-computing-cdn): Next.js middleware ve edge runtime, kullanıcıya en yakın sunucuda logic çalıştırır.
+- TypeScript & Tip Güvenliği: Next.js 15 + React 19 yığınının omurgası; uçtan uca tip kontrolü ile runtime hatalar minimize edilir.
+- Headless CMS Entegrasyonları: Contentful, Sanity, Strapi gibi platformlar Next.js ISR ve server actions ile seamless çalışır.
+- Core Web Vitals Optimizasyonu: RSC, PPR ve image optimization doğrudan LCP, INP, CLS iyileştirmesi sağlar.
+- Edge Computing & CDN Stratejileri: Next.js middleware ve edge runtime, kullanıcıya en yakın sunucuda logic çalıştırır.
 
 ## Gonet ile çalışmak
 
