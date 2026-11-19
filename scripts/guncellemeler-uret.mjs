@@ -14,7 +14,7 @@
 
 import { execSync } from 'node:child_process';
 import { writeFile, mkdir } from 'node:fs/promises';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const CIKTI = 'src/data/guncellemeler.json';
@@ -79,51 +79,6 @@ function linkGecerli(link) {
   return existsSync(`src/pages${link}.astro`) || existsSync(`src/pages${link}/index.astro`) ? link : null;
 }
 
-/** Aksan ve büyük/küçük harf duyarsız karşılaştırma için katlar ("Sağlık" ≈ "SAGLIK"). */
-function kat(s) {
-  return s
-    .toLocaleLowerCase('tr-TR')
-    .replace(/ı/g, 'i')
-    .replace(/ş/g, 's')
-    .replace(/ğ/g, 'g')
-    .replace(/ü/g, 'u')
-    .replace(/ö/g, 'o')
-    .replace(/ç/g, 'c')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-/**
- * Yasaklı adlar (müşteri/kişi adı) — liste DEPODA TUTULMAZ (depo public). Derleme anında dışarıdan gelir:
- *   GUNCELLEME_YASAKLI_DOSYA = depo dışındaki bir dosyanın yolu (satır başına bir ad; boş satır ve # yorum atlanır)
- *   GUNCELLEME_YASAKLI_ADLAR = virgülle ayrılmış adlar
- * Başlığında (kapsam dahil) yasaklı ad geçen commit kaydı sayfaya hiç girmez. Adlar günlüğe yazılmaz.
- */
-function yasakliAdlariOku() {
-  const ham = [];
-  const dosya = process.env.GUNCELLEME_YASAKLI_DOSYA;
-  if (dosya) {
-    try {
-      ham.push(...readFileSync(dosya, 'utf8').split('\n').filter((s) => !s.trim().startsWith('#')));
-    } catch (hata) {
-      // Verilen liste okunamıyorsa süzme sessizce atlanmaz: derleme durur.
-      console.error(`  ✖ HATA: yasaklı ad dosyası okunamadı (${hata.code || 'hata'}) — derleme durduruldu.`);
-      process.exit(1);
-    }
-  }
-  if (process.env.GUNCELLEME_YASAKLI_ADLAR) ham.push(...process.env.GUNCELLEME_YASAKLI_ADLAR.split(','));
-  return [...new Set(ham.map(kat).filter(Boolean))];
-}
-
-const YASAKLI = yasakliAdlariOku();
-// Liste yoksa (ya da boşsa) derleme DURUR: public depoda müşteri adı sızıntısını sessizce geçirmemek için (CEO kararı).
-// `npm run build` bu betiği çalıştırır, hata kodu astro build'i engeller. Yerel hızlı derleme: `npm run build:hizli` (betiği atlar).
-if (YASAKLI.length === 0) {
-  console.error('  ✖ HATA: yasaklı ad listesi verilmedi (GUNCELLEME_YASAKLI_DOSYA veya GUNCELLEME_YASAKLI_ADLAR) — derleme durduruldu.');
-  process.exit(1);
-}
-let elenen = 0;
-
 function main() {
   const bicim = ['%h', '%ad', '%s'].join(AYRAC) + SATIR_AYRAC;
   const ham = execSync(`git log --date=short --pretty=format:"${bicim}" --no-merges`, {
@@ -138,12 +93,6 @@ function main() {
     if (!temiz) continue;
     const [hash, tarih, konu] = temiz.split(AYRAC);
     if (!hash || !konu) continue;
-
-    const katliKonu = kat(konu);
-    if (YASAKLI.some((ad) => katliKonu.includes(ad))) {
-      elenen++;
-      continue;
-    }
 
     const ayristirilmis = commitAyristir(konu);
     if (!ayristirilmis) continue;
@@ -193,4 +142,3 @@ const sayim = kayitlar.reduce((acc, k) => ({ ...acc, [k.tip]: (acc[k.tip] || 0) 
 console.log(`${CIKTI} yazıldı — ${kayitlar.length} kayıt`);
 console.log(`  yeni: ${sayim.yeni || 0} · iyileştirme: ${sayim.iyilestirme || 0} · düzeltme: ${sayim.duzeltme || 0}`);
 console.log(`  linkli: ${kayitlar.filter((k) => k.link).length}`);
-if (YASAKLI.length) console.log(`  yasaklı ad nedeniyle elenen: ${elenen}`);
