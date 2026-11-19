@@ -25,7 +25,7 @@ export const organizationSchema = {
   },
   description:
     "İzmir ve Ege'nin ilk dijital ajansı (2000) ve İzmir'in ilk AI ajansı. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). " +
-    'Google Ads Türkiye beta tester. İzmir Reklamcılar Derneği (IRD) üyesi. ' +
+    'Google Ads\'in Türkiye\'deki ilk beta tester ajansıydı. İzmir Reklamcılar Derneği (IRD) üyesi. ' +
     'Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), ' +
     'dijital strateji, web tasarım, SEO, sosyal medya, kreatif kampanyalar, ' +
     'sağlık turizmi pazarlaması, siyasi kampanya yönetimi. Ajanslar üstü kreatif stratejist konumunda.',

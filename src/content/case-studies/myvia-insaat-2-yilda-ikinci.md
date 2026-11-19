@@ -60,4 +60,4 @@ MYvia'nın başarısı, Gonet'in **İzmir inşaat sektöründe ana referans ajan
 2. **Yüksek ürün değeri** — yanlış bir hedefleme 100.000+ TL maliyetli bir lead kaybı demek
 3. **Yerel + niş bilinirlik** — global mantık değil, İzmir'in (veya belirli bir ilçenin) demografik gerçeği gerekli
 
-Gonet'in **İzmir merkezli olması** ve **Google Ads beta tester avantajı**, MYvia gibi yerel bir markayı 2 yılda ana akım rekabete taşıyabilen tek ajans olmamızı sağladı.
+Gonet'in **İzmir merkezli olması** ve **Google Ads'in Türkiye'deki ilk beta tester ajansı olması**, MYvia gibi yerel bir markayı 2 yılda ana akım rekabete taşıyabilen tek ajans olmamızı sağladı.
