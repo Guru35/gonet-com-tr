@@ -27,6 +27,9 @@ const {
   transparentHeader = false,
 } = Astro.props;
 
+// Cloudflare Web Analytics site jetonu (derleme ortamından; panelde: Web Analytics → site → Manage site). Boşsa servis kutuda listelenir ama yükleme yapılmaz.
+const CF_BEACON_TOKEN = import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '';
+
 const SITE_URL = 'https://gonet.com.tr';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
@@ -118,6 +121,9 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
          Klaro: kullanıcı kabul edene dek GTM YÜKLENMEZ (data-name pattern).
          GTM Container: GTM-PLNFNL — tüm tag'ler buradan yönetilir.
          ─────────────────────────────────────────────────────────── -->
+    <script is:inline define:vars={{ cfBeaconToken: CF_BEACON_TOKEN }}>
+      window.gonetCfToken = cfBeaconToken;
+    </script>
     <script is:inline>
       // Kutu henüz karara bağlanmadıysa onun yüksekliğini baştan ayır: ilk ekran bağlantıları kutunun altında kalmaz, kutu görününce yerleşim kaymaz.
       if (!/(^|; )klaro=/.test(document.cookie)) { document.documentElement.style.setProperty('--cerez-h', window.innerWidth < 768 ? '140px' : '164px'); document.documentElement.setAttribute('data-cerez', ''); }
@@ -130,8 +136,19 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
         // Kapsayıcıdaki Yandex etiketi GTM yüklenir yüklenmez çalışıyor (kapsayıcı tarafı henüz izne bağlı değil): bu yüzden GTM yalnız Analitik izniyle yüklenir.
         // «Yalnız Pazarlama» izninde GTM'i yüklemek için kapsayıcıda Yandex etiketi `gonet_riza_yandex` değişkenine bağlanınca bunu true yapın.
         var GTM_ADS_TEK_BASINA = false;
-        var durum = { ga4: false, yandex: false, ads: false };
+        var durum = { ga4: false, yandex: false, ads: false, cloudflare: false };
         var gtmYuklendi = false;
+        var cfYuklendi = false;
+        // Cloudflare Web Analytics GTM'den bağımsız, yalnız Analitik izniyle yüklenir (kenarda otomatik enjeksiyon panelden kapalı olmalı).
+        function cfYukle() {
+          if (cfYuklendi || !window.gonetCfToken) return;
+          cfYuklendi = true;
+          var s = document.createElement('script');
+          s.defer = true;
+          s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+          s.setAttribute('data-cf-beacon', JSON.stringify({ token: window.gonetCfToken }));
+          document.head.appendChild(s);
+        }
         function gtmYukle() {
           if (gtmYuklendi) return;
           gtmYuklendi = true;
@@ -153,6 +170,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
           // GTM kapsayıcısındaki etiketler bu olayı/değişkenleri tetikleyici olarak kullanır (servis başına ayrı).
           window.dataLayer.push({ event: 'gonet_riza', gonet_riza_ga4: durum.ga4, gonet_riza_yandex: durum.yandex, gonet_riza_ads: durum.ads });
           if (durum.ga4 || durum.yandex || (GTM_ADS_TEK_BASINA && durum.ads)) gtmYukle();
+          if (durum.cloudflare) cfYukle();
         };
       })();
       window.klaroConfig = {
@@ -202,7 +220,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             poweredBy: 'Gizlilik tercihleri',
           },
         },
-        // Anahtar → servis: «Analitik» = ga4 + yandex (Google Tag Manager üzerinden). Kapsayıcıda Ads etiketi yok → «Google Ads / DoubleClick» servisi kutuda listelenmez; «Pazarlama» grubu boş kalır.
+        // Anahtar → servis: «Analitik» = ga4 + yandex (Google Tag Manager üzerinden) + cloudflare (doğrudan). Kapsayıcıda Ads etiketi yok → «Google Ads / DoubleClick» servisi kutuda listelenmez; «Pazarlama» grubu boş kalır.
         services: [
           {
             name: 'ga4',
@@ -223,6 +241,16 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             required: false,
             default: false,
             callback: function (consent) { window.gonetRiza('yandex', consent); },
+          },
+          {
+            name: 'cloudflare',
+            title: 'Cloudflare Web Analytics',
+            purposes: ['analytics'],
+            description: 'Cloudflare (üçüncü taraf, ABD). Site kullanım istatistikleri. Google Tag Manager kullanmadan doğrudan yüklenir.',
+            cookies: [],
+            required: false,
+            default: false,
+            callback: function (consent) { window.gonetRiza('cloudflare', consent); },
           },
         ],
       };
