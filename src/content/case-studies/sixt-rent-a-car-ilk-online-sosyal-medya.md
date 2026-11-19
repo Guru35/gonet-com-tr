@@ -57,7 +57,7 @@ Gonet, **Sixt Rent A Car** için **3 katmanlı** bir Türkiye-ilki kampanyasın�
 2008'de Türkiye'de online + sosyal medyayı birlikte düşünebilen ajans sayısı çok azdı. Gonet:
 
 - **Google Ads'in Türkiye'deki ilk beta tester ajansıydı**
-- **Türkiye'nin ilk 3 Google Partner ajansından biriydi**
+- **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner)**
 - **Sosyal medyanın Türkiye'ye girdiği ilk yıllarda kampanya kurabilen sayılı ajanstan biri**
 
 Bu üçlü, henüz online'a geçmemiş bir araç kiralama sektöründe Sixt'in Türkiye'de **kategori-ilki olarak konumlanmasını** mümkün kıldı.

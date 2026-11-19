@@ -139,4 +139,4 @@ JSON-LD ile structured data, ekran okuyucuların içerik yapısını daha iyi an
 
 ## Gonet ile çalışmak
 
-Gonet, Türkiye'nin ilk üç Google Partner ajansından biri olarak 220+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ markaya WCAG 2.2 uyumlu çözümler sunmuştur. Kamu, finans, e-ticaret ve SaaS projelerimizde AA+ compliance ve gerçek kullanıcı testleri ile erişilebilirliği garantileriz. Sitenizi herkes için erişilebilir hale getirmek, yasal uyumluluğu sağlamak ve dönüşüm oranlarınızı artırmak için [iletişime geçin](/iletisim).

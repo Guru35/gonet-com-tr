@@ -375,16 +375,17 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
     <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Stacked Bar · 06</p>
       <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
-        8 vaka, 7 sektör.
+        9 vaka, 7 sektör.
       </h2>
       <div class="space-y-1">
         {[
-          { label: 'Sağlık (Ege Tüp Bebek)', pct: 12.5 },
-          { label: 'Siyaset (CHP 2007)', pct: 12.5 },
-          { label: 'E-ticaret (Adepo + Temiz Mama + Tatil Vitrini)', pct: 37.5 },
-          { label: 'Eğitim (DEÜ Uzaktan Eğitim)', pct: 12.5 },
-          { label: 'İnşaat (MYvia)', pct: 12.5 },
-          { label: 'Kamu (İzsu)', pct: 12.5 },
+          { label: 'Sağlık (Ege Tüp Bebek)', pct: 11.1 },
+          { label: 'Siyaset (CHP 2007)', pct: 11.1 },
+          { label: 'E-ticaret (Adepo + Temiz Mama + Tatil Vitrini)', pct: 33.3 },
+          { label: 'Eğitim (DEÜ Uzaktan Eğitim)', pct: 11.1 },
+          { label: 'İnşaat (MYvia)', pct: 11.1 },
+          { label: 'Kamu (İzsu)', pct: 11.1 },
+          { label: 'Otomotiv (Sixt Rent A Car)', pct: 11.1 },
         ].map((row, i) => (
           <div class="grid grid-cols-12 items-center gap-3">
             <div class="col-span-9 text-sm lg:text-base">{row.label}</div>
@@ -399,7 +400,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
         ))}
       </div>
       <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
-        kırmızı blok = e-ticaret ağırlığı (3/8 vaka)
+        kırmızı blok = e-ticaret ağırlığı (3/9 vaka)
       </p>
     </div>
   </section>

@@ -9,7 +9,7 @@ services:
   - "Sağlık sektörü dijital uyum"
   - "Landing page optimizasyonu"
   - "Sağlık turizmi pazarlaması"
-year: 2010
+year: 2005
 results:
   - metric: "Türkiye ölçeği"
     value: "İlk tüp bebek Google Ads reklamları"
@@ -62,4 +62,4 @@ Sağlık reklamcılığında üç şey aynı anda yapılmalıdır:
 2. **Hassas dil + güven** — kaba pazarlama mantığı bu sektörde geri tepiyor
 3. **Google ile birinci elden ilişki** — yeni sağlık reklamcılığı politikaları sürekli değişiyor, ajansın Google ile doğrudan iletişim hattı kritik
 
-Gonet'in **Türkiye'nin ilk 3 Google Partner ajansından biri olması** ve **Google Ads beta tester avantajı**, sağlık politikalarındaki değişiklikleri ilk öğrenen ve uyumlanan ajans olmamızı sağladı.
+Gonet'in **2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olması (bugünkü adıyla Google Partner)** ve **Google Ads beta tester avantajı**, sağlık politikalarındaki değişiklikleri ilk öğrenen ve uyumlanan ajans olmamızı sağladı.

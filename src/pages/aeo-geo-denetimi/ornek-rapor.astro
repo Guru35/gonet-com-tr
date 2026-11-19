@@ -4,7 +4,7 @@ import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
 
 const title = "Örnek Denetim Raporu — Gonet AEO/GEO Denetim Hizmeti | Canlı Vitrin";
 const description =
-  "Gonet'in kendi sitesinde uyguladığı AEO/GEO denetim raporunun tam paket örneği. 5 katmanlı metodoloji (Erişim → Crawl → Tech → Content → Researcher), Anthropic Claude probe Share-of-Model %20 bulgusu, 6 P0-P5 aksiyon planı. PDF indirilebilir.";
+  "Gonet'in kendi sitesinde uyguladığı AEO/GEO denetim raporunun tam paket örneği. 5 katmanlı metodoloji (Erişim → Crawl → Tech → Content → Researcher), ilk ölçümdeki hatamız ve düzeltilmiş sonuç (adımızı vermeden sorulan sorularda 0/4), 6 P0-P5 aksiyon planı. PDF indirilebilir.";
 const url = `${SITE_URL}/aeo-geo-denetimi/ornek-rapor`;
 const pdfUrl = `${SITE_URL}/raporlar/gonet-aeo-geo-denetim-ornek-2026-06-v5.pdf`;
 
@@ -38,7 +38,7 @@ const reportSchema = {
     contentUrl: pdfUrl,
   },
   abstract:
-    "5 katmanlı sistematik denetim: Erişim (5/5 AI bot 200), Crawl (Common Crawl 10 kayıt), Tech-Auditor (0 critical), Content (extraction-ready), Researcher (Anthropic Claude SoM %20). Tanı: altyapı sınıfının en iyisi, ama LLM eğitim setlerine henüz girmemiş. 6 P0-P5 aksiyon planı önceliklendirildi.",
+    "5 katmanlı sistematik denetim: Erişim (5/5 AI bot 200), Crawl (Common Crawl 10 kayıt), Tech-Auditor (0 critical), Content (extraction-ready), Researcher (adımızı vermeden sorulan sorularda anılma 0/4). Tanı: altyapı sınıfının en iyisi, ama LLM eğitim setlerine henüz girmemiş. 6 P0-P5 aksiyon planı önceliklendirildi.",
 };
 ---
 
@@ -66,9 +66,11 @@ const reportSchema = {
       <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
         Aşağıdaki rapor, <a href="/aeo-geo-denetimi" class="underline">AEO/GEO Denetim Hizmeti</a>'nin
         <strong>Standart paket</strong> kapsamı ile gonet.com.tr'a uygulanmış halidir.
-        <strong>Hiçbir bulguyu gizlemedik</strong> — Researcher katmanında Claude'un Share-of-Model'i
-        sadece %20 çıktı. Bu dürüstlük, sunduğumuz hizmetin değerinin kanıtıdır:
-        denetim olmadan markanızın AI motorlarında nasıl temsil edildiğini bilemezsiniz.
+        Bu raporun ilk sürümünde bir ölçüm hatası yaptık. Haziran 2026'da Claude'a beş soru
+        sorduk ve «beş sorudan birinde anıldık» diye yazdık. Ekim'de ham cevapları yeniden
+        okuduk: o soru adımızı zaten içeriyordu, asistan adı sorudan tekrar etmişti. Adımızı
+        vermeden sorduğumuz dört soruda hiç anılmamıştık. Ham cevapları saklamamızın nedeni
+        budur: sayı yanlış çıkabilir, kayıt düzeltir.
       </p>
 
       <div class="mt-12 flex flex-wrap items-center gap-4">
@@ -148,7 +150,8 @@ const reportSchema = {
             <h3 class="text-xl font-medium mb-2">Researcher — Beni nasıl temsil ediyor?</h3>
             <p class="text-slate-700">
               <strong>Anthropic Claude Haiku 4.5</strong> ile 5 probe yapıldı.
-              Sonuç: <strong>Share-of-Model %20</strong> (1/5), Citation Rate %0, CER %80.
+              İlk yazdığımız sonuç: beş sorudan birinde anılma. Düzeltilmiş sonuç (5 Ekim 2026):
+              <strong>Gonet'in adını içermeyen dört sorunun hiçbirinde anılma yok (0/4)</strong>.
               "Gonet kimdir?" sorusunda Claude <strong>yanlış tanım</strong> üretti
               (<em>"ağ yönetimi ve internet altyapısı hizmetleri sağlayan kuruluşlar içi…"</em>).
               Gökhan Kazancı tanınmadı.

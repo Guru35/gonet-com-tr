@@ -129,4 +129,4 @@ Gonet, TikTok Ads kampanyalarını 3 aşamalı metodolojiyle yönetir:
 
 ## Gonet ile çalışmak
 
-Gonet, Türkiye'nin ilk 3 Google Partner ajansından biri olarak 220+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).
+Gonet, 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). 220+ marka portföyünde TikTok Ads'i Meta/Google ile entegre multi-channel stratejilere dahil eder. 26 yıllık deneyimimiz, yeni platformları hızlı öğrenme ve brand safety (marka güvenliği) standartlarını koruma yetkinliği sağladı. TikTok Ads kampanyalarınız için strateji, üretim, optimizasyon ve raporlama desteği almak isterseniz [iletişime geçin](/iletisim).

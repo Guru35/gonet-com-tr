@@ -13,8 +13,6 @@ year: 2007
 results:
   - metric: "Türkiye ölçeği"
     value: "İlk online tatil satış sistemi reklamları"
-  - metric: "Aynı yıl 3 büyük 'ilk'"
-    value: "Temiz Mama (D2C) + Tatil Vitrini (turizm) + Adepo (online market)"
   - metric: "Sektör"
     value: "Türk turizm dijitalleşmesinin başlangıcı"
 lang: tr
