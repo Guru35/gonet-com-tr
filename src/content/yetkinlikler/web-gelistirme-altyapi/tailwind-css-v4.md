@@ -153,10 +153,10 @@ Gonet'te Tailwind CSS v4 kullanımı yalnızca framework kurulumu değil, 220+ m
 
 ## İlgili yetkinlikler
 
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Tailwind ile build edilen frontend, headless CMS'ten gelen içeriği stilize eder.
-- [React & Next.js Geliştirme](/yetkinlikler/react-nextjs-gelistirme): Tailwind, React komponentleriyle native entegrasyon sağlar.
-- [Core Web Vitals Optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu): Minimal CSS bundle, LCP ve CLS metriklerini doğrudan iyileştirir.
-- [Design System Kurulumu](/yetkinlikler/design-system-kurulumu): Tailwind config, design system'in kod tarafındaki manifestosudur.
+- Headless CMS Entegrasyonu: Tailwind ile build edilen frontend, headless CMS'ten gelen içeriği stilize eder.
+- React & Next.js Geliştirme: Tailwind, React komponentleriyle native entegrasyon sağlar.
+- Core Web Vitals Optimizasyonu: Minimal CSS bundle, LCP ve CLS metriklerini doğrudan iyileştirir.
+- Design System Kurulumu: Tailwind config, design system'in kod tarafındaki manifestosudur.
 
 ## Gonet ile çalışmak
 

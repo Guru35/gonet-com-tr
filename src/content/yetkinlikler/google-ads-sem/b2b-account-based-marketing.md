@@ -145,10 +145,10 @@ Tüm kanallar, ortak UTM + CRM entegrasyon üzerinden izlenir. Gonet dashboard'u
 
 ## İlgili yetkinlikler
 
-- [LinkedIn Ads stratejisi](/yetkinlikler/google-ads-sem/linkedin-ads-stratejisi): ABM'nin LinkedIn ayağı, audience targeting + creative stratejisi.
-- [Google Ads Customer Match](/yetkinlikler/google-ads-sem/customer-match): E-posta listeleriyle display/search/Gmail remarketing, ABM'de Google ayağı.
-- [Marketing automation entegrasyonu](/yetkinlikler/google-ads-sem/marketing-automation): HubSpot/Pardot/ActiveCampaign ile reklam platform senkronizasyonu, ABM tetikleyici altyapı.
-- [CRM-reklam entegrasyonu](/yetkinlikler/google-ads-sem/crm-reklam-entegrasyonu): Salesforce/Dynamics 365 ile closed-loop reporting, ABM ROI ölçümü.
+- LinkedIn Ads stratejisi: ABM'nin LinkedIn ayağı, audience targeting + creative stratejisi.
+- Google Ads Customer Match: E-posta listeleriyle display/search/Gmail remarketing, ABM'de Google ayağı.
+- Marketing automation entegrasyonu: HubSpot/Pardot/ActiveCampaign ile reklam platform senkronizasyonu, ABM tetikleyici altyapı.
+- CRM-reklam entegrasyonu: Salesforce/Dynamics 365 ile closed-loop reporting, ABM ROI ölçümü.
 
 ## Gonet ile çalışmak
 

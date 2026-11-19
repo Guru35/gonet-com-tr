@@ -123,10 +123,10 @@ Gonet ayrıca Google Search Console (Crawl Stats raporu) ile log analizini çapr
 
 ## İlgili yetkinlikler
 
-- [Teknik SEO denetimi](/yetkinlikler/seo-klasik-arama/teknik-seo-denetimi): Crawl budget optimizasyonu teknik SEO'nun alt kümesidir, site hızı, mobil uyumluluk, yapısal veri ile birlikte yürür.
-- [JavaScript SEO + rendering stratejileri](/yetkinlikler/seo-klasik-arama/javascript-seo-rendering): Client-side rendering kullanıyorsanız, Googlebot'un rendering bütçesi ayrı bir katmandır. Log analizi rendering isteklerini de gösterir.
-- [International SEO + hreflang](/yetkinlikler/seo-klasik-arama/international-seo-hreflang): Çok dilli sitelerde her dil/bölge versiyonu ayrı crawl budget alır. Log analizi hangi bölgelerin yetersiz tarandığını gösterir.
-- [Kurumsal SEO stratejisi](/yetkinlikler/seo-klasik-arama/kurumsal-seo-stratejisi): Crawl budget yönetimi büyük kurumsal sitelerin omurgasıdır, birden fazla alt domain ve milyonlarca sayfa söz konusuysa zorunludur.
+- Teknik SEO denetimi: Crawl budget optimizasyonu teknik SEO'nun alt kümesidir, site hızı, mobil uyumluluk, yapısal veri ile birlikte yürür.
+- JavaScript SEO + rendering stratejileri: Client-side rendering kullanıyorsanız, Googlebot'un rendering bütçesi ayrı bir katmandır. Log analizi rendering isteklerini de gösterir.
+- International SEO + hreflang: Çok dilli sitelerde her dil/bölge versiyonu ayrı crawl budget alır. Log analizi hangi bölgelerin yetersiz tarandığını gösterir.
+- Kurumsal SEO stratejisi: Crawl budget yönetimi büyük kurumsal sitelerin omurgasıdır, birden fazla alt domain ve milyonlarca sayfa söz konusuysa zorunludur.
 
 ## Gonet ile çalışmak
 

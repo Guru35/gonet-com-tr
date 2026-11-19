@@ -135,10 +135,10 @@ Gonet'in content production team'i, SEO editörü + content writer + technical S
 
 Long-form SEO içerik üretimi, diğer içerik ve yaratıcı yetkinliklerle entegre çalıştığında maksimum etki yaratır:
 
-- [SEO copywriting](/yetkinlikler/icerik-yaratici/seo-copywriting): Pillar içerikteki her cümle, keyword density (anahtar kelime yoğunluğu) ve readability (okunabilirlik) dengesi gerektirir.
-- [Video içerik üretimi](/yetkinlikler/icerik-yaratici/video-icerik-uretimi): Pillar sayfalara埋め込み video (gömülü video) eklemek, dwell time ve engagement sinyallerini güçlendirir.
-- [İnfografik tasarımı](/yetkinlikler/icerik-yaratici/infografik-tasarimi): Long-form içerikteki karmaşık veriyi görselleştirmek, shareability (paylaşılabilirlik) artırır.
-- [Content marketing stratejisi](/yetkinlikler/icerik-yaratici/content-marketing-stratejisi): Pillar + cluster mimarisinin genel içerik takvimi ve dağıtım kanallarıyla senkronizasyonu.
+- SEO copywriting: Pillar içerikteki her cümle, keyword density (anahtar kelime yoğunluğu) ve readability (okunabilirlik) dengesi gerektirir.
+- Video içerik üretimi: Pillar sayfalara埋め込み video (gömülü video) eklemek, dwell time ve engagement sinyallerini güçlendirir.
+- İnfografik tasarımı: Long-form içerikteki karmaşık veriyi görselleştirmek, shareability (paylaşılabilirlik) artırır.
+- Content marketing stratejisi: Pillar + cluster mimarisinin genel içerik takvimi ve dağıtım kanallarıyla senkronizasyonu.
 
 ## Gonet ile çalışmak
 

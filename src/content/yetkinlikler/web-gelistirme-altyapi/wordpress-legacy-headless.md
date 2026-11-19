@@ -116,10 +116,10 @@ Güvenlik katmanında, Wordfence yapılandırması, two-factor authentication (2
 
 WordPress projelerinde sıklıkla entegre ettiğimiz yetkinlikler:
 
-- [Jamstack mimarisi](/yetkinlikler/jamstack-mimarisi) — headless WordPress + Next.js/Nuxt, static site generation, edge deployment
-- [Schema.org & JSON-LD](/yetkinlikler/schema-org-json-ld) — ACF verilerinden zengin snippet üretimi, Google Search Gallery uyumluluğu
-- [Google Tag Manager kurulumu](/yetkinlikler/google-tag-manager-kurulumu) — WordPress event tracking (form submit, CTA click, scroll depth), e-ticaret dataLayer
-- [Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu) — WordPress hosting, caching, image optimization, CLS/LCP/FID iyileştirme
+- Jamstack mimarisi — headless WordPress + Next.js/Nuxt, static site generation, edge deployment
+- Schema.org & JSON-LD — ACF verilerinden zengin snippet üretimi, Google Search Gallery uyumluluğu
+- Google Tag Manager kurulumu — WordPress event tracking (form submit, CTA click, scroll depth), e-ticaret dataLayer
+- Core Web Vitals optimizasyonu — WordPress hosting, caching, image optimization, CLS/LCP/FID iyileştirme
 
 Bu entegrasyonlar, WordPress'in hem içerik yönetim kolaylığını hem de modern web performans standartlarını aynı projede sunar.
 

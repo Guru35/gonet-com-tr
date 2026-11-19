@@ -115,10 +115,10 @@ Gonet, müşteri CMS'ine (WordPress, Drupal, custom) özel internal link suggest
 
 ## İlgili yetkinlikler
 
-- [Teknik SEO + site sağlığı](/yetkinlikler/teknik-seo-site-sagligi): On-page mimarinin crawl ve indexlenebilir altyapıya ihtiyacı vardır. Core Web Vitals, robots.txt, XML sitemap optimizasyonu tamamlayıcıdır.
-- [Schema.org + zengin sonuçlar](/yetkinlikler/schema-zengin-sonuclar): Pillar-cluster sayfalarına Article, FAQPage, BreadcrumbList schema'sı eklemek, SERP görünürlüğünü artırır.
-- [Lokal SEO + Google Business Profile](/yetkinlikler/lokal-seo-google-business): Çok lokasyonlu işletmelerde her lokasyon için pillar-cluster adaptasyonu, geo-specific authority inşa eder.
-- [Backlink stratejisi + dijital PR](/yetkinlikler/backlink-stratejisi-dijital-pr): Yüksek authority pillar sayfalar, backlink kazanımında %60 daha başarılıdır. İçerik mimarisi, outreach hedeflerini netleştirir.
+- Teknik SEO + site sağlığı: On-page mimarinin crawl ve indexlenebilir altyapıya ihtiyacı vardır. Core Web Vitals, robots.txt, XML sitemap optimizasyonu tamamlayıcıdır.
+- Schema.org + zengin sonuçlar: Pillar-cluster sayfalarına Article, FAQPage, BreadcrumbList schema'sı eklemek, SERP görünürlüğünü artırır.
+- Lokal SEO + Google Business Profile: Çok lokasyonlu işletmelerde her lokasyon için pillar-cluster adaptasyonu, geo-specific authority inşa eder.
+- Backlink stratejisi + dijital PR: Yüksek authority pillar sayfalar, backlink kazanımında %60 daha başarılıdır. İçerik mimarisi, outreach hedeflerini netleştirir.
 
 ## Gonet ile çalışmak
 

@@ -131,10 +131,10 @@ Gonet, "launch and leave" yapmaz. 3 aylık sprint'lerle (Agile metodoloji) içer
 
 ## İlgili yetkinlikler
 
-- **[Marka kimliği & mesajlaşma stratejisi](/yetkinlikler/strateji-danismanlik/marka-kimligi-mesajlasma)**: Pozisyon manifestosu, bu yetkinlikle entegre çalışır.
-- **[Rakip & benchmark analizi](/yetkinlikler/strateji-danismanlik/rakip-benchmark-analizi)**: Sektör girişinin veri omurgasıdır.
-- **[Dijital dönüşüm roadmap](/yetkinlikler/strateji-danismanlik/dijital-donusum-roadmap)**: MVP'den scale'e geçiş için gerekli altyapı planlamasıdır.
-- **[Conversion rate optimization (CRO)](/yetkinlikler/performans-optimizasyonu/conversion-rate-optimization)**: Kanal validasyonu sonrası optimizasyon döngüsünü yönetir.
+- **Marka kimliği & mesajlaşma stratejisi**: Pozisyon manifestosu, bu yetkinlikle entegre çalışır.
+- **Rakip & benchmark analizi**: Sektör girişinin veri omurgasıdır.
+- **Dijital dönüşüm roadmap**: MVP'den scale'e geçiş için gerekli altyapı planlamasıdır.
+- **Conversion rate optimization (CRO)**: Kanal validasyonu sonrası optimizasyon döngüsünü yönetir.
 
 ## Gonet ile çalışmak
 

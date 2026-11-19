@@ -134,10 +134,10 @@ Gonet'in 26 yıllık birikimi, bu süreci spekülasyondan çıkarır. Arketip te
 
 ## İlgili yetkinlikler
 
-- [İçerik stratejisi](/yetkinlikler/icerik-stratejisi): Hikayenin hangi kanallarda, hangi formatlarda yayılacağını belirleyen planlama katmanı.
-- [Sosyal medya yönetimi](/yetkinlikler/sosyal-medya-yonetimi): Narrative arc'ın günlük içerik takvimine dönüştürülmesi ve community engagement (topluluk etkileşimi).
-- [Video prodüksiyon](/yetkinlikler/video-produksiyon): Founder story ve marka manifestosunun görsel-işitsel formatta hayata geçirilmesi.
-- [Marka stratejisi](/yetkinlikler/marka-stratejisi): Archetype tespiti ve positioning (konumlandırma) çalışmasının temel katmanı.
+- İçerik stratejisi: Hikayenin hangi kanallarda, hangi formatlarda yayılacağını belirleyen planlama katmanı.
+- Sosyal medya yönetimi: Narrative arc'ın günlük içerik takvimine dönüştürülmesi ve community engagement (topluluk etkileşimi).
+- Video prodüksiyon: Founder story ve marka manifestosunun görsel-işitsel formatta hayata geçirilmesi.
+- Marka stratejisi: Archetype tespiti ve positioning (konumlandırma) çalışmasının temel katmanı.
 
 ## Gonet ile çalışmak
 

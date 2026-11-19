@@ -98,10 +98,10 @@ Bir örnek: ISO 9001 belgelendirme firması için `Course` ve `Event` schema ile
 
 Schema.org implementasyonu şu yetkinliklerle sinerji yaratır:
 
-- **[Core Web Vitals optimizasyonu](/yetkinlikler/core-web-vitals-optimizasyonu):** JSON-LD render performansı INP (Interaction to Next Paint) skoruna etki edebilir; asenkron yükleme optimizasyonu gerekli.
-- **[Google Search Console analitik](/yetkinlikler/google-search-console-analitik):** Enhancement reports, zengin sonuç hatalarını takip; impression-CTR değişimlerini ölçme.
-- **[Teknik SEO denetim](/yetkinlikler/teknik-seo-denetim):** Schema, crawl-index-render döngüsünün son katmanı; eksik canonical veya robots.txt blokajı schema'yı etkisiz bırakır.
-- **[E-ticaret SEO](/yetkinlikler/eticaret-seo):** Product, Offer, Review schema e-ticaret SEO'nun omurgası; kategori sayfalarında ItemList markup tamamlayıcı.
+- **Core Web Vitals optimizasyonu:** JSON-LD render performansı INP (Interaction to Next Paint) skoruna etki edebilir; asenkron yükleme optimizasyonu gerekli.
+- **Google Search Console analitik:** Enhancement reports, zengin sonuç hatalarını takip; impression-CTR değişimlerini ölçme.
+- **Teknik SEO denetim:** Schema, crawl-index-render döngüsünün son katmanı; eksik canonical veya robots.txt blokajı schema'yı etkisiz bırakır.
+- **E-ticaret SEO:** Product, Offer, Review schema e-ticaret SEO'nun omurgası; kategori sayfalarında ItemList markup tamamlayıcı.
 
 ## Gonet ile çalışmak
 
