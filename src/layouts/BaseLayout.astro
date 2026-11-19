@@ -209,7 +209,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             title: 'Google Analytics 4',
             purposes: ['analytics'],
             description: 'Google (üçüncü taraf, ABD). Site kullanım istatistikleri. Google Tag Manager üzerinden yüklenir.',
-            cookies: [/^_ga/, /^_gid/],
+            cookies: [/^_ga/, /^_gid/, /^_fbp/, [/^_fbp/, '/', '.gonet.com.tr']], // _fbp: eski ziyaretten kalmış kalıntı çerezi «Hepsini reddet»te silinir (QA ead49de)
             required: false,
             default: false,
             callback: function (consent) { window.gonetRiza('ga4', consent); },
@@ -686,7 +686,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
 
       <!-- Copyright + slogan satırı -->
       <div class="border-t border-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 sm:pr-28 lg:pr-28 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
           <span>© {new Date().getFullYear()} Gonet — Her iş'te Gonet var.</span>
           <span class="text-black/60">2000 → 2026 / 26 yıl / 220+ marka</span>
           <button type="button" id="cerez-ayarlari" class="underline self-start sm:self-auto min-h-[44px] sm:min-h-0 text-left uppercase tracking-[0.25em] font-medium hover:text-[#ff0000]">Çerez ayarları</button>
@@ -922,7 +922,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
 
             <div class="flex items-end gap-2 mb-3">
               <input type="email" id="feedback-email" placeholder="E-posta kopya için (opsiyonel)"
-                     class="flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
+                     class="ym-disable-keys flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
               <button type="button" id="feedback-finalize"
                       class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
                 Tamamla
