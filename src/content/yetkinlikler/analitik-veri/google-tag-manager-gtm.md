@@ -146,10 +146,10 @@ Gonet, GTM'i üç katmanlı bir mimari üzerinde kurar:
 
 GTM uygulamaları genellikle diğer analitik ve veri yetkinlikleriyle birlikte yürütülür:
 
-- [Google Analytics 4 (GA4)](/yetkinlikler/google-analytics-4): GTM üzerinden GA4 event tracking, enhanced e-commerce, custom dimension/metric konfigürasyonları.
-- [Dönüşüm Optimizasyonu (CRO)](/yetkinlikler/donusum-optimizasyonu): A/B test araçlarının GTM ile entegrasyonu, heatmap ve session recording etiketlerinin yönetimi.
-- [GDPR & Veri Gizliliği](/yetkinlikler/gdpr-veri-gizliligi): CMP entegrasyonu, Consent Mode v2, veri minimizasyonu stratejileri.
-- [Sunucu Taraflı İzleme (Server-Side Tracking)](/yetkinlikler/server-side-tracking): GCP/AWS üzerinde server-side GTM altyapısı kurulumu, bakımı, ölçeklendirilmesi.
+- Google Analytics 4 (GA4): GTM üzerinden GA4 event tracking, enhanced e-commerce, custom dimension/metric konfigürasyonları.
+- Dönüşüm Optimizasyonu (CRO): A/B test araçlarının GTM ile entegrasyonu, heatmap ve session recording etiketlerinin yönetimi.
+- GDPR & Veri Gizliliği: CMP entegrasyonu, Consent Mode v2, veri minimizasyonu stratejileri.
+- Sunucu Taraflı İzleme (Server-Side Tracking): GCP/AWS üzerinde server-side GTM altyapısı kurulumu, bakımı, ölçeklendirilmesi.
 
 ## Gonet ile çalışmak
 

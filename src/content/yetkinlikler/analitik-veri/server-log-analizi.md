@@ -168,10 +168,10 @@ Bu veriyi GTM/GA4 verileriyle çaprazlarız: GA4'te düşük etkileşimli ama y�
 
 Server log analizi diğer analitik ve teknik SEO yetkinliklerle entegre çalışır:
 
-- **[Google Tag Manager (GTM) kurulumu](/yetkinlikler/analitik-veri/google-tag-manager-kurulumu)**: İstemci tarafı veriyi toplarken, server loglar sunucu tarafı gerçeği gösterir. İkisini çaprazlayarak tam resim elde edersiniz.
-- **[Google Analytics 4 (GA4) denetimi](/yetkinlikler/analitik-veri/google-analytics-4-denetimi)**: GA4 bot filtreleme ayarları doğru mu? Log analizi ile GA4 verilerini doğrular, bot trafiği sızıntısını tespit edersiniz.
-- **[Teknik SEO denetimi](/yetkinlikler/teknik-seo/teknik-seo-denetimi)**: Tarama hataları, yavaş sayfalar, redirect sorunları log analiziyle kesinleşir.
-- **[AEO içerik optimizasyonu](/yetkinlikler/aeo-geo/aeo-icerik-optimizasyonu)**: Hangi sayfalar AI crawler'larca taranıyor? Log verisi AEO stratejisini yönlendirir.
+- **Google Tag Manager (GTM) kurulumu**: İstemci tarafı veriyi toplarken, server loglar sunucu tarafı gerçeği gösterir. İkisini çaprazlayarak tam resim elde edersiniz.
+- **Google Analytics 4 (GA4) denetimi**: GA4 bot filtreleme ayarları doğru mu? Log analizi ile GA4 verilerini doğrular, bot trafiği sızıntısını tespit edersiniz.
+- **Teknik SEO denetimi**: Tarama hataları, yavaş sayfalar, redirect sorunları log analiziyle kesinleşir.
+- **AEO içerik optimizasyonu**: Hangi sayfalar AI crawler'larca taranıyor? Log verisi AEO stratejisini yönlendirir.
 
 ## Gonet ile çalışmak
 

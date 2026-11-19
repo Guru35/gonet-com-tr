@@ -123,10 +123,10 @@ Gonet, her marka için `/llms.txt` veya `/ai-policy.md` dosyası oluşturur — 
 
 ## İlgili yetkinlikler
 
-- [llms.txt standart uygulaması](/yetkinlikler/llms-txt-standart-uygulamasi) — LLM'lerin crawl/RAG sürecinde kullanacağı markdown policy dosyası oluşturma.
-- [AI crawler yönetimi (robots.txt stratejisi)](/yetkinlikler/ai-crawler-yonetimi) — GPTBot, ClaudeBot, CCBot için granüler erişim kuralları.
-- [Retrieval-Augmented Generation (RAG) uyumluluğu](/yetkinlikler/rag-uyumlulugu) — AI sistemlerinin canlı veri çekimi sırasında içeriğinizi bulup kullanmasını sağlama.
-- [Schema.org ile varlık işaretleme](/yetkinlikler/schema-org-varlik-isaretleme) — AI'ın marka/ürün/hizmet bağlamını öğrenmesi için yapısal veri.
+- llms.txt standart uygulaması — LLM'lerin crawl/RAG sürecinde kullanacağı markdown policy dosyası oluşturma.
+- AI crawler yönetimi (robots.txt stratejisi) — GPTBot, ClaudeBot, CCBot için granüler erişim kuralları.
+- Retrieval-Augmented Generation (RAG) uyumluluğu — AI sistemlerinin canlı veri çekimi sırasında içeriğinizi bulup kullanmasını sağlama.
+- Schema.org ile varlık işaretleme — AI'ın marka/ürün/hizmet bağlamını öğrenmesi için yapısal veri.
 
 ## Gonet ile çalışmak
 

@@ -118,10 +118,10 @@ Bu süreç, llms.txt dosyasındaki chunking-hint direktifleriyle desteklenir:
 
 ## İlgili yetkinlikler
 
-- [Extraction-ready içerik yazımı](/yetkinlikler/extraction-ready-icerik-yazimi): Chunk içeriğinin LLM'ler tarafından doğrudan kullanılabilir formatta yazılması.
-- [Vector search optimizasyonu](/yetkinlikler/vector-search-optimizasyonu): Chunk embedding'lerinin arama vektör uzayında maksimum alakayı yakalaması.
-- [JSON-LD yapılandırılmış veri](/yetkinlikler/json-ld-yapilandirilmis-veri): Chunk'ları Schema.org entity'leriyle zenginleştirme, LLM context kalitesini artırır.
-- [llms.txt standardı uygulaması](/yetkinlikler/llms-txt-standardi-uygulamasi): Chunk sınırları ve öncelik kurallarının bot'lara açık iletilmesi.
+- Extraction-ready içerik yazımı: Chunk içeriğinin LLM'ler tarafından doğrudan kullanılabilir formatta yazılması.
+- Vector search optimizasyonu: Chunk embedding'lerinin arama vektör uzayında maksimum alakayı yakalaması.
+- JSON-LD yapılandırılmış veri: Chunk'ları Schema.org entity'leriyle zenginleştirme, LLM context kalitesini artırır.
+- llms.txt standardı uygulaması: Chunk sınırları ve öncelik kurallarının bot'lara açık iletilmesi.
 
 ## Gonet ile çalışmak
 

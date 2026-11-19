@@ -111,10 +111,10 @@ Gonet'in content CMS'ine entegre extraction checker tool'u, editörlere real-tim
 
 ## İlgili yetkinlikler
 
-- [RAG Optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/rag-optimizasyonu): Extraction-ready içerik, RAG sistemlerinin veri çekme sürecinde doğru chunk'ları bulmasını sağlar.
-- [llms.txt Entegrasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/llms-txt-entegrasyonu): llms.txt ile içerik discovery artarken, extraction-readiness içeriğin kullanılabilirliğini garantiler.
-- [Yapılandırılmış Veri (Schema.org)](/yetkinlikler/aeo-geo-yeni-nesil-arama/yapilandirilmis-veri-schema): JSON-LD FAQ/HowTo Schema'ları, extraction-ready içeriğin LLM'ler tarafından öncelikle işlenmesini sağlar.
-- [AI Overviews Optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/ai-overviews-optimizasyonu): Extraction-ready yapı, Google AI Overviews'da kaynak gösterilme şansını 3-5 kat artırır.
+- RAG Optimizasyonu: Extraction-ready içerik, RAG sistemlerinin veri çekme sürecinde doğru chunk'ları bulmasını sağlar.
+- llms.txt Entegrasyonu: llms.txt ile içerik discovery artarken, extraction-readiness içeriğin kullanılabilirliğini garantiler.
+- Yapılandırılmış Veri (Schema.org): JSON-LD FAQ/HowTo Schema'ları, extraction-ready içeriğin LLM'ler tarafından öncelikle işlenmesini sağlar.
+- AI Overviews Optimizasyonu: Extraction-ready yapı, Google AI Overviews'da kaynak gösterilme şansını 3-5 kat artırır.
 
 ## Gonet ile çalışmak
 

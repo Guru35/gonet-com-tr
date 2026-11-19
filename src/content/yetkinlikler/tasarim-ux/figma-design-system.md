@@ -122,10 +122,10 @@ Gonet'te her proje başında **tasarım sistemi sağlık kontrolü** yaparız: m
 
 ## İlgili yetkinlikler
 
-- [UI/UX tasarım ve prototipleme](/yetkinlikler/tasarim-ux/ui-ux-prototipleme): Figma'da tasarlanan deneyimlerin kullanıcı testine hazırlanması.
-- [Responsive tasarım](/yetkinlikler/tasarim-ux/responsive-tasarim): Auto layout ile mobil/tablet/desktop grid sistemlerinin kurgulanması.
-- [Marka kimliği ve görsel dil](/yetkinlikler/tasarim-ux/marka-kimligi): Token-based renk/tipografi paletlerinin marka stratejisi ile uyumlaştırılması.
-- [Erişilebilirlik (A11y)](/yetkinlikler/tasarim-ux/erisebilirlik): WCAG uyumlu token setlerinin design system'e entegrasyonu.
+- UI/UX tasarım ve prototipleme: Figma'da tasarlanan deneyimlerin kullanıcı testine hazırlanması.
+- Responsive tasarım: Auto layout ile mobil/tablet/desktop grid sistemlerinin kurgulanması.
+- Marka kimliği ve görsel dil: Token-based renk/tipografi paletlerinin marka stratejisi ile uyumlaştırılması.
+- Erişilebilirlik (A11y): WCAG uyumlu token setlerinin design system'e entegrasyonu.
 
 ## Gonet ile çalışmak
 

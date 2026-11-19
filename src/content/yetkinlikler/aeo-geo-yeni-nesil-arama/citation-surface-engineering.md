@@ -126,10 +126,10 @@ Her yetkinlik sayfası, bu üç katmanın en az ikisini içerecek şekilde tasar
 
 ## İlgili yetkinlikler
 
-- [Llms.txt protokol uygulaması](/yetkinlikler/aeo-geo-yeni-nesil-arama/llms-txt-protokol-uygulamasi): AI crawler'lar için citation yüzeyini tanımlayan standardizasyon.
-- [Üretken arama motoru optimizasyonu (GEO)](/yetkinlikler/aeo-geo-yeni-nesil-arama/uretken-arama-motoru-optimizasyonu-geo): Citation surface engineering'in parçası olduğu üst stratejik çerçeve.
-- [Schema.org ve yapılandırılmış veri uygulaması](/yetkinlikler/aeo-geo-yeni-nesil-arama/schema-org-yapilandirilmis-veri): Quotation ve statistics katmanlarını LLM'lere kodlamak için kullanılan teknik altyapı.
-- [Veri destekli cevap optimizasyonu](/yetkinlikler/aeo-geo-yeni-nesil-arama/veri-destekli-cevap-optimizasyonu): Statistics layer'ın içerik stratejisi boyutunu ele alan yetkinlik.
+- Llms.txt protokol uygulaması: AI crawler'lar için citation yüzeyini tanımlayan standardizasyon.
+- Üretken arama motoru optimizasyonu (GEO): Citation surface engineering'in parçası olduğu üst stratejik çerçeve.
+- Schema.org ve yapılandırılmış veri uygulaması: Quotation ve statistics katmanlarını LLM'lere kodlamak için kullanılan teknik altyapı.
+- Veri destekli cevap optimizasyonu: Statistics layer'ın içerik stratejisi boyutunu ele alan yetkinlik.
 
 ## Gonet ile çalışmak
 
