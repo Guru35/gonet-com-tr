@@ -1,5 +1,181 @@
 [
   {
+    "hash": "717b806",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "guncellemeler",
+    "baslik": "Yasaklı-ad listesi yoksa ya da okunamıyorsa derleme DURUR (WEBDV-19 ek 2)",
+    "link": null
+  },
+  {
+    "hash": "4522b01",
+    "tarih": "2026-11-19",
+    "tip": "yeni",
+    "kapsam": "guncellemeler",
+    "baslik": "Üretici betiğe yasaklı-ad filtresi — liste depoda değil, derleme anında dışarıdan (WEBDV-19)",
+    "link": null
+  },
+  {
+    "hash": "2387138",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "site",
+    "baslik": "Gerçek /rss.xml, kırık güncelleme bağlantıları ve temaya göre tek açılış görseli (WEBDV-16)",
+    "link": "/guncellemeler"
+  },
+  {
+    "hash": "281113c",
+    "tarih": "2026-11-19",
+    "tip": "iyilestirme",
+    "kapsam": "ana-sayfa",
+    "baslik": "Açılış görseli <img fetchpriority=\"high\"> ve haber slide görselleri yükleme sonrası (WEBDV-11) (#23)",
+    "link": null
+  },
+  {
+    "hash": "78cd9de",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "yetkinlikler",
+    "baslik": "Kırık iç bağlantılar kaldırıldı — 188 hedef düz yazı, 3 hedef doğru adrese (WEBDV-10) (#22)",
+    "link": null
+  },
+  {
+    "hash": "d929ae1",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "merhaba",
+    "baslik": "Kapanış başlığı «Kayıt açılınca haber alın», «Üyelik ücretsizdir…» satırı çıktı (WEBDV-6) (#19)",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "8ab4b4d",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "menü",
+    "baslik": "360 px'ten dar ekranda üst şerit düğmesinin görünen metni «Görüşme» (#17)",
+    "link": null
+  },
+  {
+    "hash": "288666b",
+    "tarih": "2026-11-19",
+    "tip": "yeni",
+    "kapsam": "merhaba",
+    "baslik": "Kulüp düğmesi 404 yerine bekleme listesi — mevcut iletişim formu (WEBDV-5) (#18)",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "4987c3d",
+    "tarih": "2026-11-19",
+    "tip": "duzeltme",
+    "kapsam": "site",
+    "baslik": "«Görüşme isteyin» + telefonda üst şerit düğmesi iç boşluğu + galeri 14 servis (#16)",
+    "link": "/galeri"
+  },
+  {
+    "hash": "57220ce",
+    "tarih": "2026-11-18",
+    "tip": "duzeltme",
+    "kapsam": "site",
+    "baslik": "Yedi site düzeltmesi — menü iki düğme, siz hitabı, 14 hizmet, görünür çağrı paragrafı, telefonda ilk ekran çağrısı, /merhaba koyu şerit (WEBDV-2) (#14)",
+    "link": "/aeo-geo-denetimi"
+  },
+  {
+    "hash": "40e2afa",
+    "tarih": "2026-11-18",
+    "tip": "yeni",
+    "kapsam": "merhaba",
+    "baslik": "Gonet Winner Club tanıtım sayfası — yön A, güncel metin, ARTDR R2+R3 (PLAN-CEOV2-007 / P1) (#13)",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "60f2cae",
+    "tarih": "2026-11-18",
+    "tip": "yeni",
+    "kapsam": "merhaba",
+    "baslik": "Gonet Winner Club tanıtım sayfası iskeleti — TASLAK (PLAN-CEOV2-007 / P1) (#11)",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "11da23b",
+    "tarih": "2026-11-17",
+    "tip": "yeni",
+    "kapsam": "site",
+    "baslik": "Formları ve geri bildirim kutusunu geri aç + aydınlatma cümlesi ve /kvkk bağlantısı (CEOV2-143/144/145 G3) — TASLAK (#10)",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "be5c0a1",
+    "tarih": "2026-11-17",
+    "tip": "yeni",
+    "kapsam": "kvkk",
+    "baslik": "/kvkk aydınlatma sayfası — HKDAN v1.4 kesin metin (CEOV2-112 G2) — birleştirme yok (#9)",
+    "link": "/kvkk"
+  },
+  {
+    "hash": "3b6ca3f",
+    "tarih": "2026-11-17",
+    "tip": "yeni",
+    "kapsam": "site",
+    "baslik": "ModelKilavuzu formunu kapat, ölü geri bildirim düğmelerini gizle (CEOV2-145) — birleştirme yok (#8)",
+    "link": "/sosyal-medya-galeri"
+  },
+  {
+    "hash": "73acff5",
+    "tarih": "2026-11-17",
+    "tip": "yeni",
+    "kapsam": "layout",
+    "baslik": "Geri bildirim kutusunu /kvkk canlı olana kadar kapat (CEOV2-144) — birleştirme yok (#7)",
+    "link": null
+  },
+  {
+    "hash": "c20e00e",
+    "tarih": "2026-11-17",
+    "tip": "yeni",
+    "kapsam": "iletisim",
+    "baslik": "Formu geçici kapat, telefon/e-posta notu (CEOV2-143) — birleştirme yok (#6)",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "0e476a1",
+    "tarih": "2026-11-16",
+    "tip": "yeni",
+    "kapsam": "iletisim",
+    "baslik": "Form kaynak etiketi — utm_source/utm_campaign -> source (CEOV2-084) — birleştirme yok (#4)",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "b573173",
+    "tarih": "2026-11-16",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "/kvkk aydınlatma sayfası + form bağlantısı + telefon kuralı (CEOV2-077) — yer tutucu bekliyor, birleştirme yok (#3)",
+    "link": "/kvkk"
+  },
+  {
+    "hash": "28836f5",
+    "tarih": "2026-11-15",
+    "tip": "duzeltme",
+    "kapsam": "iletisim",
+    "baslik": "Mesaj ipucuna mail/telefon yönlendirmesi (CEOV2-075) — birleştirme yok (#2)",
+    "link": "/iletisim"
+  },
+  {
+    "hash": "fa9c295",
+    "tarih": "2026-07-29",
+    "tip": "duzeltme",
+    "kapsam": "cookie-banner",
+    "baslik": "Klaro çerez bandını editöryel tasarım diline uydur",
+    "link": null
+  },
+  {
+    "hash": "6f4a1f9",
+    "tarih": "2026-07-29",
+    "tip": "yeni",
+    "kapsam": "guncellemeler",
+    "baslik": "Git geçmişinden otomatik beslenen /guncellemeler sayfası",
+    "link": "/guncellemeler"
+  },
+  {
     "hash": "53a58b4",
     "tarih": "2026-07-29",
     "tip": "yeni",
@@ -165,7 +341,7 @@
     "tip": "duzeltme",
     "kapsam": null,
     "baslik": "Kazara duplicate blog dosyası kaldırıldı (arama-motoru...nedir 2.md)",
-    "link": "/blog/arama-motoru-pazarlamasi-nedir 2"
+    "link": null
   },
   {
     "hash": "39ed860",
@@ -637,7 +813,7 @@
     "tip": "yeni",
     "kapsam": null,
     "baslik": "/yaratici-arsiv sayfası — 24 Behance projesi + flash banner mirası",
-    "link": "/yaratici-arsiv"
+    "link": null
   },
   {
     "hash": "d45b5ab",
