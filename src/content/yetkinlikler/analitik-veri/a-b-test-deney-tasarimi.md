@@ -131,10 +131,10 @@ Gonet, özellikle düşük trafikli siteler için Bayesian yaklaşım önerir �
 
 A/B test & deney tasarımı şu yetkinliklerle bütünleşir:
 
-- **[Funnel & dönüşüm analizi](/yetkinlikler/funnel-donusum-analizi)**: Darboğazların tespit edilmesi, test hipotezlerinin kaynağıdır
-- **[Kullanıcı davranış analizi](/yetkinlikler/kullanici-davranis-analizi)**: Heatmap, session recording ile test fikirleri oluşturulur
-- **[Google Analytics 4 uygulama](/yetkinlikler/google-analytics-4)**: Test sonuçlarının segmentlere göre raporlanması için event tracking yapılandırması
-- **[CRO (Conversion Rate Optimization)](/yetkinlikler/cro-optimizasyonu)**: A/B test, CRO döngüsünün uygulama motorudur
+- **Funnel & dönüşüm analizi**: Darboğazların tespit edilmesi, test hipotezlerinin kaynağıdır
+- **Kullanıcı davranış analizi**: Heatmap, session recording ile test fikirleri oluşturulur
+- **Google Analytics 4 uygulama**: Test sonuçlarının segmentlere göre raporlanması için event tracking yapılandırması
+- **CRO (Conversion Rate Optimization)**: A/B test, CRO döngüsünün uygulama motorudur
 
 Örneğin Gonet, bir e-ticaret müşterisi için GA4 funnel raporunda 'sepete ekle → ödeme' adımında %40 düşüş tespit etti. Kullanıcı davranış analizi ile 'kargo ücreti görünümü' darboğaz olarak belirlendi. 3 varyant tasarlandı: (A) kontrol, (B) kargo ücreti ön bilgilendirme banner, (C) ücretsiz kargo threshold göstergesi. 14 günlük test sonunda (18.500 session, power 0.85), C varyantı %22 conversion lift sağladı (p=0.003). Bayesian analiz, C'nin A'dan iyi olma olasılığını %99.2 gösterdi.
 

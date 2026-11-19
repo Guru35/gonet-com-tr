@@ -124,10 +124,10 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 
 ## İlgili yetkinlikler
 
-- [TikTok Ads & Influencer Marketing](/yetkinlikler/tiktok-ads-influencer-marketing) — Z kuşağı hedeflemesi için kısa video reklamları ve influencer kampanyaları  
-- [LinkedIn Ads — B2B Lead Generation](/yetkinlikler/linkedin-ads-b2b-lead-generation) — Karar vericilere ulaşmak için profesyonel ağ reklamları  
-- [Google Ads — Performance Max](/yetkinlikler/google-ads-performance-max) — Google ekosisteminde makine öğrenmesi tabanlı çok kanallı kampanyalar  
-- [Google Analytics 4 (GA4) & Server-Side Tagging](/yetkinlikler/google-analytics-4-server-side-tagging) — Sunucu tarafı ölçüm ve CAPI entegrasyonunun temel altyapısı
+- TikTok Ads & Influencer Marketing — Z kuşağı hedeflemesi için kısa video reklamları ve influencer kampanyaları  
+- LinkedIn Ads — B2B Lead Generation — Karar vericilere ulaşmak için profesyonel ağ reklamları  
+- Google Ads — Performance Max — Google ekosisteminde makine öğrenmesi tabanlı çok kanallı kampanyalar  
+- Google Analytics 4 (GA4) & Server-Side Tagging — Sunucu tarafı ölçüm ve CAPI entegrasyonunun temel altyapısı
 
 ## Gonet ile çalışmak
 

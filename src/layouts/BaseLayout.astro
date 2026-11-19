@@ -126,7 +126,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
     </script>
     <script is:inline>
       // Kutu henüz karara bağlanmadıysa onun yüksekliğini baştan ayır: ilk ekran bağlantıları kutunun altında kalmaz, kutu görününce yerleşim kaymaz.
-      if (!/(^|; )klaro=/.test(document.cookie)) document.documentElement.style.setProperty('--cerez-h', window.innerWidth < 768 ? '140px' : '164px');
+      if (!/(^|; )klaro=/.test(document.cookie)) { document.documentElement.style.setProperty('--cerez-h', window.innerWidth < 768 ? '140px' : '164px'); document.documentElement.setAttribute('data-cerez', ''); }
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
       // Google Consent Mode v2 — varsayılan: her şey reddedilmiş. GTM, kutuda en az bir servise izin verilene kadar YÜKLENMEZ.
@@ -220,7 +220,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             poweredBy: 'Gizlilik tercihleri',
           },
         },
-        // Anahtar → servis: «Analitik» = ga4 + yandex + cloudflare; «Pazarlama» = ads. ga4/yandex/ads Google Tag Manager üzerinden, cloudflare doğrudan yüklenir.
+        // Anahtar → servis: «Analitik» = ga4 + yandex (Google Tag Manager üzerinden) + cloudflare (doğrudan). Kapsayıcıda Ads etiketi yok → «Google Ads / DoubleClick» servisi kutuda listelenmez; «Pazarlama» grubu boş kalır.
         services: [
           {
             name: 'ga4',
@@ -236,7 +236,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             name: 'yandex',
             title: 'Yandex Metrica',
             purposes: ['analytics'],
-            description: 'Yandex (üçüncü taraf, Rusya). Site kullanım istatistikleri. Google Tag Manager üzerinden yüklenir.',
+            description: 'Yandex (üçüncü taraf, Rusya). Oturum kaydı, tıklama haritası ve Yandex\'in reklam ölçümü. Google Tag Manager üzerinden yüklenir.',
             cookies: [/^_ym/, /^yandexuid/, /^yabs-sid/],
             required: false,
             default: false,
@@ -251,16 +251,6 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             required: false,
             default: false,
             callback: function (consent) { window.gonetRiza('cloudflare', consent); },
-          },
-          {
-            name: 'ads',
-            title: 'Google Ads / DoubleClick',
-            purposes: ['marketing'],
-            description: 'Google (üçüncü taraf, ABD). Reklam performansı ölçümü ve yeniden hedefleme. Google Tag Manager üzerinden yüklenir.',
-            cookies: [/^_gcl/, /^IDE/],
-            required: false,
-            default: false,
-            callback: function (consent) { window.gonetRiza('ads', consent); },
           },
         ],
       };
@@ -744,8 +734,24 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
           var l = document.querySelector('.klaro .cn-learn-more');
           if (l && l.getAttribute('role') !== 'button') l.setAttribute('role', 'button');
           var kh = n ? Math.round(n.getBoundingClientRect().height) : 0;
-          if (n && kh) document.documentElement.style.setProperty('--cerez-h', kh + 'px');
-          else if (!n && window.klaro) document.documentElement.style.removeProperty('--cerez-h');
+          if (n && kh) { document.documentElement.style.setProperty('--cerez-h', kh + 'px'); document.documentElement.setAttribute('data-cerez', ''); }
+          else if (!n && window.klaro) { document.documentElement.style.removeProperty('--cerez-h'); document.documentElement.removeAttribute('data-cerez'); }
+          // Karar verildikten sonra Klaro tercih ekranında «Hepsini reddet» göstermiyor: geri çekme tek tıkla olsun.
+          var ft = document.querySelector('#cookieScreen .cm-footer-buttons') || document.querySelector('#cookieScreen .cm-footer');
+          if (ft && !ft.querySelector('.cn-decline') && window.klaro && window.klaro.getManager) {
+            var r = document.createElement('button');
+            r.type = 'button';
+            r.className = 'cm-btn cm-btn-danger cn-decline';
+            r.textContent = 'Hepsini reddet';
+            r.addEventListener('click', function () {
+              var mg = window.klaro.getManager(window.klaroConfig);
+              mg.changeAll(false);
+              mg.saveAndApplyConsents('decline');
+              var k = document.querySelector('#cookieScreen .cm-modal .hide');
+              if (k) k.click();
+            });
+            ft.insertBefore(r, ft.firstChild);
+          }
         }
         document.addEventListener('DOMContentLoaded', bagla);
         new MutationObserver(bagla).observe(document.documentElement, { childList: true, subtree: true });

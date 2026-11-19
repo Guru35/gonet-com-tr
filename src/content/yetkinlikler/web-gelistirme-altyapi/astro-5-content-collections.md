@@ -115,10 +115,10 @@ Gonet, Astro 5 + Content Collections'ı üç katmanlı mimari ile uygular:
 
 ## İlgili yetkinlikler
 
-- [Cloudflare Workers & Edge SEO](/yetkinlikler/cloudflare-workers-edge-seo): Astro 5'in edge runtime desteği ile birlikte coğrafi SEO ve bot routing stratejileri.
-- [Next.js 15 App Router](/yetkinlikler/nextjs-15-app-router): React ekosisteminde alternatif SSR/SSG yaklaşımı, karşılaştırmalı mimari kararları.
-- [Headless CMS Entegrasyonu](/yetkinlikler/headless-cms-entegrasyonu): Content Collections ile unified API üzerinden Contentful, Sanity, Strapi bağlantısı.
-- [Server-Side Rendering (SSR) Optimizasyonu](/yetkinlikler/ssr-optimizasyonu): Astro SSR ve Server Islands için cache, streaming, partial hydration teknikleri.
+- Cloudflare Workers & Edge SEO: Astro 5'in edge runtime desteği ile birlikte coğrafi SEO ve bot routing stratejileri.
+- Next.js 15 App Router: React ekosisteminde alternatif SSR/SSG yaklaşımı, karşılaştırmalı mimari kararları.
+- Headless CMS Entegrasyonu: Content Collections ile unified API üzerinden Contentful, Sanity, Strapi bağlantısı.
+- Server-Side Rendering (SSR) Optimizasyonu: Astro SSR ve Server Islands için cache, streaming, partial hydration teknikleri.
 
 ## Gonet ile çalışmak
 

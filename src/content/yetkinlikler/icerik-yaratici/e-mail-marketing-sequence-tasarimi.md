@@ -132,10 +132,10 @@ Gonet'te sequence tasarımı üç katmanda yürür: segmentasyon (hangi kitleye,
 
 ## İlgili yetkinlikler
 
-- [Copywriting — conversion odaklı metin](/yetkinlikler/icerik-yaratici/copywriting-conversion)
-- [Marketing automation mimarisi](/yetkinlikler/icerik-yaratici/marketing-automation)
-- [Customer journey mapping](/yetkinlikler/icerik-yaratici/customer-journey-mapping)
-- [A/B testing ve multivariate testler](/yetkinlikler/veri-analiz/ab-testing-multivariate)
+- Copywriting — conversion odaklı metin
+- Marketing automation mimarisi
+- Customer journey mapping
+- A/B testing ve multivariate testler
 
 ## Gonet ile çalışmak
 

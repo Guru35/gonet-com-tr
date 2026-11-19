@@ -147,10 +147,10 @@ Teknik uygulama: llms.txt dosyasını CDN edge'de cache'leriz (CloudFlare, AWS C
 
 ## İlgili yetkinlikler
 
-- [Schema.org işaretlemesi](/yetkinlikler/schema-org-isaretlemesi): llms.txt site yapısını tanıtırken, Schema sayfa düzeyinde anlam katar
-- [Extraction-ready içerik](/yetkinlikler/extraction-ready-icerik): llms.txt'de listelenen sayfaların içeriği LLM'lerin kolayca çıkarabileceği formatta olmalı
-- [RAG optimizasyonu](/yetkinlikler/rag-optimizasyonu): llms.txt, Retrieval-Augmented Generation sürecinde sitenizin doğru parçalarının alınmasını sağlar
-- [AI Overview optimizasyonu](/yetkinlikler/ai-overview-optimizasyonu): Google'ın AI yanıtlarında görünürlük için llms.txt tamamlayıcı rol oynar
+- Schema.org işaretlemesi: llms.txt site yapısını tanıtırken, Schema sayfa düzeyinde anlam katar
+- Extraction-ready içerik: llms.txt'de listelenen sayfaların içeriği LLM'lerin kolayca çıkarabileceği formatta olmalı
+- RAG optimizasyonu: llms.txt, Retrieval-Augmented Generation sürecinde sitenizin doğru parçalarının alınmasını sağlar
+- AI Overview optimizasyonu: Google'ın AI yanıtlarında görünürlük için llms.txt tamamlayıcı rol oynar
 
 ## Gonet ile çalışmak
 

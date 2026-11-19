@@ -139,10 +139,10 @@ Gonet'in Google Premier Partner statüsü, beta özelliklerine erken erişim sa�
 
 ## İlgili yetkinlikler
 
-- [Google Ads dönüşüm takibi](/yetkinlikler/google-ads-donusum-takibi): PMax'in temel gereksinimi doğru conversion tracking. GA4 + server-side tagging uygulamaları.
-- [Google Shopping kampanyaları](/yetkinlikler/google-shopping-kampanyalari): PMax, Shopping Feed optimizasyonuna bağımlıdır. Ürün data quality kritik.
-- [Hedef kitle segmentasyonu](/yetkinlikler/hedef-kitle-segmentasyonu): Audience signal stratejisinin temeli, GA4 ve CRM verilerinden segment oluşturma.
-- [Video reklam stratejisi](/yetkinlikler/video-reklam-stratejisi): PMax asset group'larında video varlıklarının performans etkisi ve üretim metodolojisi.
+- Google Ads dönüşüm takibi: PMax'in temel gereksinimi doğru conversion tracking. GA4 + server-side tagging uygulamaları.
+- Google Shopping kampanyaları: PMax, Shopping Feed optimizasyonuna bağımlıdır. Ürün data quality kritik.
+- Hedef kitle segmentasyonu: Audience signal stratejisinin temeli, GA4 ve CRM verilerinden segment oluşturma.
+- Video reklam stratejisi: PMax asset group'larında video varlıklarının performans etkisi ve üretim metodolojisi.
 
 ## Gonet ile çalışmak
 

@@ -137,10 +137,10 @@ Gonet'in M&A dijital due diligence süreci 4 aşamadan oluşur:
 
 ## İlgili yetkinlikler
 
-- [Dijital Strateji Danışmanlığı](/yetkinlikler/dijital-strateji-danismanligi): Satın alma sonrası dijital entegrasyon stratejisi
-- [SEO Denetimi](/yetkinlikler/seo-denetimi): Teknik SEO borç tespiti ve önceliklendirme
-- [Rekabet Analizi](/yetkinlikler/rekabet-analizi): Hedef şirketin sektördeki dijital konumu
-- [Google Analytics 4 Kurulum ve Yapılandırma](/yetkinlikler/google-analytics-4-kurulum): Satın alma sonrası veri altyapısı standardizasyonu
+- Dijital Strateji Danışmanlığı: Satın alma sonrası dijital entegrasyon stratejisi
+- SEO Denetimi: Teknik SEO borç tespiti ve önceliklendirme
+- Rekabet Analizi: Hedef şirketin sektördeki dijital konumu
+- Google Analytics 4 Kurulum ve Yapılandırma: Satın alma sonrası veri altyapısı standardizasyonu
 
 ## Gonet ile çalışmak
 
