@@ -72,6 +72,13 @@ function linkCikar(eklenen, degisen) {
   return null;
 }
 
+/** Link bugün var olmayan bir sayfa/yazıya gidiyorsa null (silinmiş dosyalar kırık bağlantı üretmesin). */
+function linkGecerli(link) {
+  if (!link) return null;
+  if (link.startsWith('/blog/')) return existsSync(`src/content/blog/${link.slice(6)}.md`) ? link : null;
+  return existsSync(`src/pages${link}.astro`) || existsSync(`src/pages${link}/index.astro`) ? link : null;
+}
+
 function main() {
   const bicim = ['%h', '%ad', '%s'].join(AYRAC) + SATIR_AYRAC;
   const ham = execSync(`git log --date=short --pretty=format:"${bicim}" --no-merges`, {
@@ -104,7 +111,7 @@ function main() {
       /* commit okunamadıysa linksiz devam */
     }
 
-    kayitlar.push({ hash, tarih, ...ayristirilmis, link: linkCikar(eklenen, degisen) });
+    kayitlar.push({ hash, tarih, ...ayristirilmis, link: linkGecerli(linkCikar(eklenen, degisen)) });
   }
 
   return kayitlar;

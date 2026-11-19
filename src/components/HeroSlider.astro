@@ -29,8 +29,23 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
 
   <!-- Slide 0 — KALICI marka. -->
   <div class="hero-slide" data-brand data-active style={`--bg-dark: url(${markaBgDark}); --bg-light: url(${markaBgLight})`}>
-    <!-- Açılış görseli (LIGHT tema): CSS arka planı yerine <img> — tarayıcı HTML ayrıştırırken erken bulur ve öncelikli indirir. -->
-    <img class="hero-bg-light" src={markaBgLight} alt="" fetchpriority="high" decoding="async" />
+    <!-- Açılış görseli: temaya göre TEK görsel iner. <picture>: tarayıcı HTML okunurken işletim sistemi temasına uyan görseli hemen,
+         yüksek öncelikle indirir (ilk ziyarette tema = prefers-color-scheme; BaseLayout'taki baştaki betik). Kayıtlı tema tercihi
+         işletim sisteminden farklıysa aşağıdaki betik yalnız o durumda görseli değiştirir. -->
+    <picture class="hero-bg-pic">
+      <source media="(prefers-color-scheme: dark)" srcset={markaBgDark} />
+      <img class="hero-bg" src={markaBgLight} alt="" fetchpriority="high" decoding="async" />
+    </picture>
+    <script is:inline define:vars={{ markaBgDark, markaBgLight }}>
+      (function () {
+        var p = document.currentScript.previousElementSibling;
+        var koyu = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (koyu !== matchMedia('(prefers-color-scheme: dark)').matches) {
+          p.querySelector('source').remove();
+          p.querySelector('img').src = koyu ? markaBgDark : markaBgLight;
+        }
+      })();
+    </script>
     <div class="slide-inner">
       <p class="hero-eyebrow">
         Gonet — İzmir · 2000 → 2026 · 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydık (bugünkü adıyla Google Partner)
@@ -150,10 +165,11 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     transition: opacity 0.7s ease;
   }
   :global([data-theme="dark"]) .hero-slide { background-image: var(--bg-dark); }
-  /* Slide 0: LIGHT temada görsel <img> ile gelir (CSS arka planı yok); DARK tema aynen CSS arka planı. */
+  /* Slide 0: görsel her iki temada <picture>/<img> ile gelir (CSS arka planı yok); tema başına tek görsel iner. */
   .hero-slide[data-brand] { background-image: none; isolation: isolate; }
-  :global([data-theme="dark"]) .hero-slide[data-brand] { background-image: var(--bg-dark); }
-  .hero-bg-light {
+  :global([data-theme="dark"]) .hero-slide[data-brand] { background-image: none; }
+  .hero-bg-pic { display: contents; }
+  .hero-bg {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -162,7 +178,6 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     object-position: center;
     z-index: -1;
   }
-  :global([data-theme="dark"]) .hero-bg-light { display: none; }
   .hero-slide[data-active] { opacity: 1; visibility: visible; }
   .hero-slide.is-consumed { display: none; }
 
