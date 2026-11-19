@@ -104,7 +104,7 @@ Türkiye'de influencer ekosistemi 2018 sonrası hızla profesyonelleşti; ajansl
   </div>
 </div>
 
-1. **Veri destekli influencer scouting:** Gonet, HypeAuditor, Modash gibi araçlarla influencer'ın takipçi kalitesini (gerçek/fake oranı), geçmiş kampanya performansını, kitle demografisini analiz eder. Ajansın 220+ marka deneyiminden türetilen 'kategori-influencer' veritabanı, eşleşme süresini %60 kısaltır.
+1. **Veri destekli influencer scouting:** Gonet, HypeAuditor, Modash gibi araçlarla influencer'ın takipçi kalitesini (gerçek/fake oranı), geçmiş kampanya performansını, kitle demografisini analiz eder. Ajansın 190+ marka deneyiminden türetilen 'kategori-influencer' veritabanı, eşleşme süresini %60 kısaltır.
 
 2. **Segmentli kampanya mimarisi:**
    - **Awareness katmanı:** Macro-influencer (100K–1M) ile markanın hikayesini geniş kitleye duyur.

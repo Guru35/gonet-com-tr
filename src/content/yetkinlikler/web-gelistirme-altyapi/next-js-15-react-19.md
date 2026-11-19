@@ -52,7 +52,7 @@ changelog:
 
 Next.js 15 ve React 19, modern web geliştirme yığınının en güncel sürümleridir. Next.js, Vercel tarafından geliştirilen ve React tabanlı uygulamalar için sunucu tarafı render (SSR), statik site oluşturma (SSG) ve artık **App Router** mimarisi ile tam yığın (full-stack) geliştirme imkanı sunan bir framework'tür. React 19 ise **React Server Components (RSC)**, geliştirilmiş concurrent rendering ve **server actions** gibi yeni özellikleri getirerek istemci-sunucu ayrımını yeniden tanımlamıştır.
 
-Gonet, 2000'den bu yana 220+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
+Gonet, 2000'den bu yana 190+ marka ile çalışırken edindiği deneyimi, Next.js 15 ve React 19'un sunduğu **partial prerendering (PPR)**, streaming SSR, on-demand revalidation ve edge computing yetenekleriyle birleştirerek kurumsal ölçekli, performans odaklı web uygulamaları üretmektedir. App Router mimarisi, dosya tabanlı routing yerine layouts, loading states ve error boundaries gibi yeni konseptlerle daha öngörülebilir ve ölçeklenebilir bir geliştirme deneyimi sunar.
 
 ## Neden kritik?
 
@@ -131,4 +131,4 @@ Gonet ekibi, Next.js Conf ve React ekibi blog yazılarını takip eder; canary v
 
 ## Gonet ile çalışmak
 
-Gonet, Next.js 15 + React 19 yığınını sadece bir framework olarak değil, dijital pazarlama hedeflerinizi destekleyen bir altyapı olarak konumlandırır. Proje başında performans KPI'ları (LCP, CLS, INP), SEO metrikleri (Core Web Vitals, indexleme hızı) ve iş hedefleri (conversion rate, engagement) birlikte tanımlanır. Sürekli entegrasyon pipeline'larında (CI/CD) Lighthouse skorları test edilir, her deploy öncesi regresyon önlenir. 220+ markaya sunduğumuz deneyimi, modern web teknolojileriyle birleştirerek ölçeklenebilir, sürdürülebilir ve performans odaklı çözümler üretiyoruz. [İletişime geçin](/iletisim) ve Next.js 15 + React 19 avantajını keşfedin.
+Gonet, Next.js 15 + React 19 yığınını sadece bir framework olarak değil, dijital pazarlama hedeflerinizi destekleyen bir altyapı olarak konumlandırır. Proje başında performans KPI'ları (LCP, CLS, INP), SEO metrikleri (Core Web Vitals, indexleme hızı) ve iş hedefleri (conversion rate, engagement) birlikte tanımlanır. Sürekli entegrasyon pipeline'larında (CI/CD) Lighthouse skorları test edilir, her deploy öncesi regresyon önlenir. 190+ markaya sunduğumuz deneyimi, modern web teknolojileriyle birleştirerek ölçeklenebilir, sürdürülebilir ve performans odaklı çözümler üretiyoruz. [İletişime geçin](/iletisim) ve Next.js 15 + React 19 avantajını keşfedin.

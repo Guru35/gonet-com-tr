@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
-/* Google Fonts — Anton + Inter — BaseLayout.astro head içinde <link> ile yüklenir
-   (Vite/Tailwind v4 ile @import url() bazı durumlarda yutuluyor) */
+/* Inter — değişken yazı tipi (300–900), kendi alan adımızdan (public/fonts; Google Fonts'tan indirilmiş latin + latin-ext
+   alt kümeleri, OFL lisansı). Rıza öncesi üçüncü taraf isteği yok. latin-ext Türkçe karakterler (ğ ş ı İ) için. */
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 300 900; font-display: swap;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 300 900; font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* GONET Design Tokens — siyah/kırmızı klasik palet (markaya uyumlu) */
 @theme {
@@ -198,107 +208,84 @@ a.ext-link::after {
   opacity: 0.7;
 }
 
-/* ── Klaro çerez bandı — marka uyarlaması (2026-06-11) ──────────────
-   Yeşil/yabancı renkler kaldırıldı. Kabul = marka kırmızısı + siyah metin
-   (5.25:1 AA, badge deseni). Reddet = nötr outline, EŞİT boyut (KVKK:
-   reddetmek kabul kadar kolay; dark pattern yok). Inter + editorial keskin köşe.
-   Consent MANTIĞINA dokunulmaz — yalnız görünüm. */
-/* Klaro yeşil aksanı (toggle switch'ler dahil) → marka kırmızısı */
+/* ── Çerez kutusu — marka uyarlaması + WEBDV-14 (eşit ağırlık, kompakt) ────────────
+   Üç düğme (Hepsini kabul et · Hepsini reddet · Tercihler) AYNI boy, punto, çerçeve ve renk;
+   ≥44×44 px dokunma hedefi; telefonda kutu ekranın ≤%25'i. Klaro üçüncü-taraf CSS → !important
+   burada haklı. Consent MANTIĞINA dokunulmaz — yalnız görünüm. */
 .klaro {
   --green1: #ff0000 !important;
   --green2: #e00000 !important;
   --green3: #ff0000 !important;
 }
-.klaro .cm-btn {
-  font-family: var(--font-sans) !important;
-  border-radius: 0 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em;
-  box-shadow: none !important;
-}
-/* Kabul (Anladım) — marka kırmızısı zemin + siyah metin */
-.klaro .cm-btn.cm-btn-success {
-  background-color: #ff0000 !important;
-  color: #000000 !important;
-  border: 1px solid #ff0000 !important;
-}
-.klaro .cm-btn.cm-btn-success:hover {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border-color: #000000 !important;
-}
-/* Reddet — nötr outline, kabul ile aynı boyut/padding (klaro .cm-btn'den gelir) */
-.klaro .cm-btn.cm-btn-danger,
-.klaro .cm-btn.cn-decline {
-  background-color: transparent !important;
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-}
-.klaro .cm-btn.cm-btn-danger:hover,
-.klaro .cm-btn.cn-decline:hover {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-}
-/* Koyu temada outline reddet butonu açık çerçeve */
-[data-theme="dark"] .klaro .cm-btn.cm-btn-danger,
-[data-theme="dark"] .klaro .cm-btn.cn-decline {
-  color: #e6e6e6 !important;
-  border-color: #e6e6e6 !important;
-}
-[data-theme="dark"] .klaro .cm-btn.cm-btn-danger:hover,
-[data-theme="dark"] .klaro .cm-btn.cn-decline:hover {
-  background-color: #e6e6e6 !important;
-  color: #0a0a0a !important;
-}
-/* Kabul butonu koyuda da kırmızı+siyah (yeterli kontrast) — değişmez */
-
-/* Klaro banner — container + tipografi editöryel dile uydurma (2026-07-29).
-   Öncekinde generic gri kutu duruyordu (bkz. Gökhan geri bildirimi: "çok basit").
-   Buton renk mantığına dokunulmadı, yalnız çerçeve/tipografi/spacing katmanı. */
 .klaro .cookie-notice {
   border-radius: 0 !important;
   box-shadow: none !important;
   border-top: 2px solid #000 !important;
-  padding: 28px 24px !important;
-}
-@media (min-width: 1024px) {
-  .klaro .cookie-notice { padding: 32px 40px !important; }
+  padding: 12px 16px !important;
 }
 [data-theme="dark"] .klaro .cookie-notice { border-top-color: #e6e6e6 !important; }
-
-/* Küçük uppercase eyebrow — site genelindeki "SIK SORULAN SORULAR" vb. etiket
-   deseniyle aynı dil. Klaro'nun DOM'una elle etiket ekleyemediğimiz için
-   ::before ile üretiliyor (yalnız görsel, config metnine karışmaz). */
-.klaro .cn-body::before {
-  content: "Çerez Tercihleri";
-  display: block;
-  font-family: var(--font-sans) !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.3em !important;
-  text-transform: uppercase !important;
-  color: #ff0000 !important;
-  margin-bottom: 12px !important;
+.klaro .cookie-notice .cn-body { display: flex !important; flex-direction: column; align-items: stretch !important; gap: 10px; padding: 0 !important; margin: 0 !important; }
+.klaro .cookie-notice .cn-body p {
+  margin: 0 !important; font-family: var(--font-sans) !important; font-size: 13px !important; line-height: 1.35 !important; max-width: 640px;
 }
-
-.klaro .cn-body p {
-  font-family: var(--font-sans) !important;
-  font-size: 14px !important;
-  line-height: 1.65 !important;
-  max-width: 640px;
+/* Küçük uppercase eyebrow yalnız ≥768 px (telefonda yer açmak için gizli) */
+.klaro .cn-body::before { content: none; }
+.klaro .cookie-notice .cn-ok { display: grid !important; grid-template-columns: repeat(3, 1fr); align-items: stretch !important; gap: 8px; width: 100%; margin: 0 !important; padding: 0 !important; }
+.klaro .cookie-notice .cn-buttons { display: contents !important; }
+/* Üç düğme: tek görünüm (hepsi çerçeveli) */
+.klaro .cookie-notice .cm-btn,
+.klaro .cookie-notice .cn-learn-more,
+.klaro .cm-modal .cm-btn {
+  display: flex !important; align-items: center; justify-content: center; box-sizing: border-box; width: 100% !important;
+  min-height: 44px; min-width: 44px; margin: 0 !important; padding: 6px 8px !important;
+  font-family: var(--font-sans) !important; font-size: 12px !important; font-weight: 600 !important;
+  line-height: 1.2; letter-spacing: 0.04em !important; text-transform: none !important; text-align: center; text-decoration: none !important;
+  background: transparent !important; color: #000 !important; border: 1.5px solid #000 !important;
+  border-radius: 0 !important; box-shadow: none !important; cursor: pointer;
 }
-
-/* Tercihler linki — site'nin "İletişim →" gibi ok-bitişli link deseni.
-   .cn-learn-more Klaro'da doğrudan <a class="cm-link cn-learn-more"> — alt-eleman değil. */
-.klaro a.cn-learn-more::after { content: " →"; }
-
-/* Butonlar — nav/CTA'daki uppercase + geniş tracking diline taşındı */
-.klaro .cn-buttons { gap: 12px !important; }
-.klaro .cn-buttons .cm-btn {
-  text-transform: uppercase !important;
-  font-size: 11px !important;
-  letter-spacing: 0.18em !important;
-  padding: 13px 26px !important;
+.klaro .cookie-notice .cm-btn:hover,
+.klaro .cookie-notice .cn-learn-more:hover,
+.klaro .cm-modal .cm-btn:hover { background: #000 !important; color: #fff !important; }
+[data-theme="dark"] .klaro .cookie-notice .cm-btn,
+[data-theme="dark"] .klaro .cookie-notice .cn-learn-more,
+[data-theme="dark"] .klaro .cm-modal .cm-btn { color: #e6e6e6 !important; border-color: #e6e6e6 !important; }
+[data-theme="dark"] .klaro .cookie-notice .cm-btn:hover,
+[data-theme="dark"] .klaro .cookie-notice .cn-learn-more:hover,
+[data-theme="dark"] .klaro .cm-modal .cm-btn:hover { background: #e6e6e6 !important; color: #0a0a0a !important; }
+.klaro .cm-modal .cm-header button.hide { min-width: 44px; min-height: 44px; }
+/* Kutu açıkken sayfanın sonu kutunun altında kalmasın (kaydırınca en alttaki içerik/düğmeler kutunun üstüne çıkar) */
+body { padding-bottom: var(--cerez-h, 0px); }
+/* Kutu açıkken (html[data-cerez]) telefonda ilk ekran çağrıları kutunun ÜSTÜNDE kalsın (CEO kararı):
+   ana sayfada hero, altındaki «Görüşme isteyin» şeridi (92 px) kadar kısalır; /merhaba kapı bölümü sıkılaşır. */
+@media (max-width: 767px) {
+  html[data-cerez] [data-ilk-cagri] { padding-top: 0.5rem; padding-bottom: 0.75rem; } /* 8 + 52 + 12 = 72 px */
+  html[data-cerez] body:has([data-ilk-cagri]) .hero-slider {
+    height: calc(100vh - var(--header-h, 72px) - var(--cerez-h, 0px) - 72px);
+    height: calc(100dvh - var(--header-h, 72px) - var(--cerez-h, 0px) - 72px);
+    min-height: 0;
+  }
+  html[data-cerez] body:has([data-ilk-cagri]) .slide-inner { padding-top: 1.5rem; }
+}
+@media (max-width: 639px) {
+  html[data-cerez] .wc-kapi-ic { padding-top: 1rem; padding-bottom: 1rem; }
+  html[data-cerez] .wc-kapi .wc-h1 { font-size: 1.75rem; margin: 0.75rem 0; }
+  html[data-cerez] .wc-kapi .wc-alt { font-size: 1rem; margin-bottom: 0.75rem; }
+  html[data-cerez] .wc-kapi .wc-dugmeler { gap: 0.5rem; }
+}
+/* Tercih ekranı: servisler adıyla görünür (sayı etiketi/açılır ok yok); anahtar kategori düzeyinde */
+.klaro .cm-modal .cm-services .cm-caret { display: none !important; }
+.klaro .cm-modal .cm-services .cm-content { display: block !important; }
+.klaro .cm-modal .cm-service .cm-switch { display: none !important; }
+.klaro .cm-modal .cm-service label { pointer-events: none; }
+@media (min-width: 768px) {
+  .klaro .cookie-notice { padding: 20px 40px !important; }
+  .klaro .cn-body::before {
+    content: "Çerez Tercihleri"; display: block; font-family: var(--font-sans) !important; font-size: 10px !important;
+    font-weight: 600 !important; letter-spacing: 0.3em !important; text-transform: uppercase !important; color: #ff0000 !important; margin-bottom: 4px !important;
+  }
+  .klaro .cookie-notice .cn-body { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+  .klaro .cookie-notice .cn-body::before { flex-basis: 100%; }
+  .klaro .cookie-notice .cn-ok { width: 480px; flex-shrink: 0; }
 }
 
 /* Editöryel display utility — devasa typografi */
@@ -717,3 +704,4 @@ select:focus-visible,
     padding-bottom: 0.35rem;
   }
 }
+

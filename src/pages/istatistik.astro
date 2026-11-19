@@ -4,7 +4,7 @@ import { webpageSchema } from '../lib/schema';
 
 const title = 'İstatistikler — 26 Yıllık Gonet Verisi | Gonet';
 const description =
-  'Gonet portföyünün 26 yıllık veri görselleştirmesi. 220+ marka, 23 sektör, 12+ Türkiye ilki, ' +
+  'Gonet portföyünün 26 yıllık veri görselleştirmesi. 190+ marka, 24 sektör, 12+ Türkiye ilki, ' +
   'sosyal medya dağılımı, yıl bazlı milestone yoğunluğu, hizmet karışımı.';
 const url = 'https://gonet.com.tr/istatistik';
 
@@ -22,22 +22,23 @@ const pageSchema = webpageSchema({
 // — Veri seti —
 
 // 1) Sektör dağılımı (yatay bar chart)
+// Kaynak: /markalar listesi (src/pages/markalar.astro `sectors`) — jenerik yer tutucular elenip ad temizlenerek ve tekilleştirilerek sayıldı (198 tekil ad).
+// «Diğer» = listede 5'ten az markası olan 11 sektörün toplamı (26). Liste değişirse bu sayılar yeniden sayılmalı.
 const sectors = [
-  { name: 'Sanayi & Elektronik', count: 25 },
-  { name: 'İnşaat & Gayrimenkul', count: 22 },
-  { name: 'Gıda & FMCG', count: 20 },
-  { name: 'Sağlık', count: 18 },
-  { name: 'Eğitim', count: 12 },
-  { name: 'Turizm & Otelcilik', count: 10 },
-  { name: 'E-ticaret', count: 9 },
+  { name: 'Elektronik, Sanayi, İklimlendirme & Telekom', count: 35 },
+  { name: 'Gıda, F&B & FMCG', count: 33 },
+  { name: 'İnşaat, Yapı Malzemesi & Gayrimenkul', count: 26 },
+  { name: 'Sağlık & Sağlık Turizmi', count: 17 },
+  { name: 'Eğitim & Akademi', count: 10 },
+  { name: 'Turizm & Otelcilik', count: 9 },
   { name: 'Otomotiv', count: 8 },
-  { name: 'Tekstil & Konfeksiyon', count: 7 },
   { name: 'Siyaset & Kamu', count: 6 },
-  { name: 'Mobilya', count: 5 },
-  { name: 'Mobil API', count: 6 },
-  { name: 'Holding & Kurumsal', count: 5 },
-  { name: 'Birlikler & Ticaret', count: 5 },
-  { name: 'Diğer', count: 62 },
+  { name: 'Mobil API & Yazılım — Büyük markalar', count: 6 },
+  { name: 'Holding, Kurumsal Yönetim & Profesyonel Danışmanlık', count: 6 },
+  { name: 'Ajans çözüm partnerliği (white-label)', count: 6 },
+  { name: 'Güzellik & Estetik', count: 5 },
+  { name: 'Birlikler, İhracat, Borsa & Ticaret', count: 5 },
+  { name: 'Diğer', count: 26 },
 ];
 
 // 2) Hizmet türü dağılımı (donut)
@@ -167,7 +168,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
         Sayılarla Gonet.
       </h1>
       <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl">
-        220+ marka, 23 sektör, 26 yıl, 12+ Türkiye ilki. Aşağıda 7 ayrı grafikle özetli görünüm —
+        190+ marka, 24 sektör, 26 yıl, 12+ Türkiye ilki. Aşağıda 7 ayrı grafikle özetli görünüm —
         her biri sıfırdan tasarlanmış inline SVG, kütüphane yok.
       </p>
     </div>
@@ -177,7 +178,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
   <section class="bg-white border-b border-black">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
       <div>
-        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]">{totalBrands}+</p>
+        <p class="editorial-display text-[18vw] lg:text-[7vw] xl:text-[110px] leading-[0.85]">190+</p>
         <p class="text-[10px] uppercase tracking-[0.3em] opacity-70 mt-2">marka</p>
       </div>
       <div>
@@ -221,7 +222,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
         })}
       </div>
       <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
-        siyah çubuklar = belirgin sektör · gri = "diğer" toplam
+        siyah çubuklar = belirgin sektör · gri = "diğer" toplam · /markalar listesinden sayıldı, çubukların toplamı = {totalBrands} tekil marka
       </p>
     </div>
   </section>
@@ -375,13 +376,14 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
     <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-4">Stacked Bar · 06</p>
       <h2 class="editorial-display text-[10vw] lg:text-[6vw] xl:text-[80px] leading-[0.9] mb-12">
-        9 vaka, 7 sektör.
+        9 vaka, 8 sektör.
       </h2>
       <div class="space-y-1">
         {[
           { label: 'Sağlık', pct: 11.1 },
           { label: 'Siyaset (CHP 2007)', pct: 11.1 },
-          { label: 'E-ticaret (Adepo + Temiz Mama + Tatil Vitrini)', pct: 33.3 },
+          { label: 'E-ticaret (Adepo + Temiz Mama)', pct: 22.2 },
+          { label: 'Turizm (Tatil Vitrini)', pct: 11.1 },
           { label: 'Eğitim (DEÜ Uzaktan Eğitim)', pct: 11.1 },
           { label: 'İnşaat (MYvia)', pct: 11.1 },
           { label: 'Kamu (İzsu)', pct: 11.1 },
@@ -400,7 +402,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
         ))}
       </div>
       <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-8">
-        kırmızı blok = e-ticaret ağırlığı (3/9 vaka)
+        kırmızı blok = e-ticaret ağırlığı (2/9 vaka)
       </p>
     </div>
   </section>
@@ -429,7 +431,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
             <polyline points="5,58 20,55 40,50 60,45 90,35 120,25 150,15 180,8 195,5" stroke="#000" stroke-width="2" fill="none" />
             <circle cx="195" cy="5" r="4" fill="#000" />
           </svg>
-          <p class="editorial-display text-3xl lg:text-5xl">220+</p>
+          <p class="editorial-display text-3xl lg:text-5xl">190+</p>
         </div>
         <!-- AEO/GEO entity density -->
         <div>
@@ -438,7 +440,7 @@ const totalBrands = sectors.reduce((s, x) => s + x.count, 0);
             <polyline points="5,55 30,52 60,48 90,42 110,28 140,18 170,8 195,3" stroke="#ff0000" stroke-width="2" fill="none" />
             <circle cx="195" cy="3" r="4" fill="#ff0000" />
           </svg>
-          <p class="editorial-display text-3xl lg:text-5xl" style="color:#ff0000">220+</p>
+          <p class="editorial-display text-3xl lg:text-5xl" style="color:#ff0000">200+</p>
         </div>
       </div>
     </div>

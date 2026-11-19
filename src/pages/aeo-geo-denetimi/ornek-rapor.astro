@@ -4,9 +4,9 @@ import { webpageSchema, ORG_ID, SITE_URL } from '../../lib/schema';
 
 const title = "Örnek Denetim Raporu — Gonet AEO/GEO Denetim Hizmeti | Canlı Vitrin";
 const description =
-  "Gonet'in kendi sitesinde uyguladığı AEO/GEO denetim raporunun tam paket örneği. 5 katmanlı metodoloji (Erişim → Crawl → Tech → Content → Researcher), ilk ölçümdeki hatamız ve düzeltilmiş sonuç (adımızı vermeden sorulan sorularda 0/4), 6 P0-P5 aksiyon planı. PDF indirilebilir.";
+  "Gonet'in kendi sitesinde uyguladığı AEO/GEO denetim raporunun tam paket örneği. 5 katmanlı metodoloji (Erişim → Crawl → Tech → Content → Researcher), ilk ölçümdeki hatamız ve 19 Kasım 2026 yeniden ölçümü (adımızı vermeden sorulan sorularda anılma 2/192), 6 P0-P5 aksiyon planı. PDF indirilebilir.";
 const url = `${SITE_URL}/aeo-geo-denetimi/ornek-rapor`;
-const pdfUrl = `${SITE_URL}/raporlar/gonet-aeo-geo-denetim-ornek-2026-06-v5.pdf`;
+const pdfUrl = `${SITE_URL}/raporlar/gonet-aeo-geo-denetim-ornek-2026-11-v6.pdf`;
 
 const pageSchema = webpageSchema({
   title,
@@ -38,7 +38,7 @@ const reportSchema = {
     contentUrl: pdfUrl,
   },
   abstract:
-    "5 katmanlı sistematik denetim: Erişim (5/5 AI bot 200), Crawl (Common Crawl 10 kayıt), Tech-Auditor (0 critical), Content (extraction-ready), Researcher (adımızı vermeden sorulan sorularda anılma 0/4). Tanı: altyapı sınıfının en iyisi, ama LLM eğitim setlerine henüz girmemiş. 6 P0-P5 aksiyon planı önceliklendirildi.",
+    "5 katmanlı sistematik denetim: Erişim (5/5 AI bot 200), Crawl (Common Crawl son taramasında 27 sayfa, 2026-39), Tech-Auditor (0 critical), Content (extraction-ready), Researcher (adımızı vermeden sorulan sorularda anılma 2/192; adıyla sorulunca web aramasıyla doğru tanım 26/54, aramasız 1/90; Claude ve Gemini, 19 Kasım 2026, tek koşu). Tanı: altyapı sınıfının en iyisi, ama LLM eğitim setlerine henüz girmemiş. 6 P0-P5 aksiyon planı önceliklendirildi.",
 };
 ---
 
@@ -112,8 +112,8 @@ const reportSchema = {
           <div class="md:col-span-10">
             <h3 class="text-xl font-medium mb-2">Crawl — Arşivde miyim?</h3>
             <p class="text-slate-700">
-              Common Crawl 2026-21 snapshot'ında <strong>10 kayıt mevcut</strong> (13 Mayıs 2026 taze).
-              Snapshot eski 2010, 2022, 2026 kayıtlarının karışımı — site evrim takip ediliyor.
+              Common Crawl'ın son taramasında (2026-39) <strong>27 sayfa mevcut</strong>; modellerin eğitim penceresinde
+              (2022-40 → 2024-51) 0 sayfa. Son taramadaki 27 sayfanın modellere yansıması sonraki model kuşaklarını bekler.
             </p>
           </div>
         </div>
@@ -149,12 +149,10 @@ const reportSchema = {
           <div class="md:col-span-10">
             <h3 class="text-xl font-medium mb-2">Researcher — Beni nasıl temsil ediyor?</h3>
             <p class="text-slate-700">
-              <strong>Anthropic Claude Haiku 4.5</strong> ile 5 probe yapıldı.
-              İlk yazdığımız sonuç: beş sorudan birinde anılma. Düzeltilmiş sonuç (5 Ekim 2026):
-              <strong>Gonet'in adını içermeyen dört sorunun hiçbirinde anılma yok (0/4)</strong>.
-              "Gonet kimdir?" sorusunda Claude <strong>yanlış tanım</strong> üretti
-              (<em>"ağ yönetimi ve internet altyapısı hizmetleri sağlayan kuruluşlar içi…"</em>).
-              Gökhan Kazancı tanınmadı.
+              İlk ölçümde <strong>Anthropic Claude Haiku 4.5</strong> ile 5 probe yapılmış ve beş sorudan birinde anılma yazılmıştı;
+              bu sonuç yanlıştı, düzelttik. Yeniden ölçüm (19 Kasım 2026, <strong>Claude ve Gemini</strong>, tek koşu):
+              <strong>Gonet'in adını içermeyen sorularda anılma 2/192</strong>; adıyla sorulunca web aramasıyla doğru tanım 26/54,
+              aramasız 1/90. ChatGPT ve Perplexity bu ölçüme dahil değildir.
             </p>
           </div>
         </div>
@@ -163,9 +161,9 @@ const reportSchema = {
       <div class="mt-12 p-6 bg-white border-l-4 border-black">
         <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-3">Tek cümlelik tanı</p>
         <p class="text-lg text-slate-700">
-          Gonet'in <strong>altyapısı sınıfının en iyisi</strong> (Schema.org @graph + llms.txt + 21 AI bot policy + CF AI Crawl Control),
+          Gonet'in <strong>altyapısı sınıfının en iyisi</strong> (Schema.org @graph + llms.txt + robots.txt'te 28 User-agent satırı + CF AI Crawl Control),
           ama bu altyapı <strong>henüz LLM eğitim setlerine ulaşmamış</strong>. Common Crawl'da görünüyor ancak Claude'un parametrik belleğine girememiş.
-          <strong>Wikipedia/Wikidata + basın PR + 3rd-party referans inşası</strong> 6 ay vadede etkili.
+          <strong>Ayrıştırıcı kimlik (Wikidata, dizinler) + basın + bağımsız kaynak anılması</strong> 3-6 ay vadede etkili.
         </p>
       </div>
     </div>
@@ -181,8 +179,8 @@ const reportSchema = {
 
       <div class="space-y-6">
         <div class="border-b border-slate-200 pb-4">
-          <p class="font-medium text-lg"><span style="color:#ff0000">P0</span> — Wikipedia / Wikidata entity oluştur (en yüksek ROI)</p>
-          <p class="text-slate-600 text-sm mt-1">Vakıf-kaynaklı Wikidata Q-item + Türkçe & İngilizce Wikipedia maddesi. 3-6 ay vade.</p>
+          <p class="font-medium text-lg"><span style="color:#ff0000">P0</span> — Ayrıştırıcı kimlik kur (en yüksek getiri)</p>
+          <p class="text-slate-600 text-sm mt-1">Wikidata öğesi + dizinlerde tek ad, tek adres, tek telefon + sitede «Gonet İzmir» tanım cümlesi. 3-6 ay vade.</p>
         </div>
         <div class="border-b border-slate-200 pb-4">
           <p class="font-medium text-lg"><span style="color:#f97316">P1</span> — Common Crawl deep crawl tetikle</p>
@@ -217,7 +215,7 @@ const reportSchema = {
       <p class="editorial-display text-5xl md:text-7xl mb-6">$0.0083</p>
       <p class="text-lg text-slate-300 mb-16 max-w-xl mx-auto">
         Tek seferlik LLM probe maliyeti (Anthropic Haiku 4.5, 5 soru).
-        Standart pakette 4 platform · Enterprise pakette aylık tekrar — fiyatlandırma kanıt-bazlı sürdürülebilir.
+        Standart pakette Claude ve Gemini probe'u · Enterprise pakette aylık tekrar — fiyatlandırma kanıt-bazlı sürdürülebilir.
       </p>
       <p class="editorial-display text-3xl md:text-4xl leading-[1.2] mb-10">
         Kendi markanız için<br/>

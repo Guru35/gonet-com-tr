@@ -82,7 +82,7 @@ Audience signal (hedef kitle sinyali) ise kampanyanın ilk öğrenme aşamasınd
   </div>
 </div>
 
-Google Ads'in 2024 itibariyle Smart Shopping ve Yerel kampanya türlerini tamamen PMax'e entegre etmesiyle, bu kampanya türü e-ticaret ve lead generation (potansiyel müşteri kazanımı) için kaçınılmaz hale geldi. Gonet'in 220+ marka portföyünde gözlemlediğimiz veriler, doğru yapılandırılmış PMax kampanyalarının geleneksel Arama + Display kombinasyonlarına göre %30-45 daha yüksek ROAS (Return on Ad Spend - reklam harcaması getirisi) sağladığını gösteriyor.
+Google Ads'in 2024 itibariyle Smart Shopping ve Yerel kampanya türlerini tamamen PMax'e entegre etmesiyle, bu kampanya türü e-ticaret ve lead generation (potansiyel müşteri kazanımı) için kaçınılmaz hale geldi. Gonet'in 190+ marka portföyünde gözlemlediğimiz veriler, doğru yapılandırılmış PMax kampanyalarının geleneksel Arama + Display kombinasyonlarına göre %30-45 daha yüksek ROAS (Return on Ad Spend - reklam harcaması getirisi) sağladığını gösteriyor.
 
 Ancak bu performans otomatik olarak gelmez. PMax'in başarısı üç kritik faktöre bağlıdır:
 

@@ -52,7 +52,7 @@ changelog:
 
 BigQuery, Google Cloud'un sunduğu sunucusuz (serverless) veri ambarı servisidir. SQL (Structured Query Language) ile büyük veri setlerini hızla sorgulamanıza olanak tanır. Dijital pazarlama bağlamında BigQuery, Google Analytics 4 (GA4) raw data export'larını depolamak ve analiz etmek için kritik bir altyapıdır. GA4 arayüzünün sunmadığı granüler, kullanıcı düzeyinde analizler (custom funnel, cohort, churn modelleme, attribution) BigQuery + SQL ile gerçekleştirilir.
 
-Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 220+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
+Gonet, 2019'dan bu yana BigQuery altyapısı kullanır. 190+ marka portföyünde günlük milyonlarca event satırını işler, SQL scriptleriyle custom metrikler üretir ve bu verileri Looker Studio, Google Sheets veya müşteri CRM'lerine entegre eder.
 
 ## Neden kritik?
 

@@ -100,7 +100,7 @@ CRO yapmadan dijital pazarlama, delik bir kovaya su doldurmaya benzer. Trafik ar
   </div>
 </div>
 
-26 yıldır 220+ markayla çalışan Gonet'in CRO metodolojisi üç katmanlıdır: tanı, hipotez, validasyon.
+26 yıldır 190+ markayla çalışan Gonet'in CRO metodolojisi üç katmanlıdır: tanı, hipotez, validasyon.
 
 **Tanı katmanı:** Google Analytics 4 (GA4), Hotjar, Microsoft Clarity ve Crazy Egg gibi araçları entegre kullanarak nicel ve nitel veri toplarız. Heatmap'ler, scroll depth (kaydırma derinliği) haritaları ve click maps (tıklama haritaları) ile kullanıcı davranışını görselleştiririz. Session recording'lerde random örneklem yerine segmentli analiz yaparız: sepete ekleyip ödemeye gitmeyen kullanıcılar, 3+ sayfa görüntüleyip çıkanlar, mobil vs. desktop gibi. Funnel'ları micro-conversion'lara (ürün detay görüntüleme → sepete ekleme → checkout başlatma → ödeme) kadar parçalarız.
 

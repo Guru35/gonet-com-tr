@@ -59,7 +59,7 @@ Google'ın SGE (Search Generative Experience), Perplexity, ChatGPT Search ve Bin
 
 Kötü chunk yapısı (örneğin 2000 karakterlik tek parça veya rastgele kesilmiş cümleler), LLM'in hangi bilginin sorgula alakalı olduğunu ayırt etmesini zorlaştırır. Sonuç: sıfır citation, sıfır görünürlük. Semantic chunking, her parçanın bir 'mini-landing page' gibi bağımsız anlam taşımasını sağlayarak LLM'lerin o parçayı güvenle kaynak gösterebilmesini mümkün kılar.
 
-Gonet'in 220+ marka portföyünde gerçekleştirdiği AEO denetimleri, chunk yapısı optimize edildiğinde citation oranının ortalama 3.2 kat arttığını gösteriyor. Özellikle teknik dokümantasyon, ürün spesifikasyonları ve nasıl yapılır içeriklerinde bu etki belirgindir.
+Gonet'in 190+ marka portföyünde gerçekleştirdiği AEO denetimleri, chunk yapısı optimize edildiğinde citation oranının ortalama 3.2 kat arttığını gösteriyor. Özellikle teknik dokümantasyon, ürün spesifikasyonları ve nasıl yapılır içeriklerinde bu etki belirgindir.
 
 <div class="gonet-compare">
   <div class="col">

@@ -51,7 +51,7 @@ changelog:
 ## Google Analytics 4 (GA4) nedir?
 
 <div class="gonet-pullquote">
-  <div class="big-number">220+</div>
+  <div class="big-number">190+</div>
   <div class="big-label">MARKA PORTFÖYÜ</div>
   <p class="pq-desc">Temmuz 2023 son tarihinden önce GA4 geçişi tamamlandı, veri kaybı olmadan sağlandı.</p>
 </div>
@@ -66,7 +66,7 @@ GA4'ün temel farkları:
 - **Privacy-first tasarım**: Cookie'siz ölçümleme desteği, IP anonimleştirme varsayılan.
 - **BigQuery entegrasyonu**: Ücretsiz tier dahil ham veri export.
 
-Gonet, 2020'den beri GA4 implementasyonu ve danışmanlığı sunmaktadır. 220+ marka portföyünde GA4 geçişlerini Temmuz 2023 son tarihinden önce tamamladık, veri kaybı olmadan sağladık.
+Gonet, 2020'den beri GA4 implementasyonu ve danışmanlığı sunmaktadır. 190+ marka portföyünde GA4 geçişlerini Temmuz 2023 son tarihinden önce tamamladık, veri kaybı olmadan sağladık.
 
 ## Neden kritik?
 
@@ -154,4 +154,4 @@ Gonet ekibi GA4 Individual Qualification (Google Analytics sertifikası) sahibi,
 
 ## Gonet ile çalışmak
 
-GA4 kurulumu 'bir kez yap unut' değil, sürekli gelişen bir süreçtir. Gonet, setup'tan raporlamaya, optimizasyondan eğitime tam döngü hizmet sunar. 220+ markada kanıtlanmış event taxonomy şablonlarımız, sektörünüze özel hızlı başlangıç sağlar. Veri kalitenizi artırmak, attribution modelinizi netleştirmek, BigQuery analizine geçmek için [iletişime geçin](/iletisim).
+GA4 kurulumu 'bir kez yap unut' değil, sürekli gelişen bir süreçtir. Gonet, setup'tan raporlamaya, optimizasyondan eğitime tam döngü hizmet sunar. 190+ markada kanıtlanmış event taxonomy şablonlarımız, sektörünüze özel hızlı başlangıç sağlar. Veri kalitenizi artırmak, attribution modelinizi netleştirmek, BigQuery analizine geçmek için [iletişime geçin](/iletisim).

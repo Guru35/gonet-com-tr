@@ -52,7 +52,7 @@ changelog:
 
 Meta Ads, Facebook ve Instagram platformlarında yürütülen ücretli reklam kampanyalarının tümünü kapsayan Meta Business Suite altyapısıdır. Advantage+ (otomatik kampanya optimizasyonu), Catalog Ads (ürün kataloğu bazlı dinamik reklamlar) ve Conversions API (CAPI — server-side conversion tracking) gibi yeni nesil araçlarla, performans pazarlamasında piksel tabanlı eski yöntemlerin ötesine geçen, makine öğrenmesi destekli bir ekosistem sunar. iOS 14.5 sonrası gizlilik güncellemeleri ve cookie kısıtlamaları nedeniyle, browser-side ölçümler yetersiz kaldı; CAPI, sunucu tarafından doğrudan Meta'ya gönderilen conversion verisiyle bu boşluğu kapatır ve kampanya optimizasyonunu güçlendirir.
 
-Gonet, 2000'den beri dijital reklamcılık deneyimini Meta platformlarına taşırken, Advantage+ Shopping ve Advantage+ App kampanyalarında makine öğrenmesine doğru veri akışı sağlamak için CAPI'yi standart uygular. Facebook pikselinin ötesinde, Google Tag Manager (GTM — etiket yönetim sistemi) ve GTM Server-Side Container yapılandırmalarıyla sunucu tarafı entegrasyonlar kurar, e-ticaret markaları için dinamik ürün setlerini (product feed) Catalog Ads formatlarına dönüştürür ve 220+ marka portföyünde edindiği audience segmentasyonu bilgisini her kampanyaya uyarlar.
+Gonet, 2000'den beri dijital reklamcılık deneyimini Meta platformlarına taşırken, Advantage+ Shopping ve Advantage+ App kampanyalarında makine öğrenmesine doğru veri akışı sağlamak için CAPI'yi standart uygular. Facebook pikselinin ötesinde, Google Tag Manager (GTM — etiket yönetim sistemi) ve GTM Server-Side Container yapılandırmalarıyla sunucu tarafı entegrasyonlar kurar, e-ticaret markaları için dinamik ürün setlerini (product feed) Catalog Ads formatlarına dönüştürür ve 190+ marka portföyünde edindiği audience segmentasyonu bilgisini her kampanyaya uyarlar.
 
 ## Neden kritik?
 
@@ -131,4 +131,4 @@ Gonet, Meta Ads uzmanlığını Google Ads Search ve Performance Max kampanyalar
 
 ## Gonet ile çalışmak
 
-Gonet, Meta Ads kampanyalarınızı CAPI entegrasyonu, Advantage+ otomasyonu ve Catalog Ads dinamik reklamcılık ile bir üst seviyeye taşır. 26 yıllık deneyim ve 220+ marka portföyünden gelen audience segmentasyonu bilgisiyle, her bütçede ROAS hedeflerinize ulaşmanızı sağlar. Meta platformlarında sürdürülebilir büyüme için [iletişime geçin](/iletisim).
+Gonet, Meta Ads kampanyalarınızı CAPI entegrasyonu, Advantage+ otomasyonu ve Catalog Ads dinamik reklamcılık ile bir üst seviyeye taşır. 26 yıllık deneyim ve 190+ marka portföyünden gelen audience segmentasyonu bilgisiyle, her bütçede ROAS hedeflerinize ulaşmanızı sağlar. Meta platformlarında sürdürülebilir büyüme için [iletişime geçin](/iletisim).

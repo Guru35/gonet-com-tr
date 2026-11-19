@@ -52,7 +52,7 @@ changelog:
 
 AEO odaklı içerik (Answer Engine Optimization content), büyük dil modelleri (LLM — Large Language Model) ve yapay zeka tabanlı arama sistemlerinin doğrudan yanıt üretirken **kaynak olarak göstermeyi tercih ettiği** yapısal özelliklere sahip metinlerdir. Geleneksel SEO içeriğinden farkı, insanı değil **makineyi ikna etmeye** yönelik olmasıdır: net istatistikler, atıflanabilir iddialar (quotations), semantik bağlamı koruyan akıcı geçişler ve RAG (Retrieval-Augmented Generation) süreçlerinde extraction verimliliğini artıran mikro-yapılar.
 
-2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 220+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
+2024 itibarıyla Google SGE, Perplexity, ChatGPT Search, Bing Chat gibi platformlar yanıt üretirken **kaynak seçiminde** üç kriteri ön plana alır: iddia doğrulanabilirliği (verifiable claim), yapısal netlik (clear structure), ve bağlamsal tutarlılık (contextual coherence). Gonet, 190+ marka portföyünde test ettiği yöntemlerle bu üç boyutu optimize eden içerik mimarisi kurar.
 
 ## Neden kritik?
 
@@ -173,4 +173,4 @@ Gonet'in GEO 2024 pilot projelerinde, AEO odaklı içerik dönüşümü uygulana
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık dijital pazarlama deneyimini 2024 GEO yöntemleriyle birleştirir. AEO odaklı içerik dönüşümü, llms.txt entegrasyonu, RAG-ready yapılandırma konusunda Türkiye'nin ilk Google Partner ajanslarından biri olarak uçtan uca hizmet sunarız. Mevcut içeriğinizi citation-worthy hale getirmek veya sıfırdan AEO stratejisi kurmak için [iletişime geçin](/iletisim).
+Gonet, 26 yıllık dijital pazarlama deneyimini 2024 GEO yöntemleriyle birleştirir. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı (bugünkü adıyla Google Partner). AEO odaklı içerik dönüşümü, llms.txt entegrasyonu, RAG-ready yapılandırma konusunda uçtan uca hizmet sunarız. Mevcut içeriğinizi citation-worthy hale getirmek veya sıfırdan AEO stratejisi kurmak için [iletişime geçin](/iletisim).

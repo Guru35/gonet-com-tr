@@ -10,8 +10,6 @@
 import { SECTORS, EXAMPLES } from '../../data/model-kilavuzu';
 import ekData from '../../data/model-kilavuzu-ek-sektorler.json';
 import MKTaskList from './MKTaskList.astro';
-import JsonLd from '../JsonLd.astro';
-import { faqSchema } from '../../lib/schema';
 
 // "Diğer" ile gelip onaylanan ek sektörler (engine ekler). Base sektörlerle merge.
 const extraSectors = (ekData?.sektorler ?? []).filter((s: any) => s?.id && s?.examples);
@@ -28,33 +26,8 @@ for (const cardId of Object.keys(EXAMPLES)) {
   }
 }
 
-const faqItems = [
-  {
-    question: 'Hangi Claude modelini seçmeliyim?',
-    answer:
-      'Emin değilseniz Sonnet · Medium ile başlayın. İş basitse Haiku’ya inin, kritik ve geri alınamaz bir kararsa Opus’a çıkın, kullanıcıya gidecek bir metinse Fable kullanın. Hem yetenek hem maliyet açısından varsayılan başlangıç Sonnet’tir.',
-  },
-  {
-    question: 'Thinking (düşünme) modu nedir?',
-    answer:
-      'Claude’un adım adım muhakeme sürecini görünür kıldığı moddur. Web arayüzünde effort dropdown’ı, Claude Code’da /effort komutu, API’de output_config.effort ile kontrol edilir. Fable 5’te Thinking her zaman aktiftir ve kapatılamaz.',
-  },
-  {
-    question: 'Effort seviyesi (Low, Medium, High, Max) ne işe yarar?',
-    answer:
-      'Effort, modelin bir göreve ne kadar derin düşüneceğini ve ne kadar token harcayacağını belirler. Düşük effort hızlı ve ucuzdur; yüksek effort daha derin muhakeme ve daha fazla token demektir. Önce düşük effort’la deneyip gerekiyorsa kademeli yükseltmek en ekonomik yaklaşımdır.',
-  },
-  {
-    question: 'Ultracode nedir?',
-    answer:
-      'Ultracode, Claude Code’a özgü bir oturum modudur: en yüksek effort (xHigh) seviyesini açar ve paralel çok-ajanlı orkestrasyona (Dynamic Workflows) izin verir. Web arayüzünde bulunmaz. Büyük, bölünebilir görevlerde işi hızlandırır ama token tüketimini ajan sayısıyla çarpar.',
-  },
-  {
-    question: 'Bu kılavuzdaki bilgiler güvenilir mi?',
-    answer:
-      'Evet. Tüm model ve effort bilgileri Anthropic’in dört ayrı resmî kaynağından (Claude Code dokümantasyonu, Effort parametresi, Extended Thinking dokümanı ve resmî duyuru) doğrulanmıştır. Kaynaklar yazının sonundaki Kaynakça bölümünde listelenmiştir.',
-  },
-];
+// FAQPage yapısal verisi yayınlanmıyor: kalan tek soru-cevabın yapısal cevabı görünür cevaptan farklıydı (WEBDV-17 M1, CEO kararı b);
+// boş FAQPage basılmaz.
 ---
 
 <section class="mk" data-mk-root>
@@ -97,11 +70,11 @@ const faqItems = [
         </label>
         <label class="mk-field">
           <span class="mk-field-l">E-posta adresiniz</span>
-          <input type="email" name="email" required placeholder="ornek@firma.com" />
+          <input type="email" name="email" class="ym-disable-keys" required placeholder="ornek@firma.com" />
         </label>
         <label class="mk-field">
           <span class="mk-field-l">Telefon <span style="text-transform:none;font-weight:400;color:var(--mk-g3)">(isteğe bağlı — SMS bildirimi çok yakında)</span></span>
-          <input type="tel" name="phone" maxlength="20" placeholder="05xx xxx xx xx" />
+          <input type="tel" name="phone" class="ym-disable-keys" maxlength="20" placeholder="05xx xxx xx xx" />
         </label>
         <label class="mk-consent">
           <input type="checkbox" name="wants_sms" />
@@ -427,8 +400,6 @@ const faqItems = [
       </ol>
     </div>
   </div>
-
-  <JsonLd schema={faqSchema(faqItems)} />
 </section>
 
 <style is:global>

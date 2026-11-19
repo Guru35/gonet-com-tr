@@ -27,6 +27,9 @@ const {
   transparentHeader = false,
 } = Astro.props;
 
+// Cloudflare Web Analytics site jetonu (derleme ortamından; panelde: Web Analytics → site → Manage site). Boşsa servis kutuda listelenir ama yükleme yapılmaz.
+const CF_BEACON_TOKEN = import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '';
+
 const SITE_URL = 'https://gonet.com.tr';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
@@ -72,10 +75,8 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Google Fonts — Inter (Adobe Clean'e en yakın açık alternatif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
+    <!-- Inter (Adobe Clean'e en yakın açık alternatif) — kendi alan adımızdan (rıza öncesi üçüncü taraf isteği yok); @font-face: global.css -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -120,8 +121,58 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
          Klaro: kullanıcı kabul edene dek GTM YÜKLENMEZ (data-name pattern).
          GTM Container: GTM-PLNFNL — tüm tag'ler buradan yönetilir.
          ─────────────────────────────────────────────────────────── -->
+    <script is:inline define:vars={{ cfBeaconToken: CF_BEACON_TOKEN }}>
+      window.gonetCfToken = cfBeaconToken;
+    </script>
     <script is:inline>
+      // Kutu henüz karara bağlanmadıysa onun yüksekliğini baştan ayır: ilk ekran bağlantıları kutunun altında kalmaz, kutu görününce yerleşim kaymaz.
+      if (!/(^|; )klaro=/.test(document.cookie)) { document.documentElement.style.setProperty('--cerez-h', window.innerWidth < 768 ? '140px' : '164px'); document.documentElement.setAttribute('data-cerez', ''); }
       window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      // Google Consent Mode v2 — varsayılan: her şey reddedilmiş. GTM, kutuda en az bir servise izin verilene kadar YÜKLENMEZ.
+      gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+      (function () {
+        var GTM_ID = 'GTM-PLNFNL';
+        // Kapsayıcıdaki Yandex etiketi GTM yüklenir yüklenmez çalışıyor (kapsayıcı tarafı henüz izne bağlı değil): bu yüzden GTM yalnız Analitik izniyle yüklenir.
+        // «Yalnız Pazarlama» izninde GTM'i yüklemek için kapsayıcıda Yandex etiketi `gonet_riza_yandex` değişkenine bağlanınca bunu true yapın.
+        var GTM_ADS_TEK_BASINA = false;
+        var durum = { ga4: false, yandex: false, ads: false, cloudflare: false };
+        var gtmYuklendi = false;
+        var cfYuklendi = false;
+        // Cloudflare Web Analytics GTM'den bağımsız, yalnız Analitik izniyle yüklenir (kenarda otomatik enjeksiyon panelden kapalı olmalı).
+        function cfYukle() {
+          if (cfYuklendi || !window.gonetCfToken) return;
+          cfYuklendi = true;
+          var s = document.createElement('script');
+          s.defer = true;
+          s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+          s.setAttribute('data-cf-beacon', JSON.stringify({ token: window.gonetCfToken }));
+          document.head.appendChild(s);
+        }
+        function gtmYukle() {
+          if (gtmYuklendi) return;
+          gtmYuklendi = true;
+          window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+          document.head.appendChild(s);
+        }
+        // Klaro her servis için kararı bu işleve iletir (açılışta kayıtlı karar, sonra her değişiklik).
+        window.gonetRiza = function (servis, onay) {
+          durum[servis] = !!onay;
+          gtag('consent', 'update', {
+            analytics_storage: durum.ga4 ? 'granted' : 'denied',
+            ad_storage: durum.ads ? 'granted' : 'denied',
+            ad_user_data: durum.ads ? 'granted' : 'denied',
+            ad_personalization: durum.ads ? 'granted' : 'denied'
+          });
+          // GTM kapsayıcısındaki etiketler bu olayı/değişkenleri tetikleyici olarak kullanır (servis başına ayrı).
+          window.dataLayer.push({ event: 'gonet_riza', gonet_riza_ga4: durum.ga4, gonet_riza_yandex: durum.yandex, gonet_riza_ads: durum.ads });
+          if (durum.ga4 || durum.yandex || (GTM_ADS_TEK_BASINA && durum.ads)) gtmYukle();
+          if (durum.cloudflare) cfYukle();
+        };
+      })();
       window.klaroConfig = {
         version: 1,
         elementID: 'klaro',
@@ -145,19 +196,19 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
           tr: {
             consentModal: {
               title: 'Çerez ve Gizlilik Tercihleri',
-              description: 'gonet.com.tr deneyimini iyileştirmek ve site kullanım analizi yapmak için çerez kullanır. Hangi servislere izin verdiğinizi aşağıdan seçebilirsiniz. Tercihinizi istediğiniz zaman değiştirebilirsiniz.',
+              description: 'gonet.com.tr aşağıdaki servisleri yalnız izninizle yükler; her servis adıyla, amacıyla ve tarafıyla listelenir. Kararınızı istediğiniz zaman sayfa altındaki «Çerez ayarları» bağlantısından değiştirebilir ya da geri çekebilirsiniz. <a href="/kvkk">Aydınlatma metni</a>',
             },
             consentNotice: {
-              description: 'Bu site analiz ve performans çerezleri kullanır. {purposes}',
+              description: 'Analitik çerezlerini yalnız izninizle kullanırız; karar verene kadar bu servisler yüklenmez. <a href="/kvkk">Aydınlatma metni</a>',
               learnMore: 'Tercihler',
             },
             acceptAll: 'Hepsini kabul et',
             acceptSelected: 'Seçimi kaydet',
-            decline: 'Reddet',
-            ok: 'Anladım',
+            decline: 'Hepsini reddet',
+            ok: 'Hepsini kabul et',
             purposes: {
-              analytics: { title: 'Analitik', description: 'Site kullanım istatistikleri (anonim).' },
-              marketing: { title: 'Pazarlama', description: 'Reklam performans takibi ve yeniden hedefleme.' },
+              analytics: { title: 'Analitik', description: 'Site kullanım istatistikleri.' },
+              marketing: { title: 'Pazarlama', description: 'Reklam performansı ölçümü ve yeniden hedefleme.' },
             },
             service: {
               disableAll: { title: 'Tümünü devre dışı bırak', description: 'Tüm üçüncü taraf servisleri kapatır.' },
@@ -169,41 +220,47 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
             poweredBy: 'Gizlilik tercihleri',
           },
         },
+        // Anahtar → servis: «Analitik» = ga4 + yandex (Google Tag Manager üzerinden) + cloudflare (doğrudan). Kapsayıcıda Ads etiketi yok → «Google Ads / DoubleClick» servisi kutuda listelenmez; «Pazarlama» grubu boş kalır.
         services: [
           {
-            name: 'google-tag-manager',
-            title: 'Google Tag Manager',
-            purposes: ['analytics', 'marketing'],
-            description: 'Google Tag Manager: GA4, Meta Pixel, Yandex Metrica ve diğer analiz/reklam araçlarını yönetir.',
-            cookies: [/^_ga/, /^_gid/, /^_gcl/, /^_fbp/, /^_ym/, /^IDE/, /^yabs-sid/, /^yandexuid/],
+            name: 'ga4',
+            title: 'Google Analytics 4',
+            purposes: ['analytics'],
+            description: 'Google (üçüncü taraf, ABD). Site kullanım istatistikleri. Google Tag Manager üzerinden yüklenir.',
+            cookies: [/^_ga/, /^_gid/, /^_fbp/, [/^_fbp/, '/', '.gonet.com.tr'], /^_fbc/, [/^_fbc/, '/', '.gonet.com.tr']], // _fbp/_fbc: eski ziyaretten kalmış kalıntı çerezler «Hepsini reddet»te silinir (QA ead49de)
             required: false,
             default: false,
+            callback: function (consent) { window.gonetRiza('ga4', consent); },
+          },
+          {
+            name: 'yandex',
+            title: 'Yandex Metrica',
+            purposes: ['analytics'],
+            description: 'Yandex (üçüncü taraf, Rusya). Oturum kaydı, tıklama haritası ve Yandex\'in reklam ölçümü. Google Tag Manager üzerinden yüklenir.',
+            cookies: [/^_ym/, /^yandexuid/, /^yabs-sid/],
+            required: false,
+            default: false,
+            callback: function (consent) { window.gonetRiza('yandex', consent); },
+          },
+          {
+            name: 'cloudflare',
+            title: 'Cloudflare Web Analytics',
+            purposes: ['analytics'],
+            description: 'Cloudflare (üçüncü taraf, ABD). Site kullanım istatistikleri. Google Tag Manager kullanmadan doğrudan yüklenir.',
+            cookies: [],
+            required: false,
+            default: false,
+            callback: function (consent) { window.gonetRiza('cloudflare', consent); },
           },
         ],
       };
     </script>
-    <!-- Klaro consent manager vendor (KVKK + GDPR) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.min.css" integrity="sha384-taFXrNMi1VZwc+Zky3cqPQ5bod5e1b2OIvxdRIOsdrP6eJlkh89oUgWoYAJfhCiY" crossorigin="anonymous" />
-    <script defer src="https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro-no-css.js" integrity="sha384-gbHapy+he0c0UfGLjIFH6bcO03Ojfs8HQvJqZCNK46p7rnEq+9yFVv/KwSI7GCsy" crossorigin="anonymous"></script>
-    <!-- GTM container — Klaro consent verilene dek BLOKLI (type="text/plain" + data-name).
-         Klaro accept sonrası otomatik aktive olur. -->
-    <script type="text/plain" data-name="google-tag-manager" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-PLNFNL"></script>
-    <script is:inline>
-      // GTM container kurulum (Klaro aktive ettiğinde dataLayer kullanılır)
-      (function(w,d,s,l){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      })(window,document,'script','dataLayer');
-    </script>
+    <!-- Klaro consent manager 0.7.22 (BSD-3) — kendi alan adımızdan (public/vendor/klaro; dosyalar eski CDN SRI özetleriyle doğrulandı) -->
+    <link rel="stylesheet" href="/vendor/klaro/klaro.min.css" />
+    <script defer src="/vendor/klaro/klaro-no-css.js"></script>
   </head>
 
   <body class="min-h-screen flex flex-col bg-white text-black">
-    <!-- GTM noscript fallback — JS kapalı tarayıcılar için iframe yedek -->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLNFNL"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-
     <!-- Header — editöryel tipografik nav, alt çizgi logo altında biter -->
     {(() => null)()}
     <header class={transparentHeader ? 'absolute top-0 left-0 right-0 z-50 bg-transparent' : 'bg-white text-black relative'} {...(kulupSayfasi ? { 'data-theme': 'dark' } : {})}>
@@ -657,13 +714,49 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
 
       <!-- Copyright + slogan satırı -->
       <div class="border-t border-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 sm:pr-28 lg:pr-28 py-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] uppercase tracking-[0.25em] font-medium">
           <span>© {new Date().getFullYear()} Gonet — Her iş'te Gonet var.</span>
-          <span class="text-black/60">2000 → 2026 / 26 yıl / 220+ marka</span>
+          <span class="text-black/60">2000 → 2026 / 26 yıl / 190+ marka</span>
+          <button type="button" id="cerez-ayarlari" class="underline self-start sm:self-auto min-h-[44px] sm:min-h-0 text-left uppercase tracking-[0.25em] font-medium hover:text-[#ff0000]">Çerez ayarları</button>
         </div>
       </div>
     </footer>
     )}
+    <script is:inline>
+      (function () {
+        function bagla() {
+          var b = document.getElementById('cerez-ayarlari');
+          if (b && !b.dataset.bagli) { b.dataset.bagli = '1'; b.addEventListener('click', function () { if (window.klaro && window.klaro.show) window.klaro.show(window.klaroConfig); }); }
+          var n = document.getElementById('klaro-cookie-notice');
+          if (n) { n.removeAttribute('aria-labelledby'); n.setAttribute('aria-label', 'Çerez tercihleri'); }
+          var m = document.querySelector('#cookieScreen .cm-modal');
+          if (m && !m.getAttribute('aria-label')) { m.setAttribute('role', 'dialog'); m.setAttribute('aria-label', 'Çerez ve gizlilik tercihleri'); }
+          var l = document.querySelector('.klaro .cn-learn-more');
+          if (l && l.getAttribute('role') !== 'button') l.setAttribute('role', 'button');
+          var kh = n ? Math.round(n.getBoundingClientRect().height) : 0;
+          if (n && kh) { document.documentElement.style.setProperty('--cerez-h', kh + 'px'); document.documentElement.setAttribute('data-cerez', ''); }
+          else if (!n && window.klaro) { document.documentElement.style.removeProperty('--cerez-h'); document.documentElement.removeAttribute('data-cerez'); }
+          // Karar verildikten sonra Klaro tercih ekranında «Hepsini reddet» göstermiyor: geri çekme tek tıkla olsun.
+          var ft = document.querySelector('#cookieScreen .cm-footer-buttons') || document.querySelector('#cookieScreen .cm-footer');
+          if (ft && !ft.querySelector('.cn-decline') && window.klaro && window.klaro.getManager) {
+            var r = document.createElement('button');
+            r.type = 'button';
+            r.className = 'cm-btn cm-btn-danger cn-decline';
+            r.textContent = 'Hepsini reddet';
+            r.addEventListener('click', function () {
+              var mg = window.klaro.getManager(window.klaroConfig);
+              mg.changeAll(false);
+              mg.saveAndApplyConsents('decline');
+              var k = document.querySelector('#cookieScreen .cm-modal .hide');
+              if (k) k.click();
+            });
+            ft.insertBefore(r, ft.firstChild);
+          }
+        }
+        document.addEventListener('DOMContentLoaded', bagla);
+        new MutationObserver(bagla).observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
     <!-- Editöryel "hizasız" başlık efekti — her kelimeye random margin-left, satır wrap'larında başlangıç noktası değişir -->
     <script is:inline>
       (function () {
@@ -857,7 +950,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
 
             <div class="flex items-end gap-2 mb-3">
               <input type="email" id="feedback-email" placeholder="E-posta kopya için (opsiyonel)"
-                     class="flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
+                     class="ym-disable-keys flex-1 border border-black/20 focus:border-black focus:outline-none px-3 py-2.5 text-sm bg-white">
               <button type="button" id="feedback-finalize"
                       class="shrink-0 px-4 h-10 bg-black text-white text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-brand-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
                 Tamamla

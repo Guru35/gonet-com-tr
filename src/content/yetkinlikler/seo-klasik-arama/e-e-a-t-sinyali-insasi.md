@@ -138,4 +138,4 @@ Brand mention tracking (marka bahis takibi) ve unlinked mention recovery (bağla
 
 ## Gonet ile çalışmak
 
-Gonet, 26 yıllık deneyimle 220+ marka için E-E-A-T mimarisi kurmuştur. Sağlık sektöründen fintech'e, e-ticaretten profesyonel hizmetlere geniş yelpazede entity modeling ve trust signal inşası deneyimine sahibiz. E-E-A-T stratejinizi entity grafiği perspektifiyle yeniden tasarlamak için [iletişime geçin](/iletisim).
+Gonet, 26 yıllık deneyimle 190+ marka için E-E-A-T mimarisi kurmuştur. Sağlık sektöründen fintech'e, e-ticaretten profesyonel hizmetlere geniş yelpazede entity modeling ve trust signal inşası deneyimine sahibiz. E-E-A-T stratejinizi entity grafiği perspektifiyle yeniden tasarlamak için [iletişime geçin](/iletisim).

@@ -48,7 +48,7 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     </script>
     <div class="slide-inner">
       <p class="hero-eyebrow">
-        Gonet — İzmir · 2000 → 2026 · 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydık (bugünkü adıyla Google Partner)
+        Gonet — İzmir · 2000 → 2026 · Google ajans programı, 2005–2017
       </p>
       <h1 class="editorial-display hero-headline">
         <span class="block">Her iş'te</span>
@@ -91,7 +91,7 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
       <div class="fm-col fm-konsept">
         <p class="fm-label">Konsept</p>
         <p class="fm-text">
-          26 yıl önce dijital pazarlamayı bilenlerdendik. Bugün <strong>AEO</strong>,
+          26 yıl önce dijital pazarlamayı bilenlerdendik; 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydık (bugünkü adıyla Google Partner). Bugün <strong>AEO</strong>,
           <strong>GEO</strong> ve LLM citation engineering üzerinde çalışıyoruz.
         </p>
       </div>
@@ -99,7 +99,7 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
         <p class="fm-label">Aksiyon</p>
         <ul>
           <li><a href="/creative-ai">→ Creative AI nedir?</a></li>
-          <li><a href="/markalar">→ Markalar (220+)</a></li>
+          <li><a href="/markalar">→ Markalar (190+)</a></li>
           <li><a href="/iletisim">→ Görüşelim</a></li>
         </ul>
       </div>
@@ -129,9 +129,10 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     position: relative;
     /* Header (nav bar) akışta yer kaplıyor → slider onun yüksekliği kadar kısalır ki
        header + slider = tam viewport olsun (taşma yok). --header-h JS ile gerçek değere set edilir. */
-    height: calc(100vh - var(--header-h, 72px));
-    height: calc(100dvh - var(--header-h, 72px));
-    min-height: 520px;
+    height: calc(100vh - var(--header-h, 72px) - var(--cerez-h, 0px));
+    height: calc(100dvh - var(--header-h, 72px) - var(--cerez-h, 0px));
+    /* Çerez kutusu açıkken (--cerez-h) hero onun yüksekliği kadar kısalır: ilk ekran bağlantıları kutunun üstünde kalır. */
+    min-height: calc(520px - var(--cerez-h, 0px));
     overflow: hidden;
     background: #fff;
     color: var(--txt);
