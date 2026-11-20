@@ -42,3 +42,20 @@ test('SCHEMAPARTNER: şemadaki Google iş ortaklığı cümlesi sayfada görün�
     assert.ok(metin(html).includes(ifade), `${yol}: ifade görünür metinde yok`);
   }
 });
+
+// AEOV2 bulgusu + operatör kararı (2026-11-21): yıl kilometre taşları Event değil, ItemList.
+test('deneyimler: Event 0, tek ItemList; her ListItem position + name + description, başlık görünür', () => {
+  const { html, dugumler } = yukle('/deneyimler');
+  assert.equal((html.match(/"@type":"Event"/g) || []).length, 0, 'Event var');
+  const listeler = dugumler.filter((d) => d['@type'] === 'ItemList');
+  assert.equal(listeler.length, 1, 'ItemList sayısı 1 değil');
+  const ogeler = listeler[0].itemListElement;
+  assert.equal(listeler[0].numberOfItems, ogeler.length);
+  const gorunur = metin(html);
+  ogeler.forEach((o, i) => {
+    assert.equal(o['@type'], 'ListItem');
+    assert.equal(o.position, i + 1);
+    assert.ok(o.name && o.description, `öğe ${i + 1} eksik alan`);
+    assert.ok(gorunur.includes(o.name.split(' — ').slice(1).join(' — ')), `öğe ${i + 1} başlığı görünmüyor`);
+  });
+});
