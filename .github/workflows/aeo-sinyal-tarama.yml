@@ -14,10 +14,31 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
+    env:
+      BOT_DAL: bot/aeo-sinyal
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # main'e hiçbir yoldan doğrudan yazılmaz (dal koruması). Tarama sabit bot
+      # dalında koşar: dal varsa birikmiş kuyruk (görülen listesi) orada durur,
+      # main'deki son hâl üstüne birleştirilir; yoksa main'den açılır.
+      - name: Bot dalına geç
+        run: |
+          git config user.name  "gonet-aeo-bot"
+          git config user.email "gonet@gonet.com.tr"
+          if git ls-remote --exit-code --heads origin "$BOT_DAL" >/dev/null; then
+            git fetch origin "$BOT_DAL"
+            git switch -c "$BOT_DAL" "origin/$BOT_DAL"
+            git merge --no-edit origin/main
+          else
+            git switch -c "$BOT_DAL"
+          fi
 
       - name: Node kur
         uses: actions/setup-node@v4
@@ -27,11 +48,9 @@ jobs:
       - name: Sinyalleri tara
         run: node scripts/aeo-sinyal-tara.mjs
 
-      - name: Yeni aday varsa commit et
+      - name: Yeni aday varsa bot dalına commit et
+        id: commit
         run: |
-          git config user.name  "gonet-aeo-bot"
-          git config user.email "gonet@gonet.com.tr"
-
           # content-queue dışında hiçbir şeye dokunma
           git add content-queue/ || true
 
@@ -42,5 +61,22 @@ jobs:
 
           BUGUN=$(date -u +%Y-%m-%d)
           git commit -m "chore(aeo): sinyal kuyruğu güncellendi — ${BUGUN}"
-          git push
-          echo "  ✓ Kuyruk güncellendi."
+          git push origin "HEAD:refs/heads/$BOT_DAL"
+          echo "degisti=1" >> "$GITHUB_OUTPUT"
+          echo "  ✓ Kuyruk $BOT_DAL dalına itildi."
+
+      - name: Taslak PR aç (açık PR varsa push onu zaten günceller)
+        if: steps.commit.outputs.degisti == '1'
+        run: |
+          ACIK=$(gh pr list --head "$BOT_DAL" --base main --state open --json number --jq 'length')
+          if [ "$ACIK" != "0" ]; then
+            echo "  → Açık PR var, yalnız push yeterli."
+            exit 0
+          fi
+          if ! gh pr create --draft --base main --head "$BOT_DAL" \
+              --title "chore(aeo): sinyal kuyruğu — $(date -u +%Y-%m-%d)" \
+              --body "Günlük AEO sinyal taraması (gölge mod). Yalnız content-queue/ değişir. Birleştirme insan kararıdır."; then
+            # Depo ayarı «Allow GitHub Actions to create and approve pull requests»
+            # kapalıysa PR açılamaz; kuyruk dalda durur, veri kaybolmaz.
+            echo "::warning::PR açılamadı; kuyruk $BOT_DAL dalında. PR'ı elle açın ya da depo ayarını açın."
+          fi
