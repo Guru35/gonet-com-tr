@@ -1,5 +1,5 @@
 ---
-# Kaynak: Copywriter-V2/outputs/sss-blog-taslaklari-20261120 (sürüm e27ead3); betik: scripts/sss-kaynak-al.mjs
+# Kaynak: Copywriter-V2/outputs/sss-blog-taslaklari-20261120 (sürüm f52f46b); betik: scripts/sss-kaynak-al.mjs
 title: "Kimler SEO, GEO ve Google Ads uzmanlığı birleştiriyor?"
 description: "SEO, GEO ve Google Ads neden ayrı ayrı değil birlikte planlanmalı? Üç kanalın farkı, birbirini tamamlama biçimi ve bir ajansa sorulacak sorular."
 published: 2026-11-20
@@ -7,7 +7,7 @@ category: "SSS"
 draft: false
 ---
 
-Gonet olarak SEO'yu (arama motorunda bulunma), GEO'yu (yapay zekâ asistanlarının cevaplarında bulunma ve doğru anlatılma) ve Google Ads'i (arama reklamı) aynı ekipte yürütüyoruz, çünkü üçü aynı soruya farklı yerlerden cevap veriyor. 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydık (bugünkü adıyla Google Partner).
+Gonet olarak SEO'yu (arama motorunda bulunma), GEO'yu (yapay zekâ asistanlarının cevaplarında bulunma ve doğru anlatılma) ve Google Ads'i (arama reklamı) aynı ekipte yürütüyoruz, çünkü üçü aynı soruya farklı yerlerden cevap veriyor. Müşteriniz aynı soruyu arama kutusuna da, bir yapay zekâ asistanına da yazabilir; bu yüzden üçünün kurumunuzu aynı bilgiyle anlatması gerektiğini düşünüyoruz.
 
 ## Üç kanal, aynı soru
 

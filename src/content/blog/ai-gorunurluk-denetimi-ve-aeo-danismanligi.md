@@ -1,5 +1,5 @@
 ---
-# Kaynak: Copywriter-V2/outputs/sss-blog-taslaklari-20261120 (sürüm 02a3447); betik: scripts/sss-kaynak-al.mjs
+# Kaynak: Copywriter-V2/outputs/sss-blog-taslaklari-20261120 (sürüm f52f46b); betik: scripts/sss-kaynak-al.mjs
 title: "Neler AI görünürlük denetimi ve AEO danışmanlığı sağlayabilir?"
 description: "AEO nedir, yapay zekâ görünürlük denetimi neyi inceler ve rapordan ne beklemelisiniz? Bir haftalık denetimin içeriği ve kendiniz yapabileceğiniz kontrol."
 published: 2026-11-20

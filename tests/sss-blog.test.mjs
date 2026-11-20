@@ -118,23 +118,21 @@ test('«Ücretsiz görüşme isteyin» bağlantı olur ve /iletisim\'e gider; d�
   }
 });
 
-test('Google ortaklığı cümlesi yalnız S3 cevabında ve /sss sayfasında bir kez', () => {
-  const ortak = SSS.filter((s) => /Google Partner/.test(s.answer));
-  assert.deepEqual(ortak.map((s) => s.slug), ['seo-geo-ve-google-ads-bir-arada']);
+test('Google ortaklığı cümlesi (D24) yalnız altbilgide: SSS cevaplarında, /sss ve blog ana içeriğinde SIFIR; altbilgide korunur', () => {
+  ONKOSUL();
+  assert.deepEqual(SSS.filter((s) => /Google Partner|2005–2017/.test(s.answer)).map((s) => s.slug), [], 'SSS cevabında olmamalı');
   for (const s of SSS) {
-    if (s.slug === 'seo-geo-ve-google-ads-bir-arada') continue;
     assert.doesNotMatch(oku(`src/content/blog/${s.slug}.md`), /Google Partner|2005–2017/, `${s.slug}`);
   }
-  // Sitenin altbilgisi (BaseLayout) bu cümleyi her sayfada zaten taşır; burada YALNIZ <main> sayılır.
-  // (Altbilgi + S3 metni = sayfada iki geçiş: PR gövdesinde metin sahibine bildirildi.)
-  const anaMetin = (yol) => metin((sayfa(yol) ?? '').match(/<main\b[\s\S]*?<\/main>/)?.[0] ?? '');
   // Blog gövdesi markdown (smartypants) olduğundan kesme işareti ’ olabilir; ikisi de aynı cümledir.
   const say = (m) => (m.match(/2005–2017 arasında Google['’]ın ajans programlarında/g) || []).length;
-  assert.equal(say(anaMetin('/sss')), 1, 'D24 cümlesi /sss ana içeriğinde bir kez olmalı');
-  assert.equal(say(anaMetin('/blog/seo-geo-ve-google-ads-bir-arada')), 1, 'S3 yazısında bir kez');
-  for (const s of SSS) {
-    if (s.slug === 'seo-geo-ve-google-ads-bir-arada') continue;
-    assert.equal(say(anaMetin(`/blog/${s.slug}`)), 0, `${s.slug}: D24 cümlesi olmamalı`);
+  const anaMetin = (yol) => metin((sayfa(yol) ?? '').match(/<main\b[\s\S]*?<\/main>/)?.[0] ?? '');
+  assert.equal(say(anaMetin('/sss')), 0, '/sss ana içeriğinde olmamalı');
+  for (const s of SSS) assert.equal(say(anaMetin(`/blog/${s.slug}`)), 0, `${s.slug}: ana içerikte olmamalı`);
+  // Altbilgi (BaseLayout) cümleyi taşımaya devam eder: sayfa başına tam bir geçiş.
+  assert.match(oku('src/layouts/BaseLayout.astro'), /2005–2017 arasında Google['’]ın ajans programlarında sertifikalı iş ortağıydık/);
+  for (const yol of ['/sss', '/blog/seo-geo-ve-google-ads-bir-arada']) {
+    assert.equal(say(metin(sayfa(yol) ?? '')), 1, `${yol}: sayfada (altbilgi) tam bir geçiş olmalı`);
   }
 });
 
