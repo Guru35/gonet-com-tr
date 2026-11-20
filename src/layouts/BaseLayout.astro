@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import JsonLd from '../components/JsonLd.astro';
-import { organizationSchema, websiteSchema, founderSchema } from '../lib/schema';
+import { organizationSchema, websiteSchema, founderSchema, bookSchema } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -35,7 +35,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
 
 // Schema'ları @graph içine topla — entity authority için kritik
-const globalSchemas = [organizationSchema, websiteSchema, founderSchema];
+const globalSchemas = [organizationSchema, websiteSchema, founderSchema, bookSchema];
 const pageSchemas = schemas
   ? Array.isArray(schemas)
     ? schemas

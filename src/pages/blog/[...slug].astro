@@ -216,7 +216,7 @@ const breadcrumb = webpageSchema({
           </span>
           <span class="editorial-display text-xl lg:text-3xl mt-1">{post.data.published.getFullYear()}</span>
           {post.data.category && (
-            <span class="text-[10px] font-medium uppercase tracking-[0.3em] mt-3" style="color: #ff0000">{post.data.category}</span>
+            <span class="text-[19px] font-bold uppercase tracking-[0.3em] mt-3" style="color: #ff0000">{post.data.category}</span>
           )}
         </div>
       </div>
@@ -277,7 +277,7 @@ const breadcrumb = webpageSchema({
       )}
 
       <!-- Author block — editorial -->
-      <aside class="mt-24 lg:mt-32 pt-16 lg:pt-20 border-t border-black flex items-baseline gap-6 lg:gap-10 flex-wrap">
+      <footer class="mt-24 lg:mt-32 pt-16 lg:pt-20 border-t border-black flex items-baseline gap-6 lg:gap-10 flex-wrap">
         <span class="editorial-display text-5xl lg:text-7xl">
           {post.data.author.name.split(' ').map((w) => w[0]).join('')}
         </span>
@@ -287,7 +287,7 @@ const breadcrumb = webpageSchema({
             <p class="text-[10px] font-medium uppercase tracking-[0.3em] mt-2 opacity-70">{post.data.author.role}</p>
           )}
         </div>
-      </aside>
+      </footer>
     </div>
   </article>
 
@@ -326,7 +326,7 @@ const breadcrumb = webpageSchema({
         <p class="editorial-display text-2xl lg:text-4xl text-center max-w-2xl leading-[0.95]">
           {nextPost.data.h1 || nextPost.data.title}
         </p>
-        <p class="text-[10px] uppercase tracking-[0.3em] opacity-40 next-post-status">aşağı doğru sürüklemeye devam edin…</p>
+        <p class="text-[10px] uppercase tracking-[0.3em] opacity-60 next-post-status">aşağı doğru sürüklemeye devam edin…</p>
       </div>
     </div>
   )}

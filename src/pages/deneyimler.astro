@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { webpageSchema, ORG_ID, FOUNDER_ID } from '../lib/schema';
+import { webpageSchema } from '../lib/schema';
 
 const title = 'Deneyimler — 26 Yıllık Dijital Pazarlama Zaman Çizgisi | Gonet';
 const description =
@@ -150,7 +150,8 @@ const milestones = [
   },
 ];
 
-// Schema.org Event listesi — her milestone bir Event
+// Zaman çizgisi — her kilometre taşı bir ListItem (Event değil: bunlar
+// etkinlik değil, yıl kilometre taşı; operatör kararı 2026-11-21).
 const eventListSchema = {
   '@type': 'ItemList',
   name: 'Gonet 26 yıllık deneyim zaman çizgisi',
@@ -158,16 +159,8 @@ const eventListSchema = {
   itemListElement: milestones.map((m, idx) => ({
     '@type': 'ListItem',
     position: idx + 1,
-    item: {
-      '@type': 'Event',
-      name: m.title,
-      description: m.summary,
-      startDate: `${m.year}-01-01`,
-      organizer: { '@id': ORG_ID },
-      ...(m.tags.includes('siyaset') || m.tags.includes('saglik-turizmi')
-        ? { performer: { '@id': FOUNDER_ID } }
-        : {}),
-    },
+    name: `${m.year} — ${m.title}`,
+    description: m.summary,
   })),
 };
 ---
