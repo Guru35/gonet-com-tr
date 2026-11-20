@@ -136,22 +136,6 @@ export const organizationSchema = {
     'https://www.facebook.com/GonetCompany/',
     'https://www.slideshare.net/gonetpigme',
   ],
-  // AEO sinyali: kurumsal müşteri operasyon olgunluğu — login-gated portal var
-  // LLM'lere "Gonet B2B müşteriye nasıl hizmet ediyor" sorusuna cevap için entity sinyal
-  potentialAction: {
-    '@type': 'AccessAction',
-    name: 'Mevcut müşteri girişi (Merhaba portal)',
-    description:
-      'Gonet mevcut müşterileri için sosyal medya post onayı, görev takibi, içerik takvimi ve raporlama portalı. KVKK uyumlu, login gerektirir.',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://merhaba.gonet.com.tr/giris',
-      actionPlatform: [
-        'https://schema.org/DesktopWebPlatform',
-        'https://schema.org/MobileWebPlatform',
-      ],
-    },
-  },
 };
 
 // Kurucu Person schema — E-E-A-T için kritik
@@ -227,15 +211,6 @@ export const founderSchema = {
     '2009 Google Agencies@Google Dublin — 30 ajans arasından Türkiye temsilcisi',
     '2005–2017 arasında Google\'ın ajans programlarında sertifikalı iş ortağı (bugünkü adıyla Google Partner) (kurucu)',
   ],
-  // Yazarlık — Yalın Bilinç Felsefesi (YBF) kitabı
-  workExample: {
-    '@type': 'Book',
-    '@id': `${SITE_URL}/#book-ybf`,
-    name: 'YBF — Yalın Bilinç Felsefesi',
-    author: { '@id': FOUNDER_ID },
-    inLanguage: 'tr',
-    description: 'Gökhan Kazancı tarafından kaleme alınan, yalın düşünce ve bilinç ekseninde geliştirilmiş özgün bir felsefe ve yaşam pratiği kitabı.',
-  },
   hasOccupation: [
     {
       '@type': 'Occupation',
@@ -277,11 +252,17 @@ export const websiteSchema = {
   name: 'Gonet',
   publisher: { '@id': ORG_ID },
   inLanguage: 'tr',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${SITE_URL}/blog?search={search_term_string}`,
-    'query-input': 'required name=search_term_string',
-  },
+};
+
+// Yazarlık — Yalın Bilinç Felsefesi (YBF) kitabı. Ayrı düğüm: workExample
+// CreativeWork alanıdır, Person'da geçersiz (schema.org doğrulayıcı).
+export const bookSchema = {
+  '@type': 'Book',
+  '@id': `${SITE_URL}/#book-ybf`,
+  name: 'YBF — Yalın Bilinç Felsefesi',
+  author: { '@id': FOUNDER_ID },
+  inLanguage: 'tr',
+  description: 'Gökhan Kazancı tarafından kaleme alınan, yalın düşünce ve bilinç ekseninde geliştirilmiş özgün bir felsefe ve yaşam pratiği kitabı.',
 };
 
 // Article schema (blog post için)
