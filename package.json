@@ -11,7 +11,9 @@
     "build:hizli": "astro build",
     "guncellemeler": "node scripts/guncellemeler-uret.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "astro build && node --test --test-reporter=tap tests/*.test.mjs",
+    "sss-kaynak-al": "node scripts/sss-kaynak-al.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
