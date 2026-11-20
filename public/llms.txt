@@ -58,7 +58,7 @@
 - [Sitede ne değişti?](https://gonet.com.tr/guncellemeler): Bu sitede yapılan her güncellemenin tarihli listesi — yeni sayfalar, iyileştirmeler, düzeltmeler. Kayıtlar git geçmişinden otomatik üretilir, her yayında tazelenir; her kayıt değişikliğin yapıldığı sayfaya bağlanır. Gonet'in kendi sitesini canlı AR-GE sahası olarak kullandığının kanıt kaydı.
 
 ## Sık Sorulan Sorular
-- [AEO/GEO Sık Sorulan Sorular](https://gonet.com.tr/sss): 15 soru-cevap, FAQPage yapılandırılmış veriyle işaretli — AEO nedir, GEO ile farkı, ChatGPT markayı neden göstermiyor, Common Crawl, llms.txt, AI botlarını engelleme kararı, Share of Model ölçümü, platform bazlı atıf farkları, agentic commerce, nereden başlanır.
+- [AEO/GEO Sık Sorulan Sorular](https://gonet.com.tr/sss): 26 soru-cevap, FAQPage yapılandırılmış veriyle işaretli — 15 AEO/GEO sorusu (AEO nedir, GEO ile farkı, ChatGPT markayı neden göstermiyor, Common Crawl, llms.txt, AI botlarını engelleme kararı, Share of Model ölçümü, platform bazlı atıf farkları, agentic commerce, nereden başlanır) ve ajans seçerken sorulan 11 soru; her ajans sorusunun altında cevabı açan bir blog yazısına bağlantı var.
 
 ## Blog & Yayınlar
 - [Editöryel Blog](https://gonet.com.tr/blog): Stratejik yazılar — AEO/GEO, SEO, dijital pazarlama analizleri
