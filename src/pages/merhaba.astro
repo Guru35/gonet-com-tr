@@ -20,6 +20,8 @@ const title = 'Gonet Winner Club | Yöneticiler için yapay zekâ pazarlama kul�
 const description =
   'Yöneticiler için ücretsiz kulüp: sektöre özel yapay zekâ pazarlama notları, kendi başınıza deneyeceğiniz araçlar ve ekibinize iletebileceğiniz kısa özetler.';
 const url = `${SITE_URL}/merhaba`;
+// Paylaşım görseli: Grafik-Tasarimci-V2@6f1d5cf (Rev. 1), ARTDR kabulü 8 PASS (@373c629).
+const ogImage = '/merhaba/og-merhaba-1200x630.png';
 
 const metin = {
   kapi: {
@@ -147,7 +149,7 @@ const pageSchema = webpageSchema({
 });
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]} noindex={true}>
+<BaseLayout title={title} description={description} canonical={url} ogImage={ogImage} schemas={[pageSchema]} noindex={true}>
   <div class="wc" data-theme="dark">
     <!-- 1. Kapı (ilk ekran) -->
     <section class="wc-bolum wc-kapi">

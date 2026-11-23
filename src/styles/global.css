@@ -699,6 +699,10 @@ select:focus-visible,
     align-items: center;
     min-height: 40px;
   }
+  /* Telefon bağlantıları 44 px (ARTDR D3, taslak Merhaba-Serit-Telefon) */
+  #site-footer ul a[href^="tel:"] {
+    min-height: 44px;
+  }
   #eye-menu ul a {
     padding-top: 0.35rem;
     padding-bottom: 0.35rem;
