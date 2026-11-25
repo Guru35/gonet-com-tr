@@ -118,7 +118,7 @@ const contactPoints = {
         <form
           id="mega-form"
           method="POST"
-          action="https://engine.gonet.com.tr/api/contact"
+          action="https://panel.gonet.com.tr/api/contact"
           class="space-y-6"
         >
           <div class="msg-wrap relative">
@@ -190,7 +190,7 @@ const contactPoints = {
             const serverErr = document.getElementById('form-server-error');
             const success = document.getElementById('form-success');
             const btn = document.getElementById('send-btn');
-            const ENDPOINT = 'https://engine.gonet.com.tr/api/contact';
+            const ENDPOINT = 'https://panel.gonet.com.tr/api/contact';
             if (!form || !msg || !err || !btn) return;
 
             function hasEmail(t) { return /[\w.+-]+@[\w.-]+\.\w{2,}/.test(t); }
