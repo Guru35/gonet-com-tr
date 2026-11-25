@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = 'Ücretsiz SEO & AEO Analizi — 25 Noktada Yapay Zekâ Uyumu | Gonet';
+const description =
+  'Web sitenizin ChatGPT, Perplexity, Claude ve Google AI motorlarına ne kadar uyumlu olduğunu 25 teknik, yapısal ve içerik kontrolüyle ücretsiz ölçün.';
+const url = `${SITE_URL}/araclar/seo-analiz`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Araçlar', url },
+    { name: 'Ücretsiz SEO & AEO Analizi', url },
+  ],
+});
+
+const appSchema = {
+  '@type': 'SoftwareApplication',
+  '@id': `${url}#app`,
+  name: 'Gonet Ücretsiz SEO & AEO Analiz Aracı',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url,
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'TRY',
+  },
+  provider: { '@id': ORG_ID },
+};
+
+const faqs = faqSchema([
+  {
+    q: 'Bu ücretsiz SEO ve AEO analizi neleri ölçer?',
+    a: 'Web sitenizi yapay zekâ bot erişimi (OAI-SearchBot, PerplexityBot, ClaudeBot), Schema.org yapısal veri, teknik SEO sağlığı (canonical, sitemap, llms.txt) ve alıntılanabilir içerik yapısı olmak üzere 4 ana kategoride 25 farklı noktadan denetler.',
+  },
+  {
+    q: 'Analiz için siteye bir kod veya eklenti kurmam gerekir mi?',
+    a: 'Hayır. Yalnızca herkese açık web adresinizi girmeniz yeterlidir; motorumuz sitenizi dışarıdan bir ziyaretçi ve yapay zekâ botu gözüyle tarar.',
+  },
+  {
+    q: 'Klasik SEO araçlarından farkı nedir?',
+    a: 'Klasik araçlar yalnızca Google sıralama sinyallerine bakar. Gonet analiz aracı ise yapay zekâ yanıt motorlarının (ChatGPT Search, Perplexity, Claude, Gemini) sitenizi okuyup kaynak gösterebilmesi için gereken AEO ve GEO sinyallerini de ölçer.',
+  },
+  {
+    q: 'Sonuçlar ne kadar sürede hazırlanır?',
+    a: 'Tek sayfa ve teknik bot kontrolleri saniyeler içinde tamamlanır; kapsamlı marka görünürlüğü takibi ise müşteri panelimiz üzerinden haftalık olarak otomatik yürütülür.',
+  },
+  {
+    q: 'Analiz sonrasında markam için yapay zekâ görünürlüğü takibi açabilir miyim?',
+    a: 'Evet. Canlı müşteri panelimiz (panel.gonet.com.tr) üzerinden ChatGPT, Claude, Gemini ve Perplexity yanıtlarında markanızın anılma oranını ve rakip kıyasını sürekli izleyebilirsiniz.',
+  },
+]);
+
+const graph = [pageSchema, appSchema, faqs];
+
+const kategoriler = [
+  {
+    no: '01',
+    baslik: 'Yapay Zekâ Bot Erişimi (7 Kontrol)',
+    aciklama:
+      'Yapay zekâ arama motorlarının sitenize kapıdan girip giremediğini test eder. Çoğu site farkında olmadan bu botları engeller.',
+    maddeler: [
+      'robots.txt içinde OAI-SearchBot (ChatGPT) izni',
+      'PerplexityBot ve ClaudeBot erişim kontrolü',
+      'GPTBot ve Google-Extended politikası',
+      'Cloudflare / WAF bot engelleme ve HTTP 403/503 sinyali',
+      'Ham HTML içinde içerik (JS gerektirmeden okunabilirlik)',
+      'X-Robots-Tag noindex / nofollow çakışması',
+      'Sayfa yanıt süresi (TTFB) ve zaman aşımı riski',
+    ],
+  },
+  {
+    no: '02',
+    baslik: 'Yapısal Veri & Kimlik (6 Kontrol)',
+    aciklama:
+      'Modellerin markanızı tekil bir varlık (entity) olarak tanımasını ve doğru hizmetlerle eşleştirmesini sağlar.',
+    maddeler: [
+      'JSON-LD Schema.org varlığı ve sözdizimi doğrulaması',
+      'Organization / LocalBusiness ana marka kimliği',
+      'WebSite ve BreadcrumbList sayfa hiyerarşisi',
+      'Service / Product ve Offer fiyat/kapsam şeması',
+      'FAQPage soru-cevap yapısal veri katmanı',
+      'Open Graph ve sosyal paylaşım meta tutarlılığı',
+    ],
+  },
+  {
+    no: '03',
+    baslik: 'Teknik SEO & Keşif (6 Kontrol)',
+    aciklama:
+      'Hem Googlebot hem de AI arama indekslerinin sitenizi eksiksiz taramasını güvence altına alır.',
+    maddeler: [
+      'HTTPS güvenlik ve geçerli SSL sertifikası',
+      'Canonical URL tutarlılığı ve yinelenen sayfa önleme',
+      'Title ve Meta Description uzunluk ve özgünlük kontrolü',
+      'XML Sitemap erişilebilirliği ve güncelliği',
+      '/llms.txt yapay zekâ özet dosyası varlığı',
+      'Kırık iç/dış bağlantılar ve yönlendirme zincirleri',
+    ],
+  },
+  {
+    no: '04',
+    baslik: 'İçerik & Alıntılanabilirlik (6 Kontrol)',
+    aciklama:
+      'Yapay zekânın cevabında markanızı doğrudan alıntılayıp kaynak linki vermesini kolaylaştıran metin mimarisini ölçer.',
+    maddeler: [
+      'Tekil H1 başlık ve mantıksal H2/H3 soru hiyerarşisi',
+      'Doğrudan yanıt (front-loading) paragraf yapısı',
+      'Ölçülebilir sayı, tarih ve somut kanıt yoğunluğu',
+      'Görsel alt metinleri ve anlamsal HTML etiketleri',
+      'Kurumsal künye, iletişim ve güven sinyalleri (E-E-A-T)',
+      'Dil, ülke ve bölgesel hedefleme (hreflang / lang="tr")',
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={url} schema={graph}>
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Ücretsiz SEO & AEO Analizi</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">
+        Ücretsiz Araç · 25 Nokta Denetimi
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6vw] xl:text-[88px] leading-[0.95] mb-10">
+        Siteniz yapay zekâya<br/>
+        <span style="color:#ff0000">ne kadar hazır?</span>
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl mb-12">
+        ChatGPT, Perplexity, Claude ve Google AI motorları sitenizi ziyaret ettiğinde sizi doğru
+        anlıyor ve kaynak gösteriyor mu? Adresinizi yazın, <strong>25 teknik ve içerik kontrolünü</strong>
+        ücretsiz başlatın.
+      </p>
+
+      <form action="https://seo.gonet.com.tr/" method="get" class="border-2 border-black p-6 md:p-8 bg-slate-50">
+        <label for="analiz-url" class="block text-sm font-medium uppercase tracking-wider mb-3">
+          Web Sitenizin Adresi
+        </label>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <input
+            id="analiz-url"
+            name="url"
+            type="url"
+            required
+            placeholder="https://ornekmarka.com.tr"
+            class="flex-1 px-4 py-4 border border-slate-400 bg-white text-black text-base"
+          />
+          <button
+            type="submit"
+            class="px-8 py-4 text-white font-medium transition cursor-pointer"
+            style="background-color:#ff0000"
+          >
+            Ücretsiz Analiz Et →
+          </button>
+        </div>
+        <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p class="text-xs text-slate-600">
+            Kayıt gerekmez. Marka görünürlüğü takibi için müşteri panelimizden devam edebilirsiniz.
+          </p>
+          <a
+            href="https://panel.gonet.com.tr/giris"
+            class="inline-flex items-center justify-center min-h-[44px] px-5 py-2 border border-black bg-white text-black text-sm font-medium hover:bg-black hover:text-white transition shrink-0"
+          >
+            Müşteri Paneli →
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Kapsam</p>
+      <h2 class="editorial-display text-4xl md:text-6xl mb-14 leading-[0.95]">
+        25 kontrol noktası,<br/>4 temel katman.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {kategoriler.map((k) => (
+          <article class="bg-white border border-slate-300 p-8">
+            <p class="editorial-display text-4xl mb-3" style="color:#ff0000">{k.no}</p>
+            <h3 class="text-2xl font-medium mb-3">{k.baslik}</h3>
+            <p class="text-slate-700 text-sm mb-5 leading-relaxed">{k.aciklama}</p>
+            <ul class="space-y-2 text-sm text-slate-800">
+              {k.maddeler.map((m) => (
+                <li>• {m}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça Sorulan Sorular</p>
+      <h2 class="editorial-display text-4xl md:text-5xl mb-12 leading-[0.95]">
+        Merak edilenler
+      </h2>
+      <div class="space-y-6">
+        <details class="border-b border-slate-300 pb-6" open>
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Bu ücretsiz SEO ve AEO analizi neleri ölçer?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Web sitenizi yapay zekâ bot erişimi (OAI-SearchBot, PerplexityBot, ClaudeBot), Schema.org
+            yapısal veri, teknik SEO sağlığı ve alıntılanabilir içerik yapısı olmak üzere 4 ana
+            kategoride 25 farklı noktadan denetler.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Analiz için siteye bir kod veya eklenti kurmam gerekir mi?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Hayır. Yalnızca herkese açık web adresinizi girmeniz yeterlidir; motorumuz sitenizi
+            dışarıdan bir ziyaretçi ve yapay zekâ botu gözüyle tarar.
+          </p>
+        </details>
+        <details class="border-b border-slate-300 pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Klasik SEO araçlarından farkı nedir?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Klasik araçlar yalnızca Google sıralama sinyallerine bakar. Gonet analiz aracı ise yapay
+            zekâ yanıt motorlarının sitenizi okuyup kaynak gösterebilmesi için gereken AEO ve GEO
+            sinyallerini de ölçer.
+          </p>
+        </details>
+        <details class="pb-6">
+          <summary class="text-xl font-medium cursor-pointer hover:text-black">
+            Markamın ChatGPT ve Perplexity yanıtlarındaki yerini sürekli izleyebilir miyim?
+          </summary>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            Evet. <a href="https://panel.gonet.com.tr/giris" class="underline">panel.gonet.com.tr</a>
+            üzerinden markanız için haftalık otomatik ölçüm ve rakip karşılaştırması başlatabilirsiniz.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
