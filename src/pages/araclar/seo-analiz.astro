@@ -54,7 +54,7 @@ const faqs = faqSchema([
   },
   {
     q: 'Analiz sonrasında markam için yapay zekâ görünürlüğü takibi açabilir miyim?',
-    a: 'Evet. Canlı müşteri panelimiz (seo.gonet.com.tr/panel) üzerinden ChatGPT, Claude, Gemini ve Perplexity yanıtlarında markanızın anılma oranını ve rakip kıyasını sürekli izleyebilirsiniz.',
+    a: 'Evet. Canlı müşteri panelimiz (panel.gonet.com.tr) üzerinden ChatGPT, Claude, Gemini ve Perplexity yanıtlarında markanızın anılma oranını ve rakip kıyasını sürekli izleyebilirsiniz.',
   },
 ]);
 
@@ -166,13 +166,17 @@ const kategoriler = [
             Ücretsiz Analiz Et →
           </button>
         </div>
-        <p class="text-xs text-slate-600 mt-4">
-          Kayıt gerekmez. Marka görünürlüğü takibi için doğrudan{" "}
-          <a href="https://seo.gonet.com.tr/panel" class="underline text-black">
-            Müşteri Paneline (seo.gonet.com.tr/panel)
-          </a>{" "}
-          gidebilirsiniz.
-        </p>
+        <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p class="text-xs text-slate-600">
+            Kayıt gerekmez. Marka görünürlüğü takibi için müşteri panelimizden devam edebilirsiniz.
+          </p>
+          <a
+            href="https://panel.gonet.com.tr/giris"
+            class="inline-flex items-center justify-center min-h-[44px] px-5 py-2 border border-black bg-white text-black text-sm font-medium hover:bg-black hover:text-white transition shrink-0"
+          >
+            Müşteri Paneli →
+          </a>
+        </div>
       </form>
     </div>
   </section>
@@ -241,7 +245,7 @@ const kategoriler = [
             Markamın ChatGPT ve Perplexity yanıtlarındaki yerini sürekli izleyebilir miyim?
           </summary>
           <p class="mt-4 text-slate-700 leading-relaxed">
-            Evet. <a href="https://seo.gonet.com.tr/panel" class="underline">seo.gonet.com.tr/panel</a>
+            Evet. <a href="https://panel.gonet.com.tr/giris" class="underline">panel.gonet.com.tr</a>
             üzerinden markanız için haftalık otomatik ölçüm ve rakip karşılaştırması başlatabilirsiniz.
           </p>
         </details>
