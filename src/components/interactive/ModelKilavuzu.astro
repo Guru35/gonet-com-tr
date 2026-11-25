@@ -627,7 +627,7 @@ for (const cardId of Object.keys(EXAMPLES)) {
       kvkk:form.kvkk.checked
     };
     btn.disabled=true;btn.textContent='Gönderiliyor…';
-    fetch('https://engine.gonet.com.tr/api/sector-request',{
+    fetch('https://panel.gonet.com.tr/api/sector-request',{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
     }).then(function(r){return r.json().then(function(d){return{ok:r.ok,d:d};});})
     .then(function(res){
