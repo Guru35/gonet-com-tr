@@ -1,27 +1,51 @@
 [
   {
-    "hash": "717b806",
-    "tarih": "2026-11-19",
-    "tip": "duzeltme",
-    "kapsam": "guncellemeler",
-    "baslik": "Yasaklı-ad listesi yoksa ya da okunamıyorsa derleme DURUR (WEBDV-19 ek 2)",
-    "link": null
-  },
-  {
-    "hash": "4522b01",
-    "tarih": "2026-11-19",
+    "hash": "c58c332",
+    "tarih": "2026-11-25",
     "tip": "yeni",
-    "kapsam": "guncellemeler",
-    "baslik": "Üretici betiğe yasaklı-ad filtresi — liste depoda değil, derleme anında dışarıdan (WEBDV-19)",
+    "kapsam": "araclar",
+    "baslik": "Seo-analiz sayfasına panel.gonet.com.tr/giris bağlantısı eklendi (#48)",
     "link": null
   },
   {
-    "hash": "2387138",
-    "tarih": "2026-11-19",
+    "hash": "b8c0d6f",
+    "tarih": "2026-11-25",
+    "tip": "yeni",
+    "kapsam": "araclar",
+    "baslik": "Ücretsiz SEO/AEO analiz vitrini (/araclar/seo-analiz) (#46)",
+    "link": null
+  },
+  {
+    "hash": "4c3ea89",
+    "tarih": "2026-11-24",
+    "tip": "yeni",
+    "kapsam": "case-studies",
+    "baslik": "Add Nano Dental multi-clinic AEO & web architecture case study (#45)",
+    "link": null
+  },
+  {
+    "hash": "ea5f208",
+    "tarih": "2026-11-22",
     "tip": "duzeltme",
-    "kapsam": "site",
-    "baslik": "Gerçek /rss.xml, kırık güncelleme bağlantıları ve temaya göre tek açılış görseli (WEBDV-16)",
-    "link": "/guncellemeler"
+    "kapsam": "merhaba",
+    "baslik": "Alt bilgi telefonları 44 px ve telefonda yan yana (PLAN-CEOV2-007 3b, ARTDR D3) (#42)",
+    "link": null
+  },
+  {
+    "hash": "60bce4a",
+    "tarih": "2026-11-22",
+    "tip": "yeni",
+    "kapsam": "merhaba",
+    "baslik": "Onaylı OG görseli /merhaba paylaşım görseli olarak bağlandı (PLAN-CEOV2-007, kulüp görselleri) (#43)",
+    "link": "/merhaba"
+  },
+  {
+    "hash": "bc4b5fa",
+    "tarih": "2026-11-20",
+    "tip": "yeni",
+    "kapsam": null,
+    "baslik": "SSS bolumu, 11 blog sayfasi, FAQPage (WEBDV-SSS) (#37)",
+    "link": "/blog/aeo-odakli-ai-pazarlama-ajansi-nasil-secilir"
   },
   {
     "hash": "281113c",
