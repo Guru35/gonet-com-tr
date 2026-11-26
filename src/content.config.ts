@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { createPayloadBlogLoader } from './lib/payloadLoader';
 
 // AEO-uyumlu content schemas — extraction-readiness + E-E-A-T
 // Her sayfa Article veya WebPage schema'sıyla render edilir
@@ -23,8 +24,15 @@ const pages = defineCollection({
   }),
 });
 
+const payloadApiUrl = process.env.PAYLOAD_API_URL?.trim();
+
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: payloadApiUrl
+    ? createPayloadBlogLoader({
+        apiUrl: payloadApiUrl,
+        apiKey: process.env.PAYLOAD_API_KEY?.trim(),
+      })
+    : glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

@@ -119,6 +119,7 @@ export default defineConfig({
         // canlıya çıkınca bu satır kaldırılır. (2026-06-12)
         !page.endsWith('/merhaba/') &&
         !page.endsWith('/merhaba') &&
+        !page.includes('/blog/onizleme') &&
         !gizliBlogYollari.has(new URL(page).pathname),
       // Site haritası adresi sayfanın canonical'ı ile aynı olsun: canonical çizgisiz (BaseLayout, Astro.url.pathname),
       // harita çizgili üretiyordu → sondaki «/» atılır (ana sayfa «/» kalır). Canonical'a dokunulmaz.
