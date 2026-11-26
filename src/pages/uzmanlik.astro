@@ -35,6 +35,7 @@ const services = [
       'Landing page optimizasyonu',
       'Dönüşüm takibi + ROAS hesabı',
     ],
+    link: '/yetenekler/google-ads-sem',
   },
   {
     slug: 'seo',
@@ -50,6 +51,7 @@ const services = [
       'Schema.org yapılandırılmış veri',
       'Link building + dijital PR',
     ],
+    link: '/yetenekler/seo-klasik-arama',
   },
   {
     slug: 'sosyal-medya',
@@ -65,6 +67,7 @@ const services = [
       'Influencer / KOL koordinasyonu',
       'Performans raporlama',
     ],
+    link: '/yetenekler/sosyal-medya-topluluk',
   },
   {
     slug: 'web-tasarim',
@@ -80,6 +83,7 @@ const services = [
       'Backend / CMS / e-ticaret entegrasyonu',
       'Performance + SEO + erişilebilirlik',
     ],
+    link: '/yetenekler/web-gelistirme-altyapi',
   },
   {
     slug: 'saglik-turizmi-pazarlamasi',
@@ -95,6 +99,7 @@ const services = [
       'CRM + lead nurturing entegrasyonu',
       'Review + reputation yönetimi',
     ],
+    link: '/saglik-turizmi-performans-pazarlama',
   },
   {
     slug: 'siyasi-kampanya',
@@ -110,6 +115,7 @@ const services = [
       'Sosyal medya kriz yönetimi',
       'Kampanya web sitesi + landing pages',
     ],
+    link: '/case-studies/chp-2007-google-siyasal-kampanya',
   },
   {
     slug: 'e-ticaret-pazarlama',
@@ -125,6 +131,7 @@ const services = [
       'Abandoned cart funnel\'ı',
       'CRO (dönüşüm oranı optimizasyonu)',
     ],
+    link: '/yetenekler/analitik-veri',
   },
   {
     slug: 'marka-tasarimi',
@@ -139,6 +146,7 @@ const services = [
       'Kampanya kreatif tasarımı',
       'Cross-channel görsel tutarlılık',
     ],
+    link: '/yetenekler/tasarim-ux',
   },
   {
     slug: 'online-itibar-yonetimi',
@@ -154,6 +162,7 @@ const services = [
       'Pozitif içerik SEO\'su',
       'Wikipedia + Knowledge Graph yönetimi',
     ],
+    link: '/yetenekler/icerik-yaratici',
   },
   {
     slug: 'dijital-strateji',
@@ -168,6 +177,7 @@ const services = [
       'KPI çerçevesi + ölçüm altyapısı',
       'Aylık strateji review oturumları',
     ],
+    link: '/yetenekler/strateji-danismanlik',
   },
   {
     slug: 'start-up-danismanligi',
@@ -182,6 +192,7 @@ const services = [
       'Marka kuruluşu',
       'Performans pazarlama setup',
     ],
+    link: '/yetenekler/strateji-danismanlik',
   },
   {
     slug: 'yazilim-danismanligi',
@@ -196,6 +207,7 @@ const services = [
       'Performans + ölçeklenme danışmanlığı',
       'Migration / modernizasyon stratejisi',
     ],
+    link: '/yetenekler/web-gelistirme-altyapi',
   },
   {
     slug: 'proje-yoneticiligi',
@@ -210,6 +222,7 @@ const services = [
       'Kalite kontrol',
       'Teslim + devir + dökümantasyon',
     ],
+    link: '/yetenekler/strateji-danismanlik',
   },
   {
     slug: 'aeo-geo-denetimi',
@@ -379,6 +392,17 @@ const faq = faqSchema([
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {s.link && (
+              <div class="mt-8">
+                <a
+                  href={s.link}
+                  class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] border-b border-current pb-1 hover:bg-black hover:text-white hover:px-2 transition-all"
+                >
+                  Detaylı incele <span aria-hidden="true">→</span>
+                </a>
               </div>
             )}
           </article>
