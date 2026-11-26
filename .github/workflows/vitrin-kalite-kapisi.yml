@@ -1,0 +1,70 @@
+name: Vitrin Kalite Kapısı (GW-Q10 & GW-Q11)
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  vitrin-derleme-ve-link:
+    name: Tam Derleme, Test ve Link/KVKK Kapısı (GW-Q10)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Tam Astro derleme ve guncellemeler.json
+        run: npm run build
+
+      - name: Vitrin birim ve entegrasyon testleri
+        run: npm test
+
+      - name: Kırık iç link ve KVKK yer tutucu taraması
+        run: npm run kontrol:link-kvkk
+
+  vitrin-mobil-wcag:
+    name: Playwright Mobil Taşma ve WCAG 2.2 AA (GW-Q11)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Playwright Chromium kur
+        run: npx playwright install --with-deps chromium
+
+      - name: Tam Astro derleme
+        run: npm run build
+
+      - name: Mobil taşma ve WCAG kontrast testi
+        run: npm run kontrol:mobil-wcag
+
+      - name: Hata ekran görüntülerini yükle
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitrin-mobil-wcag-ekran-goruntuleri
+          path: test-results/ekran-goruntuleri
+          if-no-files-found: ignore
