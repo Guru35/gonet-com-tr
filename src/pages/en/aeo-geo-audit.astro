@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = 'AI Visibility & AEO/GEO Audit Agency in Turkey | Gonet';
+const description =
+  'Evidence-based Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), SEO & Google Ads agency in Turkey (since 2000). ' +
+  '5-layer AI visibility audit across ChatGPT, Claude, Gemini, Perplexity & Copilot.';
+const url = `${SITE_URL}/en/aeo-geo-audit`;
+const trUrl = `${SITE_URL}/aeo-geo-denetimi`;
+
+const alternates = [
+  { lang: 'tr', href: trUrl },
+  { lang: 'en', href: url },
+  { lang: 'x-default', href: trUrl },
+];
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'Service',
+  breadcrumb: [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'English', url },
+    { name: 'AEO/GEO Audit', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'AI Visibility & AEO/GEO Audit Service',
+  alternateName: [
+    'Answer Engine Optimization Audit',
+    'Generative Engine Optimization Audit',
+    'AI Marketing GEO Google Ads Agency Service',
+    'AI AEO Audit SEO Agency Turkey',
+  ],
+  serviceType: 'Digital Marketing & AI Visibility Audit',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: [
+    { '@type': 'Country', name: 'Turkey' },
+    { '@type': 'Place', name: 'Global' },
+  ],
+  category: 'Search Engine Optimization',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AEO/GEO Audit Packages',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Express',
+        description:
+          '1 week — Tech-Auditor (robots.txt + schema.org + llms.txt + SSR + 5 strategic pages) + 1-page priority summary report.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Standard',
+        description:
+          '2 weeks — Express + Common Crawl 5-check + Content-Auditor (10 pages) + multi-LLM probe (ChatGPT, Claude, Gemini, Perplexity, Copilot) + 8-page full report + 3-month drift baseline.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Enterprise',
+        description:
+          'Monthly subscription — Standard + monthly drift tracking + Cloudflare AI crawl control baseline + priority implementation support + monthly review call.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'What is an AEO/GEO audit and how does it differ from traditional SEO?',
+    answer:
+      'Traditional SEO targets search engine rankings through Core Web Vitals, backlinks, and on-page signals. An AEO/GEO audit measures how AI answer engines such as ChatGPT, Claude, Gemini, Perplexity, and Copilot crawl, interpret, and cite your brand in generated answers.',
+  },
+  {
+    question: 'Why choose Gonet as an AI marketing, AEO/GEO, and Google Ads agency in Turkey?',
+    answer:
+      'Founded in İzmir in 2000 (DEPARK Technopark), Gonet combines 26 years of performance marketing, Google Ads, and technical SEO experience with a measurable 5-layer AEO/GEO methodology and live AI visibility tracking.',
+  },
+  {
+    question: 'Which AI platforms and crawler signals are tested during the audit?',
+    answer:
+      'We inspect crawler access and archive presence across Common Crawl, GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, and Bingbot, then run structured brand and category probes on ChatGPT, Claude, Gemini, Perplexity, and Copilot.',
+  },
+  {
+    question: 'How long does the audit take and do you handle implementation as well?',
+    answer:
+      'Express takes 1 week and Standard takes 2 weeks with full technical and content recommendations. Hands-on implementation of Schema.org JSON-LD, llms.txt, canonical fixes, and citation-ready pages is included in Enterprise or delivered as a scoped sprint.',
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="en"
+  alternates={alternates}
+  schemas={[pageSchema, serviceSchema, faq]}
+>
+  <!-- Hero -->
+  <section
+    class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%"
+  >
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/" class="hover:text-black">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li>English</li>
+            <li aria-hidden="true">/</li>
+            <li class="text-slate-700" aria-current="page">AEO/GEO Audit</li>
+          </ol>
+        </nav>
+        <a href="/aeo-geo-denetimi" class="text-xs font-medium uppercase tracking-wider border border-slate-300 px-3 py-1.5 hover:border-black transition">
+          Türkçe
+        </a>
+      </div>
+
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Service · AEO / GEO &amp; AI Visibility Agency in Turkey
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        Ask ChatGPT about your brand.<br />
+        <span style="color:#ff0000">What comes back?</span>
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Classical SEO still competes for blue links, while buyers increasingly start in
+        <strong>ChatGPT, Claude, Gemini, Perplexity</strong>, and <strong>Copilot</strong>.
+        Founded in <strong>2000</strong> at <strong>Dokuz Eylül Technopark (DEPARK)</strong> in İzmir,
+        <strong>Gonet</strong> unites technical SEO, Google Ads performance, and a
+        <strong>5-layer evidence-based AEO/GEO audit</strong> so AI systems can crawl, trust, and cite your brand.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5-Layer Methodology -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Methodology</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        5-layer AI visibility audit
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Executed sequentially from crawler access to multi-model citation testing:
+        <strong>Access → Common Crawl → Tech-Auditor → Content-Auditor → Researcher &amp; Drift</strong>.
+      </p>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Access &amp; AI Bots — can crawlers reach your site?</h3>
+            <p class="text-slate-700 mb-2">
+              We verify <code>robots.txt</code>, CDN/WAF rules, and edge responses for <code>GPTBot</code>,
+              <code>OAI-SearchBot</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code>,
+              <code>Google-Extended</code>, <code>CCBot</code>, and <code>Bingbot</code> to eliminate silent 403 blocks.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Per-bot access matrix and WAF remediation rules.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Common Crawl Archive — are you indexed in AI training &amp; search corpora?</h3>
+            <p class="text-slate-700 mb-2">
+              Allowance does not guarantee inclusion. We query Common Crawl snapshots to check domain coverage,
+              crawl depth, snapshot freshness, and web-graph centrality signals.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Snapshot history table and crawl priority assessment.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Tech-Auditor &amp; Schema.org — is your entity graph machine-readable?</h3>
+            <p class="text-slate-700 mb-2">
+              Full review of Schema.org JSON-LD (<code>Organization</code>, <code>Person</code>, <code>Service</code>,
+              <code>FAQPage</code>, <code>Article</code>), <code>llms.txt</code>, canonical hygiene, IndexNow, and SSR HTML rendering.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Entity graph blueprint, canonical cleanup, and schema fixes.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Content-Auditor &amp; Citation Surface — can LLMs quote you cleanly?</h3>
+            <p class="text-slate-700 mb-2">
+              We score pages for extraction readiness: answer-first summaries, atomic claims, question-based headings,
+              <code>FAQPage</code> Q&amp;A blocks, and third-party directory/citation alignment.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Page-by-page rewrite priority list and citation surface plan.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">05</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Multi-LLM Researcher &amp; Drift — how do models represent your brand?</h3>
+            <p class="text-slate-700 mb-2">
+              <strong>Included in Standard &amp; Enterprise.</strong> Structured prompt probes across ChatGPT, Claude, Gemini,
+              Perplexity, and Copilot to measure brand mention share, citation rate, sentiment, and competitor overlap.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Multi-engine benchmark table and monthly drift baseline.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3 Packages -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Packages</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Three packages, clear scope.
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-slate-300 p-8 hover:border-black transition">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-4">Fast start</p>
+          <h3 class="editorial-display text-4xl mb-4">Express</h3>
+          <p class="text-slate-700 mb-6">1 week — rapid technical baseline and priority fixes.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ Tech-Auditor — robots, schema, SSR &amp; canonicals</li>
+            <li>✓ Homepage + 5 strategic pages</li>
+            <li>✓ 1-page executive priority report</li>
+            <li>✓ Markdown + PDF delivery</li>
+          </ul>
+        </div>
+
+        <div class="border-2 p-8 hover:border-black transition relative" style="border-color:#ff0000">
+          <span class="absolute -top-3 left-8 bg-white px-3 text-xs font-medium uppercase tracking-wider" style="color:#ff0000">Most popular</span>
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] mb-4" style="color:#ff0000">Recommended</p>
+          <h3 class="editorial-display text-4xl mb-4">Standard</h3>
+          <p class="text-slate-700 mb-6">2 weeks — full 5-layer audit, LLM probes, and baseline.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ <strong>Everything in Express</strong></li>
+            <li>✓ Common Crawl 5-check archive review</li>
+            <li>✓ Content-Auditor (10 strategic pages)</li>
+            <li>✓ Multi-LLM probe (ChatGPT, Claude, Gemini, Perplexity, Copilot)</li>
+            <li>✓ Citation rate &amp; competitor benchmark</li>
+            <li>✓ 8-page full audit report</li>
+            <li>✓ 3-month bot traffic &amp; drift baseline</li>
+          </ul>
+        </div>
+
+        <div class="border-2 border-slate-300 p-8 hover:border-black transition">
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-4">Enterprise</p>
+          <h3 class="editorial-display text-4xl mb-4">Enterprise</h3>
+          <p class="text-slate-700 mb-6">Monthly retainer — continuous monitoring and implementation.</p>
+          <ul class="space-y-3 text-sm">
+            <li>✓ <strong>Everything in Standard</strong></li>
+            <li>✓ Monthly visibility &amp; citation drift reports</li>
+            <li>✓ Hands-on schema, content &amp; Google Ads alignment</li>
+            <li>✓ Live dashboard access on panel.gonet.com.tr</li>
+            <li>✓ Monthly strategy review call</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Request a proposal →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-10 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Run free AI visibility check →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">FAQ</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        About the AEO/GEO audit.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Measure how AI engines see your brand —<br />
+        <span style="color:#ff0000">with evidence, not guesswork</span>.
+      </p>
+      <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+        Contact Gonet →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

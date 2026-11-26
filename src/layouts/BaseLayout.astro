@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string;
   schemas?: Record<string, any> | Record<string, any>[];
   lang?: 'tr' | 'en';
+  alternates?: { lang: string; href: string }[];
   hideFooter?: boolean;
   noindex?: boolean;
   transparentHeader?: boolean;  // Hero image üzerinden geçen şeffaf nav (yetenekler kategori sayfaları)
@@ -22,6 +23,7 @@ const {
   ogImage = '/og-default.png',
   schemas,
   lang = 'tr',
+  alternates,
   hideFooter = false,
   noindex = false,
   transparentHeader = false,
@@ -118,8 +120,14 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
     ) : (
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     )}
-    <link rel="alternate" hreflang="tr" href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    {alternates && alternates.length > 0 ? (
+      alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)
+    ) : (
+      <>
+        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+      </>
+    )}
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="GONET Blog" href="/rss.xml" />
