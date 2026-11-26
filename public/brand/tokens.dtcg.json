@@ -1,0 +1,64 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "brand": {
+    "name": "Gonet",
+    "legalName": "Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.",
+    "founded": 2000,
+    "location": "İzmir / DEPARK"
+  },
+  "surfaceEditorial": {
+    "color": {
+      "bgLight": { "$value": "#ffffff", "$type": "color" },
+      "surfaceLight": { "$value": "#f8fafc", "$type": "color" },
+      "bgDark": { "$value": "#0a0a0a", "$type": "color" },
+      "surfaceDark": { "$value": "#161616", "$type": "color" },
+      "surface2Dark": { "$value": "#1d1d1d", "$type": "color" },
+      "borderLight": { "$value": "#000000", "$type": "color" },
+      "borderDark": { "$value": "#2a2a2a", "$type": "color" },
+      "fieldBorderDark": { "$value": "#8a8a8a", "$type": "color" },
+      "textHeadingLight": { "$value": "#0a0a0a", "$type": "color" },
+      "textBodyLight": { "$value": "#0f172a", "$type": "color" },
+      "textSecondaryLight": { "$value": "#475569", "$type": "color" },
+      "textHeadingDark": { "$value": "#f2f2f2", "$type": "color" },
+      "textBodyDark": { "$value": "#e6e6e6", "$type": "color" },
+      "textSecondaryDark": { "$value": "#a3a3a3", "$type": "color" },
+      "accent": { "$value": "#ff0000", "$type": "color" },
+      "accentInk": { "$value": "#000000", "$type": "color" },
+      "accentTextLight": { "$value": "#d40000", "$type": "color" },
+      "accentTextDark": { "$value": "#ff2b2b", "$type": "color" }
+    },
+    "radius": { "default": { "$value": "0px", "$type": "dimension" } },
+    "typography": {
+      "fontFamily": { "$value": "Inter", "$type": "fontFamily" }
+    }
+  },
+  "surfaceObsidianPanel": {
+    "color": {
+      "darkScale": {
+        "void": { "$value": "#0E0F11", "$type": "color" },
+        "base": { "$value": "#15171A", "$type": "color" },
+        "card": { "$value": "#1C1F24", "$type": "color" },
+        "elevated": { "$value": "#242830", "$type": "color" },
+        "hover": { "$value": "#2E333D", "$type": "color" }
+      },
+      "lightScale": {
+        "surface": { "$value": "#F9F9F7", "$type": "color" },
+        "low": { "$value": "#F4F4F2", "$type": "color" },
+        "container": { "$value": "#EEEEEC", "$type": "color" },
+        "high": { "$value": "#E8E8E6", "$type": "color" },
+        "lowest": { "$value": "#FFFFFF", "$type": "color" }
+      },
+      "accentDark": { "$value": "#F03E47", "$type": "color" },
+      "accentDarkHover": { "$value": "#FF525B", "$type": "color" },
+      "accentLight": { "$value": "#B10019", "$type": "color" }
+    },
+    "radius": {
+      "card": { "$value": "12px", "$type": "dimension" },
+      "control": { "$value": "10px", "$type": "dimension" }
+    },
+    "typography": {
+      "heading": { "$value": "Plus Jakarta Sans", "$type": "fontFamily" },
+      "body": { "$value": "Inter", "$type": "fontFamily" }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+/* Gonet Kurumsal Kimlik — İki Yüzeyli Kanonik CSS Değişkenleri */
+:root {
+  --gonet-bg: #ffffff;
+  --gonet-surface: #ffffff;
+  --gonet-surface-2: #f8fafc;
+  --gonet-border: #000000;
+  --gonet-text-heading: #0a0a0a;
+  --gonet-text: #0f172a;
+  --gonet-text-secondary: #475569;
+  --gonet-accent: #ff0000;
+  --gonet-accent-ink: #000000;
+  --gonet-accent-text: #d40000;
+  --gonet-radius: 0px;
+  --gonet-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+[data-theme="dark"] {
+  --gonet-bg: #0a0a0a;
+  --gonet-surface: #161616;
+  --gonet-surface-2: #1d1d1d;
+  --gonet-border: #2a2a2a;
+  --gonet-field-border: #8a8a8a;
+  --gonet-text-heading: #f2f2f2;
+  --gonet-text: #e6e6e6;
+  --gonet-text-secondary: #a3a3a3;
+  --gonet-accent: #ff0000;
+  --gonet-accent-ink: #000000;
+  --gonet-accent-text: #ff2b2b;
+}
+
+/* Yüzey B: SaaS Panel (Obsidian Engine) */
+.surface-obsidian {
+  --obs-bg-0: #0e0f11;
+  --obs-bg-1: #15171a;
+  --obs-bg-2: #1c1f24;
+  --obs-bg-3: #242830;
+  --obs-bg-4: #2e333d;
+  --obs-text-1: #edecea;
+  --obs-text-2: #b3b5ba;
+  --obs-accent: #f03e47;
+  --obs-accent-hover: #ff525b;
+  --obs-radius-card: 12px;
+  --obs-radius-control: 10px;
+  --obs-font-head: "Plus Jakarta Sans", "Inter", sans-serif;
+  --obs-font-body: "Inter", sans-serif;
+}
