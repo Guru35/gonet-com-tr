@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = 'Medical Tourism Performance Marketing & AEO/GEO in Turkey | Gonet';
+const description =
+  'International patient acquisition for dental, aesthetic, and hospital clinics in Turkey. Multilingual Google Ads & Meta campaigns, UK GDPR/KVKK-compliant CRM, and AEO/GEO visibility.';
+const url = `${SITE_URL}/en/medical-tourism-marketing`;
+const trUrl = `${SITE_URL}/saglik-turizmi-performans-pazarlama`;
+
+const alternates = [
+  { lang: 'tr', href: trUrl },
+  { lang: 'en', href: url },
+  { lang: 'x-default', href: trUrl },
+];
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Home', url: `${SITE_URL}/en` },
+    { name: 'Medical Tourism Marketing', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'Medical Tourism Performance Marketing & AEO/GEO',
+  alternateName: [
+    'Healthcare Performance Marketing Turkey',
+    'Dental & Aesthetic Clinic International Patient Acquisition',
+    'Medical Tourism AEO/GEO Agency',
+  ],
+  serviceType: 'Healthcare Performance Marketing & AEO/GEO',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: [
+    { '@type': 'Country', name: 'Turkey' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Germany' },
+  ],
+  category: 'Medical Tourism Digital Marketing',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Medical Tourism Growth Layers',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Country & Language-Segmented Performance Campaigns',
+        description: 'Google Ads, Performance Max, YouTube, and Meta campaigns segmented by treatment vertical and target country with server-side conversion tracking.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Multilingual Web Architecture & Security Hardening',
+        description: 'High-speed Astro SSG landing pages with strict CSP, HSTS, KVKK, and UK GDPR consent compliance.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Healthcare AEO/GEO & Branch-Isolated CRM',
+        description: 'MedicalOrganization, Dentist/Physician, and FAQPage JSON-LD schemas, /llms.txt, and branch-isolated Directus CRM lead routing.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'Why is medical tourism performance marketing different from local clinic advertising?',
+    answer:
+      'An international patient is not booking a simple local visit; they are making a high-trust decision involving travel, accommodation, and medical care. ' +
+      'Campaigns must be segmented by country and language, comply with target-market regulations such as UK GDPR and Turkish healthcare advertising rules, and track conversions end-to-end into the clinic CRM.',
+  },
+  {
+    question: 'How do AI answer engines (AEO/GEO) impact international patient acquisition?',
+    answer:
+      'Patients increasingly start researching treatments abroad through ChatGPT, Perplexity, Claude, and Google AI Overviews. ' +
+      'Without MedicalOrganization, Physician or Dentist, FAQPage schemas, and /llms.txt, AI engines either omit your clinic or cite outdated third-party directories.',
+  },
+  {
+    question: 'What concrete proof does Gonet have in healthcare and medical tourism?',
+    answer:
+      'Gonet has managed healthcare search advertising in Turkey since 2005, including enterprise work for Medical Park Hospitals Group. ' +
+      'In our live Nano Dental pilot (nanodental.com.tr and nanodental.co.uk), we unified both clinics under a branch-isolated Directus CRM, reduced media weight by 77.2% (57.21 MB to 13.05 MB), achieved 0 CSP warnings, and deployed UK GDPR + AEO/GEO infrastructure.',
+  },
+  {
+    question: 'How are patient inquiries protected under KVKK and UK GDPR?',
+    answer:
+      'Instead of uncontrolled third-party form widgets, we implement branch-isolated CRM pipelines with explicit consent logging, strict Content-Security-Policy (CSP), and HSTS headers so medical consultation data reaches only authorized coordinators.',
+  },
+  {
+    question: 'How can we audit our clinic AI visibility and track campaign ROI?',
+    answer:
+      'You can run a free technical AI readiness check at seo.gonet.com.tr. Active clients receive live access to campaign metrics, ChatGPT/Claude/Gemini/Perplexity citation tracking, and monthly PDF reports on panel.gonet.com.tr.',
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="en"
+  alternates={alternates}
+  schemas={[pageSchema, serviceSchema, faq]}
+>
+  <!-- Hero -->
+  <section
+    class="editorial-section bg-white"
+    style="--rule-top-x:8%;--rule-top-w:52%;--rule-bot-x:30%;--rule-bot-w:34%"
+  >
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/en" class="hover:text-black">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-slate-700" aria-current="page">Medical Tourism Marketing</li>
+          </ol>
+        </nav>
+        <a href="/saglik-turizmi-performans-pazarlama" class="text-xs font-medium uppercase tracking-wider border border-slate-300 px-3 py-1.5 hover:border-black transition">
+          Türkçe
+        </a>
+      </div>
+
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Vertical Expertise · Medical Tourism &amp; AEO/GEO
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        How do international patients<br />
+        <span style="color:#ff0000">find your clinic?</span>
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Ad spend alone does not build international patient trust. Since <strong>2005</strong>, Gonet has combined
+        healthcare marketing discipline with <strong>country-segmented performance campaigns</strong>,
+        <strong>branch-isolated CRM architecture</strong>, and <strong>AEO/GEO authority</strong> — positioning your
+        clinic as a verifiable choice across Google, Meta, ChatGPT, Claude, and Perplexity.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Free AI Visibility Check (seo.gonet.com.tr) →
+        </a>
+        <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Client Portal (panel.gonet.com.tr) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Layers -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Scope</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        4-layer patient acquisition
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Country &amp; Language-Targeted Performance Ads</h3>
+            <p class="text-slate-700 mb-2">
+              Google Ads, Performance Max, YouTube, and Meta campaigns tailored for the UK, Germany, Europe, and Middle East
+              across dental, aesthetic, hair transplant, and IVF verticals — optimized for qualified consultations rather than cheap clicks.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Country/treatment media plan + server-side GA4 conversion tracking.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Multilingual Web Architecture &amp; Security</h3>
+            <p class="text-slate-700 mb-2">
+              High-speed Astro SSG landing pages that replace slow, fragile templates. Built with WebP media optimization,
+              HSTS, strict Content-Security-Policy (CSP), and UK GDPR / KVKK explicit consent flows.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Fast bilingual clinic web architecture + 0 CSP/console warnings.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AEO/GEO — Clinical Authority in AI Search</h3>
+            <p class="text-slate-700 mb-2">
+              When patients ask AI engines for trusted clinics in Turkey, we ensure your brand is machine-readable via
+              <code>MedicalOrganization</code>, <code>Dentist</code> / <code>Physician</code>, and <code>FAQPage</code>
+              JSON-LD schemas plus <code>/llms.txt</code>.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Verifiable entity graph + AI crawler access policy.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Branch-Isolated CRM &amp; Live Reporting</h3>
+            <p class="text-slate-700 mb-2">
+              Forms and treatment calculators feed directly into a role-isolated CRM where each branch sees only its own
+              leads. Ad spend, lead quality, and AI visibility are tracked live on
+              <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Unified lead routing + monthly ROI and AI visibility report.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Evidence</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Verified results from the field.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">Nano Dental — Bilingual TR/UK Medical Tourism Pilot</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Unified <code>nanodental.com.tr</code> and <code>nanodental.co.uk</code> under one branch-isolated Directus CRM
+            (Didim &amp; Bornova). Optimized 354 images from <strong>57.21 MB → 13.05 MB (-77.2%)</strong> with 0 CSP warnings,
+            UK GDPR consent, and full AEO/GEO schemas.
+          </p>
+          <a href="/en/case-studies" class="text-sm underline font-medium">
+            Read case study summary →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Healthcare Heritage Since 2005</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            From Turkey's early healthcare search advertising in 2005 to enterprise-scale work with
+            <strong>Medical Park Hospitals Group</strong>, our campaigns are built around strict regulatory compliance and patient trust.
+          </p>
+          <a href="/en/case-studies" class="text-sm underline font-medium">
+            Explore all case studies →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">FAQ</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Medical tourism digital growth.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Turn your international patient journey<br />
+        <span style="color:#ff0000">into a measurable system</span>.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Request a proposal →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Run free AI visibility check →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

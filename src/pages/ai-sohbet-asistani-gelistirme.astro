@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "Web Siteleri İçin AI Sohbet Asistanı Geliştirme (Siten Konuşsun) | Gonet";
+const description =
+  "Markanızın kendi içeriğine hâkim, tonuna sadık, KVKK uyumlu PII filtreli ve sayfa hızını bozmayan kurumsal AI sohbet asistanı geliştirme. AI Feedback mimarisiyle.";
+const url = `${SITE_URL}/ai-sohbet-asistani-gelistirme`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'AI Sohbet Asistanı Geliştirme', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'Kurumsal Web Sitesi AI Sohbet Asistanı Geliştirme',
+  alternateName: [
+    'Siten Konuşsun AI Sohbet Modülü',
+    'AI Feedback & Lead Chatbot Development',
+    'Custom RAG Chatbot Development Turkey',
+  ],
+  serviceType: 'Custom AI Chatbot & Conversational Lead Engineering',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  category: 'Artificial Intelligence & Web Engineering',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AI Sohbet Asistanı Katmanları',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Site-İçi Bilgi Tabanı & Marka Dili Kalibrasyonu',
+        description: 'Yalnızca onaylı site içeriğinden beslenen, halüsinasyonu ve kapsam dışı uydurma yanıtları engelleyen dar kapsamlı RAG mimarisi.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'AI Feedback, Triage & KVKK PII Koruma Kapısı',
+        description: 'Geri bildirim/tartışma/lead sınıflandırması, öncelik skoru, 5 alanlı kişisel veri (PII) tespiti ve açık rıza kapısı.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'CRM Entegrasyonu & Sıfır Hız Kaybı Kurulumu',
+        description: 'Ana içerikten sonra yüklenen (async) gömme mimarisi, warm-pivot satış yönlendirmesi ve yönetim paneli entegrasyonu.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'Bu AI sohbet asistanı genel amaçlı hazır chatbot araçlarından neden farklıdır?',
+    answer:
+      "Hazır sohbet araçları ya kalıp butonlara sıkışır ya da genel yapay zekâ modelleri üzerinden sitenizle ilgisiz, tutarsız yanıtlar üretir. " +
+      "Gonet'in 'Siten Konuşsun' yaklaşımında asistan yalnızca sizin onaylı hizmet sayfalarınız, vaka çalışmalarınız ve çalışma kurallarınızla eğitilir; markanızın kendi sesiyle konuşur.",
+  },
+  {
+    question: 'Asistanın yanlış fiyat vermesi veya uydurma (halüsinasyon) bilgi üretmesi nasıl engellenir?',
+    answer:
+      "Dar kapsam bilinçli bir tasarım tercihidir. Sistem yanıtlarını yalnızca dizine alınan site içeriğiyle sınırlar; " +
+      "fiyat, hukuki taahhüt veya kapsam dışı sorularda tahmin yürütmek yerine doğrudan ilgili sayfaya ya da teklif/iletişim kanalına yönlendirir.",
+  },
+  {
+    question: 'KVKK ve kişisel veri (PII) güvenliği nasıl sağlanıyor?',
+    answer:
+      "Gonet'in kendi sitesinde canlı çalışan AI Feedback mimarisinde 5 farklı PII (kişisel veri) alanı otomatik tespit edilir ve açık KVKK onay kapısı uygulanır. " +
+      "Ziyaretçi rıza vermeden kişisel veriler işlenmez ve CRM'e aktarılmaz.",
+  },
+  {
+    question: 'AI sohbet kutusu web sitemin açılış hızını (Core Web Vitals) yavaşlatır mı?',
+    answer:
+      "Hayır. Asistan ana sayfa içeriği ve kritik görseller yüklendikten sonra asenkron olarak devreye girer; ziyaretçi etkileşime geçene kadar ilk ekran performansına ölçülebilir bir yük bindirmez.",
+  },
+  {
+    question: 'Gelen mesajlar sadece sohbet olarak mı kalır yoksa satış fırsatına dönüşür mü?',
+    answer:
+      "Arka plandaki triage motoru her konuşmayı otomatik olarak 'geri bildirim', 'soru/tartışma' veya 'satış fırsatı (lead)' olarak sınıflandırır, öncelik skoru üretir ve sıcak konuşmaları warm-pivot akışıyla teklif/görüşme talebine dönüştürür.",
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:8%;--rule-top-w:52%;--rule-bot-x:26%;--rule-bot-w:38%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">AI Sohbet Asistanı Geliştirme</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Ürün &amp; Mühendislik · Siten Konuşsun
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        Sitenizin içeriğine hâkim.<br/>
+        <span style="color:#ff0000">Marka dilinize sadık</span> AI.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Web sitesine sohbet kutusu eklemek kolaydır; zor olan o kutunun hizmetlerinizi gerçekten bilmesi,
+        uydurma yanıt üretmemesi ve <strong>KVKK</strong> sınırlarını korumasıdır. Gonet'in kendi sitesinde
+        <strong>AI Feedback</strong> sistemi olarak canlı çalışan modülüyle sitenizi 7/24 konuşan, nitelikli
+        talepleri süzen akıllı bir asistana dönüştürün.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/iletisim"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Siteniz için demo isteyin →
+        </a>
+        <a href="/blog/siten-konussun-ai-sohbet"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Geliştirme günlüğünü oku →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet Kapsamı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Mimari</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        4 katmanda güvenli AI asistan
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Onaylı Site İçeriği &amp; Marka Tonu Kalibrasyonu</h3>
+            <p class="text-slate-700 mb-2">
+              Asistan dış dünyadan rastgele bilgi çekmek yerine yalnızca web sitenizdeki onaylı sayfa, ürün ve
+              vaka içeriklerini kullanır. Yanıt tonu markanızın kurumsal diliyle kalibre edilir; fiyat veya hukuki
+              konularda tahmin yürütmez.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Sitenize özel bilgi indeksi + halüsinasyon sınırlandırma kuralları.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AI Triage &amp; Warm-Pivot Lead Dönüşümü</h3>
+            <p class="text-slate-700 mb-2">
+              Her ziyaretçi etkileşimi otomatik olarak sınıflandırılır: <code>feedback</code> (geri bildirim),
+              <code>discussion</code> (bilgi talebi) veya <code>lead</code> (satış fırsatı). Yüksek niyetli
+              konuşmalar öncelik skoruyla işaretlenir ve doğal biçimde teklif/görüşme adımına yönlendirilir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Akıllı kategori triage + CRM / yönetim paneli aktarımı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">5 Alanlı PII Tespiti &amp; KVKK Onay Kapısı</h3>
+            <p class="text-slate-700 mb-2">
+              Ziyaretçi sohbet sırasında telefon, e-posta veya kimlik bilgisi paylaştığında sistem 5 farklı PII
+              alanını otomatik tanır ve açık KVKK rıza onayını devreye alır. Kurumsal uyum baştan kodlanır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> KVKK uyumlu veri işleme kapısı + güvenli loglama.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Hafif Gömme &amp; Sıfır Core Web Vitals Kaybı</h3>
+            <p class="text-slate-700 mb-2">
+              Modül sayfanın ana içeriğinden sonra yüklenir; Lighthouse ve Core Web Vitals skorlarını düşürmez.
+              Astro, Next.js, WordPress veya özel kurumsal sitelere günler içinde entegre edilir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Asenkron embed + yönetim panelinden konuşma denetimi.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ölçüm ve Kanıt -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Canlı kanıt</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Kendi sitemizde canlı çalışan teknoloji.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Müşterilerimize önerdiğimiz AI sohbet ve geri bildirim mimarisini önce kendi üretim ortamımızda test edip çalıştırıyoruz.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">AI Feedback Chatbox (gonet.com.tr Üretiminde)</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Sitemizdeki her sayfada çalışan AI Feedback sistemi; 5 PII alanı tespiti, KVKK açık rıza kapısı,
+            kategori triage (<code>feedback / discussion / lead</code>) ve Filament yönetim paneli üzerinden editör
+            denetimiyle canlıdır.
+          </p>
+          <a href="/creative-ai" class="text-sm underline font-medium">
+            Creative AI sistemlerini incele →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">«Siten Konuşsun» Geliştirme Günlüğü</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Dar kapsam tasarım tercihini, halüsinasyon sınırlandırma kurallarını ve sayfa hızını koruyan yükleme
+            mimarisini teknik blog yazımızda paylaştık.
+          </p>
+          <a href="/blog/siten-konussun-ai-sohbet" class="text-sm underline font-medium">
+            Blog yazısını oku →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        AI sohbet asistanı hakkında.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Web sitenizi ziyaretçilerle<br/>
+        <span style="color:#ff0000">doğru dille konuşturalım</span>.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Demo ve teklif alın →
+        </a>
+        <a href="/yapay-zeka-dijital-ajans"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          AI ajans hizmetlerini gör →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

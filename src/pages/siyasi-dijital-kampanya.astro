@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "Siyasi Dijital Kampanya Yönetimi ve Seçim Medyası | Gonet";
+const description =
+  "Adaylar, belediyeler ve siyasi partiler için Google Ads, sosyal medya, online itibar yönetimi (ORM) ve AEO/GEO. 2007 CHP ile Türkiye'nin ilk Google siyasal kampanyası ve 4 büyük parti deneyimi.";
+const url = `${SITE_URL}/siyasi-dijital-kampanya`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Siyasi Dijital Kampanya', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'Siyasi Dijital Kampanya Yönetimi ve Seçim Medyası',
+  alternateName: [
+    'Political Digital Campaign Management Turkey',
+    'Seçim Dijital İletişim Danışmanlığı',
+    'Siyasi İtibar ve AEO/GEO Yönetimi',
+  ],
+  serviceType: 'Political Digital Campaign Management',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  category: 'Political Communication & Digital Strategy',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Siyasi Dijital İletişim Katmanları',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Seçmen Segmentasyonu & Mesaj Testi',
+        description: 'Yaş, ilçe ve ilgi alanı kırılımında Google Ads, YouTube ve Meta üzerinden mesaj ağırlıklı A/B testleri ve erişim kampanyaları.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Aday / Parti Web Altyapısı & Kriz İletişimi',
+        description: 'Yüksek trafik altında kesintisiz çalışan resmi aday/kurum web siteleri, vaat dökümleri ve hızlı yanıt veren dijital savaş odası desteği.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Online İtibar Yönetimi (ORM) & AEO/GEO',
+        description: 'Arama sonuçları ve ChatGPT/Gemini/Perplexity gibi yapay zekâ yanıtlarında aday ve proje bilgilerinin doğrulanabilir kaynaklarla temsili.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'Gonet siyasi dijital kampanya alanında nasıl bir geçmişe sahiptir?',
+    answer:
+      "Gonet, 2007 yılında CHP için Türkiye'nin ilk Google reklam tabanlı siyasal kampanyasını tasarlayıp yönetti ve 2009–2013 arasında 4 yıl boyunca CHP Genel Merkez web sitesini üstlendi. " +
+      "Sonraki yıllarda AK Parti, MHP ve İYİ Parti ile de çalışarak Türkiye'de 4 büyük siyasi partinin tamamıyla profesyonel düzeyde dijital iş yapan ilk ajans oldu.",
+  },
+  {
+    question: 'Siyasi kampanyalarda partizanlık yerine nasıl bir çalışma ilkesi izliyorsunuz?',
+    answer:
+      "Gonet partizan bir yapı değil, profesyonel dijital strateji ve teknoloji altyapısı sağlayıcısıdır. " +
+      "Aynı seçim döneminde çıkar çatışması yaratmayacak şekilde, her adayın veya kurumun mesajını veri disiplini, teknik güvenlik ve ölçülebilir erişim ilkeleriyle yönetir.",
+  },
+  {
+    question: 'Yapay zekâ yanıt motorları (AEO/GEO) seçmen kararlarını nasıl etkiliyor?',
+    answer:
+      "Seçmenler artık adayların özgeçmişini, belediye icraatlarını ve vaatlerini ChatGPT, Gemini, Perplexity ve Google AI Overviews üzerinden sorguluyor. " +
+      "Adayın resmi sitesi yapısal veri (Person, FAQPage) ve doğrulanabilir icraat dökümleriyle desteklenmezse yapay zekâ motorları eksik veya eski haberlerden yanlış özetler üretebilir.",
+  },
+  {
+    question: 'Seçim döneminde yüksek trafik ve kriz anları için altyapı nasıl hazırlanır?',
+    answer:
+      "Statik/önbellekli yüksek hızlı web mimarisi (Astro + CDN/WAF koruması) sayesinde miting, televizyon yayını veya gündem sıçramalarında site çökmez. " +
+      "Kriz anlarında arama niyeti ve sosyal medya akışı anlık izlenerek doğru bilgilendirme sayfaları hızla yayına alınır.",
+  },
+  {
+    question: 'Siyasi reklamcılıkta platform politikalarına uyum nasıl sağlanır?',
+    answer:
+      "Google ve Meta'nın siyasi reklam doğrulama, şeffaflık etiketi ve harcama beyanı kuralları kampanya başlamadan önce tamamlanır; " +
+      "böylece kritik seçim haftalarında hesap kısıtlaması veya reklam reddi riski ortadan kaldırılır.",
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:30%;--rule-bot-w:34%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Siyasi Dijital Kampanya</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Dikey Uzmanlık · Siyasi İletişim &amp; Seçim Medyası
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        2007'den bugüne<br/>
+        <span style="color:#ff0000">siyasi dijitalin</span> mimarı.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Gonet, 2007 yılında <strong>CHP</strong> için Türkiye'nin ilk Google reklam tabanlı siyasal kampanyasını kurguladı;
+        ardından <strong>AK Parti, MHP ve İYİ Parti</strong> ile de çalışarak Türkiye'de <strong>4 büyük partiyle</strong>
+        profesyonel düzeyde dijital kampanya yürüten ilk ajans oldu. Bugün aynı disiplini yapay zekâ çağına —
+        seçmen segmentasyonu, kriz iletişimi ve <strong>AEO/GEO</strong> itibarına — taşıyoruz.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/iletisim"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Gizli strateji görüşmesi planlayın →
+        </a>
+        <a href="/case-studies/chp-2007-google-siyasal-kampanya"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          CHP 2007 vaka kaydını oku →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet Kapsamı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Hizmet kapsamı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        4 katmanda seçmen iletişimi
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Seçmen Segmentasyonu &amp; A/B Mesaj Testi</h3>
+            <p class="text-slate-700 mb-2">
+              Her ilçeye ve demografiye aynı genel sloganı basmak yerine; yaş, bölge ve gündem hassasiyetine göre
+              farklılaştırılmış mesajların düşük maliyetli A/B testleriyle doğrulanması ve ölçeklenmesi.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Bölge/demografi kırılımlı mesaj matrisi + platform uyumlu reklam yönetimi.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Yüksek Trafikli Aday &amp; Kurum Web Altyapısı</h3>
+            <p class="text-slate-700 mb-2">
+              CHP Genel Merkez web sitesini 2009–2013 arası 4 yıl yönetmiş deneyimle; yüksek trafik sıçramalarında
+              çökmeyen, DDoS/bot korumalı, vaat ve icraatları net sunan resmi dijital merkezler kuruyoruz.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Edge korumalı aday/kurum portalı + gönüllü/talep toplama akışı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Online İtibar Yönetimi (ORM) &amp; AEO/GEO</h3>
+            <p class="text-slate-700 mb-2">
+              Seçmen Google'da veya ChatGPT, Gemini, Perplexity'de adayın adını aradığında eski polemikler değil;
+              doğrulanmış biyografi, icraat verileri ve resmi açıklamalar öne çıkmalıdır. Yapısal veri ve
+              kaynak mimarisiyle dijital itibar güvenceye alınır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Arama + LLM yanıt izleme ve kanonik bilgi mimarisi.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Hızlı Tepki, Sosyal Medya &amp; Canlı Raporlama</h3>
+            <p class="text-slate-700 mb-2">
+              Seçim takviminde saatler önemlidir. Gündem değişimlerine uygun hızlı kreatif üretim, organik sosyal medya
+              yayılımı ve kampanya ekibinin
+              <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>
+              üzerinden anlık erişebileceği şeffaf ölçüm akışı.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Günlük/haftalık nabız ve erişim raporu + tam gizlilik protokolü.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ölçüm ve Kanıt -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ölçüm ve kanıt</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        4 büyük partiyle kanıtlanmış tarafsız profesyonellik.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Türkiye'de siyasi dijital iletişimin kurulduğu ilk günden bu yana sahadayız.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">CHP 2007 — Türkiye'nin İlk Google Siyasal Kampanyası</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            2007 genel seçimlerinde Türkiye'de Google Ads üzerinden yürütülen ilk siyasal reklam kampanyası tasarlandı;
+            ardından 2009–2013 arasında 4 yıl boyunca CHP Genel Merkez web sitesi Gonet tarafından geliştirildi.
+          </p>
+          <a href="/case-studies/chp-2007-google-siyasal-kampanya" class="text-sm underline font-medium">
+            CHP 2007 vaka çalışmasını incele →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">2015 — 4 Büyük Parti Deneyimi</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            CHP'nin ardından <strong>AK Parti</strong>, <strong>MHP</strong> ve <strong>İYİ Parti</strong> ile de
+            çalışarak Türkiye'de siyasi yelpazenin 4 büyük partisiyle profesyonel dijital kampanya yürüten ilk ajans olduk.
+          </p>
+          <a href="/deneyimler" class="text-sm underline font-medium">
+            26 yıllık zaman çizelgesini gör →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">AEO/GEO Hazırlık Kontrolü: seo.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Aday veya kurum sitenizin yapay zekâ arama botlarına erişimini ve yapısal veri durumunu ücretsiz test edin.
+          </p>
+          <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            seo.gonet.com.tr'yi aç →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Canlı Takip: panel.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Kampanya metrikleri, içerik onayları ve AI görünürlük ölçümleri yetkili kampanya ekibi için tek panelde
+            izlenir.
+          </p>
+          <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            Müşteri paneline git →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Siyasi dijital kampanyalar.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Dijital kampanyanızı<br/>
+        <span style="color:#ff0000">19 yıllık seçim tecrübesiyle</span> kurun.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Görüşme talep edin →
+        </a>
+        <a href="/aeo-geo-denetimi"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          AEO/GEO itibar denetimi →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

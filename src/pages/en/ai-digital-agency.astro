@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../../lib/schema';
+
+const title = 'AI-Integrated Digital Performance Agency in Turkey | Gonet';
+const description =
+  'Creative AI (Human × AI) performance agency in Turkey with 26 years of digital marketing heritage: Google Ads, technical SEO, AEO/GEO visibility, AI workflows, and live reporting on panel.gonet.com.tr.';
+const url = `${SITE_URL}/en/ai-digital-agency`;
+const trUrl = `${SITE_URL}/yapay-zeka-dijital-ajans`;
+
+const alternates = [
+  { lang: 'tr', href: trUrl },
+  { lang: 'en', href: url },
+  { lang: 'x-default', href: trUrl },
+];
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Home', url: `${SITE_URL}/en` },
+    { name: 'AI Digital Agency', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'AI-Integrated Digital Performance Agency',
+  alternateName: [
+    'Creative AI Digital Agency Turkey',
+    'AI-Powered Performance Marketing & AEO/GEO',
+    'Google Ads & AI Marketing Agency İzmir',
+  ],
+  serviceType: 'AI-Integrated Digital Marketing Agency',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: [
+    { '@type': 'Country', name: 'Turkey' },
+    { '@type': 'Place', name: 'Global' },
+  ],
+  category: 'Digital Marketing & AI Integration',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Creative AI Agency Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'AI-Assisted Performance Advertising & Analytics',
+        description: 'ROI-focused Google Ads, Meta, GA4, and BigQuery campaign management enhanced by AI pattern analysis.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'AEO/GEO Engineering & Technical Entity Architecture',
+        description: 'Schema.org @graph, llms.txt, open AI crawler policies, and extraction-ready content for ChatGPT, Claude, Gemini, and Perplexity.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Enterprise AI Workflows & Client Portal Integration',
+        description: 'Editorial-gated content engines, KVKK-compliant AI Feedback lead agents, and transparent live reporting on panel.gonet.com.tr.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'How is an AI-integrated digital performance agency different from a traditional agency?',
+    answer:
+      'Traditional agencies rely solely on manual workflows, while pure AI tool shops lack strategic judgment and brand depth. ' +
+      'Gonet’s Creative AI (Human × AI) model multiplies 26 years of media and strategy experience with AI speed, data analysis, and AEO/GEO engineering.',
+  },
+  {
+    question: 'Does using AI lower content or brand communication quality?',
+    answer:
+      'Unchecked automation lowers quality, whereas AI production governed by human editors and strict brand rules improves consistency. ' +
+      'Every deliverable at Gonet passes strategist and editorial review with verified facts and canonical schemas.',
+  },
+  {
+    question: 'Which AI and AEO/GEO systems does Gonet run in live production?',
+    answer:
+      'gonet.com.tr serves as a live R&D showcase: a 28 User-agent open AI bot robots.txt policy, llms.txt, 18+ Schema.org types, IndexNow integration, ' +
+      'AEO Content Engine, KVKK-compliant AI Feedback chatbox, seo.gonet.com.tr, and panel.gonet.com.tr all operate in production.',
+  },
+  {
+    question: 'Can we manage Google/Meta Ads and AEO/GEO visibility under one team?',
+    answer:
+      'Yes. Performance advertising (Google Ads, SEM, Meta), technical SEO, web engineering, and AEO/GEO (ChatGPT, Claude, Gemini, Perplexity) are managed together so data and insights reinforce every channel.',
+  },
+  {
+    question: 'How do we track our AI visibility and agency performance?',
+    answer:
+      'Start with a free technical AI readiness check at seo.gonet.com.tr. During active retainers, campaign KPIs, multi-LLM citation tracking (Share-of-Model), task approvals, and monthly PDF reports are shared live on panel.gonet.com.tr.',
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="en"
+  alternates={alternates}
+  schemas={[pageSchema, serviceSchema, faq]}
+>
+  <!-- Hero -->
+  <section
+    class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:26%;--rule-bot-w:38%"
+  >
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/en" class="hover:text-black">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-slate-700" aria-current="page">AI Digital Agency</li>
+          </ol>
+        </nav>
+        <a href="/yapay-zeka-dijital-ajans" class="text-xs font-medium uppercase tracking-wider border border-slate-300 px-3 py-1.5 hover:border-black transition">
+          Türkçe
+        </a>
+      </div>
+
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Agency Model · Creative AI = Human × AI
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        26 years of agency craft.<br />
+        <span style="color:#ff0000">Built for AI speed</span>.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Prompt-only shops lack real marketing strategy, while legacy agencies move too slowly for AI search.
+        Founded in İzmir in <strong>2000</strong>, Gonet unites performance marketing, technical SEO, and AEO/GEO
+        visibility inside one measurable <strong>Creative AI (Human × AI)</strong> operating system.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Free AI Visibility Check (seo.gonet.com.tr) →
+        </a>
+        <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Client Portal (panel.gonet.com.tr) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Layers -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Scope</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Human × AI architecture
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Data &amp; Performance Advertising (SEM / Paid Social)</h3>
+            <p class="text-slate-700 mb-2">
+              Google Ads, Performance Max, Meta, and LinkedIn campaigns powered by AI-assisted audience segmentation
+              and GA4 / BigQuery profitability tracking. Every campaign is tied to qualified pipeline and revenue.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Weekly performance optimization + BigQuery/Looker live data.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AEO/GEO Engineering &amp; Technical SEO</h3>
+            <p class="text-slate-700 mb-2">
+              Schema.org JSON-LD <code>@graph</code>, <code>llms.txt</code>, Common Crawl readiness, and extraction-ready
+              content so ChatGPT, Claude, Gemini, and Perplexity cite your brand accurately.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Structured entity inventory + Share-of-Model citation growth.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Scalable Content &amp; Editorial Governance</h3>
+            <p class="text-slate-700 mb-2">
+              AI-assisted research and content pipelines governed by human strategists and editors — producing multilingual
+              landing pages, blogs, and technical documentation at speed without losing brand voice.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Source-backed, citation-ready content library.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Unified Client Operations: panel.gonet.com.tr</h3>
+            <p class="text-slate-700 mb-2">
+              Task approvals, GA4/GSC metrics, LLM visibility tracking, and monthly PDF performance reports delivered
+              transparently on <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Deliverable:</strong> Single-pane transparency + KVKK-compliant access.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Proof</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Proven on our own production stack.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">26 Years &amp; Google Partner Heritage</h3>
+          <p class="text-slate-700 text-sm">
+            Founded in 2000 in İzmir; certified in Google's agency programs (2005–2017), Turkey's representative at
+            2009 Agencies@Google Dublin, Google Analytics #2 partner in Turkey (2025), and 190+ brands served.
+          </p>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Live AEO/GEO Showcase: gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            28 User-agent open AI crawler policy, <code>llms.txt</code>, 18+ Schema.org types, IndexNow, and
+            Cloudflare AI Crawl Control baseline running live on this site.
+          </p>
+          <a href="/en/aeo-geo-audit" class="text-sm underline font-medium">
+            Explore AEO/GEO Audit →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">FAQ</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        About our AI agency model.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Unite performance marketing and AI visibility<br />
+        <span style="color:#ff0000">in one measurable system</span>.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Schedule a meeting →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Run free AI check →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
