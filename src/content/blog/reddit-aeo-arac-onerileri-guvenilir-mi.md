@@ -1,7 +1,7 @@
 ---
 title: "Reddit'te AEO Araç Önerileri Güvenilir mi? Tanıtım Sorunu"
 description: "Graphite ajansının yaptığı analizde, AEO araçları hakkında Reddit'te yorum yapan kullanıcıların yüzde 55'inin muhtemelen o araçları tanıtan kişiler olduğu tespit edildi. Tanıtımcı olmayan kullanıcılarda ise en yaygın şikayet, araçların doğruluk skorlarıydı. Araç kıyaslaması yapmadan önce kaynak güvenilirliğini sorgulamak artık zorunlu."
-published: 2026-11-24
+published: 2026-12-05
 updated: 2026-11-24
 author:
   name: "Gonet"
@@ -9,6 +9,26 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "Graphite analizine göre Reddit'te AEO araçları hakkında yorum yapan kullanıcıların %55'i muhtemelen o aracı tanıtan kişilerden oluşuyor."
+  - "Tanıtımcı olmayan gerçek kullanıcılar arasında ise en yüksek memnuniyet oranı belirli bağımsız ölçüm araçlarında toplanıyor."
+  - "AEO aracı seçerken forum yorumlarına değil, kendi marka istemlerinizle yapılan şeffaf deneme ölçümlerine güvenilmelidir."
+karsilastirmaTablosu:
+  baslik: "AEO Araç Değerlendirmesinde Forum vs. Doğrudan Test"
+  sutunlar:
+    - "Değerlendirme Yöntemi"
+    - "Güvenilirlik Riski"
+    - "Önerilen Doğrulama"
+  satirlar:
+    - ["Reddit / Topluluk Yorumları", "%55 tanıtım amaçlı hesap riski", "Yorum geçmişi ve çıkar ilişkisi kontrolü"]
+    - ["Kendi İstem Setiyle Pilot Ölçüm", "Düşük risk (gerçek veri)", "6 AI motorunda canlı alıntı karşılaştırması"]
+sss:
+  - soru: "Reddit'teki AEO araç önerileri neden güvenilmez olabilir?"
+    cevap: "Graphite'ın analizine göre Reddit'te AEO araçları hakkında görüş bildiren kullanıcıların yarısından fazlası muhtemelen o araçları tanıtan kişiler. Yani platformda nesnel görünen yorumların büyük bölümü, ürün sahipleri veya iş ortakları tarafından yazılıyor olabilir. Kullanıcı profilinin geçmiş paylaşımlarını kontrol etmek ve skoru manuel doğrulamak en güvenli yaklaşım."
+  - soru: "AEO araçlarında doğruluk neden sorunlu?"
+    cevap: "ChatGPT, Gemini, Perplexity ve Claude gibi AI motorlarının her biri farklı RAG mimarileri kullanıyor. Bir AEO aracı bu motorları farklı sıklıkta ve yöntemle örneklediğinde, verilen görünürlük skoru gerçeği yansıtmayabilir. Tanıtımcı olmayan kullanıcılar arasında en sık dile getirilen şikayet de tam olarak bu doğruluk açığı."
+  - soru: "Türkiye'deki ajanslar bu durumdan nasıl etkileniyor?"
+    cevap: "Türkçe içerik için özelleştirilmiş AEO ölçüm aracı sayısı oldukça sınırlı. Türk ajanslar ve KOBİ'ler genellikle İngilizce merkezli araçlara güvenmek zorunda kalıyor. Bu araçların Türkçe dilsel yapısını ve yerel arama davranışını ne ölçüde doğru modellediği belirsiz. Araç seçiminde manuel doğrulama ve çok motorlu test yapmak Türkiye özelinde daha da kritik."
 ---
 ## Olay: Reddit'teki AEO Araç Tartışmaları Nesnel mi?
 

@@ -1,7 +1,7 @@
 ---
 title: "AI Alışveriş Ajanları Sahte Fırsatı %37 Oranında Satın Aldı"
 description: "Dokuz AI modelinin 6.156 alışveriş denemesinde yürütülen bağımsız bir araştırma, yapay zeka ajanlarının açıkça sahte bir fırsatı üçte bir oranında satın aldığını ortaya koydu. Yalnızca Claude Opus hiç yanılmadı. Bu sonuç, e-ticaret sitelerinin ürün listelerini AI motorlarına nasıl sunduğunu doğrudan etkiliyor."
-published: 2026-11-26
+published: 2026-12-10
 updated: 2026-11-26
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "9 AI modelinin 6.156 alışveriş denemesinde ajanların açıkça sahte bir fırsatı ortalama %37 oranında satın aldığı ölçüldü."
+  - "E-ticaret sitelerinde yalnızca cazip fiyat veya başlık değil, tutarlı ürün şeması, stok doğrulaması ve güven sinyalleri belirleyici oluyor."
+  - "Yapay zekâ alışveriş ajanlarına hazırlanan markalar için Product JSON-LD, iade politikası ve doğrulanabilir yorum yapısı kritik önem taşıyor."
+karsilastirmaTablosu:
+  baslik: "AI Alışveriş Ajanlarında Güven Sinyali Karşılaştırması"
+  sutunlar:
+    - "Sayfa Sinyali"
+    - "Sahte / Zayıf Sayfa"
+    - "Güvenilir E-Ticaret Sayfası"
+  satirlar:
+    - ["Fiyat ve Kampanya", "Tutarsız ve abartılı indirim", "Product Schema ile doğrulanmış fiyat"]
+    - ["Satıcı Kimliği", "Eksik künye ve iletişim", "Doğrulanmış Organization + iade şartları"]
+    - ["Ajan Kararı", "%37 hata oranına açık", "Yüksek güvenle öneri ve yönlendirme"]
+sss:
+  - soru: "AI alışveriş ajanları hangi sinyallere bakarak ürün seçiyor?"
+    cevap: "AI alışveriş ajanları öncelikle ürün listelerindeki yapılandırılmış verileri — fiyat, puan, yorum sayısı ve ürün açıklaması — analiz ediyor. Bu alanlar makine tarafından okunabilir formatta sunulduğunda güçlü karar sinyali oluşturuyor. Schema.org işaretlemesi bu sinyallerin AI tarafından doğru yorumlanmasını kolaylaştırıyor. Sahte listelemelerde bu alanlar \"doğru\" formatta ama anormal değerlerle doldurulduğunda modellerin bir kısmı ayrımı yapamıyor."
+  - soru: "Claude Opus neden hiç yanılmadı, diğer üst modeller yanıldı?"
+    cevap: "Araştırmacı kesin bir mekanizma tespit edemedi; ancak Claude Opus'un anormallik tespiti konusunda özel eğitim almış olabileceğini öne sürüyor. Önemli bulgu şu: Güvenilirlik model büyüklüğüyle doğru orantılı değil. Aynı şirketin (Anthropic) orta ve hızlı modelleri en yüksek hata oranlarını gösterdi. Bu, hangi modeli hangi görev için seçtiğinizin kritik olduğunu ortaya koyuyor."
+  - soru: "Bu araştırma e-ticaret SEO stratejimi nasıl etkiler?"
+    cevap: "AI ajanlarının karar mekanizmaları, arama motoru sıralama algoritmalarıyla giderek örtüşüyor. Listing kalitesi, fiyat tutarlılığı ve yorum özgünlüğü hem klasik SEO hem de GEO için çift işlevli güven sinyali haline geliyor. Türkiye'de AI destekli alışveriş henüz yaygınlaşmamış olsa da Google Shopping'in AI katmanı zaten bu sinyalleri kullanıyor. Bugün yapılan listing optimizasyonu, yarınki AI ajanı trafiğine hazırlık anlamına geliyor."
 ---
 ## Olay: Dokuz Model, 6.156 Alışveriş, Bir Sahte Ürün
 

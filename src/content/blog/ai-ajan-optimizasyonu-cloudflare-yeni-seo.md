@@ -1,7 +1,7 @@
 ---
 title: "AI Ajan Optimizasyonu: Cloudflare CEO'su Bunu Yeni SEO Olarak Tanımladı"
 description: "Cloudflare CEO'su Matthew Prince, AI ajanlarının web sitelerini ziyaret etme biçimini yönetmeyi 'yeni SEO' olarak nitelendirdi. OpenAI'ın sayfa değişiklik sinyalleri için Cloudflare'e ödeme yaptığı ortaya çıktı. Bu gelişme, AEO ve GEO stratejistleri için içerik erişilebilirliğini yeniden düşünme zamanının geldiğini gösteriyor."
-published: 2026-11-09
+published: 2026-12-03
 updated: 2026-11-09
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "Cloudflare CEO'su Matthew Prince, AI ajanlarının web sitelerini tarama ve anlama biçimini yönetmeyi 'yeni SEO' olarak tanımlıyor."
+  - "OpenAI'ın sayfa değişiklik sinyalleri için Cloudflare'e ödeme yapması, taze içeriğin AI motorları için kritik değer taşıdığını gösteriyor."
+  - "Klasik sıralama odaklı SEO'nun yerini, AI ajanlarına temiz HTML ve yapısal veri sunarak alıntılanma yarışı alıyor."
+karsilastirmaTablosu:
+  baslik: "Klasik SEO ve AI Ajan Optimizasyonu Farkları"
+  sutunlar:
+    - "Boyut"
+    - "Klasik SEO"
+    - "AI Ajan Optimizasyonu (AEO)"
+  satirlar:
+    - ["Ana Hedef", "Arama sonuçlarında üst sıralar", "AI yanıtlarında doğrudan kaynak gösterilme"]
+    - ["Güncellik Sinyali", "Sitemap ve tarama bütçesi", "Anlık sayfa değişiklik sinyalleri"]
+    - ["İçerik Biçimi", "Anahtar kelime uyumlu sayfalar", "Özet, tablo ve yapısal veri (JSON-LD)"]
+sss:
+  - soru: "AI ajan optimizasyonu ile klasik SEO arasındaki temel fark nedir?"
+    cevap: "Klasik SEO, arama motoru botlarının içeriği indekslemesini ve sıralamada yüksek çıkmasını hedefler. AI ajan optimizasyonu ise ChatGPT, Claude veya Perplexity gibi platformların yanıt üretirken sitenizin içeriğini doğru, güncel ve bağlamıyla birlikte kullanmasını sağlamaya odaklanır. Sıralama yerine alıntılanma ve temsil edilme ön plana geçer."
+  - soru: "OpenAI'ın Cloudflare'e ödediği sayfa değişiklik sinyali nedir ve sitelere nasıl yansır?"
+    cevap: "Sayfa değişiklik sinyali, bir web sayfasının güncellendiğini AI tarayıcısına bildiren bir mekanizmadır. OpenAI bu sinyalleri Cloudflare üzerinden satın alıyor; böylece tarayıcı sayfayı gereksiz yere ziyaret etmek yerine yalnızca değişiklik olduğunda içeriği yeniden çekiyor. Siteler açısından bu, gereksiz bot trafiğini azaltır ve AI platformlarında içeriğin güncel tutulmasını kolaylaştırır."
+  - soru: "llms.txt dosyası bu yeni modelde neden önemli?"
+    cevap: "llms.txt, sitenizin hangi içeriklerinin AI motorlarına açık olduğunu ve nasıl kullanılabileceğini tanımlayan bir rehber dosyadır. Cloudflare'in tarif ettiği niyete dayalı erişim modelinde, kendini doğru tanıtan ajanlara farklı erişim politikaları uygulanabilir. Bu nedenle llms.txt, sitenizin AI ekosistemi içindeki erişilebilirliğini yönetmenin temel noktası haline geliyor."
 ---
 ## Olay: Cloudflare'in 'Act 4' Geliri ve OpenAI Ortaklığı
 

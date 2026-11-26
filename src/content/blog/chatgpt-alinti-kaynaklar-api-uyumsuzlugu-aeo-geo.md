@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Hangi Sayfayı Alıntılıyor? API ile Tahmin Etmek Düşündüğünüzden Zor"
 description: "Singapur ve Xi'an Jiaotong Üniversitesi araştırmacıları, Google sonuçları ile OpenAI Responses API'nin ChatGPT'nin gerçekte alıntıladığı sayfaların yalnızca yüzde 26'sını yakalayabildiğini gösterdi. Bu bulgu, AEO ve GEO stratejilerinde 'görünür olmak' ile 'alıntılanmak' arasındaki derin uçurumu bir kez daha gündeme taşıyor."
-published: 2026-10-26
+published: 2026-12-02
 updated: 2026-10-26
 author:
   name: "Gonet"
@@ -9,6 +9,26 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "Google sonuçları ve OpenAI Responses API, ChatGPT'nin gerçekte alıntıladığı sayfaların yalnızca %26'sını yakalayabiliyor."
+  - "Google'da ilk sırada yer almak ChatGPT tarafından kaynak gösterileceğiniz anlamına gelmiyor; anlamsal yapı belirleyici oluyor."
+  - "Güvenilir AEO ölçümü için API tahmini yerine doğrudan ChatGPT web arayüzü üzerinden periyodik alıntı takibi gerekiyor."
+karsilastirmaTablosu:
+  baslik: "ChatGPT Alıntı Tahmini vs. Gerçek Arayüz Davranışı"
+  sutunlar:
+    - "Ölçüm Yöntemi"
+    - "Alan Adı Eşleşmesi"
+    - "Tam Sayfa Eşleşmesi"
+  satirlar:
+    - ["Google + OpenAI API Birlikte", "~%49", "%26"]
+    - ["Doğrudan Web Arayüzü Takibi", "Gerçek kaynak kümesi", "%100 gözlemlenen alıntı"]
+sss:
+  - soru: "ChatGPT hangi sayfaları kaynak olarak seçiyor?"
+    cevap: "ChatGPT, arama yaptıktan sonra dönen sonuçlar arasından içerik kalitesine, alıntılanabilir bölümlerin yoğunluğuna ve sayfa yapısının anlamsal taranabilirliğine göre kaynak belirliyor. Bu seçim süreci Google sıralama mantığından bağımsız çalışıyor; dolayısıyla Google'da ilk sırada olmak ChatGPT tarafından alıntılanmayı garanti etmiyor. Araştırma, iki vekil sistemin (Google + API) gerçek ChatGPT alıntılarını yüzde 26 oranında yakalayabildiğini gösterdi."
+  - soru: "Google API ile ChatGPT'nin alıntılarını tahmin edebilir miyim?"
+    cevap: "Kısmi olarak evet, ama güvenilir bir eşleşme değil. Söz konusu araştırmaya göre OpenAI Responses API ve Google birlikte alıntılanan sitelerin yaklaşık yüzde 49'unu buluyor; ancak tam sayfa eşleşmesi yüzde 26'da kalıyor. Bu nedenle araştırmacılar site bazında takip yapılmasını, promtların periyodik yeniden çalıştırılmasını ve model güncellemelerinin ardından testlerin tekrarlanmasını öneriyor."
+  - soru: "AEO stratejisi geliştirirken bu bulgudan ne öğrenmeliyim?"
+    cevap: "Klasik SEO'nun \"sırala ve trafik kazan\" mantığı LLM alıntıları için yeterli değil. AEO'da hedef, sayfanızın bir LLM tarafından kaynak seçilmesidir; bu da içeriğinizin alıntılanabilir (citation-ready) biçimde yapılandırılmasını, Schema.org işaretlemesini ve doğrudan sorulara net cevap veren bölümler içermesini gerektiriyor. Sıralama takibi kadar alıntı takibi de stratejinik öncelik haline gelmeli."
 ---
 ## Olay: Araştırmacılar ChatGPT'nin Kaynak Seçimini Taklit Etmeye Çalıştı
 

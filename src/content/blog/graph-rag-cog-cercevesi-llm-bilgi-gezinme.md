@@ -1,7 +1,7 @@
 ---
 title: "Graph-RAG Evrimleşiyor: CoG Çerçevesi LLM Bilgisini Nasıl Dönüştürüyor?"
 description: "EMNLP 2026'ya kabul edilen CoG (Cognition on Graph) çerçevesi, büyük dil modellerinin bilgi tabanlarında nasıl gezindiğini köklü biçimde yeniden tanımlıyor. Graf yapıları ile metin kaynaklarını çift yönlü senkronize eden bu eğitimsiz yaklaşım, RAG sistemlerinin karmaşık çok adımlı sorulara verdiği yanıtların kalitesini ve verimliliğini artırıyor. AEO ve GEO stratejistleri için pratik çıkarımları var."
-published: 2026-09-21
+published: 2026-12-13
 updated: 2026-09-21
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "EMNLP 2026'ya kabul edilen CoG (Cognition on Graph) çerçevesi, LLM'lerin graf ve metin kaynakları arasında çift yönlü gezinmesini sağlıyor."
+  - "Plan-Keşfet-Yansıt döngüsü sayesinde yapay zekâ tek bir sayfayla yetinmeyip bağlantılı alt konular arasında kanıt topluyor."
+  - "Site içi güçlü iç linkleme ve konusal kümelenme (topic cluster), CoG benzeri sistemlerin markanızı bütünlüklü anlamasını sağlıyor."
+karsilastirmaTablosu:
+  baslik: "Tek Adımlı Arama vs. CoG Çift Yönlü Gezinme"
+  sutunlar:
+    - "Mekanizma"
+    - "Klasik RAG"
+    - "CoG (Graph + Metin)"
+  satirlar:
+    - ["Arama Akışı", "Tek seferlik benzerlik araması", "Plan-Keşfet-Yansıt döngüsü"]
+    - ["Bağlantı Kullanımı", "Zayıf", "Varlık grafiği ve iç link takibi"]
+    - ["Site Mimarisi Gereksinimi", "Tekil sayfa optimizasyonu", "Küme içerikler + güçlü iç link ağı"]
+sss:
+  - soru: "CoG çerçevesi SEO'yu nasıl etkiler?"
+    cevap: "CoG doğrudan bir arama sıralaması faktörü değil; ancak ChatGPT ve Perplexity gibi AI motorlarının bilgi toplama mantığını gösteriyor. Bu motorlar, yapılandırılmış varlıkları ve metin içindeki alıntılanabilir blokları öncelikli işliyor. Schema.org ile tanımlanmış içerikler ve net, soru-cevap formatındaki metinler, bu sistemlerde daha yüksek temsil olasılığı taşıyor. Kısa yanıt: varlık mimarisi ve semantic chunking uygulayan siteler avantajlı."
+  - soru: "RAG sistemlerinde \"çift yönlü graf-metin sinerjisi\" ne demek?"
+    cevap: "Geleneksel RAG yalnızca metinden bilgi çekip LLM'e iletir. Çift yönlü sinerji, metin ve graf yapısının birbirini dinamik olarak beslediği anlamına gelir: metinden bulunan bir kavram, grafta yeni bir keşif rotası açar; graf bağlantıları ise metinde hangi bölümlerin okunacağını yönlendirir. AEO perspektifinden bakıldığında, içeriğinizin hem yapılandırılmış veri (Schema.org) hem de zengin, bağlamsal metin sunması bu iki katmanı birleştiriyor."
+  - soru: "Türkçe içerik üreten bir site bu araştırmadan nasıl pratik çıkarım yapabilir?"
+    cevap: "Üç adım yeterli: Birincisi, Schema.org ile temel varlıkları (marka, ürün, hizmet) tanımlayın. İkincisi, karmaşık kullanıcı sorularını birden fazla içerik bloğuyla yanıtlayın — her blok ayrı bir \"keşif adımı\" olarak tasarlanmalı. Üçüncüsü, iç link ağınızı ilişkili kavramlar arasında güçlendirin. Bu üç uygulama, CoG benzeri sistemlerin sitenizi daha verimli işlemesini sağlıyor ve AI motorlarındaki temsil olasılığını artırıyor."
 ---
 ## Olay: CoG Nedir ve Neden Önemli?
 

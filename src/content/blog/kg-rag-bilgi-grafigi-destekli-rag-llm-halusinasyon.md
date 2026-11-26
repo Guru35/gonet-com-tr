@@ -1,7 +1,7 @@
 ---
 title: "KG-RAG: Bilgi Grafiği Destekli RAG, LLM Halüsinasyonunu Nasıl Kırıyor?"
 description: "arXiv'de yayımlanan KG-RAG4SM araştırması, şema eşleştirme görevlerinde LLM halüsinasyonunu bilgi grafiği destekli RAG (Retrieval-Augmented Generation — geri alma güçlendirilmiş üretim) ile %39,79 oranında azaltıyor. Bu teknik ilerleme, AI arama motorlarının içerik alıntılama mekanizmasını doğrudan etkiliyor ve AEO/GEO stratejistleri için somut dersler barındırıyor."
-published: 2026-11-23
+published: 2026-12-11
 updated: 2026-11-23
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "KG-RAG4SM araştırması, bilgi grafiği destekli RAG mimarisinin şema eşleştirme görevlerinde halüsinasyonu %39,79 azalttığını gösterdi."
+  - "Düz metin vektör aramasına kavram ilişkilerinin eklenmesi, yapay zekânın marka ve hizmet bağlamını karıştırmasını önlüyor."
+  - "Türkçe web sitelerinde Schema.org ve varlık bağlantıları kurmak, bilgi grafiği tabanlı AI yanıtlarında doğruluğu artırıyor."
+karsilastirmaTablosu:
+  baslik: "Standart RAG vs. Bilgi Grafiği Destekli RAG (KG-RAG)"
+  sutunlar:
+    - "Özellik"
+    - "Standart Vektör RAG"
+    - "KG-RAG"
+  satirlar:
+    - ["Bilgi Kaynağı", "Yalnızca metin parçaları", "Metin parçaları + kavram ilişkileri grafiği"]
+    - ["Halüsinasyon Oranı", "Yüksek (bağlam kopukluğu riski)", "%39,79 daha düşük hata oranı"]
+    - ["AEO Karşılığı", "Düz makale metni", "Metin + Schema.org varlık ağı"]
+sss:
+  - soru: "KG-RAG nedir ve normal RAG'dan farkı nedir?"
+    cevap: "Normal RAG (Geri Alma Güçlendirilmiş Üretim), bir LLM'e yanıt üretmeden önce vektör tabanından ilgili metin parçaları sunar. KG-RAG ise buna ek olarak bilgi grafiklerindeki kavram ilişkilerini (is-a, part-of, related-to) tarayarak çok daha zengin ve bağlamlı bir bilgi paketi oluşturur. KG-RAG4SM araştırması, bu yaklaşımın şema eşleştirmede halüsinasyonu belirgin biçimde azalttığını kanıtladı."
+  - soru: "Bu araştırma AEO ve GEO stratejileriyle nasıl ilişkili?"
+    cevap: "ChatGPT, Perplexity ve Google AI Overviews gibi sistemler içerik alıntılarken RAG benzeri mekanizmalar kullanır. KG-RAG4SM'nin gösterdiği şey, bağlam kalitesinin alıntı doğruluğunu doğrudan etkilediğidir. AEO/GEO stratejistleri için bu, içeriğin yalnızca anahtar kelime yoğunluğuyla değil; yapısal bütünlük, varlık otoritesi ve bilgi grafiği temsiliyle optimize edilmesi gerektiği anlamına gelir."
+  - soru: "Türkçe içerik üreticileri bu gelişmeden nasıl etkilenir?"
+    cevap: "Türkçe varlıkların açık bilgi grafiklerindeki temsili kısıtlı olduğundan, Türk markaları KG tabanlı geri alma aşamalarında dezavantajlı başlıyor. Schema.org markup, JSON-LD ve Wikidata varlık katkıları bu açığı kapatmanın en doğrudan yollarıdır. Türkçe içerik üreticilerinin bu yapısal adımları erken atması, AI motorlarında alıntılanma rekabetinde önemli bir avantaj sağlar."
 ---
 ## Olay: Bilgi Grafiği + RAG Birleşimi Şema Eşleştirmeyi Yeniden Tanımlıyor
 

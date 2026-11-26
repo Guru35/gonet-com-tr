@@ -1,7 +1,7 @@
 ---
 title: "RAG Sistemleri Neden Yanlış Alıntı Yapar? CHyD Bunu Nasıl Önlüyor?"
 description: "Araştırmacılar, RAG (Retrieval-Augmented Generation — Geri Getirme Destekli Üretim) tabanlı LLM sistemlerinin teknik alanlarda alıntı doğruluğunu %40'ın altına düşürdüğünü ölçtü. Constrained Hybrid Decoding (CHyD) adlı yeni yöntem, üretilen yanıtların kaynak belgelerle birebir eşleşmesini zorunlu kılıyor. AEO ve GEO stratejistleri için bu, içerik güvenilirliğinin nasıl ölçüldüğünü doğrudan etkiliyor."
-published: 2026-09-14
+published: 2026-12-12
 updated: 2026-09-14
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "Araştırmalar, teknik alanlarda RAG tabanlı LLM sistemlerinin alıntı doğruluğunun %40'ın altına düşebildiğini ortaya koydu."
+  - "CHyD (Kısıtlı Hibrit Çözümleme) yöntemi, modelin kaynak metne sadık kalarak uydurma atıf üretmesini teknik olarak sınırlıyor."
+  - "Web içeriklerinde her iddianın hemen yanında açık veri ve kaynak belirtmek, AI motorlarının doğru eşleştirme yapmasını kolaylaştırıyor."
+karsilastirmaTablosu:
+  baslik: "Standart RAG Üretimi vs. CHyD Kısıtlı Çözümleme"
+  sutunlar:
+    - "Ölçüt"
+    - "Standart RAG"
+    - "CHyD Yaklaşımı"
+  satirlar:
+    - ["Teknik Alıntı Doğruluğu", "%40'ın altına düşebilir", "Kaynak metin kısıtlamasıyla yüksek doğruluk"]
+    - ["Yanlış Atıf Riski", "Yüksek", "Belirgin biçimde azaltılmış"]
+    - ["İçerik Yazarlığı Etkisi", "Belirsiz cümleler risk üretir", "Net atıf ve yapısal veri ile uyumlu"]
+sss:
+  - soru: "RAG sistemleri neden yanlış alıntı üretiyor?"
+    cevap: "RAG sistemi doğru belgeyi getirebilir; ancak LLM, üretim aşamasında kaynak metni birebir kopyalamak yerine yeniden yorumlayarak hallucination (uydurma) üretebilir. Araştırmalar teknik alanlarda bu hatanın alıntı örneklerinin %60'ından fazlasını etkileyebildiğini gösteriyor. Sorun modelin bilgisizliğinden değil, serbest üretim mimarisinin kısıtlanmamasından kaynaklanıyor."
+  - soru: "CHyD nedir ve AEO ile ilişkisi nedir?"
+    cevap: "CHyD (Constrained Hybrid Decoding), LLM'nin alıntı modundayken yalnızca kaynak belgede birebir var olan metin parçalarını üretmesini zorunlu kılan bir kod çözme yöntemidir. AEO perspektifinden önemli: AI motorları içeriğinizi daha güvenilir bulduğunda alıntı olasılığı artıyor. CHyD gibi sistemlerin yaygınlaşması, alıntılanabilir ve yapısal açıdan net içeriklere olan talebi artıracak."
+  - soru: "Türkçe içerik üreticileri bu gelişmeye nasıl hazırlanmalı?"
+    cevap: "Öncelikle içerik yapısını gözden geçirin: Her bilgi birimi, tırnak içine alındığında bağlamını yitirmeyen bir paragraf olmalı. Teknik terimler, ürün özellikleri ve süreç açıklamaları kısa ve bağımsız bloklarda sunulmalı. Schema.org işaretlemesi ve FAQPage yapısı, LLM'nin doğru span'ı seçme olasılığını artırıyor. Bu hazırlık hem bugünkü AI Overviews hem de gelecekteki CHyD tabanlı sistemler için geçerli."
 ---
 ## Olay: RAG Sistemleri Neden Yanlış Alıntı Yapıyor?
 

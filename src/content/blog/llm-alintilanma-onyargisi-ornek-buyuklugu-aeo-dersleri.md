@@ -1,7 +1,7 @@
 ---
 title: "LLM'ler Hangi Çalışmaları Öne Çıkarır? Alıntı Önyargısı ve AEO Dersleri"
 description: "Cochrane veritabanındaki 20 sistematik derlemeyi referans alan yeni bir arXiv çalışması, ChatGPT, Claude ve Gemini'nin klinik sorularda hangi çalışmaları alıntıladığını ölçtü. Sonuç: LLM'ler büyük örneklemli çalışmaları sistematik biçimde tercih ediyor, model ve kullanıcı rolü geri çağırma oranını ciddi şekilde etkiliyor. Bu bulgu, içerik üreticileri için doğrudan bir AEO sinyali."
-published: 2026-08-17
+published: 2026-12-06
 updated: 2026-08-17
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "ChatGPT, Claude ve Gemini üzerinde yapılan araştırma, LLM'lerin büyük örneklemli ve net nicel kanıt sunan çalışmaları öne çıkardığını gösterdi."
+  - "Yüzeysel veya genelleme yapan içerikler yerine somut veri, metodoloji ve örneklem belirten sayfalar daha sık alıntılanıyor."
+  - "AEO içeriklerinde iddia yerine ölçüm, tarih ve kaynak göstermek yapay zekâ güven puanını doğrudan yükseltiyor."
+karsilastirmaTablosu:
+  baslik: "LLM Alıntı Tercihi: Zayıf İçerik vs. Kanıta Dayalı İçerik"
+  sutunlar:
+    - "Özellik"
+    - "Düşük Alıntı Alan İçerik"
+    - "Yüksek Alıntı Alan İçerik"
+  satirlar:
+    - ["Veri Desteği", "Genel ifadeler ve yorum", "Ölçülmüş sayı, oran ve örneklem"]
+    - ["Kaynak Şeffaflığı", "Belirsiz atıf", "Doğrudan araştırma/kurum referansı"]
+    - ["Yanıt Uygunluğu", "Uzun giriş paragrafları", "Net özet maddeleri ve yapısal tablo"]
+sss:
+  - soru: "LLM'ler içerikleri seçerken en çok hangi faktörü dikkate alıyor?"
+    cevap: "Bu araştırmaya göre yayın yılı veya açık erişim durumundan bağımsız olarak örneklem büyüklüğü, LLM'lerin bir çalışmayı alıntılama ihtimalini en güçlü şekilde belirleyen faktör. Log ölçeğinde örneklem büyüklüğündeki her bir birimlik artış, alıntılanma olasılığını 1,80 kat artırıyor. İçerik üreticileri için bu, veriye dayalı, ölçülebilir argümanlar sunan sayfaların LLM alıntı sırasında avantajlı olduğu anlamına geliyor."
+  - soru: "ChatGPT, Claude ve Gemini arasındaki geri çağırma farkı neden bu kadar büyük?"
+    cevap: "Çalışma bu farkın nedenini doğrudan açıklamıyor; ancak olası etkenler şunlar: ön-eğitim veri tabanının genişliği, RAG mimarisinin yapılandırılma biçimi ve model prompt yorumlama kapasitesi. ChatGPT %63,1, Claude %37,0 ve Gemini %17,3 geri çağırma oranına ulaştı. Bu fark, bir markanın farklı LLM'lerde farklı düzeylerde temsil edilebileceğini ve GEO stratejisinin platform bazında kurgulanması gerektiğini gösteriyor."
+  - soru: "Kullanıcı rolü neden alıntı kalitesini etkiliyor?"
+    cevap: "Araştırmacı rolüyle kurulan sorgular, hasta rolüyle kıyaslandığında %6,7 daha yüksek geri çağırma oranı üretiyor. Bunun nedeni, uzman rolü simüle eden prompt'ların LLM'i daha teknik, kaynak-yoğun bir yanıt moduna yönlendirmesi. AEO açısından bu şunu söylüyor: Sayfanızın hitap ettiği kullanıcı niyetini (teknik mi, genel mi?) açıkça tanımlayan içerik yapısı, LLM'in o sayfayı doğru sorgularda devreye sokma ihtimalini artırır."
 ---
 ## Olay: LLM'ler Uzmanların Bulduğunu Buluyor mu?
 
