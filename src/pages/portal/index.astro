@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  PORTAL_GUVENLIK_BASLIKLARI,
+  PORTAL_MESAJLARI,
+  musteriDurumuGetir,
+} from '../../lib/musteriPortali';
+
+for (const [anahtar, deger] of Object.entries(PORTAL_GUVENLIK_BASLIKLARI)) {
+  Astro.response.headers.set(anahtar, deger);
+}
+
+const title = 'Müşteri Portalı — Gonet İzmir';
+const description = 'Doğrulanmış müşteriler için teklif ve proje durum takip ekranı.';
+
+const istekUrl = new URL(Astro.request.url);
+const token = istekUrl.searchParams.get('oturum')?.trim() ?? '';
+const hedefMusteriId = istekUrl.searchParams.get('musteri')?.trim() || undefined;
+const gizliAnahtar = process.env.PORTAL_OTURUM_SECRET?.trim() || process.env.PAYLOAD_PREVIEW_SECRET?.trim() || '';
+const apiTabanUrl = process.env.MOTOR_API_URL?.trim() || 'https://api.gonet.com.tr';
+
+const sonuc = token
+  ? await musteriDurumuGetir({
+      jeton: token,
+      gizliAnahtar,
+      hedefMusteriId,
+      apiTabanUrl,
+    })
+  : {
+      ok: false,
+      durumKodu: 403 as const,
+      otomatikCikis: true,
+      mesaj: PORTAL_MESAJLARI.eksikOturum,
+      leadler: [],
+      firsatlar: [],
+    };
+
+if (!sonuc.ok && Astro.response) {
+  Astro.response.status = sonuc.durumKodu;
+}
+---
+
+<BaseLayout title={title} description={description} noindex={true} noarchive={true}>
+  <section class="bg-white border-b border-black">
+    <div class="max-w-4xl mx-auto px-6 py-14">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] text-slate-500 mb-4">
+        Gonet Güvenli Müşteri Köprüsü
+      </p>
+      <h1 class="editorial-display text-4xl sm:text-5xl leading-tight mb-4">
+        Müşteri Durum Portalı
+      </h1>
+      <p class="text-base text-slate-600">
+        Teklif ve proje aşamalarınızı bu ekrandan güvenle izleyebilirsiniz.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-6 space-y-8">
+      {!sonuc.ok ? (
+        <div
+          role="alert"
+          data-otomatik-cikis={sonuc.otomatikCikis ? 'true' : 'false'}
+          class="border border-red-300 bg-red-50 p-6 text-red-900"
+        >
+          <p class="font-semibold mb-1">
+            {sonuc.otomatikCikis ? 'Oturum Sonlandırıldı' : 'Bağlantı Uyarısı'}
+          </p>
+          <p class="text-sm">{sonuc.mesaj}</p>
+          <div class="mt-4">
+            <a href="/teklif-al" class="inline-block border border-black px-4 py-2 text-xs uppercase tracking-widest hover:bg-black hover:text-white">
+              Yeni Teklif / Bağlantı Talep Et
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div class="space-y-8">
+          <div class="border border-black/15 p-5 bg-slate-50 flex flex-wrap justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-slate-500">Aktif Müşteri</p>
+              <p class="font-semibold text-lg">{sonuc.musteri?.adSoyad || sonuc.musteri?.musteriId}</p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-slate-500">Kiracı Alanı</p>
+              <p class="font-mono text-sm">{sonuc.musteri?.kiraciId}</p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold mb-3">Talepleriniz</h2>
+            {sonuc.leadler.length === 0 ? (
+              <p class="text-sm text-slate-500">Henüz aktif talep kaydı bulunmuyor.</p>
+            ) : (
+              <ul class="divide-y divide-black/10 border border-black/15">
+                {sonuc.leadler.map((lead) => (
+                  <li class="p-4 flex justify-between items-center gap-4">
+                    <div>
+                      <p class="font-medium">{lead.adSoyad}</p>
+                      {lead.hizmet && <p class="text-xs text-slate-500">{lead.hizmet}</p>}
+                    </div>
+                    <span class="text-xs uppercase tracking-wider px-2.5 py-1 border border-black/20">
+                      {lead.durum}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold mb-3">Fırsat ve Teklif Aşamaları</h2>
+            {sonuc.firsatlar.length === 0 ? (
+              <p class="text-sm text-slate-500">Henüz aktif teklif aşaması bulunmuyor.</p>
+            ) : (
+              <ul class="divide-y divide-black/10 border border-black/15">
+                {sonuc.firsatlar.map((deal) => (
+                  <li class="p-4 flex justify-between items-center gap-4">
+                    <div>
+                      <p class="font-medium">{deal.baslik}</p>
+                      <p class="text-xs text-slate-500">{deal.tutar} {deal.paraBirimi}</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-wider px-2.5 py-1 bg-black text-white">
+                      {deal.asama}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
