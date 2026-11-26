@@ -52,8 +52,10 @@ jobs:
       - name: Bağımlılıkları kur
         run: npm ci
 
-      - name: Playwright Chromium kur
-        run: npx playwright install --with-deps chromium
+      - name: Playwright ve Chromium kur
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
 
       - name: Tam Astro derleme
         run: npm run build
