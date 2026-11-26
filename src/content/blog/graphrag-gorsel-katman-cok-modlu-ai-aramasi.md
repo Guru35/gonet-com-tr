@@ -1,7 +1,7 @@
 ---
 title: "GraphRAG'a Görsel Katman: Çok Modlu AI Araması Ne Anlama Geliyor?"
 description: "FieldGuideRAG, bilgi grafiklerine fotoğraf düğümleri ekleyerek görsel benzerlik tanımayı metin açıklamalarının önüne geçiriyor. Bu araştırma, RAG sistemlerinin yalnızca metin değil görsel kanıt üzerinden çalışabileceğini kanıtlıyor. E-ticaret, turizm ve ürün kataloğu yöneticileri için çok modlu GEO stratejisinin temeli burada atılıyor."
-published: 2026-11-25
+published: 2026-12-14
 updated: 2026-11-25
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "FieldGuideRAG yaklaşımı bilgi grafiklerine fotoğraf düğümleri ekleyerek görsel doğrulamayı metin açıklamalarının önüne taşıyor."
+  - "Çok modlu (metin + görsel) AI aramaları büyüdükçe ürün ve hizmet görsellerinin alt metni ve bağlamı sıralamayı doğrudan etkiliyor."
+  - "Özel model eğitimi gerektirmeyen bu mimari, yapısal veriyle desteklenmiş kaliteli görsellerin AI görünürlüğünü hızla artıracağını gösteriyor."
+karsilastirmaTablosu:
+  baslik: "Metin Odaklı RAG vs. Çok Modlu Görsel GraphRAG"
+  sutunlar:
+    - "Katman"
+    - "Metin Odaklı RAG"
+    - "FieldGuideRAG (Çok Modlu)"
+  satirlar:
+    - ["Görsel İşleme", "Yalnızca alt metin / dosya adı", "Doğrudan görsel düğümü ve benzerlik analizi"]
+    - ["Kullanım Alanı", "Yazılı rehber ve makale", "Ürün, emlak, sağlık ve görsel katalog"]
+    - ["Site Hazırlığı", "İyi başlık ve paragraf", "Net alt metin + ImageObject Schema + kaliteli fotoğraf"]
+sss:
+  - soru: "GraphRAG ile klasik RAG arasındaki fark nedir?"
+    cevap: "Klasik RAG, sorguya anlamsal olarak yakın metin parçalarını getirir ve dil modeline sunar. GraphRAG ise varlıklar arasındaki ilişkileri bir grafik yapısında tutar; bu sayede yalnızca içerik değil, bağlam ve ilişki bilgisi de yanıta dahil edilir. FieldGuideRAG bu yapıya bir görsel doğrulama katmanı ekleyerek metinle ifade edilemeyen benzerlikleri fotoğraf üzerinden çözmektedir."
+  - soru: "Çok modlu AI aramaları Türk e-ticaret sitelerini nasıl etkiler?"
+    cevap: "ChatGPT ve Gemini gibi modeller görsel sorgulama yeteneklerini genişlettikçe, ürün sayfalarındaki görsellerin kalitesi ve metadata uyumu arama görünürlüğünü doğrudan etkileyecek. Benzer ürünler arasında AI'ın doğru seçim yapabilmesi için görsel ve metin bilgisinin tutarlı, yapısal veriyle desteklenmiş olması gerekiyor. Bu durum Schema.org işaretlemesini zorunlu kılıyor."
+  - soru: "Training-free (eğitim gerektirmeyen) yaklaşım pratikte ne anlama geliyor?"
+    cevap: "FieldGuideRAG'ın kullandığı VLM, bu görev için yeniden eğitilmemiş; mevcut kapasitesiyle çalışıyor. Bu, benzer sistemlerin ticari uygulamalarının kurulum maliyetini düşüreceği anlamına geliyor. İşletmeler kendi ürün grafiklerini oluşturup mevcut AI modellerini bu yapıya bağlayabilecek; özel model eğitimi gerektirmeyecek."
 ---
 ## Olay: Bilgi Grafiğine Fotoğraf Düğümü Ekleniyor
 

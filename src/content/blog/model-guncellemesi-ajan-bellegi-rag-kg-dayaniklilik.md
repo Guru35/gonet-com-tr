@@ -1,7 +1,7 @@
 ---
 title: "Model Güncellemesi Sonrası Ajan Belleği: RAG mı, KG mi Dayanıklı?"
 description: "Bir AI ajanı model güncellemesinden geçtiğinde belleği ne olur? arXiv'de yayımlanan kontrollü çalışma, dört farklı bellek mimarisini karşılaştırıyor: sabit şema bilgi grafikleri model değişikliğine karşı neredeyse sıfır hata ile direniyor; doğal dil notları ise yüzde 13'e varan doğruluk kaybı yaşıyor. RAG ve GEO altyapısı kuran ekipler için kritik mimari bir uyarı."
-published: 2026-09-28
+published: 2026-12-15
 updated: 2026-09-28
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "AI ajanları yeni bir dil modeline geçtiğinde doğal dil notları ve eski vektör indeksleri anlam kaybına uğrayabiliyor."
+  - "Sabit şemalı bilgi grafikleri (KG-fixed), model değişimlerinden bağımsız olarak bilgi tutarlılığını en yüksek düzeyde koruyor."
+  - "Web sitelerinde yapılandırılmış JSON-LD ve sabit varlık tanımları kullanmak, model güncellemelerinde marka bilginizi korumanın en sağlam yoludur."
+karsilastirmaTablosu:
+  baslik: "Model Güncellemesi Karşısında Bellek Mimarileri Dayanıklılığı"
+  sutunlar:
+    - "Bellek Mimarisi"
+    - "Model Değişimi Etkisi"
+    - "AEO / Kurumsal Çıkarım"
+  satirlar:
+    - ["Doğal Dil Notları (NOTES)", "Yüksek bilgi kaybı ve örüntü sapması", "Yapılandırılmamış metne aşırı güvenilmemeli"]
+    - ["Vektör RAG", "Tam yeniden-embedding gerektirir", "İçerik güncelliği ve net bölümlendirme şart"]
+    - ["Sabit Şemalı Bilgi Grafiği", "Modelden bağımsız yüksek dayanıklılık", "Schema.org ve sabit varlık verisi kalıcı koruma sağlar"]
+sss:
+  - soru: "Model güncellemesi sonrası RAG sistemi neden bozulur?"
+    cevap: "RAG sistemlerinde her metin parçası bir embedding modeli tarafından vektöre çevrilir. Yeni model farklı bir vektör uzayı kullanır. Eski vektörlerle yeni sorgular arasındaki mesafe hesabı anlamsızlaşır; doğru parçalar depoda dursa bile sorgu onları bulamaz. Tam yeniden-embedding (re-embedding) bu uyumsuzluğu giderir; kısmi geçiş ise çoğu faydayı heba eder."
+  - soru: "NOTES mimarisi neden bu kadar model bağımlı?"
+    cevap: "**Cevap: Doğal dil notları, oluşturulduğu modelin dil örüntüsünü taşır. Yeni model aynı metni farklı anlam ağırlıklarıyla yorumlayabilir. Üstelik bilginin yüzde 80'i zaten not yazılırken kaybolmaktadır; model değişimi bu kaybı gün yüzüne çıkarır. Sorun geçiş anında değil, bilgi sıkıştırma anında başlar."
+  - soru: "Sabit şema bilgi grafiği (KG-fixed) GEO projelerinde nasıl kullanılır?"
+    cevap: "Marka bilgisi, ürün özellikleri veya SSS içerikleri sabit alanlara (entity, relation, attribute) haritalandığında, hangi LLM okursa okusun yapı aynı kalır. Bu, GEO (Generative Engine Optimization) açısından kritiktir: AI motorlarına sunulan bilgi tutarlı ve yapılandırılmış olduğunda, yanlış alıntı veya model kaynaklı hallüsinasyon riski azalır."
 ---
 ## Olay: Model Güncellemesi Belleği Nasıl Siliyor?
 

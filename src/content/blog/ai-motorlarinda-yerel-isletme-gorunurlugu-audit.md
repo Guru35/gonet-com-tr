@@ -1,7 +1,7 @@
 ---
 title: "AI Motoru Sizi Görmüyor mu? Yerel İşletme Görünürlüğünün Anatomisi"
 description: "Bali'deki 4.776 kafe, restoran ve bar üzerinde yapılan ilk tam sayım denetimine göre, mevcut işletmelerin yüzde 72,6'sı hiçbir AI motoru tarafından hiç önerilmiyor. ChatGPT, Claude, Gemini ve Perplexity'nin yerel keşif sorularına verdiği yanıtlar incelediğinde ortaya çıkan görünürlük mekanizması, yıldız puanından çok dijital dokümantasyon kalitesiyle doğrudan ilişkili."
-published: 2026-08-31
+published: 2026-12-04
 updated: 2026-08-31
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 7
 draft: true
+ozetMaddeleri:
+  - "4.776 yerel işletme üzerinde yapılan tam sayım denetiminde işletmelerin %72,6'sı hiçbir AI motoru tarafından önerilmedi."
+  - "ChatGPT, Claude, Gemini ve Perplexity yerel işletme seçerken yalnızca harita kaydına değil tutarlı web varlığı ve yorumlara bakıyor."
+  - "Yerel SEO ile birlikte Schema.org LocalBusiness işaretlemesi ve net hizmet açıklamaları AI öneri olasılığını artırıyor."
+karsilastirmaTablosu:
+  baslik: "Yerel İşletmelerde Klasik Harita vs. AI Öneri Kriterleri"
+  sutunlar:
+    - "Kriter"
+    - "Google Haritalar"
+    - "AI Arama Motorları"
+  satirlar:
+    - ["Temel Sinyal", "Konum yakınlığı ve kategori", "Çoklu kaynak tutarlılığı ve inceleme bağlamı"]
+    - ["Görünürlük Oranı", "Yüksek yerel listeleme", "Denetlenen işletmelerin yalnız %27,4'ü önerildi"]
+    - ["İyileştirme Aracı", "GBP profili güncelleme", "LocalBusiness JSON-LD + açıklayıcı SSS"]
+sss:
+  - soru: "AI motorları yerel işletmeleri nasıl seçiyor?"
+    cevap: "Araştırma, seçim sürecinin iki aşamalı olduğunu gösteriyor. İlk aşamada sisteme girmek için dijital dokümantasyon belirleyici: kendi web sitesi, yorum hacmi, fiyat bilgisi ve üçüncü taraf atıflar. Yıldız puanı bu aşamada etkisiz. İkinci aşamada, yanıta giren mekanlar arasındaki sıralamayı ise puan kalitesi belirliyor. Sonuç olarak AI görünürlüğü önce varlık kanıtı, sonra kalite sinyali mantığıyla işliyor."
+  - soru: "Yıldız puanım yüksek ama AI beni önermiyorsa ne yapmalıyım?"
+    cevap: "Araştırmanın en pratik bulgusu bu soruyu yanıtlıyor: yüksek puan, AI yanıtına giriş için yeterli sinyal değil. Öncelikle bağımsız bir web sitesi oluşturun, Schema.org yapılandırılmış veri ekleyin ve işletmeniz hakkında üçüncü taraf kaynakların içerik üretmesini sağlayın. Puanınız ancak bu eşiği geçtikten sonra sıralama kademesinde işe yarıyor."
+  - soru: "AI'ın uydurma mekan önerme (hallüsinasyon) riski ne kadar büyük?"
+    cevap: "Bu araştırmaya göre tamamen uydurulmuş mekan oranı çok düşük, binde sekiz civarında. Asıl pratik risk, hallüsinasyon değil veri eskimesi: sistemler kalıcı olarak kapanmış mekânları önermeye devam edebiliyor. Bu nedenle işletmelerin kapanış, taşınma veya büyük değişikliklerini tüm dijital platformlarda güncel tutması, AI hata yönetimi açısından hallüsinasyondan çok daha kritik bir önlem."
 ---
 ## Olay: İlk Tam Sayım Denetimi Ne Buldu?
 

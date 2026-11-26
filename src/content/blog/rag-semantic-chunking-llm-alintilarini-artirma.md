@@ -1,7 +1,7 @@
 ---
 title: "RAG Sistemlerinde Semantic Chunking: LLM Alıntılarını Artırmanın Yeni Yolu"
 description: "Uzun ve dağıtık belgelerde bağlamsal bilgi kaybı, RAG sistemlerinin en kritik kırılma noktası. Garg ve Andreopoulos'un yeni araştırması, bilgi grafikleri ile yoğun vektör erişimini birleştiren hibrit bir çerçeve öneriyor. Bu yaklaşım; AEO ve GEO stratejisi yürüten her içerik ekibinin içerik mimarisini yeniden düşünmesini gerektiriyor."
-published: 2026-11-17
+published: 2026-12-07
 updated: 2026-11-17
 author:
   name: "Gonet"
@@ -9,6 +9,26 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "Uzun ve dağınık belgelerde bağlam kopması, RAG tabanlı AI arama motorlarının yanlış veya eksik alıntı yapmasına yol açıyor."
+  - "Bilgi grafikleriyle desteklenen anlamsal parçalama (semantic chunking), doğru bölümün bulunma oranını belirgin biçimde artırıyor."
+  - "Blog ve hizmet sayfalarını kendi içinde bütünlüklü alt başlıklar ve net özetlerle bölmek alıntılanabilirliği güçlendiriyor."
+karsilastirmaTablosu:
+  baslik: "Sabit Uzunlukta Parçalama vs. Anlamsal Parçalama (Semantic Chunking)"
+  sutunlar:
+    - "Yaklaşım"
+    - "Bağlam Korunumu"
+    - "AEO / Alıntı Etkisi"
+  satirlar:
+    - ["Sabit Karakter/Kelime Bölme", "Düşük (cümle/konu ortadan bölünür)", "Eksik veya bağlamsız alıntı riski"]
+    - ["Anlamsal + Bilgi Grafiği", "Yüksek (konu bütünlüğü korunur)", "Doğrudan ilgili paragrafın alıntılanması"]
+sss:
+  - soru: "Semantic chunking nedir ve neden önemlidir?"
+    cevap: "Semantic chunking, bir belgeyi sabit karakter sayısına göre değil, anlam sınırlarına göre parçalara bölme yöntemidir. Konu değiştiğinde yeni bir parça başlar. Bu yapı, RAG sistemlerinin doğru bağlamı bulmasını kolaylaştırır; dolayısıyla ChatGPT veya Perplexity gibi yanıt motorlarının içeriğinizi alıntı kaynağı olarak seçme olasılığını artırır."
+  - soru: "Bilgi grafiği ile vektör araması arasındaki fark nedir?"
+    cevap: "Vektör araması, metinlerin anlamsal benzerliğini sayısal uzayda karşılaştırır — hızlıdır ama ilişkisel bağlantıları kaçırır. Bilgi grafiği ise varlıklar arasındaki yapısal ilişkileri (\"X, Y'nin üreticisidir\") açıkça depolar. Hibrit sistemler her ikisini birleştirerek hem hızı hem de bağlamsal doğruluğu optimize eder."
+  - soru: "Bu araştırma SEO stratejimi nasıl etkiler?"
+    cevap: "Geleneksel SEO sinyalleri (backlink, sayfa hızı) önemini korusa da, AI yanıt motorlarında görünürlük artık içerik yapısına bağlı. Semantic chunking ilkelerine göre yazılmış, Schema.org ile işaretlenmiş ve atomik SSS bölümleri içeren sayfalar; LLM tabanlı arama sistemlerinde rakiplerinizden daha sık alıntılanacak."
 ---
 ## Olay: Araştırma Ne Söylüyor?
 

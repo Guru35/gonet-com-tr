@@ -1,7 +1,7 @@
 ---
 title: "Robots.txt Artık İki Kapı Yönetiyor: Arama ve AI Crawleri"
 description: "Robots.txt dosyası artık yalnızca Googlebot'u değil, GPTBot, ClaudeBot ve Perplexity gibi LLM crawlerlarını da yönetiyor. Hangi botu engellemek içeriğinizi AI motorlarından siliyor, hangisini serbest bırakmak crawl bütçesini tüketiyor? Search Engine Journal'ın kapsamlı rehberi, 2025 sonrası için kritik bir ayrımı gün yüzüne çıkardı."
-published: 2026-11-19
+published: 2026-12-01
 updated: 2026-11-19
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "Robots.txt artık yalnızca Googlebot'u değil GPTBot, ClaudeBot ve PerplexityBot gibi AI tarayıcılarını da ayrı kurallarla yönetir."
+  - "Arama indeksleme botu ile model eğitim botunu ayırmamak, sitenizin yapay zekâ yanıtlarında görünürlüğünü tamamen kapatabilir."
+  - "Robots.txt erişim iznini belirlerken llms.txt dosyası AI motorlarına hangi sayfaların öncelikli okunacağını gösterir."
+karsilastirmaTablosu:
+  baslik: "Arama ve AI Tarayıcı Yönetimi Karşılaştırması"
+  sutunlar:
+    - "Kural / Araç"
+    - "Temel İşlevi"
+    - "Yanlış Yapılandırma Riski"
+  satirlar:
+    - ["robots.txt (Allow/Disallow)", "Bot bazlı teknik tarama izni verir", "Tüm AI yanıtlarından tamamen silinme"]
+    - ["llms.txt", "LLM'lere öncelikli içerik haritası sunar", "Önemli hizmet sayfalarının gözden kaçması"]
+    - ["Crawl-delay / Yol Kısıtı", "Sunucu yükünü ve tarama sıklığını dengeler", "Yüksek bot trafiğinde kaynak tüketimi"]
+sss:
+  - soru: "GPTBot'u robots.txt ile engellemek ne anlama gelir?"
+    cevap: "GPTBot'u `Disallow` ile engellerseniz OpenAI'ın web tarama süreçleri sitenizden içerik çekemez. Bu, içeriğinizin gelecekteki ChatGPT model güncellemelerinde eğitim verisi olarak yer almayacağı anlamına gelir. Mevcut modellerde zaten olan içerikler etkilenmez; ancak uzun vadede markanızın LLM bilgi tabanındaki temsili zayıflar."
+  - soru: "Robots.txt ile llms.txt arasındaki fark nedir?"
+    cevap: "Robots.txt, belirtilen bot için erişim teknik olarak kısıtlar veya açar — bot uyumlu olduğu sürece bağlayıcıdır. llms.txt ise teknik bir engel değil, editoryal bir rehberdir: LLM'lere sitenizin hangi bölümlerini öncelikle okumaları gerektiğini söyler. İkisi birbirini tamamlar; biri erişim kontrolü, diğeri içerik yönlendirmesi yapar."
+  - soru: "Crawl bütçesi küçük siteler için de önemli mi?"
+    cevap: "Binlerce sayfanın altında kalan siteler için crawl bütçesi genellikle kritik değildir. Ancak AI crawlerları farklı davranır — sık güncellenmeyen küçük bir site, GPTBot tarafından gereksiz sıklıkta ziyaret edilebilir. Bu durumda crawl frekansını sınırlamak (Crawl-delay direktifi veya Disallow ile düşük değerli bölümleri kapatmak) sunucu yükünü azaltır."
 ---
 ## Olay: Robots.txt Rehberi Neden Şimdi Güncellendi?
 

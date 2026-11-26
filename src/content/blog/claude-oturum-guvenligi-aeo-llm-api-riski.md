@@ -1,7 +1,7 @@
 ---
 title: "Claude Oturumu Çalınırsa AEO Altyapınız Ne Kadar Güvende?"
 description: "Anthropic, infostealer zararlı yazılımların Claude oturumlarını çalarak hesapları ele geçirdiğini duyurdu. Ajanslar ve pazarlama ekipleri için asıl mesele hesap güvenliğinin ötesinde: AEO/GEO iş akışlarında kullanılan LLM API erişimlerini kim denetliyor, credential yönetimi nasıl kurgulanmış? Bu olay, LLM tabanlı içerik ve optimizasyon süreçlerindeki kör noktaları gün yüzüne çıkarıyor."
-published: 2026-09-07
+published: 2026-12-09
 updated: 2026-09-07
 author:
   name: "Gonet"
@@ -9,6 +9,27 @@ author:
 category: "AEO/GEO"
 readingMinutes: 6
 draft: true
+ozetMaddeleri:
+  - "Infostealer zararlı yazılımlar tarayıcı oturumlarını çalarak şifreye gerek duymadan Claude ve AI hesaplarını ele geçirebiliyor."
+  - "Ajansların AEO/GEO iş akışlarında sistem promptları, marka rehberleri ve API anahtarları sızarsa hem bütçe hem marka güveni zarar görür."
+  - "API anahtarlarını işletim sistemi kasasında saklamak, harcama limiti koymak ve oturum loglarını izlemek temel savunma adımlarıdır."
+karsilastirmaTablosu:
+  baslik: "Ajans LLM Altyapısında Güvenlik Riskleri ve Önlemler"
+  sutunlar:
+    - "Risk Alanı"
+    - "Saldırı Etkisi"
+    - "Zorunlu Önlem"
+  satirlar:
+    - ["Tarayıcı Oturum Çerezleri", "Şifresiz hesap ele geçirme", "Donanım 2FA ve temiz cihaz politikası"]
+    - ["Açıkta Tutulan API Anahtarları", "Kota tükenmesi ve veri sızıntısı", "Keychain/Vault kasası + harcama limiti"]
+    - ["Paylaşılan Prompt & Veri Hattı", "Müşteri gizliliği ihlali", "Rol bazlı erişim ve denetim logu"]
+sss:
+  - soru: "İnfostealer zararlı yazılımı nedir ve Claude'u nasıl etkiler?"
+    cevap: "Inforstealer, kullanıcı bilgisayarında arka planda çalışan, tarayıcı çerezlerini, oturum token'larını ve şifreleri sessizce çalıp saldırganlara ileten zararlı yazılımdır. Claude kullanıcıları için risk şudur: Tarayıcıdaki aktif Claude oturumu çalınırsa saldırgan, kullanıcının şifresine ihtiyaç duymadan hesaba erişir, API kotasını tüketir ve kayıtlı ödeme bilgilerine ulaşır. Anthropic bu riski tespit ettiğinde etkilenen hesapları otomatik olarak oturumu kapatarak koruyor."
+  - soru: "AEO/GEO iş akışlarında LLM güvenliği neden özellikle önemlidir?"
+    cevap: "AEO ve GEO süreçleri, özelleştirilmiş sistem prompt'ları, marka sesi rehberleri ve rekabet analizi içeren hassas kurumsal veriyle besleniyor. Bu pipeline'lara yetkisiz erişim; üretilen içeriklerin manipülasyonuna, rakiplere veri sızıntısına ve LLM motorlarında marka citation surface'inin zarar görmesine yol açabilir. Bu nedenle LLM hesap güvenliği, standart siber güvenlik protokollerinin ayrılmaz bir parçası olmalıdır."
+  - soru: "Hesabımın ele geçirildiğini nasıl anlarım?"
+    cevap: "En belirgin işaret, kullanım panosunda açıklayamadığınız ani token tüketimi artışıdır. Anthropic, şüpheli aktivite tespit ettiğinde e-posta bildirimi gönderiyor ve hesabı otomatik olarak çıkış yaptırıyor. Proaktif önlem olarak: API key kullanım loglarını düzenli inceleyin, bilinmeyen IP adreslerinden gelen erişimleri sorgulayın ve kullanım eşiklerine uyarı ayarlayın."
 ---
 ## Olay: Claude Oturumları İnfostealer ile Ele Geçirildi
 
