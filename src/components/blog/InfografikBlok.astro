@@ -1,0 +1,39 @@
+---
+import VeriCubukGrafigi from './VeriCubukGrafigi.astro';
+import SurecDiyagrami from './SurecDiyagrami.astro';
+import KarsilastirmaKarti from './KarsilastirmaKarti.astro';
+import MetrikVurgu from './MetrikVurgu.astro';
+import KontrolListesi from './KontrolListesi.astro';
+import VurguKutusu from './VurguKutusu.astro';
+
+interface Props {
+  item:
+    | { tip: 'veri-cubuk'; baslik: string; kaynak?: string; ogeler: { etiket: string; deger: string; yuzde: number; vurgulu?: boolean }[] }
+    | { tip: 'surec'; baslik: string; adimlar: { no: string; baslik: string; aciklama: string }[] }
+    | { tip: 'karsilastirma-karti'; baslik: string; solBaslik: string; sagBaslik: string; satirlar: { sol: string; sag: string }[] }
+    | { tip: 'metrik-vurgu'; baslik?: string; metrikler: { deger: string; etiket: string; kaynak?: string }[] }
+    | { tip: 'kontrol-listesi'; baslik: string; maddeler: { baslik: string; aciklama?: string }[] }
+    | { tip: 'vurgu-kutusu'; tur: 'kural' | 'ajans-notu' | 'uyari'; baslik: string; metin: string };
+}
+
+const { item } = Astro.props;
+---
+
+{item.tip === 'veri-cubuk' && (
+  <VeriCubukGrafigi baslik={item.baslik} kaynak={item.kaynak} ogeler={item.ogeler} />
+)}
+{item.tip === 'surec' && (
+  <SurecDiyagrami baslik={item.baslik} adimlar={item.adimlar} />
+)}
+{item.tip === 'karsilastirma-karti' && (
+  <KarsilastirmaKarti baslik={item.baslik} solBaslik={item.solBaslik} sagBaslik={item.sagBaslik} satirlar={item.satirlar} />
+)}
+{item.tip === 'metrik-vurgu' && (
+  <MetrikVurgu baslik={item.baslik} metrikler={item.metrikler} />
+)}
+{item.tip === 'kontrol-listesi' && (
+  <KontrolListesi baslik={item.baslik} maddeler={item.maddeler} />
+)}
+{item.tip === 'vurgu-kutusu' && (
+  <VurguKutusu tur={item.tur} baslik={item.baslik} metin={item.metin} />
+)}

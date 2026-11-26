@@ -73,6 +73,72 @@ const blog = defineCollection({
       soru: z.string(),
       cevap: z.string(),
     })).optional(),
+    // 1-30 Aralık Mizanpaj + HTML-first İnfografik & Dinamik CTA alanları (isteğe bağlı)
+    mizanpaj: z.enum(['A', 'B', 'C', 'D']).optional(),
+    infografikler: z.array(
+      z.discriminatedUnion('tip', [
+        z.object({
+          tip: z.literal('veri-cubuk'),
+          baslik: z.string(),
+          kaynak: z.string().optional(),
+          ogeler: z.array(z.object({
+            etiket: z.string(),
+            deger: z.string(),
+            yuzde: z.number().min(0).max(100),
+            vurgulu: z.boolean().optional(),
+          })).min(1),
+        }),
+        z.object({
+          tip: z.literal('surec'),
+          baslik: z.string(),
+          adimlar: z.array(z.object({
+            no: z.string(),
+            baslik: z.string(),
+            aciklama: z.string(),
+          })).min(2),
+        }),
+        z.object({
+          tip: z.literal('karsilastirma-karti'),
+          baslik: z.string(),
+          solBaslik: z.string(),
+          sagBaslik: z.string(),
+          satirlar: z.array(z.object({
+            sol: z.string(),
+            sag: z.string(),
+          })).min(1),
+        }),
+        z.object({
+          tip: z.literal('metrik-vurgu'),
+          baslik: z.string().optional(),
+          metrikler: z.array(z.object({
+            deger: z.string(),
+            etiket: z.string(),
+            kaynak: z.string().optional(),
+          })).min(1),
+        }),
+        z.object({
+          tip: z.literal('kontrol-listesi'),
+          baslik: z.string(),
+          maddeler: z.array(z.object({
+            baslik: z.string(),
+            aciklama: z.string().optional(),
+          })).min(1),
+        }),
+        z.object({
+          tip: z.literal('vurgu-kutusu'),
+          tur: z.enum(['kural', 'ajans-notu', 'uyari']),
+          baslik: z.string(),
+          metin: z.string(),
+        }),
+      ])
+    ).optional(),
+    ozelCta: z.object({
+      eyebrow: z.string(),
+      h2a: z.string(),
+      h2b: z.string(),
+      btn: z.string(),
+      href: z.string(),
+    }).optional(),
   }),
 });
 

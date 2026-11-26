@@ -1,5 +1,125 @@
 [
   {
+    "hash": "b3db25a",
+    "tarih": "2026-11-26",
+    "tip": "duzeltme",
+    "kapsam": "aeo",
+    "baslik": "Paket 1 teknik, şema, menü ve IndexNow düzeltmeleri",
+    "link": "/hakkimizda"
+  },
+  {
+    "hash": "593e6bd",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "AEO Paket 3 - 3 yeni P0 blog ve 22 mevcut blog iyilestirmesi",
+    "link": "/blog/saglik-turizmi-performans-pazarlama-ve-ai-gorunurlugu"
+  },
+  {
+    "hash": "c3beb07",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "pages",
+    "baslik": "Paket 2 — 3 dikey hizmet sayfası ve 4 /en/ sayfası",
+    "link": "/ai-sohbet-asistani-gelistirme"
+  },
+  {
+    "hash": "32c89e8",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "15 taslak yazinin GW-D02 sablonu ve Aralik takvimiyle hazirlanmasi",
+    "link": "/blog/ai-ajan-optimizasyonu-cloudflare-yeni-seo"
+  },
+  {
+    "hash": "1a2731e",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "portal",
+    "baslik": "GW-D06 musteri portali oturum koprusu ve GW-D07 uctan uca kalite kapisi",
+    "link": "/portal"
+  },
+  {
+    "hash": "e9c9c33",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "aeo",
+    "baslik": "Add English AEO/GEO audit page and FAQ/summary upgrades for 2 blog posts (#54)",
+    "link": "/aeo-geo-denetimi"
+  },
+  {
+    "hash": "8aaf6ce",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "form",
+    "baslik": "GW-D05 KVKK onayli teklif formu ve leads API koprusu",
+    "link": "/teklif-al"
+  },
+  {
+    "hash": "da02be3",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "aeo",
+    "baslik": "P1 dikey inis sayfalari, llms.txt ve schema hasOfferCatalog guncellemesi (#53)",
+    "link": "/saglik-turizmi-performans-pazarlama"
+  },
+  {
+    "hash": "8b4efc4",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "aeo",
+    "baslik": "P0 bot erisimi, llms.txt, canonical temizligi ve Organization semasi (#52)",
+    "link": null
+  },
+  {
+    "hash": "ed9bb76",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "GW-D03 payloadLoader ve GW-D04 imzali onizleme koprusu",
+    "link": null
+  },
+  {
+    "hash": "eaf3127",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "Faz 3C engine yedeginden 15 AEO/AI taslak yaziyi aktar ve IndexNow taslak kilidi ekle",
+    "link": "/blog/ai-ajan-optimizasyonu-cloudflare-yeni-seo"
+  },
+  {
+    "hash": "f733e31",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "GW-D02 Aralık blog şablonu (özet, tablo, SSS + FAQPage)",
+    "link": null
+  },
+  {
+    "hash": "79a462c",
+    "tarih": "2026-11-26",
+    "tip": "yeni",
+    "kapsam": "blog",
+    "baslik": "GW-D01 gelecek tarih ve taslak sizinti kilidi",
+    "link": "/blog"
+  },
+  {
+    "hash": "fb53103",
+    "tarih": "2026-11-25",
+    "tip": "yeni",
+    "kapsam": "faz3b",
+    "baslik": "İletisim, sektor talebi ve geri bildirim uclarini panel.gonet.com.tr uzerine cevir (#50)",
+    "link": null
+  },
+  {
+    "hash": "c603221",
+    "tarih": "2026-11-25",
+    "tip": "yeni",
+    "kapsam": "faz3b",
+    "baslik": "İletisim, sektor talebi ve geri bildirim formlarini panel.gonet.com.tr'ye yonlendir (#49)",
+    "link": "/iletisim"
+  },
+  {
     "hash": "c58c332",
     "tarih": "2026-11-25",
     "tip": "yeni",

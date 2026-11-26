@@ -364,7 +364,7 @@ body { padding-bottom: var(--cerez-h, 0px); }
   top: 0.3em;
   width: 1px;
   height: 0.7em;
-  background: #000;
+  background: var(--border);
 }
 .prose-irregular ol { padding-left: 2em; }
 .prose-irregular ol li { margin-bottom: 0.7em; line-height: 1.4; }
@@ -530,6 +530,32 @@ body { padding-bottom: var(--cerez-h, 0px); }
 }
 .prose-irregular img:nth-of-type(odd)  { transform: rotate(-2deg); margin-left: -3%; }
 .prose-irregular img:nth-of-type(even) { transform: rotate(2.5deg); margin-left: 12%; }
+
+/* Blog infografik/grafik kapsayıcısı — .prose-irregular yan etkilerinden tam izolasyon */
+.blog-viz p,
+.prose-irregular .blog-viz p {
+  margin-left: 0 !important;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.blog-viz img,
+.prose-irregular .blog-viz img {
+  transform: none !important;
+  margin-left: 0 !important;
+  max-width: 100%;
+}
+.blog-viz ul li::before,
+.blog-viz ul li::after,
+.prose-irregular .blog-viz ul li::before,
+.prose-irregular .blog-viz ul li::after {
+  content: none !important;
+  display: none !important;
+}
+.blog-viz ul li,
+.prose-irregular .blog-viz ul li {
+  padding-left: 0;
+}
 
 /* Beyaz metinlerde siyah halo görünmesin — koyu zeminde okunaksız olur */
 .text-white,

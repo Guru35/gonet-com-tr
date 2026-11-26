@@ -6,6 +6,7 @@ import ModelKilavuzu from '../../components/interactive/ModelKilavuzu.astro';
 import YoneticiOzeti from '../../components/blog/YoneticiOzeti.astro';
 import KarsilastirmaTablosu from '../../components/blog/KarsilastirmaTablosu.astro';
 import SssAkordeon from '../../components/blog/SssAkordeon.astro';
+import InfografikBlok from '../../components/blog/InfografikBlok.astro';
 import { blogYayindaMi } from '../../lib/blog-yayin';
 
 // İnteraktif yazı bileşen haritası — frontmatter `interactive` anahtarına göre.
@@ -52,8 +53,8 @@ function parseFaq(md: string): { question: string; answer: string }[] {
 const faqs = post.data.sss && post.data.sss.length > 0 ? [] : parseFaq(post.body ?? '');
 const faqNode = faqs.length ? faqSchema(faqs) : null;
 
-// Her blog post'a özel CTA — eyebrow + iki satır heading
-const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string }> = {
+// Her blog post'a özel CTA — eyebrow + iki satır heading + opsiyonel href
+const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string; href?: string }> = {
   'model-kilavuzu': {
     eyebrow: 'Yapay zekâyı işinize doğru yerde kullanmak',
     h2a: 'AI’yı markanız için',
@@ -103,12 +104,15 @@ const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn:
     btn: 'Tasarım görüşmesi alalım →',
   },
 };
-const cta = blogCTAs[post.id] || {
-  eyebrow: 'Bir sonraki içerik markanız için',
-  h2a: 'Citation-ready içerik',
-  h2b: 'üretelim.',
-  btn: 'Konuşalım →',
+const cta = post.data.ozelCta || blogCTAs[post.id] || {
+  eyebrow: 'Bir sonraki adım',
+  h2a: 'Yapay zekâ görünürlüğünüzü',
+  h2b: 'birlikte güçlendirelim.',
+  btn: 'Ücretsiz analiz alın →',
+  href: '/araclar/seo-analiz',
 };
+const ilkInfografik = post.data.infografikler?.[0];
+const sonrakiInfografikler = post.data.infografikler?.slice(1) ?? [];
 
 // Sıradaki post — published DESC, current'tan bir sonraki (daha eski).
 // İnteraktif yazılar sonsuz-akış hedefi OLAMAZ: DOMParser ile enjekte edilince
@@ -263,9 +267,15 @@ const breadcrumb = webpageSchema({
         <YoneticiOzeti maddeler={post.data.ozetMaddeleri} />
       )}
 
+      {ilkInfografik && <InfografikBlok item={ilkInfografik} />}
+
       <div class="prose-irregular">
         <Content />
       </div>
+
+      {sonrakiInfografikler.map((item) => (
+        <InfografikBlok item={item} />
+      ))}
 
       {post.data.karsilastirmaTablosu && (
         <KarsilastirmaTablosu
@@ -312,7 +322,7 @@ const breadcrumb = webpageSchema({
         <span style="color: #ff0000;">{cta.h2b}</span>
       </h2>
       <a
-        href="/iletisim"
+        href={cta.href || '/iletisim'}
         class="inline-block text-xl lg:text-2xl font-bold uppercase tracking-[0.2em] underline decoration-2 underline-offset-8 hover:decoration-4 transition-all"
       >
         {cta.btn}

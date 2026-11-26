@@ -1,0 +1,72 @@
+---
+interface Oge {
+  etiket: string;
+  deger: string;
+  yuzde: number;
+  vurgulu?: boolean;
+}
+
+interface Props {
+  baslik: string;
+  kaynak?: string;
+  ogeler: Oge[];
+}
+
+const { baslik, kaynak, ogeler } = Astro.props;
+const headingId = `veri-cubuk-${baslik.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 24)}`;
+---
+
+{ogeler && ogeler.length > 0 && (
+  <figure
+    class="blog-viz my-12 lg:my-14 border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 lg:p-8"
+    aria-labelledby={headingId}
+  >
+    <figcaption
+      id={headingId}
+      class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--border)] pb-4 mb-6"
+    >
+      <span class="editorial-display text-xl lg:text-2xl leading-tight text-[var(--text-heading)]">
+        {baslik}
+      </span>
+      <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--text-secondary)]">
+        Veri Karşılaştırması
+      </span>
+    </figcaption>
+
+    <dl class="space-y-5">
+      {ogeler.map((oge) => {
+        const clamped = Math.max(0, Math.min(100, oge.yuzde));
+        return (
+          <div>
+            <div class="flex items-baseline justify-between gap-4 mb-2">
+              <dt class={`text-sm lg:text-base leading-snug ${oge.vurgulu ? 'font-bold text-[var(--text-heading)]' : 'font-medium'}`}>
+                {oge.etiket}
+              </dt>
+              <dd
+                class="text-sm lg:text-base font-bold tabular-nums shrink-0"
+                style={oge.vurgulu ? 'color: var(--accent-strong);' : undefined}
+              >
+                {oge.deger}
+              </dd>
+            </div>
+            <div
+              class="w-full h-3 bg-[var(--surface-2)] border border-[var(--border)] overflow-hidden"
+              aria-hidden="true"
+            >
+              <div
+                class="h-full transition-all"
+                style={`width: ${clamped}%; background: ${oge.vurgulu ? '#ff0000' : 'var(--text-heading)'};`}
+              />
+            </div>
+          </div>
+        );
+      })}
+    </dl>
+
+    {kaynak && (
+      <p class="mt-6 pt-3 border-t border-[var(--border)] text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+        Kaynak: {kaynak}
+      </p>
+    )}
+  </figure>
+)}
