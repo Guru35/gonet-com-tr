@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı | Gonet";
+const description =
+  "26 yıllık dijital pazarlama birikimi ile Creative AI (İNSAN × AI) yaklaşımını birleştiren performans ajansı: " +
+  "Google Ads, SEO, AEO/GEO görünürlüğü, AI iş akışı otomasyonu ve panel.gonet.com.tr üzerinden canlı ölçüm.";
+const url = `${SITE_URL}/yapay-zeka-dijital-ajans`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Yapay Zekâ Dijital Ajans', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı',
+  alternateName: [
+    'AI Digital Performance Agency',
+    'Creative AI Dijital Ajans',
+    'AI-Powered Performance Marketing & AEO/GEO',
+  ],
+  serviceType: 'AI-Integrated Digital Marketing Agency',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  category: 'Digital Marketing & AI Integration',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Creative AI Ajans Hizmetleri',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'AI Destekli Performans Reklamcılığı & Analitik',
+        description: 'Google Ads, Meta, GA4 ve BigQuery verilerini yapay zekâ örüntü analiziyle birleştiren ROI odaklı kampanya yönetimi.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'AEO/GEO ve Teknik Varlık Mimarisi',
+        description: 'Schema.org @graph, llms.txt, AI bot politikası ve extraction-ready içerik ile ChatGPT, Claude, Gemini ve Perplexity görünürlüğü.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Kurumsal AI İş Akışı & Portal Entegrasyonu',
+        description: 'İçerik üretim motorları, müşteri geri bildirim/lead ajanları ve panel.gonet.com.tr üzerinde şeffaf ölçüm altyapısı.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'Yapay zekâ entegrasyonlu dijital performans ajansı klasik ajanstan ne açıdan farklıdır?',
+    answer:
+      "Klasik ajanslar kampanya ve içerik süreçlerini yalnız manuel emekle yürütür; salt AI araçları kullanan yapılar ise marka derinliği ve stratejik yargıdan yoksundur. " +
+      "Gonet'in Creative AI (İNSAN × AI) modeli, 26 yıllık strateji ve medya deneyimini yapay zekâ hızı, veri analizi ve AEO/GEO mühendisliğiyle çarparak hem hızı hem kaliteyi yükseltir.",
+  },
+  {
+    question: 'Yapay zekâ marka iletişiminde kaliteyi düşürür mü?',
+    answer:
+      "Denetimsiz otomasyon kaliteyi düşürür; ancak insan editörlüğü ve marka anayasasıyla yönetilen AI üretimi tutarlılığı artırır. " +
+      "Gonet'te her çıktı stratejist ve editör süzgecinden geçer, uydurma veri yerine doğrulanmış kaynaklar ve kanonik marka şemaları kullanılır.",
+  },
+  {
+    question: 'Gonet kendi operasyonunda hangi AI ve AEO/GEO sistemlerini canlı kullanıyor?',
+    answer:
+      "gonet.com.tr canlı bir AR-GE vitrinidir: 28 User-agent satırlı açık AI bot robots.txt politikası, llms.txt dökümü, 18+ Schema.org tipi, " +
+      "IndexNow entegrasyonu, AEO Content Engine, KVKK uyumlu AI Feedback chatbox ve seo.gonet.com.tr ile panel.gonet.com.tr altyapıları bizzat üretimde çalışmaktadır.",
+  },
+  {
+    question: 'Hem Google/Meta reklamlarını hem de AEO/GEO görünürlüğünü tek ekipten yönetebilir miyiz?',
+    answer:
+      "Evet. Performans reklamları (Google Ads, SEM, Meta), klasik SEO, web altyapısı ve yeni nesil AEO/GEO (ChatGPT, Claude, Gemini, Perplexity) tek çatı altında birbirini besleyecek şekilde yönetilir; böylece kanallar arası veri kopukluğu ortadan kalkar.",
+  },
+  {
+    question: 'Markamızın yapay zekâ görünürlüğünü ve ajans performansını nasıl takip ederiz?',
+    answer:
+      "Başlangıçta seo.gonet.com.tr üzerinden sitenizin teknik AEO ve bot erişim durumunu ücretsiz görebilirsiniz. " +
+      "Aktif iş ortaklığında ise tüm kampanya metrikleri, LLM atıf analizleri (Share-of-Model), görev akışları ve aylık PDF raporlar panel.gonet.com.tr üzerinden canlı olarak paylaşılır.",
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:26%;--rule-bot-w:38%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Yapay Zekâ Dijital Ajans</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Ajans Modeli · Creative AI = İNSAN × AI
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        26 yıllık ajans aklı.<br/>
+        <span style="color:#ff0000">Yapay zekâ hızıyla</span>.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Sadece prompt yazan yeni nesil atölyeler strateji bilmiyor; geleneksel ajanslar ise yapay zekâ hızına ve
+        AEO/GEO dönüşümüne yetişemiyor. 2000'de İzmir'de kurulan Gonet, <strong>Creative AI (İNSAN × AI)</strong>
+        modeliyle performans pazarlamasını, teknik SEO'yu ve yapay zekâ motoru görünürlüğünü tek ölçülebilir sistemde birleştirir.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Ücretsiz AI Görünürlük Testi (seo.gonet.com.tr) →
+        </a>
+        <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Müşteri Paneli (panel.gonet.com.tr) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet Kapsamı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Hizmet kapsamı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        İNSAN × AI çalışma mimarisi
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Veri &amp; Performans Reklamcılığı (SEM / Paid Social)</h3>
+            <p class="text-slate-700 mb-2">
+              Google Ads, Performance Max, Meta ve LinkedIn kampanyalarında yapay zekâ destekli hedef kitle segmentasyonu,
+              bütçe dağılımı ve GA4 / BigQuery tabanlı kârlılık ölçümü. Her reklam harcaması gerçek satış veya nitelikli
+              lead hedefine bağlanır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Haftalık performans optimizasyonu + BigQuery/Looker canlı veri akışı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AEO/GEO Mühendisliği &amp; Teknik SEO</h3>
+            <p class="text-slate-700 mb-2">
+              Markanızın yalnızca Google'ın mavi linklerinde değil, ChatGPT, Claude, Gemini ve Perplexity yanıtlarında
+              doğru şekilde alıntılanması için Schema.org JSON-LD <code>@graph</code>, <code>llms.txt</code>,
+              Common Crawl hazırlığı ve extraction-ready içerik mimarisi kurulur.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Yapısal veri envanteri + LLM atıf (Share-of-Model) iyileştirmesi.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Ölçeklenebilir İçerik &amp; Yaratıcı Üretim</h3>
+            <p class="text-slate-700 mb-2">
+              İnsan stratejistlerin kurduğu marka sesi ve editör denetimi altında, AI destekli araştırma ve içerik
+              üretim hatları. Blog, dikey iniş sayfaları, çok dilli ürün/hizmet dökümleri hızlı ama tutarlı biçimde üretilir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Marka tonuna sadık, kaynaklı ve atıf almaya hazır içerik kütüphanesi.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Tek Çatı Operasyon: panel.gonet.com.tr</h3>
+            <p class="text-slate-700 mb-2">
+              Dağınık e-posta ve tablolar yerine müşteriye özel operasyon ve görünürlük paneli: görev onayları,
+              GA4/GSC metrikleri, LLM görünürlük ölçümleri ve aylık PDF raporlar
+              <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>
+              üzerinde şeffaf biçimde sunulur.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Tek ekranda ajans şeffaflığı + KVKK uyumlu veri erişimi.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ölçüm ve Kanıt -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ölçüm ve kanıt</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Anlattığını kendi sisteminde kanıtlayan ajans.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Gonet, yapay zekâyı yalnızca sunum başlığı olarak değil, kendi ürünlerinde ve canlı web altyapısında
+        ölçülebilir şekilde çalıştırır.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">26 Yıllık Kurumsal Geçmiş &amp; Google Partnerliği</h3>
+          <p class="text-slate-700 text-sm">
+            2000'de İzmir'de kuruldu; 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağıydı.
+            2009 Google Agencies@Google Dublin Türkiye temsilciliği, 2025 Google Analytics 2 numaralı Türkiye partnerliği
+            ve 190+ marka portföyü.
+          </p>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Canlı AEO/GEO Vitrini: gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            28 User-agent satırlı açık AI bot politikası, <code>llms.txt</code>, 18+ Schema.org tipi, IndexNow
+            protokolü ve Cloudflare AI Crawl Control baseline ölçümleri bu sitede canlıdır.
+          </p>
+          <a href="/aeo-geo-denetimi/ornek-rapor" class="text-sm underline font-medium">
+            Örnek denetim raporunu incele →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Ücretsiz AI Ön Analiz: seo.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Herhangi bir sitenin yapay zekâ botlarına açıklığını, Schema.org ve <code>llms.txt</code> hazırlığını
+            saniyeler içinde ölçen canlı analiz aracı.
+          </p>
+          <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            seo.gonet.com.tr'yi dene →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Müşteri Operasyon Paneli: panel.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            ChatGPT, Claude, Gemini ve Perplexity görünürlük ölçümleri, atıf analizleri ve performans raporları
+            müşterilerimiz için canlı panelde tutulur.
+          </p>
+          <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            panel.gonet.com.tr'ye giriş →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Yapay zekâ ajansı hakkında.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Performans pazarlaması ve AI görünürlüğünü<br/>
+        <span style="color:#ff0000">tek sistemde birleştirin</span>.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Toplantı planlayın →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Ücretsiz AI analiz başlat →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

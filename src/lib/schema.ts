@@ -181,6 +181,22 @@ export const organizationSchema = {
           url: `${SITE_URL}/sss`,
         },
       },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Sağlık Turizmi Performans Pazarlama ve AEO/GEO',
+          url: `${SITE_URL}/saglik-turizmi-performans-pazarlama`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı',
+          url: `${SITE_URL}/yapay-zeka-dijital-ajans`,
+        },
+      },
     ],
   },
 };
