@@ -14,7 +14,6 @@ Allow: /
 # OpenAI — ChatGPT web browse + training set
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
@@ -22,7 +21,6 @@ Allow: /
 # Anthropic — Claude training + web search
 User-agent: ClaudeBot
 Allow: /
-Crawl-delay: 1
 
 User-agent: anthropic-ai
 Allow: /
@@ -53,7 +51,6 @@ Allow: /
 # Common Crawl — LLM eğitim setlerinin %70+ kaynağı
 User-agent: CCBot
 Allow: /
-Crawl-delay: 1
 
 # Google AI — Gemini + AI Overviews opt-in
 User-agent: Google-Extended
@@ -62,7 +59,6 @@ Allow: /
 # Perplexity
 User-agent: PerplexityBot
 Allow: /
-Crawl-delay: 1
 
 # Cohere
 User-agent: cohere-ai
