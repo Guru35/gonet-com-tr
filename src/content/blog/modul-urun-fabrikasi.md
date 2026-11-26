@@ -14,12 +14,26 @@ sliderLines:
 sliderEtiket: "Ürün"
 ogImage: "/blog/blog-modul-urun-fabrikasi.jpg"
 ogImageLight: "/blog/blog-modul-urun-fabrikasi-light.jpg"
+updated: 2026-11-26
 draft: false
 ---
 
 Farklı projelerde çalışırken aynı web parçalarını tekrar tekrar yazdığımızı fark ettik: aynı iletişim formu, aynı çok-dil altyapısı, aynı görünürlük katmanı. Her seferinde sıfırdan yazmak hem zaman kaybı hem de tutarsızlık kaynağı.
 
 Bunun için tekrar eden geliştirmeleri toplayıp tek tek yeniden kullanılabilir ürün ve modüllere çeviren bir üretim hattı tasarladık. Bir kez iyi yapılan iş, bir sonraki projede hazır bir parçaya dönüşüyor — böylece her yeni site daha hızlı ve daha sağlam kuruluyor.
+
+## Örnek çıktı ve çalışma akışı
+
+Her tekrar eden web ihtiyacı (KVKK uyumlu teklif formu, FAQPage şema üreticisi, çok dilli yönlendirme katmanı) tek bir çekirdek modül olarak paketlenir ve projelere şu standart sözleşmeyle bağlanır:
+
+```text
+Modül: kvkk-teklif-formu
+- Doğrulama : İstemci + sunucu şema kontrolü (Zod)
+- Güvenlik  : Açık rıza onayı olmadan gönderim kilidi
+- Çıktı     : panel.gonet.com.tr lead API + GA4 dönüşüm olayı
+```
+
+Bu modüler yapı sayesinde bir projede yapılan güvenlik veya hız iyileştirmesi tüm müşteri projelerine tutarlı biçimde yansıtılır. Kurumsal uygulama örnekleri için [uzmanlık alanlarımızı](/uzmanlik) inceleyebilirsiniz.
 
 ## Sık sorulan sorular
 

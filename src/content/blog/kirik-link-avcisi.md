@@ -14,12 +14,25 @@ sliderLines:
 sliderEtiket: "Otomasyon"
 ogImage: "/blog/blog-kirik-link-avcisi.jpg"
 ogImageLight: "/blog/blog-kirik-link-avcisi-light.jpg"
+updated: 2026-11-26
 draft: false
 ---
 
 Bir site yayına girdikten sonra sessizce bozulabilir: bir bağlantı kırılır, bir sayfa arama motorlarından düşer, kimse fark etmez. Sorun genellikle biri şikayet edene kadar görünmez kalır.
 
 Bunu önlemek için siteleri düzenli aralıklarla tarayan, kırık bağlantıları ve arama motoru sağlık sorunlarını erkenden yakalayan otomatik bir izleme aracı kurduk. Sorunlar büyümeden, daha kimse fark etmeden yüzeye çıkıyor.
+
+## Örnek çıktı ve çalışma akışı
+
+Otomatik monitör her çalıştırmada sitenin tüm dahili ve harici bağlantılarını, site haritasını ve temel AEO dosyalarını (`robots.txt`, `llms.txt`) tarar. Örnek bir uyarı raporu şu formatta üretilir:
+
+```text
+[TARAMA ÖZETİ] 148 URL tarandı | 145 OK (200) | 2 Kırık (404) | 1 Yönlendirme Zinciri (301->301)
+- Kırık: /hizmetler/eski-kampanya (Kaynak: /blog/dijital-strateji) -> Öneri: /uzmanlik yönlendirmesi
+- Sağlık: /sitemap-0.xml (200 OK) | /llms.txt (200 OK) | /robots.txt (200 OK)
+```
+
+Tespit edilen bulgular öncelik sırasıyla [panel.gonet.com.tr](https://panel.gonet.com.tr) bakım listesine aktarılır. Sitenizin arama ve AI sağlığını kontrol etmek için [AEO/GEO denetimi](/aeo-geo-denetimi) ve [seo.gonet.com.tr](https://seo.gonet.com.tr) araçlarımızdan yararlanabilirsiniz.
 
 ## Sık sorulan sorular
 

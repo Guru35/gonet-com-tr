@@ -14,12 +14,26 @@ sliderLines:
 sliderEtiket: "Ürün/AI"
 ogImage: "/blog/blog-siten-konussun-ai-sohbet.jpg"
 ogImageLight: "/blog/blog-siten-konussun-ai-sohbet-light.jpg"
+updated: 2026-11-26
 draft: false
 ---
 
 Bir web sitesine sohbet kutusu eklemek kolay; zor olan, o kutunun gerçekten o siteyi bilmesi. Çoğu hazır sohbet aracı genel cevaplar verir, markanın hizmetlerinden ya da dilinden habersizdir.
 
 Biz, gömüldüğü sitenin içeriğine hâkim ve o markanın diliyle konuşan bir AI sohbet asistanı modülü geliştirdik. Ziyaretçi soru sorduğunda, asistan o sitenin hizmetlerini bilerek ve markanın tonunu koruyarak yanıt veriyor — genel bir bot değil, sitenin kendi sesi gibi.
+
+## Örnek çıktı ve çalışma akışı
+
+Asistan modülü siteye gömüldüğünde yalnızca markanın onaylı sayfalarını indeksler. Ziyaretçi sorusu geldiğinde çalışma akışı şu şekilde işler:
+
+```text
+Ziyaretçi: "Sağlık turizmi için İngiltere pazarına reklam yönetiyor musunuz?"
+1. Kapsam Kontrolü : /saglik-turizmi-performans-pazarlama + Nano Dental vakası eşleşti
+2. Yanıt Üretimi   : Markanın diliyle net özet + ilgili vaka bağlantısı
+3. Yönlendirme     : Ön görüşme talebi için /iletisim veya panel.gonet.com.tr akışı
+```
+
+Bu yapı sayesinde halüsinasyon riski sınırlandırılır ve ziyaretçi soruları doğrudan ölçülebilir dönüşüm akışına bağlanır. Kurumsal entegrasyon için [iletişim](/iletisim) sayfamızdan bize ulaşabilirsiniz.
 
 ## Sık sorulan sorular
 

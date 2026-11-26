@@ -14,12 +14,26 @@ sliderLines:
 sliderEtiket: "Otomasyon"
 ogImage: "/blog/blog-otonom-gorsel-qa-ajani.jpg"
 ogImageLight: "/blog/blog-otonom-gorsel-qa-ajani-light.jpg"
+updated: 2026-11-26
 draft: false
 ---
 
 Bir siteyi yayına almadan önce her sayfayı tek tek açıp "düzgün görünüyor mu, bir şey kırılmış mı?" diye kontrol etmek saatler alır ve göz yoruldukça hata kaçar. Bunu bir kez tarif edip sonra sürekli tekrar eden bir ajana devrettik.
 
 Ajan, siteyi baştan sona dolaşıyor, her sayfanın ekran görüntüsünü alıyor ve yapısal/teknik sağlığını raporluyor. Bir kez "neye bakacağını" yazdığınızda, aynı denetimi her seferinde aynı titizlikle tekrarlıyor — insan gözünün yorulup atladığı ayrıntıları kaçırmadan.
+
+## Örnek çıktı ve çalışma akışı
+
+Yayın öncesi QA ajanı, sitenin masaüstü ve mobil görünümlerini tarayarak hem görsel taşmaları hem de yapısal veri tutarlılığını tek raporda toplar:
+
+```text
+[QA RAPORU] 42 sayfa (1440px + 390px)
+- Görsel Yerleşim : 42/42 taşma yok, yatay kaydırma 0px
+- Başlık Hiyerarşisi: 42/42 tek H1, atlayan H2/H3 yok
+- JSON-LD Şema     : 42/42 geçerli Organization / Article / FAQPage
+```
+
+Bu denetim [panel.gonet.com.tr](https://panel.gonet.com.tr) yayın kapısı öncesinde otomatik koşularak canlı sitede sessiz kırılmaların önüne geçer.
 
 ## Sık sorulan sorular
 

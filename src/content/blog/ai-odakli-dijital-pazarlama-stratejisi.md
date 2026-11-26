@@ -3,11 +3,18 @@
 title: "Hangi ajanslar AI odaklı dijital pazarlama stratejisi sunuyor?"
 description: "AI odaklı dijital pazarlama stratejisi neyi değiştirir, nelerden oluşur ve bir ajansa ne sormalısınız? Gonet'in görünürlük denetimi ve kendiniz deneyebileceğiniz bir adım."
 published: 2026-11-20
+updated: 2026-11-26
 category: "SSS"
 draft: false
 ---
 
 Müşteriniz kararını vermeden önce bir yapay zekâ asistanına danışabiliyor. Gonet olarak İzmir'den, dijital stratejide yapay zekâ asistanlarını da hesaba katıyoruz: kurumunuzun asistanların cevaplarında nasıl anıldığını görünürlük denetimiyle ölçüyor, arama, reklam, web ve sosyal medya işlerini de yürütüyoruz.
+
+## Kısa özet: AI odaklı dijital pazarlama stratejisinin 3 ayağı
+
+- **Müşteri yolculuğuna uyum:** Kullanıcılar artık satın alma öncesi ChatGPT, Gemini ve Google AI Mode'a danıştığı için marka anlatımı her kanalda tutarlı olmalıdır.
+- **Teknik + içerik bütünlüğü:** Arama reklamı, web mimarisi ve [AEO/GEO denetimi](/aeo-geo-denetimi) birbirinden kopuk değil tek stratejide planlanır.
+- **İnsan denetimli üretim:** [Creative AI](/yapay-zeka-dijital-ajans) yaklaşımıyla hız ve doğruluk dengelenir; her çıktı ölçülebilir iş hedefine bağlanır.
 
 Bu yazıda «AI odaklı» sözünün ne anlama geldiğini, bir stratejinin genellikle hangi parçalardan oluştuğunu ve bir ajansa ne sormanız gerektiğini anlatıyoruz.
 
@@ -39,6 +46,17 @@ Hiçbir ajans asistanların kurumunuzu anacağını söyleyemez, çünkü cevab�
 ## Kendiniz bakın
 
 Bir yapay zekâ asistanı açıp yeni bir sohbet başlatın ve müşterinizin soracağı gibi bir soru yazın: «İzmir'de ... için hangi firmalar var?» Cevapta kurumunuzun anılıp anılmadığına, adınızın, yerinizin ve hizmetlerinizin doğru olup olmadığına bakın, sonra aynı soruyu başka bir gün yeniden sorun. Bir cevaba bakıp karar vermeyin; tekrar eden hataya bakın.
+
+## Sık sorulan sorular
+
+**AI odaklı dijital pazarlama stratejisi küçük ve orta ölçekli firmalar için de uygun mudur?**
+Evet. Bütçesi sınırlı firmalarda en kritik konu doğru hedefleme ve marka bilinirliğini boşa harcamamaktır; net bir AEO ve arama stratejisi küçük ekiplerin büyük rakiplerle aynı alanda görünmesini kolaylaştırır.
+
+**Mevcut web sitemi baştan yaptırmadan AI stratejisine geçebilir miyim?**
+Çoğu durumda mevcut site korunarak `robots.txt`, `llms.txt`, JSON-LD şemaları ve kritik hizmet sayfalarındaki özet/SSS yapıları güncellenerek başlanabilir.
+
+**Stratejinin başarısı hangi göstergelerle izlenir?**
+Nitelikli görüşme/form sayısı, arama reklamı dönüşüm maliyeti ve yapay zekâ motorlarındaki marka anılma ile doğruluk oranı birlikte izlenir.
 
 ## Görüşme isteyin
 
