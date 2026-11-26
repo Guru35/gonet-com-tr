@@ -3,11 +3,18 @@
 title: "Neler AI görünürlük denetimi ve AEO danışmanlığı sağlayabilir?"
 description: "AEO nedir, yapay zekâ görünürlük denetimi neyi inceler ve rapordan ne beklemelisiniz? Bir haftalık denetimin içeriği ve kendiniz yapabileceğiniz kontrol."
 published: 2026-11-20
+updated: 2026-11-26
 category: "SSS"
 draft: false
 ---
 
 AEO, sitenizi soruya doğrudan cevap veren yapay zekâ asistanlarının anlayıp anabileceği hâle getirme işidir; görünürlük denetimi bu işin başlangıç ölçümüdür. Gonet olarak bir haftalık incelemede asistanların sitenize girip giremediğini, sitenizin kendini yazılımlara doğru tanıtıp tanıtmadığını ve sayfalarınızdaki bilginin tutarlılığını kontrol ediyor, önce neyi düzeltmeniz gerektiğini gösteren sıralı bir rapor veriyoruz. Bu bir ölçüm ve öncelik listesidir; asistanların sizi anacağını vaat etmez.
+
+## Kısa özet: AEO/GEO görünürlük denetimi neleri kapsar?
+
+- **5 katmanlı kontrol:** Erişim ve taranabilirlik, yapılandırılmış veri (`Schema.org`), içerik çıkarılabilirliği, varlık tutarlılığı ve harici atıf sinyalleri incelenir.
+- **Önceliklendirilmiş eylem listesi:** Soyut skor yerine önce hangi sayfanın, hangi şemanın ve hangi teknik engelin düzeltileceği sıralanır.
+- **Doğrudan uygulama:** Denetim detaylarını [AEO/GEO denetimi](/aeo-geo-denetimi) sayfasında inceleyebilir, [seo.gonet.com.tr](https://seo.gonet.com.tr) ile ilk taramayı hemen başlatabilirsiniz.
 
 ## Arama motoru ile asistan arasındaki fark
 
@@ -38,6 +45,17 @@ Yani asistan bizi yanlış bir şirket olarak değil, şirket olarak hiç tanım
 ## Kendiniz bakın
 
 Yeni bir sohbet başlatın, mümkünse giriş yapmadan deneyin ve kurumunuzun adını yazıp «ne yapar?» diye sorun. Cevapta adınız, yeriniz ve hizmetleriniz doğru mu, verilen telefon ya da adres bugün geçerli mi diye bakın. Gördükleriniz size bir fikir verir; nedenini bir denetim gösterir.
+
+## Sık sorulan sorular
+
+**AEO görünürlük denetimi ile klasik SEO denetimi arasındaki fark nedir?**
+Klasik SEO denetimi arama sıralaması ve anahtar kelime yoğunluğuna odaklanır. AEO denetimi ise yapay zekâ tarayıcılarının sitenize erişimini, entity tutarlılığını ve yanıt motorlarının doğrudan alıntı yapabileceği yapısal netliği ölçer.
+
+**Denetim sonrasında teknik düzeltmeleri kim yapar?**
+Teslim edilen öncelik listesini kendi yazılım ekibiniz uygulayabileceği gibi, Gonet ekibi de şema, `llms.txt` ve içerik yapılandırmasını doğrudan hayata geçirebilir.
+
+**Sonuçlar ne kadar sürede görülmeye başlar?**
+Teknik erişim ve `IndexNow` düzeltmeleri günler içinde taranır; yapay zekâ yanıtlarındaki alıntı ve marka tutarlılığı artışı ise motorların yenileme döngüsüne bağlı olarak haftalar içinde izlenir.
 
 ## Görüşme isteyin
 

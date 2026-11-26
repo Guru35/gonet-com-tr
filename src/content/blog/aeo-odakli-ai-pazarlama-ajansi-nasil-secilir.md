@@ -3,11 +3,18 @@
 title: "Benim markam için AEO odaklı AI pazarlama ajansını nasıl seçmeliyim?"
 description: "AEO odaklı bir ajansı seçerken hangi soruları sormalı, hangi sözlere temkinli yaklaşmalısınız? Dört soruluk bir kontrol listesi ve kendiniz yapabileceğiniz bir deneme."
 published: 2026-11-20
+updated: 2026-11-26
 category: "SSS"
 draft: false
 ---
 
 Dört soruya bakın: ajans bu işi kendi sitesinde uyguladı mı ve gösterebiliyor mu, ölçümü nasıl yapıyor, raporu neyi önce düzeltmeniz gerektiğini söylüyor mu, asistanların sizi anacağına dair söz veriyor mu. Asistanların cevabı bir ajansın elinde değildir; sonucu söz veren ajansa temkinli yaklaşın. Gonet olarak ücretsiz görüşmede bu dört soruyu bize de sorabilirsiniz.
+
+## Kısa özet: AEO odaklı bir AI ajansı nasıl değerlendirilir?
+
+- **Kendi sitesinde kanıt:** Aday ajansın kendi alanında `/robots.txt`, `/llms.txt` ve tutarlı `Schema.org` JSON-LD uygulamasını çalıştırıp çalıştırmadığını [AEO/GEO denetimi](/aeo-geo-denetimi) kriterleriyle kontrol edin.
+- **Ölçüm şeffaflığı:** Yapay zekâ asistanlarının yanıtları garanti edilemez; ölçülebilir olan sitenizin teknik hazırlığı, çıkarılabilirliği ve çoklu motor alıntı eğilimidir.
+- **Ücretsiz ön test:** Ajans görüşmesinden önce [seo.gonet.com.tr](https://seo.gonet.com.tr) üzerinden kendi sitenizin mevcut AI görünürlük sinyallerini görebilirsiniz.
 
 AEO, kurumunuzun yapay zekâ asistanlarının cevaplarında bulunması ve doğru anlatılması için sitenizi düzenleme işidir. Alan yeni olduğu için ajansları karşılaştırmak adına oturmuş bir ölçüt yok; aşağıdaki sorular size bir çerçeve verir.
 
@@ -30,6 +37,17 @@ Yapay zekâ asistanları cevabı kendileri kurar ve hangi bilgiyi hangi sırayla
 ## Kendiniz bakın
 
 Bir ajansı değerlendirmeden önce ajansın adını bir yapay zekâ asistanına sorun, ardından kendi sektörünüzle ilgili bir soru sorup cevapta ajansın anılıp anılmadığına bakın. Bu bir hüküm değildir ama ajansın konuya ne kadar hâkim olduğu hakkında fikir verir. Sonra aynı soruyu kendi kurumunuz için yapın.
+
+## Sık sorulan sorular
+
+**AEO odaklı ajans seçerken ilk hangi teknik kanıt istenmelidir?**
+Ajansın kendi web sitesindeki yapılandırılmış veri (`Organization`, `Service`, `FAQPage`), yapay zekâ tarayıcı izinleri (`robots.txt`) ve `llms.txt` dosyası ilk bakılacak teknik kanıtlardır.
+
+**Bir ajans ChatGPT veya Gemini'de kesin sıra sözü verebilir mi?**
+Hayır. Yapay zekâ motorlarının yanıtları deterministik değildir; ancak doğru teknik altyapı, kanıtlı vaka içerikleri ve harici otorite sinyalleriyle alıntılanma olasılığı ölçülebilir biçimde artırılabilir.
+
+**AEO çalışması klasik SEO yatırımlarını boşa çıkarır mı?**
+Hayır, aksine tamamlar. Temiz teknik yapı, hızlı açılış ve net içerik hiyerarşisi hem klasik arama motorlarında hem de yapay zekâ yanıt motorlarında görünürlüğü destekler.
 
 ## Görüşme isteyin
 

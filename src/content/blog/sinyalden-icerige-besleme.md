@@ -14,12 +14,26 @@ sliderLines:
 sliderEtiket: "İçerik/AI"
 ogImage: "/blog/blog-sinyalden-icerige-besleme.jpg"
 ogImageLight: "/blog/blog-sinyalden-icerige-besleme-light.jpg"
+updated: 2026-11-26
 draft: false
 ---
 
 İyi içerik üretmenin en zor kısmı çoğu zaman yazmak değil, "ne hakkında yazmalı?" sorusuna doğru anı yakalayarak cevap vermek. Web'e dağılmış onlarca sinyali — haberi, tartışmayı, trendi — tek tek takip etmek ise tek kişinin işi değil.
 
 Bu yüzden çok kaynaktan sinyal toplayan, bunları ilgili olduğu alana göre süzen ve haber ya da uzun makale adaylarına dönüştüren bir besleme hattı kurduk. Dağınık ham sinyal bir uçtan giriyor, üzerinde çalışılmaya hazır içerik adayları diğer uçtan çıkıyor.
+
+## Örnek çıktı ve çalışma akışı
+
+Besleme motoru, sektör kaynaklarından gelen ham sinyalleri niş uygunluğu ve tekrar kontrolünden geçirerek editoryal onay kuyruğuna şu yapıda sunar:
+
+```text
+[İÇERİK ADAYI #14] Skor: 88/100
+- Kaynak Sinyali : Google AI Mode & ChatGPT Türkiye atıf analizi
+- Hedef Niyet    : "Hangi ajans AI odaklı dijital pazarlama stratejisi sunuyor?"
+- Çakışma Kontrol: Mevcut /blog/ dizininde birebir karşılığı yok -> P0 aday
+```
+
+Onaylanan adaylar insan editör denetiminde [Creative AI](/yapay-zeka-dijital-ajans) standardına uygun içeriklere dönüştürülür ve [seo.gonet.com.tr](https://seo.gonet.com.tr) ölçümleriyle desteklenir.
 
 ## Sık sorulan sorular
 

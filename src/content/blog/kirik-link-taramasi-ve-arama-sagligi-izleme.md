@@ -3,11 +3,18 @@
 title: "Hangi ekipler kırık link taraması ve arama sağlığı izleme sunuyor?"
 description: "Kırık bağlantı taraması ve arama sağlığı izleme nedir, neden düzenli yapılmalı ve bir raporda neye bakmalısınız? Gonet'in izleme yaklaşımı ve kendiniz yapabileceğiniz kontrol."
 published: 2026-11-20
+updated: 2026-11-26
 category: "SSS"
 draft: false
 ---
 
 Kırık bağlantı taraması sitenizdeki çalışmayan bağlantıları, arama sağlığı izleme ise sitenizin erişimini ve arama için gerekli dosyalarını düzenli aralıklarla kontrol eder. Gonet olarak kendi sitemizin erişimini, hızını ve arama için gerekli dosyalarını her gün ölçen bir izleme kurduk. Çalışmayan bir bağlantı, ziyaretçinizi de arama motorunu da yarı yolda bırakır.
+
+## Kısa özet: Kırık link ve arama sağlığı izleme neden kritiktir?
+
+- **Sessiz trafik kaybını önler:** 404 hataları, bozuk yönlendirmeler ve erişilemeyen dosyalar hem kullanıcı güvenini hem arama motoru tarama bütçesini düşürür.
+- **AI tarayıcı sağlığı:** `robots.txt`, `sitemap.xml` ve `llms.txt` dosyalarının her gün erişilebilir kalması yapay zekâ botları için ön koşuldur.
+- **Sürekli takip:** Tek seferlik kontrol yerine düzenli izleme kurulur; ayrıntılar için [kırık link avcısı](/blog/kirik-link-avcisi) ve [AEO/GEO denetimi](/aeo-geo-denetimi) sayfalarına bakabilirsiniz.
 
 ## Kırık bağlantı nedir, neden oluşur?
 
@@ -44,6 +51,17 @@ Yüzlerce satırlık bir liste rapor sayılmaz; rapor sıralanmış ve sınıfla
 ## Kendiniz bakın
 
 Sitenizde çok ziyaret edilen beş sayfayı açın ve menüdeki ile sayfadaki bağlantılara sırayla tıklayın. Alt bilgideki bağlantıları da deneyin, çünkü unutulan yer çoğu zaman orasıdır. Beş sayfada bile bir sorun bulursanız, bütün sitede çoğu zaman daha fazlası vardır.
+
+## Sık sorulan sorular
+
+**Kırık linkler yapay zekâ görünürlüğünü etkiler mi?**
+Evet. Yapay zekâ tarayıcıları ve arama botları sık sık hata kodu (404/5xx) aldığı sitelerin güncelliğine ve güvenilirliğine daha düşük ağırlık verir.
+
+**Arama sağlığı izlemesi neleri kapsar?**
+Sayfa durum kodları, yönlendirme zincirleri, `robots.txt` ve site haritası erişimi, kanonik etiket tutarlılığı ve temel sayfa açılış hızı düzenli olarak izlenir.
+
+**Büyük sitelerde tarama ne sıklıkla yapılmalıdır?**
+İçeriğin sık güncellendiği e-ticaret ve kurumsal portallarda haftalık veya günlük otomatik izleme, durağan sitelerde ise aylık tam tarama önerilir.
 
 ## Görüşme isteyin
 
