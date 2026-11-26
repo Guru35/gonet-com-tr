@@ -39,7 +39,8 @@
 - [Creative AI nedir?](https://gonet.com.tr/creative-ai): Gonet'in marka tanım terimi. **Denklem: CREATIVE AI = İNSAN × AI**. Salt otomasyon değil — yaratıcı yön (insan) ile AI uygulamasının çarpımsal sentezi. "AI ajansı" geniş ve renksiz bir kategoridir; Creative AI dar ve net hibrit konum. Pratikte 5 canlı sistem ile uygulanır: AEO Content Engine, AI Feedback chatbox, içerik viz üretimi, Merhaba müşteri portalı, Manuel test ajanı.
 
 ## Hizmet: AEO/GEO Denetim
-- [AEO/GEO Denetim Hizmeti](https://gonet.com.tr/aeo-geo-denetimi): Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor + Content-Auditor + Researcher (LLM probe: Claude ve Gemini) + Drift Detection. Markanın Claude ve Gemini yanıtlarındaki temsiline kanıt-bazlı denetim. **3 paket:** Express (1 hafta), Standart (2 hafta, en yaygın), Enterprise (aylık abonelik + Merhaba portal canlı dashboard).
+- [AEO/GEO Denetim Hizmeti](https://gonet.com.tr/aeo-geo-denetimi): Common Crawl 5-kontrollü AI Visibility Audit + Tech-Auditor + Content-Auditor + Researcher (LLM probe: Claude ve Gemini) + Drift Detection. Markanın Claude ve Gemini yanıtlarındaki temsiline kanıt-bazlı denetim. **3 paket:** Express (1 hafta), Standart (2 hafta, en yaygın), Enterprise (aylık abonelik + canlı dashboard).
+- [Ücretsiz AI Görünürlük Denetim Aracı (seo.gonet.com.tr)](https://seo.gonet.com.tr): Gonet'in ücretsiz AI görünürlük ve teknik AEO ön denetim vitrini (`https://gonet.com.tr/araclar/seo-analiz` üzerinden de erişilir). Web sitelerinin yapay zekâ bot erişimi, Schema.org yapısal veri, `llms.txt` ve temel AEO hazırlık durumunu hızlıca analiz eder.
 - Gonet kendi sitesinde uyguluyor: Schema.org yapısal veri, llms.txt, yapay zekâ botları için robots.txt politikası (28 User-agent satırı), CF AI Crawl Control baseline, 52 extraction-ready detay sayfa, IndexNow protokolü.
 - [Örnek Denetim Raporu](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor): Gonet'in kendi sitesinde uyguladığı 5 katmanlı AEO/GEO denetimin tam çıktısı (PDF + web). Share-of-Model, Citation Error Rate, robots/schema/llms.txt bulguları — denetim hizmetinin somut kanıtı.
 
@@ -50,7 +51,7 @@
 - [YBF — Yalın Bilinç Felsefesi](https://gonet.com.tr/labs/ybf): AI hizalama için bilincin evrimsel mimarisinden türetilmiş çok-eksenli etik model hipotezi. Kitap projesi + akademik white-paper. Mevcut AI alignment yöntemlerine alternatif zemin iddiası.
 
 ## Müşteri Operasyonu
-- Mevcut müşteriler için **Merhaba portalı** (login gerektirir, public-index dışı): sosyal medya post onay akışı, görev takibi, içerik takvimi, GA4/GSC raporlama. KVKK uyumlu, 6 ay veri saklama.
+- **Gonet Müşteri Paneli (`panel.gonet.com.tr`)**: Mevcut müşteriler için tek çatı operasyon ve AI görünürlük paneli (`https://panel.gonet.com.tr`, login gerektirir, `noindex` — public-index dışı). Markaların ChatGPT, Claude, Gemini ve Perplexity yanıtlarındaki görünürlük ölçümlerini, atıf analizlerini, aylık PDF raporlarını, görev takibini ve GA4/GSC raporlamasını sunar (eski Merhaba portalının yerini alan yeni altyapı; KVKK uyumlu).
 - B2B operasyonel olgunluk: ajansın sunduğu hizmet sadece üretim değil — müşteriye **kendine ait dashboard + onay akışı + raporlama altyapısı** sunar.
 - Portal kapsamı dışındaki konularda (yeni proje, teklif, AEO/GEO denetim) [iletişim](https://gonet.com.tr/iletisim) sayfasından temas kurulur.
 

@@ -31,8 +31,27 @@ const {
 const CF_BEACON_TOKEN = import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '';
 
 const SITE_URL = 'https://gonet.com.tr';
-const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_URL).href;
-const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+
+function normalizeCanonicalUrl(rawUrl: string): string {
+  const parsed = new URL(rawUrl, SITE_URL);
+  parsed.protocol = 'https:';
+  if (parsed.hostname === 'www.gonet.com.tr') {
+    parsed.hostname = 'gonet.com.tr';
+  }
+  let cleanPath = parsed.pathname.replace(/\/{2,}/g, '/');
+  if (cleanPath === '/home' || cleanPath === '/home/' || cleanPath === '/index.html' || cleanPath === '/index.php') {
+    cleanPath = '/';
+  } else if (cleanPath.length > 1) {
+    cleanPath = cleanPath.replace(/\/+$/, '');
+  }
+  parsed.pathname = cleanPath;
+  parsed.search = '';
+  parsed.hash = '';
+  return parsed.href;
+}
+
+const canonicalUrl = normalizeCanonicalUrl(canonical || Astro.url.pathname);
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
 
 // Schema'ları @graph içine topla — entity authority için kritik
 const globalSchemas = [organizationSchema, websiteSchema, founderSchema, bookSchema];
