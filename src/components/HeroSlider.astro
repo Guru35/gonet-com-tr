@@ -288,6 +288,8 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
   .slider-ctrl { display: flex; align-items: center; gap: 1.5rem; margin-top: 0.85rem; }
   .ctrl-prev, .ctrl-next {
     font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 1.75rem);
+    min-width: 44px; min-height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
     color: var(--txt); background: none; border: 0; cursor: pointer; transition: color 0.2s ease;
   }
   .ctrl-prev:hover, .ctrl-next:hover { color: #ff0000; }
@@ -310,7 +312,7 @@ const tilts = ['-1.1deg', '0.8deg', '-0.6deg', '1deg', '-0.9deg', '0.5deg', '-1d
     .hero-fixed-meta { padding-bottom: 1rem; }
     .slide-inner { padding-bottom: 5.5rem; }         /* yalnız kontroller için yer */
     .hero-headline .block { font-size: clamp(2.4rem, 12vw, 4rem); }  /* mobilde daha çarpıcı */
-    .slider-ctrl { margin-top: 0; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .slider-ctrl { margin-top: 0; padding-top: 1rem; gap: 0.75rem; border-top: 1px solid var(--border); }
   }
 
   @media (prefers-reduced-motion: reduce) {
