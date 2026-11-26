@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { SITE_URL } from '../lib/schema';
+import { blogYayindaMi } from '../lib/blog-yayin';
 
 // Blog RSS 2.0 — <link rel="alternate" href="/rss.xml"> (BaseLayout) bu dosyaya gider.
 const esc = (s: string) =>
@@ -7,7 +8,7 @@ const esc = (s: string) =>
 
 export async function GET() {
   const yazilar = (await getCollection('blog'))
-    .filter((e) => !e.data.draft)
+    .filter((e) => blogYayindaMi(e))
     .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
   const ogeler = yazilar

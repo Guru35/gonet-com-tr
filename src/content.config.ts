@@ -17,6 +17,9 @@ const pages = defineCollection({
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
@@ -41,6 +44,9 @@ const blog = defineCollection({
     readingMinutes: z.number().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
     // İnteraktif yazı bileşeni anahtarı. Set ise [...slug].astro prose'dan sonra
     // ilgili bileşeni render eder. Enum: typo build'de patlar (sessiz kayıp yok).
     interactive: z.enum(['model-kilavuzu']).optional(),
@@ -67,6 +73,9 @@ const caseStudies = defineCollection({
     ogImage: z.string().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
@@ -82,6 +91,9 @@ const services = defineCollection({
     relatedServices: z.array(z.string()).default([]),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
@@ -120,6 +132,9 @@ const yetkinlikler = defineCollection({
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 

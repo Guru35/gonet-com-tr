@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { blogYayindaMi } from '../lib/blog-yayin';
 
 /**
  * LLM-friendly blog dökümü — /llms-blog.txt
@@ -13,7 +14,7 @@ import type { APIRoute } from 'astro';
  */
 export const GET: APIRoute = async () => {
   const posts = (await getCollection('blog'))
-    .filter((p) => !p.data.draft)
+    .filter((p) => blogYayindaMi(p))
     .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
   const lines: string[] = [

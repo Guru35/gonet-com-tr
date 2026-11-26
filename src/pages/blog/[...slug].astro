@@ -3,12 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleSchema, webpageSchema } from '../../lib/schema';
 import { getCollection, render } from 'astro:content';
 import ModelKilavuzu from '../../components/interactive/ModelKilavuzu.astro';
+import { blogYayindaMi } from '../../lib/blog-yayin';
 
 // İnteraktif yazı bileşen haritası — frontmatter `interactive` anahtarına göre.
 const interactiveComponents = { 'model-kilavuzu': ModelKilavuzu } as const;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = (await getCollection('blog')).filter((p) => blogYayindaMi(p));
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -120,7 +121,7 @@ const cta = blogCTAs[post.id] || {
 // İnteraktif yazılar sonsuz-akış hedefi OLAMAZ: DOMParser ile enjekte edilince
 // scoped style/script çalışmaz → bozuk görünür. Bu yüzden zincirden çıkarılır.
 const allPosts = (await getCollection('blog'))
-  .filter((p) => !p.data.draft && !p.data.interactive)
+  .filter((p) => blogYayindaMi(p) && !p.data.interactive)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 const currentIdx = allPosts.findIndex((p) => p.id === post.id);
 const nextPost = currentIdx >= 0 && currentIdx < allPosts.length - 1 ? allPosts[currentIdx + 1] : null;

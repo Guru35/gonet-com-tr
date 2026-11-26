@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { webpageSchema } from '../../lib/schema';
 import { getCollection } from 'astro:content';
+import { blogYayindaMi } from '../../lib/blog-yayin';
 
 const posts = (await getCollection('blog'))
-  .filter((p) => !p.data.draft)
+  .filter((p) => blogYayindaMi(p))
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
 const catCounts = posts.reduce((acc, p) => {

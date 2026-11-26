@@ -2,6 +2,48 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import fs from 'node:fs';
+import path from 'node:path';
+
+/**
+ * GW-D01: Taslak veya yayın tarihi gelecekte olan blog yazılarının
+ * sitemap-*.xml içinde listelenmesini engelleyen çifte zırh.
+ */
+function gizliBlogYollariOlustur() {
+  const gizli = new Set();
+  const blogDizin = path.resolve('src/content/blog');
+  if (!fs.existsSync(blogDizin)) return gizli;
+
+  const simdi = process.env.GONET_BUILD_NOW ? new Date(process.env.GONET_BUILD_NOW) : new Date();
+  const yuru = (dizin, onEk = '') => {
+    for (const girdi of fs.readdirSync(dizin, { withFileTypes: true })) {
+      const tam = path.join(dizin, girdi.name);
+      if (girdi.isDirectory()) {
+        yuru(tam, `${onEk}${girdi.name}/`);
+        continue;
+      }
+      if (!girdi.name.endsWith('.md')) continue;
+      const icerik = fs.readFileSync(tam, 'utf8');
+      const fm = icerik.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!fm) continue;
+      const blok = fm[1];
+      const taslak = /^draft:\s*true\s*$/m.test(blok);
+      const durumEs = blok.match(/^yayinDurumu:\s*['"]?([a-z]+)['"]?\s*$/m);
+      const durumEngelli = durumEs && durumEs[1] !== 'yayinda';
+      const tarihEs = blok.match(/^published:\s*['"]?([^'"\n\r]+)['"]?\s*$/m);
+      const gelecekTarih = tarihEs ? new Date(tarihEs[1].trim()).getTime() > simdi.getTime() : false;
+      if (taslak || durumEngelli || gelecekTarih) {
+        const slug = `${onEk}${girdi.name.replace(/\.md$/, '')}`;
+        gizli.add(`/blog/${slug}`);
+        gizli.add(`/blog/${slug}/`);
+      }
+    }
+  };
+  yuru(blogDizin);
+  return gizli;
+}
+
+const gizliBlogYollari = gizliBlogYollariOlustur();
 
 // https://astro.build/config
 // Eski PHP/WP URL'leri yeni Astro route'larına 301 yönlendirme.
@@ -76,7 +118,8 @@ export default defineConfig({
         // /merhaba — müşteri portalı yapım-aşamasında placeholder (noindex); portal
         // canlıya çıkınca bu satır kaldırılır. (2026-06-12)
         !page.endsWith('/merhaba/') &&
-        !page.endsWith('/merhaba'),
+        !page.endsWith('/merhaba') &&
+        !gizliBlogYollari.has(new URL(page).pathname),
       // Site haritası adresi sayfanın canonical'ı ile aynı olsun: canonical çizgisiz (BaseLayout, Astro.url.pathname),
       // harita çizgili üretiyordu → sondaki «/» atılır (ana sayfa «/» kalır). Canonical'a dokunulmaz.
       serialize: (item) => {
