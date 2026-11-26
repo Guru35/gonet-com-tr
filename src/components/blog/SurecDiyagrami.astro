@@ -1,0 +1,68 @@
+---
+interface Adim {
+  no: string;
+  baslik: string;
+  aciklama: string;
+}
+
+interface Props {
+  baslik: string;
+  adimlar: Adim[];
+}
+
+const { baslik, adimlar } = Astro.props;
+const headingId = `surec-${baslik.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 24)}`;
+---
+
+{adimlar && adimlar.length > 0 && (
+  <figure
+    class="blog-viz my-12 lg:my-14 border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 lg:p-8"
+    aria-labelledby={headingId}
+  >
+    <figcaption
+      id={headingId}
+      class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--border)] pb-4 mb-6"
+    >
+      <span class="editorial-display text-xl lg:text-2xl leading-tight text-[var(--text-heading)]">
+        {baslik}
+      </span>
+      <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--text-secondary)]">
+        {adimlar.length} Adımlı Akış
+      </span>
+    </figcaption>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-flow-col lg:auto-cols-fr gap-6 lg:gap-4">
+      {adimlar.map((adim, idx) => (
+        <li class="relative flex flex-col gap-2 p-4 border border-[var(--border)] bg-[var(--surface-2)]">
+          <div class="flex items-center justify-between gap-2">
+            <span
+              class="editorial-display text-2xl lg:text-3xl leading-none"
+              style="color: var(--accent-strong);"
+              aria-hidden="true"
+            >
+              {adim.no}
+            </span>
+            {idx < adimlar.length - 1 && (
+              <svg
+                class="hidden lg:block w-5 h-5 shrink-0 text-[var(--text-secondary)]"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                aria-hidden="true"
+              >
+                <path d="M4 10h12M11 5l5 5-5 5" />
+              </svg>
+            )}
+          </div>
+          <h3 class="text-sm lg:text-base font-bold leading-snug text-[var(--text-heading)]">
+            {adim.baslik}
+          </h3>
+          <p class="text-xs lg:text-sm leading-relaxed text-[var(--text-secondary)]">
+            {adim.aciklama}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </figure>
+)}

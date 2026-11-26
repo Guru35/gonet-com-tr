@@ -1,0 +1,34 @@
+---
+interface Props {
+  tur: 'kural' | 'ajans-notu' | 'uyari';
+  baslik: string;
+  metin: string;
+}
+
+const { tur, baslik, metin } = Astro.props;
+
+const etiketMap: Record<Props['tur'], string> = {
+  kural: 'Altın Kural',
+  'ajans-notu': 'Ajans Notu',
+  uyari: 'Kritik Uyarı',
+};
+---
+
+<aside
+  class="blog-viz my-10 lg:my-12 border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text)] p-6 lg:p-8"
+  style="border-left: 4px solid #ff0000;"
+  aria-label={etiketMap[tur]}
+>
+  <p
+    class="text-[10px] font-bold uppercase tracking-[0.28em] mb-2"
+    style="color: var(--accent-strong);"
+  >
+    {etiketMap[tur]}
+  </p>
+  <h3 class="text-base lg:text-lg font-bold leading-snug text-[var(--text-heading)] mb-2">
+    {baslik}
+  </h3>
+  <p class="text-sm lg:text-base leading-relaxed text-[var(--text)]">
+    {metin}
+  </p>
+</aside>

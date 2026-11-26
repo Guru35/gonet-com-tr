@@ -1,0 +1,59 @@
+---
+interface Madde {
+  baslik: string;
+  aciklama?: string;
+}
+
+interface Props {
+  baslik: string;
+  maddeler: Madde[];
+}
+
+const { baslik, maddeler } = Astro.props;
+const headingId = `kontrol-${baslik.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 24)}`;
+---
+
+{maddeler && maddeler.length > 0 && (
+  <figure
+    class="blog-viz my-12 lg:my-14 border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 lg:p-8"
+    aria-labelledby={headingId}
+  >
+    <figcaption
+      id={headingId}
+      class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--border)] pb-4 mb-6"
+    >
+      <span class="editorial-display text-xl lg:text-2xl leading-tight text-[var(--text-heading)]">
+        {baslik}
+      </span>
+      <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--text-secondary)]">
+        Kontrol Listesi
+      </span>
+    </figcaption>
+
+    <ul class="space-y-4">
+      {maddeler.map((m) => (
+        <li class="flex items-start gap-3.5 pb-4 border-b border-[var(--border)] last:border-b-0 last:pb-0">
+          <svg
+            class="w-5 h-5 shrink-0 mt-0.5"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect x="1.5" y="1.5" width="17" height="17" stroke="currentColor" stroke-width="1.5" />
+            <path d="M5.5 10.5l3 3 6-6.5" stroke="#ff0000" stroke-width="2" stroke-linecap="square" />
+          </svg>
+          <div>
+            <p class="text-sm lg:text-base font-bold leading-snug text-[var(--text-heading)]">
+              {m.baslik}
+            </p>
+            {m.aciklama && (
+              <p class="mt-1 text-xs lg:text-sm leading-relaxed text-[var(--text-secondary)]">
+                {m.aciklama}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </figure>
+)}

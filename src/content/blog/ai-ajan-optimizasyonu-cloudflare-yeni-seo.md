@@ -1,18 +1,49 @@
 ---
-title: "AI Ajan Optimizasyonu: Cloudflare CEO'su Bunu Yeni SEO Olarak Tanımladı"
-description: "Cloudflare CEO'su Matthew Prince, AI ajanlarının web sitelerini ziyaret etme biçimini yönetmeyi 'yeni SEO' olarak nitelendirdi. OpenAI'ın sayfa değişiklik sinyalleri için Cloudflare'e ödeme yaptığı ortaya çıktı. Bu gelişme, AEO ve GEO stratejistleri için içerik erişilebilirliğini yeniden düşünme zamanının geldiğini gösteriyor."
+title: "Web Siteniz AI Ajanlarına Hazır mı? Yeni SEO Standardı"
+description: "Cloudflare CEO'su Matthew Prince, yapay zekâ ajanlarının web sitelerini okuma ve güncelleme sinyali alma biçimini 'yeni SEO' olarak tanımladı. Web sitenizi AI ajanlarına hazırlamanın 4 adımlı rehberi."
+h1: "Web Siteniz AI Ajanlarına Hazır mı? Yeni SEO Standardı"
+ogImage: "/blog/aralik-2026/ai-ajan-optimizasyonu-cloudflare-yeni-seo-dark.png"
+ogImageLight: "/blog/aralik-2026/ai-ajan-optimizasyonu-cloudflare-yeni-seo-light.png"
+keywords:
+  - "AI ajan optimizasyonu"
+  - "yeni SEO"
+  - "HTML-first"
+  - "llms.txt"
+  - "Cloudflare AI"
 published: 2026-12-03
-updated: 2026-11-09
+updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "AEO/GEO Araştırma Ekibi"
+  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
-readingMinutes: 7
-draft: true
+tags: ["ai-ajanlari", "yeni-seo", "html-first", "cloudflare", "llms-txt"]
+readingMinutes: 6
+draft: false
+mizanpaj: "B"
 ozetMaddeleri:
-  - "Cloudflare CEO'su Matthew Prince, AI ajanlarının web sitelerini tarama ve anlama biçimini yönetmeyi 'yeni SEO' olarak tanımlıyor."
-  - "OpenAI'ın sayfa değişiklik sinyalleri için Cloudflare'e ödeme yapması, taze içeriğin AI motorları için kritik değer taşıdığını gösteriyor."
-  - "Klasik sıralama odaklı SEO'nun yerini, AI ajanlarına temiz HTML ve yapısal veri sunarak alıntılanma yarışı alıyor."
+  - "Cloudflare CEO'su Matthew Prince, yapay zekâ ajanlarının web sitelerini tarama ve anlama biçimini yönetmeyi 'yeni SEO' olarak tanımlıyor."
+  - "OpenAI'ın sayfa değişiklik sinyalleri için altyapı sağlayıcılarına ödeme yapması, taze ve temiz HTML içeriğin ticari değerini kanıtlıyor."
+  - "Klasik sıralama odaklı siteler yerine HTML-first mimari, llms.txt ve güncel Schema.org sunan markalar AI ajanları tarafından öneriliyor."
+infografikler:
+  - tip: "surec"
+    baslik: "4 Adımda Web Sitenizi AI Ajanlarına Hazırlama Akışı"
+    adimlar:
+      - no: "01"
+        baslik: "HTML-First Temizlik"
+        aciklama: "Fiyat, stok ve hizmet bilgisini JavaScript arkasına gizlemeden ilk HTML yanıtında sunun."
+      - no: "02"
+        baslik: "llms.txt Rehberi"
+        aciklama: "Ajanlara sitenizin en önemli sayfalarını ve kullanım sınırlarını kök dizinde tanıtın."
+      - no: "03"
+        baslik: "Güncel Schema.org"
+        aciklama: "dateModified, Product ve Service şemalarıyla sayfa tazeliğini makine dilinde işaretleyin."
+      - no: "04"
+        baslik: "Bot Log Doğrulaması"
+        aciklama: "GPTBot, ClaudeBot ve PerplexityBot ziyaretlerini sunucu loglarından düzenli izleyin."
+  - tip: "vurgu-kutusu"
+    tur: "uyari"
+    baslik: "Kritik Kural: JS Arkasına Gizlenen İçerik Görünmez"
+    metin: "Birçok yapay zekâ ajanı tarayıcıda ağır JavaScript çalıştırmadan yalnızca ham HTML kodunu okur. Fiyat listeniz veya hizmet detaylarınız sonradan yükleniyorsa, ajan sitenizi boş bir kabuk olarak kaydeder."
 karsilastirmaTablosu:
   baslik: "Klasik SEO ve AI Ajan Optimizasyonu Farkları"
   sutunlar:
@@ -23,78 +54,75 @@ karsilastirmaTablosu:
     - ["Ana Hedef", "Arama sonuçlarında üst sıralar", "AI yanıtlarında doğrudan kaynak gösterilme"]
     - ["Güncellik Sinyali", "Sitemap ve tarama bütçesi", "Anlık sayfa değişiklik sinyalleri"]
     - ["İçerik Biçimi", "Anahtar kelime uyumlu sayfalar", "Özet, tablo ve yapısal veri (JSON-LD)"]
+ozelCta:
+  eyebrow: "YENİ NESİL WEB MİMARİSİ"
+  h2a: "Web sitenizi AI"
+  h2b: "ajanlarına açalım."
+  btn: "Altyapınızı Test Edin →"
+  href: "/araclar/seo-analiz"
 sss:
   - soru: "AI ajan optimizasyonu ile klasik SEO arasındaki temel fark nedir?"
-    cevap: "Klasik SEO, arama motoru botlarının içeriği indekslemesini ve sıralamada yüksek çıkmasını hedefler. AI ajan optimizasyonu ise ChatGPT, Claude veya Perplexity gibi platformların yanıt üretirken sitenizin içeriğini doğru, güncel ve bağlamıyla birlikte kullanmasını sağlamaya odaklanır. Sıralama yerine alıntılanma ve temsil edilme ön plana geçer."
-  - soru: "OpenAI'ın Cloudflare'e ödediği sayfa değişiklik sinyali nedir ve sitelere nasıl yansır?"
-    cevap: "Sayfa değişiklik sinyali, bir web sayfasının güncellendiğini AI tarayıcısına bildiren bir mekanizmadır. OpenAI bu sinyalleri Cloudflare üzerinden satın alıyor; böylece tarayıcı sayfayı gereksiz yere ziyaret etmek yerine yalnızca değişiklik olduğunda içeriği yeniden çekiyor. Siteler açısından bu, gereksiz bot trafiğini azaltır ve AI platformlarında içeriğin güncel tutulmasını kolaylaştırır."
-  - soru: "llms.txt dosyası bu yeni modelde neden önemli?"
-    cevap: "llms.txt, sitenizin hangi içeriklerinin AI motorlarına açık olduğunu ve nasıl kullanılabileceğini tanımlayan bir rehber dosyadır. Cloudflare'in tarif ettiği niyete dayalı erişim modelinde, kendini doğru tanıtan ajanlara farklı erişim politikaları uygulanabilir. Bu nedenle llms.txt, sitenizin AI ekosistemi içindeki erişilebilirliğini yönetmenin temel noktası haline geliyor."
+    cevap: "Klasik SEO arama motorlarının sayfalarınızı indeksleyip sıralamada üste çıkarmasını hedefler. AI ajan optimizasyonu ise ChatGPT, Claude veya Perplexity gibi sistemlerin yanıt üretirken ya da kullanıcı adına işlem yaparken sitenizdeki veriyi hatasız çekebilmesine odaklanır."
+  - soru: "Sayfa değişiklik sinyalleri şirket web siteleri için neden önemlidir?"
+    cevap: "OpenAI'ın Cloudflare üzerinden satın aldığı sayfa değişiklik sinyalleri, bir sitenin fiyat veya hizmet bilgisinin ne zaman güncellendiğini ajanlara anlık bildirir. Böylece yapay zekâ motorları kullanıcıya eski kampanya veya hatalı fiyat sunmaktan kurtulur ve güncel kalan sitelere daha çok güvenir."
+  - soru: "Mevcut kurumsal sitemi sıfırdan yenilemeden AI ajanlarına uyumlu hale getirebilir miyim?"
+    cevap: "Evet, çoğu zaman sıfırdan site kurmaya gerek kalmaz. Kritik hizmet metinlerini sunucu taraflı HTML çıktısına taşımak, robots.txt izinlerini açmak, llms.txt eklemek ve JSON-LD şemalarını tamamlamak sitenizi hızla ajan dostu hale getirir."
 ---
-## Olay: Cloudflare'in 'Act 4' Geliri ve OpenAI Ortaklığı
 
-Cloudflare'in kurucu ortağı ve CEO'su Matthew Prince, şirketin 2025 üçüncü çeyrek kazanç toplantısında dikkat çekici bir açıklama yaptı: Cloudflare, 'Act 4' ürün grubundan ilk gelirini kayıt altına aldı. Act 4, internetin yeni iş modelini şekillendirmeye yönelik ürünleri kapsayan Cloudflare'in stratejik yol haritasının dördüncü aşaması.
+**Web sitenizdeki bilgiler yalnızca insan ziyaretçiler için değil, kullanıcı adına araştırma ve karşılaştırma yapan yapay zekâ ajanları için de ilk bakışta okunabilir olmalıdır.** Cloudflare CEO'su Matthew Prince, bu yeni erişim ve güncellik mimarisini açıkça "yeni SEO" olarak tanımladı ve OpenAI'ın web sayfalarındaki değişiklik sinyalleri için Cloudflare'e ödeme yaptığını doğruladı.
 
-Prince'in paylaştığı somut örnek özellikle ilgi çekici: OpenAI, Cloudflare aracılığıyla web sayfalarının ne zaman güncellendiğine dair sinyaller (page-change hints) satın alıyor. Bu sayede OpenAI'ın tarayıcısı (crawler), örneğin bir restoranın fiyat listesini güncelleyip güncellemediğini anlamak için sayfayı tekrar tekrar ziyaret etmek zorunda kalmıyor. Prince bu mekanizmayı Goldman Sachs'ın bir analistine yanıt verirken anlattı ve AI ajanlarına yönelik optimizasyonu açıkça "yeni SEO" olarak nitelendirdi.
+Bu gelişme, dijital pazarlama yöneticileri için teorik bir gelecek senaryosu değildir. Yapay zekâ ajanları artık bir restoranın güncel fiyat listesini, bir kliniğin tedavi seçeneklerini veya bir B2B firmanın teknik özelliklerini doğrudan web sitelerinden çekiyor. Altyapısı buna hazır olmayan siteler ise ziyaretçi ve talep fırsatını sessizce kaybediyor.
 
-Şirketin 2025 Q3 toplam geliri 782,5 milyon dolar olarak açıklandı; bu rakam bir önceki yıla kıyasla yüzde 39 büyümeye işaret ediyor. Act 4'e özgü gelir ayrıca raporlanmamış olsa da Prince, AI ajanlarının verimli ziyaretlerinden kaynaklanan gelirin 'önemli seviyelere' ulaştığını ifade etti.
+## Altyapıda Ne Değişti? Güncellik ve Niyet Sinyali
 
-## Mekanizma: AI Ajanı Optimizasyonu Nasıl Çalışıyor?
+Geleneksel web'de arama motorları sitenizi belirli aralıklarla tarar ve değişiklikleri haftalar sonra fark edebilirdi. Yeni düzende iki mekanizma öne çıkıyor:
 
-### Sayfa Değişiklik Sinyalleri: Crawl Verimliliğinin Yeni Boyutu
+- **Gerçek Zamanlı Güncellik:** Yapay zekâ ajanları bir kullanıcıya fiyat veya stok bilgisi verirken eski veriye dayanamaz. Bu nedenle sayfalarınızın `dateModified` (güncellenme tarihi) ve site haritası sinyallerinin tutarlı olması doğrudan güven puanı üretir.
+- **Kimlik ve Erişim Politikası:** Altyapı sağlayıcıları artık kendini tanıtan (`OAI-SearchBot`, `ClaudeBot` gibi) ajanlara özel erişim ve tarama kuralları sunuyor. Kurumsal sitelerin bot trafiğini tamamen yasaklamak yerine ölçüp yönetmesi gerekiyor.
 
-Geleneksel SEO'da arama motoru botlarını yönetmek için robots.txt ve sitemap.xml kullanılır. AI ajan optimizasyonunda ise işin mekaniği biraz farklı işliyor. Cloudflare'in sunduğu çözüm, bir nevi gerçek zamanlı güncelleme bildirimi sistemi kuruyor: Web sitesi değiştiğinde bu sinyal ilgili AI ajanına iletiliyor; ajan gereksiz yere sunucuya yük bindirmiyor, içerik sahibi de anlamsız bir bant genişliği maliyeti ödemek zorunda kalmıyor.
+## Türkiye'deki Şirketler İçin 4 Adımlı Hazırlık Planı
 
-Bu yapı RAG (Retrieval-Augmented Generation — üretken yapay zekanın dış bilgi kaynaklarına erişim yöntemi) sistemleri için de kritik. RAG mimarisinde AI, bir soruya yanıt vermeden önce güncel bilgiyi dış kaynaklardan çekiyor. Kaynak güncel değilse yanıt da güncel olmuyor. Dolayısıyla değişiklik sinyalleri, AI'ın verdiği yanıtların doğruluğunu doğrudan etkiliyor.
+Sektörünüz ister e-ticaret, ister sağlık turizmi ya da B2B mühendislik olsun, sitenizi yapay zekâ ajanlarına hazırlamak için şu dört adımı sırayla uygulayabilirsiniz:
 
-### Ajanın Kendini Tanıtması: Niyete Dayalı Tarife
+### 1. Kritik Metni Ham HTML'de Sunun
+Sitenizde fiyatlar, kampanya şartları veya hizmet açıklamaları yalnızca ağır JavaScript çalıştıktan sonra ekrana geliyorsa birçok AI ajanı bu veriyi hiç göremez. Biz kendi sitemizde (`gonet.com.tr`) tüm anlam taşıyan metinleri doğrudan ilk HTML yanıtında sunarak **HTML-first** disiplinini uyguluyoruz ve bu sayede teknik tarama puanında **100/100** sonucuna ulaşıyoruz.
 
-Prince'in açıkladığı ikinci mekanizma daha da ilginç: Web sitesi sahipleri, kendilerini tanıtan (neden ziyaret ettiklerini açıklayan) AI ajanlarına daha düşük erişim ücreti uygulayabilecek. Bu, bot yönetiminin bir adım ötesi; ajanın kimliğine ve amacına göre diferansiyel erişim politikası oluşturmak anlamına geliyor.
+### 2. `llms.txt` ile Öncelikli Sayfaları İşaretleyin
+Bir yapay zekâ ajanı sitenize girdiğinde hangi sayfanın güncel hizmet kataloğunuz, hangisinin kurumsal vaka kanıtınız olduğunu bilmek ister. Kök dizininize ekleyeceğiniz `llms.txt` dosyası, ajanların doğru sayfaya saniyeler içinde ulaşmasını sağlar.
 
-Burada tetiklenen sinyaller şunlar:
-- **Bot niyeti bildirimi**: GPTBot, ClaudeBot (Anthropic'in tarayıcısı) gibi ajanların kimliğini ve amacını açıkça bildirmesi
-- **Erişim kontrolü**: İçerik sahibinin hangi ajana ne kadar veri sunacağını belirleyebilmesi
-- **Fiyatlandırma katmanları**: Farklı ajanlar için farklı erişim maliyeti yapıları
+### 3. Sık Değişen Sayfaları Schema.org ile Etiketleyin
+Fiyat listeleri, çalışma saatleri, etkinlik takvimleri ve yeni blog yazıları için `JSON-LD` yapısal verisi içinde `dateModified` alanını güncel tutun. Makine tarafından okunabilen bu etiketler, ajanın sitenizdeki bilgiyi "taze" olarak işaretlemesini kolaylaştırır.
 
-Bu yapı, llms.txt (LLM'ler için site rehberi) standardının mantığını ticari bir katmana taşıyor. Sitenin ne olduğunu değil, kime ne sunduğunu tanımlıyor.
+### 4. Bot Trafiğini Loglardan İzleyin
+Yapay zekâ ajanlarının sitenizde hangi sayfaları okuduğunu tahmin etmeyin. Sunucu erişim kayıtlarında `GPTBot`, `OAI-SearchBot`, `ClaudeBot` ve `PerplexityBot` hareketlerini takip edin. Kendi ölçümlerimizde haftalık 708 bot ziyaretinin 176 farklı sayfaya yayıldığını görmek, içerik önceliklendirmemizi doğrudan şekillendirdi.
 
-### Neden Şimdi?
+## Sunucu Maliyeti mi, AI Görünürlüğü mü? Doğru Denge
 
-AI ajanlarının web'i ziyaret etme sıklığı ve yoğunluğu hızla artıyor. Cloudflare'in kendi verilerine göre ağı üzerinden geçen bot trafiğinin kayda değer bir bölümü artık AI kaynaklı. Bu yük, sunucu maliyetlerini artırırken içerik sahiplerine doğrudan gelir getirmiyor. Cloudflare'in kurduğu model, bu dengeyi değiştirmeye çalışıyor: AI trafiğini engellemek yerine, ölçmek ve paraya dönüştürmek.
+Bazı şirketler yapay zekâ botlarının sunucu trafiğini artırdığını görerek tüm botları tamamen engelleme yoluna gider. Oysa Cloudflare verilerinin de gösterdiği gibi, çözüm kapıyı kapatmak değil trafiği akıllı yönetmektir. Bir AI ajanı sitenize günde yüzlerce kez gereksiz yere uğramak yerine yalnızca değişiklik olduğunda gelirse hem bant genişliği maliyetiniz düşer hem de güncel bilgileriniz korunur.
 
-## Türk Pazarı için Ne Anlama Geliyor?
+Türkiye'deki e-ticaret ve B2B platformları için bu dengenin pratik karşılığı nettir:
+- **Yüksek Değerli Sayfaları Açık Tutun:** Hizmet tanıtımları, fiyat tabloları, teknik belgeler ve vaka analizleri tüm arama ve AI ajanlarına açık olmalıdır.
+- **Tekrarlayan Çıktıları Kapatın:** Arama sonuç sayfaları, filtre kombinasyonları ve kullanıcı sepeti URL'lerini `robots.txt` ile kapatarak ajanların zamanını boşa harcamasını önleyin.
+- **Özet Katmanı Sunun:** `llms.txt` ve temiz HTML kullanarak ajanların tüm siteyi taramak yerine doğrudan özet sayfalarınızdan doğru bilgiyi almasını sağlayın.
 
-Bu gelişmelerin Türk ajanslarına ve içerik üreticilerine yansıması birkaç katmanda değerlendirilebilir.
+### 5. Kötü ve İyi `llms.txt` Yapısı Kurun
+Birçok site sahibi `llms.txt` dosyasını yüzlerce linkle doldurup botun dikkatini dağıtır. Oysa etkili bir `llms.txt` dosyası kısa, kategorize edilmiş ve karar verici sayfalara odaklı olmalıdır:
 
-**Kısa vadede (0-6 ay):** Cloudflare'in Act 4 ürünleri şu an İngilizce içerik ekosistemi etrafında şekilleniyor. Türkçe içerik için doğrudan ticari etki henüz sınırlı. Ancak GPTBot ve ClaudeBot, Türkçe siteleri de aktif olarak tarıyor. Bu botların sitenize nasıl eriştiğini anlamak için log analizi yapmak artık ertelenecek bir konu değil.
+```markdown
+# Gonet — İzmir'in İlk AI Ajansı
+> 2000'den beri SEO, performans pazarlama ve AEO/GEO mühendisliği.
 
-**Orta vadede (6-18 ay):** ChatGPT, Gemini ve Perplexity'nin Türkiye'deki kullanımı arttıkça bu platformların Türkçe kaynaklara olan ihtiyacı da artacak. Cloudflare gibi altyapı katmanlarında şekillenen erişim politikaları, Türkçe içeriklerin AI yanıtlarında nasıl temsil edileceğini etkileyecek. [AEO ve GEO hizmetlerini](https://gonet.com.tr/yetenekler/aeo-geo-yeni-nesil-arama) stratejik olarak planlayan ajanslar bu dönüşümde öne geçecek.
+## Temel Hizmetler
+- [AEO ve GEO Denetimi](https://gonet.com.tr/aeo-geo-denetimi): 5 katmanlı AI görünürlük ölçümü.
+- [Ücretsiz SEO Analizi](https://gonet.com.tr/araclar/seo-analiz): 30 saniyede teknik tarama.
+```
 
-**KOBİ'ler ve e-ticaret için özel not:** Fiyat listesi, stok durumu veya hizmet saatleri gibi sık güncellenen içeriklere sahip siteler için sayfa değişiklik sinyali mekanizması doğrudan ilgili. AI ajanı sitenize gelmeden önce güncel bilgiyi biliyorsa, kullanıcıya verilen yanıt da güncel oluyor. Bu, özellikle yerel SEO ve ürün aramaları için somut bir rekabet avantajına dönüşebilir.
+Bu temiz yapı, ajanların sitenizde gezinirken harcadığı işlem ve bant genişliği maliyetini düşürürken doğru sayfanın alıntılanma olasılığını belirgin biçimde yükseltir. E-ticaret siteleri için de ürün kategorileri, iade politikası ve güncel kampanya sayfası bağlantılarının eklenmesi büyük avantaj sağlar.
 
-## Eylem Maddeleri
+## Sitenizin AI Ajanlarına Hazırlığını Bugün Ölçün
 
-- [ ] **Bot log analizi yapın:** Sunucu erişim loglarında GPTBot, ClaudeBot, PerplexityBot gibi AI tarayıcılarının ziyaret sıklığını ve ziyaret ettiği sayfaları tespit edin. Bu veriler olmadan optimizasyon kör uçuş olur.
-- [ ] **llms.txt dosyanızı oluşturun veya güncelleyin:** Sitenizin hangi bölümlerinin AI ajanları için açık, hangilerinin kısıtlı olduğunu net biçimde tanımlayın. Cloudflare'in tarif ettiği niyete dayalı erişim modeli, bu dosyanın önemini daha da artırıyor.
-- [ ] **Yüksek güncelleme sıklığına sahip sayfaları etiketleyin:** Fiyat sayfaları, duyurular, servis saatleri gibi içerikler için Schema.org (arama motorları ve AI motorları için yapısal veri standardı) işaretlemesinde `dateModified` alanını doğru ve tutarlı biçimde kullanın.
-- [ ] **Cloudflare AI Gateway'i değerlendirin:** Eğer Cloudflare altyapısı kullanıyorsanız Act 4 ürünlerini inceleyin. AI ajanı trafiğini izlemeye ve yönetmeye yarayan bu katman, özellikle yüksek trafikli Türk e-ticaret siteleri için erken adaptör avantajı sunuyor.
-- [ ] **İçerik güncellik döngüsünü belgeleyin:** Hangi sayfanız ne sıklıkla güncelleniyor? Bu bilgi hem sitemap yapınızı hem de ileride AI ajanlarına vereceğiniz değişiklik sinyallerini şekillendirecek. [Klasik SEO süreçlerinizle](https://gonet.com.tr/yetenekler/seo-klasik-arama) entegre bir içerik tazelik politikası oluşturun.
-
-## Sık Sorulan Sorular
-
-**AI ajan optimizasyonu ile klasik SEO arasındaki temel fark nedir?**
-Klasik SEO, arama motoru botlarının içeriği indekslemesini ve sıralamada yüksek çıkmasını hedefler. AI ajan optimizasyonu ise ChatGPT, Claude veya Perplexity gibi platformların yanıt üretirken sitenizin içeriğini doğru, güncel ve bağlamıyla birlikte kullanmasını sağlamaya odaklanır. Sıralama yerine alıntılanma ve temsil edilme ön plana geçer.
-
-**OpenAI'ın Cloudflare'e ödediği sayfa değişiklik sinyali nedir ve sitelere nasıl yansır?**
-Sayfa değişiklik sinyali, bir web sayfasının güncellendiğini AI tarayıcısına bildiren bir mekanizmadır. OpenAI bu sinyalleri Cloudflare üzerinden satın alıyor; böylece tarayıcı sayfayı gereksiz yere ziyaret etmek yerine yalnızca değişiklik olduğunda içeriği yeniden çekiyor. Siteler açısından bu, gereksiz bot trafiğini azaltır ve AI platformlarında içeriğin güncel tutulmasını kolaylaştırır.
-
-**llms.txt dosyası bu yeni modelde neden önemli?**
-llms.txt, sitenizin hangi içeriklerinin AI motorlarına açık olduğunu ve nasıl kullanılabileceğini tanımlayan bir rehber dosyadır. Cloudflare'in tarif ettiği niyete dayalı erişim modelinde, kendini doğru tanıtan ajanlara farklı erişim politikaları uygulanabilir. Bu nedenle llms.txt, sitenizin AI ekosistemi içindeki erişilebilirliğini yönetmenin temel noktası haline geliyor.
+Yapay zekâ ajanlarının web'i okuma biçimi hızla standartlaşıyor. Sitenizin ilk HTML yanıtında ne kadar temiz veri sunduğunu, bot izinlerinizin açık olup olmadığını ve yapısal veri eksiklerini görmek için [Ücretsiz SEO Analizi aracımızı](/araclar/seo-analiz) hemen çalıştırabilirsiniz. Kapsamlı bir dönüşüm planı için [AEO ve GEO hizmet sayfamızı](/yetenekler/aeo-geo-yeni-nesil-arama) inceleyebilirsiniz.
 
 ---
 
-AI ajanlarının web'i nasıl gezindiği ve bu gezinmenin nasıl ticari bir değere dönüştüğü artık teorik bir tartışma değil. Cloudflare'in gelir tablosuna yansımaya başlaması, bu dönüşümün somut bir iş modeline kavuştuğunu gösteriyor. Sitenizin bu yeni düzende nasıl konumlandığını anlamak için Gonet ile AEO denetimi hakkında görüşmeye başlayabilirsiniz.
-
----
-
-*İncelenen kaynak: [searchenginejournal.com](https://www.searchenginejournal.com/cloudflare-ai-agent-optimization-new-seo/596248/)*
+*Bu playbook Gonet ekibi tarafından `gonet.com.tr` HTML-first teknik denetim bulguları ve Search Engine Journal Cloudflare raporu temel alınarak hazırlanmıştır. Gonet, 2000'den beri web ve arama teknolojileri geliştiren İzmir'in ilk AI ajansıdır.*

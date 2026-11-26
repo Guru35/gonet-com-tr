@@ -1,18 +1,53 @@
 ---
-title: "AI Motoru Sizi Görmüyor mu? Yerel İşletme Görünürlüğünün Anatomisi"
-description: "Bali'deki 4.776 kafe, restoran ve bar üzerinde yapılan ilk tam sayım denetimine göre, mevcut işletmelerin yüzde 72,6'sı hiçbir AI motoru tarafından hiç önerilmiyor. ChatGPT, Claude, Gemini ve Perplexity'nin yerel keşif sorularına verdiği yanıtlar incelediğinde ortaya çıkan görünürlük mekanizması, yıldız puanından çok dijital dokümantasyon kalitesiyle doğrudan ilişkili."
+title: "Yerel İşletmelerin %72,6'sı AI Yanıtlarında Neden Yok?"
+description: "4.776 yerel işletme üzerinde yapılan ilk tam sayım denetimine göre 50'den fazla yorumu olan işletmelerin %72,6'sı hiçbir yapay zekâ motoru tarafından önerilmiyor. Klinik, restoran ve şubeler için çözüm rehberi."
+h1: "Yerel İşletmelerin %72,6'sı AI Yanıtlarında Neden Yok?"
+ogImage: "/blog/aralik-2026/ai-motorlarinda-yerel-isletme-gorunurlugu-audit-dark.png"
+ogImageLight: "/blog/aralik-2026/ai-motorlarinda-yerel-isletme-gorunurlugu-audit-light.png"
+keywords:
+  - "yerel işletme AI görünürlüğü"
+  - "klinik AEO"
+  - "LocalBusiness Schema"
+  - "Google Haritalar vs AI"
+  - "yerel SEO 2027"
 published: 2026-12-04
-updated: 2026-08-31
+updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "AEO/GEO Araştırma Ekibi"
+  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
-readingMinutes: 7
-draft: true
+tags: ["yerel-seo", "aeo", "klinik-pazarlama", "localbusiness-schema", "ai-gorunurluk"]
+readingMinutes: 6
+draft: false
+mizanpaj: "A"
 ozetMaddeleri:
-  - "4.776 yerel işletme üzerinde yapılan tam sayım denetiminde işletmelerin %72,6'sı hiçbir AI motoru tarafından önerilmedi."
-  - "ChatGPT, Claude, Gemini ve Perplexity yerel işletme seçerken yalnızca harita kaydına değil tutarlı web varlığı ve yorumlara bakıyor."
-  - "Yerel SEO ile birlikte Schema.org LocalBusiness işaretlemesi ve net hizmet açıklamaları AI öneri olasılığını artırıyor."
+  - "4.776 yerel işletmeyi kapsayan tam sayım denetiminde, 50+ yoruma sahip işletmelerin %72,6'sı hiçbir yapay zekâ motorundan öneri alamadı."
+  - "ChatGPT, Claude, Gemini ve Perplexity ilk aşamada yıldız puanına değil; bağımsız web sitesi, fiyat bilgisi ve üçüncü taraf atıflara bakıyor."
+  - "Klinikler, oteller ve çok şubeli işletmeler için LocalBusiness JSON-LD ve tutarlı dijital varlık AI öneri olasılığını iki katına çıkarıyor."
+infografikler:
+  - tip: "metrik-vurgu"
+    baslik: "Yerel İşletmelerde AI Görünürlük Gerçeği (4.776 Mekan Sayımı)"
+    metrikler:
+      - deger: "%72,6"
+        etiket: "50+ yorumu olup AI'da hiç önerilmeyen işletme oranı"
+        kaynak: "Vladimir Pitenin / arXiv 2.208 Sorgu Denetimi"
+      - deger: "1,92x"
+        etiket: "Bağımsız web sitesine sahip olmanın önerilme artışı"
+      - deger: "93 Mekan"
+        etiket: "Verisi güncellenmediği için önerilmeye devam eden kapalı işletme"
+  - tip: "kontrol-listesi"
+    baslik: "Şube ve Klinikler İçin 5 Maddelik Yerel AI Denetimi"
+    maddeler:
+      - baslik: "Bağımsız web siteniz ve şube sayfalarınız var mı?"
+        aciklama: "Yalnızca Google İşletme Profili veya sosyal medya hesabı AI önerisine girmek için yetmiyor."
+      - baslik: "LocalBusiness ve Service JSON-LD şeması ekli mi?"
+        aciklama: "Adres, telefon, çalışma saati ve hizmet kapsamını makine dilinde tanımlayın."
+      - baslik: "Fiyat aralığı veya şeffaf hizmet bilgisi DOM'da yazılı mı?"
+        aciklama: "Yapay zekâ motorları net fiyat ve paket bilgisi sunan siteleri 1,54 kat daha fazla öne çıkarıyor."
+      - baslik: "Üçüncü taraf rehber ve basında atıflarınız bulunuyor mu?"
+        aciklama: "Bağımsız haber, rehber ve sektörel listelemeler varlık otoritesini güçlendirir."
+      - baslik: "4 büyük motorda aylık görünürlük testi yapıyor musunuz?"
+        aciklama: "Motorlar arası öneri örtüşmesi yalnızca %33–%54 arasındadır; tek motor kontrolü yanıltıcıdır."
 karsilastirmaTablosu:
   baslik: "Yerel İşletmelerde Klasik Harita vs. AI Öneri Kriterleri"
   sutunlar:
@@ -23,94 +58,70 @@ karsilastirmaTablosu:
     - ["Temel Sinyal", "Konum yakınlığı ve kategori", "Çoklu kaynak tutarlılığı ve inceleme bağlamı"]
     - ["Görünürlük Oranı", "Yüksek yerel listeleme", "Denetlenen işletmelerin yalnız %27,4'ü önerildi"]
     - ["İyileştirme Aracı", "GBP profili güncelleme", "LocalBusiness JSON-LD + açıklayıcı SSS"]
+ozelCta:
+  eyebrow: "%72,6 GÖRÜNMEZLİK RİSKİ"
+  h2a: "Yerel aramalarda"
+  h2b: "AI sizi önersin."
+  btn: "Görünürlük Denetimi Al →"
+  href: "/aeo-geo-denetimi"
 sss:
-  - soru: "AI motorları yerel işletmeleri nasıl seçiyor?"
-    cevap: "Araştırma, seçim sürecinin iki aşamalı olduğunu gösteriyor. İlk aşamada sisteme girmek için dijital dokümantasyon belirleyici: kendi web sitesi, yorum hacmi, fiyat bilgisi ve üçüncü taraf atıflar. Yıldız puanı bu aşamada etkisiz. İkinci aşamada, yanıta giren mekanlar arasındaki sıralamayı ise puan kalitesi belirliyor. Sonuç olarak AI görünürlüğü önce varlık kanıtı, sonra kalite sinyali mantığıyla işliyor."
-  - soru: "Yıldız puanım yüksek ama AI beni önermiyorsa ne yapmalıyım?"
-    cevap: "Araştırmanın en pratik bulgusu bu soruyu yanıtlıyor: yüksek puan, AI yanıtına giriş için yeterli sinyal değil. Öncelikle bağımsız bir web sitesi oluşturun, Schema.org yapılandırılmış veri ekleyin ve işletmeniz hakkında üçüncü taraf kaynakların içerik üretmesini sağlayın. Puanınız ancak bu eşiği geçtikten sonra sıralama kademesinde işe yarıyor."
-  - soru: "AI'ın uydurma mekan önerme (hallüsinasyon) riski ne kadar büyük?"
-    cevap: "Bu araştırmaya göre tamamen uydurulmuş mekan oranı çok düşük, binde sekiz civarında. Asıl pratik risk, hallüsinasyon değil veri eskimesi: sistemler kalıcı olarak kapanmış mekânları önermeye devam edebiliyor. Bu nedenle işletmelerin kapanış, taşınma veya büyük değişikliklerini tüm dijital platformlarda güncel tutması, AI hata yönetimi açısından hallüsinasyondan çok daha kritik bir önlem."
----
-## Olay: İlk Tam Sayım Denetimi Ne Buldu?
-
-Vladimir Pitenin imzalı ve arXiv'de yayımlanan araştırma, AI öneri sistemlerini daha önce hiç denenmemiş bir yöntemle sınıyor: tam pazar sayımı. Bali'nin Canggu ve Ubud bölgelerindeki 4.776 mekan eksiksiz kataloglanmış, ardından ChatGPT, Claude, Gemini ve Perplexity'ye 96 farklı persona ile toplam 2.208 sorgu yöneltilmiş.
-
-Sonuç sert: **mekanların yüzde 85,6'sı hiçbir sistem tarafından hiç önerilmedi.** Üstelik bu rakam yalnızca yeni açılan ya da puan sayısı düşük mekanları kapsamıyor; 50 ve üzeri değerlendirmesi olan, yani piyasada gerçek anlamda var olan işletmelerin yüzde 72,6'sı da AI radarının tamamen dışında kalıyor.
-
-Bu bulgu, örneklem üzerinden yapılan önceki AI denetimlerinin yapısal körlüğünü gözler önüne seriyor: eğer tam listeyi bilmiyorsanız, neyin eksik olduğunu da bilemezsiniz.
-
+  - soru: "Google Haritalar'da 4,8 yıldız puanım var ama AI beni neden önermiyor?"
+    cevap: "Araştırma yapay zekâ motorlarının iki aşamalı seçtiğini kanıtlıyor. İlk aşamada yanıt listesine girmek için yıldız puanı etkisizdir; sistem kendi web sitenize, fiyat şeffaflığına ve üçüncü taraf web atıflarına bakar. Puanınız ancak bu dijital kanıt eşiği geçildikten sonra sıralama aşamasında işe yarar."
+  - soru: "Sadece Instagram ve Google İşletme Profili kullanmak yeterli değil mi?"
+    cevap: "Hayır. Tam sayım denetimine göre bağımsız bir alan adına ve içerik üreten bir web sitesine sahip olmak, yapay zekâ yanıtına girme olasılığını 1,92 kat artırarak tek başına en güçlü sinyal konumuna çıkıyor. Sosyal medya profilleri bu sinyali tek başına üretemiyor."
+  - soru: "Yapay zekâ motorlarının uydurma mekan önerme riski ne kadar büyük?"
+    cevap: "Denetimde tamamen uydurulmuş mekan oranı binde sekiz gibi çok düşük bir seviyede kaldı. Asıl ticari risk veri eskimesidir; sistemler kapanmış veya taşınmış 93 işletmeyi hâlâ önermeye devam etti. Adres ve hizmet değişikliklerini tüm platformlarda eş zamanlı güncellemek kritik önem taşır."
 ---
 
-## Mekanizma: AI Görünürlüğü Nasıl Çalışıyor?
+**50'den fazla gerçek müşteri yorumuna sahip yerel işletmelerin %72,6'sı ChatGPT, Claude, Gemini ve Perplexity yanıtlarında hiç önerilmiyor.** Bali'de 4.776 kafe, restoran ve mekan üzerinde yapılan ve 2.208 sorguyla test edilen ilk tam pazar sayımı, yüksek Google Harita puanının artık müşteriyi yakalamaya yetmediğini kanıtladı.
 
-Araştırma, görünürlüğün **iki basamaklı bir yapı** izlediğini ortaya koyuyor. Bu mekanizmayı anlamak, [AEO/GEO stratejisi](/yetenekler/aeo-geo-yeni-nesil-arama) kuran her işletme için kritik.
+Yeni veya düşük puanlı işletmeler de eklendiğinde oran daha da sertleşiyor: tüm mekanların **%85,6'sı** yapay zekâ radarının tamamen dışında kalıyor. Türkiye'deki klinikler, oteller, estetik merkezleri ve yerel hizmet markaları için bu veri, doğrudan kaybedilen randevu ve rezervasyon anlamına geliyor.
 
-### Birinci Basamak: Yanıta Girmek
+## İki Basamaklı Seçim: AI Önce Kanıt, Sonra Puan Arıyor
 
-Bir mekanın AI yanıtında yer alması şu sinyallerle pozitif korelasyon gösteriyor:
+Araştırmanın ortaya çıkardığı en çarpıcı bulgu, yapay zekâ motorlarının işletmeleri klasik harita uygulamalarından farklı bir sırayla elemesidir:
 
-- **Yorum hacmi** (OR 1,64) — Değerlendirme sayısı arttıkça varlık olasılığı yükseliyor.
-- **Kendi web sitesi** (OR 1,92) — En güçlü tek sinyal. Bağımsız bir domain sahibi olmak, görünürlüğü neredeyse iki katına çıkarıyor.
-- **Fiyat bilgisi** (OR 1,54) — Yapılandırılmış, erişilebilir fiyat verisi sayılıyor.
-- **Üçüncü taraf web atıfları** (OR 1,44) — Blog yazıları, rehber sayfaları, haber kaynakları.
+### 1. Basamak: Yanıt Listesine Girmek
+Bir işletmenin yapay zekâ yanıtında adının geçmesi için dört dijital kanıt belirleyici oluyor:
+- **Bağımsız Web Sitesi (`1,92x` etki):** Kendi alan adına sahip, hizmetlerini açıkça anlatan bir siteye sahip olmak görünürlüğü neredeyse iki katına çıkarıyor.
+- **Yorum Hacmi (`1,64x` etki):** Değerlendirme sayısı arttıkça işletmenin gerçekliği doğrulanıyor.
+- **Fiyat ve Paket Bilgisi (`1,54x` etki):** Şeffaf ve makine tarafından okunabilen fiyat verisi öne çıkıyor.
+- **Üçüncü Taraf Web Atıfları (`1,44x` etki):** Rehber siteleri, sektörel portallar ve haber içerikleri güveni pekiştiriyor.
 
-Dikkat çekici olan şu: **yıldız puanı bu basamakta anlamsız** (OR 0,89). 4,8 yıldıza sahip bir mekan, iyi belgelenmiş 3,9 yıldızlı bir rakibinin gerisinde kalabiliyor.
+Dikkat çekici detay: bu ilk giriş kapısında **yıldız puanı anlamsız** kalıyor. İyi belgelenmiş 3,9 yıldızlı bir işletme, yalnızca sosyal medyası olan 4,8 yıldızlı bir rakibinin önüne geçebiliyor.
 
-### İkinci Basamak: İlk Sıraya Oturmak
+### 2. Basamak: İlk Sıraya Oturmak
+İşletme yanıt havuzuna girmeyi başardığında sıralama mantığı değişiyor ve puan kalitesi (`1,17x` etki) devreye giriyor. Yani yapay zekâ, kapıdan içeri girebilenler arasında kaliteyi ödüllendiriyor; ama kapıdan girmek için önce dijital varlığınızı belgelemeniz gerekiyor.
 
-Yanıta bir kez girildikten sonra sıralama mantığı tersine dönüyor. Önerilen mekanlar arasında ilk pozisyonu puan kalitesi belirliyor (OR 1,17). Yani AI, **kapıya girenler arasında kaliteyi ödüllendiriyor** — ama kapıya girmek için önce dijital varlığını kanıtlaman gerekiyor.
+## Halüsinasyon Değil, Eski Veri Riski
 
-### Hallüsinasyon mu, Eskime mi?
+Birçok işletme sahibi yapay zekânın "uydurma bilgi" vermesinden çekinir. Oysa tam sayım denetimi, uydurma mekan oranının yalnızca **binde sekiz** olduğunu gösterdi. Asıl tehlike **veri eskimesi**: yapay zekâ motorları kalıcı olarak kapanmış **93 mekanı** hâlâ aktifmiş gibi önermeye devam etti.
 
-Araştırmanın pratik bulguları arasında en dikkat çekeni bu: tamamen uydurulmuş mekan oranı yalnızca binde sekiz. Ama sistemler, **kalıcı olarak kapanmış 93 mekanı hâlâ önerdi.** Asıl sorun hallüsinasyon değil, veri tazeliği. AI motorlarının hafızasındaki eski bilgi, güncel gerçeğin önüne geçiyor.
+Ayrıca dört büyük motor arasındaki öneri örtüşmesi oldukça düşük (en iyi 20 öneride %33 ile %54 arası). ChatGPT'nin önerdiği bir kliniği Perplexity veya Gemini hiç tanımıyor olabilir.
 
-Öte yandan sistemler arası örtüşme oranı da düşük: en iyi 20 öneri için Jaccard benzerliği (iki küme arasındaki örtüşmeyi ölçen istatistik) 0,33 ile 0,54 arasında kalıyor. ChatGPT'nin önerdiğini Claude önermiyor olabilir — yani tek bir motorda görünür olmak yeterli değil.
+## Yerel İşletmeler İçin İçerik ve Yorum Stratejisi
 
----
+Yapay zekâ motorlarının yerel aramalarda iki aşamalı seçim yaptığını gördük: önce dijital varlık kanıtı, ardından kalite ve yorum puanı. Bu nedenle yerel işletmelerin yalnızca teknik şemaya değil, web sitelerindeki metinlerin yapısına da odaklanması gerekir. Bir hastanın veya müşterinin soracağı temel soruları doğrudan şube sayfanızda yanıtlamak, üçüncü taraf rehberlerdeki görünürlüğünüzü de destekler.
 
-## Türk Pazarı için Ne Anlama Geliyor?
+Özellikle sağlık turizmi, estetik klinikler ve butik oteller için şu üç içerik bloğu yüksek etki üretir:
+- **Şeffaf Hizmet ve Süreç Özeti:** Tedavi veya konaklama sürecinin kaç gün sürdüğünü, neleri kapsadığını ve fiyat aralığını ilk paragraflarda net biçimde yazın.
+- **Doğrulanabilir Hasta ve Müşteri Kanıtları:** Yorum sayınızı, akreditasyonlarınızı ve gerçek vaka sonuçlarını tarih vererek paylaşın.
+- **Eş Zamanlı Platform Güncelliği:** Adres, telefon veya çalışma saati değiştiğinde bunu yalnızca kendi sitenizde değil, Google İşletme Profili ve yerel rehberlerde aynı gün güncelleyin.
 
-Bali araştırması metodolojik bir referans, ancak bulgular evrensel mekanizmalara işaret ediyor. Türk gastronomi işletmeleri, turizm bölgelerindeki oteller ve yerel hizmet sektörü için bu araştırmanın çıkarımları doğrudan geçerli.
+## Çok Şubeli İşletmeler ve Klinikler İçin Pratik Uygulama
 
-**Türkiye'de durum muhtemelen daha kritik:** Türkçe içerik üretimi İngilizce'ye kıyasla daha sınırlı, bu da AI modellerinin Türkçe yerel sorgulara daha az kaynak bulduğu anlamına geliyor. İzmir'deki bir kafeyi veya Kapadokya'daki bir butik oteli soran bir AI kullanıcısı, büyük ihtimalle dijital izi zayıf yüzlerce işletmeyi görmeden geçiyor.
+Yerel görünürlük sorununu çözmek için karmaşık yazılımlara değil, tutarlı bir dijital kimlik mimarisine ihtiyacınız var. Şube veya klinik sayfanızda şu üç alanı mutlaka makine tarafından okunabilir hale getirin:
 
-Turizm sezonunda artan "AI'a sor" davranışını düşündüğünüzde, bu görünmezliğin doğrudan rezervasyon ve gelir kaybına dönüştüğü açık. [Klasik SEO çalışmaları](https://gonet.com.tr/yetenekler/seo-klasik-arama) Google sıralamasını hedeflerken, AEO/GEO stratejisi AI yanıt yüzeyini (citation surface) hedef alıyor — ve bu iki hedef çoğu zaman farklı taktikler gerektiriyor.
+1. **Tekil Şube Sayfaları:** Tüm şubeleri tek bir "İletişim" sayfasına sıkıştırmayın. Her şehir veya ilçe için ayrı URL açıp adres, telefon, çalışma saati (NAP) ve ulaşım bilgisini ham HTML olarak yazın.
+2. **Yapısal Veri (`LocalBusiness` / `MedicalClinic`):** Sayfa koduna `JSON-LD` formatında `address`, `geo`, `openingHoursSpecification` ve `priceRange` alanlarını ekleyin. Fiyat şeffaflığı yerel AI önerilerinde `1,54x` oranında pozitif etki yaratır.
+3. **Çok Motorlu Aylık Kontrol:** Her ayın ilk haftası ChatGPT, Gemini, Perplexity ve Claude'a *"İzmir'deki en güvenilir [hizmetiniz]"* gibi yerel sorgular yöneltip kendi markanızın ve rakiplerinizin konumunu kaydedin.
 
-**Erken hazırlık için öncelik:** Türkçe yerel sorgular için yapılandırılmış içerik üretmek, entity authority (varlık otoritesi) inşa etmek ve üçüncü taraf atıf sayısını artırmak. Foursquare benzeri POI (ilgi noktası) veri tabanlarına kayıtlı olmanın tek başına yeterli olmadığını araştırma açıkça gösteriyor.
+## Türkiye Pazarı İçin Çıkarım: Klinik ve Turizm Fırsatı
 
----
+Türkçe dijital kaynaklar İngilizceye kıyasla daha sınırlı olduğu için İzmir'de bir diş kliniği veya Kapadokya'da bir butik otel soran kullanıcılar, dijital izi zayıf yüzlerce kaliteli işletmeyi görmeden geçiyor. Biz Gonet olarak sağlık turizmi ve yerel işletme projelerimizde bu boşluğu kapatmak için `LocalBusiness` şeması, net hizmet sayfaları ve çok dilli içerik mimarisi kuruyoruz.
 
-## Eylem Maddeleri
-
-Aşağıdaki kontrol listesi, yerel işletmeler ve bu işletmelere hizmet veren ajanslar için yarın uygulanabilir adımlar içeriyor:
-
-- [ ] **Web sitesi bağımsızlığını doğrula:** Yalnızca Google İşletme Profili veya sosyal medya hesabı yeterli değil. Kendi domainine sahip, içerik üretilen bir site zorunlu. Bu, araştırmanın en güçlü sinyali (OR 1,92).
-- [ ] **Yapılandırılmış veri uygula:** Schema.org (yapısal veri standardı) `LocalBusiness`, `Restaurant`, `Menu` şemalarını JSON-LD (makine-okunur veri formatı) olarak sayfaya ekle. Fiyat, çalışma saati, konum — hepsini makine-okunur formata taşı.
-- [ ] **Üçüncü taraf atıf kampanyası başlat:** Yerel rehber siteleri, gastronomi blogları, seyahat içerikleri. Her bağımsız kaynak, AI'ın "bu mekan gerçek" kararını güçlendiriyor. OR 1,44 sinyali bu atıflardan besleniyor.
-- [ ] **Veri tazeliğini yönet:** Kapanış, taşınma, menü değişikliği gibi güncellemeler tüm platformlara (Google, Yandex, TripAdvisor, Foursquare) eş zamanlı yansıtılmalı. Araştırmadaki 93 kapanmış mekan vakası, güncellenmemiş verinin sistemde ne kadar uzun kaldığını gösteriyor.
-- [ ] **Çok motor görünürlüğünü ölç:** Yalnızca Google'da değil, ChatGPT, Claude, Gemini ve Perplexity'de hedef sorgularla periyodik denetim yap. Jaccard benzerliğinin 0,33'e kadar düştüğü göz önüne alındığında, tek motor takibi yanlış güvence veriyor.
-- [ ] **[AEO/GEO denetimi](https://gonet.com.tr/yetenekler/aeo-geo-yeni-nesil-arama) için kıyaslama yap:** Kendi kategorindeki rakiplerin AI yanıtlarında ne sıklıkta göründüğünü ölç. Görünürlük açığını sayısal olarak tanımlamadan strateji kurulamaz.
+Yerel işletmenizin veya şubelerinizin dört büyük yapay zekâ motorunda kaçıncı sırada yer aldığını görmek için [AEO/GEO denetim hizmetimizi](/aeo-geo-denetimi) inceleyebilir, mevcut site sağlığınızı ise [Ücretsiz SEO Analizi aracımızla](/araclar/seo-analiz) hemen kontrol edebilirsiniz.
 
 ---
 
-## Sık Sorulan Sorular
-
-**AI motorları yerel işletmeleri nasıl seçiyor?**
-
-Araştırma, seçim sürecinin iki aşamalı olduğunu gösteriyor. İlk aşamada sisteme girmek için dijital dokümantasyon belirleyici: kendi web sitesi, yorum hacmi, fiyat bilgisi ve üçüncü taraf atıflar. Yıldız puanı bu aşamada etkisiz. İkinci aşamada, yanıta giren mekanlar arasındaki sıralamayı ise puan kalitesi belirliyor. Sonuç olarak AI görünürlüğü önce varlık kanıtı, sonra kalite sinyali mantığıyla işliyor.
-
-**Yıldız puanım yüksek ama AI beni önermiyorsa ne yapmalıyım?**
-
-Araştırmanın en pratik bulgusu bu soruyu yanıtlıyor: yüksek puan, AI yanıtına giriş için yeterli sinyal değil. Öncelikle bağımsız bir web sitesi oluşturun, Schema.org yapılandırılmış veri ekleyin ve işletmeniz hakkında üçüncü taraf kaynakların içerik üretmesini sağlayın. Puanınız ancak bu eşiği geçtikten sonra sıralama kademesinde işe yarıyor.
-
-**AI'ın uydurma mekan önerme (hallüsinasyon) riski ne kadar büyük?**
-
-Bu araştırmaya göre tamamen uydurulmuş mekan oranı çok düşük, binde sekiz civarında. Asıl pratik risk, hallüsinasyon değil veri eskimesi: sistemler kalıcı olarak kapanmış mekânları önermeye devam edebiliyor. Bu nedenle işletmelerin kapanış, taşınma veya büyük değişikliklerini tüm dijital platformlarda güncel tutması, AI hata yönetimi açısından hallüsinasyondan çok daha kritik bir önlem.
-
----
-
-Yerel işletmenizin ya da müşterilerinizin AI motorlarındaki görünürlük açığını sayısal olarak ölçmek istiyorsanız, Gonet'in AEO denetim süreciyle somut bir başlangıç noktası oluşturabilirsiniz — [iletişime geçin](https://gonet.com.tr/iletisim).
-
----
-
-*İncelenen kaynak: [arxiv.org](https://arxiv.org/abs/2608.07069)*
+*Bu vaka analizi Gonet ekibi tarafından Vladimir Pitenin'in 4.776 işletmelik tam pazar sayımı araştırması ve Türkiye yerel arama dinamikleri esas alınarak hazırlanmıştır. Gonet, 2000'den beri yerel ve küresel büyüme mimarisi kuran İzmir'in ilk AI ajansıdır.*

@@ -1,18 +1,45 @@
 ---
-title: "ChatGPT Hangi Sayfayı Alıntılıyor? API ile Tahmin Etmek Düşündüğünüzden Zor"
-description: "Singapur ve Xi'an Jiaotong Üniversitesi araştırmacıları, Google sonuçları ile OpenAI Responses API'nin ChatGPT'nin gerçekte alıntıladığı sayfaların yalnızca yüzde 26'sını yakalayabildiğini gösterdi. Bu bulgu, AEO ve GEO stratejilerinde 'görünür olmak' ile 'alıntılanmak' arasındaki derin uçurumu bir kez daha gündeme taşıyor."
+title: "Google'da 1. Sıradasınız Ama ChatGPT Sizi Önermiyor mu?"
+description: "Google arama sonuçları ve OpenAI API'si, ChatGPT'nin web uygulamasında gerçekte alıntıladığı sayfaların yalnızca %26'sını yakalayabiliyor. Sıralama başarısının neden AI önerisine dönüşmediğini ve nasıl düzeltileceğini inceleyin."
+h1: "Google'da 1. Sıradasınız Ama ChatGPT Sizi Önermiyor mu?"
+ogImage: "/blog/aralik-2026/chatgpt-alinti-kaynaklar-api-uyumsuzlugu-aeo-geo-dark.png"
+ogImageLight: "/blog/aralik-2026/chatgpt-alinti-kaynaklar-api-uyumsuzlugu-aeo-geo-light.png"
+keywords:
+  - "ChatGPT alıntı"
+  - "AEO stratejisi"
+  - "Google sıralama vs ChatGPT"
+  - "citation surface"
+  - "GEO"
 published: 2026-12-02
-updated: 2026-10-26
+updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "AEO/GEO Araştırma Ekibi"
+  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
+tags: ["chatgpt", "aeo", "geo", "alinti-mimarisi", "google-siralamasi"]
 readingMinutes: 6
-draft: true
+draft: false
+mizanpaj: "C"
 ozetMaddeleri:
-  - "Google sonuçları ve OpenAI Responses API, ChatGPT'nin gerçekte alıntıladığı sayfaların yalnızca %26'sını yakalayabiliyor."
-  - "Google'da ilk sırada yer almak ChatGPT tarafından kaynak gösterileceğiniz anlamına gelmiyor; anlamsal yapı belirleyici oluyor."
-  - "Güvenilir AEO ölçümü için API tahmini yerine doğrudan ChatGPT web arayüzü üzerinden periyodik alıntı takibi gerekiyor."
+  - "Google sonuçları ve OpenAI Responses API, ChatGPT'nin web'de gerçekte alıntıladığı sayfaların yalnızca %26,2'sini yakalayabiliyor."
+  - "Google'da ilk sırada yer almak ChatGPT tarafından kaynak gösterileceğiniz anlamına gelmiyor; anlamsal çıkarılabilirlik belirleyici oluyor."
+  - "Güvenilir AEO ölçümü için yalnızca sıralama araçlarına değil, doğrudan yapay zekâ arayüzlerinden alınan canlı alıntı takibine ihtiyaç vardır."
+infografikler:
+  - tip: "karsilastirma-karti"
+    baslik: "Google 1. Sıra Alışkanlığı vs. ChatGPT Alıntı Kriteri"
+    solBaslik: "Klasik SEO Miti"
+    sagBaslik: "ChatGPT Alıntı Gerçeği"
+    satirlar:
+      - sol: "Google'da ilk 3'teysem ChatGPT zaten beni önerir."
+        sag: "İki sistemin tam sayfa alıntı örtüşmesi yalnızca %26,2 seviyesindedir."
+      - sol: "Uzun blog yazıları ve anahtar kelime tekrarı yeterlidir."
+        sag: "İlk 2 cümlede net yanıt, tablo ve kanıt sunan bölümler alıntılanır."
+      - sol: "Sıralama takip aracı AI görünürlüğünü de gösterir."
+        sag: "API ve arama vekilleri gerçek ChatGPT kaynaklarının yarısından fazlasını kaçırır."
+  - tip: "vurgu-kutusu"
+    tur: "ajans-notu"
+    baslik: "Sahadan Not: API Yerine Canlı Arayüz Ölçümü"
+    metin: "Gonet olarak Kasım 2026'da 540 AI yanıtını canlı ölçtük: Google AI Mode'da 35/90 görünürlük yakalarken aynı sorgularda ChatGPT 10/90 seviyesinde kaldı. Bu fark, iki platformun tamamen ayrı kaynak eleme kuralları işlettiğini kanıtlıyor."
 karsilastirmaTablosu:
   baslik: "ChatGPT Alıntı Tahmini vs. Gerçek Arayüz Davranışı"
   sutunlar:
@@ -20,73 +47,77 @@ karsilastirmaTablosu:
     - "Alan Adı Eşleşmesi"
     - "Tam Sayfa Eşleşmesi"
   satirlar:
-    - ["Google + OpenAI API Birlikte", "~%49", "%26"]
+    - ["Google + OpenAI API Birlikte", "~%48,7", "%26,2"]
     - ["Doğrudan Web Arayüzü Takibi", "Gerçek kaynak kümesi", "%100 gözlemlenen alıntı"]
+ozelCta:
+  eyebrow: "GOOGLE 1. SIRA ARTIK YETMİYOR"
+  h2a: "ChatGPT sizi neden"
+  h2b: "kaynak göstermiyor?"
+  btn: "AEO/GEO Denetimi Al →"
+  href: "/aeo-geo-denetimi"
 sss:
-  - soru: "ChatGPT hangi sayfaları kaynak olarak seçiyor?"
-    cevap: "ChatGPT, arama yaptıktan sonra dönen sonuçlar arasından içerik kalitesine, alıntılanabilir bölümlerin yoğunluğuna ve sayfa yapısının anlamsal taranabilirliğine göre kaynak belirliyor. Bu seçim süreci Google sıralama mantığından bağımsız çalışıyor; dolayısıyla Google'da ilk sırada olmak ChatGPT tarafından alıntılanmayı garanti etmiyor. Araştırma, iki vekil sistemin (Google + API) gerçek ChatGPT alıntılarını yüzde 26 oranında yakalayabildiğini gösterdi."
-  - soru: "Google API ile ChatGPT'nin alıntılarını tahmin edebilir miyim?"
-    cevap: "Kısmi olarak evet, ama güvenilir bir eşleşme değil. Söz konusu araştırmaya göre OpenAI Responses API ve Google birlikte alıntılanan sitelerin yaklaşık yüzde 49'unu buluyor; ancak tam sayfa eşleşmesi yüzde 26'da kalıyor. Bu nedenle araştırmacılar site bazında takip yapılmasını, promtların periyodik yeniden çalıştırılmasını ve model güncellemelerinin ardından testlerin tekrarlanmasını öneriyor."
-  - soru: "AEO stratejisi geliştirirken bu bulgudan ne öğrenmeliyim?"
-    cevap: "Klasik SEO'nun \"sırala ve trafik kazan\" mantığı LLM alıntıları için yeterli değil. AEO'da hedef, sayfanızın bir LLM tarafından kaynak seçilmesidir; bu da içeriğinizin alıntılanabilir (citation-ready) biçimde yapılandırılmasını, Schema.org işaretlemesini ve doğrudan sorulara net cevap veren bölümler içermesini gerektiriyor. Sıralama takibi kadar alıntı takibi de stratejinik öncelik haline gelmeli."
----
-## Olay: Araştırmacılar ChatGPT'nin Kaynak Seçimini Taklit Etmeye Çalıştı
-
-Ekim 2026'nın ortasında yayımlanan bir ön baskı çalışma (preprint), LLM SEO dünyasında önemli bir soruyu mercek altına aldı: ChatGPT'nin web uygulaması hangi sayfaları alıntılıyorsa, bu sayfaları başka yollarla —Google arama sonuçları veya OpenAI'nin Responses API'si aracılığıyla— tahmin edebilir miyiz?
-
-Araştırmacılar GPT-5.2 Instant'tan GPT-5.5 Instant'a uzanan dört farklı model sürümünü, Mart-Temmuz 2026 tarihleri arasında test etti. Search Arena'dan derlenen 80 gerçek kullanıcı sorusunu her iki vekil sisteme (Google + API) ve doğrudan ChatGPT web uygulamasına yöneltti. Sonuç tartışmaya açık değil: İki vekil sistem birlikte çalışırken ChatGPT'nin alıntıladığı **sayfaların yalnızca yüzde 26,2'sini**, alıntılanan **sitelerin ise yüzde 48,7'sini** yakalayabildi.
-
-Başka bir deyişle: Site düzeyinde görünürlük sayfa düzeyinden yaklaşık iki kat daha kolay taklit ediliyor; ama gerçek alıntı başarısının yarısından fazlası hâlâ karanlıkta kalıyor.
-
-## Mekanizma: ChatGPT Neden Bu Kadar Öngörülmez?
-
-### ChatGPT'nin Kaynak Seçimi Bir Kara Kutudur
-
-Araştırmacılar, ChatGPT web uygulamasının çalışma sırasında aldığı veri akışını —kendi oturumlarının ağ trafiğini kaydederek— izledi. Bu yöntemle ChatGPT'nin hangi aramaları yaptığını, bu aramalardan hangi sayfaların geldiğini ve model tarafından nihai kaynak olarak hangisinin seçildiğini görebildiler.
-
-İşte kritik nokta: ChatGPT bir sayfayı **arama sonuçlarında görmüş olmak** ile **gerçekte o sayfayı kaynak olarak seçmek** arasında bağımsız bir eleme katmanı işletiyor. Bu katmanı ne Google sıralaması ne de API çıktısı tam olarak yansıtıyor. Sistemin bu seçim davranışı birkaç faktörü birden içeriyor olabilir: içerik kalitesi, alıntılanabilir parçaların (citation surface) yoğunluğu, sayfa yapısının anlam katmanlı taranabilirliği (semantic chunking) ve model sürümüne göre değişen ağırlıklar.
-
-### Neden Şimdi Bu Bulgu Önemli?
-
-LLM SEO ve [AEO/GEO stratejileri](https://gonet.com.tr/yetenekler/aeo-geo-yeni-nesil-arama) geliştiren ekipler bugüne kadar şu varsayımla çalışıyordu: "Google'da görünürsem, AI'da da alıntılanırım." Bu çalışma o varsayımı kırıyor. Siteye trafik getiren klasik SEO sinyalleri ile bir LLM'in kaynak olarak seçtiği sinyaller farklı kümelere ait. İki kümenin örtüşme oranı yüzde ellinin altında.
-
-Araştırmacıların önerileri bu gerçekliği kabul etmekle başlıyor: Tam sayfa eşleşmesi yerine site bazında takip yapın, promtları farklı zamanlarda tekrar çalıştırın ve model güncellemelerinin ardından testleri yenileyin.
-
-## Türk Pazarı için Ne Anlama Geliyor?
-
-Türkçe içerik üreticileri ve ajanslar için bu çalışma iki katmanlı bir uyarı niteliği taşıyor.
-
-**Birincisi, ölçüm boşluğu:** Türkiye'deki çoğu marka, Google Search Console ve sıralama takip araçlarıyla SEO başarısını ölçüyor. Ama bu araçlar ChatGPT veya Perplexity alıntılarını göstermiyor. Sahip olduğunuz veri, sahip olmadığınız kanalı ölçmüyor.
-
-**İkincisi, içerik yapısı farkı:** İngilizce web'e kıyasla Türkçe içerik havuzu daha sığ. Bu hem bir risk hem bir fırsat: Az rakip, doğru yapılandırılmış Türkçe içeriğin LLM'ler tarafından kaynak seçilme olasılığını artırıyor. Ancak "doğru yapılandırılmış" kelimesi kritik; blok metin yerine soru-cevap formatı, özet kutular, net iddialar ve atıf yapılabilir istatistikler içeren sayfalar bu yarışta öne çıkıyor.
-
-KOBİ'ler için somut çıkarım: ChatGPT'nin sizi alıntılayıp alıntılamadığını Google sıralamanızdan tahmin edemezsiniz. Bunu doğrudan test etmeniz gerekiyor.
-
-[Klasik SEO altyapınızı](https://gonet.com.tr/yetenekler/seo-klasik-arama) korurken AEO katmanını ayrıca inşa etmenin tam zamanı.
-
-## Eylem Maddeleri
-
-- **Site bazında alıntı haritası çıkarın:** Sektörünüzdeki 10-15 yaygın soruyu ChatGPT'ye sorun, hangi domainlerin tekrar tekrar alıntılandığını not edin. Kendi siteniz bu listede mi?
-- **İçerik yapısını "alıntılanabilir" biçime dönüştürün:** Her blog yazısında en az bir net soru-cevap bloğu, bir istatistik veya özet kutu ekleyin. LLM'ler bu kısa, temiz parçaları (semantic chunk) tercih ediyor.
-- **Model güncellemelerini takvimleyin:** GPT sürümü her değiştiğinde alıntı davranışı da değişiyor. Promtlarınızı 3 ayda bir yeniden test edin, özellikle büyük model geçişlerinin ardından.
-- **Google görünürlüğü ≠ LLM alıntısı varsayımını ekibinizle paylaşın:** Raporlama şablonlarınıza "AI alıntı gözlemi" sütunu ekleyin; bu sütunu henüz otomatik araçlarla dolduramıyorsanız bile manuel gözlem kaydetmeye başlayın.
-- **llms.txt (LLM'ler için site rehberi) ve Schema.org (yapılandırılmış veri standardı) güncellemesi yapın:** Sitenizin hangi bölümünün öncelikli okunmasını istediğinizi bot ekosistemi için açıkça işaretleyin.
-
-## Sık Sorulan Sorular
-
-**ChatGPT hangi sayfaları kaynak olarak seçiyor?**
-ChatGPT, arama yaptıktan sonra dönen sonuçlar arasından içerik kalitesine, alıntılanabilir bölümlerin yoğunluğuna ve sayfa yapısının anlamsal taranabilirliğine göre kaynak belirliyor. Bu seçim süreci Google sıralama mantığından bağımsız çalışıyor; dolayısıyla Google'da ilk sırada olmak ChatGPT tarafından alıntılanmayı garanti etmiyor. Araştırma, iki vekil sistemin (Google + API) gerçek ChatGPT alıntılarını yüzde 26 oranında yakalayabildiğini gösterdi.
-
-**Google API ile ChatGPT'nin alıntılarını tahmin edebilir miyim?**
-Kısmi olarak evet, ama güvenilir bir eşleşme değil. Söz konusu araştırmaya göre OpenAI Responses API ve Google birlikte alıntılanan sitelerin yaklaşık yüzde 49'unu buluyor; ancak tam sayfa eşleşmesi yüzde 26'da kalıyor. Bu nedenle araştırmacılar site bazında takip yapılmasını, promtların periyodik yeniden çalıştırılmasını ve model güncellemelerinin ardından testlerin tekrarlanmasını öneriyor.
-
-**AEO stratejisi geliştirirken bu bulgudan ne öğrenmeliyim?**
-Klasik SEO'nun "sırala ve trafik kazan" mantığı LLM alıntıları için yeterli değil. AEO'da hedef, sayfanızın bir LLM tarafından kaynak seçilmesidir; bu da içeriğinizin alıntılanabilir (citation-ready) biçimde yapılandırılmasını, Schema.org işaretlemesini ve doğrudan sorulara net cevap veren bölümler içermesini gerektiriyor. Sıralama takibi kadar alıntı takibi de stratejinik öncelik haline gelmeli.
-
+  - soru: "Google'da birinci sırada olduğum halde ChatGPT beni neden önermiyor?"
+    cevap: "ChatGPT arama sonuçlarında bir sayfayı görse bile kendi içinde bağımsız bir eleme katmanı çalıştırır. Sayfanızda net tanımlar, doğrudan yanıt blokları ve doğrulanabilir veriler yoksa model başka bir kaynağı alıntılar. Araştırmalar Google sıralaması ile ChatGPT alıntılarının sayfa bazında yalnızca %26,2 oranında örtüştüğünü gösteriyor."
+  - soru: "OpenAI API üzerinden ChatGPT'nin alıntılarını tahmin edebilir miyim?"
+    cevap: "Kısmen alan adı tahmini yapabilirsiniz ancak tam sayfa bazında güvenilir sonuç alamazsınız. Singapur ve Xi'an Jiaotong Üniversitesi araştırmasına göre Google ve API birlikte çalışsa bile gerçek ChatGPT web alıntılarının yaklaşık %74'ünü kaçırıyor. Bu nedenle gerçek web arayüzü üzerinden periyodik istem takibi şarttır."
+  - soru: "ChatGPT tarafından daha sık alıntılanmak için sayfada neyi değiştirmeliyim?"
+    cevap: "Her ana başlığın altında ilk iki cümlede doğrudan cevap veren atomik paragraflar kurun. Uzun girişleri kısaltıp yerine karşılaştırma tabloları, sayısal vaka kanıtları ve frontmatter destekli SSS blokları ekleyin. Böylece model sayfanızı yüksek güvenle parçalayıp kaynak gösterebilir."
 ---
 
-Bu araştırmanın gösterdiği tablo, AI arama görünürlüğünün tek bir değişkene bağlı olmadığını bir kez daha ortaya koyuyor. Sitenizin LLM'ler tarafından nasıl değerlendirildiğini anlamak ve içerik yapınızı buna göre optimize etmek istiyorsanız [Gonet ile iletişime geçebilirsiniz](https://gonet.com.tr/iletisim).
+**Google'da birinci sırada yer almanız, ChatGPT'nin sizi kaynak göstereceği anlamına gelmiyor: yapılan kontrollü testlere göre Google sonuçları ve OpenAI API'si, ChatGPT'nin gerçekte alıntıladığı sayfaların yalnızca %26,2'sini yakalayabiliyor.** Alan adı bazında eşleşme %48,7'ye çıksa da, yapay zekâ motorunun hangi sayfayı neden seçtiği klasik arama sıralamasından bağımsız işliyor.
+
+Singapur ve Xi'an Jiaotong Üniversitesi araştırmacıları, Mart–Temmuz 2026 arasında GPT-5.2'den GPT-5.5'e uzanan dört modeli 80 gerçek kullanıcı sorusuyla test etti. Sonuç, dijital pazarlama dünyasındaki en yaygın yanılgıyı yıktı: arama motorunda görünür olmak ile yapay zekâ yanıtında alıntılanmak iki farklı mühendislik problemidir.
+
+## Yanılgı vs. Gerçek: ChatGPT Kaynağı Nasıl Seçiyor?
+
+Pek çok marka yöneticisi ve ajans, Google Search Console verilerine bakarak yapay zekâ görünürlüğünü de ölçtüğünü varsayar. Oysa ChatGPT web uygulaması bir sorgu aldığında iki aşamalı bir filtre uygular:
+
+- **Birinci Aşama (Arama Havuzu):** Model web araması yaptığında Google veya Bing dizininden aday sayfaları çeker. Burada klasik SEO gücü hâlâ işe yarar.
+- **İkinci Aşama (Alıntı Elemesi):** Model, önüne gelen aday sayfalar arasından hangisini kaynak göstereceğine kendi anlamsal kurallarıyla karar verir. Sayfa Google'da birinci sırada olsa bile, içindeki bilgi dağınık ve çıkarılması zorsa elenir.
+
+Bu ikinci katman nedeniyle Google sıralama araçları veya API tabanlı tahmin yazılımları gerçeğin dörtte üçünü göremez. Yapay zekâ için sayfanın genel otoritesi kadar, cevabın **sayfa içindeki çıkarılabilirliği** (*extraction-readiness*) belirleyicidir.
+
+## Gonet Ölçümü: Motorlar Arası Uçurum Nasıl Görünüyor?
+
+Biz bu farkı Kasım 2026'da `gonet.com.tr` üzerinde 540 yapay zekâ yanıtını günlük izleyerek bizzat ölçtük. Ortaya çıkan tablo araştırmayı birebir doğruladı:
+
+- **Google AI Mode** üzerinde **35/90** oranında güçlü bir görünürlük yakaladık ve göründüğümüz yanıtlarda ortalama **1,36. sırada** yer aldık.
+- Aynı 15 Türkçe ticari istemde **ChatGPT** görünürlüğümüz **10/90** seviyesinde kaldı; `OAI-SearchBot` haftalık 90 kez sitemizi ziyaret etmesine rağmen alıntı oranımız Google ile eşitlenmedi.
+
+Bu ölçüm bize çok net bir ders verdi: 26 yıllık teknik SEO mirasımız Google tarafını hızla beslerken, ChatGPT'nin alıntı filtresini geçmek için sayfa içi özet kutuları, karşılaştırma tabloları ve vaka kanıtlarını çok daha belirgin kurmamız gerekiyordu.
+
+## Üç Ayda Bir Model Güncelleme Testi Nasıl Yapılır?
+
+ChatGPT'nin arkasındaki dil modelleri yıl içinde birden fazla kez güncellenir ve her güncellemede kaynak seçim ağırlıkları değişebilir. Mart–Temmuz 2026 araştırması da dört farklı model sürümünde alıntı davranışının kaydığını açıkça gösterdi. Bu nedenle AEO çalışmasını tek seferlik bir kurulum olarak görmemek gerekir.
+
+Ekibiniz için her çeyrekte bir saatlik basit bir denetim rutini kurabilirsiniz:
+- **Sabit İstem Seti:** Müşterilerinizin sorduğu 15 temel soruyu bir tabloya kaydedin ve aynı ifadelerle her üç ayda bir ChatGPT'de test edin.
+- **Kaynak Değişimi Takibi:** Önceki çeyrekte alıntılanan sayfanız yeni model sürümünde listeden düştüyse, o sayfadaki tarih, tablo ve kanıt yoğunluğunu güncelleyin.
+- **Rakip Analizi:** Sizin yerinize yeni bir rakip alıntılanmaya başladıysa, o sayfanın ilk 100 kelimesini ve yapısal veri etiketlerini inceleyerek kendi sayfanızı güçlendirin.
+
+## Kötü ve İyi Alıntı Yapısı: ChatGPT Hangi Metni Seçer?
+
+İki şirketin de aynı konuda hizmet verdiğini düşünün. Birincisi klasik tanıtım diliyle yazar, ikincisi ise yapay zekânın doğrudan çıkarabileceği net kanıt sunar:
+
+- **Zayıf Yapı:** *"Şirketimiz yıllardır müşterilerine en kaliteli ve yenilikçi dijital çözümleri sunarak sektörde fark yaratmaktadır."* (Ölçüm yok, kapsam yok, doğrudan cevap yok; model alıntılamaz.)
+- **Güçlü Yapı:** *"Gonet, 26 yıllık ajans deneyimiyle sağlık turizmi ve inşaat markalarına yönelik AEO/GEO denetimi sunar; Kasım 2026 ölçümünde teknik tarama puanı 100/100 olarak doğrulanmıştır."* (Kimlik, uzmanlık alanı ve tarihli ölçüm tek cümlede; model doğrudan kaynak gösterir.)
+
+Ayrıca her kritik sayfanızda en az bir karşılaştırma tablosu ve üç maddelik özet bloğu bulundurmak, dil modelinin sayfanızı parçalara ayırırken (*semantic chunking*) bağlamı kaybetmesini önler.
+
+## Türkiye Pazarında Fırsat Penceresi Neden Açık?
+
+İngilizce içerik havuzuyla kıyaslandığında Türkçe web kaynakları yapısal veri ve kanıt açısından oldukça sığdır. Türkiye'deki çoğu kurumsal site, ziyaretçiye uzun tanıtım paragrafları sunar ama yapay zekânın aradığı net cevabı ilk cümleye koymaz.
+
+Bu durum sizin için doğrudan bir avantaja dönüşebilir. Sorulara ilk paragrafta net yanıt veren, sayısal ölçüm paylaşan ve tablolarla desteklenen Türkçe bir sayfa, Google'da üçüncü veya beşinci sırada olsa bile ChatGPT tarafından birincil kaynak seçilebilir.
+
+## ChatGPT Alıntılarını Artırmak İçin 5 Somut Adım
+
+1. **Sektörel İstem Haritası Çıkarın:** Müşterilerinizin satın alma öncesi ChatGPT'ye sorduğu 10–15 gerçek soruyu (istem) belirleyin ve hangi rakiplerin alıntılandığını kaydedin.
+2. **İlk İki Cümleyi Cevaba Ayırın:** Her yazının ve hizmet sayfasının girişinde ısınma cümlelerini silin. Sorunun doğrudan yanıtını ilk 40 kelimede verin.
+3. **Alıntılanabilir Bloklar Ekleyin:** İçeriğinize karşılaştırma tabloları, 3 maddelik yönetici özeti ve somut saha verileri yerleştirin; dil modelleri bu net parçaları tercih eder.
+4. **Üç Ayda Bir Tekrar Ölçün:** Her büyük model güncellemesinde alıntı davranışları değişir. İstemlerinizi düzenli aralıklarla doğrudan web arayüzünde yeniden test edin.
+5. **Sayfa Yapınızı Denetleyin:** Hangi sayfalarınızın yapay zekâ tarafından okunup hangilerinin elendiğini görmek için [AEO/GEO denetim hizmetimizi](/aeo-geo-denetimi) inceleyebilir veya [içerik stratejisi sayfamıza](/yetenekler/icerik-yaratici) göz atabilirsiniz.
 
 ---
 
-*İncelenen kaynak: [searchenginejournal.com](https://www.searchenginejournal.com/openais-api-only-partly-matched-chatgpts-citations-paper-finds/593304/)*
+*Bu analiz Gonet ekibi tarafından Kasım 2026 Otterly.ai canlı ölçümü (540 yanıt) ve Search Engine Journal'da özetlenen ChatGPT alıntı araştırması temel alınarak hazırlanmıştır. Gonet, 2000'den beri dijital görünürlük mühendisliği sunan İzmir'in ilk AI ajansıdır.*
