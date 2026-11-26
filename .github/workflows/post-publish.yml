@@ -35,8 +35,14 @@ jobs:
           fi
 
           # URL listesi oluştur — slug = dosya adı (.md olmadan)
+          # Taslak (draft: true) ve zamanlanmış/taslak durumlu yazılar IndexNow'a bildirilmez.
           URLS=""
           for f in $FILES; do
+            [[ ! -f "$f" ]] && continue
+            if awk 'NR==1 && /^---$/{in_fm=1; next} in_fm && /^---$/{exit} in_fm && (/^draft:[[:space:]]*true([[:space:]]|$)/ || /^yayinDurumu:[[:space:]]*["'\'']?(taslak|zamanlanmis)/){found=1; exit} END{exit !found}' "$f"; then
+              echo "  ↷ Taslak/zamanlanmış yazı IndexNow dışında bırakıldı: $f"
+              continue
+            fi
             SLUG=$(basename "$f" .md)
             URLS="$URLS https://gonet.com.tr/blog/$SLUG/"
           done
