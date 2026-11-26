@@ -1,12 +1,15 @@
 name: post-publish — IndexNow ping
 
-# Tetikleyici: main'e push olunca + sadece blog .md değişikliği varsa.
-# Açılan yeni blog post'un URL'ini IndexNow'a (Bing + Yandex) bildirir.
+# Tetikleyici: main'e push olunca blog, sayfa, vaka çalışması veya yetkinlik değişikliği varsa.
+# Açılan/güncellenen içerik URL'lerini IndexNow'a (Bing + Yandex) bildirir.
 on:
   push:
     branches: [main]
     paths:
       - 'src/content/blog/**.md'
+      - 'src/pages/**/*.astro'
+      - 'src/content/case-studies/**'
+      - 'src/content/yetkinlikler/**'
 
 jobs:
   indexnow:
@@ -27,28 +30,56 @@ jobs:
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.event.after }}"
 
-          # İlk commit ise (BEFORE 0000...), tüm blog dosyalarını dahil et
+          # İlk commit ise (BEFORE 0000...), kapsamdaki tüm dosyaları dahil et
           if [[ "$BEFORE" == "0000000000000000000000000000000000000000" ]]; then
-            FILES=$(git ls-files 'src/content/blog/*.md')
+            FILES=$(git ls-files 'src/content/blog/*.md' 'src/pages/**/*.astro' 'src/content/case-studies/**' 'src/content/yetkinlikler/**')
           else
-            FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- 'src/content/blog/*.md' || true)
+            FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- 'src/content/blog/*.md' 'src/pages/**/*.astro' 'src/content/case-studies/**' 'src/content/yetkinlikler/**' || true)
           fi
 
-          # URL listesi oluştur — slug = dosya adı (.md olmadan)
+          # URL listesi oluştur — canonical format (sonunda / olmadan, ana sayfa hariç)
           # Taslak (draft: true) ve zamanlanmış/taslak durumlu yazılar IndexNow'a bildirilmez.
           URLS=""
           for f in $FILES; do
             [[ ! -f "$f" ]] && continue
-            if awk 'NR==1 && /^---$/{in_fm=1; next} in_fm && /^---$/{exit} in_fm && (/^draft:[[:space:]]*true([[:space:]]|$)/ || /^yayinDurumu:[[:space:]]*["'\'']?(taslak|zamanlanmis)/){found=1; exit} END{exit !found}' "$f"; then
-              echo "  ↷ Taslak/zamanlanmış yazı IndexNow dışında bırakıldı: $f"
-              continue
-            fi
-            SLUG=$(basename "$f" .md)
-            URLS="$URLS https://gonet.com.tr/blog/$SLUG/"
+            case "$f" in
+              src/content/blog/*.md)
+                if awk 'NR==1 && /^---$/{in_fm=1; next} in_fm && /^---$/{exit} in_fm && (/^draft:[[:space:]]*true([[:space:]]|$)/ || /^yayinDurumu:[[:space:]]*["'\'']?(taslak|zamanlanmis)/){found=1; exit} END{exit !found}' "$f"; then
+                  echo "  ↷ Taslak/zamanlanmış yazı IndexNow dışında bırakıldı: $f"
+                  continue
+                fi
+                SLUG=$(basename "$f" .md)
+                URLS="$URLS https://gonet.com.tr/blog/$SLUG"
+                ;;
+              src/content/case-studies/*.md)
+                if awk 'NR==1 && /^---$/{in_fm=1; next} in_fm && /^---$/{exit} in_fm && /^draft:[[:space:]]*true([[:space:]]|$)/{found=1; exit} END{exit !found}' "$f"; then
+                  continue
+                fi
+                SLUG=$(basename "$f" .md)
+                URLS="$URLS https://gonet.com.tr/case-studies/$SLUG"
+                ;;
+              src/content/yetkinlikler/*)
+                REL="${f#src/content/yetkinlikler/}"
+                REL="${REL%.md}"
+                URLS="$URLS https://gonet.com.tr/yetenekler/$REL"
+                ;;
+              src/pages/*.astro|src/pages/**/*.astro)
+                [[ "$f" == *"["* ]] && continue
+                REL="${f#src/pages/}"
+                REL="${REL%.astro}"
+                if [[ "$REL" == "index" ]]; then
+                  URLS="$URLS https://gonet.com.tr/"
+                elif [[ "$REL" == */index ]]; then
+                  URLS="$URLS https://gonet.com.tr/${REL%/index}"
+                else
+                  URLS="$URLS https://gonet.com.tr/$REL"
+                fi
+                ;;
+            esac
           done
 
-          # Whitespace temizle
-          URLS=$(echo "$URLS" | xargs)
+          # Whitespace ve tekrarları temizle
+          URLS=$(echo "$URLS" | tr ' ' '\n' | sed '/^$/d' | sort -u | xargs)
 
           if [[ -z "$URLS" ]]; then
             echo "  → Değişen blog dosyası yok, ping atlanacak."

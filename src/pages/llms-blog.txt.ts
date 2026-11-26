@@ -28,7 +28,7 @@ export const GET: APIRoute = async () => {
   ];
 
   for (const post of posts) {
-    const url = `https://gonet.com.tr/blog/${post.id}/`;
+    const url = `https://gonet.com.tr/blog/${post.id}`;
     const date = post.data.published.toISOString().slice(0, 10);
     const desc = post.data.description.replace(/\s+/g, ' ').trim();
 

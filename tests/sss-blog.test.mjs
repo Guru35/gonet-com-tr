@@ -181,7 +181,7 @@ test('sitemap ve llms-blog.txt 11 yeni blog adresini içerir; llms.txt /sss sat�
   const llmsBlog = readFileSync(join(DIST, 'llms-blog.txt'), 'utf8');
   for (const slug of SLUGLAR) {
     assert.ok(harita.includes(`https://gonet.com.tr/blog/${slug}<`), `sitemap: ${slug}`);
-    assert.ok(llmsBlog.includes(`https://gonet.com.tr/blog/${slug}/`), `llms-blog: ${slug}`);
+    assert.match(llmsBlog, new RegExp(`https://gonet\\.com\\.tr/blog/${slug}$`, 'm'), `llms-blog: ${slug}`);
   }
   const llms = oku('public/llms.txt');
   assert.doesNotMatch(llms, /15 soru-cevap/, 'llms.txt eski soru sayısını taşıyor');

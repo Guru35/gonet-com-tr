@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { articleSchema, webpageSchema } from '../../lib/schema';
+import { articleSchema, webpageSchema, faqSchema } from '../../lib/schema';
 import { getCollection, render } from 'astro:content';
 import ModelKilavuzu from '../../components/interactive/ModelKilavuzu.astro';
 import YoneticiOzeti from '../../components/blog/YoneticiOzeti.astro';
@@ -50,17 +50,7 @@ function parseFaq(md: string): { question: string; answer: string }[] {
 }
 
 const faqs = post.data.sss && post.data.sss.length > 0 ? [] : parseFaq(post.body ?? '');
-const faqSchema = faqs.length
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((f) => ({
-        '@type': 'Question',
-        name: f.question,
-        acceptedAnswer: { '@type': 'Answer', text: f.answer },
-      })),
-    }
-  : null;
+const faqNode = faqs.length ? faqSchema(faqs) : null;
 
 // Her blog post'a özel CTA — eyebrow + iki satır heading
 const blogCTAs: Record<string, { eyebrow: string; h2a: string; h2b: string; btn: string }> = {
@@ -160,7 +150,7 @@ const breadcrumb = webpageSchema({
   description={post.data.description}
   canonical={url}
   ogImage={post.data.ogImage}
-  schemas={faqSchema ? [article, breadcrumb, faqSchema] : [article, breadcrumb]}
+  schemas={faqNode ? [article, breadcrumb, faqNode] : [article, breadcrumb]}
   noindex={post.data.draft}
 >
   {/* Deterministik random per-post (slug hash) — hero image konum/rotation */}

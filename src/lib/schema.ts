@@ -15,7 +15,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   '@id': ORG_ID,
   name: 'Gonet',
-  alternateName: ['GONET', 'Gonet Interactive Advertising Agency'],
+  alternateName: ['GONET', 'Gonet Dijital', 'Gonet Ajans', 'Gonet Interactive Advertising Agency'],
   legalName: 'Pigme Proje ve İş Geliştirme Merkezi Yazılım A.Ş.',
   slogan: 'Her iş\'te Gonet var.',
   url: SITE_URL,
@@ -135,7 +135,6 @@ export const organizationSchema = {
     'https://www.instagram.com/gonetinteractive/',
     'https://www.facebook.com/GonetCompany/',
     'https://www.slideshare.net/gonetpigme',
-    'https://seo.gonet.com.tr',
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -195,6 +194,22 @@ export const organizationSchema = {
           '@type': 'Service',
           name: 'Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı',
           url: `${SITE_URL}/yapay-zeka-dijital-ajans`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AEO/GEO Audit Service (English)',
+          url: `${SITE_URL}/en/aeo-geo-audit`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Ücretsiz SEO & AEO Analizi',
+          url: `${SITE_URL}/araclar/seo-analiz`,
         },
       },
     ],
