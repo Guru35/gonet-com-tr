@@ -135,7 +135,70 @@ export const organizationSchema = {
     'https://www.instagram.com/gonetinteractive/',
     'https://www.facebook.com/GonetCompany/',
     'https://www.slideshare.net/gonetpigme',
+    'https://seo.gonet.com.tr',
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Gonet AEO/GEO ve Dijital Pazarlama Hizmetleri',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AEO/GEO Denetim Hizmeti',
+          url: `${SITE_URL}/aeo-geo-denetimi`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Ücretsiz AI Görünürlük Ön Analizi',
+          url: 'https://seo.gonet.com.tr',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Creative AI — İnsan × AI Ajans Yaklaşımı',
+          url: `${SITE_URL}/creative-ai`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: '9 Disiplin × 50+ Dijital Pazarlama Yetkinliği',
+          url: `${SITE_URL}/uzmanlik`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'AEO/GEO Sık Sorulan Sorular ve Bilgi Merkezi',
+          url: `${SITE_URL}/sss`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Sağlık Turizmi Performans Pazarlama ve AEO/GEO',
+          url: `${SITE_URL}/saglik-turizmi-performans-pazarlama`,
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı',
+          url: `${SITE_URL}/yapay-zeka-dijital-ajans`,
+        },
+      },
+    ],
+  },
 };
 
 // Kurucu Person schema — E-E-A-T için kritik

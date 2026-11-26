@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "Sağlık Turizmi Performans Pazarlama ve AEO/GEO Görünürlük | Gonet";
+const description =
+  "Klinikler, hastaneler ve sağlık turizmi markaları için uluslararası hasta kazanımı, çok dilli Google Ads / Meta performans pazarlaması ve yapay zekâ yanıtlarında (AEO/GEO) doğrulanabilir görünürlük mimarisi.";
+const url = `${SITE_URL}/saglik-turizmi-performans-pazarlama`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Sağlık Turizmi Performans Pazarlama', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'Sağlık Turizmi Performans Pazarlama ve AEO/GEO',
+  alternateName: [
+    'Medical Tourism Performance Marketing',
+    'Sağlık Turizmi Dijital Pazarlama',
+    'Uluslararası Hasta Kazanımı ve AEO/GEO',
+  ],
+  serviceType: 'Healthcare Performance Marketing & AEO/GEO',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: [
+    { '@type': 'Country', name: 'Türkiye' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Germany' },
+  ],
+  category: 'Medical Tourism Digital Marketing',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Sağlık Turizmi Büyüme Katmanları',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Uluslararası Performans Kampanyaları',
+        description: 'Hedef ülke ve dil bazlı Google Ads, Meta ve YouTube hasta kazanımı, dönüşüm takibi ve KVKK/UK GDPR uyumlu form-CRM akışı.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Çok Dilli Web & AEO/GEO Mimarisi',
+        description: 'MedicalOrganization, Dentist/Physician, FAQPage yapısal verileri, llms.txt ve yapay zekâ arama motorları için doğrulanabilir klinik profili.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Canlı Ölçüm & CRM Entegrasyonu',
+        description: 'Şube ve koordinatör bazlı lead izolasyonu, GA4/BigQuery dönüşüm doğrulaması ve panel.gonet.com.tr üzerinden canlı görünürlük takibi.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'Sağlık turizmi performans pazarlaması klasik klinik reklamcılığından neden farklıdır?',
+    answer:
+      "Sağlık turizminde hasta yalnızca yerel bir randevu almaz; uçuş, konaklama ve tedavi sürecini kapsayan yüksek güvenli bir karar verir. " +
+      "Bu nedenle kampanyalar ülke ve dil kırılımında yönetilmeli, hedef pazarın regülasyonlarına (örneğin UK GDPR ve Türkiye Sağlık Hizmetleri Tanıtım Yönetmeliği) uymalı ve ilk tıklamadan klinik CRM'ine kadar uçtan uca ölçülmelidir.",
+  },
+  {
+    question: 'Yapay zekâ arama motorları (AEO/GEO) yurt dışı hasta kazanımını nasıl etkiler?',
+    answer:
+      "Yurt dışındaki hastalar tedavi araştırmasına artık ChatGPT, Perplexity, Claude ve Google AI Overviews üzerinden başlıyor. " +
+      "Kliniğinizin web sitesinde MedicalOrganization, Physician veya Dentist, FAQPage şemaları ve /llms.txt dosyası yoksa yapay zekâ motorları kliniğinizi ya hiç önermez ya da eski bilgilerle hatalı tanıtır.",
+  },
+  {
+    question: 'Gonet sağlık turizmi alanında hangi somut kanıtlara ve deneyime sahiptir?',
+    answer:
+      "Gonet 2005 yılından bu yana sağlık ve sağlık turizmi sektöründe arama reklamları ve dijital strateji yürütmektedir. " +
+      "Güncel canlı pilotlardan Nano Dental projesinde Türkiye (nanodental.com.tr) ve Birleşik Krallık (nanodental.co.uk) siteleri tek Directus CRM altında birleştirildi, medya boyutu %77,2 küçültüldü, 0 CSP uyarısı ve UK GDPR uyumu ile AEO/GEO altyapısı devreye alındı.",
+  },
+  {
+    question: 'Hasta verileri ve form akışları KVKK ve UK GDPR açısından nasıl korunur?',
+    answer:
+      "Üçüncü taraf kontrolsüz form eklentileri yerine şube ve yetki bazlı izole CRM akışları kurulur. " +
+      "Açık rıza kayıtları, katı Content-Security-Policy (CSP) ve HSTS güvenlik başlıkları ile hasta adaylarının tıbbi ön görüşme verileri yalnız yetkili koordinatörlere iletilir.",
+  },
+  {
+    question: 'Kliniğimizin mevcut AI görünürlüğünü ve kampanya performansını nasıl ölçebiliriz?',
+    answer:
+      "İlk aşamada seo.gonet.com.tr üzerinden sitenizin teknik AEO hazırlığını ve bot erişimini ücretsiz olarak kontrol edebilirsiniz. " +
+      "Çalışma başladığında ise tüm kampanya metrikleri, ChatGPT/Claude/Gemini/Perplexity atıf ölçümleri ve aylık raporlar panel.gonet.com.tr üzerinden canlı olarak takip edilir.",
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:8%;--rule-top-w:52%;--rule-bot-x:30%;--rule-bot-w:34%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Sağlık Turizmi Performans Pazarlama</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Dikey Uzmanlık · Sağlık Turizmi &amp; AEO/GEO
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        Uluslararası hastalar<br/>
+        sizi <span style="color:#ff0000">nasıl buluyor?</span>
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Reklam bütçesi tek başına uluslararası hasta güveni üretmez. Gonet, 2005'ten bu yana sürdürdüğü sağlık
+        sektörü deneyimini <strong>ülke bazlı performans pazarlaması</strong>, <strong>şube-izoleli CRM mimarisi</strong>
+        ve <strong>AEO/GEO (yapay zekâ görünürlüğü)</strong> ile birleştirir — böylece kliniğiniz hem Google/Meta
+        kampanyalarında hem de ChatGPT, Claude ve Perplexity yanıtlarında doğrulanabilir bir otorite olarak öne çıkar.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Ücretsiz AI Görünürlük Analizi (seo.gonet.com.tr) →
+        </a>
+        <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Müşteri Paneli (panel.gonet.com.tr) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet Kapsamı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Hizmet kapsamı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        4 katmanda hasta kazanımı
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Hedef Ülke &amp; Dil Bazlı Performans Kampanyaları</h3>
+            <p class="text-slate-700 mb-2">
+              Birleşik Krallık, Almanya, Orta Doğu ve Kuzey Amerika pazarlarına yönelik tedavi dikeyi (diş, estetik, saç
+              ekimi, IVF, obezite) bazında Google Ads, Performance Max, YouTube ve Meta kampanyaları. Tıklama maliyeti
+              değil, nitelikli konsültasyon ve gerçekleşen tedavi maliyeti optimize edilir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Ülke/tedavi kırılımlı medya planı + GA4 sunucu taraflı dönüşüm takibi.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Çok Dilli Web Mimarisi &amp; Teknik Hız</h3>
+            <p class="text-slate-700 mb-2">
+              Yurt dışı hastanın güvenini kıran yavaş açılan, mobilde dağılan sayfalar yerine Astro SSG tabanlı yüksek
+              hızlı iniş sayfaları. Görsel optimizasyonu, HSTS, sıkı Content-Security-Policy (CSP) ve KVKK / UK GDPR
+              açık rıza uyumu standart olarak kurulur.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Çok dilli yüksek dönüşümlü klinik web yapısı + 0 güvenlik/konsol uyarısı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AEO/GEO — Yapay Zekâ Motorlarında Klinik Otoritesi</h3>
+            <p class="text-slate-700 mb-2">
+              Hasta "Türkiye'de güvenilir diş implant kliniği" veya "İzmir IVF merkezi" sorduğunda AI motorlarının
+              kliniğinizi kaynak göstermesi için <code>MedicalOrganization</code>, <code>Dentist</code> / <code>Physician</code>,
+              <code>FAQPage</code> JSON-LD grafı, <code>/llms.txt</code> ve alıntılanabilir (extraction-ready) tedavi rehberleri kurulur.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Doğrulanabilir varlık (entity) şeması + AI bot erişim politikası.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Şube-İzoleli CRM &amp; Canlı Raporlama</h3>
+            <p class="text-slate-700 mb-2">
+              Formlar ve fiyat hesaplayıcılar doğrudan CRM akışına bağlanır; şubeler ve hasta koordinatörleri yalnız
+              kendi hastalarını görür. Tüm reklam harcamaları, lead kalitesi ve AI görünürlük skorları
+              <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>
+              üzerinden tek ekranda izlenir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Tek merkezli lead yönetimi + aylık şeffaf ROI ve AI görünürlük raporu.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ölçüm ve Kanıt -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ölçüm ve kanıt</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        Sahadan doğrulanmış sonuçlar.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        Sağlık turizmi iddialarımızı teorik sunumlarla değil, 2005'ten bugüne uzanan sektör geçmişi ve canlı sistem
+        metrikleriyle destekliyoruz.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">Nano Dental — Çift Dilli Sağlık Turizmi &amp; AEO Pilotu</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Aydın Didim ve İzmir Bornova şubeleri için <code>nanodental.com.tr</code> + <code>nanodental.co.uk</code> tek
+            Directus CRM altında birleştirildi. 354 görsel WebP optimizasyonuyla <strong>57,21 MB → 13,05 MB (-%77,2)</strong>
+            küçültüldü; 0 CSP uyarısı, UK GDPR ve <code>MedicalOrganization</code> + <code>/llms.txt</code> devreye alındı.
+          </p>
+          <a href="/case-studies/nano-dental-saglik-turizmi-ve-aeo-mimarisi" class="text-sm underline font-medium">
+            Vaka çalışmasını incele →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">2005'ten Beri Sağlık Arama Reklamcılığı</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Türkiye'de sağlık ve sağlık turizmi alanında ilk arama reklamı çalışmalarından başlayarak hastane grupları,
+            klinikler ve hekimlerle regülasyon uyumlu büyüme kurguları yürüttük.
+          </p>
+          <a href="/case-studies/saglik-2005-arama-reklami" class="text-sm underline font-medium">
+            2005 vaka kaydını gör →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Ön Analiz: seo.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Kliniğinizin web sitesinin GPTBot, ClaudeBot, PerplexityBot erişimini, Schema.org ve <code>llms.txt</code>
+            durumunu dakikalar içinde ücretsiz test edin.
+          </p>
+          <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            seo.gonet.com.tr'yi aç →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Canlı Takip: panel.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Mevcut müşterilerimiz için ChatGPT, Claude, Gemini ve Perplexity görünürlük ölçümleri, GA4/GSC verileri ve
+            aylık PDF performans raporları tek çatı altında sunulur.
+          </p>
+          <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            Müşteri paneline git →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        Sağlık turizminde dijital büyüme.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Kliniğinizin uluslararası hasta yolculuğunu<br/>
+        <span style="color:#ff0000">ölçülebilir sisteme dönüştürün</span>.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Teklif alın →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Ücretsiz AI analiz başlat →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
