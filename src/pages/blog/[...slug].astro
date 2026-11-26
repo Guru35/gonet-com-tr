@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleSchema, webpageSchema } from '../../lib/schema';
 import { getCollection, render } from 'astro:content';
 import ModelKilavuzu from '../../components/interactive/ModelKilavuzu.astro';
+import YoneticiOzeti from '../../components/blog/YoneticiOzeti.astro';
+import KarsilastirmaTablosu from '../../components/blog/KarsilastirmaTablosu.astro';
+import SssAkordeon from '../../components/blog/SssAkordeon.astro';
 import { blogYayindaMi } from '../../lib/blog-yayin';
 
 // İnteraktif yazı bileşen haritası — frontmatter `interactive` anahtarına göre.
@@ -46,7 +49,7 @@ function parseFaq(md: string): { question: string; answer: string }[] {
   return faqs;
 }
 
-const faqs = parseFaq(post.body ?? '');
+const faqs = post.data.sss && post.data.sss.length > 0 ? [] : parseFaq(post.body ?? '');
 const faqSchema = faqs.length
   ? {
       '@context': 'https://schema.org',
@@ -266,15 +269,31 @@ const breadcrumb = webpageSchema({
   <!-- BODY — cascading paragraph sizes -->
   <article class="bg-white">
     <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      {post.data.ozetMaddeleri && post.data.ozetMaddeleri.length === 3 && (
+        <YoneticiOzeti maddeler={post.data.ozetMaddeleri} />
+      )}
+
       <div class="prose-irregular">
         <Content />
       </div>
+
+      {post.data.karsilastirmaTablosu && (
+        <KarsilastirmaTablosu
+          baslik={post.data.karsilastirmaTablosu.baslik}
+          sutunlar={post.data.karsilastirmaTablosu.sutunlar}
+          satirlar={post.data.karsilastirmaTablosu.satirlar}
+        />
+      )}
 
       {/* İnteraktif bileşen — prose-irregular DIŞINDA (nth-of-type kartları bozar) */}
       {Interactive && (
         <div class="mt-16 lg:mt-20">
           <Interactive />
         </div>
+      )}
+
+      {post.data.sss && post.data.sss.length > 0 && (
+        <SssAkordeon maddeler={post.data.sss} />
       )}
 
       <!-- Author block — editorial -->

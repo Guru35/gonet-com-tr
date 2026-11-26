@@ -54,6 +54,17 @@ const blog = defineCollection({
     // (yalnızca o kategori doldurur; diğer postlarda boş kalır).
     sliderLines: z.array(z.string()).optional(),  // slider'da satır satır dev tipografi
     sliderEtiket: z.string().optional(),          // slider alt-etiketi (AEO/GEO, Otomasyon, Ürün...)
+    // GW-D02: 1-31 Aralık Blog Şablonu isteğe bağlı alanları (geriye dönük uyumlu)
+    ozetMaddeleri: z.array(z.string()).length(3).optional(),
+    karsilastirmaTablosu: z.object({
+      baslik: z.string().optional(),
+      sutunlar: z.array(z.string()).min(2),
+      satirlar: z.array(z.array(z.string())),
+    }).optional(),
+    sss: z.array(z.object({
+      soru: z.string(),
+      cevap: z.string(),
+    })).optional(),
   }),
 });
 
