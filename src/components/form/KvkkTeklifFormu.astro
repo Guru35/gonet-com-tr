@@ -1,0 +1,257 @@
+---
+import { VARSAYILAN_LEADS_API_UCU } from '../../lib/teklifFormu';
+
+interface Props {
+  endpoint?: string;
+  kaynak?: string;
+}
+
+const {
+  endpoint = import.meta.env.PUBLIC_LEADS_API_URL ?? VARSAYILAN_LEADS_API_UCU,
+  kaynak = '',
+} = Astro.props;
+---
+
+<form
+  id="kvkk-teklif-formu"
+  data-endpoint={endpoint}
+  data-kaynak={kaynak}
+  novalidate
+  class="space-y-6"
+>
+  <!-- Honeypot bot tuzağı: ekran okuyucudan ve klavye odağından gizli -->
+  <div
+    aria-hidden="true"
+    style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;"
+  >
+    <label for="teklif-website">Web siteniz (boş bırakın)</label>
+    <input
+      id="teklif-website"
+      name="website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+      value=""
+    />
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-6">
+    <div>
+      <label for="teklif-ad-soyad" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+        Ad Soyad <span aria-hidden="true">*</span>
+      </label>
+      <input
+        id="teklif-ad-soyad"
+        name="adSoyad"
+        type="text"
+        required
+        aria-required="true"
+        autocomplete="name"
+        placeholder="Örn. Ayşe Yılmaz"
+        class="w-full min-h-[44px] px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+
+    <div>
+      <label for="teklif-eposta" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+        E-posta <span aria-hidden="true">*</span>
+      </label>
+      <input
+        id="teklif-eposta"
+        name="eposta"
+        type="email"
+        required
+        aria-required="true"
+        autocomplete="email"
+        placeholder="ornek@sirket.com"
+        class="w-full min-h-[44px] px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-6">
+    <div>
+      <label for="teklif-telefon" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+        Telefon
+      </label>
+      <input
+        id="teklif-telefon"
+        name="telefon"
+        type="tel"
+        autocomplete="tel"
+        placeholder="+90 5XX XXX XX XX"
+        class="w-full min-h-[44px] px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+
+    <div>
+      <label for="teklif-sirket" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+        Şirket / Marka
+      </label>
+      <input
+        id="teklif-sirket"
+        name="sirket"
+        type="text"
+        autocomplete="organization"
+        placeholder="Şirket veya proje adı"
+        class="w-full min-h-[44px] px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="teklif-hizmet" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+      İlgilendiğiniz Alan
+    </label>
+    <select
+      id="teklif-hizmet"
+      name="hizmet"
+      class="w-full min-h-[44px] px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+    >
+      <option value="">Seçiniz (isteğe bağlı)</option>
+      <option value="Web & SEO">Kurumsal Web Sitesi & Teknik SEO</option>
+      <option value="AEO / GEO Denetimi">AEO / GEO Yapay Zeka Görünürlük Denetimi</option>
+      <option value="Kurumsal Kimlik & İçerik">Kurumsal Kimlik, Strateji & İçerik</option>
+      <option value="Danışmanlık / Diğer">Stratejik Danışmanlık / Diğer</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="teklif-mesaj" class="block text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+      Proje Özeti <span aria-hidden="true">*</span>
+    </label>
+    <textarea
+      id="teklif-mesaj"
+      name="mesaj"
+      rows="5"
+      required
+      aria-required="true"
+      placeholder="Hedeflerinizi, kapsamı ve varsa zaman planınızı kısaca paylaşın..."
+      class="w-full px-4 py-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+    ></textarea>
+  </div>
+
+  <div class="pt-2">
+    <label for="teklif-kvkk-onay" class="flex items-start gap-3 cursor-pointer">
+      <input
+        id="teklif-kvkk-onay"
+        name="kvkkOnay"
+        type="checkbox"
+        required
+        aria-required="true"
+        aria-describedby="teklif-kvkk-aciklama"
+        class="mt-1 h-5 w-5 shrink-0 border border-black accent-black"
+      />
+      <span id="teklif-kvkk-aciklama" class="text-sm text-slate-700 leading-relaxed">
+        Kişisel verilerimin teklif ve ön değerlendirme süreci kapsamında işlenmesine ilişkin
+        <a href="/kvkk" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-black">
+          KVKK Aydınlatma Metni
+        </a>
+        ’ni okudum ve onaylıyorum. <span aria-hidden="true">*</span>
+      </span>
+    </label>
+  </div>
+
+  <div class="flex flex-col gap-4 pt-2">
+    <button
+      id="teklif-gonder-btn"
+      type="submit"
+      class="self-start min-h-[48px] px-8 py-3 bg-black text-white text-sm font-semibold uppercase tracking-[0.2em] hover:bg-slate-800 disabled:opacity-60 transition-colors cursor-pointer"
+    >
+      Teklif Talebi Gönder →
+    </button>
+
+    <div
+      id="teklif-durum-kutusu"
+      role="status"
+      aria-live="polite"
+      class="hidden p-4 border text-sm leading-relaxed"
+    ></div>
+  </div>
+</form>
+
+<script>
+  import { TEKLIF_FORM_MESAJLARI, teklifFormuGonder } from '../../lib/teklifFormu';
+
+  const form = document.getElementById('kvkk-teklif-formu') as HTMLFormElement | null;
+  const durumKutusu = document.getElementById('teklif-durum-kutusu') as HTMLDivElement | null;
+  const gonderBtn = document.getElementById('teklif-gonder-btn') as HTMLButtonElement | null;
+
+  function durumGoster(tip: 'yukleniyor' | 'basari' | 'hata', mesaj: string) {
+    if (!durumKutusu) return;
+    durumKutusu.textContent = mesaj;
+    durumKutusu.classList.remove(
+      'hidden',
+      'border-black',
+      'bg-slate-50',
+      'text-black',
+      'border-green-700',
+      'bg-green-50',
+      'text-green-900',
+      'border-red-700',
+      'bg-red-50',
+      'text-red-900',
+    );
+    if (tip === 'yukleniyor') {
+      durumKutusu.classList.add('border-black', 'bg-slate-50', 'text-black');
+    } else if (tip === 'basari') {
+      durumKutusu.classList.add('border-green-700', 'bg-green-50', 'text-green-900');
+    } else {
+      durumKutusu.classList.add('border-red-700', 'bg-red-50', 'text-red-900');
+    }
+  }
+
+  if (form && gonderBtn) {
+    const varsayilanMetin = gonderBtn.textContent ?? 'Teklif Talebi Gönder →';
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const kvkkInput = form.querySelector<HTMLInputElement>('#teklif-kvkk-onay');
+      const veri = {
+        adSoyad: String(formData.get('adSoyad') ?? ''),
+        eposta: String(formData.get('eposta') ?? ''),
+        telefon: String(formData.get('telefon') ?? ''),
+        sirket: String(formData.get('sirket') ?? ''),
+        hizmet: String(formData.get('hizmet') ?? ''),
+        mesaj: String(formData.get('mesaj') ?? ''),
+        kvkkOnay: Boolean(kvkkInput?.checked),
+        website: String(formData.get('website') ?? ''),
+        kaynak: form.dataset.kaynak || undefined,
+      };
+
+      gonderBtn.disabled = true;
+      gonderBtn.textContent = 'Gönderiliyor…';
+      durumGoster('yukleniyor', TEKLIF_FORM_MESAJLARI.yukleniyor);
+
+      const sonuc = await teklifFormuGonder(veri, {
+        endpoint: form.dataset.endpoint,
+        search: window.location.search,
+      });
+
+      gonderBtn.disabled = false;
+      gonderBtn.textContent = varsayilanMetin;
+
+      if (sonuc.ok || sonuc.durum === 'bot_engellendi') {
+        durumGoster('basari', sonuc.mesaj);
+        form.reset();
+        return;
+      }
+
+      durumGoster('hata', sonuc.mesaj);
+
+      if (sonuc.hataAlani) {
+        const alanHaritasi: Record<string, string> = {
+          adSoyad: '#teklif-ad-soyad',
+          eposta: '#teklif-eposta',
+          telefon: '#teklif-telefon',
+          mesaj: '#teklif-mesaj',
+          kvkkOnay: '#teklif-kvkk-onay',
+        };
+        const hedef = form.querySelector<HTMLElement>(alanHaritasi[sonuc.hataAlani]);
+        hedef?.focus();
+      }
+    });
+  }
+</script>
