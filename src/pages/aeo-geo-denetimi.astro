@@ -8,6 +8,12 @@ const description =
   "Markanın Claude ve Gemini yanıtlarındaki temsiline kanıt-bazlı denetim. " +
   "Express / Standart / Enterprise paketler. Express 1 hafta, Standart 2 hafta.";
 const url = `${SITE_URL}/aeo-geo-denetimi`;
+const enUrl = `${SITE_URL}/en/aeo-geo-audit`;
+const alternates = [
+  { lang: 'tr', href: url },
+  { lang: 'en', href: enUrl },
+  { lang: 'x-default', href: url },
+];
 
 const pageSchema = webpageSchema({
   title,
@@ -71,18 +77,23 @@ const faq = faqSchema([
 ]);
 ---
 
-<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+<BaseLayout title={title} description={description} canonical={url} alternates={alternates} schemas={[pageSchema, serviceSchema, faq]}>
   <!-- Hero -->
   <section class="editorial-section bg-white"
     style="--rule-top-x:10%;--rule-top-w:48%;--rule-bot-x:35%;--rule-bot-w:28%">
     <div class="max-w-4xl mx-auto px-6 py-20">
-      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
-          <li aria-hidden="true">/</li>
-          <li class="text-slate-700" aria-current="page">AEO/GEO Denetim Hizmeti</li>
-        </ol>
-      </nav>
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-slate-700" aria-current="page">AEO/GEO Denetim Hizmeti</li>
+          </ol>
+        </nav>
+        <a href="/en/aeo-geo-audit" class="text-xs font-medium uppercase tracking-wider border border-slate-300 px-3 py-1.5 hover:border-black transition">
+          English
+        </a>
+      </div>
       <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
         Hizmet · Denetim & Strateji
       </p>

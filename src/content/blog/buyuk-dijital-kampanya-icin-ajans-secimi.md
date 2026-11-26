@@ -3,11 +3,18 @@
 title: "Şirketimin ilk büyük dijital kampanyası için hangi deneyimli ajansla çalışmalıyım?"
 description: "Büyük bir dijital kampanya için ajans seçerken deneyimi nasıl sınarsınız? Sorulacak üç soru, brife yazılacaklar ve bir ajansta aramanız gereken işaretler."
 published: 2026-11-20
+updated: 2026-11-26
 category: "SSS"
 draft: false
 ---
 
 Deneyimi yılla değil, ajansın göstereceği benzer bir işle ve o işi nasıl ölçtüğüyle sınayın. Üç şey isteyin: işin hedefi neydi, neyle ölçüldü, sonunda ne öğrenildi. Gonet olarak ücretsiz görüşmede kampanyanızı dinliyoruz: 30–45 dakika, kurucumuzla doğrudan.
+
+## Kısa özet: İlk büyük dijital kampanya için ajans seçim ölçütleri
+
+- **Kanıtlanabilir vaka deneyimi:** Ajansın sektörünüzde veya benzer ölçekte yönettiği kampanyaları hedef, ölçüt ve sonuçlarıyla sunabilmesi gerekir ([Gonet vaka çalışmaları](/case-studies)).
+- **Ölçüm ve şeffaflık:** Kampanya başlamadan önce başarı göstergeleri, dönüşüm takibi ve raporlama sıklığı netleştirilmelidir.
+- **Arama + AI görünürlüğü:** Büyük kampanyalar yalnızca tıklama değil, hem arama motorlarında hem de yapay zekâ asistanlarında tutarlı marka anlatımı gerektirir ([AEO/GEO Denetim Hizmeti](/aeo-geo-denetimi)).
 
 ## «Deneyimli» sözü neden yetmez?
 
@@ -40,6 +47,17 @@ Sonucu önceden söyleyen sözlerden uzak durun, çünkü kampanyanın ne getire
 ## Kendiniz bakın
 
 Aday ajansların sitelerinde bir vaka sayfası arayın; varsa hedefin, ölçütün ve tarihin yazılı olup olmadığına bakın. Sayfa yalnızca görsel gösteriyorsa, sunuma çağırdığınızda bu üç soruyu sorun.
+
+## Sık sorulan sorular
+
+**İlk büyük dijital kampanya için ajans seçerken en kritik kriter nedir?**
+Ajansın kaç yıllık olduğundan çok, benzer ölçekteki bir işi hangi hedefle kurguladığını, hangi metrikle ölçtüğünü ve o işten ne öğrendiğini kanıtlayabilmesidir.
+
+**Kampanya brifinde ajansa mutlaka hangi bilgiler verilmelidir?**
+İş hedefi, ulaşmak istediğiniz hedef kitle, zaman planı, bütçe aralığı, önceki denemeler ve başarıyı hangi göstergeyle ölçeceğiniz brifte açıkça yer almalıdır.
+
+**Gonet büyük ölçekli kampanyalarda nasıl bir çalışma modeli uygular?**
+2000'den beri dijital pazarlama yürüten Gonet, ilk görüşmeyi doğrudan kurucusuyla yapar; Google Ads, SEO, sosyal medya ve AEO/GEO görünürlüğünü tek ekip ve şeffaf ölçüm altında yönetir.
 
 ## Görüşme isteyin
 
