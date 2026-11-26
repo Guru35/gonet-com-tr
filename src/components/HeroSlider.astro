@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { blogYayindaMi } from '../lib/blog-yayin';
 
 // Haberler Blog'un "Geliştirme Günlüğü" kategorisinden — en yeniden eskiye.
 // Her haber /blog/<slug> detay sayfasına gider (blog şablonu + Article schema).
@@ -7,7 +8,7 @@ import { getCollection } from 'astro:content';
 // Her slide'ın 2 arka plan görseli var: LIGHT tema (aydınlık + siyah metin) / DARK tema (koyu + beyaz metin).
 // Manşet DÖNER; KONUM/KONSEPT/AKSİYON SABİT bindirilir. AEO: tüm metin SSR-HTML'de.
 const entries = (await getCollection('blog'))
-  .filter((e) => !e.data.draft && e.data.category === 'Geliştirme Günlüğü' && e.data.sliderLines?.length)
+  .filter((e) => blogYayindaMi(e) && e.data.category === 'Geliştirme Günlüğü' && e.data.sliderLines?.length)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
 const haberler = entries.map((e) => ({

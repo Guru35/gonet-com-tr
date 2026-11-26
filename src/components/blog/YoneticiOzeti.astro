@@ -1,0 +1,42 @@
+---
+interface Props {
+  maddeler: string[];
+}
+
+const { maddeler } = Astro.props;
+---
+
+{maddeler && maddeler.length === 3 && (
+  <section
+    aria-labelledby="yonetici-ozeti-baslik"
+    class="mb-14 lg:mb-16 border border-black bg-white text-black p-6 lg:p-10"
+  >
+    <div class="flex items-baseline justify-between gap-4 border-b border-black pb-4 mb-6">
+      <h2
+        id="yonetici-ozeti-baslik"
+        class="text-xs font-bold uppercase tracking-[0.28em]"
+      >
+        Yönetici Özeti — 3 Maddede
+      </h2>
+      <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-75">
+        Hızlı Bakış
+      </span>
+    </div>
+    <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {maddeler.map((madde, index) => (
+        <li class="flex flex-col gap-2">
+          <span
+            class="editorial-display text-3xl lg:text-4xl leading-none"
+            style="color: #ff0000;"
+            aria-hidden="true"
+          >
+            0{index + 1}
+          </span>
+          <p class="text-sm lg:text-base leading-relaxed font-medium">
+            {madde}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

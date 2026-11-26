@@ -1,0 +1,63 @@
+---
+interface SssMaddesi {
+  soru: string;
+  cevap: string;
+}
+
+interface Props {
+  maddeler: SssMaddesi[];
+}
+
+const { maddeler } = Astro.props;
+
+const faqSchema =
+  maddeler && maddeler.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: maddeler.map((m) => ({
+          '@type': 'Question',
+          name: m.soru,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: m.cevap,
+          },
+        })),
+      }
+    : null;
+---
+
+{maddeler && maddeler.length > 0 && (
+  <section
+    aria-labelledby="blog-sss-baslik"
+    class="mt-14 lg:mt-16 border-t border-black pt-10 lg:pt-12"
+  >
+    <h2
+      id="blog-sss-baslik"
+      class="editorial-display text-2xl lg:text-4xl leading-tight mb-8"
+    >
+      Sıkça Sorulan Sorular
+    </h2>
+    <div class="divide-y divide-black border-y border-black">
+      {maddeler.map((m) => (
+        <details class="group py-4 lg:py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base lg:text-lg font-semibold leading-snug [&::-webkit-details-marker]:hidden">
+            <span>{m.soru}</span>
+            <span
+              class="shrink-0 text-xl font-normal leading-none transition-transform duration-200 group-open:rotate-45"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </summary>
+          <p class="mt-3 text-sm lg:text-base leading-relaxed opacity-90 pr-6">
+            {m.cevap}
+          </p>
+        </details>
+      ))}
+    </div>
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
+  </section>
+)}

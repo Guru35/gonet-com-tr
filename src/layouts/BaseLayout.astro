@@ -13,6 +13,7 @@ interface Props {
   alternates?: { lang: string; href: string }[];
   hideFooter?: boolean;
   noindex?: boolean;
+  noarchive?: boolean;
   transparentHeader?: boolean;  // Hero image üzerinden geçen şeffaf nav (yetenekler kategori sayfaları)
 }
 
@@ -26,6 +27,7 @@ const {
   alternates,
   hideFooter = false,
   noindex = false,
+  noarchive = false,
   transparentHeader = false,
 } = Astro.props;
 
@@ -116,7 +118,7 @@ const ctaDolu = 'items-center justify-center min-h-[44px] box-border bg-accent-6
 
     <!-- AEO + SEO hints -->
     {noindex ? (
-      <meta name="robots" content="noindex, nofollow" />
+      <meta name="robots" content={noarchive ? 'noindex, nofollow, noarchive' : 'noindex, nofollow'} />
     ) : (
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     )}

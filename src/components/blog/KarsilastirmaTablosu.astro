@@ -1,0 +1,59 @@
+---
+interface Props {
+  baslik?: string;
+  sutunlar: string[];
+  satirlar: string[][];
+}
+
+const { baslik = 'Karşılaştırma Tablosu', sutunlar, satirlar } = Astro.props;
+---
+
+{sutunlar && sutunlar.length >= 2 && satirlar && satirlar.length > 0 && (
+  <section
+    aria-labelledby="karsilastirma-tablosu-baslik"
+    class="mt-14 lg:mt-16"
+  >
+    <h2
+      id="karsilastirma-tablosu-baslik"
+      class="editorial-display text-2xl lg:text-4xl leading-tight mb-6"
+    >
+      {baslik}
+    </h2>
+    <div
+      class="w-full overflow-x-auto border border-black bg-white text-black"
+      role="region"
+      aria-labelledby="karsilastirma-tablosu-baslik"
+      tabindex="0"
+    >
+      <table class="w-full min-w-[540px] border-collapse text-left text-sm lg:text-base">
+        <thead class="border-b border-black">
+          <tr>
+            {sutunlar.map((sutun) => (
+              <th
+                scope="col"
+                class="px-4 py-3.5 lg:px-6 lg:py-4 text-xs font-bold uppercase tracking-[0.18em] align-bottom"
+              >
+                {sutun}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {satirlar.map((satir) => (
+            <tr class="border-t border-black/20">
+              {satir.map((hucre, hucreIndex) => (
+                <td
+                  class={`px-4 py-3.5 lg:px-6 lg:py-4 align-top leading-relaxed ${
+                    hucreIndex === 0 ? 'font-semibold' : ''
+                  }`}
+                >
+                  {hucre}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}

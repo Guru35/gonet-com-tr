@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, SITE_URL } from '../lib/schema';
 import { getCollection } from 'astro:content';
 import kayitlarHam from '../data/guncellemeler.json';
+import { blogYayindaMi } from '../lib/blog-yayin';
 
 // Git geçmişinden gelen link bugün var olmayan bir sayfaya (silinmiş sayfa/yazı) işaret ediyorsa bağlantı verilmez.
 const sayfalar = new Set(
@@ -10,7 +11,11 @@ const sayfalar = new Set(
     .filter((p) => !p.includes('['))
     .map((p) => p.replace('/src/pages', '').replace(/\/index\.astro$/, '').replace(/\.astro$/, '') || '/'),
 );
-const yazilar = new Set((await getCollection('blog')).map((e) => `/blog/${e.id}`));
+const yazilar = new Set(
+  (await getCollection('blog'))
+    .filter((e) => blogYayindaMi(e))
+    .map((e) => `/blog/${e.id}`),
+);
 const kayitlar = kayitlarHam.map((k) => ({ ...k, link: k.link && (sayfalar.has(k.link) || yazilar.has(k.link)) ? k.link : null }));
 
 const title = 'Güncellemeler — Sitede ne değişti? | Gonet';

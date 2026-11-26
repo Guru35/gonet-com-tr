@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KvkkTeklifFormu from '../components/form/KvkkTeklifFormu.astro';
+import { webpageSchema, SITE_URL } from '../lib/schema';
+
+const title = 'Teklif Al — Gonet İzmir';
+const description =
+  'Projeniz için KVKK onaylı teklif talebi oluşturun. Web, SEO, AEO/GEO ve kurumsal strateji çalışmaları için hızlı ön değerlendirme.';
+const url = `${SITE_URL}/teklif-al`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'ContactPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'Teklif Al', url },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]}>
+  <section class="bg-white border-b border-black">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Teklif Al</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">
+        KVKK Onaylı Teklif Köprüsü
+      </p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[104px] leading-[0.95] mb-8">
+        Projeniz için teklif alın.
+      </h1>
+      <p class="text-lg text-slate-700 leading-relaxed max-w-2xl">
+        Kapsamınızı kısaca paylaşın; ekibimiz talebinizi KVKK güvencesiyle kayıt altına alıp
+        size özel yol haritası ve teklif çalışmasıyla dönüş yapsın.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-16">
+      <div class="lg:col-span-2">
+        <KvkkTeklifFormu />
+      </div>
+
+      <aside class="space-y-8 border-t lg:border-t-0 lg:border-l border-black/15 pt-8 lg:pt-0 lg:pl-10">
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-3">
+            Nasıl İlerliyoruz?
+          </p>
+          <ol class="space-y-3 text-sm text-slate-700 leading-relaxed list-decimal pl-4">
+            <li>Talebiniz KVKK onay zaman damgasıyla güvenli biçimde kayıt edilir.</li>
+            <li>Ekibimiz mevcut dijital varlığınızı ve hedeflerinizi inceler.</li>
+            <li>1 iş günü içinde ön değerlendirme ve görüşme daveti paylaşılır.</li>
+          </ol>
+        </div>
+
+        <div>
+          <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-slate-500 mb-3">
+            Doğrudan İletişim
+          </p>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            E-posta: <a href="mailto:gonet@gonet.com.tr" class="underline text-black">gonet@gonet.com.tr</a><br />
+            Telefon: <a href="tel:+902324650015" class="underline text-black">+90 232 465 00 15</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

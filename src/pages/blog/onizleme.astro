@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YoneticiOzeti from '../../components/blog/YoneticiOzeti.astro';
+import KarsilastirmaTablosu from '../../components/blog/KarsilastirmaTablosu.astro';
+import SssAkordeon from '../../components/blog/SssAkordeon.astro';
+import {
+  ONIZLEME_YANIT_BASLIKLARI,
+  onizlemeJetonuDogrula,
+} from '../../lib/onizlemeHmac';
+import {
+  mapPayloadPostToBlogData,
+  type PayloadPostRecord,
+  type PayloadPostsResponse,
+} from '../../lib/payloadLoader';
+
+// Arama motoru indekslemesini ve önbelleklemeyi kesin engelle
+for (const [anahtar, deger] of Object.entries(ONIZLEME_YANIT_BASLIKLARI)) {
+  Astro.response.headers.set(anahtar, deger);
+}
+
+const istekUrl = new URL(Astro.request.url);
+const token = istekUrl.searchParams.get('token')?.trim() ?? '';
+const slugParam = istekUrl.searchParams.get('slug')?.trim() ?? '';
+const tenantParam = istekUrl.searchParams.get('tenantId')?.trim() ?? '';
+const expParam = istekUrl.searchParams.get('exp')?.trim() ?? '';
+const sigParam = istekUrl.searchParams.get('sig')?.trim() ?? '';
+
+const hmacGizli = process.env.PAYLOAD_PREVIEW_SECRET?.trim() ?? '';
+const payloadApiUrl = process.env.PAYLOAD_API_URL?.trim() ?? '';
+const payloadApiKey = process.env.PAYLOAD_API_KEY?.trim() ?? '';
+
+type OnizlemeDurumu =
+  | { tip: 'basarili'; yazi: ReturnType<typeof mapPayloadPostToBlogData>; govde: string; tenantId: string; slug: string }
+  | { tip: 'hata'; baslik: string; mesaj: string };
+
+let durum: OnizlemeDurumu = {
+  tip: 'hata',
+  baslik: 'Önizleme Bağlantısı Geçersiz',
+  mesaj: 'Geçerli bir imzalı önizleme jetonu bulunamadı. Lütfen yönetim panelinden yeni bir önizleme bağlantısı oluşturun.',
+};
+
+const jetonGirisiVar = Boolean(token || (slugParam && tenantParam && expParam && sigParam));
+
+if (jetonGirisiVar) {
+  const dogrulama = token
+    ? onizlemeJetonuDogrula(token, hmacGizli)
+    : onizlemeJetonuDogrula(
+        { slug: slugParam, tenantId: tenantParam, exp: expParam, sig: sigParam },
+        hmacGizli,
+      );
+
+  if (!dogrulama.gecerli) {
+    durum = {
+      tip: 'hata',
+      baslik:
+        dogrulama.neden === 'suresi_dolmus'
+          ? 'Önizleme Bağlantısının Süresi Dolmuş'
+          : 'Önizleme Bağlantısı Geçersiz',
+      mesaj: dogrulama.mesaj,
+    };
+  } else if (!payloadApiUrl) {
+    durum = {
+      tip: 'hata',
+      baslik: 'İçerik Sunucusu Bağlı Değil',
+      mesaj: 'Önizleme verisini çekmek için PAYLOAD_API_URL ortam değişkeni tanımlanmalıdır.',
+    };
+  } else {
+    try {
+      const apiTemel = payloadApiUrl.replace(/\/+$/, '');
+      const sorgu = new URL(`${apiTemel}/api/posts`);
+      sorgu.searchParams.set('where[slug][equals]', dogrulama.yuk.slug);
+      sorgu.searchParams.set('limit', '1');
+      sorgu.searchParams.set('draft', 'true');
+      sorgu.searchParams.set('depth', '1');
+
+      const headers: Record<string, string> = { Accept: 'application/json' };
+      if (payloadApiKey) {
+        headers.Authorization = `users API-Key ${payloadApiKey}`;
+      }
+
+      const yanit = await fetch(sorgu.toString(), { headers });
+      if (!yanit.ok) {
+        throw new Error(`HTTP ${yanit.status}`);
+      }
+      const veri = (await yanit.json()) as PayloadPostsResponse;
+      const kayit: PayloadPostRecord | undefined = Array.isArray(veri.docs) ? veri.docs[0] : undefined;
+
+      if (!kayit) {
+        durum = {
+          tip: 'hata',
+          baslik: 'Taslak Yazı Bulunamadı',
+          mesaj: `"${dogrulama.yuk.slug}" kısa adına sahip taslak veya yayınlanacak kayıt bulunamadı.`,
+        };
+      } else {
+        const yazi = mapPayloadPostToBlogData(kayit);
+        const govde = kayit.markdown ?? kayit.contentMarkdown ?? kayit.body ?? '';
+        durum = {
+          tip: 'basarili',
+          yazi,
+          govde,
+          tenantId: dogrulama.yuk.tenantId,
+          slug: dogrulama.yuk.slug,
+        };
+      }
+    } catch {
+      durum = {
+        tip: 'hata',
+        baslik: 'Önizleme Yüklenemedi',
+        mesaj: 'Taslak içeriği sunucudan alınırken bir bağlantı hatası oluştu. Lütfen tekrar deneyin.',
+      };
+    }
+  }
+}
+
+const sayfaBasligi =
+  durum.tip === 'basarili'
+    ? `[ÖNİZLEME] ${durum.yazi.title} — GONET Blog`
+    : `${durum.baslik} — GONET Blog Önizleme`;
+const sayfaAciklamasi =
+  durum.tip === 'basarili' ? durum.yazi.description : durum.mesaj;
+---
+
+<BaseLayout
+  title={sayfaBasligi}
+  description={sayfaAciklamasi}
+  noindex={true}
+  noarchive={true}
+>
+  <div class="bg-black text-white border-b border-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-3 flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em]">
+      <span class="font-bold text-[#ff0000]">Taslak Önizleme Modu · Arama Motorlarına Kapalı</span>
+      {durum.tip === 'basarili' && (
+        <span class="opacity-80">Kiracı: {durum.tenantId} · Slug: {durum.slug}</span>
+      )}
+    </div>
+  </div>
+
+  {durum.tip === 'basarili' ? (
+    <>
+      <section class="relative bg-white border-b border-black overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+          <div class="flex items-baseline gap-6 lg:gap-10 mb-10">
+            <span class="editorial-display text-7xl lg:text-9xl xl:text-[180px] leading-[0.85]">
+              {String(durum.yazi.published.getDate()).padStart(2, '0')}
+            </span>
+            <div class="flex flex-col">
+              <span class="editorial-display text-3xl lg:text-5xl xl:text-[64px] leading-[0.9]">
+                {durum.yazi.published.toLocaleDateString('tr-TR', { month: 'short' }).toUpperCase()}
+              </span>
+              <span class="editorial-display text-xl lg:text-3xl mt-1">
+                {durum.yazi.published.getFullYear()}
+              </span>
+              {durum.yazi.category && (
+                <span class="text-[19px] font-bold uppercase tracking-[0.3em] mt-3" style="color: #ff0000">
+                  {durum.yazi.category}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <h1
+            class="editorial-display text-[9.5vw] lg:text-[9vw] xl:text-[140px] leading-[0.85] mb-12 max-w-5xl"
+            set:html={durum.yazi.h1 || durum.yazi.title}
+          />
+
+          <p class="text-lg lg:text-2xl leading-snug font-medium max-w-3xl mb-16">
+            {durum.yazi.description}
+          </p>
+        </div>
+      </section>
+
+      <article class="bg-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+          {durum.yazi.ozetMaddeleri && durum.yazi.ozetMaddeleri.length === 3 && (
+            <YoneticiOzeti maddeler={durum.yazi.ozetMaddeleri} />
+          )}
+
+          {durum.govde && (
+            <div class="prose-irregular whitespace-pre-line text-base lg:text-lg leading-relaxed">
+              {durum.govde}
+            </div>
+          )}
+
+          {durum.yazi.karsilastirmaTablosu && (
+            <KarsilastirmaTablosu
+              baslik={durum.yazi.karsilastirmaTablosu.baslik}
+              sutunlar={durum.yazi.karsilastirmaTablosu.sutunlar}
+              satirlar={durum.yazi.karsilastirmaTablosu.satirlar}
+            />
+          )}
+
+          {durum.yazi.sss && durum.yazi.sss.length > 0 && (
+            <SssAkordeon maddeler={durum.yazi.sss} />
+          )}
+        </div>
+      </article>
+    </>
+  ) : (
+    <section class="bg-white text-black py-24 lg:py-36">
+      <div class="max-w-3xl mx-auto px-6 lg:px-10 border border-black p-8 lg:p-14">
+        <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#ff0000] mb-4">
+          Önizleme Erişimi Reddedildi
+        </p>
+        <h1 class="editorial-display text-4xl lg:text-6xl leading-[0.95] mb-6">
+          {durum.baslik}
+        </h1>
+        <p class="text-base lg:text-lg leading-relaxed mb-8">
+          {durum.mesaj}
+        </p>
+        <a
+          href="/blog"
+          class="inline-block border border-black px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors"
+        >
+          Blog Dizini’ne Dön
+        </a>
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { createPayloadBlogLoader } from './lib/payloadLoader';
 
 // AEO-uyumlu content schemas — extraction-readiness + E-E-A-T
 // Her sayfa Article veya WebPage schema'sıyla render edilir
@@ -17,11 +18,21 @@ const pages = defineCollection({
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
+const payloadApiUrl = process.env.PAYLOAD_API_URL?.trim();
+
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: payloadApiUrl
+    ? createPayloadBlogLoader({
+        apiUrl: payloadApiUrl,
+        apiKey: process.env.PAYLOAD_API_KEY?.trim(),
+      })
+    : glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -41,6 +52,9 @@ const blog = defineCollection({
     readingMinutes: z.number().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
     // İnteraktif yazı bileşeni anahtarı. Set ise [...slug].astro prose'dan sonra
     // ilgili bileşeni render eder. Enum: typo build'de patlar (sessiz kayıp yok).
     interactive: z.enum(['model-kilavuzu']).optional(),
@@ -48,6 +62,17 @@ const blog = defineCollection({
     // (yalnızca o kategori doldurur; diğer postlarda boş kalır).
     sliderLines: z.array(z.string()).optional(),  // slider'da satır satır dev tipografi
     sliderEtiket: z.string().optional(),          // slider alt-etiketi (AEO/GEO, Otomasyon, Ürün...)
+    // GW-D02: 1-31 Aralık Blog Şablonu isteğe bağlı alanları (geriye dönük uyumlu)
+    ozetMaddeleri: z.array(z.string()).length(3).optional(),
+    karsilastirmaTablosu: z.object({
+      baslik: z.string().optional(),
+      sutunlar: z.array(z.string()).min(2),
+      satirlar: z.array(z.array(z.string())),
+    }).optional(),
+    sss: z.array(z.object({
+      soru: z.string(),
+      cevap: z.string(),
+    })).optional(),
   }),
 });
 
@@ -67,6 +92,9 @@ const caseStudies = defineCollection({
     ogImage: z.string().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
@@ -82,6 +110,9 @@ const services = defineCollection({
     relatedServices: z.array(z.string()).default([]),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
@@ -120,6 +151,9 @@ const yetkinlikler = defineCollection({
     updated: z.date().optional(),
     lang: z.enum(['tr', 'en']).default('tr'),
     draft: z.boolean().default(false),
+    // GW-D01: Zamanlanmış yayın akışı için opsiyonel durum kilidi.
+    // Geriye dönük uyumluluk için tanımsızsa `draft` + `published <= şimdi` geçerlidir.
+    yayinDurumu: z.enum(['taslak', 'zamanlanmis', 'yayinda']).optional(),
   }),
 });
 
