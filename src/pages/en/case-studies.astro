@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, SITE_URL } from '../../lib/schema';
+
+const title = 'Case Studies — Selected Digital & AI Projects in Turkey | Gonet';
+const description =
+  'Selected case studies from Gonet’s 26-year portfolio: Dokuz Eylül University (25,000 concurrent users), Nano Dental (bilingual TR/UK AEO pilot), Medical Park Hospitals Group, and Sixt Rent A Car.';
+const url = `${SITE_URL}/en/case-studies`;
+const trUrl = `${SITE_URL}/case-studies`;
+
+const alternates = [
+  { lang: 'tr', href: trUrl },
+  { lang: 'en', href: url },
+  { lang: 'x-default', href: trUrl },
+];
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'CollectionPage',
+  breadcrumb: [
+    { name: 'Home', url: `${SITE_URL}/en` },
+    { name: 'Case Studies', url },
+  ],
+});
+
+const cases = [
+  {
+    year: '2026',
+    client: 'Nano Dental Clinic',
+    industry: 'Medical Tourism · Dental',
+    headline: 'Bilingual TR/UK Architecture, Unified Directus CRM & AEO/GEO Pilot',
+    summary:
+      'Unified nanodental.com.tr and nanodental.co.uk (Didim & Bornova branches) under one branch-isolated Directus CRM with automatic Coolify rebuilds, UK GDPR consent, and strict CSP/HSTS hardening.',
+    metrics: [
+      { value: '-77.2%', label: 'Media weight (57.21 MB → 13.05 MB across 354 WebP images)' },
+      { value: '0', label: 'CSP / browser console warnings' },
+      { value: 'TR + UK', label: 'MedicalOrganization, Dentist, FAQPage & /llms.txt live' },
+    ],
+    trHref: '/case-studies/nano-dental-saglik-turizmi-ve-aeo-mimarisi',
+  },
+  {
+    year: '2020',
+    client: 'Dokuz Eylül University (DEÜ)',
+    industry: 'Higher Education · EdTech',
+    headline: 'Europe’s Largest Concurrent Live Distance Education Platform',
+    summary:
+      'Designed and deployed a custom clustered live-streaming and LMS architecture integrated with university identity management in 2 months — when comparable enterprise rollouts typically took 9–12 months.',
+    metrics: [
+      { value: '25,000', label: 'Concurrent live users' },
+      { value: '2 mo', label: 'End-to-end deployment timeline' },
+      { value: '#1 EU', label: 'Largest single-institution live platform at launch' },
+    ],
+    trHref: '/case-studies/deu-uzaktan-egitim',
+  },
+  {
+    year: '2013',
+    client: 'Medical Park Hospitals Group',
+    industry: 'Healthcare · Enterprise',
+    headline: 'Enterprise-Scale Healthcare Digital Strategy & Search Marketing',
+    summary:
+      'Building on Gonet’s healthcare search advertising foundation since 2005, delivered regulatory-compliant digital strategy and performance marketing for one of Turkey’s largest private hospital groups.',
+    metrics: [
+      { value: '2005+', label: 'Healthcare search & compliance heritage' },
+      { value: 'Enterprise', label: 'Multi-hospital digital scale' },
+    ],
+    trHref: '/deneyimler',
+  },
+  {
+    year: '2008–2014',
+    client: 'Sixt Rent A Car',
+    industry: 'Automotive · Mobility',
+    headline: 'Turkey’s First Online & Social Media Car Rental Campaign',
+    summary:
+      'Designed and managed a 6-year digital growth partnership covering Google Ads, SEO, reservation funnel optimization, and Turkey’s first social media car rental communication on Facebook and Instagram.',
+    metrics: [
+      { value: 'Top 3–4', label: 'Google organic page-1 ranking for "rent a car"' },
+      { value: '6 yrs', label: 'Continuous digital partnership (2008–2014)' },
+      { value: 'First', label: 'Online & social car rental benchmark in Turkey' },
+    ],
+    trHref: '/case-studies/sixt-rent-a-car-ilk-online-sosyal-medya',
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="en"
+  alternates={alternates}
+  schemas={pageSchema}
+>
+  <!-- Hero -->
+  <section class="bg-white">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/en" class="hover:text-black">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-slate-700" aria-current="page">Case Studies</li>
+          </ol>
+        </nav>
+        <a href="/case-studies" class="text-xs font-medium uppercase tracking-wider border border-slate-300 px-3 py-1.5 hover:border-black transition">
+          Türkçe
+        </a>
+      </div>
+
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-8">Case Studies</p>
+      <h1 class="editorial-display text-[12vw] lg:text-[7vw] xl:text-[104px] leading-[0.92] mb-10">
+        Verified <span style="color:#ff0000">milestones</span> across 26 years
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        From Europe’s largest live university distance education system to bilingual medical tourism AEO/GEO pilots,
+        enterprise hospital groups, and category-first digital launches in Turkey.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case List -->
+  <section class="border-t border-black bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6 py-20 space-y-12">
+      {cases.map((cs, idx) => (
+        <article class="bg-white border-2 border-slate-200 p-8 md:p-10 hover:border-black transition">
+          <div class="flex flex-wrap items-baseline justify-between gap-4 mb-6">
+            <p class="text-[10px] font-medium uppercase tracking-[0.35em]" style={idx === 0 ? 'color:#ff0000' : ''}>
+              {cs.year} · {cs.client} · {cs.industry}
+            </p>
+            <a href={cs.trHref} class="text-xs font-medium underline text-slate-600 hover:text-black">
+              Full Turkish record →
+            </a>
+          </div>
+          <h2 class="editorial-display text-3xl md:text-5xl leading-[1.0] mb-5">
+            {cs.headline}
+          </h2>
+          <p class="text-slate-700 text-lg leading-relaxed mb-8 max-w-3xl">
+            {cs.summary}
+          </p>
+          <div class="grid sm:grid-cols-3 gap-6 border-t border-slate-200 pt-6">
+            {cs.metrics.map((m) => (
+              <div>
+                <p class="editorial-display text-3xl md:text-4xl mb-1">{m.value}</p>
+                <p class="text-xs text-slate-600 leading-snug">{m.label}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Build your next measurable<br />
+        <span style="color:#ff0000">digital milestone</span> with Gonet.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Discuss your project →
+        </a>
+        <a href="/en/aeo-geo-audit" class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Explore AEO/GEO Audit →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

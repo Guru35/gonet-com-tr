@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { webpageSchema, faqSchema, ORG_ID, SITE_URL } from '../lib/schema';
+
+const title = "İnşaat Sektörü Dijital Pazarlama ve Gayrimenkul AEO/GEO | Gonet";
+const description =
+  "Konut geliştirme ve inşaat projeleri için yüksek nitelikli talep (lead) üretimi, Google Ads arama-niyet kampanyaları ve AEO/GEO görünürlüğü. MYvia, Marport ve Kavuklar deneyimiyle.";
+const url = `${SITE_URL}/insaat-dijital-pazarlama`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'İnşaat Dijital Pazarlama', url },
+  ],
+});
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: 'İnşaat Sektörü Dijital Pazarlama ve AEO/GEO',
+  alternateName: [
+    'Gayrimenkul Performans Pazarlama',
+    'Konut Projesi Dijital Pazarlama',
+    'Real Estate Digital Marketing Turkey',
+  ],
+  serviceType: 'Construction & Real Estate Digital Marketing',
+  description,
+  provider: { '@id': ORG_ID },
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  category: 'Real Estate & Construction Digital Marketing',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'İnşaat Dijital Büyüme Katmanları',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Arama-Niyet Odaklı Google Ads & Meta Talep Üretimi',
+        description: '6–18 aylık konut satın alma yolculuğuna uygun, ilçe ve demografi kırılımlı Google Ads, Performance Max ve Meta lead kampanyaları.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Proje Vitrini, Lansman & CRM Entegrasyonu',
+        description: 'Yüksek hızlı proje iniş sayfaları, daire tipi/bütçe filtreli form akışları ve satış ofisi CRM entegrasyonu.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Gayrimenkul AEO/GEO ve Yerel Otorite Mimarisi',
+        description: 'ChatGPT, Perplexity, Gemini ve Google AI Overviews yanıtlarında proje ve geliştirici markasının doğru fiyat/lokasyon verisiyle alıntılanması.',
+      },
+    ],
+  },
+};
+
+const faqItems = [
+  {
+    question: 'İnşaat ve konut projelerinde dijital pazarlama neden diğer sektörlerden farklıdır?',
+    answer:
+      "Konut alımı 6 ila 18 ay sürebilen yüksek değerli bir karar sürecidir. " +
+      "Yanlış hedefleme yalnızca bütçe israfı değil, satış ofisinin niteliksiz formlarla tıkanması anlamına gelir. " +
+      "Bu nedenle kampanyalar proje lokasyonunun demografik gerçeğine, teslim tarihine ve alıcı niyetine göre kurgulanmalıdır.",
+  },
+  {
+    question: 'Gonet inşaat sektöründe hangi somut başarılara ve referanslara sahiptir?',
+    answer:
+      "Gonet, 2010 yılında MYvia (eski adı Myway) için Türkiye'nin ilk inşaat sektörü Google Ads kampanyalarını başlatarak markayı 2 yıl içinde İzmir'in en bilinen 2. inşaat firması konumuna taşıdı ve bu çalışma Google tarafından case study olarak yayımlandı. " +
+      "Ardından Marport, Kavuklar İnşaat, Yapıtek, İkon Yapı, Narova ve Logo Beton gibi sektörün önde gelen markalarıyla çalıştı.",
+  },
+  {
+    question: 'Yapay zekâ arama motorları (AEO/GEO) konut ve gayrimenkul satışlarını nasıl etkiler?',
+    answer:
+      "Alıcılar artık 'İzmir Bornova güvenilir konut projeleri' veya 'yatırımlık 2+1 daire projeleri' gibi soruları doğrudan ChatGPT, Gemini ve Perplexity'ye soruyor. " +
+      "Projenizin yapısal verisi, lokasyon/teslim bilgileri ve geliştirici geçmişi AI motorları için okunabilir değilse markanız öneri listesinin dışında kalır.",
+  },
+  {
+    question: 'Formlardan gelen taleplerin satışa dönüşüm kalitesini nasıl ölçüyorsunuz?',
+    answer:
+      "Yalnızca form sayısını değil, satış ofisine ulaşan randevu ve nitelikli müşteri oranını takip ediyoruz. " +
+      "GA4, sunucu taraflı dönüşüm izleme ve CRM geri beslemesiyle kampanya bütçesi en yüksek satış potansiyeli üreten anahtar kelimelere ve kitlelere kaydırılır.",
+  },
+  {
+    question: 'Hem lansman dönemi hem devam eden etap satışları için çalışabilir miyiz?',
+    answer:
+      "Evet. Lansman öncesinde talep toplama (pre-launch) ve marka konumlandırma, satış döneminde ise yüksek niyetli arama ve yeniden pazarlama katmanları paralel yürütülür. " +
+      "Tüm veriler ve aylık performans raporları panel.gonet.com.tr üzerinden canlı izlenir.",
+  },
+];
+
+const faq = faqSchema(faqItems);
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema, serviceSchema, faq]}>
+  <!-- Hero -->
+  <section class="editorial-section bg-white"
+    style="--rule-top-x:8%;--rule-top-w:50%;--rule-bot-x:28%;--rule-bot-w:36%">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <nav class="text-sm text-slate-500 mb-10" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">İnşaat Dijital Pazarlama</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-10">
+        Dikey Uzmanlık · İnşaat &amp; Gayrimenkul
+      </p>
+      <h1 class="editorial-display text-[11vw] lg:text-[6.5vw] xl:text-[92px] leading-[0.95] mb-12">
+        Satış ofisine form değil,<br/>
+        <span style="color:#ff0000">nitelikli alıcı</span> getirin.
+      </h1>
+      <p class="text-xl text-slate-700 leading-relaxed max-w-3xl">
+        Konut ve ticari gayrimenkul projeleri uzun karar süreçli, yüksek bütçeli yatırımlardır. 2010'da
+        <strong>MYvia</strong> için Türkiye'nin ilk inşaat sektörü Google Ads kampanyasını başlatan
+        <strong>Gonet</strong>; <strong>Marport</strong> ve <strong>Kavuklar İnşaat</strong> gibi
+        referanslardan gelen saha deneyimini arama-niyet reklamcılığı, CRM entegrasyonu ve
+        <strong>AEO/GEO</strong> görünürlüğüyle birleştirir.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/iletisim"
+           class="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-slate-800 transition">
+          Projeniz için strateji görüşmesi →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-4 border-2 border-black text-black font-medium hover:bg-black hover:text-white transition">
+          Ücretsiz AI Görünürlük Analizi →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmet Kapsamı -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Hizmet kapsamı</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        4 katmanda proje satışı
+      </h2>
+
+      <ol class="space-y-8">
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl" style="color:#ff0000">01</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Arama-Niyet Odaklı Google Ads &amp; Lansman Medyası</h3>
+            <p class="text-slate-700 mb-2">
+              İlçe, konut tipi, yaşam tarzı ve yatırım niyetine göre ayrıştırılmış Google Arama, Performance Max,
+              YouTube ve Meta kampanyaları. Bütçe yalnızca form dolduran değil, satış ofisi görüşmesine dönüşen
+              sorgulara yönlendirilir.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Etap/lansman bazlı medya planı + negatif kelime ve lokasyon kalkanı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">02</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Yüksek Hızlı Proje Vitrini &amp; Satış CRM Akışı</h3>
+            <p class="text-slate-700 mb-2">
+              Ağır görsellerle mobilde donan proje siteleri yerine hızlı açılan, kat planı ve konum avantajlarını
+              net sunan iniş sayfaları. Gelen talepler doğrudan satış ekibinin CRM sistemine nitelik skoru ile aktarılır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Dönüşüm odaklı proje iniş sayfası + KVKK uyumlu CRM lead akışı.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start border-b border-slate-300 pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">03</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">AEO/GEO — Yapay Zekâ Motorlarında Proje Otoritesi</h3>
+            <p class="text-slate-700 mb-2">
+              Alıcılar ChatGPT, Gemini veya Perplexity'ye bölge ve geliştirici sorduğunda projenizin doğru teknik
+              özellikler, teslim tarihi ve kurumsal geçmişle alıntılanması için yapısal veri ve
+              <code>/llms.txt</code> mimarisi kurulur.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Doğrulanabilir geliştirici/proje şeması + AI atıf optimizasyonu.</p>
+          </div>
+        </li>
+
+        <li class="grid md:grid-cols-12 gap-6 items-start pb-8">
+          <span class="md:col-span-2 editorial-display text-6xl text-slate-400">04</span>
+          <div class="md:col-span-10">
+            <h3 class="text-2xl font-medium mb-3">Uzun Karar Döngüsü Takibi &amp; Canlı Raporlama</h3>
+            <p class="text-slate-700 mb-2">
+              6–18 aylık satın alma döngüsünde yeniden pazarlama dizileri ve ilk temastan satışa kadar tam ölçümleme.
+              Tüm bütçe, lead maliyeti ve görünürlük metrikleri
+              <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="underline">panel.gonet.com.tr</a>
+              üzerinden paylaşılır.
+            </p>
+            <p class="text-sm text-slate-500"><strong>Çıktı:</strong> Şeffaf ROI takibi + aylık yönetim kurulu özeti.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ölçüm ve Kanıt -->
+  <section class="bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Ölçüm ve kanıt</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-12 leading-[0.95]">
+        İnşaat sektöründe ilklerin ajansı.
+      </h2>
+      <p class="text-lg text-slate-700 mb-12">
+        İnşaat dijital pazarlamasında söylediklerimizi sektörün dönüşümünü başlatan gerçek vakalarla destekliyoruz.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-l-4 pl-6" style="border-color:#ff0000">
+          <h3 class="text-xl font-medium mb-2">MYvia (2010) — 2 Yılda İzmir'in En Bilinen 2. Markası</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Eski adı Myway olan markanın yeniden konumlandırılması ve <strong>Türkiye'nin ilk inşaat sektörü Google Ads</strong>
+            kampanyalarıyla 2 yılda İzmir'in en bilinen 2. inşaat firması konumuna taşındı. Çalışma Google tarafından
+            resmi case study olarak yayımlandı.
+          </p>
+          <a href="/case-studies/myvia-insaat-2-yilda-ikinci" class="text-sm underline font-medium">
+            MYvia vaka çalışmasını incele →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Marport, Kavuklar &amp; Geniş İnşaat Portföyü</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            MYvia sonrasında <strong>Marport</strong>, <strong>Kavuklar İnşaat</strong>, <strong>Yapıtek</strong>,
+            <strong>İkon Yapı</strong>, <strong>My Via Yapı</strong>, <strong>Narova</strong> ve <strong>Logo Beton</strong>
+            gibi konut geliştirme ve yapı malzemesi markalarının dijital büyüme süreçlerini yönettik.
+          </p>
+          <a href="/case-studies" class="text-sm underline font-medium">
+            Tüm vaka çalışmalarını gör →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Ön Analiz: seo.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Proje web sitenizin AI bot erişimini, yapısal veri hazırlığını ve teknik SEO durumunu dakikalar içinde
+            ücretsiz kontrol edin.
+          </p>
+          <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            seo.gonet.com.tr'yi aç →
+          </a>
+        </div>
+
+        <div class="border-l-4 pl-6 border-slate-300">
+          <h3 class="text-xl font-medium mb-2">Canlı Takip: panel.gonet.com.tr</h3>
+          <p class="text-slate-700 text-sm mb-2">
+            Kampanya performansı, lead akışı ve yapay zekâ görünürlük raporları müşterilerimiz için tek panelde
+            canlı tutulur.
+          </p>
+          <a href="https://panel.gonet.com.tr" target="_blank" rel="noopener noreferrer" class="text-sm underline font-medium">
+            Müşteri paneline git →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 py-20">
+      <p class="text-[10px] font-medium uppercase tracking-[0.4em] mb-6">Sıkça sorulanlar</p>
+      <h2 class="editorial-display text-5xl md:text-7xl mb-16 leading-[0.95]">
+        İnşaat dijital pazarlaması.
+      </h2>
+      <div class="space-y-10">
+        {faqItems.map((item, idx) => (
+          <details class={idx < faqItems.length - 1 ? 'border-b border-slate-300 pb-6' : 'pb-6'}>
+            <summary class="text-xl font-medium cursor-pointer hover:text-black">
+              {item.question}
+            </summary>
+            <p class="mt-4 text-slate-700 leading-relaxed">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA kapanış -->
+  <section class="border-t border-slate-200" style="background-color:#000;color:#fff">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <p class="editorial-display text-3xl md:text-5xl leading-[1.1] mb-10">
+        Yeni projenizin talebini<br/>
+        <span style="color:#ff0000">tesadüfe değil sisteme</span> bağlayın.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/iletisim" class="inline-flex items-center gap-2 px-10 py-4 bg-white text-black font-medium hover:bg-slate-200 transition">
+          Teklif alın →
+        </a>
+        <a href="https://seo.gonet.com.tr" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-10 py-4 border-2 border-white text-white font-medium hover:bg-white hover:text-black transition">
+          Ücretsiz AI analiz başlat →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
