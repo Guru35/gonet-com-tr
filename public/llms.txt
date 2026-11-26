@@ -43,6 +43,8 @@
 - [Ücretsiz AI Görünürlük Denetim Aracı (seo.gonet.com.tr)](https://seo.gonet.com.tr): Gonet'in ücretsiz AI görünürlük ve teknik AEO ön denetim vitrini (`https://gonet.com.tr/araclar/seo-analiz` üzerinden de erişilir). Web sitelerinin yapay zekâ bot erişimi, Schema.org yapısal veri, `llms.txt` ve temel AEO hazırlık durumunu hızlıca analiz eder.
 - Gonet kendi sitesinde uyguluyor: Schema.org yapısal veri, llms.txt, yapay zekâ botları için robots.txt politikası (28 User-agent satırı), CF AI Crawl Control baseline, 52 extraction-ready detay sayfa, IndexNow protokolü.
 - [Örnek Denetim Raporu](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor): Gonet'in kendi sitesinde uyguladığı 5 katmanlı AEO/GEO denetimin tam çıktısı (PDF + web). Share-of-Model, Citation Error Rate, robots/schema/llms.txt bulguları — denetim hizmetinin somut kanıtı.
+- [Sağlık Turizmi Performans Pazarlama ve AEO/GEO](https://gonet.com.tr/saglik-turizmi-performans-pazarlama): Klinikler ve hastaneler için uluslararası hasta kazanımı, çok dilli Google Ads / Meta performans pazarlaması, şube-izoleli CRM (KVKK / UK GDPR) ve yapay zekâ motorlarında (AEO/GEO) doğrulanabilir görünürlük.
+- [Yapay Zekâ Entegrasyonlu Dijital Performans Ajansı](https://gonet.com.tr/yapay-zeka-dijital-ajans): 26 yıllık ajans deneyimini Creative AI (İNSAN × AI) yaklaşımıyla birleştiren performans pazarlaması, AEO/GEO mühendisliği, AI iş akışları ve `panel.gonet.com.tr` üzerinden canlı ölçüm.
 
 ## Labs (Yan & Araştırma Projeleri)
 - [Gonet Labs](https://gonet.com.tr/labs): Gonet sadece müşteri hizmeti vermez, kendi yan projelerini yürütür. 3 aktif: Sosyalmedya.org.tr + Dupia + YBF. "Yapan ajansın" laboratuvarı konumlanması.
