@@ -2,9 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {
   SITE_URL,
-  webpageSchema,
-  aiCultureDefinedTermsSchema,
-  faqSchema,
+  AI_CULTURE_FAQ_TR,
+  aiCulturePageSchema,
 } from '../lib/schema';
 
 const title = 'AI İnsan Kaynakları, Anayasa ve Gelişim Sistemi | Gonet';
@@ -18,28 +17,7 @@ const alternates = [
   { lang: 'x-default', href: `${SITE_URL}/ik` },
 ];
 
-const faqs = [
-  {
-    question: 'Ajanların anayasası neden var?',
-    answer:
-      'Sadece "yasaklar listesi" yazmak yerine ajanlara neyi neden yaptıklarını, sınırlarını ve ne zaman durup soru sorması gerektiğini öğretmek için. Bu yaklaşım uydurma cevapları ve rol taşmasını önler.',
-  },
-  {
-    question: 'Bir ajan hata yaptığında ne oluyor?',
-    answer:
-      'Hata gizlenmez veya ceza puanına dönüştürülmez. Kök neden ders kaydına yazılır, mümkünse otomatik bir kontrol betiğine bağlanır ve ilgili ajan aynı hatayı tekrarlamayacak şekilde güncellenir.',
-  },
-  {
-    question: 'Ajanlar kendi işini kendisi onaylayabiliyor mu?',
-    answer:
-      'Hayır. En kıdemli ajan dahi kendi ürettiği metni, kodu veya analizi onaylayamaz. Bağımsız kalite kontrol ve kurucu insan denetimi birbirinden kesin çizgilerle ayrılmıştır.',
-  },
-  {
-    question: 'Yapay zekâ maliyetlerini ve model seçimini nasıl yönetiyorsunuz?',
-    answer:
-      'Her iş en ağır modele verilmez. Basit tarama ve biçimlendirme işleri hızlı alt katmanlarda, stratejik analiz ve kalite kontrol ise derin muhakeme katmanlarında yürütülür.',
-  },
-];
+const faqs = AI_CULTURE_FAQ_TR;
 
 const principles = [
   {
@@ -168,23 +146,7 @@ const careerStages = [
   },
 ];
 
-const pageSchema = webpageSchema({
-  title,
-  description,
-  url,
-  type: 'WebPage',
-  inLanguage: 'tr',
-  breadcrumb: [
-    { name: 'Ana sayfa', url: `${SITE_URL}/` },
-    { name: 'İK ve AI Kültürü', url },
-  ],
-});
-
-const schemas = [
-  pageSchema,
-  ...aiCultureDefinedTermsSchema('tr'),
-  faqSchema(faqs),
-];
+const schemas = aiCulturePageSchema('tr').graph;
 ---
 
 <BaseLayout
@@ -351,7 +313,7 @@ const schemas = [
                 </dt>
                 <dd
                   class="text-xs md:text-sm font-bold tabular-nums shrink-0"
-                  style={item.accent ? 'color: var(--accent-strong);' : undefined}
+                  style={item.accent ? 'color: var(--accent-text);' : undefined}
                 >
                   {item.short}
                 </dd>
@@ -515,7 +477,7 @@ const schemas = [
           </a>
           <a
             href="/iletisim"
-            class="min-h-[48px] inline-flex items-center justify-center px-7 py-3 bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.14em]"
+            class="team-primary-cta min-h-[48px] inline-flex items-center justify-center px-7 py-3 bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.14em]"
           >
             Görüşme İsteyin →
           </a>
@@ -526,6 +488,10 @@ const schemas = [
 </BaseLayout>
 
 <style>
+  .team-primary-cta {
+    box-shadow: none;
+  }
+
   .ik-summary::-webkit-details-marker {
     display: none;
   }

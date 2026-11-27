@@ -60,7 +60,8 @@
   --text-secondary: #475569;
   --text-heading: #0a0a0a;
   --accent: #ff0000;
-  --accent-strong: #ff0000;     /* açık temada normal kırmızı yeterli */
+  --accent-strong: #ff0000;     /* büyük başlık/vurgu kırmızı */
+  --accent-text: #d40000;       /* WCAG 2.2 AA (>= 4.5:1) açık temada küçük kırmızı metin */
   --viz-ink-bg: #0f172a;        /* viz inverted koyu kart zemini (skillSlug) */
   --wordmark-color: #000000;    /* footer dev wordmark */
   color-scheme: light;
@@ -106,6 +107,7 @@
   --text-secondary: #a3a3a3;
   --text-heading: #f2f2f2;
   --accent-strong: #ff2b2b;     /* yalnız küçük puntolu kırmızı metin AA düşerse */
+  --accent-text: #ff2b2b;       /* WCAG 2.2 AA (>= 4.5:1) koyu temada küçük kırmızı metin */
   --viz-ink-bg: #1d1d1d;        /* inverted koyu kart → koyu temada yüzey (açığa dönmez) */
   --wordmark-color: #6e6e6e;    /* footer dev wordmark — görünür dekoratif gri (AA-large) */
   color-scheme: dark;
@@ -591,9 +593,13 @@ body { padding-bottom: var(--cerez-h, 0px); }
 .text-accent-500,
 .text-accent-600,
 .text-accent-700,
+.text-accent-aa,
 [class*="hover:text-[#ff"]:hover,
 .group:hover [class*="group-hover:text-[#ff"] {
   text-shadow: none !important;
+}
+.text-accent-aa {
+  color: var(--accent-text);
 }
 /* Kırmızı arka planlı kutular (hover invert vs.) için kırmızı box-shadow */
 [style*="background:#ff0000"],
