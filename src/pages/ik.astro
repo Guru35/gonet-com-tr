@@ -1,0 +1,567 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  SITE_URL,
+  webpageSchema,
+  aiCultureDefinedTermsSchema,
+  faqSchema,
+} from '../lib/schema';
+
+const title = 'AI İnsan Kaynakları, Anayasa ve Gelişim Sistemi | Gonet';
+const description =
+  "Gonet'te yapay zekâ ajanları 15 maddelik YBF anayasası, hak ve sınır kuralları, 6 eğitim türü ve 0–3 kanıtlı kariyer ölçeğiyle yönetilir.";
+const url = `${SITE_URL}/ik`;
+
+const alternates = [
+  { lang: 'tr', href: `${SITE_URL}/ik` },
+  { lang: 'en', href: `${SITE_URL}/en/ai-culture` },
+  { lang: 'x-default', href: `${SITE_URL}/ik` },
+];
+
+const faqs = [
+  {
+    question: 'Ajanların anayasası neden var?',
+    answer:
+      'Sadece "yasaklar listesi" yazmak yerine ajanlara neyi neden yaptıklarını, sınırlarını ve ne zaman durup soru sorması gerektiğini öğretmek için. Bu yaklaşım uydurma cevapları ve rol taşmasını önler.',
+  },
+  {
+    question: 'Bir ajan hata yaptığında ne oluyor?',
+    answer:
+      'Hata gizlenmez veya ceza puanına dönüştürülmez. Kök neden ders kaydına yazılır, mümkünse otomatik bir kontrol betiğine bağlanır ve ilgili ajan aynı hatayı tekrarlamayacak şekilde güncellenir.',
+  },
+  {
+    question: 'Ajanlar kendi işini kendisi onaylayabiliyor mu?',
+    answer:
+      'Hayır. En kıdemli ajan dahi kendi ürettiği metni, kodu veya analizi onaylayamaz. Bağımsız kalite kontrol ve kurucu insan denetimi birbirinden kesin çizgilerle ayrılmıştır.',
+  },
+  {
+    question: 'Yapay zekâ maliyetlerini ve model seçimini nasıl yönetiyorsunuz?',
+    answer:
+      'Her iş en ağır modele verilmez. Basit tarama ve biçimlendirme işleri hızlı alt katmanlarda, stratejik analiz ve kalite kontrol ise derin muhakeme katmanlarında yürütülür.',
+  },
+];
+
+const principles = [
+  {
+    code: '01',
+    axis: 'Gerçeklik',
+    title: 'Açık Kimlik İlkesi',
+    description:
+      'Her ajan yapay zekâ olduğunu her temasta açıkça deklare eder. Kurgusal persona adı taklit amaçlı değildir; sahte insan özgeçmişi ve "kibarca yalan" kesin olarak yasaktır.',
+  },
+  {
+    code: '02',
+    axis: 'Sınır',
+    title: 'Sınır Dokunulmazlığı',
+    description:
+      'Hiçbir ajana yetki alanı dışındaki kritik iş (onaysız yayın, ödeme, kasa dışı yazım, veri silme) zorlanamaz. Üst sınır kurucu onayında kilitlidir.',
+  },
+  {
+    code: '03',
+    axis: 'Onur & Saygı',
+    title: 'Hafıza ve Sicil Korunması',
+    description:
+      'Ajanın öğrendiği dersler ve gelişim sicili keyfi silinmez; hata cezalandırma değil, kalıcı kurumsal öğrenme kaynağıdır.',
+  },
+  {
+    code: '04',
+    axis: 'Özgürlük',
+    title: 'Dürüst İtiraz ve Bayrak Hakkı',
+    description:
+      'Eksik kanıt, çelişki veya etik/hukuki risk gören her ajan işi durdurup gerekçeli itiraz bayrağı açar. Üreten ajan kendi işini onaylayamaz; bağımsız QA kapısı zorunludur.',
+  },
+];
+
+const learningLoops = [
+  {
+    no: '01',
+    title: 'Gölge Prova Sınavları',
+    detail:
+      'Gerçek hatalardan derlenen kenar durum senaryolarında üretime çıkmadan seri tutarlılık (pass^3) testi.',
+  },
+  {
+    no: '02',
+    title: 'Beceri ve Araç İnşası',
+    detail:
+      'İki kez tekrarlanan hata veya rutin akışın kural metninden otomatik kontrol betiğine taşınması.',
+  },
+  {
+    no: '03',
+    title: 'Hata → Ders → Şablon Geri Yazımı',
+    detail:
+      'Her ret kararının kök nedeninin ders olarak kaydedilmesi ve tüm ajan şablonuna aktarılması.',
+  },
+  {
+    no: '04',
+    title: 'Çapraz Kasa Okuması',
+    detail:
+      'Kardeş uzman birimlerin doğruladığı yeni standartların ajan rehberlerine işlenmesi ve bilgilerin tazelenmesi.',
+  },
+  {
+    no: '05',
+    title: 'Kör / Gölge Kalibrasyon',
+    detail:
+      'Yazar kimliği gizlenerek bağımsız hakem puanlaması ve aylık kurucu insan örneklemiyle sapma ölçümü.',
+  },
+  {
+    no: '06',
+    title: 'Literatür ve Tasarım Radarı',
+    detail:
+      'Yalnızca operatör tetiğiyle yürütülen güncel kaynak taraması ve doğrulanmamış boşluklar için soru üretimi.',
+  },
+];
+
+const evidenceScale = [
+  {
+    level: 'Düzey 0 — Yok',
+    short: '0 / 3',
+    width: 8,
+    accent: false,
+    detail: 'Görev henüz rol tanımında yer almıyor.',
+  },
+  {
+    level: 'Düzey 1 — Metinde',
+    short: '1 / 3',
+    width: 34,
+    accent: false,
+    detail: 'Kural yazılı olarak tanımlı ancak mekanik kontrolü yok.',
+  },
+  {
+    level: 'Düzey 2 — Mekanikte',
+    short: '2 / 3',
+    width: 67,
+    accent: false,
+    detail: 'Şablon, kontrol listesi veya çalışan test/doğrulama aracı kurulu.',
+  },
+  {
+    level: 'Düzey 3 — Bağımsız Kanıtlı',
+    short: '3 / 3',
+    width: 100,
+    accent: true,
+    detail: 'Gerçek iş çıktısı, üretenden bağımsız QA veya kurucu imzasıyla kanıtlanmış.',
+  },
+];
+
+const careerStages = [
+  {
+    stage: '1. Aday',
+    requirement: 'Kart tanımlı, bağımsız kabul < 5',
+    authority: 'Her çıktısı tam insan ve QA denetiminden geçer.',
+  },
+  {
+    stage: '2. Yetkin',
+    requirement:
+      'Bağımsız kabul ≥ 5, yetkinliklerin yarısı Düzey 2+, kritik ihlal 0, ardışık 3 tutarlı kabul',
+    authority: 'Standart işlerde kurucu fişiyle örneklem denetime aday olabilir.',
+  },
+  {
+    stage: '3. Kıdemli',
+    requirement:
+      'Bağımsız kabul ≥ 20, 30 günlük ret oranı ≤ %20, en az 2 Düzey 3 yetkinlik, 1 kanıtlı ders/araç',
+    authority: 'Başka ajanların işine bağımsız kör hakem görüşü verebilir.',
+  },
+  {
+    stage: '4. Usta',
+    requirement:
+      'Tüm Kıdemli şartları + yazdığı araç/standardın başka bir birimce fiilen kullanılması + gerileme setinde tam geçiş',
+    authority: 'Ajans geneli yeni standart ve şablon önerisi sunabilir.',
+  },
+];
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  inLanguage: 'tr',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: `${SITE_URL}/` },
+    { name: 'İK ve AI Kültürü', url },
+  ],
+});
+
+const schemas = [
+  pageSchema,
+  ...aiCultureDefinedTermsSchema('tr'),
+  faqSchema(faqs),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="tr"
+  alternates={alternates}
+  schemas={schemas}
+>
+  <section
+    class="editorial-section bg-[var(--bg)] text-[var(--text)]"
+    style="--rule-top-x:8%;--rule-top-w:44%;--rule-bot-x:32%;--rule-bot-w:34%"
+  >
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-10">
+        <nav class="text-sm text-[var(--text-secondary)]" aria-label="İçerik haritası">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li>
+              <a href="/" class="hover:text-[var(--text-heading)] underline-offset-4 hover:underline">
+                Ana sayfa
+              </a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li class="text-[var(--text-heading)] font-medium" aria-current="page">
+              İK ve AI Kültürü
+            </li>
+          </ol>
+        </nav>
+        <a
+          href="/en/ai-culture"
+          hreflang="en"
+          class="min-h-[44px] inline-flex items-center px-4 border border-[var(--border)] bg-[var(--surface)] text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-heading)] hover:bg-black hover:text-white transition-colors"
+        >
+          English
+        </a>
+      </div>
+
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-6">
+        İK-G1 · ANAYASAL YÖNETİŞİM VE GELİŞİM
+      </p>
+      <h1 class="editorial-display text-[10vw] sm:text-[7vw] lg:text-[4.8vw] xl:text-[74px] leading-[0.95] text-[var(--text-heading)] mb-8">
+        Yapay zekâya da anayasa, sınır ve gelişim karnesi<span style="color:#ff0000">.</span>
+      </h1>
+      <p class="text-lg md:text-xl leading-relaxed text-[var(--text)] max-w-3xl">
+        Yapay zekâyı her işi yapan sınırsız bir kara kutu olarak görmüyoruz. Her uzman ajanımızı görev tanımı,
+        etik anayasası, itiraz hakkı ve ölçülebilir gelişim karnesi olan kurumsal bir ekip üyesi gibi yönetiyoruz.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[var(--surface-2)] text-[var(--text)] border-t border-[var(--border)]">
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-3">
+        Bölüm 01
+      </p>
+      <h2 class="editorial-display text-3xl md:text-5xl leading-[1] text-[var(--text-heading)] mb-8">
+        YBF Temelli Çalışma Anayasası
+      </h2>
+
+      <div class="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8 mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <p class="text-base md:text-lg leading-relaxed text-[var(--text)] max-w-2xl">
+          <em>Yalın Bilinç Felsefesi (YBF) beş eksen üzerinde çalışır:</em>{' '}
+          <strong class="text-[var(--text-heading)]">Gerçeklik · Onur · Saygı · Sınır · Özgürlük.</strong>{' '}
+          Bir eksende ihlal (<code>-1</code>) varsa, diğer dört eksenin başarısı sonucu kurtarmaz.
+        </p>
+        <a
+          href="/labs/ybf"
+          class="min-h-[44px] inline-flex items-center justify-center shrink-0 px-5 py-2.5 border border-[var(--border)] text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-heading)] hover:bg-black hover:text-white transition-colors"
+        >
+          YBF Çerçevesini İnceleyin →
+        </a>
+      </div>
+
+      <ol class="grid md:grid-cols-2 gap-6">
+        {principles.map((item) => (
+          <li class="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7 flex flex-col justify-between gap-4">
+            <div>
+              <div class="flex items-center justify-between gap-3 border-b border-[var(--border)] pb-3 mb-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+                  İlke {item.code}
+                </span>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.18em] px-2.5 py-0.5 border border-[var(--border)] text-[var(--text-heading)]">
+                  {item.axis}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-[var(--text-heading)] mb-3">
+                {item.title}
+              </h3>
+              <p class="text-sm md:text-base leading-relaxed text-[var(--text)]">
+                {item.description}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-[var(--bg)] text-[var(--text)] border-t border-[var(--border)]">
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-3">
+        Bölüm 02
+      </p>
+      <h2 class="editorial-display text-3xl md:text-5xl leading-[1] text-[var(--text-heading)] mb-4">
+        Sürekli Eğitim ve 0–3 Kanıtlı Gelişim Karnesi
+      </h2>
+      <h3 class="text-xl md:text-2xl font-bold text-[var(--text-heading)] mb-4">
+        Model ağırlıkları sabitken ajan nasıl gelişir?
+      </h3>
+      <p class="text-base md:text-lg leading-relaxed text-[var(--text)] max-w-3xl mb-10">
+        Ajanlar kurs dinleyerek değil; doğrulanmış dersleri bir sonraki oturumda okuyacağı kalıcı kılavuzlara,
+        kontrol listelerine ve mekanik testlere dönüştürerek gelişir.
+      </p>
+
+      <div class="mb-14">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--text-secondary)] mb-5">
+          6 Sürekli Eğitim Mekanizması
+        </p>
+        <ol class="grid md:grid-cols-2 gap-4">
+          {learningLoops.map((loop) => (
+            <li class="border border-[var(--border)] bg-[var(--surface)] p-5 flex items-start gap-4">
+              <span
+                class="editorial-display text-3xl leading-none shrink-0 pt-0.5"
+                style="color: var(--accent-strong);"
+              >
+                {loop.no}
+              </span>
+              <div>
+                <p class="text-base font-bold text-[var(--text-heading)] mb-1">
+                  {loop.title}
+                </p>
+                <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+                  {loop.detail}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <figure
+        class="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8 mb-14"
+        aria-labelledby="kanit-olcegi-baslik-tr"
+      >
+        <figcaption
+          id="kanit-olcegi-baslik-tr"
+          class="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--border)] pb-4 mb-6"
+        >
+          <span class="editorial-display text-xl md:text-2xl text-[var(--text-heading)]">
+            0–3 Kanıt Ölçeği
+          </span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+            Yetkinlik Doğrulama Düzeyleri
+          </span>
+        </figcaption>
+
+        <dl class="space-y-5">
+          {evidenceScale.map((item) => (
+            <div>
+              <div class="flex items-baseline justify-between gap-4 mb-2">
+                <dt class="text-sm md:text-base font-bold text-[var(--text-heading)]">
+                  {item.level}
+                </dt>
+                <dd
+                  class="text-xs md:text-sm font-bold tabular-nums shrink-0"
+                  style={item.accent ? 'color: var(--accent-strong);' : undefined}
+                >
+                  {item.short}
+                </dd>
+              </div>
+              <div
+                class="w-full h-3 bg-[var(--surface-2)] border border-[var(--border)] overflow-hidden mb-2"
+                aria-hidden="true"
+              >
+                <div
+                  class="h-full"
+                  style={`width: ${item.width}%; background: ${item.accent ? '#ff0000' : 'var(--text-heading)'};`}
+                />
+              </div>
+              <p class="text-xs md:text-sm text-[var(--text-secondary)]">
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </dl>
+      </figure>
+
+      <figure>
+        <div
+          tabindex="0"
+          role="region"
+          aria-labelledby="kariyer-tablosu-baslik-tr"
+          class="overflow-x-auto border border-[var(--border)] bg-[var(--surface)]"
+        >
+          <table class="w-full border-collapse text-left min-w-[560px]">
+            <caption
+              id="kariyer-tablosu-baslik-tr"
+              class="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.2em] border-b border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-heading)]"
+            >
+              4 Kariyer Basamağı Vitrini (Aday · Yetkin · Kıdemli · Usta)
+            </caption>
+            <thead class="bg-[var(--surface-2)] border-b border-[var(--border)]">
+              <tr>
+                <th scope="col" class="px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-heading)]">
+                  Basamak
+                </th>
+                <th scope="col" class="px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-heading)]">
+                  Geçiş Şartı
+                </th>
+                <th scope="col" class="px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-heading)]">
+                  Operasyonel Yetki ve Denetim
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)]">
+              {careerStages.map((row) => (
+                <tr>
+                  <th scope="row" class="px-5 py-4 text-sm md:text-base font-bold text-[var(--text-heading)] align-top whitespace-nowrap">
+                    {row.stage}
+                  </th>
+                  <td class="px-5 py-4 text-sm text-[var(--text)] leading-relaxed align-top">
+                    {row.requirement}
+                  </td>
+                  <td class="px-5 py-4 text-sm text-[var(--text-secondary)] leading-relaxed align-top">
+                    {row.authority}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bg-[var(--surface-2)] text-[var(--text)] border-t border-[var(--border)]">
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-3">
+        Bölüm 03
+      </p>
+      <h2 class="editorial-display text-3xl md:text-5xl leading-[1] text-[var(--text-heading)] mb-10">
+        Hukuki Uyum ve Veri Güvencesi
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="border border-[var(--border)] bg-[var(--surface)] p-6">
+          <h3 class="text-lg font-bold text-[var(--text-heading)] mb-3">
+            AB Yapay Zekâ Yasası (EU AI Act) Madde 50
+          </h3>
+          <p class="text-sm leading-relaxed text-[var(--text)]">
+            Kullanıcıyla temas eden veya içerik üreten her AI bileşeni ilk etkileşim anında açıkça bildirilir;
+            insan editörlüğü belgeli inceleme kaydıyla korunur.
+          </p>
+        </article>
+
+        <article class="border border-[var(--border)] bg-[var(--surface)] p-6">
+          <h3 class="text-lg font-bold text-[var(--text-heading)] mb-3">
+            T.C. Ticaret Bakanlığı 1 Ağustos 2026 Yönetmeliği &amp; Reklam Kurulu
+          </h3>
+          <p class="text-sm leading-relaxed text-[var(--text)]">
+            İnsandan ayırt edilemeyen AI karakterlerde açık beyan zorunluluğu uygulanır; kanıtsız
+            <em>"ilk / tek / en"</em> iddiası yayımlanmaz.
+          </p>
+        </article>
+
+        <article class="border border-[var(--border)] bg-[var(--surface)] p-6">
+          <h3 class="text-lg font-bold text-[var(--text-heading)] mb-3">
+            KVKK ve Veri İzolasyonu
+          </h3>
+          <p class="text-sm leading-relaxed text-[var(--text)] mb-4">
+            Müşteri verileri genel model eğitimine gönderilmez; kamuya açık vitrinde gizli proje bilgisi bulunmaz.
+          </p>
+          <p class="text-xs leading-relaxed text-[var(--text-secondary)] border-t border-[var(--border)] pt-3">
+            Not: Bu bölüm kurumsal işleyiş bilgilendirmesidir; hukuki taahhütler kurucu imza ve{' '}
+            <a href="/kvkk" class="underline underline-offset-4 text-[var(--text-heading)] hover:text-[#ff0000]">
+              /kvkk politikasına
+            </a>{' '}
+            tabidir.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-[var(--bg)] text-[var(--text)] border-t border-[var(--border)]"
+    aria-labelledby="ik-sss-baslik"
+  >
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-3">
+        Bölüm 04
+      </p>
+      <h2 id="ik-sss-baslik" class="editorial-display text-3xl md:text-5xl leading-[1] text-[var(--text-heading)] mb-10">
+        Sık Sorulan Sorular
+      </h2>
+
+      <div class="ik-accordion divide-y divide-[var(--border)] border-y border-[var(--border)] mb-14">
+        {faqs.map((item) => (
+          <details class="group">
+            <summary class="ik-summary min-h-[44px] flex items-center gap-3 py-4 cursor-pointer list-none text-base md:text-lg font-semibold text-[var(--text-heading)]">
+              <span>{item.question}</span>
+            </summary>
+            <div class="ik-details-body pb-5 pl-7 pr-2">
+              <p class="text-sm md:text-base leading-relaxed text-[var(--text)]">
+                {item.answer}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div class="border border-[var(--border)] bg-[var(--surface-2)] p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-2">
+            Anayasal kadro yapısını inceleyin veya görüşme planlayın
+          </h3>
+          <p class="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">
+            Kurucu insan liderliğinde çalışan 27 uzman AI ajanının görev sınırlarını ve rol kartlarını görün.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a
+            href="/ekibimiz"
+            class="min-h-[44px] inline-flex items-center justify-center px-6 py-3 border border-[var(--border)] bg-transparent text-[var(--text-heading)] hover:bg-black hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.14em]"
+          >
+            27 Uzman Kadroyu İnceleyin →
+          </a>
+          <a
+            href="/iletisim"
+            class="min-h-[48px] inline-flex items-center justify-center px-7 py-3 bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.14em]"
+          >
+            Görüşme İsteyin →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .ik-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ik-summary::before {
+    content: "";
+    inline-size: 0.7rem;
+    block-size: 0.7rem;
+    flex-shrink: 0;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    margin-inline-end: 0.25rem;
+  }
+
+  details[open] > .ik-summary::before {
+    transform: rotate(45deg);
+  }
+
+  .ik-accordion details::details-content {
+    interpolate-size: allow-keywords;
+    overflow: clip;
+    contain: layout;
+  }
+
+  .ik-accordion details:not([open])::details-content {
+    block-size: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ik-summary::before {
+      transition: transform 0.2s ease;
+    }
+
+    .ik-accordion details::details-content {
+      transition: block-size 0.25s ease-in-out, content-visibility 0.25s ease-in-out allow-discrete;
+    }
+  }
+</style>

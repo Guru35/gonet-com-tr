@@ -7,7 +7,7 @@ import path from "node:path";
 
 const DIST_DIZIN = path.resolve(process.cwd(), "dist");
 const EKRAN_GORUNTU_DIZIN = path.resolve(process.cwd(), "test-results", "ekran-goruntuleri");
-const SAYFALAR = ["/", "/hakkimizda", "/kurumsal-kimlik", "/teklif-al", "/blog"];
+const SAYFALAR = ["/", "/hakkimizda", "/kurumsal-kimlik", "/teklif-al", "/blog", "/ekibimiz", "/ik", "/en/team", "/en/ai-culture"];
 const GENISLIKLER = [320, 375, 1440];
 
 const MIME = {
