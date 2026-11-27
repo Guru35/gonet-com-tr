@@ -2,7 +2,7 @@
 // Çalıştırma: npm test (önce astro build, sonra bu dosya; çıktı TAP).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sayfa, jsonLd, basliklar, metin } from './yardimci.mjs';
+import { oku, sayfa, jsonLd, gorunurSss, basliklar, metin } from './yardimci.mjs';
 
 const SAYFALAR = [
   { yol: '/ekibimiz', dosya: 'dist/ekibimiz/index.html', lang: 'tr', trYol: '/ekibimiz', enYol: '/en/team' },
@@ -158,4 +158,96 @@ test('/ekibimiz ve /ik sayfalarında BaseLayout #eye-menu ve #site-footer bağla
     assert.match(footer, /href=["']\/ekibimiz["']/, `${yol}: #site-footer içinde /ekibimiz yok`);
     assert.match(footer, /href=["']\/ik["']/, `${yol}: #site-footer içinde /ik yok`);
   }
+});
+
+test('organizationSchema: 5 departman düğümü ve Edvido sameAs bağlantısı mevcut', () => {
+  const html = sayfa('/ekibimiz');
+  assert.ok(html, '/ekibimiz bulunamadı');
+  const dugumler = jsonLd(html);
+  const org = dugumler.find((d) => d['@id'] === 'https://gonet.com.tr/#organization');
+  assert.ok(org, 'Organization düğümü bulunamadı');
+  assert.equal(Array.isArray(org.department), true, 'Organization.department dizi değil');
+  assert.equal(org.department.length, 5, `Organization.department 5 adet olmalı (bulunan: ${org.department?.length})`);
+  assert.equal(
+    Array.isArray(org.sameAs) && org.sameAs.includes('https://www.edvido.com/tr/ajans/gonet'),
+    true,
+    'Organization.sameAs içinde Edvido URL bulunamadı',
+  );
+  assert.equal(
+    Array.isArray(org.knowsAbout) &&
+      org.knowsAbout.includes('Constitutional AI Agent Governance (Anayasal AI Ajan Yönetişimi)'),
+    true,
+    'Organization.knowsAbout içinde Constitutional AI Agent Governance eksik',
+  );
+});
+
+test('/ik ve /en/ai-culture JSON-LD: tekil #termset DefinedTermSet, YBF Varlık Anayasası ve 6 soruluk birebir FAQPage', () => {
+  const beklentiler = [
+    { yol: '/ik', terim: 'YBF Varlık Anayasası' },
+    { yol: '/en/ai-culture', terim: 'YBF Entity Constitution' },
+  ];
+
+  for (const { yol, terim } of beklentiler) {
+    const html = sayfa(yol);
+    assert.ok(html, `${yol} bulunamadı`);
+    const dugumler = tumDugumleriTopla(jsonLd(html));
+
+    const termSetler = jsonLd(html).filter((d) => tipEslesirMi(d, 'DefinedTermSet'));
+    assert.equal(termSetler.length, 1, `${yol}: kök grafikte tam 1 adet DefinedTermSet olmalı`);
+    assert.equal(termSetler[0]['@id'], `https://gonet.com.tr${yol}#termset`, `${yol}: DefinedTermSet @id #termset olmalı`);
+    assert.equal(termSetler[0].hasDefinedTerm?.length, 3, `${yol}: DefinedTermSet 3 terim içermeli`);
+
+    const ybfTerimi = dugumler.find((d) => tipEslesirMi(d, 'DefinedTerm') && d.name === terim);
+    assert.ok(ybfTerimi, `${yol}: "${terim}" DefinedTerm bulunamadı`);
+
+    const faq = jsonLd(html).find((d) => tipEslesirMi(d, 'FAQPage'));
+    assert.ok(faq, `${yol}: FAQPage bulunamadı`);
+    const yapisal = faq.mainEntity.map((q) => ({ soru: q.name, cevap: q.acceptedAnswer.text }));
+    const gorunur = gorunurSss(html).map(({ soru, cevap }) => ({ soru, cevap }));
+    assert.equal(yapisal.length, 6, `${yol}: FAQPage 6 soru içermeli`);
+    assert.equal(yapisal.length, gorunur.length, `${yol}: görünür SSS ile JSON-LD soru sayısı eşit değil`);
+    for (let i = 0; i < gorunur.length; i++) {
+      assert.equal(yapisal[i].soru, gorunur[i].soru, `${yol}: soru #${i + 1} eşleşmiyor`);
+      assert.equal(yapisal[i].cevap, gorunur[i].cevap, `${yol}: cevap #${i + 1} eşleşmiyor`);
+    }
+  }
+});
+
+test('/ekibimiz ve /en/team: zenginleştirilmiş SoftwareApplication ve teamPageSchema alanları mevcut', () => {
+  for (const yol of ['/ekibimiz', '/en/team']) {
+    const html = sayfa(yol);
+    assert.ok(html, `${yol} bulunamadı`);
+    const rootDugumler = jsonLd(html);
+    const aboutPage = rootDugumler.find((d) => tipEslesirMi(d, 'AboutPage'));
+    assert.ok(aboutPage, `${yol}: AboutPage bulunamadı`);
+    assert.equal(aboutPage.about?.['@id'], 'https://gonet.com.tr/#organization', `${yol}: AboutPage.about eksik`);
+    assert.equal(aboutPage.breadcrumb?.['@type'], 'BreadcrumbList', `${yol}: AboutPage.breadcrumb eksik`);
+    assert.equal(aboutPage.mainEntity?.['@id'], `https://gonet.com.tr${yol}#roster`, `${yol}: mainEntity.@id #roster değil`);
+
+    const ajanlar = tumDugumleriTopla(rootDugumler).filter((d) => tipEslesirMi(d, 'SoftwareApplication'));
+    assert.equal(ajanlar.length, 27);
+    for (const ajan of ajanlar) {
+      assert.ok(ajan.url, `${yol}: SoftwareApplication.url eksik`);
+      assert.ok(ajan.softwareVersion, `${yol}: SoftwareApplication.softwareVersion eksik`);
+      assert.ok(ajan.inLanguage, `${yol}: SoftwareApplication.inLanguage eksik`);
+      assert.equal(ajan.maintainer?.['@id'], 'https://gonet.com.tr/#organization', `${yol}: SoftwareApplication.maintainer eksik`);
+      assert.ok(ajan.disambiguatingDescription, `${yol}: SoftwareApplication.disambiguatingDescription eksik`);
+      assert.equal(Array.isArray(ajan.featureList) && ajan.featureList.length >= 3, true, `${yol}: featureList eksik`);
+    }
+  }
+});
+
+test('/en/index.html JSON-LD WebPage inLanguage: "en"', () => {
+  const html = sayfa('/en');
+  assert.ok(html, 'dist/en/index.html bulunamadı');
+  const webPage = jsonLd(html).find((d) => d['@type'] === 'WebPage' && d['@id'] === 'https://gonet.com.tr/en#webpage');
+  assert.ok(webPage, '/en WebPage düğümü bulunamadı');
+  assert.equal(webPage.inLanguage, 'en', '/en WebPage inLanguage "en" olmalı');
+});
+
+test('Reklam Kurulu K-11: llms.txt ve schema.ts içinde "İzmir\'in ilk AI ajansı" geçmiyor', () => {
+  const llms = oku('public/llms.txt');
+  const schemaKaynak = oku('src/lib/schema.ts');
+  assert.equal(/İzmir'in ilk AI ajansı/i.test(llms), false, 'public/llms.txt içinde K-11 ihlali var');
+  assert.equal(/İzmir'in ilk AI ajansı/i.test(schemaKaynak), false, 'src/lib/schema.ts içinde K-11 ihlali var');
 });

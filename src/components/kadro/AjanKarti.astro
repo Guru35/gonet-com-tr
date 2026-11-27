@@ -8,8 +8,6 @@ interface Props {
 
 const { ajan, lang = 'tr' } = Astro.props;
 
-const badgeLabel =
-  lang === 'tr' ? 'AI AJAN · ANAYASAL SINIRLI' : 'AI AGENT · CONSTITUTION-BOUND';
 const boundaryLabel = lang === 'tr' ? 'Ne DEĞİLDİR:' : 'Boundary:';
 const reportsToLabel = lang === 'tr' ? 'Rapor Hattı:' : 'Reports to:';
 const oversightLabel =
@@ -23,9 +21,12 @@ const oversightLabel =
 >
   <div class="flex flex-col gap-3">
     <div class="flex flex-wrap items-center justify-between gap-2">
-      <span class="inline-flex items-center gap-2 border border-[var(--border)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text)]">
+      <span
+        class="inline-flex items-center gap-2 border border-[var(--border)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text)]"
+        aria-label={ajan.aiBeyani[lang]}
+      >
         <span class="inline-block w-1.5 h-1.5 bg-[#ff0000]" aria-hidden="true"></span>
-        {badgeLabel}
+        {ajan.aiBeyani[lang]}
       </span>
       <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)]">
         {ajan.basamak[lang]} · {ajan.kod}
