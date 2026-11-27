@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { webpageSchema, SITE_URL } from '../../lib/schema';
+// Metin tek kaynaktan gelir: gövde src/data/kvkk-winner-club.md içinde yaşar ve
+// yer tutucusuz, K13 kilitli onaylı aydınlatma metnidir; burada yalnız sayfa düzeni vardır.
+import { Content } from '../../data/kvkk-winner-club.md';
+
+const title = 'Gonet Winner Club — Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni';
+const description =
+  'Gonet Winner Club bekleme listesi ve kurumsal panel erişimi süreçlerinde işlenen kişisel verilere ilişkin KVKK aydınlatma metni.';
+const url = `${SITE_URL}/kvkk/winner-club`;
+
+const pageSchema = webpageSchema({
+  title,
+  description,
+  url,
+  type: 'WebPage',
+  breadcrumb: [
+    { name: 'Ana sayfa', url: 'https://gonet.com.tr/' },
+    { name: 'KVKK Aydınlatma Metni', url: `${SITE_URL}/kvkk` },
+    { name: 'Winner Club', url },
+  ],
+});
+---
+
+<BaseLayout title={title} description={description} canonical={url} schemas={[pageSchema]}>
+  <section class="bg-white">
+    <div class="max-w-3xl mx-auto px-6 py-16">
+      <nav class="text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-black">Ana sayfa</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/kvkk" class="hover:text-black">KVKK Aydınlatma Metni</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-slate-700" aria-current="page">Winner Club</li>
+        </ol>
+      </nav>
+      <article class="kvkk-metin">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- /kvkk sayfasıyla aynı metin düzeni (kvkk.astro) -->
+<style is:global>
+  .kvkk-metin { color: #111; font-size: 1.0625rem; line-height: 1.7; }
+  .kvkk-metin h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.15; font-weight: 700; margin: 0 0 1.5rem; }
+  .kvkk-metin h2 { font-size: 1.35rem; line-height: 1.3; font-weight: 700; margin: 2.5rem 0 0.75rem; }
+  .kvkk-metin p { margin: 0 0 1rem; }
+  .kvkk-metin ul, .kvkk-metin ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+  .kvkk-metin ul { list-style: disc; }
+  .kvkk-metin ol { list-style: decimal; }
+  .kvkk-metin li { margin-bottom: 0.4rem; }
+  .kvkk-metin a { text-decoration: underline; }
+  .kvkk-metin table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: 0.95rem; }
+  .kvkk-metin th, .kvkk-metin td { border: 1px solid #ccc; padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
+</style>

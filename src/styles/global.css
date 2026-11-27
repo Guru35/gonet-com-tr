@@ -718,12 +718,12 @@ select:focus-visible,
 }
 
 /* Dokunma hedefi genişletme (mobil) — WCAG 2.5.8 + parmak konforu.
-   Footer link listeleri 17px idi → ≥40px; hızlı-gez menüsüne dikey nefes. */
+   Footer link listeleri 17px idi → ≥44px; hızlı-gez menüsüne dikey nefes. */
 @media (max-width: 767px) {
   #site-footer ul a {
     display: inline-flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 44px;
   }
   /* Telefon bağlantıları 44 px (ARTDR D3, taslak Merhaba-Serit-Telefon) */
   #site-footer ul a[href^="tel:"] {

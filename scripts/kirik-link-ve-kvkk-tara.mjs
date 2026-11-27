@@ -49,6 +49,10 @@ const KVKK_DESENLERI = [
   /\[SAKLAMA[^\]]*\]/gi,
   /\bTODO_KVKK\b/g,
   /\bYER_TUTUCU\b/g,
+  /\[\[[^\]]+\]\]/g,
+  /\bkendiniz\s+(?:de\s+)?silebilirsiniz\b/gi,
+  /\bistediğiniz\s+zaman\s+silebilirsiniz\b/gi,
+  /\b30\s+gün\s+içinde\s+silinir\b/gi,
 ];
 
 for (const dosya of htmlDosyalari) {
