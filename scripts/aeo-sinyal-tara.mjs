@@ -15,9 +15,9 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const KUYRUK_DIZIN = 'content-queue';
-const GORULEN_DOSYA = path.join(KUYRUK_DIZIN, 'gorulen.json');
 
 // Doğrulanmış kaynaklar (2026-07-29 itibarıyla HTTP 200).
 // Yeni kaynak eklerken önce curl ile teyit et — ölü feed sessizce boş döner.
@@ -48,10 +48,10 @@ const TERIMLER = [
   [/ChatGPT|Claude|Gemini|Copilot/i, 2],
 ];
 
-const ESIK = 8; // bu skorun altındaki adaylar kuyruğa girmez
+export const ESIK = 8; // bu skorun altındaki adaylar kuyruğa girmez
 
 /** RSS/Atom içinden başlık + link + tarih çıkarır (bağımlılıksız, basit parse). */
-function ogeleriAyikla(xml) {
+export function ogeleriAyikla(xml) {
   const ogeler = [];
   // RSS <item> ve Atom <entry> ikisini de yakala
   const bloklar = xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi) || [];
@@ -85,7 +85,7 @@ function ogeleriAyikla(xml) {
 }
 
 /** Başlık + özete göre alaka skoru ve eşleşen konular. */
-function skorla({ baslik, ozet }) {
+export function skorla({ baslik, ozet }) {
   const metin = `${baslik} ${ozet}`;
   let skor = 0;
   const eslesen = [];
@@ -120,23 +120,28 @@ async function kaynagiTara(kaynak) {
   }
 }
 
-async function main() {
+export async function sinyalleriTara({
+  kuyrukDizin = KUYRUK_DIZIN,
+  kaynaklar = KAYNAKLAR,
+  kaynakTaraFn = kaynagiTara,
+  bugun = new Date().toISOString().slice(0, 10),
+} = {}) {
   console.log('AEO sinyal taraması başlıyor…\n');
 
-  if (!existsSync(KUYRUK_DIZIN)) await mkdir(KUYRUK_DIZIN, { recursive: true });
+  const gorulenDosya = path.join(kuyrukDizin, 'gorulen.json');
 
   // Daha önce görülen linkler — aynı haber her gün tekrar kuyruğa girmesin
   let gorulen = [];
-  if (existsSync(GORULEN_DOSYA)) {
+  if (existsSync(gorulenDosya)) {
     try {
-      gorulen = JSON.parse(await readFile(GORULEN_DOSYA, 'utf8'));
+      gorulen = JSON.parse(await readFile(gorulenDosya, 'utf8'));
     } catch {
       console.log('  ⚠ gorulen.json okunamadı, sıfırdan başlanıyor');
     }
   }
   const gorulenSet = new Set(gorulen);
 
-  const tumOgeler = (await Promise.all(KAYNAKLAR.map(kaynagiTara))).flat();
+  const tumOgeler = (await Promise.all(kaynaklar.map(kaynakTaraFn))).flat();
   console.log(`\nToplam ${tumOgeler.length} öğe tarandı.`);
 
   const adaylar = [];
@@ -149,26 +154,26 @@ async function main() {
   adaylar.sort((a, b) => b.skor - a.skor);
   console.log(`Eşiği (${ESIK}) geçen yeni aday: ${adaylar.length}\n`);
 
-  // Görülenler listesini güncelle — sadece taranan her şeyi işaretle (tekrar önleme)
+  if (adaylar.length === 0) {
+    console.log('Yeni aday yok — rapor ve gorulen.json yazılmadı.');
+    return { adaySayisi: 0, raporYazildi: false, raporYolu: null };
+  }
+
+  if (!existsSync(kuyrukDizin)) await mkdir(kuyrukDizin, { recursive: true });
+
+  // Görülenler listesini yalnızca yeni aday çıktığında güncelle — boş günde PR açılmasını önler
   for (const oge of tumOgeler) gorulenSet.add(oge.link);
   // Listeyi sınırla, sonsuz büyümesin (son 2000 link yeterli)
   const yeniGorulen = [...gorulenSet].slice(-2000);
-  await writeFile(GORULEN_DOSYA, JSON.stringify(yeniGorulen, null, 0));
+  await writeFile(gorulenDosya, JSON.stringify(yeniGorulen, null, 0));
 
   // Günün raporu — insan okuyacak, markdown
-  const bugun = new Date().toISOString().slice(0, 10);
-  const raporYolu = path.join(KUYRUK_DIZIN, `${bugun}.md`);
-
-  if (adaylar.length === 0) {
-    console.log('Yeni aday yok — rapor yazılmadı.');
-    // Boş gün için dosya oluşturma; kuyruk temiz kalsın
-    process.exit(0);
-  }
+  const raporYolu = path.join(kuyrukDizin, `${bugun}.md`);
 
   const satirlar = [
     `# AEO sinyal kuyruğu — ${bugun}`,
     '',
-    `${adaylar.length} yeni aday (eşik: ${ESIK} puan). Taranan kaynak: ${KAYNAKLAR.length}.`,
+    `${adaylar.length} yeni aday (eşik: ${ESIK} puan). Taranan kaynak: ${kaynaklar.length}.`,
     '',
     '> Bu liste otomatik üretildi. İçerik üretilmedi, yayın yapılmadı —',
     '> yalnızca konu adayı. Yazılacak olanı insan seçer.',
@@ -194,9 +199,13 @@ async function main() {
   for (const a of adaylar.slice(0, 5)) {
     console.log(`  ${String(a.skor).padStart(3)} · ${a.baslik.slice(0, 70)}`);
   }
+
+  return { adaySayisi: adaylar.length, raporYazildi: true, raporYolu };
 }
 
-main().catch((hata) => {
-  console.error('Tarama hatası:', hata);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  sinyalleriTara().catch((hata) => {
+    console.error('Tarama hatası:', hata);
+    process.exit(1);
+  });
+}

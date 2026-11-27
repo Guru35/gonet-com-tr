@@ -54,6 +54,13 @@ jobs:
           # content-queue dışında hiçbir şeye dokunma
           git add content-queue/ || true
 
+          YENI_RAPOR=$(git diff --staged --name-only -- 'content-queue/*.md')
+          if [ -z "$YENI_RAPOR" ]; then
+            git reset --quiet HEAD -- content-queue/ || true
+            echo "  → Yeni aday raporu (.md) yok, commit ve PR atlanacak."
+            exit 0
+          fi
+
           if git diff --staged --quiet; then
             echo "  → Yeni aday yok, commit atlanacak."
             exit 0
