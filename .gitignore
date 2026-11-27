@@ -32,3 +32,7 @@ secrets/
 
 # Sensitive ops docs — never commit
 API_KEYS.md
+
+# Local agent / test artifacts
+.playwright-mcp/
+.kod-kapisi/

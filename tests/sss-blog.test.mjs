@@ -206,6 +206,24 @@ test('üretici: depodaki dosyalar kasadaki güncel kaynaktan üretilenle aynı',
   const dosyalar = uret(KASA);
   assert.ok(Object.keys(dosyalar).length >= 12);
   for (const [yol, icerik] of Object.entries(dosyalar)) {
-    assert.equal(oku(yol), icerik, `${yol} kaynaktan farklı — scripts/sss-kaynak-al.mjs yeniden çalıştırılmalı`);
+    const mevcut = oku(yol);
+    if (yol === 'src/data/sss.json') {
+      assert.equal(mevcut, icerik, `${yol} kaynaktan farklı — scripts/sss-kaynak-al.mjs yeniden çalıştırılmalı`);
+      continue;
+    }
+    // PR #59 (AEO Paket 3) ile 11 SSS bloguna eklenen updated/Kısa özet/SSS bölümleri korunurken
+    // kaynaktaki title, description, published, category, giriş paragrafı ve tüm ## başlıklarının korunduğunu doğrula.
+    const satirAl = (metin, anahtar) => metin.match(new RegExp(`^${anahtar}: .+$`, 'm'))?.[0];
+    for (const anahtar of ['title', 'description', 'published', 'category']) {
+      assert.equal(satirAl(mevcut, anahtar), satirAl(icerik, anahtar), `${yol}: frontmatter '${anahtar}' kaynaktan sapmış`);
+    }
+    const govde = (metin) => metin.replace(/^---\n[\s\S]*?\n---\n/, '').trim();
+    const kaynakGovde = govde(icerik);
+    const mevcutGovde = govde(mevcut);
+    assert.equal(mevcutGovde.split('\n\n')[0].trim(), kaynakGovde.split('\n\n')[0].trim(), `${yol}: giriş paragrafı kaynaktan farklı`);
+    const kaynakBolumler = kaynakGovde.split(/\n(?=## )/).slice(1).map((b) => b.trim());
+    for (const bolum of kaynakBolumler) {
+      assert.ok(mevcutGovde.includes(bolum), `${yol}: kaynak bölüm eksik -> ${bolum.split('\n')[0]}`);
+    }
   }
 });
