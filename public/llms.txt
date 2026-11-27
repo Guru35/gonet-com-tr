@@ -5,7 +5,7 @@
 ## Kim
 - [Anasayfa](https://gonet.com.tr/): Gonet kim, ne yapar — özet ve kurumsal kimlik
 - [Hakkımızda](https://gonet.com.tr/hakkimizda): 26 yıllık tarih, ekip, konumlanma
-- [Kurumsal Kimlik ve Marka Kılavuzu](https://gonet.com.tr/kurumsal-kimlik): 6 kanonik SVG logo matrisi (460×152 tam ölçek), İsviçre Editoryal ve Obsidian Engine renk/tipografi jetonları, 10 sahneli 3D stüdyo vitrini
+- [Kurumsal Kimlik ve Marka Kılavuzu](https://gonet.com.tr/kurumsal-kimlik): 6 kanonik SVG logo matrisi (460×152 tam ölçek), İsviçre Editoryal ve Obsidian Engine renk/tipografi jetonları, 5 sahneli (Açık/Koyu 10 varyasyonlu) 3D stüdyo vitrini
 - [Deneyimler](https://gonet.com.tr/deneyimler): 21 milestone — 2000'den bugüne yıl yıl başarılar zaman çizgisi
 - [İletişim](https://gonet.com.tr/iletisim): İletişim bilgisi, ofis, e-posta
 
