@@ -1,10 +1,18 @@
 [
   {
-    "hash": "5dbb476",
+    "hash": "7d7eae8",
+    "tarih": "2026-11-27",
+    "tip": "duzeltme",
+    "kapsam": "test,aeo",
+    "baslik": "Sss-blog uretici testi PR #59 uyumu, llms.txt sahne sayisi ve gitignore hijyeni",
+    "link": null
+  },
+  {
+    "hash": "fc9f739",
     "tarih": "2026-11-27",
     "tip": "yeni",
     "kapsam": "marka",
-    "baslik": "Kurumsal kimlik v2.1 sayfası, kanonik SVG logolar ve 3D hover videoları",
+    "baslik": "Kurumsal kimlik v2.1 sayfası, kanonik SVG logolar ve 3D hover videoları (#62)",
     "link": "/kurumsal-kimlik"
   },
   {

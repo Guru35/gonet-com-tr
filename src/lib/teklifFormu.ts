@@ -1,4 +1,4 @@
-export const VARSAYILAN_LEADS_API_UCU = 'https://panel.gonet.com.tr/api/leads';
+export const VARSAYILAN_LEADS_API_UCU = 'https://cms.gonet.com.tr/api/vitrin/teklif';
 
 export const TEKLIF_FORM_MESAJLARI = {
   yukleniyor: 'Teklif talebiniz güvenle gönderiliyor, lütfen bekleyin...',
