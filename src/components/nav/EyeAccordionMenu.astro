@@ -1,0 +1,507 @@
+---
+import {
+  akordiyonKokleriniGetir,
+  aktifKokIdBul,
+  dilDegistirHref,
+  navigasyonGetir,
+  yolAktifMi,
+  yolDiliniBul,
+  type Dil,
+} from '../../data/navigasyon';
+
+interface Props {
+  lang?: Dil;
+  currentPath?: string;
+  kulupSayfasi?: boolean;
+  alternateEnHref?: string;
+  alternateTrHref?: string;
+}
+
+const {
+  lang,
+  currentPath = Astro.url.pathname,
+  kulupSayfasi = false,
+  alternateEnHref,
+  alternateTrHref,
+} = Astro.props;
+
+const aktifDil: Dil = lang ?? yolDiliniBul(currentPath);
+const paket = navigasyonGetir(aktifDil);
+const akordiyonKokler = akordiyonKokleriniGetir(aktifDil);
+const aktifKokId = aktifKokIdBul(currentPath, aktifDil);
+const { aksiyonlar, etiketler } = paket;
+
+const iletisimKoku = paket.kokler.find((kok) => kok.id === 'iletisim');
+const iletisimEtiket = iletisimKoku?.label ?? (aktifDil === 'en' ? 'Contact' : 'İletişim');
+
+const trHref = dilDegistirHref(currentPath, 'tr', alternateTrHref);
+const enHref = dilDegistirHref(currentPath, 'en', alternateEnHref);
+
+const ctaCerceveli =
+  'items-center justify-center min-h-[44px] box-border border border-current bg-transparent text-black hover:bg-black hover:text-white transition-colors font-semibold uppercase text-[11px]';
+const ctaDolu =
+  'items-center justify-center min-h-[44px] box-border bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors font-semibold uppercase text-[11px]';
+---
+
+<div class="fixed right-5 lg:right-8 z-50 print:hidden" id="eye-widget" style="bottom: var(--eye-cerez-h, var(--cerez-h, 0px));">
+  <button
+    id="eye-toggle"
+    type="button"
+    aria-label={etiketler.hizliGezAria}
+    aria-controls="eye-menu"
+    aria-expanded="false"
+    class="block bg-white px-4 pt-3 pb-4 hover:scale-105 transition-transform"
+    style="box-shadow: 0 -2px 12px rgba(0,0,0,0.06), -2px 0 8px rgba(0,0,0,0.04), 2px 0 8px rgba(0,0,0,0.04);"
+  >
+    <svg
+      viewBox="0 0 30 18"
+      width="36"
+      height="22"
+      stroke="black"
+      stroke-width="1.4"
+      fill="none"
+      class="eye-svg"
+      aria-hidden="true"
+      style="filter: drop-shadow(0 0 1px rgba(0,0,0,0.85)) drop-shadow(0 0 3px rgba(0,0,0,0.35)) drop-shadow(0 0 8px rgba(0,0,0,0.18)) drop-shadow(0 0 16px rgba(0,0,0,0.08));"
+    >
+      <path d="M1.2 9 C 7 1.5, 23 1.5, 28.8 9 C 23 16.5, 7 16.5, 1.2 9 Z" class="eye-lid" />
+      <circle cx="15" cy="9" r="2.8" fill="black" stroke="none" class="eye-pupil" />
+    </svg>
+  </button>
+
+  <div
+    id="eye-menu"
+    hidden
+    aria-label={etiketler.hizliGezAria}
+    class="eye-menu-panel absolute bottom-full mb-3 bg-white text-black border border-black w-80 lg:w-[400px] lg:max-h-[min(80vh,calc(100dvh-var(--eye-cerez-h,var(--cerez-h,0px))-6.5rem))] lg:overflow-y-auto text-left"
+    style="right: 34px;"
+  >
+    <div class="eye-menu-inner p-5 lg:p-6">
+      <div class="flex items-center justify-between gap-3 pb-3 mb-3 border-b border-black">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-black">
+          {etiketler.hizliGezBaslik}
+        </p>
+        <button
+          id="eye-menu-close"
+          type="button"
+          aria-label={etiketler.menuyuKapatAria}
+          class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 border border-black text-xs font-bold uppercase tracking-[0.22em] text-black hover:bg-black hover:text-white transition-colors"
+        >
+          {etiketler.geriDugmesi}
+        </button>
+      </div>
+
+      <nav aria-label={etiketler.hizliGezAria} class="divide-y divide-slate-200 border-b border-black">
+        {akordiyonKokler.map((kok) => {
+          const grupAcik = kok.id === aktifKokId;
+          return (
+            <details name="eye-nav-group" class="eye-acc-item" open={grupAcik || undefined}>
+              <summary class="eye-acc-summary min-h-[48px] py-2.5 px-1 flex items-center justify-between gap-3 text-black select-none hover:bg-slate-100 transition-colors">
+                <span class="flex items-baseline gap-2.5 min-w-0">
+                  <span class="text-[11px] font-semibold tabular-nums tracking-[0.16em] text-accent-aa shrink-0">
+                    {kok.numara}
+                  </span>
+                  <span class="text-[15px] font-semibold tracking-tight text-black truncate">
+                    {kok.label}
+                  </span>
+                </span>
+                <svg
+                  class="eye-acc-chevron shrink-0"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  aria-hidden="true"
+                >
+                  <path d="M4 6l4 4 4-4" />
+                </svg>
+              </summary>
+
+              <div class="eye-acc-body pb-3 pt-1 pl-2 space-y-3">
+                {kok.gruplar.map((altGrup) => (
+                  <div>
+                    {kok.gruplar.length > 1 && (
+                      <span class="block px-2 pt-1 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-600">
+                        {altGrup.baslik}
+                      </span>
+                    )}
+                    <ul class="space-y-0.5">
+                      {altGrup.ogeler.map((oge) => {
+                        const aktif = yolAktifMi(currentPath, oge.href, oge.aktifEkYollar);
+                        return (
+                          <li>
+                            <a
+                              href={oge.href}
+                              class={`min-h-[44px] px-2.5 py-2 flex items-center justify-between gap-2 text-sm transition-colors ${
+                                aktif
+                                  ? 'bg-black text-white font-semibold'
+                                  : 'text-black hover:bg-black hover:text-white'
+                              }`}
+                              {...(aktif ? { 'aria-current': 'page' } : {})}
+                            >
+                              <span class="min-w-0">
+                                <span class="block leading-snug">{oge.label}</span>
+                                <span
+                                  class={`block text-[11px] leading-tight mt-0.5 ${
+                                    aktif ? 'text-white/80' : 'text-slate-600'
+                                  }`}
+                                >
+                                  {oge.aciklama}
+                                </span>
+                              </span>
+                              {oge.rozet && (
+                                <span class="shrink-0 px-1.5 py-0.5 bg-accent-600 text-[#000000] text-[10px] font-semibold uppercase tracking-[0.12em]">
+                                  {oge.rozet}
+                                </span>
+                              )}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </details>
+          );
+        })}
+      </nav>
+
+      <div class="pt-4 space-y-2">
+        <a
+          href={aksiyonlar.seoAnaliz.href}
+          class={`flex w-full justify-between px-3 ${ctaCerceveli} tracking-[0.16em]`}
+        >
+          <span>{aksiyonlar.seoAnaliz.label}</span>
+          {aksiyonlar.seoAnaliz.rozet && (
+            <span class="px-1.5 py-0.5 bg-accent-600 text-[#000000] text-[10px] tracking-[0.12em]">
+              {aksiyonlar.seoAnaliz.rozet}
+            </span>
+          )}
+        </a>
+
+        <div class="grid grid-cols-2 gap-2">
+          <a
+            href={aksiyonlar.teklif.href}
+            class={`flex w-full px-3 ${ctaCerceveli} tracking-[0.16em] text-center`}
+          >
+            {aksiyonlar.teklif.label}
+          </a>
+          <a
+            href={aksiyonlar.gorusme.href}
+            class={`flex w-full px-3 ${ctaDolu} tracking-[0.16em] text-center`}
+          >
+            <span>
+              {iletisimEtiket} <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="md:hidden mt-4 pt-4 border-t border-slate-200 space-y-3">
+        <a
+          href={aksiyonlar.merhaba.href}
+          class={`flex w-full px-4 ${ctaCerceveli} min-h-[48px] text-[12px] tracking-[0.22em]`}
+        >
+          {aksiyonlar.merhaba.label} <span aria-hidden="true">&nbsp;→</span>
+        </a>
+
+        <div class="flex items-center justify-between gap-2" role="group" aria-label="Dil / Language">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+            {aktifDil === 'en' ? 'Lang' : 'Dil'}
+          </span>
+          <div class="flex items-center gap-2">
+            <a
+              href={trHref}
+              lang="tr"
+              class={`inline-flex items-center justify-center min-h-[44px] min-w-[56px] px-3 border border-black text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                aktifDil === 'tr' ? 'bg-black text-white' : 'bg-transparent text-black hover:bg-black hover:text-white'
+              }`}
+              {...(aktifDil === 'tr' ? { 'aria-current': 'page' } : {})}
+            >
+              TR
+            </a>
+            <a
+              href={enHref}
+              lang="en"
+              class={`inline-flex items-center justify-center min-h-[44px] min-w-[56px] px-3 border border-black text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                aktifDil === 'en' ? 'bg-black text-white' : 'bg-transparent text-black hover:bg-black hover:text-white'
+              }`}
+              {...(aktifDil === 'en' ? { 'aria-current': 'page' } : {})}
+            >
+              EN
+            </a>
+          </div>
+        </div>
+
+        {!kulupSayfasi && (
+          <div class="flex items-center gap-2" role="group" aria-label={etiketler.temaBaslik}>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] mr-auto text-black">
+              {etiketler.temaBaslik}
+            </span>
+            <button
+              type="button"
+              data-tema-sec="light"
+              aria-pressed="false"
+              class="tema-sec min-h-[44px] min-w-[72px] px-3 border border-black text-black text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors"
+            >
+              {etiketler.temaAcik}
+            </button>
+            <button
+              type="button"
+              data-tema-sec="dark"
+              aria-pressed="false"
+              class="tema-sec min-h-[44px] min-w-[72px] px-3 border border-black text-black text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors"
+            >
+              {etiketler.temaKoyu}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  </div><style is:inline>
+    @keyframes blink {
+      0%, 92%, 96%, 100% { transform: scaleY(1); }
+      94% { transform: scaleY(0.05); }
+    }
+    @keyframes pupil-shift {
+      0%, 30%, 60%, 100% { transform: translate(0, 0); }
+      40% { transform: translate(-2px, 0); }
+      50% { transform: translate(2px, 1px); }
+    }
+    #eye-toggle .eye-svg { transform-origin: center; animation: blink 5.7s infinite; }
+    #eye-toggle .eye-pupil { animation: pupil-shift 9s infinite; transform-origin: center; }
+    #eye-widget #eye-menu:not([hidden]) { animation: eye-pop 180ms ease-out; }
+    @keyframes eye-pop {
+      from { opacity: 0; transform: translateY(8px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Yüksek kontrastlı opak yüzeyler (açık ve koyu tema) */
+    #eye-menu {
+      border-radius: 0;
+      background-color: #ffffff;
+      color: #0a0a0a;
+      border-color: #000000;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    }
+    [data-theme="dark"] #eye-menu {
+      background-color: #161616;
+      color: #e6e6e6;
+      border-color: #2a2a2a;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+    [data-theme="dark"] #eye-menu .border-black {
+      border-color: #2a2a2a;
+    }
+    #eye-menu a:hover span {
+      color: inherit;
+    }
+
+    /* Akordiyon native summary oku ve yumuşak açılım */
+    .eye-acc-summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    .eye-acc-summary::-webkit-details-marker {
+      display: none;
+    }
+    .eye-acc-chevron {
+      transition: transform 0.2s ease-out;
+    }
+    .eye-acc-item[open] > .eye-acc-summary .eye-acc-chevron {
+      transform: rotate(180deg);
+    }
+    .eye-acc-item::details-content {
+      interpolate-size: allow-keywords;
+      overflow: clip;
+      contain: layout;
+    }
+    .eye-acc-item:not([open])::details-content {
+      block-size: 0;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .eye-acc-item::details-content {
+        transition: block-size 0.24s ease-out, content-visibility 0.24s allow-discrete;
+      }
+    }
+
+    /* Aktif tema düğmesi vurgusu */
+    .tema-sec[aria-pressed="true"] {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    [data-theme="dark"] .tema-sec[aria-pressed="true"] {
+      background-color: #e6e6e6;
+      color: #0a0a0a;
+      border-color: #e6e6e6;
+    }
+
+    /* Mobil + tablet (<1024px): tam ekran yüksek opaklıkta panel (koyu temada okunaklı) */
+    @media (max-width: 1023px) {
+      #eye-menu {
+        position: fixed !important;
+        inset: 0 !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        margin: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        max-width: none !important;
+        max-height: none !important;
+        border: 0 !important;
+        background: rgba(255, 255, 255, 0.97) !important;
+        color: #0a0a0a !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 100;
+        overflow-y: auto;
+      }
+      [data-theme="dark"] #eye-menu {
+        background: rgba(10, 10, 10, 0.97) !important;
+        color: #e6e6e6 !important;
+      }
+      #eye-menu[hidden] {
+        display: none !important;
+      }
+      #eye-menu .eye-menu-inner {
+        max-width: 540px;
+        margin-left: auto;
+        padding: 1.5rem 1.25rem calc(5.5rem + var(--eye-cerez-h, var(--cerez-h, 0px))) !important;
+      }
+      #eye-widget {
+        z-index: 110 !important;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const widget = document.getElementById('eye-widget');
+      const btn = document.getElementById('eye-toggle');
+      const menu = document.getElementById('eye-menu');
+      const mobBtn = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('eye-menu-close');
+      if (!widget || !btn || !menu) return;
+
+      let lastCerezOffset = null;
+      function syncCookieOffset() {
+        const notice = document.getElementById('klaro-cookie-notice') || document.querySelector('.klaro .cookie-notice');
+        let nextOffset = '';
+        if (notice) {
+          const style = window.getComputedStyle(notice);
+          const rect = notice.getBoundingClientRect();
+          if (style.display !== 'none' && style.visibility !== 'hidden' && rect.height > 0 && rect.top < window.innerHeight) {
+            nextOffset = Math.max(0, Math.ceil(window.innerHeight - rect.top)) + 'px';
+          }
+        }
+        if (nextOffset !== lastCerezOffset) {
+          lastCerezOffset = nextOffset;
+          if (nextOffset) {
+            widget.style.setProperty('--eye-cerez-h', nextOffset);
+          } else {
+            widget.style.removeProperty('--eye-cerez-h');
+          }
+        }
+      }
+
+      syncCookieOffset();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncCookieOffset);
+      }
+      window.addEventListener('load', syncCookieOffset);
+      window.addEventListener('resize', syncCookieOffset);
+      try {
+        const obs = new MutationObserver(() => {
+          requestAnimationFrame(syncCookieOffset);
+        });
+        obs.observe(document.body, { childList: true, subtree: true });
+      } catch (e) {}
+
+      let lastTrigger = btn;
+
+      function syncExpanded(expanded) {
+        const val = expanded ? 'true' : 'false';
+        btn.setAttribute('aria-expanded', val);
+        if (mobBtn) mobBtn.setAttribute('aria-expanded', val);
+      }
+
+      function close(restoreFocus) {
+        if (menu.hidden) return;
+        menu.hidden = true;
+        syncExpanded(false);
+        if (restoreFocus && lastTrigger && typeof lastTrigger.focus === 'function') {
+          lastTrigger.focus();
+        }
+      }
+
+      function open(triggerEl) {
+        lastTrigger = triggerEl || btn;
+        menu.hidden = false;
+        syncExpanded(true);
+        if (closeBtn && typeof closeBtn.focus === 'function') {
+          closeBtn.focus();
+        }
+      }
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.hidden ? open(btn) : close(false);
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          close(true);
+        });
+      }
+
+      if (mobBtn) {
+        mobBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menu.hidden ? open(mobBtn) : close(false);
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const t = e.target;
+        if (
+          !menu.hidden &&
+          t instanceof Node &&
+          !menu.contains(t) &&
+          !btn.contains(t) &&
+          (!mobBtn || !mobBtn.contains(t))
+        ) {
+          close(false);
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.hidden) {
+          close(true);
+        }
+      });
+
+      // Eski tarayıcılar için <details name="..."> tek-açık akordiyon yedeği
+      if (!Object.hasOwn(HTMLDetailsElement.prototype, 'name')) {
+        document.addEventListener(
+          'toggle',
+          (event) => {
+            const target = event.target;
+            if (!(target instanceof HTMLDetailsElement) || !target.open) return;
+            const groupName = target.getAttribute('name');
+            if (!groupName || !menu.contains(target)) return;
+            for (const other of menu.querySelectorAll(`details[name="${CSS.escape(groupName)}"]`)) {
+              if (other !== target) other.open = false;
+            }
+          },
+          { capture: true }
+        );
+      }
+    })();
+  </script>
+</div>
