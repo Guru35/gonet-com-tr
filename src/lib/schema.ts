@@ -4,6 +4,8 @@
 // Veri kaynağı: AEO/wiki/syntheses/gonet-kurumsal-profil-2026-06.md
 // Kurucu beyanı + bağımsız araştırma (Web Archive, Haberler.com 2009, LinkedIn, IRD üye listesi)
 
+import type { AjanVitrinKaydi } from '../data/kadro';
+
 export const SITE_URL = 'https://gonet.com.tr';
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const SITE_ID = `${SITE_URL}/#website`;
@@ -386,6 +388,7 @@ export function webpageSchema(opts: {
   description: string;
   url: string;
   type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  inLanguage?: 'tr' | 'en';
   breadcrumb?: { name: string; url: string }[];
 }) {
   return {
@@ -394,7 +397,7 @@ export function webpageSchema(opts: {
     url: opts.url,
     name: opts.title,
     description: opts.description,
-    inLanguage: 'tr',
+    inLanguage: opts.inLanguage || 'tr',
     isPartOf: { '@id': SITE_ID },
     publisher: { '@id': ORG_ID },
     breadcrumb: opts.breadcrumb && {
@@ -438,4 +441,95 @@ export function faqSchema(items: { question: string; answer: string }[]) {
       acceptedAnswer: { '@type': 'Answer', text: it.answer },
     })),
   };
+}
+
+// Hibrit kadro (/ekibimiz, /en/team) — Person yalnız FOUNDER_ID için kullanılır; AI ajanları SoftwareApplication
+export function teamPageSchema(
+  ajanlar: AjanVitrinKaydi[],
+  lang: 'tr' | 'en' = 'tr'
+) {
+  const url = lang === 'tr' ? `${SITE_URL}/ekibimiz` : `${SITE_URL}/en/team`;
+  return {
+    '@type': 'AboutPage',
+    '@id': `${url}#webpage`,
+    url,
+    name:
+      lang === 'tr'
+        ? 'Ekibimiz — Tek İnsan Liderliği ve Şeffaf AI Ajan Kadrosu | Gonet'
+        : 'Team — Single Human Leadership & Transparent AI Roster | Gonet',
+    inLanguage: lang,
+    isPartOf: { '@id': SITE_ID },
+    publisher: { '@id': ORG_ID },
+    mainEntity: {
+      '@type': 'ItemList',
+      name:
+        lang === 'tr'
+          ? 'Gonet Hibrit Ajans Kadrosu'
+          : 'Gonet Hybrid Agency Roster',
+      numberOfItems: ajanlar.length + 1,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: { '@id': FOUNDER_ID },
+        },
+        ...ajanlar.map((a, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 2,
+          item: {
+            '@type': 'SoftwareApplication',
+            '@id': `${url}#agent-${a.slug}`,
+            name: `${a.personaAdi} (${a.kod} — ${a.rolUnvani[lang]})`,
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Multi-Agent System',
+            creator: { '@id': ORG_ID },
+            description: `${a.aiBeyani[lang]}. ${a.gorevOzeti[lang]} ${
+              lang === 'tr' ? 'Sınır:' : 'Boundary:'
+            } ${a.sinir[lang]}`,
+          },
+        })),
+      ],
+    },
+  };
+}
+
+// AI İK ve Anayasa (/ik, /en/ai-culture) kavram sözlüğü
+export function aiCultureDefinedTermsSchema(lang: 'tr' | 'en' = 'tr') {
+  const url = lang === 'tr' ? `${SITE_URL}/ik` : `${SITE_URL}/en/ai-culture`;
+  return [
+    {
+      '@type': 'DefinedTerm',
+      '@id': `${url}#term-constitutional-agent-governance`,
+      name:
+        lang === 'tr'
+          ? 'Anayasal AI Ajan Yönetişimi'
+          : 'Constitutional AI Agent Governance',
+      description:
+        lang === 'tr'
+          ? 'Her yapay zekâ ajanının açık kimlik beyanı, yazılı görev sınırı, itiraz hakkı ve bağımsız insan/QA denetimi altında çalıştırıldığı ajans modeli.'
+          : 'An agency governance model where every AI agent operates under explicit AI disclosure, written boundaries, objection rights, and independent human/QA oversight.',
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        name: lang === 'tr' ? 'Gonet Marka Sözlüğü' : 'Gonet Brand Glossary',
+        publisher: { '@id': ORG_ID },
+      },
+    },
+    {
+      '@type': 'DefinedTerm',
+      '@id': `${url}#term-evidence-growth-scale`,
+      name:
+        lang === 'tr'
+          ? '0–3 Kanıtlı Ajan Gelişim Ölçeği'
+          : '0–3 Evidence-Based Agent Growth Scale',
+      description:
+        lang === 'tr'
+          ? 'Ajan yetkinliğini 0 (Yok), 1 (Metinde), 2 (Mekanikte) ve 3 (Bağımsız Kanıtlı) düzeyleriyle ölçen kariyer ilerleme çerçevesi.'
+          : 'A capability progression scale grading AI agents from 0 (Absent) and 1 (Documented) to 2 (Mechanically Enforced) and 3 (Independently Verified).',
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        name: lang === 'tr' ? 'Gonet Marka Sözlüğü' : 'Gonet Brand Glossary',
+        publisher: { '@id': ORG_ID },
+      },
+    },
+  ];
 }

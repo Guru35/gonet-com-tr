@@ -1,0 +1,60 @@
+---
+import type { AjanVitrinKaydi } from '../../data/kadro';
+
+interface Props {
+  ajan: AjanVitrinKaydi;
+  lang?: 'tr' | 'en';
+}
+
+const { ajan, lang = 'tr' } = Astro.props;
+
+const badgeLabel =
+  lang === 'tr' ? 'AI AJAN · ANAYASAL SINIRLI' : 'AI AGENT · CONSTITUTION-BOUND';
+const boundaryLabel = lang === 'tr' ? 'Ne DEĞİLDİR:' : 'Boundary:';
+const reportsToLabel = lang === 'tr' ? 'Rapor Hattı:' : 'Reports to:';
+const oversightLabel =
+  lang === 'tr' ? 'Denetim: QA + Kurucu İnsan' : 'Oversight: QA + Human Founder';
+---
+
+<article
+  id={`agent-${ajan.slug}`}
+  class="border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-6 flex flex-col justify-between gap-4"
+  data-dept={ajan.departmanKodu}
+>
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <span class="inline-flex items-center gap-2 border border-[var(--border)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text)]">
+        <span class="inline-block w-1.5 h-1.5 bg-[#ff0000]" aria-hidden="true"></span>
+        {badgeLabel}
+      </span>
+      <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)]">
+        {ajan.basamak[lang]} · {ajan.kod}
+      </span>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-bold tracking-tight text-[var(--text-heading)]">
+        {ajan.personaAdi}
+      </h3>
+      <p class="text-sm font-medium text-[var(--text-secondary)] mt-0.5">
+        {ajan.rolUnvani[lang]}
+      </p>
+    </div>
+
+    <p class="text-sm leading-relaxed text-[var(--text)]">
+      {ajan.gorevOzeti[lang]}
+    </p>
+  </div>
+
+  <div class="border-t border-[var(--border)] pt-3 flex flex-col gap-2 text-xs">
+    <p class="text-[var(--text)] leading-relaxed">
+      <strong class="uppercase tracking-[0.1em] text-[10px] text-[var(--text-secondary)] mr-1.5">
+        {boundaryLabel}
+      </strong>
+      {ajan.sinir[lang]}
+    </p>
+    <p class="text-[var(--text-secondary)] leading-relaxed">
+      {reportsToLabel} {ajan.raporHatti[lang]} · {oversightLabel}
+    </p>
+  </div>
+</article>

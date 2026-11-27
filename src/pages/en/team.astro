@@ -1,0 +1,543 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AjanKarti from '../../components/kadro/AjanKarti.astro';
+import {
+  DEPARTMANLAR,
+  KURUCU_LIDERLIK,
+  KADRO_METRIKLERI,
+  UZMAN_AJANLAR,
+} from '../../data/kadro';
+import { teamPageSchema, faqSchema } from '../../lib/schema';
+
+const title = 'Team — Single Human Leadership & Transparent AI Roster | Gonet';
+const description =
+  'Every deliverable at Gonet is approved by human founder Gökhan Kazancı. Meet our 27 specialist AI agents with declared boundaries and growth levels.';
+const url = 'https://gonet.com.tr/en/team';
+
+const alternates = [
+  { lang: 'tr', href: 'https://gonet.com.tr/ekibimiz' },
+  { lang: 'en', href: 'https://gonet.com.tr/en/team' },
+  { lang: 'x-default', href: 'https://gonet.com.tr/ekibimiz' },
+];
+
+const faqs = [
+  {
+    question: 'Do your AI agents talk directly to clients?',
+    answer:
+      'No. Client meetings, commercial commitments, and final approvals are handled by founder Gökhan Kazancı. If any digital interface uses an AI assistant, it is clearly disclosed at the very first interaction in line with EU AI Act Article 50.',
+  },
+  {
+    question: "Why give AI agents human-like names? Isn't that misleading?",
+    answer:
+      'Internal persona names help keep 27 distinct roles and reporting lines clear. Externally, every card carries a prominent "AI Agent" badge and zero fabricated human attributes (no fake ages, schools, CVs, or human portraits).',
+  },
+  {
+    question: 'Is client data used to train public AI models?',
+    answer:
+      'No. Client records remain isolated within dedicated project environments and are never disclosed on public pages or fed into public model training pools.',
+  },
+  {
+    question: 'What is the purpose of the "What It Does NOT Do" boundary?',
+    answer:
+      'Industry research shows role ambiguity is a leading cause of multi-agent failure. Defining strict non-goals prevents an agent from approving its own output or publishing unverified claims.',
+  },
+  {
+    question: 'What do the career stages (Candidate / Competent / Senior / Master) mean?',
+    answer:
+      'They measure verified delivery consistency and audit track record—not seniority titles. Every agent starts as a Candidate, requiring full human and QA review on every output.',
+  },
+];
+
+const departmanSayilari = DEPARTMANLAR.map((dept) => ({
+  ...dept,
+  sayi:
+    dept.kod === 'all'
+      ? UZMAN_AJANLAR.length
+      : UZMAN_AJANLAR.filter((ajan) => ajan.departmanKodu === dept.kod).length,
+}));
+
+const deliverySteps = [
+  {
+    no: '01',
+    title: 'Strategic Brief',
+    description:
+      'The human founder sets goals and boundaries; CEO-G1 (AI Agent) structures task packages.',
+  },
+  {
+    no: '02',
+    title: 'Specialist Production',
+    description:
+      'Marketing, Creative, Web, or Software AI agents execute strictly within their documented scope.',
+  },
+  {
+    no: '03',
+    title: 'Independent Verification',
+    description:
+      'QA-G1, Tester1-G1, and Legal Advisor (AI) audit outputs against evidence and compliance rules.',
+  },
+  {
+    no: '04',
+    title: 'Human Sign-Off',
+    description:
+      'Gökhan Kazancı reviews and approves every final client deliverable.',
+  },
+];
+
+const shadowAiItems = [
+  'AI usage is hidden from clients; responsibility is blurred.',
+  'Generic, unverified prompts produce inconsistent outputs.',
+  'Hallucinations and unverified claims slip into live campaigns.',
+  'Mistakes are silently patched without institutional memory.',
+];
+
+const gonetRosterItems = [
+  'Every agent is explicitly labeled "AI Agent" at first sight.',
+  'Clear mandate and "What It Does NOT Do" boundaries are published.',
+  'Independent QA, Testing, and YBF ethical checks separate production from approval.',
+  'Every rejection becomes a documented lesson and mechanical gate.',
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={url}
+  lang="en"
+  alternates={alternates}
+  schemas={[teamPageSchema(UZMAN_AJANLAR, 'en'), faqSchema(faqs)]}
+>
+  <!-- Hero -->
+  <section class="bg-[var(--bg)] text-[var(--text)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 py-12 lg:py-20">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+        <nav class="text-sm text-[var(--text-secondary)]" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 flex-wrap">
+            <li><a href="/en" class="hover:text-[var(--text-heading)] transition-colors">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-[var(--text-heading)] font-medium" aria-current="page">Team</li>
+          </ol>
+        </nav>
+
+        <a
+          href="/ekibimiz"
+          hreflang="tr"
+          class="min-h-[44px] inline-flex items-center px-4 border border-[var(--border)] bg-[var(--surface)] text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text)] hover:bg-black hover:text-white transition-colors"
+        >
+          Türkçe
+        </a>
+      </div>
+
+      <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--text-secondary)] mb-6">
+        HYBRID ROSTER · HUMAN × AI
+      </p>
+
+      <h1 class="editorial-display text-[11vw] sm:text-[8vw] lg:text-[6vw] xl:text-[84px] leading-[0.94] text-[var(--text-heading)] max-w-5xl mb-8">
+        Single human leadership. Transparent specialist AI roster<span class="text-[#ff0000]">.</span>
+      </h1>
+
+      <p class="text-lg lg:text-xl leading-relaxed text-[var(--text)] max-w-3xl mb-8">
+        Instead of hiding automation behind stock portraits, we declare all 27 specialist AI agents
+        with explicit role boundaries and measurable learning levels. No agent impersonates a human;
+        every client deliverable passes independent verification and founder approval.
+      </p>
+
+      <div class="mb-12">
+        <a
+          href="/en/ai-culture"
+          class="inline-flex items-center min-h-[44px] text-sm font-semibold text-[var(--text-heading)] border-b border-[var(--border)] hover:opacity-75 transition-opacity"
+        >
+          Read our AI Constitution &amp; Growth Scale <span aria-hidden="true">&nbsp;→</span>
+        </a>
+      </div>
+
+      <!-- Metrics Strip -->
+      <dl class="grid grid-cols-1 md:grid-cols-3 border border-[var(--border)] bg-[var(--surface)]">
+        <div class="p-6 border-b md:border-b-0 md:border-r border-[var(--border)]">
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)] mb-2">
+            Sole Approval &amp; Client Accountability
+          </dt>
+          <dd class="text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-heading)]">
+            {KADRO_METRIKLERI.insanLiderSayisi} Human
+          </dd>
+          <p class="text-xs text-[var(--text-secondary)] mt-1">{KURUCU_LIDERLIK.ad}</p>
+        </div>
+
+        <div class="p-6 border-b md:border-b-0 md:border-r border-[var(--border)]">
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)] mb-2">
+            Constitution-Bound Specialist Roster
+          </dt>
+          <dd class="text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-heading)]">
+            {KADRO_METRIKLERI.uzmanAjanSayisi} AI Agents
+          </dd>
+          <p class="text-xs text-[var(--text-secondary)] mt-1">Declared identity &amp; reporting line</p>
+        </div>
+
+        <div class="p-6">
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)] mb-2">
+            Independent Verification &amp; Training Scale
+          </dt>
+          <dd class="text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-heading)]">
+            0–3 Evidence
+          </dd>
+          <p class="text-xs text-[var(--text-secondary)] mt-1">Measurable capability progression</p>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Section 1: Founder & Sole Approval Authority -->
+  <section class="bg-[var(--surface-2)] text-[var(--text)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 py-14 lg:py-20">
+      <div class="border border-[var(--border)] bg-[var(--surface)] p-6 lg:p-10">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] pb-5 mb-6">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-secondary)]">
+            HUMAN LEADERSHIP · SOLE APPROVAL AUTHORITY
+          </p>
+          <span class="inline-flex items-center gap-2 border border-[var(--border)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-heading)]">
+            HUMAN FOUNDER · FINAL SIGN-OFF
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5">
+            <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-heading)]">
+              {KURUCU_LIDERLIK.ad}
+            </h2>
+            <p class="text-sm font-medium text-[var(--text-secondary)] mt-2">
+              {KURUCU_LIDERLIK.unvan.en}
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col gap-4 text-base leading-relaxed text-[var(--text)]">
+            <p>
+              Founder of Izmir-based Gonet since 2000; Dokuz Eylül University Economics graduate,
+              former digital marketing lecturer at Yaşar University, former strategic advisor to
+              DEÜ Rectorate and DEUZEM, and author of <em>YBF — Lean Consciousness Philosophy</em>.
+            </p>
+            <p class="border-l-2 border-[var(--border)] pl-4 text-sm text-[var(--text-secondary)]">
+              No AI agent independently delivers client work, makes budget commitments, or assumes
+              legal liability. All final decisions and client communications remain under direct
+              human founder oversight.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Shadow AI vs. Gonet Transparent Hybrid Roster -->
+  <section class="bg-[var(--bg)] text-[var(--text)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 py-14 lg:py-20">
+      <div class="mb-10 max-w-2xl">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)] mb-3">
+          GOVERNANCE MODEL
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-heading)]">
+          Shadow AI vs. Gonet Transparent Hybrid Roster
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="border border-[var(--border)] bg-[var(--surface-2)] p-6 lg:p-8">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)] mb-2">
+            Unverified Market Practice
+          </p>
+          <h3 class="text-xl font-bold text-[var(--text-heading)] pb-4 mb-5 border-b border-[var(--border)]">
+            Agencies Using Shadow AI
+          </h3>
+          <ul class="flex flex-col gap-3 text-sm leading-relaxed text-[var(--text)]">
+            {shadowAiItems.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="inline-block w-2 h-2 mt-1.5 shrink-0 border border-[var(--border)]" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="border-2 border-[var(--border)] bg-[var(--surface)] p-6 lg:p-8">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-secondary)] mb-2">
+            Constitutional Architecture
+          </p>
+          <h3 class="text-xl font-bold text-[var(--text-heading)] pb-4 mb-5 border-b border-[var(--border)]">
+            Gonet Constitutional Hybrid Roster
+          </h3>
+          <ul class="flex flex-col gap-3 text-sm leading-relaxed text-[var(--text)]">
+            {gonetRosterItems.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="inline-block w-2 h-2 mt-1.5 shrink-0 bg-[var(--text-heading)]" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Specialist AI Agent Directory -->
+  <section id="agent-directory" class="bg-[var(--surface-2)] text-[var(--text)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 py-14 lg:py-20">
+      <div class="max-w-3xl mb-8">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)] mb-3">
+          PUBLIC AGENT DIRECTORY
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-heading)] mb-4">
+          {KADRO_METRIKLERI.uzmanAjanSayisi} Specialist AI Agents.
+        </h2>
+        <p class="text-sm lg:text-base leading-relaxed text-[var(--text-secondary)]">
+          Persona names are <strong class="text-[var(--text-heading)] font-semibold">fictional labels</strong> used
+          internally for workflow clarity and role continuity; they never represent real humans.
+          Client project workspaces are excluded from this public directory for confidentiality.
+        </p>
+      </div>
+
+      <!-- Department Filter Tabs -->
+      <div
+        role="tablist"
+        aria-label="Filter AI agents by department"
+        id="dept-tablist"
+        class="flex flex-nowrap overflow-x-auto gap-1 border-b border-[var(--border)]"
+      >
+        {departmanSayilari.map((dept, idx) => (
+          <button
+            type="button"
+            role="tab"
+            id={`tab-${dept.kod}`}
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            tabindex={idx === 0 ? '0' : '-1'}
+            data-filter={dept.kod}
+            data-label={dept.en}
+            class="shrink-0 min-h-[44px] px-4 py-2.5 relative text-xs font-semibold uppercase tracking-[0.12em] whitespace-nowrap cursor-pointer transition-colors text-[var(--text-secondary)] hover:text-[var(--text-heading)]"
+          >
+            {dept.en} ({dept.sayi})
+          </button>
+        ))}
+      </div>
+
+      <p
+        id="roster-status"
+        aria-live="polite"
+        class="mt-4 text-xs font-medium text-[var(--text-secondary)]"
+      >
+        Showing: {UZMAN_AJANLAR.length} specialist AI agents (All)
+      </p>
+
+      <!-- Agent Grid -->
+      <div
+        id="roster-grid"
+        class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {UZMAN_AJANLAR.map((ajan) => <AjanKarti ajan={ajan} lang="en" />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: How Work Is Delivered -->
+  <section class="bg-[var(--bg)] text-[var(--text)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 py-14 lg:py-20">
+      <div class="mb-10 max-w-2xl">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)] mb-3">
+          PRODUCTION PIPELINE
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-heading)]">
+          How Work Is Delivered
+        </h2>
+      </div>
+
+      <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {deliverySteps.map((step) => (
+          <li class="border border-[var(--border)] bg-[var(--surface)] p-6 flex flex-col gap-3">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
+              Step {step.no}
+            </span>
+            <h3 class="text-lg font-bold text-[var(--text-heading)]">
+              {step.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-[var(--text)]">
+              {step.description}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 5: FAQ -->
+  <section class="bg-[var(--surface-2)] text-[var(--text)] border-b border-[var(--border)]" aria-labelledby="faq-heading">
+    <div class="max-w-4xl mx-auto px-4 lg:px-12 py-14 lg:py-20">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-secondary)] mb-3">
+        TRANSPARENCY &amp; GOVERNANCE
+      </p>
+      <h2 id="faq-heading" class="text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-heading)] mb-8">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="border-t border-[var(--border)]">
+        {faqs.map((item) => (
+          <details class="faq-item border-b border-[var(--border)] bg-[var(--surface)]">
+            <summary class="faq-summary flex items-center gap-3 min-h-[44px] px-5 py-4 cursor-pointer list-none font-semibold text-base text-[var(--text-heading)] hover:bg-[var(--surface-2)] transition-colors">
+              <svg
+                class="faq-chevron w-4 h-4 shrink-0 text-[var(--text-heading)]"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M6 3l5 5-5 5" />
+              </svg>
+              <span>{item.question}</span>
+            </summary>
+            <div class="px-5 pb-5 pl-12 text-sm lg:text-base leading-relaxed text-[var(--text)]">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Single Solid Red CTA -->
+  <section class="bg-[var(--bg)] text-[var(--text)] py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 lg:px-12 flex flex-col gap-6">
+      <h2 class="editorial-display text-[32px] lg:text-[52px] leading-[1.02] text-[var(--text-heading)] max-w-3xl">
+        Ready to work with a transparent hybrid team?
+      </h2>
+      <p class="text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl">
+        Speak directly with founder Gökhan Kazancı to map our specialist AI workflow to your
+        brand goals and verification standards.
+      </p>
+      <div>
+        <a
+          href="/iletisim"
+          class="team-primary-cta inline-flex items-center justify-center min-h-[48px] px-7 py-3 bg-accent-600 text-[#000000] hover:bg-black hover:text-white transition-colors font-semibold text-xs uppercase tracking-[0.2em]"
+        >
+          Discuss your project with our hybrid team <span aria-hidden="true">&nbsp;→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  [role="tab"] {
+    position: relative;
+  }
+
+  [role="tab"][aria-selected="true"] {
+    color: var(--text-heading);
+  }
+
+  [role="tab"][aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    border-block-end: 3px solid #ff0000;
+  }
+
+  #roster-grid article[data-dept][hidden] {
+    display: none;
+  }
+
+  .team-primary-cta {
+    box-shadow: none;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item[open] > .faq-summary .faq-chevron {
+    transform: rotate(90deg);
+  }
+
+  .faq-item::details-content {
+    interpolate-size: allow-keywords;
+    overflow: clip;
+    contain: layout;
+  }
+
+  .faq-item:not([open])::details-content {
+    block-size: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item::details-content {
+      transition: block-size, content-visibility, display;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
+      transition-behavior: allow-discrete;
+    }
+  }
+</style>
+
+<script>
+  const tablist = document.getElementById('dept-tablist');
+  const grid = document.getElementById('roster-grid');
+  const statusEl = document.getElementById('roster-status');
+
+  if (tablist && grid) {
+    const tabs = Array.from(tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-dept]'));
+
+    const selectTab = (nextTab: HTMLButtonElement, moveFocus = false) => {
+      const filter = nextTab.dataset.filter || 'all';
+      const label = nextTab.dataset.label || '';
+
+      for (const tab of tabs) {
+        const isSelected = tab === nextTab;
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        tab.tabIndex = isSelected ? 0 : -1;
+      }
+
+      nextTab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+
+      if (moveFocus) {
+        nextTab.focus();
+      }
+
+      let visibleCount = 0;
+      for (const card of cards) {
+        const matches = filter === 'all' || card.dataset.dept === filter;
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      }
+
+      if (statusEl) {
+        statusEl.textContent = `Showing: ${visibleCount} specialist AI agents (${label})`;
+      }
+    };
+
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => selectTab(tab, false));
+    }
+
+    tablist.addEventListener('keydown', (event) => {
+      const current = document.activeElement;
+      if (!(current instanceof HTMLButtonElement)) return;
+      const currentIndex = tabs.indexOf(current);
+      if (currentIndex === -1) return;
+
+      let nextIndex = -1;
+      if (event.key === 'ArrowRight') {
+        nextIndex = (currentIndex + 1) % tabs.length;
+      } else if (event.key === 'ArrowLeft') {
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      }
+
+      if (nextIndex !== -1) {
+        event.preventDefault();
+        selectTab(tabs[nextIndex], true);
+      }
+    });
+  }
+</script>
