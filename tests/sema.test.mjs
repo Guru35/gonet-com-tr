@@ -2,7 +2,7 @@
 // Çalıştırma: npm test  (önce astro build, sonra bu dosya; çıktı TAP).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sayfa, jsonLd, metin } from './yardimci.mjs';
+import { sayfa, jsonLd, metin, basliklar } from './yardimci.mjs';
 
 const SAYFALAR = ['/', '/hakkimizda', '/uzmanlik', '/iletisim', '/deneyimler'];
 
@@ -58,4 +58,31 @@ test('deneyimler: Event 0, tek ItemList; her ListItem position + name + descript
     assert.ok(o.name && o.description, `öğe ${i + 1} eksik alan`);
     assert.ok(gorunur.includes(o.name.split(' — ').slice(1).join(' — ')), `öğe ${i + 1} başlığı görünmüyor`);
   });
+});
+
+test('GW-AEO-FIX-01: tüm Organization şemalarında name alanı var, /uzmanlik FAQPage taşır, /yaratici-manifesto h1 taşır', () => {
+  const orgSayfalari = [
+    ...SAYFALAR,
+    '/yetenekler',
+    '/yetenekler/seo-klasik-arama',
+    '/creative-ai',
+  ];
+  for (const yol of orgSayfalari) {
+    const html = sayfa(yol);
+    assert.ok(html, `${yol}: HTML yok`);
+    const orgDugumleri = jsonLd(html).filter((d) => d['@type'] === 'Organization');
+    assert.ok(orgDugumleri.length >= 1, `${yol}: Organization düğümü yok`);
+    for (const org of orgDugumleri) {
+      assert.ok(typeof org.name === 'string' && org.name.trim().length > 0, `${yol}: Organization.name eksik`);
+    }
+  }
+  const uzmanlikHtml = sayfa('/uzmanlik');
+  assert.ok(uzmanlikHtml, '/uzmanlik HTML yok');
+  const uzmanlikFaq = jsonLd(uzmanlikHtml).filter((d) => d['@type'] === 'FAQPage');
+  assert.equal(uzmanlikFaq.length, 1, '/uzmanlik FAQPage düğümü 1 olmalı');
+  assert.ok(uzmanlikHtml.includes('seo.gonet.com.tr'), '/uzmanlik güncel AEO/GEO metni eksik');
+
+  const manifestoHtml = sayfa('/yaratici-manifesto');
+  assert.ok(manifestoHtml, '/yaratici-manifesto HTML yok');
+  assert.equal(basliklar(manifestoHtml).filter((h) => h === 1).length, 1, '/yaratici-manifesto tek h1 taşımalı');
 });

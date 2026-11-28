@@ -48,6 +48,8 @@ const skillListSchema = {
 const orgSkillSchema = {
   '@type': 'Organization',
   '@id': ORG_ID,
+  name: 'Gonet',
+  url: 'https://gonet.com.tr',
   knowsAbout: categories.flatMap((c) => c.skills.map((s) => s.name)),
 };
 ---
@@ -72,8 +74,8 @@ const orgSkillSchema = {
       <p class="text-xl text-slate-700 leading-relaxed">
         Hizmetlerimiz <a href="/uzmanlik" class="text-black underline">/uzmanlık</a> sayfasında.
         Burada ise <strong>nasıl çalıştığımız</strong> — kullandığımız araçlar, takip ettiğimiz
-        protokoller ve uzmanlaştığımız teknolojiler. Bir konuda "Uzman" yazıyorsa, o konuda Türkiye'de ilk
-        100 ajans arasındayız demektir.
+        protokoller ve uzmanlaştığımız teknolojiler. Bir konuda "Uzman" yazıyorsa, o alanda 26 yıllık
+        ajans deneyimimiz içinde ölçülebilir canlı proje teslimi yapmışız demektir.
       </p>
     </div>
   </section>

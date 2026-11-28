@@ -14,7 +14,7 @@ published: 2026-06-16
 updated: 2026-06-16
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — yapay zekâ destekli üretim"
+  role: "İzmir merkezli hibrit Creative AI ajansı — yapay zekâ destekli üretim"
 category: "Rehber"
 tags: ["claude code", "yapay zeka", "anthropic", "geliştirici araçları", "verimlilik"]
 readingMinutes: 9

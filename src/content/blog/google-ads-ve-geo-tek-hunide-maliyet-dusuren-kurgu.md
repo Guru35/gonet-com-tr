@@ -13,7 +13,7 @@ published: 2026-12-19
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — 26 yıllık dijital mühendislik"
+  role: "İzmir merkezli hibrit Creative AI ajansı — 26 yıllık dijital mühendislik"
 category: "Performans Pazarlama"
 tags: ["google-ads", "geo", "aeo", "performans-pazarlama", "sixt", "seo"]
 readingMinutes: 6

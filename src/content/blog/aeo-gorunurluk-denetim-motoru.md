@@ -5,7 +5,7 @@ h1: "AI seni görüyor mu?"
 published: 2026-07-22
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Geliştirme Günlüğü"
 category: "Geliştirme Günlüğü"
 tags: ["aeo", "geo", "ai-gorunurluk"]
 sliderLines:

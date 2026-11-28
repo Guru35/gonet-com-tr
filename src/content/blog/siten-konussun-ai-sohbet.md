@@ -5,7 +5,7 @@ h1: "Siten konuşsun"
 published: 2026-07-06
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Geliştirme Günlüğü"
 category: "Geliştirme Günlüğü"
 tags: ["ai", "chatbot", "urun"]
 sliderLines:

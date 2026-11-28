@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/aeo-odakli-pazarlama-ajansi-secerken-7-kritik-soru-d
 ogImageLight: "/blog/aralik-2026/aeo-odakli-pazarlama-ajansi-secerken-7-kritik-soru-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO ve Strateji Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO ve Strateji Ekibi"
 category: "AEO/GEO"
 tags: ["aeo-ajansi", "ajans-secimi", "geo", "yapay-zeka-gorunurlugu", "denetim"]
 readingMinutes: 6

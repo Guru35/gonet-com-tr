@@ -14,7 +14,7 @@ published: 2026-12-03
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["ai-ajanlari", "yeni-seo", "html-first", "cloudflare", "llms-txt"]
 readingMinutes: 6
@@ -109,7 +109,7 @@ Türkiye'deki e-ticaret ve B2B platformları için bu dengenin pratik karşılı
 Birçok site sahibi `llms.txt` dosyasını yüzlerce linkle doldurup botun dikkatini dağıtır. Oysa etkili bir `llms.txt` dosyası kısa, kategorize edilmiş ve karar verici sayfalara odaklı olmalıdır:
 
 ```markdown
-# Gonet — İzmir'in İlk AI Ajansı
+# Gonet — İzmir Merkezli Hibrit Creative AI Ajansı
 > 2000'den beri SEO, performans pazarlama ve AEO/GEO mühendisliği.
 
 ## Temel Hizmetler
@@ -125,4 +125,4 @@ Yapay zekâ ajanlarının web'i okuma biçimi hızla standartlaşıyor. Sitenizi
 
 ---
 
-*Bu playbook Gonet ekibi tarafından `gonet.com.tr` HTML-first teknik denetim bulguları ve Search Engine Journal Cloudflare raporu temel alınarak hazırlanmıştır. Gonet, 2000'den beri web ve arama teknolojileri geliştiren İzmir'in ilk AI ajansıdır.*
+*Bu playbook Gonet ekibi tarafından `gonet.com.tr` HTML-first teknik denetim bulguları ve Search Engine Journal Cloudflare raporu temel alınarak hazırlanmıştır. Gonet, 2000'den beri web ve arama teknolojileri geliştiren İzmir merkezli hibrit Creative AI ajansıdır.*

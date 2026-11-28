@@ -5,7 +5,7 @@ h1: "Modül fabrikası"
 published: 2026-07-09
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Geliştirme Günlüğü"
 category: "Geliştirme Günlüğü"
 tags: ["urun", "web-gelistirme", "modul"]
 sliderLines:

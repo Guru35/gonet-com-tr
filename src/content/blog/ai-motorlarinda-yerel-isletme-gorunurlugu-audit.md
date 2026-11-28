@@ -14,7 +14,7 @@ published: 2026-12-04
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["yerel-seo", "aeo", "klinik-pazarlama", "localbusiness-schema", "ai-gorunurluk"]
 readingMinutes: 6
@@ -124,4 +124,4 @@ Yerel işletmenizin veya şubelerinizin dört büyük yapay zekâ motorunda kaç
 
 ---
 
-*Bu vaka analizi Gonet ekibi tarafından Vladimir Pitenin'in 4.776 işletmelik tam pazar sayımı araştırması ve Türkiye yerel arama dinamikleri esas alınarak hazırlanmıştır. Gonet, 2000'den beri yerel ve küresel büyüme mimarisi kuran İzmir'in ilk AI ajansıdır.*
+*Bu vaka analizi Gonet ekibi tarafından Vladimir Pitenin'in 4.776 işletmelik tam pazar sayımı araştırması ve Türkiye yerel arama dinamikleri esas alınarak hazırlanmıştır. Gonet, 2000'den beri yerel ve küresel büyüme mimarisi kuran İzmir merkezli hibrit Creative AI ajansıdır.*
