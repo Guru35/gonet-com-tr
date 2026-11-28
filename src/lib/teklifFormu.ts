@@ -1,4 +1,5 @@
 export const VARSAYILAN_LEADS_API_UCU = 'https://cms.gonet.com.tr/api/vitrin/teklif';
+export const KAMPANYA_OTURUM_ANAHTARI = 'gonet_kampanya_etiketi';
 
 export const TEKLIF_FORM_MESAJLARI = {
   yukleniyor: 'Teklif talebiniz güvenle gönderiliyor, lütfen bekleyin...',
@@ -38,6 +39,7 @@ export interface TeklifGonderimSecenekleri {
   fetchFn?: typeof fetch;
   nowFn?: () => Date;
   search?: string;
+  yedekKaynak?: string;
 }
 
 export interface TeklifGonderimSonucu {
@@ -53,21 +55,48 @@ export interface TeklifGonderimSonucu {
 const EPOSTA_DESENI = /^[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}$/;
 
 /**
- * Sayfa adresindeki utm_source / utm_campaign parametrelerinden güvenli kaynak etiketi üretir.
+ * Sayfa adresindeki utm_source / utm_campaign parametrelerinden veya oturum yedeğinden güvenli kaynak etiketi üretir.
  */
-export function teklifKaynakEtiketi(search = ''): string {
+export function teklifKaynakEtiketi(search = '', yedekKaynak = ''): string {
   const VARSAYILAN = 'gonet.com.tr/teklif-al';
-  if (!search) return VARSAYILAN;
-  try {
-    const params = new URLSearchParams(search);
-    const etiket = ['utm_source', 'utm_campaign']
-      .map((anahtar) => (params.get(anahtar) ?? '').trim())
-      .filter((deger) => /^[a-z0-9_-]{1,64}$/i.test(deger))
-      .join('-');
-    return etiket && etiket.length <= 64 ? etiket : VARSAYILAN;
-  } catch {
-    return VARSAYILAN;
+  if (search) {
+    try {
+      const params = new URLSearchParams(search);
+      const etiket = ['utm_source', 'utm_campaign']
+        .map((anahtar) => (params.get(anahtar) ?? '').trim())
+        .filter((deger) => /^[a-z0-9_-]{1,64}$/i.test(deger))
+        .join('-');
+      if (etiket && etiket.length <= 64) {
+        return etiket;
+      }
+    } catch {
+      // Yedek kaynak kontrolüne devam et
+    }
   }
+  const temizYedek = yedekKaynak.trim();
+  if (/^[a-z0-9_-]{1,64}$/i.test(temizYedek) && temizYedek.length <= 64) {
+    return temizYedek;
+  }
+  return VARSAYILAN;
+}
+
+/**
+ * Geçerli kampanya etiketini oturum depolamasına yazar ve etiketi döndürür; yoksa null döner.
+ */
+export function kampanyaEtiketiniSakla(
+  search = '',
+  storage?: Pick<Storage, 'setItem'> | null,
+): string | null {
+  const etiket = teklifKaynakEtiketi(search);
+  if (etiket === 'gonet.com.tr/teklif-al') {
+    return null;
+  }
+  try {
+    storage?.setItem(KAMPANYA_OTURUM_ANAHTARI, etiket);
+  } catch {
+    // Depolama erişim hatalarını sessizce yut
+  }
+  return etiket;
 }
 
 /**
@@ -183,7 +212,7 @@ export async function teklifFormuGonder(
     mesaj: veri.mesaj.trim(),
     kvkkOnay: true,
     kvkkOnayZamani,
-    kaynak: (veri.kaynak ?? '').trim() || teklifKaynakEtiketi(secenekler.search),
+    kaynak: (veri.kaynak ?? '').trim() || teklifKaynakEtiketi(secenekler.search, secenekler.yedekKaynak),
   };
 
   try {
