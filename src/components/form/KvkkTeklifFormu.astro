@@ -245,6 +245,13 @@ const {
       const sonuc = await teklifFormuGonder(veri, {
         endpoint: form.dataset.endpoint,
         search: window.location.search,
+        yedekKaynak: (() => {
+          try {
+            return window.sessionStorage.getItem('gonet_kampanya_etiketi') ?? '';
+          } catch {
+            return '';
+          }
+        })(),
       });
 
       gonderBtn.disabled = false;

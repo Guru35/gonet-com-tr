@@ -2,13 +2,15 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {
+  KAMPANYA_OTURUM_ANAHTARI,
   TEKLIF_FORM_MESAJLARI,
   VARSAYILAN_LEADS_API_UCU,
+  kampanyaEtiketiniSakla,
   teklifFormuDogrula,
   teklifFormuGonder,
   teklifKaynakEtiketi,
 } from '../src/lib/teklifFormu.ts';
-import { sayfa } from './yardimci.mjs';
+import { metin, sayfa } from './yardimci.mjs';
 
 const GECERLI_VERI = {
   adSoyad: 'Ayşe Yılmaz',
@@ -137,4 +139,84 @@ test('GW-D05: Derlenen /teklif-al sayfası erişilebilir KVKK teklif formunu iç
   assert.ok(html.includes('href="/kvkk"'));
   assert.ok(html.includes('name="website"'));
   assert.ok(html.includes('aria-live="polite"'));
+});
+
+test('Etik kampanya UTM etiketleri ve oturum depolama yedeği doğru çalışır', async () => {
+  assert.equal(
+    teklifKaynakEtiketi('?utm_campaign=gonet_boyle_calismaz_k1'),
+    'gonet_boyle_calismaz_k1',
+  );
+  assert.equal(
+    teklifKaynakEtiketi('?utm_campaign=gonet_boyle_calismaz_k6'),
+    'gonet_boyle_calismaz_k6',
+  );
+  assert.equal(
+    teklifKaynakEtiketi('', 'gonet_boyle_calismaz_k3'),
+    'gonet_boyle_calismaz_k3',
+  );
+
+  const kayitlar = new Map();
+  const sahteStorage = {
+    setItem(anahtar, deger) {
+      kayitlar.set(anahtar, deger);
+    },
+  };
+
+  assert.equal(
+    kampanyaEtiketiniSakla('?utm_source=meta&utm_campaign=gonet_boyle_calismaz_k2', sahteStorage),
+    'meta-gonet_boyle_calismaz_k2',
+  );
+  assert.equal(kayitlar.get(KAMPANYA_OTURUM_ANAHTARI), 'meta-gonet_boyle_calismaz_k2');
+  assert.equal(kampanyaEtiketiniSakla('?utm_source=geçersiz!', sahteStorage), null);
+
+  let gonderilenKaynak = '';
+  const sonuc = await teklifFormuGonder(GECERLI_VERI, {
+    fetchFn: async (_url, init) => {
+      gonderilenKaynak = JSON.parse(init.body).kaynak;
+      return { ok: true, status: 201, json: async () => ({ ok: true }) };
+    },
+    yedekKaynak: 'gonet_boyle_calismaz_k3',
+  });
+  assert.equal(sonuc.ok, true);
+  assert.equal(gonderilenKaynak, 'gonet_boyle_calismaz_k3');
+});
+
+test('Derlenen /teklif-al sayfası şeffaf çalışma ilkelerini içerir ve K-11 yasaklı terimlerini barındırmaz', () => {
+  const html = sayfa('/teklif-al');
+  assert.ok(html, 'dist/teklif-al/index.html üretilmiş olmalı');
+
+  const beklenenler = [
+    'id="adil-cikis"',
+    'yüzde 75',
+    'yüzde 90',
+    '30 gün',
+    '90 güne kadar',
+    '15 gün önce',
+    'Sabit TL Fiyat Kalkanı',
+    'C2PA',
+  ];
+  for (const ifade of beklenenler) {
+    assert.ok(html.includes(ifade), `/teklif-al çıktısında beklenen ifade eksik: ${ifade}`);
+  }
+
+  const gorunurMetin = metin(html).toLowerCase();
+  const yasakliTerimler = [
+    'sigorta',
+    'poliçe',
+    'prim',
+    'kasko',
+    'nft',
+    'token',
+    'mint',
+    'kripto',
+    'noter tescili',
+    'ihtarname',
+  ];
+  for (const yasak of yasakliTerimler) {
+    assert.equal(
+      new RegExp(`\\b${yasak}\\b`, 'i').test(gorunurMetin),
+      false,
+      `/teklif-al görünür metninde yasaklı K-11 terimi bulundu: ${yasak}`,
+    );
+  }
 });

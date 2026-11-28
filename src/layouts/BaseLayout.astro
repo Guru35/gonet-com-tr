@@ -1096,5 +1096,22 @@ const alternateTrHref = alternates?.find((alt) => alt.lang.toLowerCase() === 'tr
         copyBtn.addEventListener('click', copyTranscript);
       })();
     </script>
+    <script is:inline>
+      (() => {
+        try {
+          if (!window.location.search) return;
+          const params = new URLSearchParams(window.location.search);
+          const etiket = ['utm_source', 'utm_campaign']
+            .map((anahtar) => (params.get(anahtar) ?? '').trim())
+            .filter((deger) => /^[a-z0-9_-]{1,64}$/i.test(deger))
+            .join('-');
+          if (etiket && etiket.length <= 64) {
+            window.sessionStorage.setItem('gonet_kampanya_etiketi', etiket);
+          }
+        } catch {
+          // Depolama erişimi kısıtlıysa sessizce geç
+        }
+      })();
+    </script>
   </body>
 </html>
