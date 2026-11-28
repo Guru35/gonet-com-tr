@@ -5,7 +5,7 @@ h1: "Hatırlayan AI"
 published: 2026-07-13
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Geliştirme Günlüğü"
 category: "Geliştirme Günlüğü"
 tags: ["ai", "mimari", "karpathy"]
 sliderLines:

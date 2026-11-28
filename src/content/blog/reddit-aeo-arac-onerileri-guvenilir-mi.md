@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/reddit-aeo-arac-onerileri-guvenilir-mi-dark.png"
 ogImageLight: "/blog/aralik-2026/reddit-aeo-arac-onerileri-guvenilir-mi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["aeo-araclari", "seffaf-olcum", "reddit", "denetim", "ajans-secimi"]
 readingMinutes: 6

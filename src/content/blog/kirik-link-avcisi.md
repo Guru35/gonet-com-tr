@@ -5,7 +5,7 @@ h1: "Kırık link avcısı"
 published: 2026-07-02
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Geliştirme Günlüğü"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Geliştirme Günlüğü"
 category: "Geliştirme Günlüğü"
 tags: ["otomasyon", "seo", "monitoring"]
 sliderLines:

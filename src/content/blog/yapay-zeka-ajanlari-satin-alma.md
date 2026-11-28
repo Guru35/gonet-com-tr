@@ -13,7 +13,7 @@ published: 2026-07-29
 updated: 2026-07-29
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO uzmanı"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO uzmanı"
 ogImage: "/blog/blog-yapay-zeka-ajanlari-satin-alma.jpg"
 ogImageLight: "/blog/blog-yapay-zeka-ajanlari-satin-alma-light.jpg"
 category: "AEO/GEO"

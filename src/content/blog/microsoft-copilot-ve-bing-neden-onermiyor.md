@@ -14,7 +14,7 @@ published: 2026-12-05
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["copilot", "bing", "indexnow", "aeo", "kurumsal-arama"]
 readingMinutes: 6
@@ -126,4 +126,4 @@ Markanızın yalnızca Google'da değil, Microsoft Copilot ve diğer yapay zekâ
 
 ---
 
-*Bu inceleme Gonet ekibi tarafından Kasım 2026 Otterly.ai 540 yanıtlık canlı ölçümü ve `gonet.com.tr` Bing/Copilot teknik teşhisi temel alınarak hazırlanmıştır. Gonet, 2000'den beri arama teknolojileri geliştiren İzmir'in ilk AI ajansıdır.*
+*Bu inceleme Gonet ekibi tarafından Kasım 2026 Otterly.ai 540 yanıtlık canlı ölçümü ve `gonet.com.tr` Bing/Copilot teknik teşhisi temel alınarak hazırlanmıştır. Gonet, 2000'den beri arama teknolojileri geliştiren İzmir merkezli hibrit Creative AI ajansıdır.*

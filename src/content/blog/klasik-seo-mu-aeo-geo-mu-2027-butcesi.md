@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/klasik-seo-mu-aeo-geo-mu-2027-butcesi-dark.png"
 ogImageLight: "/blog/aralik-2026/klasik-seo-mu-aeo-geo-mu-2027-butcesi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO ve Performans Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO ve Performans Ekibi"
 category: "AEO/GEO"
 tags: ["seo", "aeo", "geo", "2027-butce", "dijital-pazarlama"]
 readingMinutes: 6

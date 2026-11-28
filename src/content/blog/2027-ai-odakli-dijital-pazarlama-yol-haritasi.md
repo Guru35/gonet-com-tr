@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/2027-ai-odakli-dijital-pazarlama-yol-haritasi-dark.p
 ogImageLight: "/blog/aralik-2026/2027-ai-odakli-dijital-pazarlama-yol-haritasi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Strateji ve Büyüme Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Strateji ve Büyüme Ekibi"
 category: "AEO/GEO"
 tags: ["2027-strateji", "dijital-pazarlama", "yol-haritasi", "aeo", "performans"]
 readingMinutes: 6

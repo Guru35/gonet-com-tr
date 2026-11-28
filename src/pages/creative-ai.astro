@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { webpageSchema, faqSchema, ORG_ID } from '../lib/schema';
 
-const title = "Creative AI Nedir? Gonet'in Yaklaşımı | İzmir'in İlk Creative AI Ajansı";
+const title = "Creative AI Nedir? Gonet'in Yaklaşımı | İzmir Merkezli Hibrit Creative AI Ajansı";
 const description =
   "Creative AI — Gonet'in marka tanım terimi. İNSAN × AI çarpımı: insan zekâ ve sezgisi ile " +
   "AI'nın hız ve örüntü kapasitesinin üstel sentezi. Salt otomasyon değil, yaratıcı sentez. " +
@@ -40,6 +40,8 @@ const definedTermSchema = {
 const orgServiceSchema = {
   '@type': 'Organization',
   '@id': ORG_ID,
+  name: 'Gonet',
+  url: 'https://gonet.com.tr',
   knowsAbout: [
     'Creative AI',
     'AI-Human Synthesis',

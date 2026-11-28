@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/chatgpt-claude-gemini-copilot-turkiye-karnesi-dark.p
 ogImageLight: "/blog/aralik-2026/chatgpt-claude-gemini-copilot-turkiye-karnesi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["otterly", "chatgpt", "claude", "gemini", "copilot", "turkiye-verisi"]
 readingMinutes: 6

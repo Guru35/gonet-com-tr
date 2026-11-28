@@ -13,7 +13,7 @@ published: 2026-12-15
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — 26 yıllık dijital mühendislik"
+  role: "İzmir merkezli hibrit Creative AI ajansı — 26 yıllık dijital mühendislik"
 category: "Siyasi Kampanya"
 tags: ["siyasi-dijital-kampanya", "itibar-yonetimi", "aeo", "google-ads", "vaka-analizi"]
 readingMinutes: 6

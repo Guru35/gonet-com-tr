@@ -14,7 +14,7 @@ published: 2026-12-06
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["turkiye-aeo", "otterly", "ai-gorunurluk", "vaka-verisi", "geo"]
 readingMinutes: 6
@@ -119,4 +119,4 @@ Nasıl bir ölçüm ve aksiyon planı çıktığını şeffaf biçimde görmek i
 
 ---
 
-*Bu vaka raporu Gonet ekibi tarafından Otterly.ai Kasım 2026 API verileri (80 istek, 540 AI yanıtı) ve `gonet.com.tr` GEO içerik puanlaması temel alınarak hazırlanmıştır. Gonet, 2000'den beri dijital görünürlük sağlayan İzmir'in ilk AI ajansıdır.*
+*Bu vaka raporu Gonet ekibi tarafından Otterly.ai Kasım 2026 API verileri (80 istek, 540 AI yanıtı) ve `gonet.com.tr` GEO içerik puanlaması temel alınarak hazırlanmıştır. Gonet, 2000'den beri dijital görünürlük sağlayan İzmir merkezli hibrit Creative AI ajansıdır.*

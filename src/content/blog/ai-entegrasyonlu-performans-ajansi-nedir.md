@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/ai-entegrasyonlu-performans-ajansi-nedir-dark.png"
 ogImageLight: "/blog/aralik-2026/ai-entegrasyonlu-performans-ajansi-nedir-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO ve Performans Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO ve Performans Ekibi"
 category: "AEO/GEO"
 tags: ["ai-ajans", "performans-pazarlama", "aeo", "geo", "otomasyon"]
 readingMinutes: 6

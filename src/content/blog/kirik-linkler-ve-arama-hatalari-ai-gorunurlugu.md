@@ -14,7 +14,7 @@ published: 2026-12-07
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["kirik-link", "teknik-seo", "404-hatasi", "canonical", "arama-sagligi"]
 readingMinutes: 6
@@ -125,4 +125,4 @@ Kırık linkleri ve arama sağlığı hatalarını temizlemek için haftalarca b
 
 ---
 
-*Bu teknik rehber Gonet mühendislik ekibi tarafından `gonet.com.tr` 9-ajanlı canlı denetim bulguları ve Otterly.ai tarama sağlığı verileri esas alınarak hazırlanmıştır. Gonet, 2000'den beri web altyapısı ve arama mühendisliği sunan İzmir'in ilk AI ajansıdır.*
+*Bu teknik rehber Gonet mühendislik ekibi tarafından `gonet.com.tr` 9-ajanlı canlı denetim bulguları ve Otterly.ai tarama sağlığı verileri esas alınarak hazırlanmıştır. Gonet, 2000'den beri web altyapısı ve arama mühendisliği sunan İzmir merkezli hibrit Creative AI ajansıdır.*
