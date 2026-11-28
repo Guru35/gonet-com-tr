@@ -13,7 +13,7 @@ published: 2026-12-20
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — 26 yıllık dijital mühendislik"
+  role: "İzmir merkezli hibrit Creative AI ajansı — 26 yıllık dijital mühendislik"
 category: "Kurumsal Strateji"
 tags: ["kurumsal-strateji", "olceklenebilirlik", "deu", "sixt", "chp", "muhendislik"]
 readingMinutes: 6

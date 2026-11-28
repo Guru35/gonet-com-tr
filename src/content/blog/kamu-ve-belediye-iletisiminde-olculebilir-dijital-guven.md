@@ -13,7 +13,7 @@ published: 2026-12-16
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — 26 yıllık dijital mühendislik"
+  role: "İzmir merkezli hibrit Creative AI ajansı — 26 yıllık dijital mühendislik"
 category: "Kamu İletişimi"
 tags: ["kamu-iletisimi", "belediye", "izsu", "deu", "erisebilirlik", "aeo"]
 readingMinutes: 6

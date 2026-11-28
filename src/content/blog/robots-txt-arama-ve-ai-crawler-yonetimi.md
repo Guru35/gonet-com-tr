@@ -15,7 +15,7 @@ published: 2026-12-01
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["robots-txt", "ai-crawler", "teknik-seo", "aeo", "llms-txt"]
 readingMinutes: 6
@@ -140,4 +140,4 @@ Uygulamada yalnızca `Allow` veya `Disallow` yazmak her zaman yeterli olmaz. Öz
 
 ---
 
-*Bu rehber Gonet mühendislik ekibi tarafından `gonet.com.tr` canlı bot logları (708 haftalık AI bot ziyareti) ve Search Engine Journal teknik tarama standartları referans alınarak hazırlanmıştır. Gonet, 2000'den beri arama motoru optimizasyonu yapan İzmir'in ilk AI ajansıdır.*
+*Bu rehber Gonet mühendislik ekibi tarafından `gonet.com.tr` canlı bot logları (708 haftalık AI bot ziyareti) ve Search Engine Journal teknik tarama standartları referans alınarak hazırlanmıştır. Gonet, 2000'den beri arama motoru optimizasyonu yapan İzmir merkezli hibrit Creative AI ajansıdır.*

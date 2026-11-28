@@ -2,7 +2,9 @@
 // Çalıştırma: npm test (önce astro build, sonra bu dosya; çıktı TAP).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { oku, sayfa, jsonLd, gorunurSss, basliklar, metin } from './yardimci.mjs';
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { KOK, oku, sayfa, jsonLd, gorunurSss, basliklar, metin } from './yardimci.mjs';
 
 const SAYFALAR = [
   { yol: '/ekibimiz', dosya: 'dist/ekibimiz/index.html', lang: 'tr', trYol: '/ekibimiz', enYol: '/en/team' },
@@ -245,9 +247,24 @@ test('/en/index.html JSON-LD WebPage inLanguage: "en"', () => {
   assert.equal(webPage.inLanguage, 'en', '/en WebPage inLanguage "en" olmalı');
 });
 
-test('Reklam Kurulu K-11: llms.txt ve schema.ts içinde "İzmir\'in ilk AI ajansı" geçmiyor', () => {
-  const llms = oku('public/llms.txt');
-  const schemaKaynak = oku('src/lib/schema.ts');
-  assert.equal(/İzmir'in ilk AI ajansı/i.test(llms), false, 'public/llms.txt içinde K-11 ihlali var');
-  assert.equal(/İzmir'in ilk AI ajansı/i.test(schemaKaynak), false, 'src/lib/schema.ts içinde K-11 ihlali var');
+test('Reklam Kurulu K-11: llms.txt, schema.ts, ana sayfalar ve blog içinde "İzmir\'in ilk AI ajansı" geçmiyor', () => {
+  const kontrolDosyalari = [
+    'public/llms.txt',
+    'src/lib/schema.ts',
+    'src/layouts/BaseLayout.astro',
+    'src/components/nav/SiteFooterNav.astro',
+    'src/components/HeroClassic.astro',
+    'src/pages/index.astro',
+    'src/pages/hakkimizda.astro',
+    'src/pages/uzmanlik.astro',
+    'src/pages/creative-ai.astro',
+  ];
+  for (const yol of kontrolDosyalari) {
+    assert.equal(/İzmir'in ilk AI ajansı/i.test(oku(yol)), false, `${yol} içinde K-11 ihlali var`);
+  }
+  const blogDir = join(KOK, 'src/content/blog');
+  for (const ad of readdirSync(blogDir)) {
+    if (!ad.endsWith('.md')) continue;
+    assert.equal(/İzmir'in ilk AI ajansı/i.test(oku(`src/content/blog/${ad}`)), false, `src/content/blog/${ad} içinde K-11 ihlali var`);
+  }
 });

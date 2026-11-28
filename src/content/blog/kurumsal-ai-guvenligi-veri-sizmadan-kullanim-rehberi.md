@@ -13,7 +13,7 @@ published: 2026-12-18
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — 26 yıllık dijital mühendislik"
+  role: "İzmir merkezli hibrit Creative AI ajansı — 26 yıllık dijital mühendislik"
 category: "AI Güvenliği"
 tags: ["ai-guvenligi", "kvkk", "veri-gizliligi", "mimari", "deu", "nano-dental"]
 readingMinutes: 6

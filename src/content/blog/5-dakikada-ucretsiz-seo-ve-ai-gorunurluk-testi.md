@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/5-dakikada-ucretsiz-seo-ve-ai-gorunurluk-testi-dark.
 ogImageLight: "/blog/aralik-2026/5-dakikada-ucretsiz-seo-ve-ai-gorunurluk-testi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Teknik SEO ve AEO Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Teknik SEO ve AEO Ekibi"
 category: "AEO/GEO"
 tags: ["ucretsiz-seo-analiz", "ai-gorunurluk", "teknik-seo", "aeo-testi", "bot-erisimi"]
 readingMinutes: 6

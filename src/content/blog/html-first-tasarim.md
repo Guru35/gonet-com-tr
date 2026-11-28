@@ -15,7 +15,7 @@ published: 2026-06-11
 updated: 2026-06-11
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO uzmanı"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO uzmanı"
 category: "AEO/GEO"
 tags: ["html-first", "extraction-readiness", "text-as-text", "semantic-html", "llm-crawler", "core-web-vitals"]
 draft: false
@@ -101,4 +101,4 @@ Bir AEO/GEO denetimiyle: tek-h1, heading hiyerarşisi, semantic landmark, img al
 - [web.dev: Core Web Vitals](https://web.dev/articles/vitals)
 - [Gonet — AEO/GEO Denetim Örnek Raporu](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor)
 
-*Bu yazı Gonet ekibi tarafından, kendi sitesinde uygulanan text-as-text ve extraction-readiness disiplininin canlı denetim bulgularına dayanılarak hazırlanmıştır. Gonet, İzmir'in ilk AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır; AEO/GEO denetimi ve Creative AI hizmetleriyle markaların hem kullanıcı hem yapay zekâ motorları nezdindeki görünürlüğünü mühendislik disipliniyle artırır.*
+*Bu yazı Gonet ekibi tarafından, kendi sitesinde uygulanan text-as-text ve extraction-readiness disiplininin canlı denetim bulgularına dayanılarak hazırlanmıştır. Gonet, İzmir merkezli hibrit Creative AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır; AEO/GEO denetimi ve Creative AI hizmetleriyle markaların hem kullanıcı hem yapay zekâ motorları nezdindeki görünürlüğünü mühendislik disipliniyle artırır.*

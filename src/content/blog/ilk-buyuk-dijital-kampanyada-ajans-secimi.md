@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/ilk-buyuk-dijital-kampanyada-ajans-secimi-dark.png"
 ogImageLight: "/blog/aralik-2026/ilk-buyuk-dijital-kampanyada-ajans-secimi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Kurumsal Strateji Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Kurumsal Strateji Ekibi"
 category: "Strateji"
 tags: ["ajans-secimi", "dijital-kampanya", "google-ads", "performans", "vaka"]
 readingMinutes: 6

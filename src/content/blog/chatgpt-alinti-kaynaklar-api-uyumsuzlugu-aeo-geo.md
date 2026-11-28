@@ -14,7 +14,7 @@ published: 2026-12-02
 updated: 2026-11-26
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO Araştırma Ekibi"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO Araştırma Ekibi"
 category: "AEO/GEO"
 tags: ["chatgpt", "aeo", "geo", "alinti-mimarisi", "google-siralamasi"]
 readingMinutes: 6
@@ -120,4 +120,4 @@ Bu durum sizin için doğrudan bir avantaja dönüşebilir. Sorulara ilk paragra
 
 ---
 
-*Bu analiz Gonet ekibi tarafından Kasım 2026 Otterly.ai canlı ölçümü (540 yanıt) ve Search Engine Journal'da özetlenen ChatGPT alıntı araştırması temel alınarak hazırlanmıştır. Gonet, 2000'den beri dijital görünürlük mühendisliği sunan İzmir'in ilk AI ajansıdır.*
+*Bu analiz Gonet ekibi tarafından Kasım 2026 Otterly.ai canlı ölçümü (540 yanıt) ve Search Engine Journal'da özetlenen ChatGPT alıntı araştırması temel alınarak hazırlanmıştır. Gonet, 2000'den beri dijital görünürlük mühendisliği sunan İzmir merkezli hibrit Creative AI ajansıdır.*

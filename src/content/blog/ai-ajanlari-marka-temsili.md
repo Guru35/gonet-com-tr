@@ -15,7 +15,7 @@ published: 2026-06-11
 updated: 2026-06-11
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — AEO/GEO uzmanı"
+  role: "İzmir merkezli hibrit Creative AI ajansı — AEO/GEO uzmanı"
 category: "AEO/GEO"
 tags: ["AEO", "agentic", "marka-guvenligi", "schema-org", "llms-txt", "context-engineering"]
 draft: false
@@ -107,4 +107,4 @@ Ajanın bağlamı zehirlenir ya da boş kalırsa, ajan en olası görünen şeyi
 
 ---
 
-*Bu yazı Gonet ekibi tarafından AEO/GEO disiplinindeki gelişmeleri Türk markaları için yorumlamak üzere hazırlanmıştır. Markanızın AI ajanları karşısında nasıl temsil edildiğini ölçmek için [AEO/GEO denetim hizmetimize](https://gonet.com.tr/aeo-geo-denetimi) ve [örnek raporumuza](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor) göz atabilirsiniz. Gonet, İzmir'in ilk AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır.*
+*Bu yazı Gonet ekibi tarafından AEO/GEO disiplinindeki gelişmeleri Türk markaları için yorumlamak üzere hazırlanmıştır. Markanızın AI ajanları karşısında nasıl temsil edildiğini ölçmek için [AEO/GEO denetim hizmetimize](https://gonet.com.tr/aeo-geo-denetimi) ve [örnek raporumuza](https://gonet.com.tr/aeo-geo-denetimi/ornek-rapor) göz atabilirsiniz. Gonet, İzmir merkezli hibrit Creative AI ajansı ve 2005–2017 arasında Google'ın ajans programlarında sertifikalı iş ortağı olan (bugünkü adıyla Google Partner) bir ajanstır.*

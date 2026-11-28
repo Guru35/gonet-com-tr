@@ -7,7 +7,7 @@ ogImage: "/blog/aralik-2026/2027-dijital-pazarlama-ve-aeo-geo-kapanis-listesi-da
 ogImageLight: "/blog/aralik-2026/2027-dijital-pazarlama-ve-aeo-geo-kapanis-listesi-light.png"
 author:
   name: "Gonet"
-  role: "İzmir'in ilk AI ajansı — Tüm Ekipler"
+  role: "İzmir merkezli hibrit Creative AI ajansı — Tüm Ekipler"
 category: "AEO/GEO"
 tags: ["2027-hazirlik", "kontrol-listesi", "aeo", "geo", "dijital-pazarlama"]
 readingMinutes: 6
